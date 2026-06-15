@@ -16,5 +16,5 @@
 
 [[redirects]]
   from = "/success"
-  to = "/?submitted=true#bekleme-listesi"
+  to = "/?submitted=true#waitlist"
   status = 302

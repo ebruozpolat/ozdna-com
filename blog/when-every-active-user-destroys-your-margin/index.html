@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When Every Active User Destroys Your Margin — ozDNA Blog</title>
+<meta name="description" content="AI API bills scaling faster than revenue is a structural margin problem, not a growth problem. How vertical AI founders should measure token burn per user and workflow.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+<link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo" aria-label="ozDNA home">
+    <img src="../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
+  </a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="/#pillars">Platform</a>
+    <a href="/blog/" class="active">Blog</a>
+    <a href="/docs/">Docs</a>
+    <a href="/#waitlist" class="nav-cta">Get Early Access</a>
+  </div>
+</nav>
+
+<article class="blog-article">
+  <a href="/blog/" class="blog-back">← All posts</a>
+  <div class="blog-meta">
+    <span class="blog-pillar">Pillar 1 · Cost Control</span>
+    <span class="blog-date">June 2026 · 7 min read</span>
+  </div>
+  <h1>When Every Active User Destroys Your Margin</h1>
+  <p class="blog-lead">Your AI product does not have a margin problem because users love it. It has a margin problem because every workflow calls the most expensive model too often — and you only notice after activation curves look great.</p>
+
+  <p>This is the pattern we keep seeing in vertical AI teams: <strong>AI API bills scale faster than revenue</strong>. Not because the product is broken. Because inference cost is tied to usage intensity, and usage intensity rises with the features that make the product sticky.</p>
+
+  <p>A compliance assistant that re-reads twelve documents per query. An academic tool that runs detection, humanization, and summarization in one session. A support agent that chains three LLM calls before a human ever sees the ticket. Each active user is doing more work per visit than your spreadsheet assumed.</p>
+
+  <h2>The trap: confusing growth metrics with unit economics</h2>
+  <p>Founders optimize what dashboards show first: signups, weekly actives, time-in-product. Investors ask about those too — early. But the number that kills seed-stage AI companies quietly is <strong>gross margin per active user</strong>, and most teams do not have it instrumented until Series A conversations get awkward.</p>
+  <p>Symptoms look like familiar SaaS problems:</p>
+  <ul>
+    <li>Revenue grows 15% month over month; infra grows 40%.</li>
+    <li>Support tickets about "slow" responses — often expensive-model latency, not bad UX.</li>
+    <li>Power users you love in case studies are underwater on variable cost.</li>
+    <li>You add credits or caps, and churn spikes among the users who were most engaged.</li>
+  </ul>
+  <p>The difference from classic SaaS: your COGS scales with <em>intelligence per action</em>, not just storage and bandwidth. Two users on the same plan can have 10× different token burn.</p>
+
+  <h2>What to measure before you change pricing</h2>
+  <p>Before you raise prices or throttle features, get three views of cost — not one blended AWS line item.</p>
+  <ol>
+    <li><strong>Cost per workflow.</strong> Name the jobs users actually hire your product to do (draft report, scan regulation, rewrite paragraph). Attribute tokens and dollars to each.</li>
+    <li><strong>Cost per account.</strong> Which customer segments drive margin? Enterprise pilots often look small in seat count but enormous in inference.</li>
+    <li><strong>Cost per model call type.</strong> Retrieval, classification, generation, and re-ranking have different economics. Lumping them hides routing opportunities.</li>
+  </ol>
+  <p>Until those exist, "we need cheaper models" is a guess. You might need cheaper models for step two of five — and a premium model only where quality actually moves retention.</p>
+
+  <h2>Why gateways alone do not fix this</h2>
+  <p>LLM gateways and routers solve integration: one API surface, failover, spend dashboards. That is necessary. It is not the same as <strong>LLM cost optimization</strong> at the workflow layer.</p>
+  <p>Optimization asks: for this specific vertical task, which model clears the quality bar at the lowest cost and latency? That question depends on domain evals — not generic benchmarks. A router that does not know your RAG pipeline's failure modes will still route expensive calls to expensive models by default.</p>
+
+  <aside class="blog-proof">
+    <h3>Built on ozDNA</h3>
+    <p>We run live token limits and per-product usage economics on <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a> — separate daily caps for detection vs. humanization, word limits per analysis, daily token tracking. It is not a slide; it is how we learned that "unlimited free tier" dies the moment server-side inference ships.</p>
+  </aside>
+
+  <h2>A practical first move</h2>
+  <p>Pick your highest-volume workflow. Log input tokens, output tokens, model ID, and latency for every call for one week. Plot cost per completed user outcome — not per API request.</p>
+  <p>You will almost always find a minority of steps consuming a majority of spend. That is where routing, caching, or smaller models earn their keep — without hurting the outcome users pay for.</p>
+  <p>Control token burn before it becomes structural. That is the job of infrastructure, not a pricing-page patch after the fact.</p>
+
+  <div class="blog-cta-box">
+    <p>Building vertical AI and watching infra outrun revenue? Join the ozDNA early access list — GPU Bill Bodyguard series for founders and CTOs.</p>
+    <a href="/#waitlist" class="btn-primary">Get Early Access</a>
+  </div>
+</article>
+
+<footer>
+  <div class="footer-brand">
+    <a href="/" class="logo" aria-label="ozDNA">
+      <img src="../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
+    </a>
+    <p class="footer-tagline">Findbelow Ventures · Vertical AI infrastructure (PaaS)</p>
+  </div>
+  <div class="footer-links">
+    <a href="/blog/">Blog</a>
+    <a href="/docs/">Documentation</a>
+    <a href="mailto:hello@ozdna.com">Contact</a>
+  </div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+
+<script src="../../main.js"></script>
+</body>
+</html>

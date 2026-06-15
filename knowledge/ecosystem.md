@@ -1,33 +1,35 @@
 ---
-title: Ekosistem
-tags: [ecosystem, products, findbelow-ventures]
+title: Ecosystem
+tags: [ecosystem, products, findbelow-ventures, built-on-ozdna]
 related: [overview.md]
 ---
 
-# Findbelow Ventures Ekosistemi
+# Findbelow Ventures Ecosystem
 
-Dört katmanlı büyüme stratejisi. Hepsi OzDNA GPT motorunu paylaşır.
+Multi-layer product stack. All vertical products share OzDNA GPT; ozdna.com is the external infrastructure (PaaS) layer.
 
-## tezmakale.com — Canlı · TR
+## tezmakale.com — Live · TR
 
-- **Segment:** B2C — Türkiye öğrencileri
-- **Rol:** Panik çözücü (AI dedektörü, intihal, akademik danışmanlık)
-- **Durum:** Production'da OzDNA GPT ile çalışıyor
+- **Segment:** B2C — Turkey students
+- **Role:** Academic panic solver (AI detection, humanizer, plagiarism, advising)
+- **Proof value:** Live token economics, usage limits, production workload on ozDNA stack
 - **URL:** https://tezmakale.com
 
 ## OzDNA Academic — Phase 2
 
 - **Segment:** B2C/B2B — Global
-- **Özellikler:** Dedektör + humanizer, kaynak doğrulama, akademik editörlük
-- **Dil:** TR + EN
+- **Features:** Detection + humanizer, citation verification, academic editing
+- **Languages:** TR + EN
 
 ## OzDNA Comply — Phase 2–3
 
-- **Segment:** B2B — TR / AB RegTech
-- **Kapsam:** 5549, BDDK, MASAK, KVKK mevzuat izleme
-- **Müşteri:** Fintech, EMI/PSP, hukuk firmaları
+- **Segment:** B2B — TR / EU RegTech
+- **Scope:** 5549, BDDK, MASAK, KVKK regulatory monitoring
+- **Customers:** Fintech, EMI/PSP, law firms
+- **Proof value:** RAG-heavy vertical depth — differentiation vs generic LLM gateways
 
 ## ozdna.com — Phase 1
 
 - **Segment:** B2B / Developer / Investor
-- **Rol:** API dokümantasyonu, ürün vitrini, kurumsal kimlik
+- **Role:** LLM cost optimization platform, API docs, corporate identity
+- **Campaign:** GPU Bill Bodyguard — control token burn before scale

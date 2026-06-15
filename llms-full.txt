@@ -1,86 +1,72 @@
-# ozDNA — Full Knowledge Bundle
-# Generated from knowledge/*.md — https://ozdna.com
-
 ---
-## FILE: knowledge/overview.md
-
+# FILE: knowledge/_index.md
 ---
-title: ozDNA Platform Özeti
-tags: [overview, b2b, findbelow-ventures]
-related: [api-overview.md, ecosystem.md]
----
-
-# ozDNA — AI Dedektör & Humanizer API
-
-**ozdna.com**, Findbelow Ventures'ın B2B katmanıdır. OzDNA GPT motoru üzerinden AI metin dedeksiyonu ve humanizasyon REST API olarak sunulur.
-
-## Konumlandırma
-
-- **Hedef:** B2B / Developer / Investor (Phase 1)
-- **Segment:** Fintech, hukuk firmaları, üniversite kurumları
-- **Durum:** Özel beta — API erişimi davet usulü
-
-## OzDNA GPT
-
-Tüm ürünlerin ortak teknik motoru:
-
-| Ürün | Motor kullanımı |
-|------|----------------|
-| tezmakale.com | AI dedektörü + humanizer (production) |
-| OzDNA Academic | Dedektör + humanizer (Phase 2) |
-| OzDNA Comply | Mevzuat analiz motoru (Phase 2–3) |
-| ozdna.com | B2B API + dokümantasyon katmanı |
-
-## Dürüstlük notu
-
-- Beta metrikleri (doğruluk, gecikme) Q3 2026'da yayınlanacak
-- Production API endpoint'leri backend olgunlaştıkça açılacak
-- OpenAPI 3.1 spec: beta erişimi ile birlikte
-
-→ Sonraki: [api-overview.md](./api-overview.md) · [ecosystem.md](./ecosystem.md)
-
----
-## FILE: knowledge/api-overview.md
-
----
-title: API Genel Bakış
-tags: [api, rest, openapi]
-related: [api-detect.md, api-humanize.md, api-auth.md, integration.md]
+title: ozDNA Knowledge Index
+version: 0.2
+lang: en
+updated: 2026-06-15
+publisher: Findbelow Ventures
+site: https://ozdna.com
+tags: [b2b, infrastructure, llm-cost-optimization, rag, vertical-ai, regtech, academic]
 ---
 
-# ozDNA REST API
+# ozDNA Knowledge Bundle
 
-JSON istek/yanıt, Bearer token kimlik doğrulama, OpenAPI 3.1 uyumlu sözleşme.
+Structured content for agents. Read these files instead of scraping the site.
 
-## Base URL
+## Pages
+
+| File | Topic | Related |
+|------|-------|---------|
+| [overview.md](./overview.md) | Platform positioning, five pillars | → ecosystem, integration |
+| [ecosystem.md](./ecosystem.md) | Product portfolio | → overview |
+| [integration.md](./integration.md) | Integration flow | → api-overview, contact |
+| [pricing.md](./pricing.md) | Pricing / early access | → contact |
+| [contact.md](./contact.md) | Waitlist & contact | → pricing |
+| [api-overview.md](./api-overview.md) | REST API overview (Phase 2) | → api-detect, api-humanize |
+| [api-detect.md](./api-detect.md) | POST /v1/detect | → vertical-modes |
+| [api-humanize.md](./api-humanize.md) | POST /v1/humanize | → vertical-modes |
+| [api-auth.md](./api-auth.md) | Authentication | → api-overview |
+| [vertical-modes.md](./vertical-modes.md) | Vertical modes | → api-detect |
+
+## Web
+
+- Homepage: https://ozdna.com
+- API docs: https://ozdna.com/docs/
+- llms.txt: https://ozdna.com/llms.txt
+- SEO plan (internal): https://ozdna.com/docs/ozdna_SEO_Keyword_Plani.md
+
+---
+# FILE: knowledge/api-auth.md
+---
+title: API Kimlik Doğrulama
+tags: [api, auth, security]
+related: [api-overview.md, integration.md]
+---
+
+# Kimlik Doğrulama
+
+Tüm isteklerde `Authorization` header zorunludur:
 
 ```
-https://api.ozdna.com          # production (beta)
-https://api.sandbox.ozdna.com  # sandbox
+Authorization: Bearer ozdna_sk_live_...
 ```
 
-## Çekirdek endpoint'ler
+## Anahtar türleri
 
-| Method | Path | Açıklama |
-|--------|------|----------|
-| POST | `/v1/detect` | AI metin dedeksiyonu |
-| POST | `/v1/humanize` | Metin humanizasyonu |
-| POST | `/v1/batch` | Toplu asenkron işlem (Growth+) |
+| Önek | Ortam |
+|------|-------|
+| `ozdna_sk_test_` | Sandbox |
+| `ozdna_sk_live_` | Production |
 
-## OpenAPI
+Anahtarlar dashboard üzerinden proje kapsamında oluşturulur. SDK gerekmez.
 
-```
-https://api.ozdna.com/openapi.json
-https://api.ozdna.com/openapi.yaml
-```
+## Webhook imza doğrulama
 
-Phase 2 önizleme — tam spec beta erişimi ile yayınlanacak.
-
-→ [api-detect.md](./api-detect.md) · [api-humanize.md](./api-humanize.md) · [api-auth.md](./api-auth.md)
+Asenkron callback'lerde `X-OzDNA-Signature` header — HMAC-SHA256.
 
 ---
-## FILE: knowledge/api-detect.md
-
+# FILE: knowledge/api-detect.md
 ---
 title: Detect API
 tags: [api, detect, ai-detection]
@@ -136,8 +122,7 @@ Segment düzeyinde AI dedeksiyonu. Dikeye özel kalibrasyon.
 → [vertical-modes.md](./vertical-modes.md) · [api-auth.md](./api-auth.md)
 
 ---
-## FILE: knowledge/api-humanize.md
-
+# FILE: knowledge/api-humanize.md
 ---
 title: Humanize API
 tags: [api, humanizer, text-transformation]
@@ -186,135 +171,117 @@ AI üretimi metni doğal, dedektör dirençli prose'ye dönüştürür.
 → [vertical-modes.md](./vertical-modes.md)
 
 ---
-## FILE: knowledge/api-auth.md
-
+# FILE: knowledge/api-overview.md
 ---
-title: API Kimlik Doğrulama
-tags: [api, auth, security]
-related: [api-overview.md, integration.md]
+title: API Genel Bakış
+tags: [api, rest, openapi]
+related: [api-detect.md, api-humanize.md, api-auth.md, integration.md]
 ---
 
-# Kimlik Doğrulama
+# ozDNA REST API
 
-Tüm isteklerde `Authorization` header zorunludur:
+JSON istek/yanıt, Bearer token kimlik doğrulama, OpenAPI 3.1 uyumlu sözleşme.
+
+## Base URL
 
 ```
-Authorization: Bearer ozdna_sk_live_...
+https://api.ozdna.com          # production (beta)
+https://api.sandbox.ozdna.com  # sandbox
 ```
 
-## Anahtar türleri
+## Çekirdek endpoint'ler
 
-| Önek | Ortam |
-|------|-------|
-| `ozdna_sk_test_` | Sandbox |
-| `ozdna_sk_live_` | Production |
+| Method | Path | Açıklama |
+|--------|------|----------|
+| POST | `/v1/detect` | AI metin dedeksiyonu |
+| POST | `/v1/humanize` | Metin humanizasyonu |
+| POST | `/v1/batch` | Toplu asenkron işlem (Growth+) |
 
-Anahtarlar dashboard üzerinden proje kapsamında oluşturulur. SDK gerekmez.
+## OpenAPI
 
-## Webhook imza doğrulama
+```
+https://api.ozdna.com/openapi.json
+https://api.ozdna.com/openapi.yaml
+```
 
-Asenkron callback'lerde `X-OzDNA-Signature` header — HMAC-SHA256.
+Phase 2 önizleme — tam spec beta erişimi ile yayınlanacak.
 
----
-## FILE: knowledge/vertical-modes.md
-
----
-title: Dikey Modlar
-tags: [api, vertical, academic, legal, financial]
-related: [api-detect.md, api-humanize.md]
----
-
-# Dikey Modlar
-
-Detect ve Humanize endpoint'lerinde `mode` parametresi.
-
-| Mod | Kullanım | Hedef segment |
-|-----|----------|---------------|
-| academic | Tez, makale, akademik metin | Üniversite, EdTech, OzDNA Academic |
-| legal | Sözleşme, dilekçe, mevzuat | Hukuk firmaları, OzDNA Comply |
-| financial | Rapor, uyum metni | Fintech, EMI/PSP, RegTech |
-| general | Genel amaçlı | Varsayılan |
-
-Dil: `language` parametresi ile ISO 639-1 (örn. `tr`, `en`).
+→ [api-detect.md](./api-detect.md) · [api-humanize.md](./api-humanize.md) · [api-auth.md](./api-auth.md)
 
 ---
-## FILE: knowledge/pricing.md
+# FILE: knowledge/contact.md
+---
+title: İletişim & Erişim
+tags: [contact, waitlist, sales]
+related: [pricing.md]
+---
+
+# İletişim
+
+## API erişimi
+
+Production API **davet usulü** özel beta. Öncelikli segmentler:
+
+- Fintech / Finans
+- Hukuk
+- Üniversite / Kurum
+- EdTech / Akademik
+
+## Bekleme listesi
+
+https://ozdna.com/#bekleme-listesi
+
+Form alanları: e-posta, şirket/kurum, kullanım alanı.
+
+## Satış
+
+- E-posta: hello@ozdna.com
+- Enterprise: özel altyapı, white-label, on-premise
+
+## Şirket
+
+Findbelow Ventures · © 2026
 
 ---
-title: Fiyatlandırma
-tags: [pricing, plans, b2b]
-related: [contact.md]
+# FILE: knowledge/ecosystem.md
 ---
-
-# Fiyatlandırma
-
-Kullanım bazlı, şeffaf planlar. USD.
-
-## Starter — $49/ay
-
-- 5.000 API çağrısı / ay
-- Detect + Humanize endpoint'leri
-- Standart yanıt SLA
-- E-posta desteği
-
-## Growth — $249/ay
-
-- 50.000 API çağrısı / ay
-- Dikey mod seçimi
-- Asenkron batch işleme
-- Webhook callback'leri
-- Öncelikli destek
-
-## Enterprise — Özel
-
-- Sınırsız hacim
-- Özel dikey modeller
-- On-premise veya private cloud
-- White-label API
-- Özel SLA & CSM
-
-→ [contact.md](./contact.md)
-
----
-## FILE: knowledge/ecosystem.md
-
----
-title: Ekosistem
-tags: [ecosystem, products, findbelow-ventures]
+title: Ecosystem
+tags: [ecosystem, products, findbelow-ventures, built-on-ozdna]
 related: [overview.md]
 ---
 
-# Findbelow Ventures Ekosistemi
+# Findbelow Ventures Ecosystem
 
-Dört katmanlı büyüme stratejisi. Hepsi OzDNA GPT motorunu paylaşır.
+Multi-layer product stack. All vertical products share OzDNA GPT; ozdna.com is the external infrastructure (PaaS) layer.
 
-## tezmakale.com — Canlı · TR
+## tezmakale.com — Live · TR
 
-- **Segment:** B2C — Türkiye öğrencileri
-- **Rol:** Panik çözücü (AI dedektörü, intihal, akademik danışmanlık)
-- **Durum:** Production'da OzDNA GPT ile çalışıyor
+- **Segment:** B2C — Turkey students
+- **Role:** Academic panic solver (AI detection, humanizer, plagiarism, advising)
+- **Proof value:** Live token economics, usage limits, production workload on ozDNA stack
 - **URL:** https://tezmakale.com
 
 ## OzDNA Academic — Phase 2
 
 - **Segment:** B2C/B2B — Global
-- **Özellikler:** Dedektör + humanizer, kaynak doğrulama, akademik editörlük
-- **Dil:** TR + EN
+- **Features:** Detection + humanizer, citation verification, academic editing
+- **Languages:** TR + EN
 
 ## OzDNA Comply — Phase 2–3
 
-- **Segment:** B2B — TR / AB RegTech
-- **Kapsam:** 5549, BDDK, MASAK, KVKK mevzuat izleme
-- **Müşteri:** Fintech, EMI/PSP, hukuk firmaları
+- **Segment:** B2B — TR / EU RegTech
+- **Scope:** 5549, BDDK, MASAK, KVKK regulatory monitoring
+- **Customers:** Fintech, EMI/PSP, law firms
+- **Proof value:** RAG-heavy vertical depth — differentiation vs generic LLM gateways
 
 ## ozdna.com — Phase 1
 
 - **Segment:** B2B / Developer / Investor
-- **Rol:** API dokümantasyonu, ürün vitrini, kurumsal kimlik
+- **Role:** LLM cost optimization platform, API docs, corporate identity
+- **Campaign:** GPU Bill Bodyguard — control token burn before scale
 
 ---
-## FILE: knowledge/integration.md
-
+# FILE: knowledge/integration.md
 ---
 title: Entegrasyon
 tags: [integration, onboarding, developer]
@@ -357,37 +324,104 @@ Dashboard'dan kullanım, maliyet ve doğruluk metrikleri. Hacim eşiklerinde oto
 → [contact.md](./contact.md) — API erişimi davet usulü
 
 ---
-## FILE: knowledge/contact.md
+# FILE: knowledge/overview.md
+---
+title: ozDNA Platform Overview
+tags: [overview, b2b, infrastructure, findbelow-ventures]
+related: [ecosystem.md, pricing.md]
+---
+
+# ozDNA — Vertical AI Infrastructure
+
+**ozdna.com** is Findbelow Ventures' B2B infrastructure layer (PaaS). It helps vertical AI startups reduce LLM/API costs, stabilize production RAG, and design token economics that protect margins.
+
+## Positioning
+
+- **Primary:** AI cost optimization platform for vertical AI teams
+- **Audience:** Founders, CTOs/ML engineers, investors (Phase 1)
+- **Status:** Private beta — early access invite only
+- **Language:** English first; Turkish hreflang planned
+
+## OzDNA GPT (shared engine)
+
+Phase 1: OpenAI API wrapped with prompts, RAG, and (roadmap) routing/caching/cost optimization. Not a standalone model — an infrastructure layer.
+
+| Product | Stack role |
+|---------|------------|
+| tezmakale.com | Live TR academic AI — production token economics |
+| OzDNA Academic | Global academic quality (Phase 2) |
+| OzDNA Comply | RegTech monitoring — 5549/BDDK/MASAK/KVKK (Phase 2) |
+| ozdna.com | B2B API + docs — external infrastructure layer |
+
+## Five pillars
+
+1. **Cost Control** — LLM routing, inference cost reduction, cost per workflow
+2. **Production RAG Reliability** — retrieval governance, freshness, evals
+3. **Vertical AI Differentiation** — domain depth vs thin wrappers
+4. **Post-Subsidy Margin Resilience** — platform risk from API pricing changes
+5. **Tokenomics & Pricing Design** — credits mapped to real token burn
+
+## Differentiation
+
+Gateways (LiteLLM, Portkey, Helicone) solve routing and observability. ozDNA focuses on **vertical AI RAG governance + cost optimization**, proven by TezMakale and OzDNA Comply in production.
+
+→ Next: [ecosystem.md](./ecosystem.md) · [integration.md](./integration.md)
 
 ---
-title: İletişim & Erişim
-tags: [contact, waitlist, sales]
-related: [pricing.md]
+# FILE: knowledge/pricing.md
+---
+title: Fiyatlandırma
+tags: [pricing, plans, b2b]
+related: [contact.md]
 ---
 
-# İletişim
+# Fiyatlandırma
 
-## API erişimi
+Kullanım bazlı, şeffaf planlar. USD.
 
-Production API **davet usulü** özel beta. Öncelikli segmentler:
+## Starter — $49/ay
 
-- Fintech / Finans
-- Hukuk
-- Üniversite / Kurum
-- EdTech / Akademik
+- 5.000 API çağrısı / ay
+- Detect + Humanize endpoint'leri
+- Standart yanıt SLA
+- E-posta desteği
 
-## Bekleme listesi
+## Growth — $249/ay
 
-https://ozdna.com/#bekleme-listesi
+- 50.000 API çağrısı / ay
+- Dikey mod seçimi
+- Asenkron batch işleme
+- Webhook callback'leri
+- Öncelikli destek
 
-Form alanları: e-posta, şirket/kurum, kullanım alanı.
+## Enterprise — Özel
 
-## Satış
+- Sınırsız hacim
+- Özel dikey modeller
+- On-premise veya private cloud
+- White-label API
+- Özel SLA & CSM
 
-- E-posta: hello@ozdna.com
-- Enterprise: özel altyapı, white-label, on-premise
+→ [contact.md](./contact.md)
 
-## Şirket
+---
+# FILE: knowledge/vertical-modes.md
+---
+title: Dikey Modlar
+tags: [api, vertical, academic, legal, financial]
+related: [api-detect.md, api-humanize.md]
+---
 
-Findbelow Ventures · © 2026
+# Dikey Modlar
+
+Detect ve Humanize endpoint'lerinde `mode` parametresi.
+
+| Mod | Kullanım | Hedef segment |
+|-----|----------|---------------|
+| academic | Tez, makale, akademik metin | Üniversite, EdTech, OzDNA Academic |
+| legal | Sözleşme, dilekçe, mevzuat | Hukuk firmaları, OzDNA Comply |
+| financial | Rapor, uyum metni | Fintech, EMI/PSP, RegTech |
+| general | Genel amaçlı | Varsayılan |
+
+Dil: `language` parametresi ile ISO 639-1 (örn. `tr`, `en`).
 
