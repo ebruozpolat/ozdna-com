@@ -1,0 +1,34 @@
+# ozDNA
+
+> OzDNA GPT motoru ile B2B AI metin dedeksiyonu ve humanizasyon REST API. Findbelow Ventures · ozdna.com
+
+Özel beta. API erişimi davet usulü. Türkçe + çok dilli. Fintech, hukuk, üniversite hedef segmentleri.
+
+## Knowledge bundle (markdown)
+
+Agent'lar için yapılandırılmış içerik — scrape yerine bu dosyaları kullanın.
+
+- [Index / manifest](https://ozdna.com/knowledge/_index.md): Tüm sayfalar ve ilişkiler
+- [Platform özeti](https://ozdna.com/knowledge/overview.md): Konumlandırma, OzDNA GPT, Phase durumu
+- [API genel](https://ozdna.com/knowledge/api-overview.md): Base URL, endpoint listesi, OpenAPI
+- [Detect API](https://ozdna.com/knowledge/api-detect.md): POST /v1/detect şema ve örnekler
+- [Humanize API](https://ozdna.com/knowledge/api-humanize.md): POST /v1/humanize şema ve örnekler
+- [Kimlik doğrulama](https://ozdna.com/knowledge/api-auth.md): Bearer token, webhook imza
+- [Dikey modlar](https://ozdna.com/knowledge/vertical-modes.md): academic, legal, financial, general
+- [Fiyatlandırma](https://ozdna.com/knowledge/pricing.md): Starter $49, Growth $249, Enterprise
+- [Ekosistem](https://ozdna.com/knowledge/ecosystem.md): tezmakale.com, Academic, Comply
+- [Entegrasyon](https://ozdna.com/knowledge/integration.md): Auth → POST → Scale, hata kodları
+- [İletişim](https://ozdna.com/knowledge/contact.md): Bekleme listesi, hello@ozdna.com
+
+## Web
+
+- [Ana sayfa](https://ozdna.com/): B2B landing, fiyat, ekosistem, waitlist formu
+- [API docs (HTML)](https://ozdna.com/docs/): Phase 2 önizleme referansı
+
+## İlgili ürünler
+
+- [tezmakale.com](https://tezmakale.com): Canlı TR B2C — OzDNA GPT production
+
+## Optional
+
+- [llms-full.txt](https://ozdna.com/llms-full.txt): Tüm knowledge bundle tek dosyada
