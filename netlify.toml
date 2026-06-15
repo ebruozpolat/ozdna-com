@@ -1,0 +1,20 @@
+[build]
+  publish = "."
+
+# Force HTTPS once Netlify provisions custom-domain certs (ozdna.com / www)
+[[redirects]]
+  from = "http://ozdna.com/*"
+  to = "https://ozdna.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.ozdna.com/*"
+  to = "https://www.ozdna.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/success"
+  to = "/?submitted=true#bekleme-listesi"
+  status = 302

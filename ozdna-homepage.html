@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ozDNA — AI Dedektör & Humanizer API</title>
+<meta name="description" content="OzDNA GPT motoru ile AI metin dedeksiyonu ve humanizasyon. B2B REST API, dikey modlar (akademik, hukuk, finans). Findbelow Ventures.">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tq:#40E0D0;--tq-light:#B8FFF9;--tq-glow:rgba(64,224,208,0.12);
+  --bg:#080D12;--bg-card:#0D1620;--bg-card2:#111B26;
+  --txt:#F0F8FF;--txt-b:#8BA3B8;--txt-m:#C8DCF0;
+  --border:rgba(64,224,208,0.15);--bs:rgba(255,255,255,0.06)
+}
+body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--txt-b);line-height:1.6;overflow-x:hidden}
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;border-bottom:0.5px solid var(--bs);position:sticky;top:0;background:rgba(8,13,18,0.92);backdrop-filter:blur(12px);z-index:100}
+.logo{font-size:1.4rem;font-weight:700;color:var(--txt);letter-spacing:-0.03em;text-decoration:none}
+.logo span{color:var(--tq)}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{color:var(--txt-b);text-decoration:none;font-size:0.875rem;font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--tq)}
+.nav-cta{background:var(--tq);color:#080D12;padding:0.5rem 1.25rem;border-radius:6px;font-weight:600;font-size:0.875rem;border:none;font-family:'Space Grotesk',sans-serif;text-decoration:none;display:inline-block}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:0.25rem}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--txt-m);margin:5px 0;border-radius:1px}
+.hero{padding:6rem 3rem 4rem;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--tq-glow);border:0.5px solid var(--border);padding:0.35rem 0.85rem;border-radius:100px;font-size:0.75rem;color:var(--tq);font-weight:500;margin-bottom:1.5rem;letter-spacing:0.04em}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--tq);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+h1{font-size:3.25rem;font-weight:700;line-height:1.1;color:var(--txt);letter-spacing:-0.04em;margin-bottom:1.25rem}
+h1 .accent{color:var(--tq)}
+.hero-sub{font-size:1.05rem;color:var(--txt-b);line-height:1.7;margin-bottom:2rem;max-width:480px}
+.hero-actions{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.btn-primary{background:var(--tq);color:#080D12;padding:0.75rem 1.75rem;border-radius:7px;font-weight:600;font-size:0.9rem;cursor:pointer;border:none;font-family:'Space Grotesk',sans-serif;transition:opacity 0.2s;text-decoration:none;display:inline-block}
+.btn-primary:hover{opacity:0.88}
+.btn-ghost{background:transparent;color:var(--txt-m);padding:0.75rem 1.5rem;border-radius:7px;font-weight:500;font-size:0.9rem;cursor:pointer;border:0.5px solid var(--border);font-family:'Space Grotesk',sans-serif;transition:border-color 0.2s,color 0.2s;text-decoration:none;display:inline-block}
+.btn-ghost:hover{border-color:var(--tq);color:var(--tq)}
+.terminal{background:var(--bg-card);border:0.5px solid var(--border);border-radius:10px;overflow:hidden;font-family:'JetBrains Mono',monospace;font-size:0.78rem}
+.term-header{display:flex;align-items:center;gap:0.5rem;padding:0.75rem 1rem;border-bottom:0.5px solid var(--bs);background:var(--bg-card2)}
+.term-dot{width:10px;height:10px;border-radius:50%}
+.term-title{color:var(--txt-b);font-size:0.72rem;margin-left:auto}
+.term-body{padding:1.25rem;line-height:1.8}
+.t-comment{color:#4A6374}.t-key{color:var(--tq-light)}.t-str{color:#94E8B3}.t-num{color:#F0A76A}.t-brace{color:var(--txt-m)}
+.t-label{color:var(--txt-b);font-size:0.7rem;margin-top:0.75rem;padding-top:0.75rem;border-top:0.5px solid var(--bs)}
+.t-score{color:var(--tq);font-size:1.1rem;font-weight:500}
+.beta-note{background:var(--tq-glow);border:0.5px solid var(--border);border-radius:6px;padding:0.5rem 0.85rem;margin-top:0.6rem;font-size:0.7rem;color:var(--txt-b);line-height:1.5}
+.beta-note span{color:var(--tq);font-weight:600}
+.products,.how,.pricing,.ecosystem{padding:4rem 3rem;max-width:1200px;margin:0 auto}
+.section-label{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--tq);font-weight:600;margin-bottom:0.75rem}
+.section-title{font-size:2rem;font-weight:700;color:var(--txt);letter-spacing:-0.03em;margin-bottom:0.75rem}
+.section-desc{font-size:0.9rem;color:var(--txt-b);max-width:560px;line-height:1.65}
+.product-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}
+.product-card{background:var(--bg-card);border:0.5px solid var(--bs);border-radius:12px;padding:2rem;transition:border-color 0.25s,transform 0.25s}
+.product-card:hover{border-color:var(--border);transform:translateY(-2px)}
+.product-card.featured{border-color:var(--border)}
+.product-icon{width:40px;height:40px;background:var(--tq-glow);border:0.5px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem}
+.product-icon svg{width:20px;height:20px;stroke:var(--tq);fill:none;stroke-width:1.5}
+.product-tag{display:inline-block;background:rgba(64,224,208,0.08);border:0.5px solid var(--border);color:var(--tq);font-size:0.68rem;font-weight:600;letter-spacing:0.06em;padding:0.2rem 0.6rem;border-radius:4px;margin-bottom:0.75rem;text-transform:uppercase}
+.product-name{font-size:1.2rem;font-weight:600;color:var(--txt);margin-bottom:0.5rem;letter-spacing:-0.02em}
+.product-desc{font-size:0.875rem;color:var(--txt-b);line-height:1.6;margin-bottom:1.25rem}
+.product-detail{display:flex;flex-direction:column;gap:0.4rem;list-style:none;padding:0}
+.product-detail li{font-size:0.8rem;color:var(--txt-b);display:flex;align-items:center;gap:0.5rem}
+.product-detail li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--tq);flex-shrink:0}
+.flow{display:grid;grid-template-columns:repeat(3,1fr);margin-top:2.5rem}
+.flow-step{padding:2rem;border:0.5px solid var(--bs)}
+.flow-step:first-child{border-radius:10px 0 0 10px}
+.flow-step:last-child{border-radius:0 10px 10px 0}
+.flow-step+.flow-step{border-left:0}
+.step-num{font-size:0.7rem;color:var(--tq);font-weight:700;letter-spacing:0.1em;margin-bottom:1rem;font-family:'JetBrains Mono',monospace}
+.step-title{font-size:1rem;font-weight:600;color:var(--txt);margin-bottom:0.5rem}
+.step-desc{font-size:0.83rem;color:var(--txt-b);line-height:1.6}
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.5rem}
+.plan{background:var(--bg-card);border:0.5px solid var(--bs);border-radius:12px;padding:1.75rem;display:flex;flex-direction:column}
+.plan.featured{border-color:var(--tq);background:var(--bg-card2)}
+.plan-name{font-size:0.8rem;font-weight:600;color:var(--txt-b);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.75rem}
+.plan-price{font-size:2rem;font-weight:700;color:var(--txt);letter-spacing:-0.04em}
+.plan-price span{font-size:0.85rem;font-weight:400;color:var(--txt-b)}
+.plan-desc{font-size:0.83rem;color:var(--txt-b);margin:0.75rem 0 1.25rem;line-height:1.5}
+.plan-features{display:flex;flex-direction:column;gap:0.6rem;flex:1}
+.plan-feature{font-size:0.8rem;color:var(--txt-b);display:flex;gap:0.5rem}
+.plan-feature::before{content:'✓';color:var(--tq);font-weight:700;flex-shrink:0}
+.plan-btn{margin-top:1.5rem;padding:0.65rem;border-radius:7px;font-size:0.85rem;font-weight:600;font-family:'Space Grotesk',sans-serif;border:0.5px solid var(--border);background:transparent;color:var(--txt-m);text-decoration:none;text-align:center;display:block}
+.plan.featured .plan-btn{background:var(--tq);color:#080D12;border-color:var(--tq)}
+.eco-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.5rem}
+.eco-card{background:var(--bg-card);border:0.5px solid var(--bs);border-radius:12px;padding:1.75rem;text-decoration:none;color:inherit;transition:border-color 0.25s,transform 0.25s;display:block}
+.eco-card:hover{border-color:var(--border);transform:translateY(-2px)}
+.eco-status{display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.55rem;border-radius:4px;margin-bottom:0.75rem}
+.eco-status.live{background:rgba(64,224,208,0.12);color:var(--tq);border:0.5px solid var(--border)}
+.eco-status.soon{background:rgba(139,163,184,0.1);color:var(--txt-b);border:0.5px solid var(--bs)}
+.eco-name{font-size:1.05rem;font-weight:600;color:var(--txt);margin-bottom:0.35rem}
+.eco-segment{font-size:0.75rem;color:var(--tq);margin-bottom:0.65rem;font-weight:500}
+.eco-desc{font-size:0.82rem;color:var(--txt-b);line-height:1.55}
+.cta-section{padding:5rem 3rem;text-align:center;max-width:700px;margin:0 auto}
+.cta-section h2{font-size:2.5rem;font-weight:700;color:var(--txt);letter-spacing:-0.04em;margin-bottom:1rem}
+.cta-section>p{color:var(--txt-b);margin-bottom:2rem;font-size:1rem;line-height:1.65}
+.waitlist-form{display:flex;flex-direction:column;gap:0.75rem;max-width:420px;margin:0 auto 1rem;text-align:left}
+.waitlist-form label{font-size:0.78rem;color:var(--txt-b);font-weight:500}
+.waitlist-form input,.waitlist-form select{width:100%;padding:0.75rem 1rem;border-radius:7px;border:0.5px solid var(--border);background:var(--bg-card);color:var(--txt);font-family:'Space Grotesk',sans-serif;font-size:0.9rem;outline:none}
+.waitlist-form input:focus,.waitlist-form select:focus{border-color:var(--tq)}
+.waitlist-form input::placeholder{color:#4A6374}
+.waitlist-form button[type=submit]{margin-top:0.5rem;width:100%}
+.form-success{display:none;padding:1rem;border-radius:8px;background:var(--tq-glow);border:0.5px solid var(--border);color:var(--tq);font-size:0.9rem;text-align:center}
+.form-success.visible{display:block}
+.cta-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem}
+footer{border-top:0.5px solid var(--bs);padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;flex-wrap:wrap;gap:1rem}
+footer p{font-size:0.78rem;color:var(--txt-b)}
+.footer-brand{display:flex;flex-direction:column;gap:0.35rem}
+.footer-tagline{font-size:0.72rem;color:var(--txt-b);max-width:280px}
+.footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+.footer-links a{font-size:0.78rem;color:var(--txt-b);text-decoration:none}
+.footer-links a:hover{color:var(--tq)}
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem;position:relative}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(8,13,18,0.98);padding:1.25rem 1.5rem;border-bottom:0.5px solid var(--bs);gap:1.25rem}
+  .nav-links.open{display:flex}
+  .nav-toggle{display:block}
+  .hero{grid-template-columns:1fr;padding:4rem 1.5rem 2rem;gap:2.5rem}
+  h1{font-size:2.25rem}
+  .product-grid,.plan-grid,.eco-grid{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr}
+  .flow-step:first-child,.flow-step:last-child{border-radius:10px}
+  .flow-step+.flow-step{border-left:0.5px solid var(--bs);border-top:0}
+  .products,.how,.pricing,.ecosystem,.cta-section{padding:3rem 1.5rem}
+  footer{flex-direction:column;text-align:center;padding:2rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">oz<span>DNA</span></a>
+  <button class="nav-toggle" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nav-links">
+    <a href="#api">API</a>
+    <a href="#entegrasyon">Entegrasyon</a>
+    <a href="#fiyatlandirma">Fiyatlandırma</a>
+    <a href="#ekosistem">Ekosistem</a>
+    <a href="#bekleme-listesi" class="nav-cta">API Erişimi Al</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div>
+    <div class="hero-badge">B2B AI API Platformu · Özel Beta</div>
+    <h1>AI Metin<br><span class="accent">Dedeksiyonu</span> &amp;<br>Humanizer API</h1>
+    <p class="hero-sub">ozDNA, OzDNA GPT motoru üzerinden dikey odaklı AI metin analizini tek bir REST API ile sunar. Fintech, hukuk ve üniversite kurumları için AI üretimi tespiti ve humanizasyon — entegrasyon ekipleri için tasarlandı.</p>
+    <div class="hero-actions">
+      <a href="#bekleme-listesi" class="btn-primary">Bekleme Listesine Katıl</a>
+      <a href="#api" class="btn-ghost">API'yi İncele →</a>
+    </div>
+  </div>
+  <div class="terminal" aria-label="API istek örneği">
+    <div class="term-header">
+      <div class="term-dot" style="background:#FF5F57"></div>
+      <div class="term-dot" style="background:#FFBD2E"></div>
+      <div class="term-dot" style="background:#28CA41"></div>
+      <div class="term-title">POST /v1/detect</div>
+    </div>
+    <div class="term-body">
+      <div class="t-comment">// İstek</div>
+      <div><span class="t-brace">{</span></div>
+      <div>&nbsp;&nbsp;<span class="t-key">"text"</span>: <span class="t-str">"Bu çalışmada uygulanan metodoloji..."</span>,</div>
+      <div>&nbsp;&nbsp;<span class="t-key">"mode"</span>: <span class="t-str">"academic"</span>,</div>
+      <div>&nbsp;&nbsp;<span class="t-key">"language"</span>: <span class="t-str">"tr"</span></div>
+      <div><span class="t-brace">}</span></div>
+      <div class="t-comment" style="margin-top:1rem">// Yanıt · 210ms</div>
+      <div><span class="t-brace">{</span></div>
+      <div>&nbsp;&nbsp;<span class="t-key">"ai_probability"</span>: <span class="t-num">0.94</span>,</div>
+      <div>&nbsp;&nbsp;<span class="t-key">"confidence"</span>: <span class="t-str">"high"</span>,</div>
+      <div>&nbsp;&nbsp;<span class="t-key">"segments"</span>: <span class="t-num">12</span>,</div>
+      <div>&nbsp;&nbsp;<span class="t-key">"verdict"</span>: <span class="t-str">"ai_generated"</span></div>
+      <div><span class="t-brace">}</span></div>
+      <div class="t-label">
+        AI olasılığı <span class="t-score">%94</span> · akademik · TR
+        <div class="beta-note"><span>Beta metrikleri:</span> Doğruluk ve gecikme verileri özel beta sürecinde toplanıyor. İlk sonuçlar Q3 2026'da yayınlanacak.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="products" id="api">
+  <div class="section-label">Çekirdek API'ler</div>
+  <div class="section-title">İki endpoint.<br>Sonsuz entegrasyon yolu.</div>
+  <p class="section-desc">Tüm ürünlerimizin teknik altyapısı OzDNA GPT üzerine kurulu. API katmanı, aynı motoru B2B müşterilere açar.</p>
+  <div class="product-grid">
+    <div class="product-card featured">
+      <div class="product-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M20.188 10.934c.2.646.312 1.329.312 2.066s-.112 1.42-.312 2.066L22 16.246a10.042 10.042 0 000-8.492l-1.812 1.18zM16.246 22l-1.266-1.812A7.948 7.948 0 0112 20.5c-.737 0-1.42-.112-2.066-.312L8.754 22a10.042 10.042 0 007.492 0zM3.812 13.066C3.612 12.42 3.5 11.737 3.5 11s.112-1.42.312-2.066L2 7.754a10.042 10.042 0 000 8.492l1.812-1.18zM7.754 2l1.266 1.812A7.948 7.948 0 0112 3.5c.737 0 1.42.112 2.066.312L15.246 2a10.042 10.042 0 00-7.492 0z"/></svg></div>
+      <div class="product-tag">Dedektör</div>
+      <div class="product-name">ozDNA Detect API</div>
+      <div class="product-desc">Segment düzeyinde AI dedeksiyonu, dikeye özel kalibrasyon. Olasılık skorları, güven katmanları ve vurgulanmış segmentler döner.</div>
+      <ul class="product-detail">
+        <li>Akademik, hukuk, finans dikey modları</li>
+        <li>Türkçe ve çok dilli destek</li>
+        <li>Segment düzeyinde ısı haritası çıktısı</li>
+        <li>Asenkron işleme için webhook callback</li>
+      </ul>
+    </div>
+    <div class="product-card">
+      <div class="product-icon"><svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 015 5v3a5 5 0 01-10 0V7a5 5 0 015-5z"/><path d="M15.536 17.536A5 5 0 007 21h10a5 5 0 00-1.464-3.464z"/><path stroke-linecap="round" d="M19 7l2-2M19 12h2M17.657 16.243l1.414 1.414"/></svg></div>
+      <div class="product-tag">Humanizer</div>
+      <div class="product-name">ozDNA Humanize API</div>
+      <div class="product-desc">AI üretimi metni doğal, dedektör dirençli prose'ye dönüştürür. Anlamı korur, üslubu uyarlar, AI olasılık skorunu eşik altına indirir.</div>
+      <ul class="product-detail">
+        <li>Stil ve register koruması</li>
+        <li>Önde gelen dedektör benchmark'larını geçer</li>
+        <li>Yapılandırılabilir yoğunluk seviyeleri</li>
+        <li>Toplu (batch) işleme desteği</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="entegrasyon">
+  <div class="section-label">Entegrasyon</div>
+  <div class="section-title">Kayıttan production'a<br>dakikalar içinde.</div>
+  <div class="flow">
+    <div class="flow-step">
+      <div class="step-num">01 — Auth</div>
+      <div class="step-title">API anahtarı oluştur</div>
+      <div class="step-desc">Dashboard'dan proje oluştur, kapsamlı API anahtarı al. Bearer token — SDK gerekmez.</div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">02 — POST</div>
+      <div class="step-title">İlk isteğini gönder</div>
+      <div class="step-desc">/v1/detect veya /v1/humanize endpoint'ine metin payload'ı gönder. JSON in, JSON out. OpenAPI 3.1 spec dahil.</div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">03 — Scale</div>
+      <div class="step-title">Entegre et &amp; izle</div>
+      <div class="step-desc">Kullanım, maliyet ve doğruluk metriklerini dashboard'dan takip et. Hacim eşiklerinin üzerinde otomatik indirimler uygulanır.</div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="fiyatlandirma">
+  <div class="section-label">Fiyatlandırma</div>
+  <div class="section-title">Şeffaf, kullanım bazlı.</div>
+  <div class="plan-grid">
+    <div class="plan">
+      <div class="plan-name">Starter</div>
+      <div class="plan-price">$49<span>/ay</span></div>
+      <div class="plan-desc">Geliştirme veya düşük hacimli production ortamında API'yi değerlendiren ekipler için.</div>
+      <div class="plan-features">
+        <div class="plan-feature">5.000 API çağrısı / ay</div>
+        <div class="plan-feature">Detect + Humanize endpoint'leri</div>
+        <div class="plan-feature">Standart yanıt SLA'sı</div>
+        <div class="plan-feature">E-posta desteği</div>
+      </div>
+      <a href="#bekleme-listesi" class="plan-btn">Başla</a>
+    </div>
+    <div class="plan featured">
+      <div class="plan-name">Growth</div>
+      <div class="plan-price">$249<span>/ay</span></div>
+      <div class="plan-desc">Tutarlı API talebi ve entegrasyon SLA gereksinimleri olan production ekipleri için.</div>
+      <div class="plan-features">
+        <div class="plan-feature">50.000 API çağrısı / ay</div>
+        <div class="plan-feature">Dikey mod seçimi</div>
+        <div class="plan-feature">Asenkron batch işleme</div>
+        <div class="plan-feature">Webhook callback'leri</div>
+        <div class="plan-feature">Öncelikli destek</div>
+      </div>
+      <a href="#bekleme-listesi" class="plan-btn">Başla</a>
+    </div>
+    <div class="plan">
+      <div class="plan-name">Enterprise</div>
+      <div class="plan-price">Özel</div>
+      <div class="plan-desc">Özel altyapı, dikeye özel model ayarı ve white-label lisanslama seçenekleri.</div>
+      <div class="plan-features">
+        <div class="plan-feature">Sınırsız hacim</div>
+        <div class="plan-feature">Özel dikey modeller</div>
+        <div class="plan-feature">On-premise veya private cloud</div>
+        <div class="plan-feature">White-label API</div>
+        <div class="plan-feature">Özel SLA &amp; CSM</div>
+      </div>
+      <a href="mailto:hello@ozdna.com" class="plan-btn">Bize ulaşın</a>
+    </div>
+  </div>
+</section>
+
+<section class="ecosystem" id="ekosistem">
+  <div class="section-label">Ekosistem</div>
+  <div class="section-title">OzDNA GPT üzerine<br>inşa edildi.</div>
+  <p class="section-desc">Findbelow Ventures büyüme stratejisi dört katmanlı. ozdna.com B2B katmanı; ürünler aynı motoru farklı segmentlerde çalıştırır.</p>
+  <div class="eco-grid">
+    <a href="https://tezmakale.com" class="eco-card" target="_blank" rel="noopener">
+      <span class="eco-status live">Canlı · TR</span>
+      <div class="eco-name">tezmakale.com</div>
+      <div class="eco-segment">B2C — Türkiye öğrencileri</div>
+      <p class="eco-desc">Panik çözücü: AI dedektörü, intihal kontrolü, akademik danışmanlık. OzDNA GPT ile production'da çalışıyor.</p>
+    </a>
+    <article class="eco-card">
+      <span class="eco-status soon">Phase 2</span>
+      <div class="eco-name">OzDNA Academic</div>
+      <div class="eco-segment">B2C/B2B — Global</div>
+      <p class="eco-desc">Akademik kalite partneri: AI dedektörü + humanizer, kaynak doğrulama, akademik editörlük. TR + EN dil desteği.</p>
+    </article>
+    <article class="eco-card">
+      <span class="eco-status soon">Phase 2–3</span>
+      <div class="eco-name">OzDNA Comply</div>
+      <div class="eco-segment">B2B — TR / AB RegTech</div>
+      <p class="eco-desc">5549, BDDK, MASAK, KVKK mevzuat izleme ve analiz. Fintech, EMI/PSP ve hukuk firmaları için uyum katmanı.</p>
+    </article>
+  </div>
+</section>
+
+<section class="cta-section" id="bekleme-listesi">
+  <h2>Entegrasyona hazır mısınız?</h2>
+  <p>API erişimi şu an davet usulü. Bekleme listesine katılın — fintech, hukuk ve üniversite kurumları öncelikli.</p>
+  <form class="waitlist-form" id="waitlist-form">
+    <div>
+      <label for="email">E-posta</label>
+      <input type="email" id="email" name="email" placeholder="siz@sirket.com" required>
+    </div>
+    <div>
+      <label for="company">Şirket / Kurum</label>
+      <input type="text" id="company" name="company" placeholder="Şirket adı">
+    </div>
+    <div>
+      <label for="use-case">Kullanım alanı</label>
+      <select id="use-case" name="use-case">
+        <option value="">Seçin…</option>
+        <option value="fintech">Fintech / Finans</option>
+        <option value="legal">Hukuk</option>
+        <option value="university">Üniversite / Kurum</option>
+        <option value="edtech">EdTech / Akademik</option>
+        <option value="other">Diğer</option>
+      </select>
+    </div>
+    <button type="submit" class="btn-primary">Bekleme Listesine Katıl</button>
+  </form>
+  <div class="form-success" id="form-success" role="status">
+    Teşekkürler — listeye eklendiniz. API erişimi açıldığında sizinle iletişime geçeceğiz.
+  </div>
+  <div class="cta-actions">
+    <a href="mailto:hello@ozdna.com?subject=ozDNA%20API%20Erişimi" class="btn-ghost">Satış ile İletişim →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">
+    <a href="#" class="logo">oz<span>DNA</span></a>
+    <p class="footer-tagline">Findbelow Ventures · B2B AI dedeksiyon &amp; humanizasyon altyapısı</p>
+  </div>
+  <div class="footer-links">
+    <a href="#">Gizlilik</a>
+    <a href="#">KVKK</a>
+    <a href="#api">Dokümantasyon</a>
+    <a href="mailto:hello@ozdna.com">İletişim</a>
+  </div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+
+<script>
+document.querySelector('.nav-toggle')?.addEventListener('click', function () {
+  const nav = document.querySelector('.nav-links');
+  const open = nav.classList.toggle('open');
+  this.setAttribute('aria-expanded', open);
+});
+document.querySelectorAll('.nav-links a').forEach(function (a) {
+  a.addEventListener('click', function () {
+    document.querySelector('.nav-links').classList.remove('open');
+    document.querySelector('.nav-toggle')?.setAttribute('aria-expanded', 'false');
+  });
+});
+document.getElementById('waitlist-form')?.addEventListener('submit', function (e) {
+  e.preventDefault();
+  var email = document.getElementById('email').value;
+  var company = document.getElementById('company').value;
+  var useCase = document.getElementById('use-case').value;
+  var subject = encodeURIComponent('ozDNA Bekleme Listesi');
+  var body = encodeURIComponent('E-posta: ' + email + '\nŞirket: ' + company + '\nKullanım: ' + useCase);
+  window.location.href = 'mailto:hello@ozdna.com?subject=' + subject + '&body=' + body;
+  this.style.display = 'none';
+  document.getElementById('form-success').classList.add('visible');
+});
+</script>
+</body>
+</html>

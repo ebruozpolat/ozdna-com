@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API Dokümantasyonu — ozDNA</title>
+<meta name="description" content="ozDNA Detect ve Humanize REST API referansı. OpenAPI 3.1, Bearer auth, dikey modlar. Phase 2 önizleme — Findbelow Ventures.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo" aria-label="ozDNA ana sayfa">
+    <img src="../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
+  </a>
+  <button class="nav-toggle" aria-label="Menü" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="/docs/" class="active">Dokümantasyon</a>
+    <a href="/#fiyatlandirma">Fiyatlandırma</a>
+    <a href="/#ekosistem">Ekosistem</a>
+    <a href="/#bekleme-listesi" class="nav-cta">API Erişimi Al</a>
+  </div>
+</nav>
+
+<div class="docs-banner">
+  <strong>Phase 2 önizleme</strong> — Bu sayfa API sözleşmesinin erken referansıdır. Production endpoint'leri davet usulü beta sonrası açılacaktır. Metrikler Q3 2026'da yayınlanacak.
+</div>
+
+<div class="docs-layout">
+  <aside class="docs-sidebar" aria-label="İçindekiler">
+    <h3>Başlangıç</h3>
+    <a href="#giris">Giriş</a>
+    <a href="#auth">Kimlik doğrulama</a>
+    <a href="#base-url">Base URL</a>
+    <h3>Endpoint'ler</h3>
+    <a href="#detect">POST /v1/detect</a>
+    <a href="#humanize">POST /v1/humanize</a>
+    <a href="#batch">POST /v1/batch</a>
+    <h3>Referans</h3>
+    <a href="#modes">Dikey modlar</a>
+    <a href="#webhooks">Webhook'lar</a>
+    <a href="#errors">Hata kodları</a>
+    <a href="#openapi">OpenAPI spec</a>
+  </aside>
+
+  <main class="docs-main">
+    <h1>API Referansı</h1>
+    <p class="docs-lead">
+      ozDNA REST API, OzDNA GPT motorunu B2B entegrasyonlara açar. JSON istek/yanıt,
+      Bearer token kimlik doğrulama ve OpenAPI 3.1 uyumlu sözleşme.
+    </p>
+
+    <h2 id="giris">Giriş</h2>
+    <p>
+      API iki çekirdek yetenek sunar: <strong style="color:var(--txt)">AI metin dedeksiyonu</strong>
+      (<span class="inline-code">/v1/detect</span>) ve <strong style="color:var(--txt)">humanizasyon</strong>
+      (<span class="inline-code">/v1/humanize</span>). Her iki endpoint segment düzeyinde çıktı,
+      dikey mod kalibrasyonu ve çok dilli destek sağlar.
+    </p>
+    <p>
+      <span class="inline-code">tezmakale.com</span> üzerinde aynı motor production'da çalışmaktadır;
+      B2B API katmanı backend olgunlaştıkça açılmaktadır.
+    </p>
+
+    <h2 id="auth">Kimlik doğrulama</h2>
+    <p>Tüm isteklerde <span class="inline-code">Authorization</span> header'ı zorunludur:</p>
+    <pre class="code-block"><span class="t-key">Authorization</span>: Bearer <span class="t-str">ozdna_sk_live_...</span></pre>
+    <p>
+      API anahtarları dashboard üzerinden proje kapsamında oluşturulur. Anahtarlar
+      <span class="inline-code">ozdna_sk_test_</span> (sandbox) veya
+      <span class="inline-code">ozdna_sk_live_</span> (production) öneki ile gelir.
+    </p>
+
+    <h2 id="base-url">Base URL</h2>
+    <pre class="code-block"><span class="t-str">https://api.ozdna.com</span>   <span class="t-comment"># production (beta)</span>
+<span class="t-str">https://api.sandbox.ozdna.com</span>   <span class="t-comment"># sandbox</span></pre>
+
+    <h2 id="detect">POST /v1/detect</h2>
+    <div class="endpoint">
+      <div class="endpoint-head">
+        <span class="method method-post">POST</span>
+        <span class="endpoint-path">/v1/detect</span>
+      </div>
+      <div class="endpoint-body">
+        <p>Metin içinde AI üretimi olasılığını segment düzeyinde analiz eder.</p>
+        <table class="param-table">
+          <thead><tr><th>Alan</th><th>Tip</th><th>Açıklama</th></tr></thead>
+          <tbody>
+            <tr><td>text <span class="param-req">zorunlu</span></td><td>string</td><td>Analiz edilecek metin (max 50.000 karakter)</td></tr>
+            <tr><td>mode</td><td>string</td><td><span class="inline-code">academic</span> · <span class="inline-code">legal</span> · <span class="inline-code">financial</span> · <span class="inline-code">general</span></td></tr>
+            <tr><td>language</td><td>string</td><td>ISO 639-1 — örn. <span class="inline-code">tr</span>, <span class="inline-code">en</span></td></tr>
+            <tr><td>webhook_url</td><td>string</td><td>Asenkron işlem için callback URL (Growth+)</td></tr>
+          </tbody>
+        </table>
+        <p><strong style="color:var(--txt)">Örnek istek</strong></p>
+        <pre class="code-block">curl -X POST https://api.ozdna.com/v1/detect \
+  -H "Authorization: Bearer ozdna_sk_live_..." \
+  -H "Content-Type: application/json" \
+  -d '{
+    "text": "Bu çalışmada uygulanan metodoloji...",
+    "mode": "academic",
+    "language": "tr"
+  }'</pre>
+        <p><strong style="color:var(--txt)">Örnek yanıt</strong></p>
+        <pre class="code-block">{
+  <span class="t-key">"ai_probability"</span>: <span class="t-num">0.94</span>,
+  <span class="t-key">"confidence"</span>: <span class="t-str">"high"</span>,
+  <span class="t-key">"verdict"</span>: <span class="t-str">"ai_generated"</span>,
+  <span class="t-key">"segments"</span>: <span class="t-num">12</span>,
+  <span class="t-key">"segment_map"</span>: [
+    { <span class="t-key">"start"</span>: <span class="t-num">0</span>, <span class="t-key">"end"</span>: <span class="t-num">142</span>, <span class="t-key">"score"</span>: <span class="t-num">0.97</span> }
+  ],
+  <span class="t-key">"processing_ms"</span>: <span class="t-num">210</span>,
+  <span class="t-key">"mode"</span>: <span class="t-str">"academic"</span>,
+  <span class="t-key">"language"</span>: <span class="t-str">"tr"</span>
+}</pre>
+      </div>
+    </div>
+
+    <h2 id="humanize">POST /v1/humanize</h2>
+    <div class="endpoint">
+      <div class="endpoint-head">
+        <span class="method method-post">POST</span>
+        <span class="endpoint-path">/v1/humanize</span>
+      </div>
+      <div class="endpoint-body">
+        <p>AI üretimi metni doğal prose'ye dönüştürür; anlam ve register korunur.</p>
+        <table class="param-table">
+          <thead><tr><th>Alan</th><th>Tip</th><th>Açıklama</th></tr></thead>
+          <tbody>
+            <tr><td>text <span class="param-req">zorunlu</span></td><td>string</td><td>Humanize edilecek metin</td></tr>
+            <tr><td>mode</td><td>string</td><td>Dikey mod — detect ile aynı değerler</td></tr>
+            <tr><td>language</td><td>string</td><td>ISO 639-1 dil kodu</td></tr>
+            <tr><td>intensity</td><td>string</td><td><span class="inline-code">light</span> · <span class="inline-code">medium</span> · <span class="inline-code">strong</span></td></tr>
+            <tr><td>preserve_terms</td><td>string[]</td><td>Değiştirilmemesi gereken terimler (hukuk/finans)</td></tr>
+          </tbody>
+        </table>
+        <p><strong style="color:var(--txt)">Örnek yanıt</strong></p>
+        <pre class="code-block">{
+  <span class="t-key">"text"</span>: <span class="t-str">"Bu araştırmada izlenen yöntem..."</span>,
+  <span class="t-key">"ai_probability_before"</span>: <span class="t-num">0.91</span>,
+  <span class="t-key">"ai_probability_after"</span>: <span class="t-num">0.18</span>,
+  <span class="t-key">"processing_ms"</span>: <span class="t-num">6200</span>,
+  <span class="t-key">"intensity"</span>: <span class="t-str">"medium"</span>
+}</pre>
+        <div class="beta-note"><span>Not:</span> Humanize gecikmesi metin uzunluğuna bağlıdır. Beta sürecinde ortalama süre verileri toplanmaktadır.</div>
+      </div>
+    </div>
+
+    <h2 id="batch">POST /v1/batch</h2>
+    <div class="endpoint">
+      <div class="endpoint-head">
+        <span class="method method-post">POST</span>
+        <span class="endpoint-path">/v1/batch</span>
+      </div>
+      <div class="endpoint-body">
+        <p>Toplu detect veya humanize işlemleri. Growth ve Enterprise planlarında kullanılabilir. İşlem asenkron tamamlanır; sonuç <span class="inline-code">webhook_url</span> ile iletilir veya <span class="inline-code">GET /v1/batch/{id}</span> ile sorgulanır.</p>
+      </div>
+    </div>
+
+    <h2 id="modes">Dikey modlar</h2>
+    <table class="param-table">
+      <thead><tr><th>Mod</th><th>Kullanım</th><th>Hedef segment</th></tr></thead>
+      <tbody>
+        <tr><td>academic</td><td>Akademik metin, tez, makale</td><td>Üniversite, EdTech, OzDNA Academic</td></tr>
+        <tr><td>legal</td><td>Sözleşme, dilekçe, mevzuat metni</td><td>Hukuk firmaları, OzDNA Comply</td></tr>
+        <tr><td>financial</td><td>Rapor, uyum metni, düzenleyici içerik</td><td>Fintech, EMI/PSP, RegTech</td></tr>
+        <tr><td>general</td><td>Genel amaçlı metin</td><td>Varsayılan</td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="webhooks">Webhook'lar</h2>
+    <p>
+      Asenkron isteklerde <span class="inline-code">webhook_url</span> belirtildiğinde işlem tamamlandığında
+      <span class="inline-code">POST</span> callback gönderilir. Payload, ilgili endpoint yanıtı ile aynı yapıdadır;
+      ek olarak <span class="inline-code">job_id</span> ve <span class="inline-code">event</span> alanları bulunur.
+    </p>
+    <p>İmza doğrulama: <span class="inline-code">X-OzDNA-Signature</span> header'ı HMAC-SHA256 ile doğrulanır.</p>
+
+    <h2 id="errors">Hata kodları</h2>
+    <div class="status-list">
+      <div class="status-item"><span class="status-code">400</span><span>Geçersiz istek — eksik <span class="inline-code">text</span> veya desteklenmeyen <span class="inline-code">mode</span></span></div>
+      <div class="status-item"><span class="status-code">401</span><span>Geçersiz veya eksik API anahtarı</span></div>
+      <div class="status-item"><span class="status-code">402</span><span>Kota aşıldı — plan limitine ulaşıldı</span></div>
+      <div class="status-item"><span class="status-code">429</span><span>Rate limit — <span class="inline-code">Retry-After</span> header'ına bakın</span></div>
+      <div class="status-item"><span class="status-code">503</span><span>Geçici servis kesintisi — exponential backoff ile yeniden deneyin</span></div>
+    </div>
+
+    <h2 id="openapi">OpenAPI spec</h2>
+    <p>
+      Tam OpenAPI 3.1 tanımı beta erişimi ile birlikte yayınlanacaktır:
+    </p>
+    <pre class="code-block"><span class="t-str">https://api.ozdna.com/openapi.json</span>
+<span class="t-str">https://api.ozdna.com/openapi.yaml</span></pre>
+
+    <div class="docs-cta">
+      <p><strong style="color:var(--txt)">Production API erişimi</strong> şu an davet usulü. Dokümantasyon güncellendikçe bu sayfa genişletilecektir.</p>
+      <a href="/#bekleme-listesi" class="btn-primary">Bekleme Listesine Katıl</a>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div class="footer-brand">
+    <a href="/" class="logo" aria-label="ozDNA">
+      <img src="../assets/logo.svg" alt="ozDNA" width="100" height="24" class="logo-img">
+    </a>
+    <p class="footer-tagline">Findbelow Ventures · B2B AI dedeksiyon &amp; humanizasyon altyapısı</p>
+  </div>
+  <div class="footer-links">
+    <a href="/">Ana Sayfa</a>
+    <a href="/#fiyatlandirma">Fiyatlandırma</a>
+    <a href="mailto:hello@ozdna.com">İletişim</a>
+  </div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

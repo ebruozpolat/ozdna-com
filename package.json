@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "netlify": "./scripts/netlify.sh",
+    "deploy": "./scripts/netlify.sh deploy --prod --dir .",
+    "deploy:preview": "./scripts/netlify.sh deploy --dir ."
+  },
+  "devDependencies": {
+    "netlify-cli": "^26.1.0"
+  }
+}
