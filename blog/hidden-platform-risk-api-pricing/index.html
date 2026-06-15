@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hidden Platform Risk: When API Pricing Changes — ozDNA Blog</title>
+<meta name="description" content="LLM pricing risk is hidden platform risk. If your AI SaaS gross margin depends on today's API prices staying flat, a provider change can erase margin overnight.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+<link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo" aria-label="ozDNA home">
+    <img src="../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
+  </a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="/#pillars">Platform</a>
+    <a href="/blog/" class="active">Blog</a>
+    <a href="/docs/">Docs</a>
+    <a href="/#waitlist" class="nav-cta">Get Early Access</a>
+  </div>
+</nav>
+
+<article class="blog-article">
+  <a href="/blog/" class="blog-back">← All posts</a>
+  <div class="blog-meta">
+    <span class="blog-pillar">Pillar 4 · Margin Resilience</span>
+    <span class="blog-date">June 2026 · 6 min read</span>
+  </div>
+  <h1>Hidden Platform Risk: When API Pricing Changes</h1>
+  <p class="blog-lead">If your gross margin depends on today's API pricing staying flat, your AI product has hidden platform risk — the same way a marketplace depends on a single payment processor with no backup.</p>
+
+  <p>Founders treat <strong>LLM pricing risk</strong> as a line-item surprise: "OpenAI raised output tokens 12%." Finance adjusts the forecast. Engineering shrugs. But for AI-native SaaS, provider pricing is not a vendor invoice — it is <strong>structural COGS</strong>. When it moves, your entire pricing architecture moves with it unless you have designed for elasticity.</p>
+
+  <h2>Post-subsidy economics are not a theory exercise</h2>
+  <p>Model providers compete for developers today. That competition shows up as aggressive list prices, free tiers, and bundled credits. Your unit economics were modeled in that environment.</p>
+  <p>Markets consolidate. Capabilities differentiate. Subsidies shrink. The teams that survive are not the ones that predicted the exact price change — they are the ones that built <strong>margin resilience</strong> into the product:</p>
+  <ul>
+    <li>Routing across providers and model tiers</li>
+    <li>Workflow-level cost ceilings with graceful degradation</li>
+    <li>User-facing credits indexed to real token burn, not flat "messages"</li>
+    <li>Retrieval and caching that reduce repeated premium calls</li>
+  </ul>
+  <p>Without those, a pricing update is an existential spreadsheet event, not an ops tweak.</p>
+
+  <h2>How platform risk shows up before the press release</h2>
+  <p>You already have early warnings if you know where to look:</p>
+  <ol>
+    <li><strong>Margin compression without churn.</strong> Revenue stable, infra % rising — classic pre-pricing-change drift as usage deepens.</li>
+    <li><strong>Feature debt tied to one model.</strong> "We need GPT-4o for quality" with no eval proving which steps actually need it.</li>
+    <li><strong>Contracts that promise unlimited AI.</strong> Legal and sales locked in language infra cannot honor at scale.</li>
+    <li><strong>No fallback path.</strong> Provider outage plan exists; provider <em>price</em> plan does not.</li>
+  </ol>
+  <p>Investors grouping you with "AI wrappers" are often pricing this bundle of risks — not just judging your UI.</p>
+
+  <h2>Designing for pricing elasticity</h2>
+  <p><strong>AI margin optimization</strong> is not finding the cheapest model globally. It is building policies that survive price moves:</p>
+  <ul>
+    <li><strong>Index credits to infrastructure.</strong> When token costs rise, credit consumption reflects it — or you absorb consciously, not accidentally.</li>
+    <li><strong>Tier features by inference intensity.</strong> Deep analysis costs more credits than lightweight scans — users self-select economics.</li>
+    <li><strong>Maintain provider optionality.</strong> Not twelve adapters for sport — one abstraction with two viable backends and routing tests that run weekly.</li>
+    <li><strong>Scenario plan in board decks.</strong> Show margin at +20% provider cost. If the model breaks, fix the model before the next round.</li>
+  </ul>
+  <p>This is post-subsidy thinking while subsidies still exist. It is cheaper than emergency repricing when a provider adjusts enterprise tiers.</p>
+
+  <aside class="blog-proof">
+    <h3>Built on ozDNA</h3>
+    <p>On <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>, separate limits per product surface (detection vs. humanization) and daily token tracking are how we practice token economics before selling infra externally. Comply's human-in-the-loop RegTech model adds another constraint: you cannot auto-publish when margin and liability both depend on model output.</p>
+  </aside>
+
+  <h2>What not to promise</h2>
+  <p>Do not tell investors you have "locked in" API costs unless you literally have enterprise contracts with enforceable terms. Do not market guaranteed savings percentages without production evidence across workflows.</p>
+  <p>Do tell them you measure cost per outcome, route to the cheapest capable model, and can shift provider mix without rewriting the product — because the operating layer sits above any single API.</p>
+
+  <h2>The strategic takeaway</h2>
+  <p>Today's API economics may not be tomorrow's API economics. Teams that treat inference as infrastructure — measurable, routable, governable — convert pricing shocks into roadmap items. Teams that treat it as magic convert them into emergency fundraises or layoffs.</p>
+  <p>Hidden platform risk is only hidden if you are not looking at margin per workflow. Start there.</p>
+
+  <div class="blog-cta-box">
+    <p>Building margin resilience into vertical AI? ozDNA early access — for founders who want infrastructure advantage, not invoice surprise.</p>
+    <a href="/#waitlist" class="btn-primary">Get Early Access</a>
+  </div>
+</article>
+
+<footer>
+  <div class="footer-brand">
+    <a href="/" class="logo" aria-label="ozDNA">
+      <img src="../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
+    </a>
+    <p class="footer-tagline">Findbelow Ventures · Vertical AI infrastructure (PaaS)</p>
+  </div>
+  <div class="footer-links">
+    <a href="/blog/">Blog</a>
+    <a href="/docs/">Documentation</a>
+    <a href="mailto:hello@ozdna.com">Contact</a>
+  </div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+
+<script src="../../main.js"></script>
+</body>
+</html>

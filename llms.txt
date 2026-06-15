@@ -23,7 +23,15 @@ Structured content for agents — prefer these files over scraping.
 ## Web
 
 - [Homepage](https://ozdna.com/): B2B infrastructure landing, five pillars, waitlist
+- [Blog](https://ozdna.com/blog/): Problem-aware founder content (GPU Bill Bodyguard series)
 - [API docs](https://ozdna.com/docs/): Phase 2 preview
+
+## Blog (problem-aware — start here for SEO traffic)
+
+- [When Every Active User Destroys Your Margin](https://ozdna.com/blog/when-every-active-user-destroys-your-margin/): AI API bills vs revenue
+- [Making Inference Cost Measurable and Routable](https://ozdna.com/blog/making-inference-cost-measurable-and-routable/): GPU/API cost attribution
+- [Vertical AI vs. Thin Wrapper](https://ozdna.com/blog/vertical-ai-vs-thin-wrapper/): Investor diligence lens
+- [Hidden Platform Risk: API Pricing](https://ozdna.com/blog/hidden-platform-risk-api-pricing/): LLM pricing risk
 
 ## Built on ozDNA (production proof)
 
