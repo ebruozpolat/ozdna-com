@@ -1,34 +1,40 @@
 # ozDNA
 
-> OzDNA GPT motoru ile B2B AI metin dedeksiyonu ve humanizasyon REST API. Findbelow Ventures · ozdna.com
+> Vertical AI infrastructure — LLM cost optimization, production RAG reliability, and token economics for AI-native SaaS. Findbelow Ventures · ozdna.com
 
-Özel beta. API erişimi davet usulü. Türkçe + çok dilli. Fintech, hukuk, üniversite hedef segmentleri.
+Private beta. Early access invite only. English site; Turkish planned.
 
 ## Knowledge bundle (markdown)
 
-Agent'lar için yapılandırılmış içerik — scrape yerine bu dosyaları kullanın.
+Structured content for agents — prefer these files over scraping.
 
-- [Index / manifest](https://ozdna.com/knowledge/_index.md): Tüm sayfalar ve ilişkiler
-- [Platform özeti](https://ozdna.com/knowledge/overview.md): Konumlandırma, OzDNA GPT, Phase durumu
-- [API genel](https://ozdna.com/knowledge/api-overview.md): Base URL, endpoint listesi, OpenAPI
-- [Detect API](https://ozdna.com/knowledge/api-detect.md): POST /v1/detect şema ve örnekler
-- [Humanize API](https://ozdna.com/knowledge/api-humanize.md): POST /v1/humanize şema ve örnekler
-- [Kimlik doğrulama](https://ozdna.com/knowledge/api-auth.md): Bearer token, webhook imza
-- [Dikey modlar](https://ozdna.com/knowledge/vertical-modes.md): academic, legal, financial, general
-- [Fiyatlandırma](https://ozdna.com/knowledge/pricing.md): Starter $49, Growth $249, Enterprise
-- [Ekosistem](https://ozdna.com/knowledge/ecosystem.md): tezmakale.com, Academic, Comply
-- [Entegrasyon](https://ozdna.com/knowledge/integration.md): Auth → POST → Scale, hata kodları
-- [İletişim](https://ozdna.com/knowledge/contact.md): Bekleme listesi, hello@ozdna.com
+- [Index / manifest](https://ozdna.com/knowledge/_index.md): All pages and relations
+- [Platform overview](https://ozdna.com/knowledge/overview.md): Positioning, OzDNA GPT, five pillars
+- [Ecosystem](https://ozdna.com/knowledge/ecosystem.md): TezMakale, Academic, Comply
+- [Integration](https://ozdna.com/knowledge/integration.md): Auth, workflows, error codes
+- [Pricing](https://ozdna.com/knowledge/pricing.md): Early access / enterprise
+- [Contact](https://ozdna.com/knowledge/contact.md): Waitlist, hello@ozdna.com
+- [API overview](https://ozdna.com/knowledge/api-overview.md): Base URL, endpoints (Phase 2)
+- [Detect API](https://ozdna.com/knowledge/api-detect.md): POST /v1/detect (vertical workloads)
+- [Humanize API](https://ozdna.com/knowledge/api-humanize.md): POST /v1/humanize
+- [Auth](https://ozdna.com/knowledge/api-auth.md): Bearer token
+- [Vertical modes](https://ozdna.com/knowledge/vertical-modes.md): academic, legal, financial
 
 ## Web
 
-- [Ana sayfa](https://ozdna.com/): B2B landing, fiyat, ekosistem, waitlist formu
-- [API docs (HTML)](https://ozdna.com/docs/): Phase 2 önizleme referansı
+- [Homepage](https://ozdna.com/): B2B infrastructure landing, five pillars, waitlist
+- [API docs](https://ozdna.com/docs/): Phase 2 preview
 
-## İlgili ürünler
+## Built on ozDNA (production proof)
 
-- [tezmakale.com](https://tezmakale.com): Canlı TR B2C — OzDNA GPT production
+- [TezMakale](https://tezmakale.com): Live TR academic AI on ozDNA stack
+- OzDNA Comply: RegTech layer (Phase 2)
+
+## SEO / content strategy
+
+- Primary keywords: LLM cost optimization, AI cost optimization platform, vertical AI infrastructure, production RAG, token cost management
+- Traffic strategy: long-tail problem-aware blog content (see internal SEO plan)
 
 ## Optional
 
-- [llms-full.txt](https://ozdna.com/llms-full.txt): Tüm knowledge bundle tek dosyada
+- [llms-full.txt](https://ozdna.com/llms-full.txt): Full knowledge bundle in one file

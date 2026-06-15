@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ozDNA — AI Dedektör & Humanizer API</title>
-<meta name="description" content="OzDNA GPT motoru ile AI metin dedeksiyonu ve humanizasyon. B2B REST API, dikey modlar (akademik, hukuk, finans), tezmakale.com üzerinde production'da. Findbelow Ventures.">
+<title>ozDNA — AI Cost Optimization Platform for Vertical AI</title>
+<meta name="description" content="ozDNA is an AI cost optimization platform for vertical AI startups. LLM cost optimization, production RAG reliability, model routing, and token cost management — built on real production workloads.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -20,239 +20,204 @@
 <body>
 
 <nav>
-  <a href="/" class="logo" aria-label="OZDNA ana sayfa">
-    <img src="assets/logo.svg" alt="OZDNA" width="120" height="28" class="logo-img">
+  <a href="/" class="logo" aria-label="ozDNA home">
+    <img src="assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
   </a>
-  <button class="nav-toggle" aria-label="Menü" aria-expanded="false">
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
   <div class="nav-links">
-    <a href="/docs/">Dokümantasyon</a>
-    <a href="#entegrasyon">Entegrasyon</a>
-    <a href="#fiyatlandirma">Fiyatlandırma</a>
-    <a href="#ekosistem">Ekosistem</a>
-    <a href="#bekleme-listesi" class="nav-cta">API Erişimi Al</a>
+    <a href="#pillars">Platform</a>
+    <a href="#built-on">Products</a>
+    <a href="/docs/">Docs</a>
+    <a href="#waitlist" class="nav-cta">Get Early Access</a>
   </div>
 </nav>
 
 <section class="hero">
   <div>
-    <div class="hero-badge">B2B AI API Platformu · Özel Beta</div>
-    <h1>AI Metin<br><span class="accent">Dedeksiyonu</span> &amp;<br>Humanizer API</h1>
-    <p class="hero-sub">ozDNA, OzDNA GPT motoru üzerinden dikey odaklı AI metin analizini tek bir REST API ile sunar. Fintech, hukuk ve üniversite kurumları için AI üretimi tespiti ve humanizasyon — entegrasyon ekipleri için tasarlandı.</p>
+    <div class="hero-badge">B2B Infrastructure · Private Beta</div>
+    <h1>LLM Cost Optimization<br>for <span class="accent">Vertical AI</span> Teams</h1>
+    <p class="hero-sub">ozDNA helps vertical AI startups ship production-grade agents with lower inference costs, more reliable RAG, and token economics that protect margins.</p>
     <div class="hero-actions">
-      <a href="#bekleme-listesi" class="btn-primary">Bekleme Listesine Katıl</a>
-      <a href="#api" class="btn-ghost">API'yi İncele →</a>
+      <a href="#waitlist" class="btn-primary">Get Early Access</a>
+      <a href="/docs/" class="btn-ghost">Read the Docs →</a>
     </div>
   </div>
-  <div class="terminal" aria-label="API istek örneği">
+  <div class="terminal" aria-label="Infrastructure metrics example">
     <div class="term-header">
       <div class="term-dot" style="background:#FF5F57"></div>
       <div class="term-dot" style="background:#FFBD2E"></div>
       <div class="term-dot" style="background:#28CA41"></div>
-      <div class="term-title">POST /v1/detect</div>
+      <div class="term-title">GET /v1/metrics/cost</div>
     </div>
     <div class="term-body">
-      <div class="t-comment">// İstek</div>
+      <div class="t-comment">// workflow · last 24h</div>
       <div><span class="t-brace">{</span></div>
-      <div>&nbsp;&nbsp;<span class="t-key">"text"</span>: <span class="t-str">"Bu çalışmada uygulanan metodoloji..."</span>,</div>
-      <div>&nbsp;&nbsp;<span class="t-key">"mode"</span>: <span class="t-str">"academic"</span>,</div>
-      <div>&nbsp;&nbsp;<span class="t-key">"language"</span>: <span class="t-str">"tr"</span></div>
-      <div><span class="t-brace">}</span></div>
-      <div class="t-comment" style="margin-top:1rem">// Yanıt · 210ms</div>
-      <div><span class="t-brace">{</span></div>
-      <div>&nbsp;&nbsp;<span class="t-key">"ai_probability"</span>: <span class="t-num">0.94</span>,</div>
-      <div>&nbsp;&nbsp;<span class="t-key">"confidence"</span>: <span class="t-str">"high"</span>,</div>
-      <div>&nbsp;&nbsp;<span class="t-key">"segments"</span>: <span class="t-num">12</span>,</div>
-      <div>&nbsp;&nbsp;<span class="t-key">"verdict"</span>: <span class="t-str">"ai_generated"</span></div>
+      <div>&nbsp;&nbsp;<span class="t-key">"workflow_id"</span>: <span class="t-str">"rag-compliance-v2"</span>,</div>
+      <div>&nbsp;&nbsp;<span class="t-key">"total_tokens"</span>: <span class="t-num">842_100</span>,</div>
+      <div>&nbsp;&nbsp;<span class="t-key">"cost_usd"</span>: <span class="t-num">12.47</span>,</div>
+      <div>&nbsp;&nbsp;<span class="t-key">"routed_to"</span>: <span class="t-str">"gpt-4o-mini"</span>,</div>
+      <div>&nbsp;&nbsp;<span class="t-key">"premium_calls_saved"</span>: <span class="t-num">38</span></div>
       <div><span class="t-brace">}</span></div>
       <div class="t-label">
-        AI olasılığı <span class="t-score">%94</span> · akademik · TR
-        <div class="beta-note"><span>Beta metrikleri:</span> Doğruluk ve gecikme verileri özel beta sürecinde toplanıyor. İlk sonuçlar Q3 2026'da yayınlanacak.</div>
+        Cost per workflow <span class="t-score">$0.0031</span> · LLM routing active
+        <div class="beta-note"><span>Beta:</span> Infrastructure layer in private beta. Production metrics from TezMakale &amp; Comply workloads — public benchmarks Q3 2026.</div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="products" id="api">
-  <div class="section-label">Çekirdek API'ler</div>
-  <div class="section-title">İki endpoint.<br>Sonsuz entegrasyon yolu.</div>
-  <p class="section-desc">Tüm ürünlerimizin teknik altyapısı OzDNA GPT üzerine kurulu. API katmanı, aynı motoru B2B müşterilere açar.</p>
-  <div class="product-grid">
-    <div class="product-card featured">
-      <div class="product-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M20.188 10.934c.2.646.312 1.329.312 2.066s-.112 1.42-.312 2.066L22 16.246a10.042 10.042 0 000-8.492l-1.812 1.18zM16.246 22l-1.266-1.812A7.948 7.948 0 0112 20.5c-.737 0-1.42-.112-2.066-.312L8.754 22a10.042 10.042 0 007.492 0zM3.812 13.066C3.612 12.42 3.5 11.737 3.5 11s.112-1.42.312-2.066L2 7.754a10.042 10.042 0 000 8.492l1.812-1.18zM7.754 2l1.266 1.812A7.948 7.948 0 0112 3.5c.737 0 1.42.112 2.066.312L15.246 2a10.042 10.042 0 00-7.492 0z"/></svg>
-      </div>
-      <div class="product-tag">Dedektör</div>
-      <div class="product-name">ozDNA Detect API</div>
-      <div class="product-desc">Segment düzeyinde AI dedeksiyonu, dikeye özel kalibrasyon. Olasılık skorları, güven katmanları ve vurgulanmış segmentler döner.</div>
-      <ul class="product-detail">
-        <li>Akademik, hukuk, finans dikey modları</li>
-        <li>Türkçe ve çok dilli destek</li>
-        <li>Segment düzeyinde ısı haritası çıktısı</li>
-        <li>Asenkron işleme için webhook callback</li>
-      </ul>
-    </div>
-    <div class="product-card">
-      <div class="product-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a5 5 0 015 5v3a5 5 0 01-10 0V7a5 5 0 015-5z"/><path d="M15.536 17.536A5 5 0 007 21h10a5 5 0 00-1.464-3.464z"/><path stroke-linecap="round" d="M19 7l2-2M19 12h2M17.657 16.243l1.414 1.414"/></svg>
-      </div>
-      <div class="product-tag">Humanizer</div>
-      <div class="product-name">ozDNA Humanize API</div>
-      <div class="product-desc">AI üretimi metni doğal, dedektör dirençli prose'ye dönüştürür. Anlamı korur, üslubu uyarlar, AI olasılık skorunu eşik altına indirir.</div>
-      <ul class="product-detail">
-        <li>Stil ve register koruması</li>
-        <li>Önde gelen dedektör benchmark'larını geçer</li>
-        <li>Yapılandırılabilir yoğunluk seviyeleri</li>
-        <li>Toplu (batch) işleme desteği</li>
-      </ul>
+<section class="problem-band" id="problem">
+  <div class="problem-inner">
+    <div class="section-label">The problem</div>
+    <div class="section-title">Production economics break<br>before product-market fit does.</div>
+    <p class="section-desc">Most vertical AI startups are not failing because they cannot build demos. They are failing because API bills, RAG drift, and token pricing outpace revenue.</p>
+    <div class="problem-grid">
+      <article class="problem-card">
+        <h3>API bills scale faster than revenue</h3>
+        <p>Every active user destroys margin when every workflow calls the most expensive model.</p>
+      </article>
+      <article class="problem-card">
+        <h3>RAG works in demos, fails in production</h3>
+        <p>Retrieval drift, stale ingestion, and weak evals show up only after launch.</p>
+      </article>
+      <article class="problem-card">
+        <h3>Generic agents lack domain depth</h3>
+        <p>Investors see a thin wrapper — not a vertical AI product with defensible workflow logic.</p>
+      </article>
+      <article class="problem-card">
+        <h3>Token pricing confuses users</h3>
+        <p>Credit systems that do not map to real infrastructure consumption erode gross margin.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<section class="how" id="entegrasyon">
-  <div class="section-label">Entegrasyon</div>
-  <div class="section-title">Kayıttan production'a<br>dakikalar içinde.</div>
-  <div class="flow">
-    <div class="flow-step">
-      <div class="step-num">01 — Auth</div>
-      <div class="step-title">API anahtarı oluştur</div>
-      <div class="step-desc">Dashboard'dan proje oluştur, kapsamlı API anahtarı al. Bearer token — SDK gerekmez.</div>
-    </div>
-    <div class="flow-step">
-      <div class="step-num">02 — POST</div>
-      <div class="step-title">İlk isteğini gönder</div>
-      <div class="step-desc">/v1/detect veya /v1/humanize endpoint'ine metin payload'ı gönder. JSON in, JSON out. OpenAPI 3.1 spec dahil.</div>
-    </div>
-    <div class="flow-step">
-      <div class="step-num">03 — Scale</div>
-      <div class="step-title">Entegre et &amp; izle</div>
-      <div class="step-desc">Kullanım, maliyet ve doğruluk metriklerini dashboard'dan takip et. Hacim eşiklerinin üzerinde otomatik indirimler uygulanır.</div>
-    </div>
+<section class="pillars" id="pillars">
+  <div class="section-label">The platform</div>
+  <div class="section-title">Five pillars. One<br>infrastructure layer.</div>
+  <p class="section-desc">Not another LLM gateway — a vertical AI infrastructure layer for RAG governance, cost optimization, and token economics.</p>
+  <div class="pillar-grid">
+    <article class="pillar-card" id="pillar-cost">
+      <div class="pillar-num">01</div>
+      <h3>Cost Control</h3>
+      <p class="pillar-audience">Founders · CEOs · CTOs</p>
+      <p>AI infra should not scale faster than revenue. Route tasks to the cheapest capable model and track cost per workflow, user, and account.</p>
+      <a href="/docs/" class="pillar-link">Learn more →</a>
+    </article>
+    <article class="pillar-card" id="pillar-rag">
+      <div class="pillar-num">02</div>
+      <h3>Production RAG Reliability</h3>
+      <p class="pillar-audience">ML Engineers · AI Engineers</p>
+      <p>RAG failure is an operations problem. Connect retrieval quality, freshness, evals, and cost controls into one operating layer.</p>
+      <a href="/docs/" class="pillar-link">Learn more →</a>
+    </article>
+    <article class="pillar-card" id="pillar-vertical">
+      <div class="pillar-num">03</div>
+      <h3>Vertical AI Differentiation</h3>
+      <p class="pillar-audience">Founders · Investors</p>
+      <p>Defensibility comes from workflow depth, not chatbot UI. Build agents that understand the operating logic of a specific business.</p>
+      <a href="#built-on" class="pillar-link">Learn more →</a>
+    </article>
+    <article class="pillar-card" id="pillar-margin">
+      <div class="pillar-num">04</div>
+      <h3>Post-Subsidy Margin Resilience</h3>
+      <p class="pillar-audience">Investors · CFOs</p>
+      <p>If gross margin depends on today's API pricing staying flat, your AI product has hidden platform risk.</p>
+      <a href="/docs/" class="pillar-link">Learn more →</a>
+    </article>
+    <article class="pillar-card featured" id="pillar-tokenomics">
+      <div class="pillar-num">05</div>
+      <h3>Tokenomics &amp; Pricing Design</h3>
+      <p class="pillar-audience">Product · Monetization</p>
+      <p>Map user-facing credits to real token burn, workflow cost, and margin design — not guesses wrapped in pricing pages.</p>
+      <a href="/docs/" class="pillar-link">Learn more →</a>
+    </article>
   </div>
 </section>
 
-<section class="pricing" id="fiyatlandirma">
-  <div class="section-label">Fiyatlandırma</div>
-  <div class="section-title">Şeffaf, kullanım bazlı.</div>
-  <div class="plan-grid">
-    <div class="plan">
-      <div class="plan-name">Starter</div>
-      <div class="plan-price">$49<span>/ay</span></div>
-      <div class="plan-desc">Geliştirme veya düşük hacimli production ortamında API'yi değerlendiren ekipler için.</div>
-      <div class="plan-features">
-        <div class="plan-feature">5.000 API çağrısı / ay</div>
-        <div class="plan-feature">Detect + Humanize endpoint'leri</div>
-        <div class="plan-feature">Standart yanıt SLA'sı</div>
-        <div class="plan-feature">E-posta desteği</div>
-      </div>
-      <a href="#bekleme-listesi" class="plan-btn">Başla</a>
-    </div>
-    <div class="plan featured">
-      <div class="plan-name">Growth</div>
-      <div class="plan-price">$249<span>/ay</span></div>
-      <div class="plan-desc">Tutarlı API talebi ve entegrasyon SLA gereksinimleri olan production ekipleri için.</div>
-      <div class="plan-features">
-        <div class="plan-feature">50.000 API çağrısı / ay</div>
-        <div class="plan-feature">Dikey mod seçimi</div>
-        <div class="plan-feature">Asenkron batch işleme</div>
-        <div class="plan-feature">Webhook callback'leri</div>
-        <div class="plan-feature">Öncelikli destek</div>
-      </div>
-      <a href="#bekleme-listesi" class="plan-btn">Başla</a>
-    </div>
-    <div class="plan">
-      <div class="plan-name">Enterprise</div>
-      <div class="plan-price">Özel</div>
-      <div class="plan-desc">Özel altyapı, dikeye özel model ayarı ve white-label lisanslama seçenekleri.</div>
-      <div class="plan-features">
-        <div class="plan-feature">Sınırsız hacim</div>
-        <div class="plan-feature">Özel dikey modeller</div>
-        <div class="plan-feature">On-premise veya private cloud</div>
-        <div class="plan-feature">White-label API</div>
-        <div class="plan-feature">Özel SLA &amp; CSM</div>
-      </div>
-      <a href="mailto:hello@ozdna.com" class="plan-btn">Bize ulaşın</a>
-    </div>
-  </div>
-</section>
-
-<section class="ecosystem" id="ekosistem">
-  <div class="section-label">Ekosistem</div>
-  <div class="section-title">OzDNA GPT üzerine<br>inşa edildi.</div>
-  <p class="section-desc">Findbelow Ventures büyüme stratejisi dört katmanlı. ozdna.com B2B katmanı; ürünler aynı motoru farklı segmentlerde çalıştırır.</p>
-  <div class="eco-grid">
+<section class="ecosystem built-on" id="built-on">
+  <div class="section-label">Built on ozDNA</div>
+  <div class="section-title">We ship our own vertical AI<br>products on this stack.</div>
+  <p class="section-desc">The strongest proof is production — not a slide deck. Our academic and RegTech products run on ozDNA GPT before we sell the infrastructure layer externally.</p>
+  <div class="eco-grid eco-grid-2">
     <a href="https://tezmakale.com" class="eco-card" target="_blank" rel="noopener">
-      <span class="eco-status live">Canlı · TR</span>
-      <div class="eco-name">tezmakale.com</div>
-      <div class="eco-segment">B2C — Türkiye öğrencileri</div>
-      <p class="eco-desc">Panik çözücü: AI dedektörü, intihal kontrolü, akademik danışmanlık. OzDNA GPT ile production'da çalışıyor.</p>
+      <span class="eco-status live">Live · TR</span>
+      <div class="eco-name">TezMakale</div>
+      <div class="eco-segment">Academic AI · Turkey</div>
+      <p class="eco-desc">AI detection, humanizer, and academic workflows for students under deadline pressure. Live production workload on ozDNA infrastructure — token limits and usage economics in the wild.</p>
     </a>
     <article class="eco-card">
       <span class="eco-status soon">Phase 2</span>
-      <div class="eco-name">OzDNA Academic</div>
-      <div class="eco-segment">B2C/B2B — Global</div>
-      <p class="eco-desc">Akademik kalite partneri: AI dedektörü + humanizer, kaynak doğrulama, akademik editörlük. TR + EN dil desteği.</p>
-    </article>
-    <article class="eco-card">
-      <span class="eco-status soon">Phase 2–3</span>
       <div class="eco-name">OzDNA Comply</div>
-      <div class="eco-segment">B2B — TR / AB RegTech</div>
-      <p class="eco-desc">5549, BDDK, MASAK, KVKK mevzuat izleme ve analiz. Fintech, EMI/PSP ve hukuk firmaları için uyum katmanı.</p>
+      <div class="eco-segment">RegTech · TR / EU</div>
+      <p class="eco-desc">Regulatory monitoring for 5549, BDDK, MASAK, and KVKK. RAG-heavy compliance layer for fintech, EMI/PSP, and law firms — domain depth a generic gateway cannot replicate.</p>
     </article>
+  </div>
+  <p class="built-on-note">OzDNA Academic (global academic quality) launches Phase 2. <a href="https://tezmakale.com" target="_blank" rel="noopener">tezmakale.com</a> is the live reference today.</p>
+</section>
+
+<section class="campaign-band" id="campaign">
+  <div class="campaign-inner">
+    <div class="section-label">GPU Bill Bodyguard</div>
+    <blockquote class="campaign-quote">Control token burn before it becomes structural.</blockquote>
+    <p class="campaign-desc">Join the early access list for founders and CTOs who need LLM cost optimization and production RAG governance before scale makes it painful.</p>
   </div>
 </section>
 
-<section class="cta-section" id="bekleme-listesi">
-  <h2>Entegrasyona hazır mısınız?</h2>
-  <p>API erişimi şu an davet usulü. Bekleme listesine katılın veya use case'inizi doğrudan paylaşın — fintech, hukuk ve üniversite kurumları öncelikli.</p>
+<section class="cta-section" id="waitlist">
+  <h2>Get early access</h2>
+  <p>Private beta — invite only. Vertical AI founders, ML engineers, and infrastructure-conscious CTOs get priority.</p>
 
   <form class="waitlist-form" name="waitlist" method="POST" action="/success" data-netlify="true" netlify-honeypot="bot-field">
     <input type="hidden" name="form-name" value="waitlist">
-    <p hidden><label>Boş bırakın: <input name="bot-field"></label></p>
+    <p hidden><label>Leave empty: <input name="bot-field"></label></p>
     <div>
-      <label for="email">E-posta</label>
-      <input type="email" id="email" name="email" placeholder="siz@sirket.com" required>
+      <label for="email">Work email</label>
+      <input type="email" id="email" name="email" placeholder="you@company.com" required>
     </div>
     <div>
-      <label for="company">Şirket / Kurum</label>
-      <input type="text" id="company" name="company" placeholder="Şirket adı">
+      <label for="company">Company</label>
+      <input type="text" id="company" name="company" placeholder="Company name">
     </div>
     <div>
-      <label for="use-case">Kullanım alanı</label>
-      <select id="use-case" name="use-case">
-        <option value="">Seçin…</option>
-        <option value="fintech">Fintech / Finans</option>
-        <option value="legal">Hukuk</option>
-        <option value="university">Üniversite / Kurum</option>
-        <option value="edtech">EdTech / Akademik</option>
-        <option value="other">Diğer</option>
+      <label for="role">Role</label>
+      <select id="role" name="role">
+        <option value="">Select…</option>
+        <option value="founder">Founder / CEO</option>
+        <option value="cto">CTO / ML Engineer</option>
+        <option value="product">Product / Monetization</option>
+        <option value="investor">Investor</option>
+        <option value="other">Other</option>
       </select>
     </div>
-    <button type="submit" class="btn-primary">Bekleme Listesine Katıl</button>
+    <button type="submit" class="btn-primary">Join Waitlist</button>
   </form>
   <div class="form-success" id="form-success" role="status">
-    Teşekkürler — listeye eklendiniz. API erişimi açıldığında sizinle iletişime geçeceğiz.
+    Thanks — you're on the list. We'll reach out when early access opens.
   </div>
 
   <div class="cta-actions">
-    <a href="mailto:hello@ozdna.com" class="btn-ghost">Satış ile İletişim →</a>
+    <a href="/docs/" class="btn-ghost">Explore API Docs →</a>
+    <a href="mailto:hello@ozdna.com" class="btn-ghost">Partnerships →</a>
   </div>
 </section>
 
 <footer>
   <div class="footer-brand">
-    <a href="/" class="logo" aria-label="OZDNA">
-      <img src="assets/logo.svg" alt="OZDNA" width="103" height="24" class="logo-img">
+    <a href="/" class="logo" aria-label="ozDNA">
+      <img src="assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
     </a>
-    <p class="footer-tagline">Findbelow Ventures · B2B AI dedeksiyon &amp; humanizasyon altyapısı</p>
+    <p class="footer-tagline">Findbelow Ventures · Vertical AI infrastructure (PaaS)</p>
   </div>
   <div class="footer-links">
-    <a href="#">Gizlilik</a>
+    <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>
+    <a href="#">Privacy</a>
     <a href="#">KVKK</a>
-    <a href="/docs/">Dokümantasyon</a>
+    <a href="/docs/">Documentation</a>
     <a href="/llms.txt">AI / llms.txt</a>
-    <a href="mailto:hello@ozdna.com">İletişim</a>
+    <a href="mailto:hello@ozdna.com">Contact</a>
   </div>
   <p>© 2026 Findbelow Ventures</p>
 </footer>

@@ -21,5 +21,5 @@ if (params.get('submitted') === 'true') {
   const success = document.getElementById('form-success');
   form?.style.setProperty('display', 'none');
   success?.classList.add('visible');
-  history.replaceState({}, '', window.location.pathname + '#bekleme-listesi');
+  history.replaceState({}, '', window.location.pathname + '#waitlist');
 }
