@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog — ozDNA</title>
-<meta name="description" content="Problem-aware guides for vertical AI founders: LLM API costs, inference routing, margin risk, and what investors see beyond thin wrappers.">
+<meta name="description" content="Guides for vertical AI founders: LLM cost optimization, production RAG, token economics, model routing, and margin resilience. GPU Bill Bodyguard content series.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -32,42 +32,79 @@
 <header class="blog-hero">
   <div class="section-label">Blog</div>
   <h1>Founder notes on AI infrastructure economics</h1>
-  <p>Problem-aware writing for teams where API bills, RAG drift, and token pricing show up before product-market fit does. Part of the GPU Bill Bodyguard content series.</p>
+  <p>Long-tail guides and problem-aware essays for teams where API bills, RAG drift, and token pricing show up before product-market fit. GPU Bill Bodyguard content series.</p>
 </header>
 
-<div class="blog-list">
-  <a href="/blog/when-every-active-user-destroys-your-margin/" class="blog-card">
-    <div class="blog-card-meta">
-      <span class="blog-pillar">Pillar 1 · Cost Control</span>
-      <span class="blog-date">June 2026</span>
-    </div>
-    <h2>When Every Active User Destroys Your Margin</h2>
-    <p>Why AI API bills scale faster than revenue — and what to measure before you blame pricing or churn.</p>
-  </a>
-  <a href="/blog/making-inference-cost-measurable-and-routable/" class="blog-card">
-    <div class="blog-card-meta">
-      <span class="blog-pillar">Pillar 1 · Cost Control</span>
-      <span class="blog-date">June 2026</span>
-    </div>
-    <h2>Making Inference Cost Measurable and Routable</h2>
-    <p>GPU and API spend feel unpredictable until you break cost down by workflow, model, and user — then route accordingly.</p>
-  </a>
-  <a href="/blog/vertical-ai-vs-thin-wrapper/" class="blog-card">
-    <div class="blog-card-meta">
-      <span class="blog-pillar">Pillar 3 · Vertical AI</span>
-      <span class="blog-date">June 2026</span>
-    </div>
-    <h2>Vertical AI vs. Thin Wrapper: What Investors Actually See</h2>
-    <p>The difference between a demo chatbot and a product with domain depth — in diligence language, not pitch-deck adjectives.</p>
-  </a>
-  <a href="/blog/hidden-platform-risk-api-pricing/" class="blog-card">
-    <div class="blog-card-meta">
-      <span class="blog-pillar">Pillar 4 · Margin Resilience</span>
-      <span class="blog-date">June 2026</span>
-    </div>
-    <h2>Hidden Platform Risk: When API Pricing Changes</h2>
-    <p>If gross margin depends on today's LLM list prices staying flat, you have platform risk — not a temporary cost spike.</p>
-  </a>
+<div class="blog-list-section">
+  <div class="section-label">Long-tail guides</div>
+  <div class="blog-list">
+    <a href="/blog/how-to-reduce-llm-api-costs/" class="blog-card">
+      <div class="blog-card-meta"><span class="blog-pillar">Pillar 1</span><span class="blog-date">June 2026</span></div>
+      <h2>How to Reduce LLM API Costs Without Hurting Output Quality</h2>
+      <p>Eval-gated downgrades, caching, and agent loop discipline — surgical cost cuts, not blanket model swaps.</p>
+    </a>
+    <a href="/blog/production-rag-best-practices/" class="blog-card">
+      <div class="blog-card-meta"><span class="blog-pillar">Pillar 2</span><span class="blog-date">June 2026</span></div>
+      <h2>Production RAG Best Practices: What Breaks After Launch</h2>
+      <p>Ingestion freshness, eval coverage, retrieval governance, and cost per query.</p>
+    </a>
+    <a href="/blog/tracking-llm-cost-per-request/" class="blog-card">
+      <div class="blog-card-meta"><span class="blog-pillar">Pillar 1 &amp; 5</span><span class="blog-date">June 2026</span></div>
+      <h2>Tracking LLM Cost Per Request, User, and Workflow</h2>
+      <p>Three attribution layers that make token cost management and pricing honest.</p>
+    </a>
+    <a href="/blog/why-rag-fails-in-production/" class="blog-card">
+      <div class="blog-card-meta"><span class="blog-pillar">Pillar 2</span><span class="blog-date">June 2026</span></div>
+      <h2>Why RAG Works in Demos but Fails in Production</h2>
+      <p>Stale corpus, distribution shift, missing evals, and agent loops — gradual failure modes.</p>
+    </a>
+    <a href="/blog/token-economics-for-ai-saas/" class="blog-card">
+      <div class="blog-card-meta"><span class="blog-pillar">Pillar 5</span><span class="blog-date">June 2026</span></div>
+      <h2>Token Economics for AI SaaS: Mapping Credits to Real Cost</h2>
+      <p>Job-based credits, conversion tables, and margin-safe plan design.</p>
+    </a>
+    <a href="/blog/choosing-cheapest-capable-llm/" class="blog-card">
+      <div class="blog-card-meta"><span class="blog-pillar">Pillar 1</span><span class="blog-date">June 2026</span></div>
+      <h2>Choosing the Cheapest Capable LLM for Each Task</h2>
+      <p>Capability tiers, eval gates, and when premium models are non-negotiable.</p>
+    </a>
+    <a href="/blog/protecting-gross-margin-ai-saas/" class="blog-card">
+      <div class="blog-card-meta"><span class="blog-pillar">Pillar 4</span><span class="blog-date">June 2026</span></div>
+      <h2>Protecting Gross Margin in AI-Native SaaS</h2>
+      <p>Cohort margin, sales alignment, and infra before discounting.</p>
+    </a>
+    <a href="/blog/model-routing-cost-efficiency/" class="blog-card">
+      <div class="blog-card-meta"><span class="blog-pillar">Pillar 1</span><span class="blog-date">June 2026</span></div>
+      <h2>Model Routing for Cost Efficiency: A Practical Guide</h2>
+      <p>Cascade, step-static, and intent routing with observability.</p>
+    </a>
+  </div>
+</div>
+
+<div class="blog-list-section">
+  <div class="section-label">Problem-aware</div>
+  <div class="blog-list">
+    <a href="/blog/when-every-active-user-destroys-your-margin/" class="blog-card">
+      <div class="blog-card-meta"><span class="blog-pillar">Pillar 1</span><span class="blog-date">June 2026</span></div>
+      <h2>When Every Active User Destroys Your Margin</h2>
+      <p>Why AI API bills scale faster than revenue — and what to measure first.</p>
+    </a>
+    <a href="/blog/making-inference-cost-measurable-and-routable/" class="blog-card">
+      <div class="blog-card-meta"><span class="blog-pillar">Pillar 1</span><span class="blog-date">June 2026</span></div>
+      <h2>Making Inference Cost Measurable and Routable</h2>
+      <p>GPU and API spend until you break cost down by workflow, model, and user.</p>
+    </a>
+    <a href="/blog/vertical-ai-vs-thin-wrapper/" class="blog-card">
+      <div class="blog-card-meta"><span class="blog-pillar">Pillar 3</span><span class="blog-date">June 2026</span></div>
+      <h2>Vertical AI vs. Thin Wrapper: What Investors Actually See</h2>
+      <p>Workflow depth vs. chat UI — in diligence language.</p>
+    </a>
+    <a href="/blog/hidden-platform-risk-api-pricing/" class="blog-card">
+      <div class="blog-card-meta"><span class="blog-pillar">Pillar 4</span><span class="blog-date">June 2026</span></div>
+      <h2>Hidden Platform Risk: When API Pricing Changes</h2>
+      <p>LLM pricing risk as structural COGS — not a one-time invoice surprise.</p>
+    </a>
+  </div>
 </div>
 
 <footer>

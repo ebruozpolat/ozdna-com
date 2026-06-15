@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Token Economics for AI SaaS: Mapping Credits to Real Cost — ozDNA Blog</title>
+<meta name="description" content="Token economics for AI SaaS: how to map user-facing credits to real LLM burn, workflow cost, and gross margin — without guessing on your pricing page.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+<link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+<nav>
+  <a href="/" class="logo" aria-label="ozDNA home"><img src="../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img"></a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nav-links">
+    <a href="/#pillars">Platform</a><a href="/blog/" class="active">Blog</a><a href="/docs/">Docs</a>
+    <a href="/#waitlist" class="nav-cta">Get Early Access</a>
+  </div>
+</nav>
+<article class="blog-article">
+  <a href="/blog/" class="blog-back">← All posts</a>
+  <div class="blog-meta"><span class="blog-pillar">Pillar 5 · Tokenomics</span><span class="blog-date">June 2026 · 8 min read</span></div>
+  <h1>Token Economics for AI SaaS: Mapping Credits to Real Cost</h1>
+  <p class="blog-lead">Most AI credit systems are guesses wrapped in pricing pages. Sustainable token economics connect what users consume to what infrastructure burns — per workflow, not per vibe.</p>
+
+  <p><strong>Token economics for AI SaaS</strong> is where product, finance, and engineering either align or collide. Users want simple plans; COGS wants honesty about variable inference. The bridge is a credit model indexed to measurable work units.</p>
+
+  <h2>Start from workflows, not tokens in the UI</h2>
+  <p>Users should not think in tokens. They should think in jobs: scan document, generate draft, run compliance check. Behind each job, you maintain an internal token budget derived from <a href="/blog/tracking-llm-cost-per-request/">production telemetry</a>.</p>
+
+  <h2>Build a conversion table</h2>
+  <p>For each workflow, record median and p90 token burn over 30 days. Add provider cost per token at current list prices. That yields <em>cost per job</em>. Credits per job = f(cost, target margin, plan positioning). Update the table when models or prompts change — not once a year.</p>
+
+  <h2>Separate cheap and expensive surfaces</h2>
+  <p>Do not pool credits blindly. A lightweight classification step and a full RAG synthesis have different economics. TezMakale-style separation — different daily limits per surface — prevents power users from draining margin through one "unlimited" feature.</p>
+
+  <h2>Design for elasticity</h2>
+  <ul>
+    <li>Overage pricing tied to credit definition, not punitive surprise.</li>
+    <li>Graceful degradation when credits exhaust (queue, smaller model, summary-only mode).</li>
+    <li>Enterprise: custom conversion tables per integration — some clients trigger 10× retrieval.</li>
+  </ul>
+
+  <h2>Communicate honestly</h2>
+  <p>"Unlimited AI" is a margin trap unless limits are enforced server-side with real cost tracking. Better: transparent job-based limits users understand. Academic and compliance buyers often prefer predictability over fake unlimited.</p>
+
+  <aside class="blog-proof">
+    <h3>Built on ozDNA</h3>
+    <p>Live <strong>token cost management</strong> on <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a> — per-feature limits, per-analysis word caps, daily token dashboards — is our lab for external infrastructure pricing.</p>
+  </aside>
+
+  <p>Related: <a href="/blog/protecting-gross-margin-ai-saas/">Protecting Gross Margin in AI-Native SaaS</a></p>
+
+  <div class="blog-cta-box">
+    <p>Connect credits to real burn — ozDNA tokenomics layer for vertical AI SaaS.</p>
+    <a href="/#waitlist" class="btn-primary">Get Early Access</a>
+  </div>
+</article>
+<footer>
+  <div class="footer-brand"><a href="/" class="logo"><img src="../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img"></a><p class="footer-tagline">Findbelow Ventures · Vertical AI infrastructure (PaaS)</p></div>
+  <div class="footer-links"><a href="/blog/">Blog</a><a href="/docs/">Documentation</a><a href="mailto:hello@ozdna.com">Contact</a></div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+<script src="../../main.js"></script>
+</body>
+</html>

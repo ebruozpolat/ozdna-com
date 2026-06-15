@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tracking LLM Cost Per Request, User, and Workflow — ozDNA Blog</title>
+<meta name="description" content="LLM cost per request tracking at three levels: request, user, and workflow. Schema, dashboards, and how token cost management maps to SaaS pricing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+<link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+<nav>
+  <a href="/" class="logo" aria-label="ozDNA home"><img src="../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img"></a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nav-links">
+    <a href="/#pillars">Platform</a><a href="/blog/" class="active">Blog</a><a href="/docs/">Docs</a>
+    <a href="/#waitlist" class="nav-cta">Get Early Access</a>
+  </div>
+</nav>
+<article class="blog-article">
+  <a href="/blog/" class="blog-back">← All posts</a>
+  <div class="blog-meta"><span class="blog-pillar">Pillar 1 &amp; 5 · Cost &amp; Tokenomics</span><span class="blog-date">June 2026 · 7 min read</span></div>
+  <h1>Tracking LLM Cost Per Request, User, and Workflow</h1>
+  <p class="blog-lead">Provider dashboards show aggregate spend. Product teams need attribution: which request, which user, which job — so pricing and routing decisions are grounded in data.</p>
+
+  <p><strong>LLM cost per request tracking</strong> is the foundation of <strong>token cost management</strong>. Without it, credits on your pricing page are fiction and routing experiments are blind.</p>
+
+  <h2>Level 1: Per request</h2>
+  <p>Every inference event logs: <code>request_id</code>, <code>model</code>, <code>tokens_in</code>, <code>tokens_out</code>, <code>latency_ms</code>, <code>status</code>. Attach parent <code>trace_id</code> when one user action fans out to retrieve + classify + generate. This is minimum viable observability — gateways often give you this layer.</p>
+
+  <h2>Level 2: Per user / account</h2>
+  <p>Roll up by <code>user_id</code> for B2C, <code>account_id</code> for B2B. You will find power-law distribution: top 5% of accounts drive disproportionate burn. That insight drives fair-use policies, sales qualification, and enterprise pricing — not angry surprises at renewal.</p>
+
+  <h2>Level 3: Per workflow</h2>
+  <p>The layer gateways miss. Map events to <code>workflow_id</code> — the job the user thinks they bought. Example workflows: <em>compliance_delta_report</em>, <em>thesis_ai_scan</em>, <em>support_ticket_draft</em>. Margin lives here. If one workflow is underwater, fix routing for that path only.</p>
+
+  <h2>From logs to decisions</h2>
+  <ol>
+    <li>Weekly: top 10 workflows by spend and by spend-per-successful-outcome.</li>
+    <li>Monthly: cohort margin — new users vs. retained, plan tier vs. actual burn.</li>
+    <li>Per release: did prompt or model change shift tokens/outcome?</li>
+  </ol>
+  <p>Feed results into <a href="/blog/token-economics-for-ai-saas/">token economics</a> — credits should trace back to these rollups.</p>
+
+  <aside class="blog-proof">
+    <h3>Built on ozDNA</h3>
+    <p><a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a> tracks daily token usage per product surface — detection vs. humanization — because blended "AI usage" hides which feature eats margin.</p>
+  </aside>
+
+  <p>Related: <a href="/blog/making-inference-cost-measurable-and-routable/">Making Inference Cost Measurable and Routable</a></p>
+
+  <div class="blog-cta-box">
+    <p>Cost per workflow, not just per invoice — ozDNA early access.</p>
+    <a href="/#waitlist" class="btn-primary">Get Early Access</a>
+  </div>
+</article>
+<footer>
+  <div class="footer-brand"><a href="/" class="logo"><img src="../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img"></a><p class="footer-tagline">Findbelow Ventures · Vertical AI infrastructure (PaaS)</p></div>
+  <div class="footer-links"><a href="/blog/">Blog</a><a href="/docs/">Documentation</a><a href="mailto:hello@ozdna.com">Contact</a></div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+<script src="../../main.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Choosing the Cheapest Capable LLM for Each Task — ozDNA Blog</title>
+<meta name="description" content="How to choose the cheapest LLM for production per task: eval-gated model selection, capability tiers, and when premium models are non-negotiable in vertical AI workflows.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+<link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+<nav>
+  <a href="/" class="logo" aria-label="ozDNA home"><img src="../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img"></a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nav-links">
+    <a href="/#pillars">Platform</a><a href="/blog/" class="active">Blog</a><a href="/docs/">Docs</a>
+    <a href="/#waitlist" class="nav-cta">Get Early Access</a>
+  </div>
+</nav>
+<article class="blog-article">
+  <a href="/blog/" class="blog-back">← All posts</a>
+  <div class="blog-meta"><span class="blog-pillar">Pillar 1 · Cost Control</span><span class="blog-date">June 2026 · 7 min read</span></div>
+  <h1>Choosing the Cheapest Capable LLM for Each Task</h1>
+  <p class="blog-lead">The cheapest LLM for production is not the lowest price per token globally. It is the lowest-cost model that clears the quality bar for this step in this vertical workflow.</p>
+
+  <p>Teams ask for the <strong>cheapest LLM for production</strong> as if one model wins. In real products, you run a portfolio: tiny models for routing and extraction, mid-tier for drafting, premium only where errors are expensive.</p>
+
+  <h2>Define the task, not the product</h2>
+  <p>Break workflows into steps with explicit outputs: classify intent, extract entities, retrieve, synthesize, validate format. Each step gets its own capability requirement — legal citation vs. emoji tone check are not the same bar.</p>
+
+  <h2>Run capability tiers with evals</h2>
+  <ol>
+    <li>Collect 50–200 production-shaped inputs per step (redacted).</li>
+    <li>Score outputs with automated checks + periodic human review.</li>
+    <li>Try models from cheapest tier upward until pass rate meets threshold.</li>
+    <li>Lock routing policy; re-run quarterly or on model/provider changes.</li>
+  </ol>
+
+  <h2>When premium is non-negotiable</h2>
+  <p>Pay for flagship models when: errors have regulatory or financial liability, long-context reasoning is essential with no retrieval substitute, or user trust collapses after one bad answer. Everything else is a routing optimization candidate.</p>
+
+  <h2>Avoid common mistakes</h2>
+  <ul>
+    <li>Using public MMLU scores for your compliance PDFs.</li>
+    <li>Downgrading generation before fixing retrieval.</li>
+    <li>Ignoring output token length — verbose cheap models can cost more than concise premium ones.</li>
+  </ul>
+
+  <aside class="blog-proof">
+    <h3>Built on ozDNA</h3>
+    <p>Our two-mode detector strategy on <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a> — fast client-side scan vs. deep server analysis — is the product expression of "cheapest capable" per user job, not one model for everything.</p>
+  </aside>
+
+  <p>Related: <a href="/blog/model-routing-cost-efficiency/">Model Routing for Cost Efficiency</a> · <a href="/blog/how-to-reduce-llm-api-costs/">How to Reduce LLM API Costs</a></p>
+
+  <div class="blog-cta-box">
+    <p>Eval-gated routing for vertical workflows — ozDNA early access.</p>
+    <a href="/#waitlist" class="btn-primary">Get Early Access</a>
+  </div>
+</article>
+<footer>
+  <div class="footer-brand"><a href="/" class="logo"><img src="../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img"></a><p class="footer-tagline">Findbelow Ventures · Vertical AI infrastructure (PaaS)</p></div>
+  <div class="footer-links"><a href="/blog/">Blog</a><a href="/docs/">Documentation</a><a href="mailto:hello@ozdna.com">Contact</a></div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+<script src="../../main.js"></script>
+</body>
+</html>

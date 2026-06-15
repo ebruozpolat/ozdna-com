@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Production RAG Best Practices: What Breaks After Launch — ozDNA Blog</title>
+<meta name="description" content="Production RAG best practices for teams past the demo: ingestion freshness, eval coverage, retrieval governance, and cost per query — what actually breaks after launch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+<link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+<nav>
+  <a href="/" class="logo" aria-label="ozDNA home"><img src="../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img"></a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nav-links">
+    <a href="/#pillars">Platform</a><a href="/blog/" class="active">Blog</a><a href="/docs/">Docs</a>
+    <a href="/#waitlist" class="nav-cta">Get Early Access</a>
+  </div>
+</nav>
+<article class="blog-article">
+  <a href="/blog/" class="blog-back">← All posts</a>
+  <div class="blog-meta"><span class="blog-pillar">Pillar 2 · Production RAG</span><span class="blog-date">June 2026 · 8 min read</span></div>
+  <h1>Production RAG Best Practices: What Breaks After Launch</h1>
+  <p class="blog-lead">Demo RAG is a notebook and a PDF. Production RAG is ingestion pipelines, stale documents, eval debt, and latency that spikes when retrieval fails twice and the model hallucinates confidently.</p>
+
+  <p><strong>Production RAG best practices</strong> are not "pick Pinecone vs. Weaviate." They are operational habits that keep <strong>production RAG reliability</strong> from decaying after the launch party.</p>
+
+  <h2>1. Treat ingestion as a product surface</h2>
+  <p>Documents change. Regulations update. Course materials revise. If ingestion is a one-off script, retrieval quality drifts silently. Schedule syncs per source tier, version chunks, and log <code>document_version</code> on every answer. Users blame the model; the bug is stale vectors.</p>
+
+  <h2>2. Eval per document type, not one golden set</h2>
+  <p>Compliance PDFs, chat logs, and academic papers fail differently. Maintain eval suites by type with metrics that matter: citation accuracy, refusal rate on missing context, latency p95. Run on every ingestion or prompt change.</p>
+
+  <h2>3. Retrieval governance beats bigger context windows</h2>
+  <ul>
+    <li>Source tiering — official gazette vs. commentary vs. user upload.</li>
+    <li>Confidence thresholds — abstain or escalate when similarity scores dip.</li>
+    <li>Chunk overlap discipline — redundant chunks inflate tokens without improving recall.</li>
+    <li>Human review queues for high-risk verticals (finance, law, health).</li>
+  </ul>
+
+  <h2>4. Observe cost per query, not just accuracy</h2>
+  <p>Failed retrieval often triggers bigger models, wider search, or multiple re-tries. Track tokens per successful answer. A "smarter" pipeline that needs three retrieval passes can be worse for margin than a simpler one with higher precision.</p>
+
+  <h2>5. Plan for failure modes explicitly</h2>
+  <p>Document what happens when: corpus is empty, OCR garbles a scan, user language mismatches indexed language, provider embedding API is down. Production teams need runbooks, not optimistic system prompts.</p>
+
+  <aside class="blog-proof">
+    <h3>Built on ozDNA</h3>
+    <p><a href="/#built-on">OzDNA Comply</a> is designed as monitoring + human approval (Model A) because RegTech cannot ship full autonomy on day one — <strong>RAG reliability</strong> and liability are the same problem.</p>
+  </aside>
+
+  <p>Related: <a href="/blog/why-rag-fails-in-production/">Why RAG Works in Demos but Fails in Production</a></p>
+
+  <div class="blog-cta-box">
+    <p>RAG governance for vertical AI — ozDNA connects retrieval, evals, and cost in one layer.</p>
+    <a href="/#waitlist" class="btn-primary">Get Early Access</a>
+  </div>
+</article>
+<footer>
+  <div class="footer-brand"><a href="/" class="logo"><img src="../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img"></a><p class="footer-tagline">Findbelow Ventures · Vertical AI infrastructure (PaaS)</p></div>
+  <div class="footer-links"><a href="/blog/">Blog</a><a href="/docs/">Documentation</a><a href="mailto:hello@ozdna.com">Contact</a></div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+<script src="../../main.js"></script>
+</body>
+</html>

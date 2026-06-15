@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why RAG Works in Demos but Fails in Production — ozDNA Blog</title>
+<meta name="description" content="Why RAG fails in production: stale data, distribution shift, missing evals, context waste, and agent loops. What demo success hides and how to fix production RAG reliability.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+<link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+<nav>
+  <a href="/" class="logo" aria-label="ozDNA home"><img src="../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img"></a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nav-links">
+    <a href="/#pillars">Platform</a><a href="/blog/" class="active">Blog</a><a href="/docs/">Docs</a>
+    <a href="/#waitlist" class="nav-cta">Get Early Access</a>
+  </div>
+</nav>
+<article class="blog-article">
+  <a href="/blog/" class="blog-back">← All posts</a>
+  <div class="blog-meta"><span class="blog-pillar">Pillar 2 · Production RAG</span><span class="blog-date">June 2026 · 7 min read</span></div>
+  <h1>Why RAG Works in Demos but Fails in Production</h1>
+  <p class="blog-lead">The demo corpus is clean, small, and static. Production is messy, growing, and adversarial. RAG does not "break" — your assumptions about the corpus do.</p>
+
+  <p>If you are asking <strong>why RAG fails in production</strong>, you already passed the easy part. The hard part is that failures are gradual: accuracy erodes over weeks until a customer email makes it undeniable.</p>
+
+  <h2>Failure mode 1: Stale or partial corpus</h2>
+  <p>Demos index ten perfect PDFs. Production adds hundreds of formats — scans, tables, appendices, bilingual sections. Chunks miss the sentence that mattered. The model fills gaps convincingly. Users call it hallucination; ops calls it ingestion debt.</p>
+
+  <h2>Failure mode 2: Query distribution shift</h2>
+  <p>Launch week queries match your eval set. Month three: edge cases, compound questions, users testing limits. Retrieval tuned for short FAQs fails on multi-hop questions unless you redesign chunking and routing.</p>
+
+  <h2>Failure mode 3: No production eval loop</h2>
+  <p>Offline benchmarks green; no sampled human review, no thumbs signal, no regression on document updates. <strong>Production RAG reliability</strong> requires continuous eval — not a one-time launch checklist.</p>
+
+  <h2>Failure mode 4: Context window as a crutch</h2>
+  <p>When retrieval misses, teams inject more chunks or paste entire documents. Latency and cost spike; signal-to-noise drops. Bigger windows mask bad retrieval instead of fixing it.</p>
+
+  <h2>Failure mode 5: Agent loops amplify errors</h2>
+  <p>Agent retrieves wrong chunk → model confident → tool call doubles down → expensive wrong answer. Agentic RAG needs circuit breakers: max steps, confidence gates, human escalation paths.</p>
+
+  <h2>What to do first</h2>
+  <p>Pick your worst production failure from support tickets. Trace: ingestion version, retrieved chunks, model, outcome. Fix that path before re-architecting the vector DB. See <a href="/blog/production-rag-best-practices/">production RAG best practices</a> for the operating checklist.</p>
+
+  <aside class="blog-proof">
+    <h3>Built on ozDNA</h3>
+    <p>Vertical products like <a href="/#built-on">OzDNA Comply</a> cannot treat RAG as a demo — regulatory citations need source tiers and human approval. That constraint is why we build governance into the stack, not bolted on after launch.</p>
+  </aside>
+
+  <div class="blog-cta-box">
+    <p>Production RAG for vertical AI — retrieval, evals, and cost in one layer. Early access open.</p>
+    <a href="/#waitlist" class="btn-primary">Get Early Access</a>
+  </div>
+</article>
+<footer>
+  <div class="footer-brand"><a href="/" class="logo"><img src="../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img"></a><p class="footer-tagline">Findbelow Ventures · Vertical AI infrastructure (PaaS)</p></div>
+  <div class="footer-links"><a href="/blog/">Blog</a><a href="/docs/">Documentation</a><a href="mailto:hello@ozdna.com">Contact</a></div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+<script src="../../main.js"></script>
+</body>
+</html>

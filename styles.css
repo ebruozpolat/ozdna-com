@@ -91,6 +91,9 @@ h1 .accent{color:var(--tq)}
 .blog-cta-box p{margin-bottom:1rem;font-size:0.9rem}
 .blog-back{display:inline-block;font-size:0.85rem;color:var(--txt-b);text-decoration:none;margin-bottom:1.5rem}
 .blog-back:hover{color:var(--tq)}
+.blog-list-section{max-width:760px;margin:0 auto;padding:0 3rem}
+.blog-list-section .section-label{margin-bottom:1rem}
+.blog-list-section .blog-list{padding:0 0 2rem}
 .section-label{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--tq);font-weight:600;margin-bottom:0.75rem}
 .section-title{font-size:2rem;font-weight:700;color:var(--txt);letter-spacing:-0.03em;margin-bottom:0.75rem}
 .section-desc{font-size:0.9rem;color:var(--txt-b);max-width:560px;line-height:1.65}
@@ -211,6 +214,6 @@ nav{position:relative}
   .docs-sidebar{position:static;max-height:none;padding:1.5rem;border-right:0;border-bottom:0.5px solid var(--bs);display:flex;flex-wrap:wrap;gap:0.5rem 1.25rem}
   .docs-sidebar h3{width:100%;margin:0 0 0.25rem}
   .docs-sidebar a{padding:0.25rem 0}
-  .blog-hero,.blog-list,.blog-article{padding-left:1.5rem;padding-right:1.5rem}
+  .blog-hero,.blog-list,.blog-article,.blog-list-section{padding-left:1.5rem;padding-right:1.5rem}
   .blog-hero h1{font-size:1.85rem}
   .blog-article h1{font-size:1.75rem}

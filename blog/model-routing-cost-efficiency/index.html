@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Model Routing for Cost Efficiency: A Practical Guide — ozDNA Blog</title>
+<meta name="description" content="Model routing for cost efficiency: policies, fallbacks, eval gates, and LLM routing patterns that reduce inference spend without breaking vertical AI workflows.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+<link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+<nav>
+  <a href="/" class="logo" aria-label="ozDNA home"><img src="../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img"></a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nav-links">
+    <a href="/#pillars">Platform</a><a href="/blog/" class="active">Blog</a><a href="/docs/">Docs</a>
+    <a href="/#waitlist" class="nav-cta">Get Early Access</a>
+  </div>
+</nav>
+<article class="blog-article">
+  <a href="/blog/" class="blog-back">← All posts</a>
+  <div class="blog-meta"><span class="blog-pillar">Pillar 1 · Cost Control</span><span class="blog-date">June 2026 · 8 min read</span></div>
+  <h1>Model Routing for Cost Efficiency: A Practical Guide</h1>
+  <p class="blog-lead">LLM routing is more than a proxy with a model list. Cost-efficient routing is a policy engine: which model, for which step, under which confidence — with measured fallbacks.</p>
+
+  <p><strong>Model routing for cost efficiency</strong> sits at the center of <strong>LLM cost optimization</strong>. Gateways give you pipes; routing gives you economics — if it is tied to evals and workflows.</p>
+
+  <h2>Routing patterns that work</h2>
+  <p><strong>Cascade routing.</strong> Try cheapest model first; escalate on low confidence or failed validation. Log every escalation — it is your roadmap for fine-tuning and retrieval fixes.</p>
+  <p><strong>Step-static routing.</strong> Fixed model per pipeline step after offline evals. Simpler to operate; good for regulated workflows with audit requirements.</p>
+  <p><strong>Intent-based routing.</strong> Classifier (small model) picks a downstream path. Cheap classification saves expensive generation misfires.</p>
+
+  <h2>Fallbacks are part of the cost model</h2>
+  <p>Provider outage fallback is standard. Cost fallback is often ignored: when premium is rate-limited, do you queue, degrade, or fail open? Each choice has margin and UX implications. Document and test them.</p>
+
+  <h2>Implement routing with observability</h2>
+  <p>Every routed call should emit: <code>policy_id</code>, <code>model_selected</code>, <code>escalation_reason</code>, <code>tokens</code>, <code>workflow_id</code>. Without this, you cannot prove routing saved money or debug quality regressions.</p>
+
+  <h2>Gateways vs. workflow routing</h2>
+  <p>LiteLLM, Portkey, and OpenRouter solve multi-provider access. Vertical teams still need routing logic above the gateway — rules that know your RAG confidence scores and domain validators. That layer is where ozDNA focuses: not replacing gateways, but operating above them for vertical AI.</p>
+
+  <aside class="blog-proof">
+    <h3>Built on ozDNA</h3>
+    <p>Routing policies tested on <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a> and <a href="/#built-on">Comply</a> workloads before external API — because <strong>LLM routing</strong> without domain evals is just random cost shuffle.</p>
+  </aside>
+
+  <p>Related: <a href="/blog/choosing-cheapest-capable-llm/">Choosing the Cheapest Capable LLM</a> · <a href="/blog/making-inference-cost-measurable-and-routable/">Making Inference Cost Measurable</a></p>
+
+  <div class="blog-cta-box">
+    <p>Workflow-level LLM routing — ozDNA early access for vertical AI teams.</p>
+    <a href="/#waitlist" class="btn-primary">Get Early Access</a>
+  </div>
+</article>
+<footer>
+  <div class="footer-brand"><a href="/" class="logo"><img src="../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img"></a><p class="footer-tagline">Findbelow Ventures · Vertical AI infrastructure (PaaS)</p></div>
+  <div class="footer-links"><a href="/blog/">Blog</a><a href="/docs/">Documentation</a><a href="mailto:hello@ozdna.com">Contact</a></div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+<script src="../../main.js"></script>
+</body>
+</html>

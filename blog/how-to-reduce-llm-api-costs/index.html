@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Reduce LLM API Costs Without Hurting Output Quality — ozDNA Blog</title>
+<meta name="description" content="Practical steps to reduce LLM API costs: per-step routing, caching, prompt discipline, and eval-gated model downgrades — without sacrificing the outcomes users pay for.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+<link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+<nav>
+  <a href="/" class="logo" aria-label="ozDNA home"><img src="../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img"></a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nav-links">
+    <a href="/#pillars">Platform</a><a href="/blog/" class="active">Blog</a><a href="/docs/">Docs</a>
+    <a href="/#waitlist" class="nav-cta">Get Early Access</a>
+  </div>
+</nav>
+<article class="blog-article">
+  <a href="/blog/" class="blog-back">← All posts</a>
+  <div class="blog-meta"><span class="blog-pillar">Pillar 1 · Cost Control</span><span class="blog-date">June 2026 · 8 min read</span></div>
+  <h1>How to Reduce LLM API Costs Without Hurting Output Quality</h1>
+  <p class="blog-lead">Cutting LLM spend is not about using the smallest model everywhere. It is about knowing which steps in your workflow actually need premium intelligence — and which ones only need a label.</p>
+
+  <p>Teams searching <strong>how to reduce LLM API costs</strong> usually start in the wrong place: a cheaper model dropdown. That works until quality drops, support tickets rise, and you route everything back to the flagship model. Sustainable <strong>LLM cost optimization</strong> is surgical, not blanket.</p>
+
+  <h2>Step 1: Map cost to outcomes, not requests</h2>
+  <p>List the user-visible jobs your product completes: generate report, scan document, rewrite paragraph, answer compliance question. Tag every inference call with <code>workflow_id</code> and <code>step</code>. You will find that 2–3 steps dominate spend — often retrieval re-runs and open-ended generation, not the step you assumed.</p>
+
+  <h2>Step 2: Downgrade with eval gates, not hope</h2>
+  <p>For each high-volume step, build a small eval set from real production inputs (anonymized). Run candidate smaller models. Accept downgrade only when quality metrics stay above your bar — factual grounding, format compliance, user thumbs-down rate. This is how you choose the <strong>cheapest capable LLM</strong> per task without a public benchmark fantasy.</p>
+
+  <h2>Step 3: Stop paying twice for the same context</h2>
+  <ul>
+    <li><strong>Semantic caching</strong> for repeated or near-duplicate queries in support and compliance workflows.</li>
+    <li><strong>Prompt compression</strong> — system prompts that grew by committee are a silent token tax.</li>
+    <li><strong>Retrieval budgets</strong> — cap chunks injected per step; more context is not always more accuracy.</li>
+    <li><strong>Structured outputs</strong> — JSON mode reduces rambling completions that burn output tokens.</li>
+  </ul>
+
+  <h2>Step 4: Chain discipline for agentic flows</h2>
+  <p>Agent loops multiply cost linearly with iterations. Add hard ceilings: max tool calls per session, escalation only on low confidence, human handoff instead of infinite retry. Each avoided loop is margin returned.</p>
+
+  <h2>What not to do</h2>
+  <p>Do not promise "80% savings" without workflow-level proof. Do not slash quality on the step users cite in NPS. Do not optimize globally when one customer integration triggers 40% of your retrieval volume.</p>
+
+  <aside class="blog-proof">
+    <h3>Built on ozDNA</h3>
+    <p><a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a> separates detection and humanization limits because each step has different cost and quality bars — a live lesson in per-workflow economics, not blended "AI credits."</p>
+  </aside>
+
+  <p>Related: <a href="/blog/model-routing-cost-efficiency/">Model Routing for Cost Efficiency</a> · <a href="/blog/when-every-active-user-destroys-your-margin/">When Every Active User Destroys Your Margin</a></p>
+
+  <div class="blog-cta-box">
+    <p>Want routing and cost controls at the workflow layer? ozDNA early access for vertical AI teams.</p>
+    <a href="/#waitlist" class="btn-primary">Get Early Access</a>
+  </div>
+</article>
+<footer>
+  <div class="footer-brand"><a href="/" class="logo"><img src="../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img"></a><p class="footer-tagline">Findbelow Ventures · Vertical AI infrastructure (PaaS)</p></div>
+  <div class="footer-links"><a href="/blog/">Blog</a><a href="/docs/">Documentation</a><a href="mailto:hello@ozdna.com">Contact</a></div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+<script src="../../main.js"></script>
+</body>
+</html>

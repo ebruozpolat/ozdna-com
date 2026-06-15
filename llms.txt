@@ -26,7 +26,19 @@ Structured content for agents — prefer these files over scraping.
 - [Blog](https://ozdna.com/blog/): Problem-aware founder content (GPU Bill Bodyguard series)
 - [API docs](https://ozdna.com/docs/): Phase 2 preview
 
-## Blog (problem-aware — start here for SEO traffic)
+## Blog (GPU Bill Bodyguard series)
+
+### Long-tail guides
+- [How to Reduce LLM API Costs](https://ozdna.com/blog/how-to-reduce-llm-api-costs/)
+- [Production RAG Best Practices](https://ozdna.com/blog/production-rag-best-practices/)
+- [Tracking LLM Cost Per Request](https://ozdna.com/blog/tracking-llm-cost-per-request/)
+- [Why RAG Fails in Production](https://ozdna.com/blog/why-rag-fails-in-production/)
+- [Token Economics for AI SaaS](https://ozdna.com/blog/token-economics-for-ai-saas/)
+- [Choosing the Cheapest Capable LLM](https://ozdna.com/blog/choosing-cheapest-capable-llm/)
+- [Protecting Gross Margin in AI SaaS](https://ozdna.com/blog/protecting-gross-margin-ai-saas/)
+- [Model Routing for Cost Efficiency](https://ozdna.com/blog/model-routing-cost-efficiency/)
+
+### Problem-aware
 
 - [When Every Active User Destroys Your Margin](https://ozdna.com/blog/when-every-active-user-destroys-your-margin/): AI API bills vs revenue
 - [Making Inference Cost Measurable and Routable](https://ozdna.com/blog/making-inference-cost-measurable-and-routable/): GPU/API cost attribution
