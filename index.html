@@ -3,227 +3,225 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ozDNA — AI Cost Optimization Platform for Vertical AI</title>
-<meta name="description" content="ozDNA is an AI cost optimization platform for vertical AI startups. LLM cost optimization, production RAG reliability, model routing, and token cost management — built on real production workloads.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
-<link rel="icon" href="favicon-16.png" type="image/png" sizes="16x16">
-<link rel="shortcut icon" href="favicon.ico">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<meta name="theme-color" content="#080D12">
-<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM context">
-<link rel="stylesheet" href="styles.css">
+<title>ozdna — LLM infrastructure for vertical AI</title>
+<meta name="description" content="ozDNA is the infrastructure layer for vertical AI teams — reduce inference costs, stabilize production RAG, and design token economics that protect margins.">
+<meta property="og:title" content="ozdna — LLM infrastructure for vertical AI">
+<meta property="og:description" content="Lower inference costs, reliable RAG, and token economics that protect margins.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ozdna.com">
+<style>
+  :root{
+    --turq:#40E0D0;
+    --turq-light:#5FF3E3;
+    --turq-deep:#2BB8AC;
+    --ink:#0E1116;
+    --ink-soft:#161A20;
+    --muted:#7a8290;
+    --line:#222831;
+    --offwhite:#E8ECF1;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+    background:var(--ink);
+    color:var(--offwhite);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    overflow-x:hidden;
+  }
+  /* subtle helix/dna background accent */
+  .bg-accent{
+    position:fixed;
+    inset:0;
+    background:
+      radial-gradient(600px circle at 80% 10%, rgba(64,224,208,0.10), transparent 60%),
+      radial-gradient(500px circle at 10% 90%, rgba(64,224,208,0.06), transparent 55%);
+    z-index:0;
+    pointer-events:none;
+  }
+  .wrap{
+    position:relative;
+    z-index:1;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    max-width:760px;
+    margin:0 auto;
+    padding:48px 28px;
+    width:100%;
+  }
+  header{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .mark{
+    width:44px;height:44px;border-radius:11px;
+    background:var(--turq);
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:22px;color:var(--ink);
+    letter-spacing:-1px;
+  }
+  .brand{font-size:22px;font-weight:700;letter-spacing:-0.5px;}
+  .brand .oz{color:var(--turq);}
+  main{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:64px 0;
+  }
+  .tag{
+    display:inline-block;
+    font-size:13px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--turq);
+    border:1px solid var(--line);
+    border-radius:100px;
+    padding:6px 14px;
+    margin-bottom:28px;
+    width:fit-content;
+  }
+  h1{
+    font-size:clamp(30px,5.5vw,50px);
+    line-height:1.12;
+    font-weight:800;
+    letter-spacing:-1.5px;
+    margin-bottom:22px;
+  }
+  h1 .accent{color:var(--turq);}
+  .sub{
+    font-size:clamp(16px,2.4vw,19px);
+    line-height:1.6;
+    color:var(--muted);
+    max-width:560px;
+    margin-bottom:40px;
+  }
+  .pillars{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:44px;
+  }
+  .pill{
+    font-size:13.5px;
+    color:var(--offwhite);
+    background:var(--ink-soft);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:9px 13px;
+  }
+  .pill b{color:var(--turq);font-weight:600;}
+  .cta{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  .field{
+    flex:1;
+    min-width:220px;
+    background:var(--ink-soft);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:14px 16px;
+    color:var(--offwhite);
+    font-size:15px;
+    outline:none;
+    transition:border-color .15s;
+  }
+  .field:focus{border-color:var(--turq);}
+  .btn{
+    background:var(--turq);
+    color:var(--ink);
+    font-weight:700;
+    font-size:15px;
+    border:none;
+    border-radius:10px;
+    padding:14px 24px;
+    cursor:pointer;
+    transition:background .15s,transform .05s;
+    white-space:nowrap;
+  }
+  .btn:hover{background:var(--turq-light);}
+  .btn:active{transform:translateY(1px);}
+  .note{
+    font-size:13px;
+    color:var(--muted);
+    margin-top:14px;
+    min-height:18px;
+  }
+  footer{
+    position:relative;
+    z-index:1;
+    border-top:1px solid var(--line);
+    padding:22px 28px;
+    text-align:center;
+    color:var(--muted);
+    font-size:13px;
+  }
+  footer a{color:var(--muted);text-decoration:none;}
+  footer a:hover{color:var(--turq);}
+</style>
 </head>
 <body>
+<div class="bg-accent"></div>
+<div class="wrap">
+  <header>
+    <div class="mark">oz</div>
+    <div class="brand"><span class="oz">oz</span>dna</div>
+  </header>
 
-<nav>
-  <a href="/" class="logo" aria-label="ozDNA home">
-    <img src="assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
-  </a>
-  <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="nav-links">
-    <a href="/#pillars">Platform</a>
-    <a href="/blog/">Blog</a>
-    <a href="/#built-on">Products</a>
-    <a href="/docs/">Docs</a>
-    <a href="#waitlist" class="nav-cta">Get Early Access</a>
-  </div>
-</nav>
+  <main>
+    <span class="tag">Coming soon</span>
+    <h1>The infrastructure layer for <span class="accent">vertical AI</span>.</h1>
+    <p class="sub">
+      ozDNA helps vertical AI teams ship production-grade agents with
+      lower inference costs, more reliable RAG, and token economics that
+      protect margins.
+    </p>
 
-<section class="hero">
-  <div>
-    <div class="hero-badge">B2B Infrastructure · Private Beta</div>
-    <h1>LLM Cost Optimization<br>for <span class="accent">Vertical AI</span> Teams</h1>
-    <p class="hero-sub">ozDNA helps vertical AI startups ship production-grade agents with lower inference costs, more reliable RAG, and token economics that protect margins.</p>
-    <div class="hero-actions">
-      <a href="#waitlist" class="btn-primary">Get Early Access</a>
-      <a href="/docs/" class="btn-ghost">Read the Docs →</a>
+    <div class="pillars">
+      <span class="pill"><b>Cost control</b> · token burn before it's structural</span>
+      <span class="pill"><b>Production RAG</b> · retrieval, freshness, evals as one layer</span>
+      <span class="pill"><b>Vertical depth</b> · workflow logic, not chatbot UI</span>
     </div>
-  </div>
-  <div class="terminal" aria-label="Infrastructure metrics example">
-    <div class="term-header">
-      <div class="term-dot" style="background:#FF5F57"></div>
-      <div class="term-dot" style="background:#FFBD2E"></div>
-      <div class="term-dot" style="background:#28CA41"></div>
-      <div class="term-title">GET /v1/metrics/cost</div>
+
+    <div class="cta">
+      <input class="field" id="email" type="email" placeholder="you@company.com" aria-label="Email">
+      <button class="btn" id="join">Get early access</button>
     </div>
-    <div class="term-body">
-      <div class="t-comment">// workflow · last 24h</div>
-      <div><span class="t-brace">{</span></div>
-      <div>&nbsp;&nbsp;<span class="t-key">"workflow_id"</span>: <span class="t-str">"rag-compliance-v2"</span>,</div>
-      <div>&nbsp;&nbsp;<span class="t-key">"total_tokens"</span>: <span class="t-num">842_100</span>,</div>
-      <div>&nbsp;&nbsp;<span class="t-key">"cost_usd"</span>: <span class="t-num">12.47</span>,</div>
-      <div>&nbsp;&nbsp;<span class="t-key">"routed_to"</span>: <span class="t-str">"gpt-4o-mini"</span>,</div>
-      <div>&nbsp;&nbsp;<span class="t-key">"premium_calls_saved"</span>: <span class="t-num">38</span></div>
-      <div><span class="t-brace">}</span></div>
-      <div class="t-label">
-        Cost per workflow <span class="t-score">$0.0031</span> · LLM routing active
-        <div class="beta-note"><span>Beta:</span> Infrastructure layer in private beta. Production metrics from TezMakale &amp; Comply workloads — public benchmarks Q3 2026.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="problem-band" id="problem">
-  <div class="problem-inner">
-    <div class="section-label">The problem</div>
-    <div class="section-title">Production economics break<br>before product-market fit does.</div>
-    <p class="section-desc">Most vertical AI startups are not failing because they cannot build demos. They are failing because API bills, RAG drift, and token pricing outpace revenue.</p>
-    <div class="problem-grid">
-      <article class="problem-card">
-        <h3>API bills scale faster than revenue</h3>
-        <p>Every active user destroys margin when every workflow calls the most expensive model.</p>
-      </article>
-      <article class="problem-card">
-        <h3>RAG works in demos, fails in production</h3>
-        <p>Retrieval drift, stale ingestion, and weak evals show up only after launch.</p>
-      </article>
-      <article class="problem-card">
-        <h3>Generic agents lack domain depth</h3>
-        <p>Investors see a thin wrapper — not a vertical AI product with defensible workflow logic.</p>
-      </article>
-      <article class="problem-card">
-        <h3>Token pricing confuses users</h3>
-        <p>Credit systems that do not map to real infrastructure consumption erode gross margin.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="pillars" id="pillars">
-  <div class="section-label">The platform</div>
-  <div class="section-title">Five pillars. One<br>infrastructure layer.</div>
-  <p class="section-desc">Not another LLM gateway — a vertical AI infrastructure layer for RAG governance, cost optimization, and token economics.</p>
-  <div class="pillar-grid">
-    <article class="pillar-card" id="pillar-cost">
-      <div class="pillar-num">01</div>
-      <h3>Cost Control</h3>
-      <p class="pillar-audience">Founders · CEOs · CTOs</p>
-      <p>AI infra should not scale faster than revenue. Route tasks to the cheapest capable model and track cost per workflow, user, and account.</p>
-      <a href="/docs/" class="pillar-link">Learn more →</a>
-    </article>
-    <article class="pillar-card" id="pillar-rag">
-      <div class="pillar-num">02</div>
-      <h3>Production RAG Reliability</h3>
-      <p class="pillar-audience">ML Engineers · AI Engineers</p>
-      <p>RAG failure is an operations problem. Connect retrieval quality, freshness, evals, and cost controls into one operating layer.</p>
-      <a href="/docs/" class="pillar-link">Learn more →</a>
-    </article>
-    <article class="pillar-card" id="pillar-vertical">
-      <div class="pillar-num">03</div>
-      <h3>Vertical AI Differentiation</h3>
-      <p class="pillar-audience">Founders · Investors</p>
-      <p>Defensibility comes from workflow depth, not chatbot UI. Build agents that understand the operating logic of a specific business.</p>
-      <a href="#built-on" class="pillar-link">Learn more →</a>
-    </article>
-    <article class="pillar-card" id="pillar-margin">
-      <div class="pillar-num">04</div>
-      <h3>Post-Subsidy Margin Resilience</h3>
-      <p class="pillar-audience">Investors · CFOs</p>
-      <p>If gross margin depends on today's API pricing staying flat, your AI product has hidden platform risk.</p>
-      <a href="/docs/" class="pillar-link">Learn more →</a>
-    </article>
-    <article class="pillar-card featured" id="pillar-tokenomics">
-      <div class="pillar-num">05</div>
-      <h3>Tokenomics &amp; Pricing Design</h3>
-      <p class="pillar-audience">Product · Monetization</p>
-      <p>Map user-facing credits to real token burn, workflow cost, and margin design — not guesses wrapped in pricing pages.</p>
-      <a href="/docs/" class="pillar-link">Learn more →</a>
-    </article>
-  </div>
-</section>
-
-<section class="ecosystem built-on" id="built-on">
-  <div class="section-label">Built on ozDNA</div>
-  <div class="section-title">We ship our own vertical AI<br>products on this stack.</div>
-  <p class="section-desc">The strongest proof is production — not a slide deck. Our academic and RegTech products run on ozDNA GPT before we sell the infrastructure layer externally.</p>
-  <div class="eco-grid eco-grid-2">
-    <a href="https://tezmakale.com" class="eco-card" target="_blank" rel="noopener">
-      <span class="eco-status live">Live · TR</span>
-      <div class="eco-name">TezMakale</div>
-      <div class="eco-segment">Academic AI · Turkey</div>
-      <p class="eco-desc">AI detection, humanizer, and academic workflows for students under deadline pressure. Live production workload on ozDNA infrastructure — token limits and usage economics in the wild.</p>
-    </a>
-    <article class="eco-card">
-      <span class="eco-status soon">Phase 2</span>
-      <div class="eco-name">OzDNA Comply</div>
-      <div class="eco-segment">RegTech · TR / EU</div>
-      <p class="eco-desc">Regulatory monitoring for 5549, BDDK, MASAK, and KVKK. RAG-heavy compliance layer for fintech, EMI/PSP, and law firms — domain depth a generic gateway cannot replicate.</p>
-    </article>
-  </div>
-  <p class="built-on-note">OzDNA Academic (global academic quality) launches Phase 2. <a href="https://tezmakale.com" target="_blank" rel="noopener">tezmakale.com</a> is the live reference today.</p>
-</section>
-
-<section class="campaign-band" id="campaign">
-  <div class="campaign-inner">
-    <div class="section-label">GPU Bill Bodyguard</div>
-    <blockquote class="campaign-quote">Control token burn before it becomes structural.</blockquote>
-    <p class="campaign-desc">Join the early access list for founders and CTOs who need LLM cost optimization and production RAG governance before scale makes it painful.</p>
-  </div>
-</section>
-
-<section class="cta-section" id="waitlist">
-  <h2>Get early access</h2>
-  <p>Private beta — invite only. Vertical AI founders, ML engineers, and infrastructure-conscious CTOs get priority.</p>
-
-  <form class="waitlist-form" name="waitlist" method="POST" action="/success" data-netlify="true" netlify-honeypot="bot-field">
-    <input type="hidden" name="form-name" value="waitlist">
-    <p hidden><label>Leave empty: <input name="bot-field"></label></p>
-    <div>
-      <label for="email">Work email</label>
-      <input type="email" id="email" name="email" placeholder="you@company.com" required>
-    </div>
-    <div>
-      <label for="company">Company</label>
-      <input type="text" id="company" name="company" placeholder="Company name">
-    </div>
-    <div>
-      <label for="role">Role</label>
-      <select id="role" name="role">
-        <option value="">Select…</option>
-        <option value="founder">Founder / CEO</option>
-        <option value="cto">CTO / ML Engineer</option>
-        <option value="product">Product / Monetization</option>
-        <option value="investor">Investor</option>
-        <option value="other">Other</option>
-      </select>
-    </div>
-    <button type="submit" class="btn-primary">Join Waitlist</button>
-  </form>
-  <div class="form-success" id="form-success" role="status">
-    Thanks — you're on the list. We'll reach out when early access opens.
-  </div>
-
-  <div class="cta-actions">
-    <a href="/docs/" class="btn-ghost">Explore API Docs →</a>
-    <a href="mailto:hello@ozdna.com" class="btn-ghost">Partnerships →</a>
-  </div>
-</section>
+    <div class="note" id="note">Be first to know when we open the docs.</div>
+  </main>
+</div>
 
 <footer>
-  <div class="footer-brand">
-    <a href="/" class="logo" aria-label="ozDNA">
-      <img src="assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
-    </a>
-    <p class="footer-tagline">Findbelow Ventures · Vertical AI infrastructure (PaaS)</p>
-  </div>
-  <div class="footer-links">
-    <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>
-    <a href="/blog/">Blog</a>
-    <a href="#">Privacy</a>
-    <a href="#">KVKK</a>
-    <a href="/docs/">Documentation</a>
-    <a href="/llms.txt">AI / llms.txt</a>
-    <a href="mailto:hello@ozdna.com">Contact</a>
-  </div>
-  <p>© 2026 Findbelow Ventures</p>
+  Findbelow Ventures · Built on ozDNA — <a href="https://tezmakale.com">tezmakale.com</a>
 </footer>
 
-<script src="main.js"></script>
+<script>
+  // Simple front-end capture. Replace the alert/log with your real
+  // form endpoint (Formspree, Mailchimp, or your own /api/subscribe).
+  var btn=document.getElementById('join');
+  var email=document.getElementById('email');
+  var note=document.getElementById('note');
+  function valid(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);}
+  btn.addEventListener('click',function(){
+    var v=email.value.trim();
+    if(!valid(v)){
+      note.textContent='Please enter a valid email address.';
+      note.style.color='#ff8080';
+      return;
+    }
+    // TODO: send `v` to your real endpoint here.
+    note.textContent='Thanks — you’re on the list.';
+    note.style.color='#40E0D0';
+    email.value='';
+  });
+  email.addEventListener('keydown',function(e){if(e.key==='Enter')btn.click();});
+</script>
 </body>
 </html>
