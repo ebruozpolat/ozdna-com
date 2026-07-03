@@ -1,22 +1,25 @@
 ---
 title: ozDNA Knowledge Index
-version: 0.2
+version: 0.3
 lang: en
-updated: 2026-06-15
+updated: 2026-06-16
 publisher: Findbelow Ventures
 site: https://ozdna.com
-tags: [b2b, infrastructure, llm-cost-optimization, rag, vertical-ai, regtech, academic]
+tags: [b2b, infrastructure, vertical-ai-business-economics, rag, vertical-ai, regtech, academic]
 ---
 
 # ozDNA Knowledge Bundle
 
 Structured content for agents. Read these files instead of scraping the site.
 
+**Positioning:** Horizontal LLM gateways optimize calls. ozDNA optimizes vertical AI business economics.
+
 ## Pages
 
 | File | Topic | Related |
 |------|-------|---------|
 | [overview.md](./overview.md) | Platform positioning, five pillars | → ecosystem, integration |
+| [model-strategy.md](./model-strategy.md) | Phase 2 own-model path, TezMakale cost levers, budget & co-investment | → overview, ecosystem |
 | [ecosystem.md](./ecosystem.md) | Product portfolio | → overview |
 | [integration.md](./integration.md) | Integration flow | → api-overview, contact |
 | [pricing.md](./pricing.md) | Pricing / early access | → contact |

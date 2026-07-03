@@ -1,6 +1,6 @@
 # ozDNA
 
-> Vertical AI infrastructure — LLM cost optimization, production RAG reliability, and token economics for AI-native SaaS. Findbelow Ventures · ozdna.com
+> Horizontal LLM gateways optimize calls. ozDNA optimizes vertical AI business economics — cost per workflow, production RAG, tokenomics, and margin resilience for vertical AI teams. Findbelow Ventures · ozdna.com
 
 Private beta. Early access invite only. English site; Turkish planned.
 
@@ -10,6 +10,7 @@ Structured content for agents — prefer these files over scraping.
 
 - [Index / manifest](https://ozdna.com/knowledge/_index.md): All pages and relations
 - [Platform overview](https://ozdna.com/knowledge/overview.md): Positioning, OzDNA GPT, five pillars
+- [Phase 2 model strategy](https://ozdna.com/knowledge/model-strategy.md): Own-model path, TezMakale API cost levers, budget, B2G/B2B co-investment tiers
 - [Ecosystem](https://ozdna.com/knowledge/ecosystem.md): TezMakale, Academic, Comply
 - [Integration](https://ozdna.com/knowledge/integration.md): Auth, workflows, error codes
 - [Pricing](https://ozdna.com/knowledge/pricing.md): Early access / enterprise
@@ -50,9 +51,15 @@ Structured content for agents — prefer these files over scraping.
 - [TezMakale](https://tezmakale.com): Live TR academic AI on ozDNA stack
 - OzDNA Comply: RegTech layer (Phase 2)
 
+## Brand positioning
+
+- **Tagline:** Horizontal LLM gateways optimize calls. ozDNA optimizes vertical AI business economics.
+- **Unit of value:** Workflow / outcome / margin — not request / call / token alone
+- **Relationship to gateways:** Complementary layer above LiteLLM, Portkey, Helicone — not a replacement
+
 ## SEO / content strategy
 
-- Primary keywords: LLM cost optimization, AI cost optimization platform, vertical AI infrastructure, production RAG, token cost management
+- Primary keywords: vertical AI business economics, LLM cost optimization, AI cost optimization platform, vertical AI infrastructure, production RAG, token cost management
 - Traffic strategy: long-tail problem-aware blog content (see internal SEO plan)
 
 ## Optional
