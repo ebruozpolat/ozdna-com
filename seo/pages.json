@@ -20,8 +20,8 @@
   },
   "compare/litellm-alternative/index.html": {
     "path": "/compare/litellm-alternative/",
-    "title": "LiteLLM Alternative — ozDNA for Vertical AI Teams",
-    "description": "Compare LiteLLM vs ozDNA: gateways route requests; ozDNA optimizes cost, RAG reliability, and token economics for vertical AI products in production.",
+    "title": "LiteLLM Alternative — LLM Cost + RAG Governance | ozDNA",
+    "description": "Compare LiteLLM vs ozDNA for vertical AI teams. Gateways route requests; ozDNA adds workflow cost control, RAG governance, and token economics.",
     "ogType": "website",
     "softwareApplication": true,
     "breadcrumbs": [
@@ -1239,6 +1239,478 @@
       {
         "name": "Gizli Platform Riski",
         "path": "/tr/blog/hidden-platform-risk-api-pricing/"
+      }
+    ]
+  },
+  "blog/how-to-reduce-llm-api-costs/index.html": {
+    "path": "/blog/how-to-reduce-llm-api-costs/",
+    "title": "How to Reduce LLM API Costs Without Hurting Output Quality — ozDNA Blog",
+    "description": "Practical LLM cost optimization: route by workflow, measure cost per user outcome, and avoid premium models on bulk steps.",
+    "ogType": "article",
+    "article": true,
+    "datePublished": "2026-07-01",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Blog",
+        "path": "/blog/"
+      },
+      {
+        "name": "How to Reduce LLM API Costs Without Hurting Output Quality",
+        "path": "/blog/how-to-reduce-llm-api-costs/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/blog/how-to-reduce-llm-api-costs/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/blog/how-to-reduce-llm-api-costs/"
+      }
+    ]
+  },
+  "blog/production-rag-best-practices/index.html": {
+    "path": "/blog/production-rag-best-practices/",
+    "title": "Production RAG Best Practices: What Breaks After Launch — ozDNA Blog",
+    "description": "Production RAG reliability requires freshness, eval coverage, and retrieval governance — not just a vector database.",
+    "ogType": "article",
+    "article": true,
+    "datePublished": "2026-07-02",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Blog",
+        "path": "/blog/"
+      },
+      {
+        "name": "Production RAG Best Practices: What Breaks After Launch",
+        "path": "/blog/production-rag-best-practices/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/blog/production-rag-best-practices/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/blog/production-rag-best-practices/"
+      }
+    ]
+  },
+  "blog/llm-cost-per-request-tracking/index.html": {
+    "path": "/blog/llm-cost-per-request-tracking/",
+    "title": "Tracking LLM Cost Per Request, User, and Workflow — ozDNA Blog",
+    "description": "Token cost management starts with attribution: map every LLM call to workflow, account, and business outcome.",
+    "ogType": "article",
+    "article": true,
+    "datePublished": "2026-07-03",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Blog",
+        "path": "/blog/"
+      },
+      {
+        "name": "Tracking LLM Cost Per Request, User, and Workflow",
+        "path": "/blog/llm-cost-per-request-tracking/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/blog/llm-cost-per-request-tracking/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/blog/llm-cost-per-request-tracking/"
+      }
+    ]
+  },
+  "blog/why-rag-fails-in-production/index.html": {
+    "path": "/blog/why-rag-fails-in-production/",
+    "title": "Why RAG Works in Demos but Fails in Production — ozDNA Blog",
+    "description": "Why production RAG fails: stale corpora, weak retrieval evals, context waste, and missing cost controls.",
+    "ogType": "article",
+    "article": true,
+    "datePublished": "2026-07-04",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Blog",
+        "path": "/blog/"
+      },
+      {
+        "name": "Why RAG Works in Demos but Fails in Production",
+        "path": "/blog/why-rag-fails-in-production/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/blog/why-rag-fails-in-production/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/blog/why-rag-fails-in-production/"
+      }
+    ]
+  },
+  "blog/token-economics-for-ai-saas/index.html": {
+    "path": "/blog/token-economics-for-ai-saas/",
+    "title": "Token Economics for AI SaaS: Mapping Credits to Real Cost — ozDNA Blog",
+    "description": "Token economics for AI SaaS: connect user-facing credits to inference spend, workflow cost, and gross margin.",
+    "ogType": "article",
+    "article": true,
+    "datePublished": "2026-07-05",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Blog",
+        "path": "/blog/"
+      },
+      {
+        "name": "Token Economics for AI SaaS: Mapping Credits to Real Cost",
+        "path": "/blog/token-economics-for-ai-saas/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/blog/token-economics-for-ai-saas/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/blog/token-economics-for-ai-saas/"
+      }
+    ]
+  },
+  "blog/cheapest-llm-for-production/index.html": {
+    "path": "/blog/cheapest-llm-for-production/",
+    "title": "Choosing the Cheapest Capable LLM for Each Task — ozDNA Blog",
+    "description": "Model routing for cost efficiency: pick the cheapest model that clears your vertical quality bar per workflow step.",
+    "ogType": "article",
+    "article": true,
+    "datePublished": "2026-07-06",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Blog",
+        "path": "/blog/"
+      },
+      {
+        "name": "Choosing the Cheapest Capable LLM for Each Task",
+        "path": "/blog/cheapest-llm-for-production/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/blog/cheapest-llm-for-production/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/blog/cheapest-llm-for-production/"
+      }
+    ]
+  },
+  "blog/ai-margin-optimization/index.html": {
+    "path": "/blog/ai-margin-optimization/",
+    "title": "Protecting Gross Margin in AI-Native SaaS — ozDNA Blog",
+    "description": "AI margin optimization: measure gross margin per active user before API bills become structural.",
+    "ogType": "article",
+    "article": true,
+    "datePublished": "2026-07-07",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Blog",
+        "path": "/blog/"
+      },
+      {
+        "name": "Protecting Gross Margin in AI-Native SaaS",
+        "path": "/blog/ai-margin-optimization/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/blog/ai-margin-optimization/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/blog/ai-margin-optimization/"
+      }
+    ]
+  },
+  "blog/model-routing-cost-efficiency/index.html": {
+    "path": "/blog/model-routing-cost-efficiency/",
+    "title": "Model Routing for Cost Efficiency: A Practical Guide — ozDNA Blog",
+    "description": "LLM routing policies that reduce inference cost without breaking vertical workflows in production.",
+    "ogType": "article",
+    "article": true,
+    "datePublished": "2026-07-08",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Blog",
+        "path": "/blog/"
+      },
+      {
+        "name": "Model Routing for Cost Efficiency: A Practical Guide",
+        "path": "/blog/model-routing-cost-efficiency/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/blog/model-routing-cost-efficiency/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/blog/model-routing-cost-efficiency/"
+      }
+    ]
+  },
+  "compare/portkey-alternative/index.html": {
+    "path": "/compare/portkey-alternative/",
+    "title": "Portkey Alternative — ozDNA for Vertical AI Teams",
+    "description": "Compare Portkey vs ozDNA: gateways route requests; ozDNA adds RAG governance, token economics, and vertical AI proof.",
+    "ogType": "website",
+    "softwareApplication": true,
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Compare",
+        "path": "/compare/portkey-alternative/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/compare/portkey-alternative/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/compare/portkey-alternative/"
+      }
+    ]
+  },
+  "compare/helicone-vs-ozdna/index.html": {
+    "path": "/compare/helicone-vs-ozdna/",
+    "title": "Helicone vs ozDNA — Observability vs Vertical AI Infrastructure",
+    "description": "Helicone vs ozDNA: observability vs full vertical AI stack — routing, RAG reliability, and production margin controls.",
+    "ogType": "website",
+    "softwareApplication": true,
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Compare",
+        "path": "/compare/helicone-vs-ozdna/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/compare/helicone-vs-ozdna/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/compare/helicone-vs-ozdna/"
+      }
+    ]
+  },
+  "compare/openrouter-alternative/index.html": {
+    "path": "/compare/openrouter-alternative/",
+    "title": "OpenRouter Alternative — ozDNA for Production Vertical AI",
+    "description": "OpenRouter alternative: multi-model access plus vertical RAG governance and cost optimization for AI SaaS teams.",
+    "ogType": "website",
+    "softwareApplication": true,
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Compare",
+        "path": "/compare/openrouter-alternative/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/compare/openrouter-alternative/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/compare/openrouter-alternative/"
+      }
+    ]
+  },
+  "pillars/cost-control/index.html": {
+    "path": "/pillars/cost-control/",
+    "title": "LLM Cost Optimization & Routing | ozDNA",
+    "description": "LLM cost optimization and model routing for vertical AI teams — measure workflow cost, route to capable models, and protect gross margin before API bills become structural.",
+    "ogType": "website",
+    "softwareApplication": true,
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "LLM Cost Optimization & Routing",
+        "path": "/pillars/cost-control/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/pillars/cost-control/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/pillars/cost-control/"
+      }
+    ]
+  },
+  "pillars/rag-reliability/index.html": {
+    "path": "/pillars/rag-reliability/",
+    "title": "Production RAG Reliability | ozDNA",
+    "description": "Production RAG reliability: ingestion freshness, hybrid retrieval, eval coverage, and governance in one operating layer.",
+    "ogType": "website",
+    "softwareApplication": true,
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Production RAG Reliability",
+        "path": "/pillars/rag-reliability/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/pillars/rag-reliability/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/pillars/rag-reliability/"
+      }
+    ]
+  },
+  "pillars/vertical-ai/index.html": {
+    "path": "/pillars/vertical-ai/",
+    "title": "Vertical AI Infrastructure | ozDNA",
+    "description": "Vertical AI infrastructure for teams shipping domain-specific agents with workflow depth and production proof.",
+    "ogType": "website",
+    "softwareApplication": true,
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Vertical AI Infrastructure",
+        "path": "/pillars/vertical-ai/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/pillars/vertical-ai/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/pillars/vertical-ai/"
+      }
+    ]
+  },
+  "pillars/margin-resilience/index.html": {
+    "path": "/pillars/margin-resilience/",
+    "title": "Post-Subsidy Margin Resilience | ozDNA",
+    "description": "Protect gross margin in AI-native SaaS when LLM API pricing and subsidies change.",
+    "ogType": "website",
+    "softwareApplication": true,
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Post-Subsidy Margin Resilience",
+        "path": "/pillars/margin-resilience/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/pillars/margin-resilience/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/pillars/margin-resilience/"
+      }
+    ]
+  },
+  "pillars/tokenomics/index.html": {
+    "path": "/pillars/tokenomics/",
+    "title": "Tokenomics & Pricing Design | ozDNA",
+    "description": "Token cost management and pricing design — connect user credits to workflow-level inference consumption.",
+    "ogType": "website",
+    "softwareApplication": true,
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Tokenomics & Pricing Design",
+        "path": "/pillars/tokenomics/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/pillars/tokenomics/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/pillars/tokenomics/"
       }
     ]
   }

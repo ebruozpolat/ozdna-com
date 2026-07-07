@@ -1,0 +1,168 @@
+{
+  "blogs": [
+    {
+      "slug": "how-to-reduce-llm-api-costs",
+      "title": "How to Reduce LLM API Costs Without Hurting Output Quality",
+      "description": "Practical LLM cost optimization: route by workflow, measure cost per user outcome, and avoid premium models on bulk steps.",
+      "pillar": "Pillar 1 · Cost Control",
+      "date": "July 2026",
+      "datePublished": "2026-07-01",
+      "keyword": "how to reduce LLM API costs"
+    },
+    {
+      "slug": "production-rag-best-practices",
+      "title": "Production RAG Best Practices: What Breaks After Launch",
+      "description": "Production RAG reliability requires freshness, eval coverage, and retrieval governance — not just a vector database.",
+      "pillar": "Pillar 2 · RAG Reliability",
+      "date": "July 2026",
+      "datePublished": "2026-07-02",
+      "keyword": "production RAG best practices"
+    },
+    {
+      "slug": "llm-cost-per-request-tracking",
+      "title": "Tracking LLM Cost Per Request, User, and Workflow",
+      "description": "Token cost management starts with attribution: map every LLM call to workflow, account, and business outcome.",
+      "pillar": "Pillar 1 · Cost Control",
+      "date": "July 2026",
+      "datePublished": "2026-07-03",
+      "keyword": "LLM cost per request tracking"
+    },
+    {
+      "slug": "why-rag-fails-in-production",
+      "title": "Why RAG Works in Demos but Fails in Production",
+      "description": "Why production RAG fails: stale corpora, weak retrieval evals, context waste, and missing cost controls.",
+      "pillar": "Pillar 2 · RAG Reliability",
+      "date": "July 2026",
+      "datePublished": "2026-07-04",
+      "keyword": "why RAG fails in production"
+    },
+    {
+      "slug": "token-economics-for-ai-saas",
+      "title": "Token Economics for AI SaaS: Mapping Credits to Real Cost",
+      "description": "Token economics for AI SaaS: connect user-facing credits to inference spend, workflow cost, and gross margin.",
+      "pillar": "Pillar 5 · Tokenomics",
+      "date": "July 2026",
+      "datePublished": "2026-07-05",
+      "keyword": "token economics for AI SaaS"
+    },
+    {
+      "slug": "cheapest-llm-for-production",
+      "title": "Choosing the Cheapest Capable LLM for Each Task",
+      "description": "Model routing for cost efficiency: pick the cheapest model that clears your vertical quality bar per workflow step.",
+      "pillar": "Pillar 1 · Cost Control",
+      "date": "July 2026",
+      "datePublished": "2026-07-06",
+      "keyword": "cheapest LLM for production"
+    },
+    {
+      "slug": "ai-margin-optimization",
+      "title": "Protecting Gross Margin in AI-Native SaaS",
+      "description": "AI margin optimization: measure gross margin per active user before API bills become structural.",
+      "pillar": "Pillar 4 · Margin Resilience",
+      "date": "July 2026",
+      "datePublished": "2026-07-07",
+      "keyword": "AI margin optimization"
+    },
+    {
+      "slug": "model-routing-cost-efficiency",
+      "title": "Model Routing for Cost Efficiency: A Practical Guide",
+      "description": "LLM routing policies that reduce inference cost without breaking vertical workflows in production.",
+      "pillar": "Pillar 1 · Cost Control",
+      "date": "July 2026",
+      "datePublished": "2026-07-08",
+      "keyword": "model routing for cost efficiency"
+    }
+  ],
+  "comparisons": [
+    {
+      "slug": "litellm-alternative",
+      "competitor": "LiteLLM",
+      "keyword": "LiteLLM alternative",
+      "title": "LiteLLM Alternative — LLM Cost + RAG Governance | ozDNA",
+      "description": "Compare LiteLLM vs ozDNA for vertical AI teams. Gateways route requests; ozDNA adds workflow cost control, RAG governance, and token economics.",
+      "tagline": "LiteLLM alternative",
+      "parentPillar": "cost-control",
+      "competitorStrengths": "LiteLLM is a strong open-source proxy for multi-provider routing.",
+      "ozdnaPositioning": "ozDNA is built for teams shipping vertical AI products — where RAG reliability, token economics, and production margin matter as much as model failover."
+    },
+    {
+      "slug": "portkey-alternative",
+      "competitor": "Portkey",
+      "title": "Portkey Alternative — ozDNA for Vertical AI Teams",
+      "description": "Compare Portkey vs ozDNA: gateways route requests; ozDNA adds RAG governance, token economics, and vertical AI proof.",
+      "tagline": "Portkey alternative",
+      "parentPillar": "cost-control",
+      "competitorStrengths": "Portkey delivers polished gateway and observability for enterprise LLM integrations.",
+      "ozdnaPositioning": "ozDNA adds vertical RAG governance, workflow cost attribution, and token economics when you ship domain-specific AI products — not just route API calls."
+    },
+    {
+      "slug": "helicone-vs-ozdna",
+      "competitor": "Helicone",
+      "title": "Helicone vs ozDNA — Observability vs Vertical AI Infrastructure",
+      "description": "Helicone vs ozDNA: observability vs full vertical AI stack — routing, RAG reliability, and production margin controls.",
+      "tagline": "Helicone vs ozDNA",
+      "parentPillar": "rag-reliability",
+      "competitorStrengths": "Helicone excels at LLM observability — logging, tracing, and cost visibility across providers.",
+      "ozdnaPositioning": "ozDNA is vertical AI infrastructure: observability plus RAG operating layer, routing policy, and margin controls for production workflows."
+    },
+    {
+      "slug": "openrouter-alternative",
+      "competitor": "OpenRouter",
+      "title": "OpenRouter Alternative — ozDNA for Production Vertical AI",
+      "description": "OpenRouter alternative: multi-model access plus vertical RAG governance and cost optimization for AI SaaS teams.",
+      "tagline": "OpenRouter alternative",
+      "parentPillar": "cost-control",
+      "competitorStrengths": "OpenRouter offers easy multi-model access through a unified model marketplace.",
+      "ozdnaPositioning": "ozDNA goes beyond model access — production RAG, workflow-level cost control, and vertical corpora for teams shipping AI SaaS."
+    }
+  ],
+  "pillars": [
+    {
+      "slug": "cost-control",
+      "title": "LLM Cost Optimization & Routing",
+      "h1": "Control token burn<br>before it becomes structural",
+      "keywords": "LLM cost optimization, LLM routing, AI inference cost reduction",
+      "description": "LLM cost optimization and model routing for vertical AI teams — measure workflow cost, route to capable models, and protect gross margin before API bills become structural.",
+      "rich": true,
+      "lead": "LLM gateways route requests. Vertical AI teams need more: workflow-level cost attribution, routing policies that pick the cheapest capable model per step, and margin guardrails before inference spend compounds with every active user.",
+      "problemCards": [
+        { "num": "01", "title": "No workflow attribution", "body": "You see total API spend, not cost per detection, per report, per RAG query. Optimization is guesswork." },
+        { "num": "02", "title": "Routing as afterthought", "body": "Model selection lives in app code. Failover upgrades models without finance knowing." },
+        { "num": "03", "title": "Margin blind spots", "body": "User-facing credits decouple from real inference cost. Gross margin erodes before dashboards catch it." }
+      ],
+      "capabilityCards": [
+        { "num": "01", "title": "Workflow-level attribution", "body": "Map tokens and dollars to named workflows — detection, retrieval, generation, re-ranking — not just API keys." },
+        { "num": "02", "title": "Cheapest capable model routing", "body": "LLM routing policies per vertical step: which model clears your quality bar at lowest cost and acceptable latency?" },
+        { "num": "03", "title": "Margin guardrails", "body": "Tie user credits to real spend. Alert and throttle before a single workflow destroys unit economics." }
+      ]
+    },
+    {
+      "slug": "rag-reliability",
+      "title": "Production RAG Reliability",
+      "h1": "RAG that survives<br>after launch",
+      "keywords": "production RAG, RAG reliability",
+      "description": "Production RAG reliability: ingestion freshness, hybrid retrieval, eval coverage, and governance in one operating layer."
+    },
+    {
+      "slug": "vertical-ai",
+      "title": "Vertical AI Infrastructure",
+      "h1": "Vertical depth,<br>not thin wrappers",
+      "keywords": "vertical AI infrastructure",
+      "description": "Vertical AI infrastructure for teams shipping domain-specific agents with workflow depth and production proof."
+    },
+    {
+      "slug": "margin-resilience",
+      "title": "Post-Subsidy Margin Resilience",
+      "h1": "Margin resilience<br>when API pricing moves",
+      "keywords": "AI inference cost reduction, AI margin optimization",
+      "description": "Protect gross margin in AI-native SaaS when LLM API pricing and subsidies change."
+    },
+    {
+      "slug": "tokenomics",
+      "title": "Tokenomics & Pricing Design",
+      "h1": "Credits that map<br>to real LLM spend",
+      "keywords": "token cost management",
+      "description": "Token cost management and pricing design — connect user credits to workflow-level inference consumption."
+    }
+  ]
+}

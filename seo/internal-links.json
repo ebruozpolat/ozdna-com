@@ -1,0 +1,117 @@
+{
+  "blogTitles": {
+    "how-to-reduce-llm-api-costs": "How to Reduce LLM API Costs Without Hurting Output Quality",
+    "production-rag-best-practices": "Production RAG Best Practices: What Breaks After Launch",
+    "llm-cost-per-request-tracking": "Tracking LLM Cost Per Request, User, and Workflow",
+    "why-rag-fails-in-production": "Why RAG Works in Demos but Fails in Production",
+    "token-economics-for-ai-saas": "Token Economics for AI SaaS: Mapping Credits to Real Cost",
+    "cheapest-llm-for-production": "Choosing the Cheapest Capable LLM for Each Task",
+    "ai-margin-optimization": "Protecting Gross Margin in AI-Native SaaS",
+    "model-routing-cost-efficiency": "Model Routing for Cost Efficiency: A Practical Guide",
+    "when-every-active-user-destroys-your-margin": "When Every Active User Destroys Your Margin",
+    "making-inference-cost-measurable-and-routable": "Making Inference Cost Measurable and Routable",
+    "vertical-ai-vs-thin-wrapper": "Vertical AI vs. Thin Wrapper: What Investors Actually See",
+    "hidden-platform-risk-api-pricing": "Hidden Platform Risk: When API Pricing Changes"
+  },
+  "pillars": {
+    "cost-control": {
+      "path": "/pillars/cost-control/",
+      "label": "Pillar 1 · Cost Control",
+      "blogs": [
+        "how-to-reduce-llm-api-costs",
+        "llm-cost-per-request-tracking",
+        "cheapest-llm-for-production",
+        "model-routing-cost-efficiency",
+        "when-every-active-user-destroys-your-margin",
+        "making-inference-cost-measurable-and-routable"
+      ],
+      "comparisons": [
+        "litellm-alternative",
+        "portkey-alternative",
+        "openrouter-alternative"
+      ]
+    },
+    "rag-reliability": {
+      "path": "/pillars/rag-reliability/",
+      "label": "Pillar 2 · RAG Reliability",
+      "blogs": [
+        "production-rag-best-practices",
+        "why-rag-fails-in-production"
+      ],
+      "comparisons": [
+        "helicone-vs-ozdna"
+      ]
+    },
+    "vertical-ai": {
+      "path": "/pillars/vertical-ai/",
+      "label": "Pillar 3 · Vertical AI",
+      "blogs": [
+        "vertical-ai-vs-thin-wrapper"
+      ],
+      "comparisons": []
+    },
+    "margin-resilience": {
+      "path": "/pillars/margin-resilience/",
+      "label": "Pillar 4 · Margin Resilience",
+      "blogs": [
+        "ai-margin-optimization",
+        "hidden-platform-risk-api-pricing"
+      ],
+      "comparisons": []
+    },
+    "tokenomics": {
+      "path": "/pillars/tokenomics/",
+      "label": "Pillar 5 · Tokenomics",
+      "blogs": [
+        "token-economics-for-ai-saas",
+        "llm-cost-per-request-tracking"
+      ],
+      "comparisons": []
+    }
+  },
+  "blogToPillar": {
+    "how-to-reduce-llm-api-costs": "cost-control",
+    "production-rag-best-practices": "rag-reliability",
+    "llm-cost-per-request-tracking": "cost-control",
+    "why-rag-fails-in-production": "rag-reliability",
+    "token-economics-for-ai-saas": "tokenomics",
+    "cheapest-llm-for-production": "cost-control",
+    "ai-margin-optimization": "margin-resilience",
+    "model-routing-cost-efficiency": "cost-control",
+    "when-every-active-user-destroys-your-margin": "cost-control",
+    "making-inference-cost-measurable-and-routable": "cost-control",
+    "vertical-ai-vs-thin-wrapper": "vertical-ai",
+    "hidden-platform-risk-api-pricing": "margin-resilience"
+  },
+  "blogSiblingLinks": {
+    "how-to-reduce-llm-api-costs": "model-routing-cost-efficiency",
+    "production-rag-best-practices": "why-rag-fails-in-production",
+    "llm-cost-per-request-tracking": "token-economics-for-ai-saas",
+    "why-rag-fails-in-production": "production-rag-best-practices",
+    "token-economics-for-ai-saas": "llm-cost-per-request-tracking",
+    "cheapest-llm-for-production": "how-to-reduce-llm-api-costs",
+    "ai-margin-optimization": "hidden-platform-risk-api-pricing",
+    "model-routing-cost-efficiency": "cheapest-llm-for-production",
+    "when-every-active-user-destroys-your-margin": "making-inference-cost-measurable-and-routable",
+    "making-inference-cost-measurable-and-routable": "when-every-active-user-destroys-your-margin",
+    "vertical-ai-vs-thin-wrapper": "ai-margin-optimization",
+    "hidden-platform-risk-api-pricing": "ai-margin-optimization"
+  },
+  "utm": {
+    "blog": {
+      "source": "blog",
+      "medium": "seo",
+      "campaign": "gpu-bill-bodyguard"
+    },
+    "pillar": {
+      "source": "pillar",
+      "medium": "seo",
+      "campaign": "gpu-bill-bodyguard"
+    },
+    "compare": {
+      "source": "compare",
+      "medium": "seo",
+      "campaign": "{slug}"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "urls": [
+    { "loc": "https://ozdna.com/", "priority": "1.0", "changefreq": "weekly" },
+    { "loc": "https://ozdna.com/architecture/", "priority": "0.9", "changefreq": "monthly" },
+    { "loc": "https://ozdna.com/pricing/", "priority": "0.9", "changefreq": "monthly" },
+    { "loc": "https://ozdna.com/docs/", "priority": "0.9", "changefreq": "weekly" },
+    { "loc": "https://ozdna.com/sdk/", "priority": "0.8", "changefreq": "monthly" },
+    { "loc": "https://ozdna.com/benchmarks/", "priority": "0.8", "changefreq": "monthly" },
+    { "loc": "https://ozdna.com/products/comply/", "priority": "0.8", "changefreq": "monthly" },
+    { "loc": "https://ozdna.com/case-studies/tezmakale/", "priority": "0.8", "changefreq": "monthly" },
+    { "loc": "https://ozdna.com/blog/", "priority": "0.9", "changefreq": "weekly" },
+    { "loc": "https://ozdna.com/compare/litellm-alternative/", "priority": "0.85", "changefreq": "monthly" },
+    { "loc": "https://ozdna.com/pillars/cost-control/", "priority": "0.85", "changefreq": "monthly" },
+    { "loc": "https://ozdna.com/pillars/rag-reliability/", "priority": "0.85", "changefreq": "monthly" },
+    { "loc": "https://ozdna.com/pillars/vertical-ai/", "priority": "0.85", "changefreq": "monthly" },
+    { "loc": "https://ozdna.com/pillars/margin-resilience/", "priority": "0.85", "changefreq": "monthly" },
+    { "loc": "https://ozdna.com/pillars/tokenomics/", "priority": "0.85", "changefreq": "monthly" },
+    { "loc": "https://ozdna.com/trust/", "priority": "0.6", "changefreq": "yearly" },
+    { "loc": "https://ozdna.com/security/", "priority": "0.6", "changefreq": "yearly" },
+    { "loc": "https://ozdna.com/privacy/", "priority": "0.5", "changefreq": "yearly" },
+    { "loc": "https://ozdna.com/terms/", "priority": "0.5", "changefreq": "yearly" }
+  ],
+  "phase2Patterns": [
+    "/blog/",
+    "/compare/",
+    "/pillars/"
+  ]
+}

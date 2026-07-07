@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ozdna-seo:start -->
+<title>How to Reduce LLM API Costs Without Hurting Output Quality — ozDNA Blog</title>
+<meta name="description" content="Practical LLM cost optimization: route by workflow, measure cost per user outcome, and avoid premium models on bulk steps.">
+<meta name="author" content="Findbelow Ventures">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://ozdna.com/blog/how-to-reduce-llm-api-costs/">
+<link rel="alternate" hreflang="en" href="https://ozdna.com/blog/how-to-reduce-llm-api-costs/">
+<link rel="alternate" hreflang="tr" href="https://ozdna.com/tr/blog/how-to-reduce-llm-api-costs/">
+<link rel="alternate" hreflang="x-default" href="https://ozdna.com/blog/how-to-reduce-llm-api-costs/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ozDNA">
+<meta property="og:title" content="How to Reduce LLM API Costs Without Hurting Output Quality — ozDNA Blog">
+<meta property="og:description" content="Practical LLM cost optimization: route by workflow, measure cost per user outcome, and avoid premium models on bulk steps.">
+<meta property="og:url" content="https://ozdna.com/blog/how-to-reduce-llm-api-costs/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://ozdna.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ozDNA — Vertical AI Infrastructure">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ozdna">
+<meta name="twitter:title" content="How to Reduce LLM API Costs Without Hurting Output Quality — ozDNA Blog">
+<meta name="twitter:description" content="Practical LLM cost optimization: route by workflow, measure cost per user outcome, and avoid premium models on bulk steps.">
+<meta name="twitter:image" content="https://ozdna.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="ozDNA — Vertical AI Infrastructure">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ozdna.com/#organization",
+      "name": "Findbelow Ventures",
+      "legalName": "Findbelow Ventures",
+      "url": "https://ozdna.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ozdna.com/assets/logo.svg"
+      },
+      "email": "hello@ozdna.com",
+      "sameAs": [
+        "https://tezmakale.com"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ozdna.com/blog/how-to-reduce-llm-api-costs/#webpage",
+      "url": "https://ozdna.com/blog/how-to-reduce-llm-api-costs/",
+      "name": "How to Reduce LLM API Costs Without Hurting Output Quality — ozDNA Blog",
+      "description": "Practical LLM cost optimization: route by workflow, measure cost per user outcome, and avoid premium models on bulk steps.",
+      "isPartOf": {
+        "@id": "https://ozdna.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Article",
+      "@id": "https://ozdna.com/blog/how-to-reduce-llm-api-costs/#article",
+      "headline": "How to Reduce LLM API Costs Without Hurting Output Quality",
+      "description": "Practical LLM cost optimization: route by workflow, measure cost per user outcome, and avoid premium models on bulk steps.",
+      "url": "https://ozdna.com/blog/how-to-reduce-llm-api-costs/",
+      "datePublished": "2026-07-01",
+      "author": {
+        "@id": "https://ozdna.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://ozdna.com/#organization"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://ozdna.com/blog/how-to-reduce-llm-api-costs/#webpage"
+      },
+      "image": "https://ozdna.com/assets/og-image.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ozdna.com/blog/how-to-reduce-llm-api-costs/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ozdna.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://ozdna.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How to Reduce LLM API Costs Without Hurting Output Quality",
+          "item": "https://ozdna.com/blog/how-to-reduce-llm-api-costs/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="../../styles.css">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+<meta name="color-scheme" content="dark">
+<!-- ozdna-seo:end -->
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav>
+  <a href="/" class="logo" aria-label="ozDNA home">
+    <img src="../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
+  </a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="/products/comply/">ComplyDNA</a>
+    <a href="/architecture/">Platform</a>
+    <a href="/docs/">Docs</a>
+    <a href="/pricing/">Pricing</a>
+    <a href="/#waitlist" class="nav-cta">Get Early Access</a>
+  </div>
+</nav>
+<main id="main-content">
+<article class="blog-article">
+  <a href="/blog/" class="blog-back">← All posts</a>
+  <div class="blog-meta">
+    <span class="blog-pillar">Pillar 1 · Cost Control</span>
+    <span class="blog-date">July 2026 · 6 min read</span>
+  </div>
+  <h1>How to Reduce LLM API Costs Without Hurting Output Quality</h1>
+  <p class="blog-lead">Practical LLM cost optimization: route by workflow, measure cost per user outcome, and avoid premium models on bulk steps.</p>
+  <p>Teams searching for <strong>how to reduce LLM API costs</strong> usually already feel the pain: inference spend climbing faster than revenue, or RAG quality drifting after launch. This note is part of the GPU Bill Bodyguard series — practical infrastructure thinking for vertical AI founders.</p>
+  <h2>Start with workflow-level attribution</h2>
+  <p>Blended cloud bills hide the real problem. Name the workflows users actually run — detection, retrieval, generation, re-ranking — and attribute tokens and dollars to each. Until that exists, "cheaper models" is guesswork.</p>
+  <h2>Route to the cheapest capable model</h2>
+  <p>LLM routing is not vanity failover. It is a policy: for this vertical step, which model clears your quality bar at the lowest cost and latency? That policy belongs in infrastructure, not scattered across application code.</p>
+  <h2>RAG is an operations problem</h2>
+  <p>Production RAG fails when freshness, eval coverage, and retrieval quality are treated as launch-week tasks. Gateways that only proxy HTTP do not fix stale corpora or missing eval hooks.</p>
+  <aside class="blog-proof">
+  <h3>Built on ozDNA</h3>
+  <p>We run production vertical AI on this stack — <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a> (academic AI, Turkey) and <a href="/products/comply/">ComplyDNA</a> (RegTech). Gateways route requests; ozDNA optimizes cost, RAG reliability, and token economics for vertical products.</p>
+</aside>
+  <section class="blog-related">
+  <div class="section-label">Related reading</div>
+  <h2>Continue exploring</h2>
+  <ul class="blog-related-list">
+    <li><a href="/pillars/cost-control/">Pillar 1 · Cost Control pillar →</a></li>
+    <li><a href="/blog/model-routing-cost-efficiency/">Model Routing for Cost Efficiency: A Practical Guide</a></li>
+  </ul>
+</section>
+  <div class="blog-cta-box">
+    <p>Building vertical AI in production? Join ozDNA early access.</p>
+    <a href="/#waitlist?utm_source=blog&utm_medium=seo&utm_campaign=gpu-bill-bodyguard&utm_content=how-to-reduce-llm-api-costs" class="btn-primary">Get Early Access</a>
+  </div>
+</article>
+</main>
+<footer>
+  <div class="footer-brand">
+    <a href="/" class="logo" aria-label="ozDNA">
+      <img src="../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
+    </a>
+    <p class="footer-tagline">Findbelow Ventures · Vertical AI infrastructure (PaaS)</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>
+    <a href="/trust/">Trust Center</a>
+    <a href="/case-studies/tezmakale/">Case Study</a>
+    <a href="/products/comply/">ComplyDNA</a>
+    <a href="/blog/">Blog</a>
+    <a href="mailto:hello@ozdna.com">Contact</a>
+  </div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+<script src="/analytics.js" defer></script>
+<script src="/main.js" defer></script>
+</body>
+</html>
