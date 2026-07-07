@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="alternate" type="application/json" href="/status/feed.json" title="ozDNA Durum JSON">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Ana içeriğe geç</a>
+<nav>
+  <a href="/tr/" class="logo" aria-label="ozDNA ana sayfa">
+    <img src="../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
+  </a>
+  <button class="nav-toggle" aria-label="Menü" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="/tr/products/comply/">ComplyDNA</a>
+    <a href="/tr/architecture/">Platform</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/pricing/">Fiyatlandırma</a>
+    <a href="/tr/#waitlist" class="nav-cta">Erken Erişim</a>
+  </div>
+</nav>
+
+<main id="main-content">
+<section class="trust-hero status-hero">
+  <div class="trust-hero-inner">
+    <div class="section-label">System Durum</div>
+    <h1>Platform kullanılabilirliği</h1>
+    <p class="legal-meta">Özel beta sırasında statik durum · <a href="/status/feed.json">JSON feed</a></p>
+  </div>
+</section>
+
+<div class="status-page" id="status-root" data-feed-url="/status/feed.json">
+
+  <div class="status-overall status-overall--operational" data-status-overall role="status" aria-live="polite">
+    <span class="status-overall-indicator" aria-hidden="true"></span>
+    <span data-status-overall-label>Tüm sistemler çalışıyor</span>
+  </div>
+
+  <p class="status-updated" data-status-updated hidden>Güncellendi 6 Tem 2026, 09:00 UTC</p>
+
+  <section class="status-section" aria-labelledby="status-components-heading">
+    <h2 id="status-components-heading" class="status-section-title">Bileşenler</h2>
+    <div class="status-components" data-status-components>
+
+      <article class="status-component" data-component-id="gateway">
+        <div class="status-component-main">
+          <span class="status-indicator status-indicator--operational" aria-hidden="true"></span>
+          <div class="status-component-copy">
+            <h3 class="status-component-name">Gateway</h3>
+            <p class="status-component-desc">AI Gateway — kimlik doğrulama, hız limitleri ve istek yönlendirme</p>
+          </div>
+        </div>
+        <span class="status-badge status-badge--operational">Çalışıyor</span>
+      </article>
+
+      <article class="status-component" data-component-id="api">
+        <div class="status-component-main">
+          <span class="status-indicator status-indicator--operational" aria-hidden="true"></span>
+          <div class="status-component-copy">
+            <h3 class="status-component-name">API</h3>
+            <p class="status-component-desc">api.ozdna.com ve sandbox uç noktalarında platform REST API</p>
+          </div>
+        </div>
+        <span class="status-badge status-badge--operational">Çalışıyor</span>
+      </article>
+
+      <article class="status-component" data-component-id="documentation">
+        <div class="status-component-main">
+          <span class="status-indicator status-indicator--operational" aria-hidden="true"></span>
+          <div class="status-component-copy">
+            <h3 class="status-component-name">Dokümantasyon</h3>
+            <p class="status-component-desc">ozdna.com/docs adresinde geliştirici dokümantasyonu ve API referansı</p>
+          </div>
+        </div>
+        <span class="status-badge status-badge--operational">Çalışıyor</span>
+      </article>
+
+      <article class="status-component" data-component-id="website">
+        <div class="status-component-main">
+          <span class="status-indicator status-indicator--operational" aria-hidden="true"></span>
+          <div class="status-component-copy">
+            <h3 class="status-component-name">Web Sitesi</h3>
+            <p class="status-component-desc">ozdna.com'da pazarlama sitesi, güven merkezi ve statik varlıklar</p>
+          </div>
+        </div>
+        <span class="status-badge status-badge--operational">Çalışıyor</span>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="status-section" aria-labelledby="status-incidents-heading">
+    <h2 id="status-incidents-heading" class="status-section-title">Olay geçmişi</h2>
+    <div data-status-incidents>
+      <p class="status-empty">Son 90 günde bildirilen olay yok.</p>
+    </div>
+  </section>
+
+  <div class="status-footer-note">
+    <p>Durum data is published manually during private beta. Canlı monitoring will poll <code class="inline-code">/status/feed.json</code> — swap <code class="inline-code">data-feed-url</code> on this page when a dynamic endpoint is available.</p>
+    <p>Report issues: <a href="mailto:security@ozdna.com">security@ozdna.com</a> · <a href="/tr/security/">Güvenlik</a> · <a href="/tr/trust/#business-continuity">Business continuity</a></p>
+  </div>
+
+</div>
+
+</main>
+
+<footer>
+  <div class="footer-brand">
+    <a href="/tr/" class="logo" aria-label="ozDNA">
+      <img src="../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
+    </a>
+    <p class="footer-tagline">Findbelow Ventures · Dikey AI altyapısı (PaaS)</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>
+    <a href="/tr/trust/">Güven Merkezi</a>
+    <a href="/tr/status/">Durum</a>
+    <a href="/tr/changelog/">Değişiklik Günlüğü</a>
+    <a href="/tr/privacy/">Gizlilik</a>
+    <a href="/tr/terms/">Şartlar</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/sdk/">SDK</a>
+    <a href="/tr/benchmarks/">Kıyaslamalar</a>
+    <a href="/tr/architecture/">Mimari</a>
+    <a href="mailto:hello@ozdna.com">İletişim</a>
+  </div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+
+<script src="/analytics.js" defer></script>
+<script src="/main.js" defer></script>
+<script src="/status/status.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../styles.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="../favicon-16.png" type="image/png" sizes="16x16">
+<link rel="shortcut icon" href="../favicon.ico">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#080D12">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM context">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<!-- GSC: Search Console → HTML tag method → paste code below, redeploy, then Verify -->
+<!-- <meta name="google-site-verification" content="PASTE_GSC_CODE_HERE" /> -->
+</head>
+<body>
+<a class="skip-link" href="#main-content">Ana içeriğe geç</a>
+<nav>
+  <a href="/tr/" class="logo" aria-label="ozDNA ana sayfa">
+    <img src="../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
+  </a>
+  <button class="nav-toggle" aria-label="Menü" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="/tr/products/comply/">ComplyDNA</a>
+    <a href="/tr/architecture/">Platform</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/pricing/">Fiyatlandırma</a>
+    <a href="/tr/#waitlist" class="nav-cta">Erken Erişim</a>
+  </div>
+</nav>
+
+<main id="main-content">
+<section class="hero">
+  <div>
+    <div class="hero-badge">Faz 2 · ComplyDNA + B2B Gateway</div>
+    <h1>Üretim AI Ekipleri için<br><span class="accent">LLM Maliyet Optimizasyonu</span></h1>
+    <p class="hero-sub">Faz 2 RegTech (<a href="/tr/products/comply/">ComplyDNA</a>) sunar ve B2B gateway'i açar — akıllı yönlendirme, prompt yönetimi ve kullanım ekonomisi, <a href="https://tezmakale.com" target="_blank" rel="noopener" style="color:var(--tq);text-decoration:none;font-weight:500">TezMakale</a> ile kanıtlanan aynı yığın üzerinde.</p>
+    <div class="hero-actions">
+      <a href="/tr/products/comply/" class="btn-primary">ComplyDNA'yı Keşfedin</a>
+      <a href="https://tezmakale.com" class="btn-ghost" target="_blank" rel="noopener">TezMakale — Faz 1 kanıtı →</a>
+    </div>
+  </div>
+  <div class="terminal" aria-label="Altyapı metrikleri örneği">
+    <div class="term-header">
+      <div class="term-dot" style="background:#FF5F57"></div>
+      <div class="term-dot" style="background:#FFBD2E"></div>
+      <div class="term-dot" style="background:#28CA41"></div>
+      <div class="term-title">GET /v1/metrics/cost</div>
+    </div>
+    <div class="term-body">
+      <div class="t-comment">// workflow · last 24h</div>
+      <div><span class="t-brace">{</span></div>
+      <div>&nbsp;&nbsp;<span class="t-key">"workflow_id"</span>: <span class="t-str">"rag-compliance-v2"</span>,</div>
+      <div>&nbsp;&nbsp;<span class="t-key">"total_tokens"</span>: <span class="t-num">842_100</span>,</div>
+      <div>&nbsp;&nbsp;<span class="t-key">"cost_usd"</span>: <span class="t-num">12.47</span>,</div>
+      <div>&nbsp;&nbsp;<span class="t-key">"routed_to"</span>: <span class="t-str">"gpt-4o-mini"</span>,</div>
+      <div>&nbsp;&nbsp;<span class="t-key">"premium_calls_saved"</span>: <span class="t-num">38</span></div>
+      <div><span class="t-brace">}</span></div>
+      <div class="t-label">
+        İş akışı başına maliyet <span class="t-score">$0.0031</span> · LLM yönlendirme aktif
+        <div class="beta-note"><span>Faz 2:</span> ComplyDNA + B2B gateway. Faz 1 üretim metrikleri <a href="https://tezmakale.com" target="_blank" rel="noopener" style="color:var(--tq)">TezMakale</a>'den — <a href="/tr/benchmarks/" style="color:var(--tq)">örnek kıyaslamalar</a>, kamuya açık ölçülmüş kıyaslamalar 2026 Q3.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="problem-band" id="problem">
+  <div class="problem-inner">
+    <div class="section-label">Sorun</div>
+    <h2 class="section-title">Üretim ekonomisi,<br>ürün-pazar uyumu bozulmadan çöker.</h2>
+    <p class="section-desc">Çoğu dikey AI girişimi demo yapamadığı için değil; API faturaları, RAG sapması ve token fiyatlandırması geliri aştığı için başarısız oluyor.</p>
+    <div class="problem-grid">
+      <article class="problem-card">
+        <h3>API faturaları gelirden daha hızlı büyür</h3>
+        <p>Her iş akışı en pahalı modeli çağırdığında her aktif kullanıcı marjı yok eder.</p>
+      </article>
+      <article class="problem-card">
+        <h3>RAG demoda çalışır, üretimde başarısız olur</h3>
+        <p>Retrieval sapması, bayat ingestion ve zayıf değerlendirmeler yalnızca lansmandan sonra ortaya çıkar.</p>
+      </article>
+      <article class="problem-card">
+        <h3>Genel ajanlar alan derinliğinden yoksundur</h3>
+        <p>Yatırımcıs see a thin wrapper — not a vertical AI product with defensible workflow logic.</p>
+      </article>
+      <article class="problem-card">
+        <h3>Token fiyatlandırması kullanıcıları şaşırtır</h3>
+        <p>Gerçek altyapı tüketimine karşılık gelmeyen kredi sistemleri brüt marjı aşındırır.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="architecture" id="architecture">
+  <div class="section-label">Mimari</div>
+  <h2 class="section-title">Tek gateway.<br>Her katman ölçümlenmiş.</h2>
+  <p class="section-desc">ozDNA, istemci uygulamalarınız ile LLM sağlayıcıları arasında durur — birleşik AI gateway üzerinden her çıkarım çağrısını yönlendirir, retrieve eder ve ölçer. <a href="/tr/architecture/">Etkileşimli mimari →</a></p>
+  <div class="arch-diagram" role="img" aria-label="ozDNA mimarisi: İstemci Uygulamaları ozDNA Gateway'e bağlanır; Model Router ve RAG Katmanı üzerinden LLM Sağlayıcılarına yönlendirilir; Analytics ve Cost Engine tüm katmanları izler">
+    <svg viewBox="0 0 960 420" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="boxGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#111B26"/>
+          <stop offset="100%" stop-color="#0D1620"/>
+        </linearGradient>
+        <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L6,3 L0,6" fill="none" stroke="#40E0D0" stroke-width="1"/>
+        </marker>
+      </defs>
+      <!-- İstemci Uygulamaları -->
+      <rect x="340" y="20" width="280" height="56" rx="8" fill="url(#boxGrad)" stroke="rgba(64,224,208,0.3)" stroke-width="1"/>
+      <text x="480" y="44" text-anchor="middle" fill="#F0F8FF" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600">İstemci Uygulamaları</text>
+      <text x="480" y="62" text-anchor="middle" fill="#8BA3B8" font-family="Space Grotesk, sans-serif" font-size="10">Web · Mobil · Ajanlar · B2B API</text>
+      <!-- Arrow down -->
+      <line x1="480" y1="76" x2="480" y2="108" stroke="#40E0D0" stroke-width="1.5" marker-end="url(#arrow)" opacity="0.7"/>
+      <!-- ozDNA Gateway -->
+      <rect x="300" y="112" width="360" height="64" rx="10" fill="url(#boxGrad)" stroke="#40E0D0" stroke-width="1.5"/>
+      <text x="480" y="140" text-anchor="middle" fill="#40E0D0" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">ozDNA Gateway</text>
+      <text x="480" y="160" text-anchor="middle" fill="#8BA3B8" font-family="Space Grotesk, sans-serif" font-size="10">Kimlik Doğrulama · Hız Limitleri · Denetim Günlükleri · API Gateway</text>
+      <!-- Arrows to router and RAG -->
+      <line x1="400" y1="176" x2="200" y2="220" stroke="#40E0D0" stroke-width="1.5" marker-end="url(#arrow)" opacity="0.7"/>
+      <line x1="560" y1="176" x2="760" y2="220" stroke="#40E0D0" stroke-width="1.5" marker-end="url(#arrow)" opacity="0.7"/>
+      <!-- Model Router -->
+      <rect x="60" y="224" width="280" height="56" rx="8" fill="url(#boxGrad)" stroke="rgba(64,224,208,0.3)" stroke-width="1"/>
+      <text x="200" y="248" text-anchor="middle" fill="#F0F8FF" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600">Model Router</text>
+      <text x="200" y="266" text-anchor="middle" fill="#8BA3B8" font-family="Space Grotesk, sans-serif" font-size="10">Maliyet odaklı · Yedekleme · A/B yönlendirme</text>
+      <!-- RAG Katmanı -->
+      <rect x="620" y="224" width="280" height="56" rx="8" fill="url(#boxGrad)" stroke="rgba(64,224,208,0.3)" stroke-width="1"/>
+      <text x="760" y="248" text-anchor="middle" fill="#F0F8FF" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600">RAG Katmanı</text>
+      <text x="760" y="266" text-anchor="middle" fill="#8BA3B8" font-family="Space Grotesk, sans-serif" font-size="10">Retrieval · Embeddings · Değerlendirme kancaları</text>
+      <!-- Bidirectional link -->
+      <line x1="340" y1="252" x2="620" y2="252" stroke="rgba(64,224,208,0.25)" stroke-width="1" stroke-dasharray="4 3"/>
+      <!-- Arrows down to LLM -->
+      <line x1="200" y1="280" x2="360" y2="320" stroke="#40E0D0" stroke-width="1.5" marker-end="url(#arrow)" opacity="0.7"/>
+      <line x1="760" y1="280" x2="600" y2="320" stroke="#40E0D0" stroke-width="1.5" marker-end="url(#arrow)" opacity="0.7"/>
+      <!-- LLM Sağlayıcıları -->
+      <rect x="280" y="324" width="400" height="56" rx="8" fill="url(#boxGrad)" stroke="rgba(64,224,208,0.3)" stroke-width="1"/>
+      <text x="480" y="348" text-anchor="middle" fill="#F0F8FF" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600">LLM Sağlayıcıları</text>
+      <text x="480" y="366" text-anchor="middle" fill="#8BA3B8" font-family="Space Grotesk, sans-serif" font-size="10">OpenAI · Anthropic · Google · Self-hosted</text>
+      <!-- Analytics bar -->
+      <rect x="80" y="396" width="800" height="20" rx="4" fill="rgba(64,224,208,0.08)" stroke="rgba(64,224,208,0.2)" stroke-width="1"/>
+      <text x="480" y="410" text-anchor="middle" fill="#40E0D0" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500">Analytics &amp; Cost Engine — kullanım · harcama · gecikme · denetim izi</text>
+      <!-- Side connectors to analytics -->
+      <line x1="480" y1="380" x2="480" y2="396" stroke="#40E0D0" stroke-width="1" opacity="0.5"/>
+    </svg>
+  </div>
+</section>
+
+<section class="pillars" id="pillars">
+  <div class="section-label">Platform</div>
+  <h2 class="section-title">Beş sütun. Tek<br>altyapı katmanı.</h2>
+  <p class="section-desc">Başka bir LLM gateway değil — RAG yönetişimi, LLM maliyet optimizasyonu ve kullanım ekonomisi için dikey AI altyapısı.</p>
+  <div class="pillar-grid">
+    <article class="pillar-card" id="pillar-cost">
+      <div class="pillar-num">01</div>
+      <h3>Maliyet Kontrolü</h3>
+      <p class="pillar-audience">Kurucular · CEO'lar · CTO'lar</p>
+      <p>AI altyapısı gelirden daha hızlı büyümemeli. Görevleri en ucuz yetkin modele yönlendirin; iş akışı, kullanıcı ve hesap bazında maliyeti izleyin.</p>
+      <a href="/docs/tr/#quick-start" class="pillar-link">Daha fazla bilgi →</a>
+    </article>
+    <article class="pillar-card" id="pillar-rag">
+      <div class="pillar-num">02</div>
+      <h3>Üretim RAG Güvenilirliği</h3>
+      <p class="pillar-audience">ML Mühendisleri · AI Mühendisleri</p>
+      <p>RAG başarısızlığı bir operasyon sorunudur. Retrieval kalitesi, güncellik, değerlendirmeler ve maliyet kontrollerini tek operasyon katmanında birleştirin.</p>
+      <a href="/docs/tr/" class="pillar-link">Daha fazla bilgi →</a>
+    </article>
+    <article class="pillar-card" id="pillar-vertical">
+      <div class="pillar-num">03</div>
+      <h3>Dikey AI Farklılaşması</h3>
+      <p class="pillar-audience">Founders · Yatırımcıs</p>
+      <p>Savunulabilirlik chatbot arayüzünden değil, iş akışı derinliğinden gelir. Belirli bir işin operasyon mantığını anlayan ajanlar oluşturun.</p>
+      <a href="/tr/case-studies/tezmakale/" class="pillar-link">Daha fazla bilgi →</a>
+    </article>
+    <article class="pillar-card" id="pillar-margin">
+      <div class="pillar-num">04</div>
+      <h3>Sübvansiyon Sonrası Marj Dayanıklılığı</h3>
+      <p class="pillar-audience">Yatırımcıs · CFOs</p>
+      <p>Brüt marj bugünkü API fiyatlarının sabit kalmasına bağlıysa AI ürününüzde gizli platform riski vardır.</p>
+      <a href="/docs/tr/" class="pillar-link">Daha fazla bilgi →</a>
+    </article>
+    <article class="pillar-card featured" id="pillar-usage-economics">
+      <div class="pillar-num">05</div>
+      <h3>Usage Economics &amp; Fiyatlandırma Design</h3>
+      <p class="pillar-audience">Ürün · Monetizasyon</p>
+      <p>Kullanıcıya yönelik kredileri gerçek token tüketimi, iş akışı maliyeti ve marj tasarımına eşleyin — fiyatlandırma sayfalarına sarılmış tahminlere değil.</p>
+      <a href="/tr/pricing/" class="pillar-link">Daha fazla bilgi →</a>
+    </article>
+  </div>
+</section>
+
+<section class="production" id="production">
+  <div class="production-inner">
+    <div class="section-label">Faz 1 ve 2</div>
+    <h2 class="section-title"><a href="https://tezmakale.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">TezMakale</a> bugün canlı.<br>ComplyDNA sırada.</h2>
+    <p class="section-desc">Faz 1, ozDNA üzerinde canlı akademik AI. Faz 2 <a href="/tr/products/comply/">ComplyDNA</a> — fintech ve hukuk büroları için RegTech — artı harici B2B gateway.</p>
+    <div class="production-hero">
+      <div class="production-card">
+        <span class="eco-status live">Phase 1 · Canlı</span>
+        <h3><a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a></h3>
+        <div class="production-segment">Akademik AI · Türkiye · <a href="https://tezmakale.com" target="_blank" rel="noopener">tezmakale.com</a></div>
+        <p><a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a> gerçek akademik iş akışlarını işler — AI tespiti, ayrıntılı analiz raporları ve kullanıma dayalı token limitleri — B2B ekiplere sattığımız aynı ozDNA gateway, model router ve cost engine üzerinde.</p>
+        <div class="production-metrics">
+          <div class="metric-box">
+            <div class="metric-value">10K+</div>
+            <div class="metric-label">Aylık iş akışları</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-value">40%</div>
+            <div class="metric-label">Çıkarım maliyeti tasarrufu</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-value">99.9%</div>
+            <div class="metric-label">Gateway çalışma süresi</div>
+          </div>
+        </div>
+        <div class="production-actions">
+          <a href="/tr/case-studies/tezmakale/" class="btn-primary">Read Vaka Çalışması</a>
+          <a href="https://tezmakale.com" class="btn-ghost" target="_blank" rel="noopener">TezMakale'yi Ziyaret Et →</a>
+        </div>
+      </div>
+      <a href="/tr/products/comply/" class="eco-card link-card">
+        <span class="eco-status phase2">Faz 2 · Geliştiriliyor</span>
+        <div class="eco-name">ComplyDNA</div>
+        <div class="eco-segment">RegTech · TR / AB</div>
+        <p class="eco-desc">5549, BDDK, MASAK ve KVKK için düzenleyici izleme. Fintech, EMI/PSP ve hukuk büroları için RAG ağırlıklı uyumluluk katmanı — TezMakale ile aynı ozDNA yığını (tezmakale.com).</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="partner-strip" id="partners">
+  <div class="partner-inner">
+    <div class="partner-copy">
+      <div class="section-label">Üretim Ortağı</div>
+      <h2>ozDNA ile güçlendirildi — <a href="https://tezmakale.com" class="partner-logo-link" target="_blank" rel="noopener">TezMakale</a>'de canlı</h2>
+      <p>AI tespiti, ayrıntılı analiz raporları ve tez iş akışları için Türkiye'nin akademik AI platformu — üretimde ozDNA altyapısında çalışıyor. Gerçek kullanıcılar, gerçek kullanım ekonomisi, yatırımcılar için gerçek kanıt.</p>
+    </div>
+    <div class="partner-actions">
+      <a href="https://tezmakale.com" class="btn-primary" target="_blank" rel="noopener">tezmakale.com'u ziyaret edin</a>
+      <a href="/tr/partners/" class="btn-ghost">İş ortağı profili →</a>
+    </div>
+  </div>
+</section>
+
+<section class="enterprise" id="enterprise">
+  <div class="section-label">Kurumsal Features</div>
+  <h2 class="section-title">Ölçekte üretim AI<br>sunan ekipler için tasarlandı.</h2>
+  <p class="section-desc">ozDNA yığınının her katmanı kurumsal AI için tasarlandı — maliyet optimizasyonu ve akıllı yönlendirmeden denetim günlükleri ve güvenlik kontrollerine.</p>
+  <div class="enterprise-grid">
+    <article class="enterprise-feature">
+      <div class="enterprise-icon"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <h3>Maliyet Optimizasyonu</h3>
+      <p>İş akışı bazında harcama izleme, model düşürme kuralları ve faturalar yükselmeden marj uyarıları.</p>
+    </article>
+    <article class="enterprise-feature">
+      <div class="enterprise-icon"><svg viewBox="0 0 24 24"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg></div>
+      <h3>Akıllı Yönlendirme</h3>
+      <p>Görev karmaşıklığı, gecikme bütçesi ve maliyet tavanına göre yönlendirme — otomatik yedekleme zincirleriyle.</p>
+    </article>
+    <article class="enterprise-feature">
+      <div class="enterprise-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
+      <h3>Prompt Kayıt Defteri</h3>
+      <p>A/B testi, geri alma ve ortam kapsamlı dağıtımlarla sürümlü prompt'lar.</p>
+    </article>
+    <article class="enterprise-feature">
+      <div class="enterprise-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+      <h3>Gözlemlenebilirlik</h3>
+      <p>Gateway'den LLM'e uçtan uca izler — gecikme, token tüketimi ve retrieval kalitesi tek görünümde.</p>
+    </article>
+    <article class="enterprise-feature">
+      <div class="enterprise-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+      <h3>API Gateway</h3>
+      <p>Tüm AI iş yükleri için birleşik giriş noktası — kimlik doğrulama, hız limitleri ve sağlayıcı soyutlaması.</p>
+    </article>
+    <article class="enterprise-feature">
+      <div class="enterprise-icon"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+      <h3>Kullanım Analitiği</h3>
+      <p>Hesap, iş akışı ve modele göre panolar — finans ve yatırımcı raporlaması için dışa aktarılabilir.</p>
+    </article>
+    <article class="enterprise-feature">
+      <div class="enterprise-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <h3>Denetim Günlükleri</h3>
+      <p>Uyumluluk için prompt hash'leri, model ID'leri ve maliyet atamasıyla değiştirilemez istek günlükleri.</p>
+    </article>
+    <article class="enterprise-feature">
+      <div class="enterprise-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+      <h3>Kurumsal Güvenlik</h3>
+      <p>SSO, RBAC, data residency controls, and VPC deployment options for regulated industries. <a href="/tr/trust/">Güven Merkezi →</a> · <a href="/tr/security/">Güvenlik →</a></p>
+    </article>
+  </div>
+</section>
+
+<section class="campaign-band" id="campaign">
+  <div class="campaign-inner">
+    <div class="section-label">GPU Faturası Koruyucusu</div>
+    <blockquote class="campaign-quote">Yapısal hale gelmeden önce token tüketimini kontrol edin.</blockquote>
+    <p class="campaign-desc">Ölçek büyümeden önce LLM maliyet optimizasyonu ve üretim RAG yönetişimine ihtiyaç duyan kurucular ve CTO'lar için erken erişim listesine katılın.</p>
+  </div>
+</section>
+
+<section class="cta-section" id="waitlist">
+  <h2>Erken erişim alın</h2>
+  <p>Özel beta — yalnızca davetle. Dikey AI kurucuları, ML mühendisleri ve altyapı odaklı CTO'lar önceliklidir.</p>
+
+  <form class="waitlist-form" name="waitlist" method="POST" action="/success" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="waitlist">
+    <input type="hidden" name="utm_source" id="utm_source" value="">
+    <input type="hidden" name="utm_campaign" id="utm_campaign" value="">
+    <input type="hidden" name="utm_medium" id="utm_medium" value="">
+    <p hidden><label>Boş bırakın: <input name="bot-field"></label></p>
+    <div>
+      <label for="email">İş e-postası</label>
+      <input type="email" id="email" name="email" placeholder="you@company.com" required>
+    </div>
+    <div>
+      <label for="company">Şirket</label>
+      <input type="text" id="company" name="company" placeholder="Şirket adı">
+    </div>
+    <div>
+      <label for="role">Rol</label>
+      <select id="role" name="role">
+        <option value="">Seçin…</option>
+        <option value="founder">Kurucu / CEO</option>
+        <option value="cto">CTO / ML Mühendisi</option>
+        <option value="product">Ürün / Monetizasyon</option>
+        <option value="regtech">ComplyDNA</option>
+        <option value="investor">Yatırımcı</option>
+        <option value="other">Diğer</option>
+      </select>
+    </div>
+    <button type="submit" class="btn-primary">Bekleme Listesine Katıl</button>
+  </form>
+  <div class="form-success" id="form-success" role="status">
+    Teşekkürler — listedesiniz. Erken erişim açıldığında sizinle iletişime geçeceğiz.
+  </div>
+
+  <div class="cta-actions">
+    <a href="/docs/tr/" class="btn-ghost">API Dokümantasyonunu İncele →</a>
+    <a href="/tr/pricing/" class="btn-ghost">Fiyatlandırmayı Gör →</a>
+    <a href="mailto:hello@ozdna.com" class="btn-ghost">İş Ortaklarıhips →</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-brand">
+    <a href="/tr/" class="logo" aria-label="ozDNA">
+      <img src="../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
+    </a>
+    <p class="footer-tagline">Findbelow Ventures · Dikey AI altyapısı (PaaS)</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>
+    <a href="/tr/trust/">Güven Merkezi</a>
+    <a href="/tr/security/">Güvenlik</a>
+    <a href="/tr/products/comply/">ComplyDNA</a>
+    <a href="/tr/partners/">İş Ortakları</a>
+    <a href="/tr/case-studies/tezmakale/">Vaka Çalışması</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/sdk/">SDK</a>
+    <a href="/tr/architecture/">Mimari</a>
+    <a href="mailto:hello@ozdna.com">İletişim</a>
+    <a href="/tr/privacy/">Gizlilik</a>
+    <a href="/tr/terms/">Şartlar</a>
+    <a href="/tr/pricing/">Fiyatlandırma</a>
+    <a href="/tr/roadmap/">Yol Haritası</a>
+    <a href="/tr/compare/litellm-alternative/">LiteLLM Alternatifi</a>
+    <a href="/tr/blog/">Blog</a>
+    <a href="/tr/changelog/">Değişiklik Günlüğü</a>
+    <a href="/tr/status/">Durum</a>
+    <a href="/llms.txt">AI / llms.txt</a>
+  </div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+
+<script src="/analytics.js" defer></script>
+<script src="/main.js" defer></script>
+</body>
+</html>

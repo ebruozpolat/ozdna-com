@@ -1,0 +1,18 @@
+from pathlib import Path
+
+from qdrant_client import QdrantClient
+
+from app.config import Settings
+from app.services.qdrant_client import build_qdrant_client
+
+
+def test_build_qdrant_client_uses_local_path(tmp_path: Path) -> None:
+    db_path = tmp_path / "qdrant"
+    settings = Settings(qdrant_path=str(db_path))
+    client = build_qdrant_client(settings)
+    assert isinstance(client, QdrantClient)
+    client.create_collection(
+        "test",
+        vectors_config={"size": 4, "distance": "Cosine"},
+    )
+    assert db_path.exists()

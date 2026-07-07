@@ -1,0 +1,34 @@
+{
+  "baseUrl": "https://ozdna.com",
+  "siteName": "ozDNA",
+  "locale": "en_US",
+  "language": "en",
+  "organization": {
+    "name": "Findbelow Ventures",
+    "legalName": "Findbelow Ventures",
+    "url": "https://ozdna.com/",
+    "logo": "https://ozdna.com/assets/logo.svg",
+    "email": "hello@ozdna.com",
+    "sameAs": [
+      "https://tezmakale.com"
+    ]
+  },
+  "softwareApplication": {
+    "name": "ozDNA Platform",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web, Linux, macOS",
+    "description": "Vertical AI infrastructure — AI gateway, model routing, prompt registry, RAG governance, and LLM cost optimization for production AI teams.",
+    "url": "https://ozdna.com/",
+    "downloadUrl": "https://ozdna.com/docs/",
+    "softwareVersion": "0.1.0",
+    "releaseNotes": "https://ozdna.com/changelog/",
+    "offers": {
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Early access — paid tiers at launch"
+    }
+  },
+  "defaultOgImage": "https://ozdna.com/assets/og-image.png",
+  "twitterSite": "@ozdna",
+  "fontStylesheet": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional"
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Ana içeriğe geç</a>
+<nav>
+  <a href="/tr/" class="logo" aria-label="ozDNA ana sayfa">
+    <img src="../../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
+  </a>
+  <button class="nav-toggle" aria-label="Menü" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="/tr/products/comply/">ComplyDNA</a>
+    <a href="/tr/architecture/">Platform</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/pricing/">Fiyatlandırma</a>
+    <a href="/tr/#waitlist" class="nav-cta">Erken Erişim</a>
+  </div>
+</nav>
+
+<main id="main-content">
+<article class="blog-article">
+  <a href="/tr/blog/" class="blog-back">← Tüm yazılar</a>
+  <div class="blog-meta">
+    <span class="blog-pillar">Sütun 1 · Maliyet Kontrolü</span>
+    <span class="blog-date">Haziran 2026 · 6 dk okuma</span>
+  </div>
+  <h1>Çıkarım Maliyetini Ölçülebilir ve Yönlendirilebilir Kılmak</h1>
+  <p class="blog-lead">Öngörülemez GPU maliyeti bir belirtidir. Hastalık etiketsiz harcamadır — fatura görürsünüz, karar ağacı değil. Önce ölçümü düzeltin; yönlendirme ikinci.</p>
+
+  <p>CTO'lar aynı haftayı anlatır: finans tahmin ister, mühendislik "trafiğe bağlı" der ve <strong>öngörülemez GPU maliyeti</strong> grafiği hava durumu gibi sıçrar. Bu yalnızca kapasite planlama hatası değil. <em>Ürünün ne yaptığı</em> ile <em>hangi altyapıyı yaktığı</em> arasında atıf eksikliğidir.</p>
+
+  <h2>Çıkarım maliyetinin üç katmanı</h2>
+  <p>Üretim AI harcaması genellikle üç kova karıştırır. Bunları tek kalem olarak ele almak sürprizi garanti eder.</p>
+  <ul>
+    <li><strong>Sağlayıcı çıkarımı.</strong> Token başına API ücretleri veya self-hosted GPU saatleri.</li>
+    <li><strong>Retrieval ve orkestrasyon.</strong> Embeddings, yeniden sıralama, ajan araç döngüleri — genellikle "ana" üretimden daha fazla çağrı.</li>
+    <li><strong>Yeniden deneme ve kalite vergisi.</strong> Başarısız RAG çekmeleri, guardrail yeniden yazmaları, kullanıcı tetiklemeli yeniden üretimler. Demoda görünmez, üretimde devasa.</li>
+  </ul>
+  <p>Yalnızca "OpenAI faturası" gösteren panolar hikâyenin üçte ikisini kaçırır. <strong>AI çıkarım maliyeti azaltma</strong>, retrieval ve yeniden denemeler chat completion'larla aynı etiketleri taşıdığında başlar.</p>
+
+  <h2>Maliyeti ölçülebilir kılmak: minimum şema</h2>
+  <p>İlk günden veri ambarına ihtiyacınız yok. Her çıkarım olayında tutarlı alanlara ihtiyacınız var:</p>
+  <ul>
+    <li><code>workflow_id</code> — dahili mikroservis adı değil, kullanıcıya yönelik iş</li>
+    <li><code>step</code> — retrieve, classify, generate, validate</li>
+    <li><code>model</code> — gerçekten çağrılan sağlayıcı + model ID</li>
+    <li><code>tokens_in</code> / <code>tokens_out</code> — veya self-hosted için GPU-saniye</li>
+    <li><code>account_id</code> — B2B için kullanıcıdan önce müşteriye bağlayın</li>
+    <li><code>outcome</code> — success, retry, fallback model</li>
+  </ul>
+  <p>Bu şemayla sorular cevaplanabilir: Salı hangi iş akışı bütçeyi patlattı? Yeni prompt çıkış token'larını artırdı mı? Yeniden denemeler bir müşteri entegrasyonunda maliyeti ikiye mi katlıyor?</p>
+  <p>Bu <strong>token maliyet yönetiminin</strong> temelidir — fiyatlandırma sayfanızdaki krediler bu satırlara eşlenmeli, yoksa marjı tahmin ediyorsunuz.</p>
+
+  <h2>Maliyeti yönlendirilebilir kılmak: en ucuz yetkin model</h2>
+  <p><strong>LLM yönlendirme</strong> slogan olarak "kolay işleri küçük modele gönder" değildir. Adım başına bir politikadır:</p>
+  <ol>
+    <li>Adım için kalite barını tanımlayın (gerçek temellendirme, ton, format uyumu).</li>
+    <li>Sabit üretim şekilli girdiler kümesinde değerlendirme çalıştırın — seçilmiş demolar değil.</li>
+    <li>Barı geçen en ucuz modele yönlendirin; yalnızca düşük güvende yükseltin.</li>
+    <li>Yükseltmeleri birinci sınıf olay olarak günlükleyin — ince ayar veya daha iyi retrieval için yol haritanızdır.</li>
+  </ol>
+  <p>Adım başına değerlendirme olmadan yönlendirme batıl inançtır. Ya premium modellerde fazla harcarsınız ya da kullanıcıların fark ettiği adımlarda yetersiz kalırsınız.</p>
+
+  <h2>Operasyonda "yönlendirilebilir" neye benzer</h2>
+  <p>Ölçülebilir + yönlendirilebilir altyapı, nöbetçi mühendisin dakikalar içinde yanıtlayabileceği anlamına gelir:</p>
+  <ul>
+    <li>Son sürümde sınıflandırma çağrılarının %38'ini daha küçük modele kaydırdık — kalite korundu, maliyet düştü.</li>
+    <li>X hesabının entegrasyonu çift retrieval tetikliyor — sağlayıcı kesintisi değil.</li>
+    <li>Gecikme artışı GPU doygunluğu değil yönlendirme yedeklemesiyle korele.</li>
+  </ul>
+  <p>Çıkarımın hava durumu gibi hissettirmeyi bırakıp işlettiğiniz bir sistem gibi hissettirdiği an budur.</p>
+
+  <aside class="blog-proof">
+    <h3>ozDNA üzerinde inşa edildi</h3>
+    <p>Altyapı yol haritamız — önce <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a> ve <a href="/tr/products/comply/">ComplyDNA</a> iş yüklerinde uygulandı — iş akışı başına maliyeti aylık fatura sürprizi değil birinci sınıf metrik olarak ele alır. Gateway'ler boru verir; dikey ürünler içlerinden ne akması gerektiğini öğretir.</p>
+  </aside>
+
+  <h2>Bu hafta başlayın</h2>
+  <p>Bir iş akışını uçtan uca ölçümleyin. Değerlendirmelerin zaten olduğu tam bir adıma yönlendirme ekleyin. Okyanusu kaynatmaya direnin.</p>
+  <p>Öngörülebilir GPU ve API faturaları harcamayı kilitlemekle ilgili değil — her doları değiştirebileceğiniz bir ürün kararına bağlamakla ilgili.</p>
+
+  <div class="blog-cta-box">
+    <p>Sağlayıcı faturası değil iş akışı başına maliyet mi istiyorsunuz? ozDNA yönlendirme ve yönetişim katmanına erken erişim dikey AI ekipleri için açık.</p>
+    <a href="/tr/#waitlist" class="btn-primary">Erken Erişim</a>
+  </div>
+</article>
+
+</main>
+
+<footer>
+  <div class="footer-brand">
+    <a href="/tr/" class="logo" aria-label="ozDNA">
+      <img src="../../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
+    </a>
+    <p class="footer-tagline">Findbelow Ventures · Dikey AI altyapısı (PaaS)</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>
+    <a href="/tr/trust/">Güven Merkezi</a>
+    <a href="/tr/security/">Güvenlik</a>
+    <a href="/tr/partners/">İş Ortakları</a>
+    <a href="/tr/blog/">Blog</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/sdk/">SDK</a>
+    <a href="/tr/benchmarks/">Kıyaslamalar</a>
+    <a href="/tr/architecture/">Mimari</a>
+    <a href="mailto:hello@ozdna.com">İletişim</a>
+  </div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+
+<script src="/analytics.js" defer></script>
+<script src="/main.js" defer></script>
+</body>
+</html>

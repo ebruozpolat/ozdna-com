@@ -1,0 +1,19 @@
+---
+kaynak_kodu: LAW-KVKK
+kaynak_adi: 6698 sayılı KVKK
+yururluk_tarihi: 2016-04-07
+surum_etiketi: 2016-04
+---
+6698 SAYILI KİŞİSEL VERİLERİN KORUNMASI KANUNU (ÖRNEK MADDELER)
+
+MADDE 4 – Kişisel verilerin işlenme şartları
+(1) Kişisel veriler, ilgili kişinin açık rızası olmaksızın işlenemez.
+
+MADDE 5 – Kişisel verilerin işlenme şartları
+(1) Kişisel verilerin işlenme şartları kanunda sayılmıştır.
+
+MADDE 12 – Veri sorumlusunun aydınlatma yükümlülüğü
+(1) Veri sorumlusu, ilgili kişinin talebi üzerine bilgi vermekle yükümlüdür.
+
+MADDE 18 – İdari para cezaları
+(1) Kanuna aykırı veri işleme halinde idari para cezası uygulanır.

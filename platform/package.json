@@ -1,0 +1,22 @@
+{
+  "name": "ozdna-platform",
+  "private": true,
+  "version": "0.1.0",
+  "description": "ozDNA Vertical AI Infrastructure Platform",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w @ozdna/api",
+    "build": "npm run build -w @ozdna/api",
+    "start": "npm run start -w @ozdna/api",
+    "db:push": "npm run db:push -w @ozdna/db",
+    "db:seed": "npm run db:seed -w @ozdna/db && npm run ingest-all -w @ozdna/rag",
+    "rag:ingest": "npm run ingest-all -w @ozdna/rag",
+    "typecheck": "npm run typecheck -w @ozdna/api"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

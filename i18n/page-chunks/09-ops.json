@@ -1,0 +1,102 @@
+{
+  "changelog/index.html": {
+    "title": "Değişiklik Günlüğü — ozDNA Sürümleri",
+    "description": "ozDNA için kamuya açık değişiklik günlüğü — site, API ve platform sürümleri, sürüm geçmişi ve sürüm notları.",
+    "breadcrumbs": [
+      { "name": "Ana Sayfa", "path": "/tr/" },
+      { "name": "Değişiklik Günlüğü", "path": "/tr/changelog/" }
+    ],
+    "replacements": [
+      ["Public release history for ozdna.com and developer surfaces · <a href=\"/changelog/feed.json\">JSON feed</a>", "ozdna.com ve geliştirici yüzeyleri için kamuya açık sürüm geçmişi · <a href=\"/changelog/feed.json\">JSON feed</a>"],
+      ["What shipped on the marketing site, documentation, and early-access platform. Platform API versioning follows semver independently — see <a href=\"/docs/\">API docs</a>.", "Pazarlama sitesi, dokümantasyon ve erken erişim platformunda ne yayınlandı. Platform API sürümlemesi bağımsız semver izler — bkz. <a href=\"/docs/\">API dokümantasyonu</a>."],
+      ["Initial public site — Phase 2 positioning, developer documentation, pricing, production proof, and agent-readable knowledge bundle.", "İlk kamuya açık site — Faz 2 konumlandırması, geliştirici dokümantasyonu, fiyatlandırma, üretim kanıtı ve ajan okunabilir bilgi paketi."],
+      ["Phase 2 homepage — LLM cost optimization for production AI teams, ComplyDNA preview, enterprise pillars, and early-access waitlist.", "Faz 2 ana sayfa — üretim AI ekipleri için LLM maliyet optimizasyonu, ComplyDNA önizlemesi, kurumsal sütunlar ve erken erişim bekleme listesi."],
+      ["Developer documentation hub — authentication, vertical modes, webhooks, integration flow, and platform architecture overview.", "Geliştirici dokümantasyon merkezi — kimlik doğrulama, dikey modlar, webhook'lar, entegrasyon akışı ve platform mimarisi genel bakış."],
+      ["Early-access pricing tiers — Startup, Growth, and Enterprise plans with invite-only API access model.", "Erken erişim fiyatlandırma katmanları — yalnızca davetle API erişim modeliyle Startup, Growth ve Enterprise planları."],
+      ["Production case study — how <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a> runs on ozDNA infrastructure with live token economics and vertical workflows.", "Üretim vaka çalışması — <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a>'nin canlı token ekonomisi ve dikey iş akışlarıyla ozDNA altyapısında nasıl çalıştığı."],
+      ["Agent-readable site manifest — knowledge bundle index, blog series, partner proof, and structured links for LLM crawlers.", "Ajan okunabilir site manifesti — bilgi paketi indeksi, blog serisi, iş ortağı kanıtı ve LLM tarayıcıları için yapılandırılmış bağlantılar."],
+      ["REST API reference — <span class=\"inline-code\">POST /v1/detect</span>, Bearer auth, sandbox and production base URLs, OpenAPI spec pointers.", "REST API referansı — <span class=\"inline-code\">POST /v1/detect</span>, Bearer kimlik doğrulama, sandbox ve üretim temel URL'leri, OpenAPI spesifikasyon işaretçileri."],
+      ["Platform modules, Trust Center expansions, and ComplyDNA ship on their own cadence — tracked on the public roadmap.", "Platform modülleri, Güven Merkezi genişlemeleri ve ComplyDNA kendi ritimlerinde yayınlanır — kamuya açık yol haritasında izlenir."],
+      ["What&apos;s next?", "Sırada ne var?"],
+      ["aria-label=\"Release versions\"", "aria-label=\"Sürüm sürümleri\""],
+      ["Release Notes", "Sürüm Notları"],
+      ["Case Studies", "Vaka Çalışmaları"],
+      ["Landing page", "Açılış sayfası"],
+      ["Documentation", "Dokümantasyon"],
+      ["Subscribe", "Abone ol"],
+      ["Changelog", "Değişiklik Günlüğü"],
+      ["View Roadmap", "Yol Haritasını Gör"],
+      ["Pricing", "Fiyatlandırma"],
+      ["Versions", "Sürümler"],
+      ["Released", "Yayınlandı"],
+      ["Added", "Eklendi"],
+      ["API docs", "API dokümantasyonu"]
+    ]
+  },
+  "status/index.html": {
+    "title": "Sistem Durumu — ozDNA Platform",
+    "description": "ozDNA platform bileşenleri için güncel operasyonel durum — API gateway, çıkarım, dokümantasyon ve pazarlama sitesi.",
+    "breadcrumbs": [
+      { "name": "Ana Sayfa", "path": "/tr/" },
+      { "name": "Durum", "path": "/tr/status/" }
+    ],
+    "replacements": [
+      ["Static status during private beta · <a href=\"/status/feed.json\">JSON feed</a>", "Özel beta sırasında statik durum · <a href=\"/status/feed.json\">JSON feed</a>"],
+      ["AI Gateway — authentication, rate limits, and request routing", "AI Gateway — kimlik doğrulama, hız limitleri ve istek yönlendirme"],
+      ["Platform REST API at api.ozdna.com and sandbox endpoints", "api.ozdna.com ve sandbox uç noktalarında platform REST API"],
+      ["Developer docs and API reference at ozdna.com/docs", "ozdna.com/docs adresinde geliştirici dokümantasyonu ve API referansı"],
+      ["Marketing site, trust center, and static assets at ozdna.com", "ozdna.com'da pazarlama sitesi, güven merkezi ve statik varlıklar"],
+      ["Status data is published manually during private beta. Live monitoring will poll <code class=\"inline-code\">/status/feed.json</code> — swap <code class=\"inline-code\">data-feed-url</code> on this page when a dynamic endpoint is available.", "Durum verisi özel beta sırasında manuel yayınlanır. Canlı izleme <code class=\"inline-code\">/status/feed.json</code> dosyasını yoklayacaktır — dinamik uç nokta kullanılabilir olduğunda bu sayfadaki <code class=\"inline-code\">data-feed-url</code> değerini değiştirin."],
+      ["Report issues: <a href=\"mailto:security@ozdna.com\">security@ozdna.com</a> · <a href=\"/security/\">Security</a> · <a href=\"/trust/#business-continuity\">Business continuity</a>", "Sorun bildirin: <a href=\"mailto:security@ozdna.com\">security@ozdna.com</a> · <a href=\"/security/\">Güvenlik</a> · <a href=\"/trust/#business-continuity\">İş sürekliliği</a>"],
+      ["Updated 6 Jul 2026, 09:00 UTC", "Güncellendi 6 Tem 2026, 09:00 UTC"],
+      ["No incidents reported in the last 90 days.", "Son 90 günde bildirilen olay yok."],
+      ["All systems operational", "Tüm sistemler çalışıyor"],
+      ["Platform availability", "Platform kullanılabilirliği"],
+      ["Incident history", "Olay geçmişi"],
+      ["System Status", "Sistem Durumu"],
+      ["Documentation", "Dokümantasyon"],
+      ["Operational", "Çalışıyor"],
+      ["Components", "Bileşenler"],
+      ["Gateway", "Gateway"],
+      ["Website", "Web Sitesi"]
+    ]
+  },
+  "roadmap/index.html": {
+    "title": "Ürün Yol Haritası — ozDNA Dikey AI Altyapısı",
+    "description": "ozDNA ürün yol haritası — API gateway, maliyet motoru, model yönlendirme, prompt kayıt defteri, ajan runtime ve kurumsal yönetişim.",
+    "breadcrumbs": [
+      { "name": "Ana Sayfa", "path": "/tr/" },
+      { "name": "Yol Haritası", "path": "/tr/roadmap/" }
+    ],
+    "replacements": [
+      ["ozDNA ships in phases — each quarter adds infrastructure depth for vertical AI teams. Timelines are directional and may shift based on beta feedback.", "ozDNA fazlar halinde yayınlanır — her çeyrek dikey AI ekipleri için altyapı derinliği ekler. Zaman çizelgeleri yönlendiricidir ve beta geri bildirimine göre değişebilir."],
+      ["When the <strong style=\"color:var(--txt)\">ten platform modules</strong> below reach GA, ozDNA is full Vertical AI Infrastructure — not only a marketing site, but a platform developers and enterprise customers can run in production.", "Aşağıdaki <strong style=\"color:var(--txt)\">on platform modülü</strong> GA'ya ulaştığında ozDNA tam Dikey AI Altyapısı olur — yalnızca pazarlama sitesi değil, geliştiricilerin ve kurumsal müşterilerin üretimde çalıştırabileceği bir platform."],
+      ["Want early access to roadmap features? Private beta participants get priority access to each phase as it ships.", "Yol haritası özelliklerine erken erişim mi istiyorsunuz? Özel beta katılımcıları her faz yayınlandığında öncelikli erişim alır."],
+      ["What we're building<br>for production AI.", "Üretim AI için<br>ne inşa ediyoruz."],
+      ["Ten modules to production-ready", "Üretime hazır on modül"],
+      ["Organization &amp; Workspace", "Organizasyon ve Çalışma Alanı"],
+      ["Billing &amp; Quotas", "Faturalama ve Kotalar"],
+      ["Enterprise Governance", "Kurumsal Yönetişim"],
+      ["Vertical AI Templates", "Dikey AI Şablonları"],
+      ["API Key Management", "API Anahtarı Yönetimi"],
+      ["Usage Analytics", "Kullanım Analitiği"],
+      ["Prompt Registry", "Prompt Kayıt Defteri"],
+      ["Admin Dashboard", "Yönetici Paneli"],
+      ["Agent Runtime", "Ajan Runtime"],
+      ["Model Routing", "Model Yönlendirme"],
+      ["Cost Engine", "Maliyet Motoru"],
+      ["API Gateway", "API Gateway"],
+      ["Audit Logs", "Denetim Günlükleri"],
+      ["ComplyDNA (RegTech)", "ComplyDNA (RegTech)"],
+      ["Product Roadmap", "Ürün Yol Haritası"],
+      ["Platform GA", "Platform GA"],
+      ["Marketplace", "Marketplace"],
+      ["Enterprise", "Kurumsal"],
+      ["Future", "Gelecek"],
+      ["Planned", "Planlandı"],
+      ["Q3 2026", "2026 Q3"],
+      ["Q4 2026", "2026 Q4"],
+      ["2027", "2027"]
+    ]
+  }
+}

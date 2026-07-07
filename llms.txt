@@ -1,0 +1,34 @@
+# ComplyDNA
+
+> ComplyDNA, Türk mevzuatına (MASAK tebliğleri, AML/CFT kanunları, KVKK) özel eğitilmiş bir uyum
+> LLM'idir. Her yanıtını [TEBLİĞ / Madde] biçiminde satır içi kaynak künyesiyle verir; yanıtın
+> dayandığı mevzuat parçası cümle düzeyinde doğrulanabilir. ozDNA'nın ürünüdür.
+
+> ComplyDNA is a compliance LLM trained on Turkish financial regulation (MASAK communiqués,
+> AML/CFT laws 5549 and 6415, KVKK), answering compliance questions with inline statutory
+> citations in the form [COMMUNIQUE / Article]. Built by ozDNA.
+
+## Kapsam / Coverage
+
+- 5549 — Suç Gelirlerinin Aklanmasının Önlenmesi Hakkında Kanun
+- 6415 — Terörizmin Finansmanının Önlenmesi Hakkında Kanun
+- 6698 — Kişisel Verilerin Korunması Kanunu (KVKK)
+- MASAK tebliğ ve genelgeleri, Tedbirler Yönetmeliği
+- Kripto varlık hizmet sağlayıcı (VASP/CASP) düzenlemeleri
+
+## Ürün / Product
+
+- Cite-first: her iddia mevzuat kaynağına bağlanır, kaynak listesi ve yürürlük bilgisiyle
+- Dağıtım: bulut API / web arayüzü veya tam kurum içi (on-prem)
+- Müşteri verisi model eğitiminde kullanılmaz
+- Planlar: Pilot (POC), Team (yıllık abonelik), Enterprise/On-prem (yıllık lisans)
+
+## İletişim / Contact
+
+- Web: https://ozdna.com/
+- E-posta: hello@ozdna.com
+
+## Not / Note
+
+ComplyDNA çıktıları bilgilendirme amaçlıdır, hukuki tavsiye değildir. / Outputs are informational
+and do not constitute legal advice.

@@ -1,0 +1,16 @@
+---
+kaynak_kodu: LAW-6415
+kaynak_adi: 6415 sayılı Terörün Finansmanının Önlenmesi Hakkında Kanun
+yururluk_tarihi: 2013-02-15
+surum_etiketi: 2013-02
+---
+6415 SAYILI TERÖRÜN FİNANSMANININ ÖNLENMESİ HAKKINDA KANUN (ÖRNEK MADDELER)
+
+MADDE 1 – Amaç
+(1) Bu Kanunun amacı, terörün finansmanının önlenmesine ilişkin usul ve esasları düzenlemektir.
+
+MADDE 4 – Yükümlülükler
+(1) Yükümlüler, terörün finansmanına yönelik işlemleri tespit etmek ve bildirmekle yükümlüdür.
+
+MADDE 8 – Bildirim yükümlülüğü
+(1) Terörün finansmanı şüphesi bulunan işlemler derhal yetkili birimlere bildirilir.

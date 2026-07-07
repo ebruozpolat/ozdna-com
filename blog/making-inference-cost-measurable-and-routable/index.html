@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ozdna-seo:start -->
+<title>Making Inference Cost Measurable and Routable — ozDNA Blog</title>
+<meta name="description" content="GPU and LLM API costs feel unpredictable until inference is measurable per workflow. Model routing and AI inference cost reduction for production teams.">
+<meta name="author" content="Findbelow Ventures">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://ozdna.com/blog/making-inference-cost-measurable-and-routable/">
+<link rel="alternate" hreflang="en" href="https://ozdna.com/blog/making-inference-cost-measurable-and-routable/">
+<link rel="alternate" hreflang="tr" href="https://ozdna.com/tr/blog/making-inference-cost-measurable-and-routable/">
+<link rel="alternate" hreflang="x-default" href="https://ozdna.com/blog/making-inference-cost-measurable-and-routable/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ozDNA">
+<meta property="og:title" content="Making Inference Cost Measurable and Routable — ozDNA Blog">
+<meta property="og:description" content="GPU and LLM API costs feel unpredictable until inference is measurable per workflow. Model routing and AI inference cost reduction for production teams.">
+<meta property="og:url" content="https://ozdna.com/blog/making-inference-cost-measurable-and-routable/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://ozdna.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ozDNA — Vertical AI Infrastructure">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ozdna">
+<meta name="twitter:title" content="Making Inference Cost Measurable and Routable — ozDNA Blog">
+<meta name="twitter:description" content="GPU and LLM API costs feel unpredictable until inference is measurable per workflow. Model routing and AI inference cost reduction for production teams.">
+<meta name="twitter:image" content="https://ozdna.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="ozDNA — Vertical AI Infrastructure">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ozdna.com/#organization",
+      "name": "Findbelow Ventures",
+      "legalName": "Findbelow Ventures",
+      "url": "https://ozdna.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ozdna.com/assets/logo.svg"
+      },
+      "email": "hello@ozdna.com",
+      "sameAs": [
+        "https://tezmakale.com"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ozdna.com/blog/making-inference-cost-measurable-and-routable/#webpage",
+      "url": "https://ozdna.com/blog/making-inference-cost-measurable-and-routable/",
+      "name": "Making Inference Cost Measurable and Routable — ozDNA Blog",
+      "description": "GPU and LLM API costs feel unpredictable until inference is measurable per workflow. Model routing and AI inference cost reduction for production teams.",
+      "isPartOf": {
+        "@id": "https://ozdna.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Article",
+      "@id": "https://ozdna.com/blog/making-inference-cost-measurable-and-routable/#article",
+      "headline": "Making Inference Cost Measurable and Routable",
+      "description": "GPU and LLM API costs feel unpredictable until inference is measurable per workflow. Model routing and AI inference cost reduction for production teams.",
+      "url": "https://ozdna.com/blog/making-inference-cost-measurable-and-routable/",
+      "datePublished": "2026-04-02",
+      "author": {
+        "@id": "https://ozdna.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://ozdna.com/#organization"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://ozdna.com/blog/making-inference-cost-measurable-and-routable/#webpage"
+      },
+      "image": "https://ozdna.com/assets/og-image.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ozdna.com/blog/making-inference-cost-measurable-and-routable/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ozdna.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://ozdna.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Making Inference Cost Measurable and Routable",
+          "item": "https://ozdna.com/blog/making-inference-cost-measurable-and-routable/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="../../styles.css">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+<meta name="color-scheme" content="dark">
+<!-- ozdna-seo:end -->
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav>
+  <a href="/" class="logo" aria-label="ozDNA home">
+    <img src="../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
+  </a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="/products/comply/">ComplyDNA</a>
+    <a href="/architecture/">Platform</a>
+    <a href="/docs/">Docs</a>
+    <a href="/pricing/">Pricing</a>
+    <a href="/#waitlist" class="nav-cta">Get Early Access</a>
+  </div>
+</nav>
+
+<main id="main-content">
+<article class="blog-article">
+  <a href="/blog/" class="blog-back">← All posts</a>
+  <div class="blog-meta">
+    <span class="blog-pillar">Pillar 1 · Cost Control</span>
+    <span class="blog-date">June 2026 · 6 min read</span>
+  </div>
+  <h1>Making Inference Cost Measurable and Routable</h1>
+  <p class="blog-lead">GPU cost unpredictable is a symptom. The disease is unlabeled spend — you see a bill, not a decision tree. Fix measurement first; routing second.</p>
+
+  <p>CTOs describe the same week: finance asks for a forecast, engineering says "it depends on traffic," and the chart of <strong>GPU cost unpredictable</strong> spikes looks like weather. That is not a capacity-planning failure alone. It is missing attribution between <em>what the product did</em> and <em>what infra it burned</em>.</p>
+
+  <h2>Three layers of inference cost</h2>
+  <p>Production AI spend usually mixes three buckets. Treating them as one line item guarantees surprise.</p>
+  <ul>
+    <li><strong>Provider inference.</strong> Per-token API charges or self-hosted GPU hours.</li>
+    <li><strong>Retrieval and orchestration.</strong> Embeddings, re-ranking, agent tool loops — often more calls than the "main" generation.</li>
+    <li><strong>Retry and quality tax.</strong> Failed RAG pulls, guardrail rewrites, user-triggered regenerations. Invisible in demos, massive in production.</li>
+  </ul>
+  <p>Dashboards that only show "OpenAI bill" miss two-thirds of the story. <strong>AI inference cost reduction</strong> starts when retrieval and retries carry the same labels as chat completions.</p>
+
+  <h2>Make cost measurable: the minimum schema</h2>
+  <p>You do not need a data warehouse on day one. You need consistent fields on every inference event:</p>
+  <ul>
+    <li><code>workflow_id</code> — user-facing job, not internal microservice name</li>
+    <li><code>step</code> — retrieve, classify, generate, validate</li>
+    <li><code>model</code> — provider + model ID actually invoked</li>
+    <li><code>tokens_in</code> / <code>tokens_out</code> — or GPU-seconds for self-hosted</li>
+    <li><code>account_id</code> — for B2B, tie to customer before user</li>
+    <li><code>outcome</code> — success, retry, fallback model</li>
+  </ul>
+  <p>With that schema, questions become answerable: Which workflow blew the budget Tuesday? Did the new prompt increase output tokens? Are retries doubling cost on one customer integration?</p>
+  <p>This is the foundation of <strong>token cost management</strong> — credits on your pricing page should map back to these rows, or you are guessing margin.</p>
+
+  <h2>Make cost routable: cheapest capable model</h2>
+  <p><strong>LLM routing</strong> is not "send easy stuff to the small model" as a slogan. It is a policy per step:</p>
+  <ol>
+    <li>Define the quality bar for the step (factual grounding, tone, format compliance).</li>
+    <li>Run evals on a fixed set of production-shaped inputs — not cherry-picked demos.</li>
+    <li>Route to the cheapest model that clears the bar; escalate only on low confidence.</li>
+    <li>Log escalations as first-class events — they are your roadmap for fine-tuning or better retrieval.</li>
+  </ol>
+  <p>Without per-step evals, routing is superstition. You will either over-spend on premium models or under-deliver on the steps users notice.</p>
+
+  <h2>What "routable" looks like in ops</h2>
+  <p>Measurable + routable infra means an on-call engineer can answer in minutes:</p>
+  <ul>
+    <li>We shifted 38% of classification calls to a smaller model last release — quality held, cost down.</li>
+    <li>Account X's integration triggers double retrieval — not a provider outage.</li>
+    <li>Latency spike correlates with a routing fallback, not GPU saturation.</li>
+  </ul>
+  <p>That is when inference stops feeling like weather and starts feeling like a system you operate.</p>
+
+  <aside class="blog-proof">
+    <h3>Built on ozDNA</h3>
+    <p>Our infrastructure roadmap — exercised first on <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a> and <a href="/products/comply/">ComplyDNA</a> workloads — treats cost per workflow as a first-class metric, not a monthly invoice surprise. Gateways give you pipes; vertical products teach you what should flow through them.</p>
+  </aside>
+
+  <h2>Start this week</h2>
+  <p>Instrument one workflow end to end. Add routing to exactly one step where evals already exist. Resist boiling the ocean.</p>
+  <p>Predictable GPU and API bills are not about locking spend — they are about tying every dollar to a product decision you can change.</p>
+
+  <div class="blog-cta-box">
+    <p>Want cost per workflow, not just a provider invoice? Early access to ozDNA's routing and governance layer is open for vertical AI teams.</p>
+    <a href="/#waitlist" class="btn-primary">Get Early Access</a>
+  </div>
+</article>
+
+</main>
+
+<footer>
+  <div class="footer-brand">
+    <a href="/" class="logo" aria-label="ozDNA">
+      <img src="../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
+    </a>
+    <p class="footer-tagline">Findbelow Ventures · Vertical AI infrastructure (PaaS)</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>
+    <a href="/trust/">Trust Center</a>
+    <a href="/security/">Security</a>
+    <a href="/partners/">Partners</a>
+    <a href="/blog/">Blog</a>
+    <a href="/docs/">Documentation</a>
+    <a href="/sdk/">SDK</a>
+    <a href="/benchmarks/">Benchmarks</a>
+    <a href="/architecture/">Architecture</a>
+    <a href="mailto:hello@ozdna.com">Contact</a>
+  </div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+
+<script src="/analytics.js" defer></script>
+<script src="/main.js" defer></script>
+</body>
+</html>

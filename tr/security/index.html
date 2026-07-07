@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Ana içeriğe geç</a>
+<nav>
+  <a href="/tr/" class="logo" aria-label="ozDNA ana sayfa">
+    <img src="../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
+  </a>
+  <button class="nav-toggle" aria-label="Menü" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="/tr/products/comply/">ComplyDNA</a>
+    <a href="/tr/architecture/">Platform</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/pricing/">Fiyatlandırma</a>
+    <a href="/tr/#waitlist" class="nav-cta">Erken Erişim</a>
+  </div>
+</nav>
+
+<section class="trust-hero">
+  <div class="trust-hero-inner">
+    <div class="section-label">Platform Güvenlik</div>
+    <h1>Güvenlik architecture<br>for <span class="accent">production AI</span></h1>
+    <p class="trust-hero-lead">Technical security controls for the ozDNA gateway, API, and supporting infrastructure. For compliance roadmap and certifications status, see the <a href="/tr/trust/">Güven Merkezi</a>.</p>
+    <div class="trust-hero-actions">
+      <a href="mailto:security@ozdna.com" class="btn-primary">security@ozdna.com</a>
+      <a href="/tr/.well-known/security.txt" class="btn-ghost">security.txt →</a>
+    </div>
+  </div>
+</section>
+
+<div class="trust-layout">
+  <aside class="trust-sidebar" aria-label="Güvenlik page sections">
+    <h3>Bu sayfada</h3>
+    <a href="#security-architecture">Güvenlik Mimari</a>
+    <a href="#encryption-at-rest">Dinlenme Halinde Şifreleme</a>
+    <a href="#encryption-in-transit">Aktarım Halinde Şifreleme</a>
+    <a href="#secrets-management">Gizli Yönetimi</a>
+    <a href="#api-authentication">API Kimlik Doğrulama</a>
+    <a href="#rate-limiting">Hız Sınırlama</a>
+    <a href="#ddos-protection">DDoS Koruması</a>
+    <a href="#logging">Günlükleme</a>
+    <a href="#monitoring">İzleme</a>
+    <a href="#backups">Yedeklemeler</a>
+    <a href="#vulnerability-disclosure">Güvenlik Açığı Bildirimi</a>
+    <a href="#responsible-disclosure">Sorumlu Açıklama</a>
+    <a href="/tr/trust/">Güven Merkezi →</a>
+  </aside>
+
+  <main id="main-content" class="trust-main">
+
+    <section class="trust-section" id="security-architecture">
+      <div class="trust-section-head">
+        <span class="trust-section-num">01</span>
+        <h2>Güvenlik Mimari</h2>
+      </div>
+      <p>ozDNA katmanlı bir platformdur: AI gateway, model router, prompt kayıt defteri, RAG, maliyet motoru ve gözlemlenebilirlik — Findbelow Ventures tarafından işletilir. Her dış istek, çıkarım veya retrieval alt sistemlerine ulaşmadan önce kimlik doğrulamalı gateway sınırlarından girer.</p>
+      <ul class="trust-list">
+        <li><strong>Çevre:</strong> Yalnızca HTTPS public uç noktalar; özel beta sırasında yalnızca davetle API anahtarları</li>
+        <li><strong>Gateway:</strong> İş akışı yürütmeden önce kimlik doğrulama, hız limitleri ve denetim kancaları</li>
+        <li><strong>İzolasyon:</strong> Ortam ayrımlı sandbox (<span class="inline-code">api.sandbox.ozdna.com</span>) ve üretim (<span class="inline-code">api.ozdna.com</span>)</li>
+        <li><strong>En az ayrıcalık:</strong> Kapsamlı API anahtarları; ücretli iş akışlarında anonim çıkarım yok</li>
+        <li><strong>Dikey sınırlar:</strong> Moda özel prompt'lar ve corpus'lar (akademik, hukuk, finans)</li>
+      </ul>
+      <div class="trust-callout"><strong>Related:</strong> Compliance programs and certification roadmap — <a href="/tr/trust/#compliance-roadmap">Güven Merkezi</a></div>
+    </section>
+
+    <section class="trust-section" id="encryption-at-rest">
+      <div class="trust-section-head">
+        <span class="trust-section-num">02</span>
+        <h2>Dinlenme Halinde Şifreleme</h2>
+      </div>
+      <p>Dinlenmedeki müşteri verisi altta yatan bulut sağlayıcılarının şifrelemesini devralır. ozDNA ham API anahtarlarını düz metin olarak saklamaz.</p>
+      <div class="trust-table-wrap">
+        <table class="trust-table">
+          <thead><tr><th>Varlık</th><th>Yaklaşım</th><th>Durum</th></tr></thead>
+          <tbody>
+            <tr><td>API keys (stored)</td><td>Salted hashes only; plaintext shown once at creation</td><td><span class="trust-inline-status live">Canlı</span></td></tr>
+            <tr><td>Database</td><td>Provider-native encryption (managed Postgres roadmap)</td><td><span class="trust-inline-status progress">Devam Ediyor</span></td></tr>
+            <tr><td>Object / vector storage</td><td>Provider-managed encryption for RAG corpora</td><td><span class="trust-inline-status roadmap">Yol Haritası</span></td></tr>
+            <tr><td>Yedeklemeler</td><td>Encrypted backup volumes per provider policy</td><td><span class="trust-inline-status planned">Planlandı</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="trust-section" id="encryption-in-transit">
+      <div class="trust-section-head">
+        <span class="trust-section-num">03</span>
+        <h2>Aktarım Halinde Şifreleme</h2>
+      </div>
+      <p>Tüm müşteriye yönelik trafik TLS gerektirir. Dahili sağlayıcı bağlantıları upstream LLM ve embedding API'lerine HTTPS kullanır.</p>
+      <ul class="trust-list">
+        <li><strong>Web ve dokümantasyon:</strong> ozdna.com'da TLS 1.2+ (Netlify CDN)</li>
+        <li><strong>Platform API:</strong> <span class="inline-code">api.ozdna.com</span> ve sandbox uç noktalarında HTTPS zorunlu</li>
+        <li><strong>Sağlayıcı çağrıları:</strong> OpenAI ve yönlendirilen çıkarım sağlayıcılarına TLS</li>
+        <li><strong>Webhook'lar:</strong> Giden geri çağrılarda HMAC-SHA256 imzaları (<span class="inline-code">X-OzDNA-Signature</span>)</li>
+      </ul>
+    </section>
+
+    <section class="trust-section" id="secrets-management">
+      <div class="trust-section-head">
+        <span class="trust-section-num">04</span>
+        <h2>Gizli Yönetimi</h2>
+      </div>
+      <p>Gizliler asla istemci tarafı kodda, public repo'larda veya statik pazarlama varlıklarında dağıtılmaz.</p>
+      <ul class="trust-list">
+        <li>Sağlayıcı anahtarları ve veritabanı kimlik bilgileri için ortam kapsamlı yapılandırma</li>
+        <li>Sandbox ve üretim ortamları için ayrı gizliler</li>
+        <li>API anahtarları için dashboard (yol haritası) ve bugün manuel iptal ile rotasyon desteklenir</li>
+        <li>CI/CD gizlileri dağıtım anında enjekte eder — konteyner imajlarına gömülmez</li>
+      </ul>
+      <div class="trust-callout"><strong>Durum:</strong> Centralized secrets manager (Vault / cloud SM) — <span class="trust-inline-status roadmap">Yol Haritası</span> for enterprise tier.</div>
+    </section>
+
+    <section class="trust-section" id="api-authentication">
+      <div class="trust-section-head">
+        <span class="trust-section-num">05</span>
+        <h2>API Kimlik Doğrulama</h2>
+      </div>
+      <p>Tüm platform uç noktaları geçerli Bearer token gerektirir. Kimlik doğrulamasız istekler çıkarım mantığına ulaşmadan <span class="inline-code">401</span> alır.</p>
+      <div class="trust-table-wrap">
+        <table class="trust-table">
+          <thead><tr><th>Mekanizma</th><th>Ayrıntı</th><th>Durum</th></tr></thead>
+          <tbody>
+            <tr><td>Bearer tokens</td><td><span class="inline-code">Authorization: Bearer ozdna_sk_*</span></td><td><span class="trust-inline-status live">Canlı</span></td></tr>
+            <tr><td>Key prefixes</td><td><span class="inline-code">ozdna_sk_test_</span> / <span class="inline-code">ozdna_sk_live_</span></td><td><span class="trust-inline-status live">Canlı</span></td></tr>
+            <tr><td>Revocation</td><td>Immediate invalidation on key delete</td><td><span class="trust-inline-status live">Canlı</span></td></tr>
+            <tr><td>SSO / SAML</td><td>Dashboard and enterprise identity</td><td><span class="trust-inline-status planned">Planlandı</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Entegrasyon ayrıntıları için <a href="/docs/tr/#auth">API dokümantasyonuna</a> bakın.</p>
+    </section>
+
+    <section class="trust-section" id="rate-limiting">
+      <div class="trust-section-head">
+        <span class="trust-section-num">06</span>
+        <h2>Hız Sınırlama</h2>
+      </div>
+      <p>Hız limitleri platform kararlılığını korur ve gateway katmanında plan kotalarını uygular.</p>
+      <ul class="trust-list">
+        <li>İş akışı dağıtımından önce anahtar başına istek kotaları uygulanır</li>
+        <li>Limit aşıldığında yeniden deneme rehberiyle <span class="inline-code">429</span> yanıtları</li>
+        <li>Faturalama kotası tükendiğinde <span class="inline-code">402</span></li>
+        <li>Organizasyon başına yapılandırılabilir limitler — kurumsal yol haritası</li>
+      </ul>
+    </section>
+
+    <section class="trust-section" id="ddos-protection">
+      <div class="trust-section-head">
+        <span class="trust-section-num">07</span>
+        <h2>DDoS Koruması</h2>
+      </div>
+      <p>Public yüzeyler CDN ve barındırma sağlayıcılarından DDoS azaltımını devralır.</p>
+      <ul class="trust-list">
+        <li><strong>Pazarlama ve dokümantasyon:</strong> Netlify CDN edge koruması ve otomatik TLS</li>
+        <li><strong>API gateway:</strong> Dağıtım hedefinde sağlayıcı düzeyinde ağ filtreleme (Fly.io / Railway / AWS yol haritası)</li>
+        <li><strong>Uygulama katmanı:</strong> Birinci savunma kötüye kullanım kontrolü olarak hız sınırlama ve kimlik doğrulama</li>
+        <li><strong>WAF:</strong> Dedicated Web Application Firewall — <span class="trust-inline-status planned">Planlandı</span> for production API</li>
+      </ul>
+    </section>
+
+    <section class="trust-section" id="logging">
+      <div class="trust-section-head">
+        <span class="trust-section-num">08</span>
+        <h2>Günlükleme</h2>
+      </div>
+      <p>Yapılandırılmış günlükler gereksiz payload içeriği saklamadan güvenlikle ilgili olayları yakalar.</p>
+      <ul class="trust-list">
+        <li><span class="inline-code">X-Request-Id</span> on every API response for trace correlation</li>
+        <li>Kimlik doğrulama başarı/başarısızlık, hız limiti isabetleri ve kota olayları günlüklenir</li>
+        <li>Çıkarım başına prompt hash ve model ID — varsayılan günlüklerde tam prompt metni değil</li>
+        <li>RAG ingest, retrieve, and eval events with org scope</li>
+        <li>Exportable audit logs for enterprise — <span class="trust-inline-status progress">Devam Ediyor</span></li>
+      </ul>
+      <p>Audit logging details: <a href="/tr/trust/#audit-logging">Güven Merkezi — Audit Günlükleme</a></p>
+    </section>
+
+    <section class="trust-section" id="monitoring">
+      <div class="trust-section-head">
+        <span class="trust-section-num">09</span>
+        <h2>İzleme</h2>
+      </div>
+      <p>Platform sağlığı ve anomali tespiti kullanılabilirlik, gecikme ve hata oranlarını kapsar.</p>
+      <div class="trust-table-wrap">
+        <table class="trust-table">
+          <thead><tr><th>Sinyal</th><th>Kapsam</th><th>Durum</th></tr></thead>
+          <tbody>
+            <tr><td>Health checks</td><td><span class="inline-code">GET /health</span>, gateway status</td><td><span class="trust-inline-status live">Canlı</span></td></tr>
+            <tr><td>Error rates</td><td>4xx/5xx by endpoint and org</td><td><span class="trust-inline-status live">Canlı</span></td></tr>
+            <tr><td>Latency &amp; cost</td><td>Per-workflow metrics dashboard</td><td><span class="trust-inline-status progress">Devam Ediyor</span></td></tr>
+            <tr><td>Public status page</td><td><a href="/tr/status/">Platform availability</a></td><td><span class="trust-inline-status live">Canlı</span></td></tr>
+            <tr><td>On-call paging</td><td>24/7 for enterprise tier</td><td><span class="trust-inline-status planned">Planlandı</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="trust-section" id="backups">
+      <div class="trust-section-head">
+        <span class="trust-section-num">10</span>
+        <h2>Yedeklemeler</h2>
+      </div>
+      <p>Backup and recovery procedures align with disaster recovery targets documented in the Güven Merkezi.</p>
+      <ul class="trust-list">
+        <li>Automated database backups on managed Postgres migration — <span class="trust-inline-status roadmap">Yol Haritası</span></li>
+        <li>Nokta-in-time kurtarma hedefi: RPO &lt; 1 saat (kurumsal yol haritası)</li>
+        <li>Quarterly restore drills — <span class="trust-inline-status planned">Planlandı</span></li>
+        <li>Git destekli prompt deposu ile yapılandırma ve prompt kayıt defteri sürümleme</li>
+      </ul>
+      <p>DR objectives: <a href="/tr/trust/#disaster-recovery">Güven Merkezi — Disaster Recovery</a></p>
+    </section>
+
+    <section class="trust-section" id="vulnerability-disclosure">
+      <div class="trust-section-head">
+        <span class="trust-section-num">11</span>
+        <h2>Güvenlik Açığı Bildirimi</h2>
+      </div>
+      <p>Araştırmacılar, müşteriler ve topluluktan iyi niyetli güvenlik bildirimlerini memnuniyetle karşılıyoruz.</p>
+      <ul class="trust-list">
+        <li><strong>İletişim:</strong> <a href="mailto:security@ozdna.com">security@ozdna.com</a> (placeholder — monitored by Findbelow Ventures security contact)</li>
+        <li><strong>Makine okunabilir:</strong> <a href="/tr/.well-known/security.txt">/.well-known/security.txt</a> (RFC 9116)</li>
+        <li><strong>Kapsam:</strong> ozdna.com, api.ozdna.com, api.sandbox.ozdna.com ve ozDNA platform hizmetleri</li>
+        <li><strong>Kapsam dışı:</strong> Üçüncü taraf sağlayıcılar (OpenAI, Netlify), sosyal mühendislik, fiziksel saldırılar</li>
+        <li><strong>Yanıt:</strong> 3 iş günü içinde onay; kritik konular 24 saat içinde triyaj</li>
+      </ul>
+      <div class="trust-callout"><strong>Recognition:</strong> Güvenlik acknowledgments page — <span class="trust-inline-status soon">Yakında</span>. Researchers who follow our responsible disclosure policy will be credited with permission.</div>
+    </section>
+
+    <section class="trust-section" id="responsible-disclosure">
+      <div class="trust-section-head">
+        <span class="trust-section-num">12</span>
+        <h2>Sorumlu Açıklama Politikası</h2>
+      </div>
+      <p>ozDNA müşterilerini korumak için bildirimcilerden koordineli açıklama izlemelerini rica ediyoruz.</p>
+      <ul class="trust-list">
+        <li>Güvenlik açıklarını yeniden üretim adımları ve etki değerlendirmesiyle <a href="mailto:security@ozdna.com">security@ozdna.com</a> adresine özel olarak bildirin.</li>
+        <li>Kamuya açıklamadan önce düzeltme için makul süre tanıyın — genellikle 90 gün, kritik konularda yama sonrası daha erken.</li>
+        <li>Sorunu göstermek için gerekenden fazla müşteri verisine erişmeyin, değiştirmeyin veya dışarı aktarmayın.</li>
+        <li>ozDNA personeline veya müşterilerine karşı hizmet reddi, spam veya sosyal mühendislik yapmayın.</li>
+        <li>Yazılı yetkilendirme olmadan üretim müşteri iş yüklerine karşı test yapmayın.</li>
+      </ul>
+      <p>Taahhüt ediyoruz:</p>
+      <ul class="trust-list">
+        <li>Bildiriminizin alındığını onaylamak</li>
+        <li>Makul aralıklarla durum güncellemeleri sağlamak</li>
+        <li>Sorun çözüldüğünde sizi bilgilendirmek</li>
+        <li>Teşekkür sayfamızda araştırmacıları kredilendirmek (onayınızla)</li>
+      </ul>
+      <p class="trust-disclaimer">Bu politika geçerli yasayı ihlal eden testleri yetkilendirmez. Araştırmanızın izinli olup olmadığından emin değilseniz, devam etmeden önce bizimle iletişime geçin.</p>
+    </section>
+
+    <div class="trust-cta">
+      <h2>Güvenlik contact</h2>
+      <p>Güvenlik açıklarını bildirin, güvenlik incelemesi talep edin veya kontrollerimiz hakkında sorun.</p>
+      <div class="trust-cta-actions">
+        <a href="mailto:security@ozdna.com" class="btn-primary">security@ozdna.com</a>
+        <a href="/tr/trust/" class="btn-ghost">Güven Merkezi →</a>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="footer-brand">
+    <a href="/tr/" class="logo" aria-label="ozDNA">
+      <img src="../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
+    </a>
+    <p class="footer-tagline">Findbelow Ventures · Dikey AI altyapısı (PaaS)</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>
+    <a href="/tr/trust/">Güven Merkezi</a>
+    <a href="/tr/security/">Güvenlik</a>
+    <a href="/tr/privacy/">Gizlilik</a>
+    <a href="/tr/terms/">Şartlar</a>
+    <a href="/tr/changelog/">Değişiklik Günlüğü</a>
+    <a href="/tr/status/">Durum</a>
+    <a href="/tr/products/comply/">ComplyDNA</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/sdk/">SDK</a>
+    <a href="/tr/benchmarks/">Kıyaslamalar</a>
+    <a href="/tr/architecture/">Mimari</a>
+    <a href="/tr/pricing/">Fiyatlandırma</a>
+    <a href="mailto:hello@ozdna.com">İletişim</a>
+  </div>
+  <p>© 2026 Findbelow Ventures · <a href="/tr/.well-known/security.txt" style="color:var(--txt-m);text-decoration:none">security.txt</a></p>
+</footer>
+
+<script src="/analytics.js" defer></script>
+<script src="/main.js" defer></script>
+</body>
+</html>

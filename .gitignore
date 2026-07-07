@@ -1,0 +1,23 @@
+.venv/
+complydna/.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+node_modules/
+platform/node_modules/
+
+# Local secrets & tooling
+.env
+.env.*
+!.env.example
+.netlify/
+.netlify-home/
+.cursor/
+
+# ComplyDNA runtime data
+complydna/data/qdrant/
+complydna/evals/results/
+
+# OS / editor
+.DS_Store
+*.swp

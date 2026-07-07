@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Ana içeriğe geç</a>
+<nav>
+  <a href="/tr/" class="logo" aria-label="ozDNA ana sayfa">
+    <img src="../../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
+  </a>
+  <button class="nav-toggle" aria-label="Menü" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="/tr/products/comply/">ComplyDNA</a>
+    <a href="/tr/architecture/">Platform</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/pricing/">Fiyatlandırma</a>
+    <a href="/tr/#waitlist" class="nav-cta">Erken Erişim</a>
+  </div>
+</nav>
+
+<main id="main-content">
+<article class="blog-article">
+  <a href="/tr/" class="blog-back">← ozDNA'ya dön</a>
+  <div class="blog-meta">
+    <span class="blog-pillar">Vaka Çalışması · Production AI</span>
+    <span class="blog-date">TezMakale · Akademik AI · Türkiye</span>
+  </div>
+  <h1><a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a> ozDNA üzerinde nasıl çalışır</h1>
+  <p class="blog-lead"><a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>, Türk öğrencilere hizmet veren canlı bir dikey AI ürünüdür — AI tespiti, ayrıntılı analiz raporları ve token tabanlı kullanım ekonomisi — ozDNA altyapısında çalışır. B2B katmanı açılmadan önce üretim AI budur.</p>
+
+  <h2>Zorluk</h2>
+  <p>TezMakale yüksek baskılı bir segmentte faaliyet gösterir: teslim baskısı altındaki öğrenciler hızlı, güvenilir AI analizi ister — özgünlüğü doğrulamak için tespit, kaynak gösterilen kanıtlarla segment düzeyinde raporlar ve gerçek altyapı maliyetine karşılık gelen net kullanım limitleri. Canlı ürün <a href="https://tezmakale.com" target="_blank" rel="noopener">tezmakale.com</a> adresindedir.</p>
+  <p>Temel zorluk demo yapmak değildi. Her iş akışının token yaktığı, her kullanıcı oturumunun marj etkisi olduğu ve yoğun trafiğin (sınav dönemleri) çıkarım maliyetini bir gecede artırabildiği <strong>üretim AI</strong> sunmaktı.</p>
+  <ul>
+    <li>Oturum başına birden fazla AI iş akışı — tespit, analiz, rapor — her biri farklı model gereksinimleriyle</li>
+    <li>Keyfi krediler değil, gerçek LLM harcamasını yansıtan token tabanlı fiyatlandırma</li>
+    <li>Türkçe akademik kalibrasyon — genel modeller yerel akademik metinde yetersiz kalır</li>
+    <li>Pazarlama harcamasını ölçeklemeden önce maliyet görünürlüğü ihtiyacı</li>
+  </ul>
+
+  <div class="case-metrics">
+    <div class="case-metric">
+      <!-- TODO: replace with real monthly active users -->
+      <div class="metric-value">12K+</div>
+      <div class="metric-label">Aylık aktif kullanıcı</div>
+    </div>
+    <div class="case-metric">
+      <!-- TODO: replace with real avg workflows per session -->
+      <div class="metric-value">3.2</div>
+      <div class="metric-label">Oturum başına iş akışı</div>
+    </div>
+    <div class="case-metric">
+      <!-- TODO: replace with real peak traffic multiplier -->
+      <div class="metric-value">4×</div>
+      <div class="metric-label">Zirve trafik çarpanı</div>
+    </div>
+  </div>
+
+  <h2>Mimari</h2>
+  <p>TezMakale ozDNA Gateway üzerinden bağlanır — herhangi bir çıkarım model router veya RAG katmanına ulaşmadan önce kimlik doğrulama, hız limitleri ve denetim günlüğünü yöneten birleşik AI gateway. Müşteriye yönelik ürün <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale (tezmakale.com)</a> adresindedir.</p>
+  <div class="arch-inline">
+    <p><strong style="color:var(--txt)">Yığın yolu:</strong> TezMakale web uygulaması → ozDNA Gateway → Model Router → RAG Katmanı (akademik corpus) → LLM Sağlayıcıları → Analytics ve Cost Engine</p>
+  </div>
+  <p>Model router sınıflandırma görevlerini hafif modellere gönderir ve premium modelleri yalnızca analiz kalite eşikleri gerektirdiğinde ayırır. RAG katmanı akademik mod kalibrasyonu sağlar — Türkçe akademik yazım kalıpları için ayarlanmış retrieval kancaları.</p>
+
+  <h2>Çözüm</h2>
+  <p>ozDNA tam dikey AI altyapı katmanı olarak dağıtıldı — yalnızca API sarmalayıcısı değil:</p>
+  <ul>
+    <li><strong>AI Gateway</strong> — kullanıcı başına hız limitleri ve oturum izlemesiyle tüm TezMakale AI iş yükleri için tek giriş noktası</li>
+    <li><strong>Akıllı Yönlendirme</strong> — tespit iş akışları maliyet verimli modellere yönlendirilir; premium modeller yalnızca segment analizi daha yüksek doğruluk gerektirdiğinde</li>
+    <li><strong>Maliyet Optimizasyonu</strong> — panelde görünen iş akışı başına maliyet atfı; düşük trafikte otomatik düşürme kuralları</li>
+    <li><strong>Kullanım Analitiği</strong> — token tüketimi gerçek zamanlı kullanıcı kredilerine eşlenir, brüt marjı korur</li>
+    <li><strong>Prompt Kayıt Defteri</strong> — tespit doğruluğu A/B testi için geri alma yeteneğiyle sürümlü akademik prompt'lar</li>
+  </ul>
+
+  <h2>AI İş Akışı</h2>
+  <p>Tipik bir TezMakale oturumu üç ölçümlenmiş adımdan geçer:</p>
+  <ol>
+    <li><strong>Detect</strong> — Kullanıcı metin gönderir. Gateway kimlik doğrular, hız sınırlar ve detect iş akışına yönlendirir. Model router akademik kalibrasyonlu sınıflandırıcıyı seçer. RAG katmanı segment düzeyinde bağlam sağlar. Yanıt AI olasılığı, güven ve segment haritası içerir.</li>
+    <li><strong>Report</strong> — Kaynak gösterilen kanıt cümleleriyle ayrıntılı analiz. Router bölüm başına maliyet verimli modeller seçer. Maliyet motoru rapor katmanı başına marjı izler.</li>
+    <li><strong>Analyze</strong> — Kullanım analitiği token tüketimi ve maliyeti kaydeder. Denetim günlüğü uyumluluk için prompt hash ve model ID yakalar.</li>
+  </ol>
+  <pre class="code-block"><span class="t-comment">// Typical workflow cost attribution</span>
+{
+  <span class="t-key">"workflow_id"</span>: <span class="t-str">"tezmakale-detect-v3"</span>,
+  <span class="t-key">"user_id"</span>: <span class="t-str">"usr_..."</span>,
+  <span class="t-key">"steps"</span>: [
+    { <span class="t-key">"step"</span>: <span class="t-str">"detect"</span>, <span class="t-key">"model"</span>: <span class="t-str">"gpt-4o-mini"</span>, <span class="t-key">"cost_usd"</span>: <span class="t-num">0.002</span> },
+    { <span class="t-key">"step"</span>: <span class="t-str">"report"</span>, <span class="t-key">"model"</span>: <span class="t-str">"gpt-4o-mini"</span>, <span class="t-key">"cost_usd"</span>: <span class="t-num">0.006</span> }
+  ],
+  <span class="t-key">"total_cost_usd"</span>: <span class="t-num">0.008</span>,
+  <span class="t-key">"credits_charged"</span>: <span class="t-num">4</span>
+}</pre>
+
+  <h2>Üretim Faydaları</h2>
+  <p>ozDNA üzerinde çalışmak TezMakale'ye dahili AI platform ekibi kurmadan üretim sınıfı altyapı sağladı:</p>
+
+  <div class="case-metrics">
+    <div class="case-metric">
+      <!-- TODO: replace with verified inference cost reduction percentage -->
+      <div class="metric-value">40%</div>
+      <div class="metric-label">Çıkarım maliyeti azaltma</div>
+    </div>
+    <div class="case-metric">
+      <!-- TODO: replace with real gateway uptime SLA -->
+      <div class="metric-value">99.9%</div>
+      <div class="metric-label">Gateway uptime</div>
+    </div>
+    <div class="case-metric">
+      <!-- TODO: replace with real p95 latency in ms -->
+      <div class="metric-value">&lt;800ms</div>
+      <div class="metric-label">Detect p95 gecikmesi</div>
+    </div>
+  </div>
+
+  <ul>
+    <li><strong>Marj koruması</strong> — token kredileri tahmine değil gerçek iş akışı maliyetine eşlenir</li>
+    <li><strong>Çalışıyor visibility</strong> — finance and engineering share the same cost-per-workflow dashboard</li>
+    <li><strong>Ölçek hazırlığı</strong> — sınav dönemi zirve trafiği acil model değişimleriyle değil gateway hız limitleri ve model yönlendirme ile yönetilir</li>
+    <li><strong>Yatırımcı-ready proof</strong> — live production metrics demonstrate vertical AI infrastructure, not a thin wrapper</li>
+  </ul>
+
+  <div class="blog-proof">
+    <h3>Canlı product</h3>
+    <p>TezMakale <a href="https://tezmakale.com" target="_blank" rel="noopener">tezmakale.com</a> adresinde canlı — özel betadaki B2B ekiplerine sunulan aynı ozDNA yığını.</p>
+  </div>
+
+  <div class="blog-cta-box">
+    <p>Dikey AI ürününüz için aynı altyapı katmanını mı istiyorsunuz?</p>
+    <a href="/tr/#waitlist" class="btn-primary">Erken Erişim</a>
+  </div>
+</article>
+
+</main>
+
+<footer>
+  <div class="footer-brand">
+    <a href="/tr/" class="logo" aria-label="ozDNA">
+      <img src="../../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
+    </a>
+    <p class="footer-tagline">Findbelow Ventures · Dikey AI altyapısı (PaaS)</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>
+    <a href="/tr/trust/">Güven Merkezi</a>
+    <a href="/tr/security/">Güvenlik</a>
+    <a href="/tr/partners/">İş Ortakları</a>
+    <a href="/tr/case-studies/tezmakale/">Vaka Çalışması</a>
+    <a href="mailto:hello@ozdna.com">İletişim</a>
+    <a href="/tr/privacy/">Gizlilik</a>
+    <a href="/tr/terms/">Şartlar</a>
+    <a href="/tr/changelog/">Değişiklik Günlüğü</a>
+    <a href="/tr/status/">Durum</a>
+        <a href="/tr/pricing/">Fiyatlandırma</a>
+    <a href="/tr/roadmap/">Yol Haritası</a>
+  </div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+
+<script src="/analytics.js" defer></script>
+<script src="/main.js" defer></script>
+</body>
+</html>

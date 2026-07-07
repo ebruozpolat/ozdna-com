@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ozdna-seo:start -->
+<title>Platform Architecture — ozDNA Vertical AI Stack</title>
+<meta name="description" content="Interactive architecture diagram: API gateway, model router, prompt registry, RAG layer, cost engine, and provider inference for vertical AI.">
+<meta name="author" content="Findbelow Ventures">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://ozdna.com/architecture/">
+<link rel="alternate" hreflang="en" href="https://ozdna.com/architecture/">
+<link rel="alternate" hreflang="tr" href="https://ozdna.com/tr/architecture/">
+<link rel="alternate" hreflang="x-default" href="https://ozdna.com/architecture/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ozDNA">
+<meta property="og:title" content="Platform Architecture — ozDNA Vertical AI Stack">
+<meta property="og:description" content="Interactive architecture diagram: API gateway, model router, prompt registry, RAG layer, cost engine, and provider inference for vertical AI.">
+<meta property="og:url" content="https://ozdna.com/architecture/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://ozdna.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ozDNA — Vertical AI Infrastructure">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ozdna">
+<meta name="twitter:title" content="Platform Architecture — ozDNA Vertical AI Stack">
+<meta name="twitter:description" content="Interactive architecture diagram: API gateway, model router, prompt registry, RAG layer, cost engine, and provider inference for vertical AI.">
+<meta name="twitter:image" content="https://ozdna.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="ozDNA — Vertical AI Infrastructure">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ozdna.com/#organization",
+      "name": "Findbelow Ventures",
+      "legalName": "Findbelow Ventures",
+      "url": "https://ozdna.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ozdna.com/assets/logo.svg"
+      },
+      "email": "hello@ozdna.com",
+      "sameAs": [
+        "https://tezmakale.com"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ozdna.com/architecture/#webpage",
+      "url": "https://ozdna.com/architecture/",
+      "name": "Platform Architecture — ozDNA Vertical AI Stack",
+      "description": "Interactive architecture diagram: API gateway, model router, prompt registry, RAG layer, cost engine, and provider inference for vertical AI.",
+      "isPartOf": {
+        "@id": "https://ozdna.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://ozdna.com/#software",
+      "name": "ozDNA Platform",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web, Linux, macOS",
+      "description": "Vertical AI infrastructure — AI gateway, model routing, prompt registry, RAG governance, and LLM cost optimization for production AI teams.",
+      "url": "https://ozdna.com/",
+      "downloadUrl": "https://ozdna.com/docs/",
+      "softwareVersion": "0.1.0",
+      "releaseNotes": "https://ozdna.com/changelog/",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Early access — paid tiers at launch"
+      },
+      "provider": {
+        "@id": "https://ozdna.com/#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ozdna.com/architecture/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ozdna.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Architecture",
+          "item": "https://ozdna.com/architecture/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="../styles.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+<meta name="color-scheme" content="dark">
+<!-- ozdna-seo:end -->
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav>
+  <a href="/" class="logo" aria-label="ozDNA home">
+    <img src="../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
+  </a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="/products/comply/">ComplyDNA</a>
+    <a href="/architecture/">Platform</a>
+    <a href="/docs/">Docs</a>
+    <a href="/pricing/">Pricing</a>
+    <a href="/#waitlist" class="nav-cta">Get Early Access</a>
+  </div>
+</nav>
+
+<main id="main-content">
+<section class="trust-hero arch-page-hero">
+  <div class="trust-hero-inner">
+    <div class="section-label">Platform Architecture</div>
+    <h1>One stack.<br>Every layer <span class="accent">instrumented</span>.</h1>
+    <p class="trust-hero-lead">Click or focus any layer to inspect how requests flow from your application through ozDNA to LLM providers — and back through analytics, billing, and observability.</p>
+  </div>
+</section>
+
+<div class="arch-page" id="arch-interactive" data-default-node="gateway">
+
+  <div class="arch-page-grid">
+    <div class="arch-diagram-wrap">
+      <div class="arch-diagram arch-diagram--interactive" role="group" aria-label="ozDNA platform architecture diagram">
+        <svg viewBox="0 0 520 920" xmlns="http://www.w3.org/2000/svg" class="arch-svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="archBoxGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" class="arch-grad-top"/>
+              <stop offset="100%" class="arch-grad-bottom"/>
+            </linearGradient>
+            <marker id="archArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6" fill="none" class="arch-arrow-head"/>
+            </marker>
+          </defs>
+
+          <!-- Edges -->
+          <g class="arch-edges">
+            <line class="arch-edge" data-arch-edge data-from="developer" data-to="gateway" x1="260" y1="80" x2="260" y2="98" marker-end="url(#archArrow)"/>
+            <line class="arch-edge" data-arch-edge data-from="gateway" data-to="router" x1="260" y1="170" x2="260" y2="188" marker-end="url(#archArrow)"/>
+            <line class="arch-edge" data-arch-edge data-from="router" data-to="prompts" x1="260" y1="252" x2="260" y2="270" marker-end="url(#archArrow)"/>
+            <line class="arch-edge" data-arch-edge data-from="prompts" data-to="rag" x1="260" y1="334" x2="260" y2="352" marker-end="url(#archArrow)"/>
+            <line class="arch-edge" data-arch-edge data-from="rag" data-to="providers" x1="260" y1="416" x2="260" y2="434" marker-end="url(#archArrow)"/>
+            <line class="arch-edge" data-arch-edge data-from="providers" data-to="analytics" x1="260" y1="548" x2="260" y2="566" marker-end="url(#archArrow)"/>
+            <line class="arch-edge" data-arch-edge data-from="analytics" data-to="billing" x1="260" y1="630" x2="260" y2="648" marker-end="url(#archArrow)"/>
+            <line class="arch-edge" data-arch-edge data-from="billing" data-to="observability" x1="260" y1="712" x2="260" y2="730" marker-end="url(#archArrow)"/>
+          </g>
+
+          <!-- Developer -->
+          <g class="arch-node" data-arch-node="developer" tabindex="0" role="button" aria-label="Developer layer">
+            <rect x="130" y="24" width="260" height="56" rx="8" class="arch-node-rect"/>
+            <text x="260" y="48" text-anchor="middle" class="arch-node-title">Developer</text>
+            <text x="260" y="66" text-anchor="middle" class="arch-node-sub">App · Agent · Server · Batch</text>
+          </g>
+
+          <!-- Gateway -->
+          <g class="arch-node arch-node--primary" data-arch-node="gateway" tabindex="0" role="button" aria-label="ozDNA Gateway">
+            <rect x="110" y="100" width="300" height="70" rx="10" class="arch-node-rect"/>
+            <text x="260" y="130" text-anchor="middle" class="arch-node-title arch-node-title--accent">ozDNA Gateway</text>
+            <text x="260" y="152" text-anchor="middle" class="arch-node-sub">Auth · Rate limits · Audit · API entry</text>
+          </g>
+
+          <!-- Model Router -->
+          <g class="arch-node" data-arch-node="router" tabindex="0" role="button" aria-label="Model Router">
+            <rect x="130" y="190" width="260" height="62" rx="8" class="arch-node-rect"/>
+            <text x="260" y="216" text-anchor="middle" class="arch-node-title">Model Router</text>
+            <text x="260" y="236" text-anchor="middle" class="arch-node-sub">Cost-aware · Fallback · A/B routing</text>
+          </g>
+
+          <!-- Prompt Registry -->
+          <g class="arch-node" data-arch-node="prompts" tabindex="0" role="button" aria-label="Prompt Registry">
+            <rect x="130" y="272" width="260" height="62" rx="8" class="arch-node-rect"/>
+            <text x="260" y="298" text-anchor="middle" class="arch-node-title">Prompt Registry</text>
+            <text x="260" y="318" text-anchor="middle" class="arch-node-sub">Versioned · Scoped · Rollback</text>
+          </g>
+
+          <!-- RAG Layer -->
+          <g class="arch-node" data-arch-node="rag" tabindex="0" role="button" aria-label="RAG Layer">
+            <rect x="130" y="354" width="260" height="62" rx="8" class="arch-node-rect"/>
+            <text x="260" y="380" text-anchor="middle" class="arch-node-title">RAG Layer</text>
+            <text x="260" y="400" text-anchor="middle" class="arch-node-sub">Ingest · Hybrid retrieval · Evals</text>
+          </g>
+
+          <!-- Providers -->
+          <g class="arch-node" data-arch-node="providers" tabindex="0" role="button" aria-label="LLM Providers">
+            <rect x="90" y="436" width="340" height="112" rx="10" class="arch-node-rect"/>
+            <text x="260" y="462" text-anchor="middle" class="arch-node-title">Providers</text>
+            <g class="arch-provider-pills">
+              <rect x="108" y="476" width="88" height="26" rx="5" class="arch-pill"/>
+              <text x="152" y="493" text-anchor="middle" class="arch-pill-text">OpenAI</text>
+              <rect x="204" y="476" width="88" height="26" rx="5" class="arch-pill"/>
+              <text x="248" y="493" text-anchor="middle" class="arch-pill-text">Anthropic</text>
+              <rect x="300" y="476" width="88" height="26" rx="5" class="arch-pill"/>
+              <text x="344" y="493" text-anchor="middle" class="arch-pill-text">Google</text>
+              <rect x="156" y="510" width="88" height="26" rx="5" class="arch-pill"/>
+              <text x="200" y="527" text-anchor="middle" class="arch-pill-text">Mistral</text>
+              <rect x="252" y="510" width="88" height="26" rx="5" class="arch-pill"/>
+              <text x="296" y="527" text-anchor="middle" class="arch-pill-text">OpenRouter</text>
+            </g>
+          </g>
+
+          <!-- Analytics -->
+          <g class="arch-node" data-arch-node="analytics" tabindex="0" role="button" aria-label="Analytics">
+            <rect x="130" y="568" width="260" height="62" rx="8" class="arch-node-rect"/>
+            <text x="260" y="594" text-anchor="middle" class="arch-node-title">Analytics</text>
+            <text x="260" y="614" text-anchor="middle" class="arch-node-sub">Usage · Tokens · Latency · Cost</text>
+          </g>
+
+          <!-- Billing -->
+          <g class="arch-node" data-arch-node="billing" tabindex="0" role="button" aria-label="Billing">
+            <rect x="130" y="650" width="260" height="62" rx="8" class="arch-node-rect"/>
+            <text x="260" y="676" text-anchor="middle" class="arch-node-title">Billing</text>
+            <text x="260" y="696" text-anchor="middle" class="arch-node-sub">Quotas · Metering · Plans</text>
+          </g>
+
+          <!-- Observability -->
+          <g class="arch-node" data-arch-node="observability" tabindex="0" role="button" aria-label="Observability">
+            <rect x="130" y="732" width="260" height="62" rx="8" class="arch-node-rect"/>
+            <text x="260" y="758" text-anchor="middle" class="arch-node-title">Observability</text>
+            <text x="260" y="778" text-anchor="middle" class="arch-node-sub">Logs · Traces · Audit export</text>
+          </g>
+
+          <!-- Telemetry rail -->
+          <rect x="40" y="568" width="8" height="226" rx="4" class="arch-rail"/>
+          <text x="24" y="680" text-anchor="middle" class="arch-rail-label" transform="rotate(-90 24 680)">Telemetry</text>
+          <line x1="48" y1="599" x2="130" y2="599" class="arch-rail-link"/>
+          <line x1="48" y1="681" x2="130" y2="681" class="arch-rail-link"/>
+          <line x1="48" y1="763" x2="130" y2="763" class="arch-rail-link"/>
+        </svg>
+      </div>
+      <p class="arch-hint">Click a layer to inspect · <a href="/docs/">API docs</a> · <a href="/knowledge/platform-architecture.md">Platform modules</a></p>
+    </div>
+
+    <aside class="arch-panel" data-arch-panel aria-live="polite">
+      <div class="arch-panel-inner">
+        <span class="arch-panel-tag" data-arch-tag>Entry point</span>
+        <h2 class="arch-panel-title" data-arch-title>ozDNA Gateway</h2>
+        <p class="arch-panel-desc" data-arch-desc>Every request passes through the gateway first.</p>
+        <ul class="arch-panel-list" data-arch-details></ul>
+        <div class="arch-panel-links">
+          <a href="/docs/" class="btn-ghost">Documentation →</a>
+          <a href="/status/" class="btn-ghost">System status →</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <section class="arch-modules">
+    <div class="section-label">Module map</div>
+    <div class="arch-module-grid">
+      <a href="/docs/#authentication" class="arch-module-card"><span class="arch-module-num">01</span><strong>Gateway</strong><span>Auth &amp; limits</span></a>
+      <a href="/docs/#detect" class="arch-module-card"><span class="arch-module-num">02</span><strong>Router</strong><span>Model selection</span></a>
+      <a href="/docs/" class="arch-module-card"><span class="arch-module-num">03</span><strong>Prompts</strong><span>Registry</span></a>
+      <a href="/docs/#modes" class="arch-module-card"><span class="arch-module-num">04</span><strong>RAG</strong><span>Vertical modes</span></a>
+      <a href="/pricing/" class="arch-module-card"><span class="arch-module-num">05</span><strong>Billing</strong><span>Usage economics</span></a>
+      <a href="/security/#logging" class="arch-module-card"><span class="arch-module-num">06</span><strong>Observability</strong><span>Audit logs</span></a>
+    </div>
+  </section>
+
+</div>
+
+</main>
+
+<footer>
+  <div class="footer-brand">
+    <a href="/" class="logo" aria-label="ozDNA">
+      <img src="../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
+    </a>
+    <p class="footer-tagline">Findbelow Ventures · Vertical AI infrastructure (PaaS)</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>
+    <a href="/architecture/">Architecture</a>
+    <a href="/docs/">Documentation</a>
+    <a href="/sdk/">SDK</a>
+    <a href="/benchmarks/">Benchmarks</a>
+    <a href="/trust/">Trust Center</a>
+    <a href="/status/">Status</a>
+    <a href="/changelog/">Changelog</a>
+    <a href="/privacy/">Privacy</a>
+    <a href="/terms/">Terms</a>
+    <a href="mailto:hello@ozdna.com">Contact</a>
+  </div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+
+<script src="/analytics.js" defer></script>
+<script src="/main.js" defer></script>
+<script src="/architecture/architecture.js" defer></script>
+</body>
+</html>

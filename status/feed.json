@@ -1,0 +1,31 @@
+{
+  "updated_at": "2026-07-06T09:00:00.000Z",
+  "overall": "operational",
+  "components": [
+    {
+      "id": "gateway",
+      "name": "Gateway",
+      "status": "operational",
+      "description": "AI Gateway — authentication, rate limits, and request routing"
+    },
+    {
+      "id": "api",
+      "name": "API",
+      "status": "operational",
+      "description": "Platform REST API at api.ozdna.com and sandbox endpoints"
+    },
+    {
+      "id": "documentation",
+      "name": "Documentation",
+      "status": "operational",
+      "description": "Developer docs and API reference at ozdna.com/docs"
+    },
+    {
+      "id": "website",
+      "name": "Website",
+      "status": "operational",
+      "description": "Marketing site, trust center, and static assets at ozdna.com"
+    }
+  ],
+  "incidents": []
+}

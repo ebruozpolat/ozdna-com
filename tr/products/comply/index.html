@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+<body class="page-gensyn">
+<a class="skip-link" href="#main-content">Ana içeriğe geç</a>
+<nav>
+  <a href="/tr/" class="logo" aria-label="ozDNA ana sayfa">
+    <img src="../../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
+  </a>
+  <button class="nav-toggle" aria-label="Menü" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="/tr/products/comply/">ComplyDNA</a>
+    <a href="/tr/architecture/">Platform</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/pricing/">Fiyatlandırma</a>
+    <a href="/tr/#waitlist?intent=comply" class="nav-cta">Erken Erişim</a>
+  </div>
+</nav>
+
+<main id="main-content">
+<section class="gensyn-hero">
+  <span class="gensyn-eyebrow">Erken erişim · ozDNA</span>
+  <h1 class="gensyn-display">mevzuata dayalı<br><em>uyum yanıtları</em></h1>
+  <p class="gensyn-lead" style="font-size:clamp(0.95rem,1.8vw,1.15rem);color:var(--tq);font-weight:500;margin-bottom:1rem">Uyum, modelin DNA'sında.</p>
+  <p class="gensyn-lead">ComplyDNA, ozDNA çatısı altında Türk mevzuatına özel eğitilmiş bir uyum LLM'idir. Uyum uzmanının soracağı türden soruları ("Şüpheli işlem bildirimi hangi sürede yapılmalı?" gibi) tahmin etmek yerine madde düzeyinde kaynak göstererek yanıtlar.</p>
+  <div class="gensyn-hero-actions">
+    <a href="mailto:hello@ozdna.com?subject=ComplyDNA%20early%20access" class="btn-primary">Demo talep et</a>
+    <a href="#pipeline" class="btn-ghost">Nasıl çalıştığını gör →</a>
+  </div>
+</section>
+
+<section class="gensyn-thesis" aria-label="Tez">
+  <article class="gensyn-thesis-item">
+    <span class="gensyn-num">01</span>
+    <p>Uyum ekipleri <strong>kesin yanıtlara</strong> ihtiyaç duyar — belirsiz sohbet denetim ve sınav riski yaratır.</p>
+  </article>
+  <article class="gensyn-thesis-item">
+    <span class="gensyn-num">02</span>
+    <p>Genel amaçlı LLM'ler tahmin eder. ComplyDNA her cümlede <strong>[TEBLİĞ / Madde]</strong> referansı verir.</p>
+  </article>
+  <article class="gensyn-thesis-item">
+    <span class="gensyn-num">03</span>
+    <p>Doğrudan <strong>Türk mevzuat diliyle</strong> çalışır — araya çeviri katmanı girmez.</p>
+  </article>
+</section>
+
+<section class="gensyn-band" id="pipeline" aria-label="ComplyDNA nasıl çalışır">
+  <div class="gensyn-band-inner">
+    <ol class="gensyn-steps">
+      <li>Mevzuat madde düzeyinde parçalanıp yürürlük metadata'sıyla etiketlenir</li>
+      <li>Anlamsal vektör indekse yazılır — Türkçe ve İngilizce sorgu destekli</li>
+      <li>Model, referans biçimini ve mevzuat dilini LoRA ince ayarıyla öğrenir</li>
+      <li>Geri getirilen maddeler + ince ayarlı model, kaynak künyeli yanıtı üretir</li>
+    </ol>
+    <div>
+      <div class="section-label">5549 · 6415 · MASAK · KVKK · ROM · Travel Rule</div>
+      <h2>Her iddia bir maddeye izlenebilir.</h2>
+      <p>Genel amaçlı LLM'lerin aksine ComplyDNA hafızadan parafraz etmez. Her cümle satır içi [TEBLİĞ / Madde] referansı taşır. Yanıtların sonuna kaynak listesi ve yürürlük bilgisi eklenir — böylece uyum ekibiniz her iddiayı düzenleyici veya yönetim kuruluna ulaşmadan cümle düzeyinde doğrulayabilir.</p>
+      <div class="gensyn-scope-row comply-scope">
+        <span class="comply-tag">5549 — Suç gelirlerinin aklanması</span>
+        <span class="comply-tag">6415 — Terörizmin finansmanı</span>
+        <span class="comply-tag">MASAK tebliğ ve genelgeleri</span>
+        <span class="comply-tag">6698 — KVKK</span>
+        <span class="comply-tag">ROM Yönetmeliği</span>
+        <span class="comply-tag">Travel Rule</span>
+        <span class="comply-tag">Kripto varlık düzenlemeleri</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gensyn-spotlight" aria-label="Örnek yanıt">
+  <div class="gensyn-spotlight-inner">
+    <div>
+      <span class="gensyn-live">Örnek çıktı</span>
+      <h2>Kaynak gösterimli yanıt nasıl görünür.</h2>
+      <p>Türkçe veya İngilizce sorun. ComplyDNA ilgili maddeleri getirir, LoRA ile öğrenilmiş referans biçimini uygular ve uyum liderinizin satır satır denetleyebileceği bir yanıt döner.</p>
+    </div>
+    <div class="gensyn-spotlight-visual">
+      <div class="terminal" aria-label="ComplyDNA örnek soru-yanıt">
+        <div class="term-header">
+          <div class="term-dot" style="background:#FF5F57"></div>
+          <div class="term-dot" style="background:#FFBD2E"></div>
+          <div class="term-dot" style="background:#28CA41"></div>
+          <div class="term-title">ComplyDNA · /v1/ask</div>
+        </div>
+        <div class="term-body">
+          <div class="t-comment">// user query</div>
+          <div><span class="t-key">Q</span>: Şüpheli işlem bildirimi hangi sürede yapılmalı?</div>
+          <div style="margin-top:0.75rem" class="t-comment">// cited response (excerpt)</div>
+          <div><span class="t-key">A</span>: Şüpheli işlem bildirimi, şüphelenme hâlinin doğduğu andan itibaren <span class="t-str">en geç 10 iş günü</span> içinde MASAK'a yapılmalıdır <span class="t-str">[MASAK Tebliği SIB/2007-1 / Madde 14]</span>.</div>
+          <div style="margin-top:0.5rem"><span class="t-key">sources</span>: <span class="t-str">SIB/2007-1 Madde 14 · yürürlük: 01.06.2007</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gensyn-band" id="trust" aria-label="Güven pillars">
+  <div class="gensyn-band-inner" style="grid-template-columns:1fr">
+    <div>
+      <div class="section-label">Güven</div>
+      <h2>Denetim odaları için — demo değil.</h2>
+      <p style="max-width:36rem;margin-bottom:0">Üç güven unsuru ComplyDNA'yı genel bir model üzerindeki RAG sarmalayıcısından ayırır.</p>
+      <div class="gensyn-infra-grid">
+        <article class="gensyn-infra-card">
+          <span class="gensyn-num">01</span>
+          <h3>Golden set</h3>
+          <p>Uyum uzmanlarının yazdığı sorulardan oluşan set — yalnızca lansmanda değil, her sürümde ölçülür.</p>
+        </article>
+        <article class="gensyn-infra-card">
+          <span class="gensyn-num">02</span>
+          <h3>Madde düzeyinde ayrım</h3>
+          <p>Eğitim ve doğrulama setleri madde düzeyinde ayrılır — ezber değil genelleme ölçülür.</p>
+        </article>
+        <article class="gensyn-infra-card">
+          <span class="gensyn-num">03</span>
+          <h3>Kurum içi dağıtım</h3>
+          <p>Kendi çevrenizde dağıtın. Müşteri verisi eğitime karışmaz.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gensyn-audience" aria-label="Kimler için">
+  <div class="section-label">Kimler için</div>
+  <h2>MASAK yükümlüsü kurumlar.</h2>
+  <p class="gensyn-lead">Bankalar, ödeme kuruluşları ve kripto varlık hizmet sağlayıcılarındaki uyum ekipleri için erken erişim.</p>
+  <div class="gensyn-audience-grid">
+    <article class="gensyn-audience-card">
+      <h3>Bankalar</h3>
+      <span class="gensyn-audience-role">Uyum · MLRO</span>
+      <p>AML/CFT yükümlülükleri, şüpheli işlem bildirimi ve müşteri due diligence — kaynak gösterilen MASAK ve 5549 referanslarıyla yanıtlanır.</p>
+    </article>
+    <article class="gensyn-audience-card">
+      <h3>Ödeme ve e-para</h3>
+      <span class="gensyn-audience-role">Uyum müdürü</span>
+      <p>PSP lisanslama, işlem izleme kuralları ve Travel Rule yükümlülükleri — politika güncellemesinden önce madde düzeyinde doğrulanır.</p>
+    </article>
+    <article class="gensyn-audience-card">
+      <h3>Kripto varlık kuruluşları</h3>
+      <span class="gensyn-audience-role">Uyum lideri · hukuk</span>
+      <p>Kripto varlık düzenlemeleri, ROM Yönetmeliği ve MASAK genelgeleri — doğrudan Türk mevzuat dili, çeviri sapması yok.</p>
+    </article>
+  </div>
+</section>
+
+<section class="gensyn-cta-band" id="waitlist">
+  <h2>ComplyDNA erken erişim</h2>
+  <p>Erken erişim aşamasındayız. Demo talep edin veya bekleme listesine katılın — MASAK yükümlüsü kurumlardaki uyum görevlileri ve MLRO'lar davetlidir.</p>
+  <div class="gensyn-hero-actions" style="justify-content:center;margin-bottom:1.25rem">
+    <a href="mailto:hello@ozdna.com?subject=ComplyDNA%20demo%20request" class="btn-primary">hello@ozdna.com</a>
+    <a href="/tr/#waitlist?intent=comply" class="btn-ghost">Bekleme listesine katıl</a>
+  </div>
+  <p class="gensyn-cta-note">ComplyDNA, <a href="/tr/" style="color:var(--tq)">ozDNA platformu</a> üzerinde çalışır — üretimde <a href="https://tezmakale.com" target="_blank" rel="noopener" style="color:var(--tq)">TezMakale</a>'yi besleyen aynı yığın.</p>
+</section>
+</main>
+
+<footer>
+  <div class="footer-brand">
+    <a href="/tr/" class="logo" aria-label="ozDNA">
+      <img src="../../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
+    </a>
+    <p class="footer-tagline">Findbelow Ventures · Dikey AI altyapısı (PaaS)</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>
+    <a href="/tr/trust/">Güven Merkezi</a>
+    <a href="/tr/security/">Güvenlik</a>
+    <a href="/tr/partners/">İş Ortakları</a>
+    <a href="/tr/">ozDNA Ana Sayfa</a>
+    <a href="mailto:hello@ozdna.com">İletişim</a>
+  </div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+
+<script src="/analytics.js" defer></script>
+<script src="/main.js" defer></script>
+<script>
+if (new URLSearchParams(location.search).get('intent') === 'comply') {
+  var role = document.getElementById('role');
+  if (role) role.value = 'regtech';
+}
+</script>
+</body>
+</html>

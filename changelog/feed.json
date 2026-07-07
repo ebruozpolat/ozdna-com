@@ -1,0 +1,50 @@
+{
+  "name": "ozDNA Changelog",
+  "url": "https://ozdna.com/changelog/",
+  "releases": [
+    {
+      "version": "v0.1",
+      "date": "2026-07-06",
+      "status": "released",
+      "summary": "Initial public site — Phase 2 positioning, developer documentation, pricing, production proof, and agent-readable knowledge bundle.",
+      "changes": [
+        {
+          "type": "added",
+          "title": "Landing page",
+          "url": "https://ozdna.com/",
+          "description": "Phase 2 homepage — LLM cost optimization, ComplyDNA preview, enterprise pillars, waitlist."
+        },
+        {
+          "type": "added",
+          "title": "Documentation",
+          "url": "https://ozdna.com/docs/",
+          "description": "Developer documentation hub — auth, vertical modes, webhooks, integration flow."
+        },
+        {
+          "type": "added",
+          "title": "Pricing",
+          "url": "https://ozdna.com/pricing/",
+          "description": "Early-access pricing tiers — Startup, Growth, Enterprise."
+        },
+        {
+          "type": "added",
+          "title": "Case Studies",
+          "url": "https://ozdna.com/case-studies/tezmakale/",
+          "description": "TezMakale production case study on ozDNA infrastructure."
+        },
+        {
+          "type": "added",
+          "title": "llms.txt",
+          "url": "https://ozdna.com/llms.txt",
+          "description": "Agent-readable site manifest and knowledge bundle index."
+        },
+        {
+          "type": "added",
+          "title": "API docs",
+          "url": "https://ozdna.com/docs/#detect",
+          "description": "REST API reference — POST /v1/detect, Bearer auth, OpenAPI spec."
+        }
+      ]
+    }
+  ]
+}

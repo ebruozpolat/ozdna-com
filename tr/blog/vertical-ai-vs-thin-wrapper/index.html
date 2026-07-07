@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Ana içeriğe geç</a>
+<nav>
+  <a href="/tr/" class="logo" aria-label="ozDNA ana sayfa">
+    <img src="../../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
+  </a>
+  <button class="nav-toggle" aria-label="Menü" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="/tr/products/comply/">ComplyDNA</a>
+    <a href="/tr/architecture/">Platform</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/pricing/">Fiyatlandırma</a>
+    <a href="/tr/#waitlist" class="nav-cta">Erken Erişim</a>
+  </div>
+</nav>
+
+<main id="main-content">
+<article class="blog-article">
+  <a href="/tr/blog/" class="blog-back">← Tüm yazılar</a>
+  <div class="blog-meta">
+    <span class="blog-pillar">Sütun 3 · Dikey AI</span>
+    <span class="blog-date">Haziran 2026 · 7 dk okuma</span>
+  </div>
+  <h1>Vertical AI vs. Thin Wrapper: What Yatırımcıs Actually See</h1>
+  <p class="blog-lead">Genel chatbot soruları yanıtlar. Dikey AI ajanı belirli bir işin operasyon mantığını anlar. Due diligence hangisini inşa ettiğinizle ilgilidir — ana sayfanızdaki foundation model logosuyla değil.</p>
+
+  <p>The <strong>vertical AI vs wrapper</strong> conversation gets flattened into slogans: "we are vertical," "we have proprietary data," "we fine-tune." Yatırımcıs have heard all three from teams that are, functionally, a prompt and a PDF upload away from replacement.</p>
+  <p>Odada kategorileri ayıran sıfatlar değil. <strong>İş akışı derinliğidir</strong>: ürününüzün alan kararlarını nasıl kodladığı, kalitenin nerede zorlandığı ve model yarın değiştirilirse neyin bozulacağı.</p>
+
+  <h2>"İnce sarmalayıcı" due diligence'ta ne anlama gelir</h2>
+  <p>İnce sarmalayıcı genellikle birden fazla kutuyu aynı anda işaretler:</p>
+  <ul>
+    <li>Temel değer hafif sistem prompt'lu tek sohbet yüzeyidir.</li>
+    <li>Kalıcı alan durumu yok — oturum belleği çeyreği geçmez.</li>
+    <li>Retrieval güncellik, kaynak veya değerlendirme döngüsü olmadan genel vektör yığınıdır.</li>
+    <li>İş kuralları sistemlerde değil prompt'larda yaşadığı için model değiştirmek davranışı öngörülemez şekilde değiştirir.</li>
+    <li>Brüt marj yönlendirme veya ekonomi katmanı olmadan sağlayıcı liste fiyatlarını izler.</li>
+  </ul>
+  <p>Bunların hiçbiri ekibin kötü olduğu anlamına gelmez. Hendek bugün <em>ince</em> demektir — sofistike yatırımcılar bunu tur dinamiklerine yansıtır.</p>
+
+  <h2>Dikey AI operasyonel olarak nasıl görünür</h2>
+  <p><strong>Dikey AI altyapısı</strong>, bir alana bağlı işletilebilir alt sistemler olarak ortaya çıkar:</p>
+  <ul>
+    <li><strong>Düzenlenmiş iş akışları.</strong> Kaynak katmanlarını, insan onay kapılarını ve yayın denetim izlerini izleyen uyumluluk ürünleri — "AI yasayı okudu" değil.</li>
+    <li><strong>Kalite sözleşmeleri.</strong> Hızlı istemci tarafı taramaları derin sunucu analizinden ayıran akademik araçlar — gizlilik ve derinlik tasarlanmış modlar, kaza değil.</li>
+    <li><strong>İşlere bağlı token ekonomisi.</strong> Krediler detect vs. rewrite vs. report'a eşlenir — kullanıcılar limitleri anlar çünkü ürün maliyeti anlar.</li>
+    <li><strong>Operasyon olarak RAG.</strong> Ingestion programları, belge türü başına değerlendirme paketleri, retrieval güveni düştüğünde yükseltme.</li>
+  </ul>
+  <p>Yatırımcıların sigorta edebileceği savunulabilirlik budur: "GPT-4 kullandık" değil, "fintech uyumluluk ekibinin bir hafta sonunda sökemeyeceği operasyon katmanını inşa ettik."</p>
+
+  <h2>Slayt destesinin ardındaki yatırımcı soruları</h2>
+  <p>Ortaklar demoyu geçtiğinde genellikle şunları sorar:</p>
+  <ol>
+    <li>OpenAI yarın fiyatları 2 kat artırırsa marjınıza — ve UX taahhütlerinize ne olur?</li>
+    <li>Müşteri örnek PDF'iniz değil dağınık gerçek dünya verisi yüklediğinde ne başarısız olur?</li>
+    <li>Ekipte alan doğruluğundan — yalnızca model seçiminden değil — kim sorumlu?</li>
+    <li>Kendi staging ortamınızın ötesinde hangi üretim referansı var?</li>
+  </ol>
+  <p>UI ekran görüntüleriyle yanıtlayan ekipler zorlanır. İş akışları, metrikler ve tek dikeyde canlı müşterilerle yanıtlayan ekipler konuşmayı ilerletir.</p>
+
+  <aside class="blog-proof">
+    <h3>ozDNA üzerinde inşa edildi</h3>
+    <p>Findbelow <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>'yi (akademik AI, Türkiye) yürütür ve aynı yığın üzerinde <a href="/tr/products/comply/">ComplyDNA</a> (5549/BDDK/MASAK/KVKK RegTech) inşa eder. Altyapıyı dahili olarak bağımlı olmadan dışarı satmayız — çünkü üretim kanıtı olmayan "dikey AI" due diligence'ta hâlâ sarmalayıcıdır.</p>
+  </aside>
+
+  <h2>Sarmalayıcıdan dikeye geçmek — dürüstçe</h2>
+  <p>Yeniden markalaşarak çıkamazsınız. Bir alan işi seçin, girdiden hesap verilebilir çıktıya tam yolu sahiplenin ve yalnızca o yolda kalite ve maliyeti ölçümleyin.</p>
+  <p>Güncellik, insan incelemesi ve yönlendirmenin nasıl çalıştığını yayınlayın — yalnızca özellik maddeleri değil. Amaç Twitter'ı etkilemek değil; biri modelin düzenleyici atıf uydurduğunda ne olacağını sorduğunda ortak görüşmesinden sağ çıkmaktır.</p>
+  <p>Vertical AI differentiation is earned in operations. Yatırımcıs know the difference when they see it.</p>
+
+  <div class="blog-cta-box">
+    <p>Başka bir chat kabuğu değil alan derinliği mi inşa ediyorsunuz? ozDNA dikey AI ekiplerinin RAG yönetişimi ve maliyet kontrolleriyle yayınlamasına yardımcı olur — erken erişime katılın.</p>
+    <a href="/tr/#waitlist" class="btn-primary">Erken Erişim</a>
+  </div>
+</article>
+
+</main>
+
+<footer>
+  <div class="footer-brand">
+    <a href="/tr/" class="logo" aria-label="ozDNA">
+      <img src="../../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
+    </a>
+    <p class="footer-tagline">Findbelow Ventures · Dikey AI altyapısı (PaaS)</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>
+    <a href="/tr/trust/">Güven Merkezi</a>
+    <a href="/tr/security/">Güvenlik</a>
+    <a href="/tr/partners/">İş Ortakları</a>
+    <a href="/tr/blog/">Blog</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/sdk/">SDK</a>
+    <a href="/tr/benchmarks/">Kıyaslamalar</a>
+    <a href="/tr/architecture/">Mimari</a>
+    <a href="mailto:hello@ozdna.com">İletişim</a>
+  </div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+
+<script src="/analytics.js" defer></script>
+<script src="/main.js" defer></script>
+</body>
+</html>

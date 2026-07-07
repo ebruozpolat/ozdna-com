@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="alternate" type="application/json" href="/changelog/feed.json" title="ozDNA Değişiklik Günlüğü JSON">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Ana içeriğe geç</a>
+<nav>
+  <a href="/tr/" class="logo" aria-label="ozDNA ana sayfa">
+    <img src="../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
+  </a>
+  <button class="nav-toggle" aria-label="Menü" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="/tr/products/comply/">ComplyDNA</a>
+    <a href="/tr/architecture/">Platform</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/pricing/">Fiyatlandırma</a>
+    <a href="/tr/#waitlist" class="nav-cta">Erken Erişim</a>
+  </div>
+</nav>
+
+<section class="trust-hero">
+  <div class="trust-hero-inner">
+    <div class="section-label">Sürüm Notları</div>
+    <h1>Değişiklik Günlüğü</h1>
+    <p class="legal-meta">ozdna.com ve geliştirici yüzeyleri için kamuya açık sürüm geçmişi · <a href="/changelog/feed.json">JSON feed</a></p>
+    <p class="trust-hero-lead">Pazarlama sitesi, dokümantasyon ve erken erişim platformunda ne yayınlandı. Platform API sürümlemesi bağımsız semver izler — bkz. <a href="/docs/tr/">API dokümantasyonu</a>.</p>
+  </div>
+</section>
+
+<div class="trust-layout changelog-layout">
+  <aside class="trust-sidebar" aria-label="Sürüm sürümleri">
+    <h3>Sürümler</h3>
+    <a href="#v0-1" class="changelog-nav-current">v0.1</a>
+    <!-- Future: <a href="#v0-2">v0.2</a> -->
+    <h3 style="margin-top:1.5rem">Abone ol</h3>
+    <a href="/changelog/feed.json">JSON feed</a>
+    <a href="/llms.txt">llms.txt</a>
+    <a href="/tr/roadmap/">Yol Haritası →</a>
+  </aside>
+
+  <main id="main-content" class="trust-main changelog-main">
+
+    <!-- ── Template for future releases ──
+    <article class="changelog-release" id="v0-2">
+      <header class="changelog-release-head">
+        <div class="changelog-version-row">
+          <span class="changelog-version">v0.2</span>
+          <span class="trust-status progress">Devam Ediyor</span>
+        </div>
+        <time class="changelog-date" datetime="YYYY-MM-DD">Month DD, YYYY</time>
+        <p class="changelog-summary">One-line release summary.</p>
+      </header>
+      <ul class="changelog-list">
+        <li class="changelog-item">
+          <span class="changelog-type added">Eklendi</span>
+          <div class="changelog-item-body">
+            <strong>Feature name</strong>
+            <p>Description. <a href="/tr/">Link</a></p>
+          </div>
+        </li>
+      </ul>
+    </article>
+    ── end template ── -->
+
+    <article class="changelog-release" id="v0-1">
+      <header class="changelog-release-head">
+        <div class="changelog-version-row">
+          <span class="changelog-version">v0.1</span>
+          <span class="trust-status live">Yayınlandı</span>
+        </div>
+        <time class="changelog-date" datetime="2026-07-06">6 July 2026</time>
+        <p class="changelog-summary">İlk kamuya açık site — Faz 2 konumlandırması, geliştirici dokümantasyonu, fiyatlandırma, üretim kanıtı ve ajan okunabilir bilgi paketi.</p>
+      </header>
+
+      <ul class="changelog-list">
+        <li class="changelog-item">
+          <span class="changelog-type added">Eklendi</span>
+          <div class="changelog-item-body">
+            <strong><a href="/tr/">Açılış sayfası</a></strong>
+            <p>Faz 2 ana sayfa — üretim AI ekipleri için LLM maliyet optimizasyonu, ComplyDNA önizlemesi, kurumsal sütunlar ve erken erişim bekleme listesi.</p>
+          </div>
+        </li>
+        <li class="changelog-item">
+          <span class="changelog-type added">Eklendi</span>
+          <div class="changelog-item-body">
+            <strong><a href="/docs/tr/">Dokümantasyon</a></strong>
+            <p>Geliştirici dokümantasyon merkezi — kimlik doğrulama, dikey modlar, webhook'lar, entegrasyon akışı ve platform mimarisi genel bakış.</p>
+          </div>
+        </li>
+        <li class="changelog-item">
+          <span class="changelog-type added">Eklendi</span>
+          <div class="changelog-item-body">
+            <strong><a href="/tr/pricing/">Fiyatlandırma</a></strong>
+            <p>Early-access pricing tiers — Startup, Growth, and Kurumsal plans with invite-only API access model.</p>
+          </div>
+        </li>
+        <li class="changelog-item">
+          <span class="changelog-type added">Eklendi</span>
+          <div class="changelog-item-body">
+            <strong><a href="/tr/case-studies/tezmakale/">Vaka Çalışmaları</a></strong>
+            <p>Üretim vaka çalışması — <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>'nin canlı token ekonomisi ve dikey iş akışlarıyla ozDNA altyapısında nasıl çalıştığı.</p>
+          </div>
+        </li>
+        <li class="changelog-item">
+          <span class="changelog-type added">Eklendi</span>
+          <div class="changelog-item-body">
+            <strong><a href="/llms.txt">llms.txt</a></strong>
+            <p>Ajan okunabilir site manifesti — bilgi paketi indeksi, blog serisi, iş ortağı kanıtı ve LLM tarayıcıları için yapılandırılmış bağlantılar.</p>
+          </div>
+        </li>
+        <li class="changelog-item">
+          <span class="changelog-type added">Eklendi</span>
+          <div class="changelog-item-body">
+            <strong><a href="/docs/tr/#detect">API dokümantasyonu</a></strong>
+            <p>REST API referansı — <span class="inline-code">POST /v1/detect</span>, Bearer kimlik doğrulama, sandbox ve üretim temel URL'leri, OpenAPI spesifikasyon işaretçileri.</p>
+          </div>
+        </li>
+      </ul>
+    </article>
+
+    <div class="trust-cta">
+      <h2>Sırada ne var?</h2>
+      <p>Platform modules, Güven Merkezi expansions, and ComplyDNA ship on their own cadence — tracked on the public roadmap.</p>
+      <div class="trust-cta-actions">
+        <a href="/tr/roadmap/" class="btn-primary">View Yol Haritası</a>
+        <a href="/tr/#waitlist" class="btn-ghost">Bekleme Listesine Katıl</a>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="footer-brand">
+    <a href="/tr/" class="logo" aria-label="ozDNA">
+      <img src="../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
+    </a>
+    <p class="footer-tagline">Findbelow Ventures · Dikey AI altyapısı (PaaS)</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>
+    <a href="/tr/trust/">Güven Merkezi</a>
+    <a href="/tr/security/">Güvenlik</a>
+    <a href="/tr/changelog/">Değişiklik Günlüğü</a>
+    <a href="/tr/status/">Durum</a>
+    <a href="/tr/privacy/">Gizlilik</a>
+    <a href="/tr/terms/">Şartlar</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/sdk/">SDK</a>
+    <a href="/tr/benchmarks/">Kıyaslamalar</a>
+    <a href="/tr/architecture/">Mimari</a>
+    <a href="mailto:hello@ozdna.com">İletişim</a>
+  </div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+
+<script src="/analytics.js" defer></script>
+<script src="/main.js" defer></script>
+</body>
+</html>

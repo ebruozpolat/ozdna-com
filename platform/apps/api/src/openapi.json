@@ -1,0 +1,214 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "ozDNA Platform API",
+    "description": "Vertical AI Infrastructure — AI Gateway, Model Router, Prompt Registry, RAG, Cost Optimization",
+    "version": "0.1.0"
+  },
+  "servers": [
+    { "url": "http://localhost:8787", "description": "Local development" },
+    { "url": "https://api.ozdna.com", "description": "Production (beta)" },
+    { "url": "https://api.sandbox.ozdna.com", "description": "Sandbox" }
+  ],
+  "security": [{ "bearerAuth": [] }],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "API key with prefix ozdna_sk_test_ or ozdna_sk_live_"
+      }
+    }
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Health check",
+        "security": [],
+        "responses": { "200": { "description": "Service healthy" } }
+      }
+    },
+    "/v1/detect": {
+      "post": {
+        "summary": "AI text detection",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["text"],
+                "properties": {
+                  "text": { "type": "string", "maxLength": 50000 },
+                  "mode": { "type": "string", "enum": ["academic", "legal", "financial", "general"] },
+                  "language": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "Detection result" } }
+      }
+    },
+    "/v1/chat": {
+      "post": {
+        "summary": "Chat completions (OpenAI-compatible proxy)",
+        "responses": { "200": { "description": "Chat completion" } }
+      }
+    },
+    "/v1/completion": {
+      "post": {
+        "summary": "Legacy text completions proxy",
+        "responses": { "200": { "description": "Completion result" } }
+      }
+    },
+    "/v1/embeddings": {
+      "post": {
+        "summary": "Embeddings (cached, router-selected model)",
+        "responses": { "200": { "description": "Embedding vectors" } }
+      }
+    },
+    "/v1/rerank": {
+      "post": {
+        "summary": "Rerank documents by query relevance",
+        "responses": { "200": { "description": "Ranked results" } }
+      }
+    },
+    "/v1/moderation": {
+      "post": {
+        "summary": "Content moderation",
+        "responses": { "200": { "description": "Moderation scores" } }
+      }
+    },
+    "/v1/metrics/cost": {
+      "get": {
+        "summary": "Cost metrics by workflow",
+        "parameters": [
+          { "name": "workflow_id", "in": "query", "schema": { "type": "string" } },
+          { "name": "hours", "in": "query", "schema": { "type": "integer", "default": 24 } }
+        ],
+        "responses": { "200": { "description": "Cost breakdown" } }
+      }
+    },
+    "/v1/metrics/usage": {
+      "get": {
+        "summary": "Usage analytics and billing status",
+        "responses": { "200": { "description": "Usage summary" } }
+      }
+    },
+    "/v1/platform/status": {
+      "get": {
+        "summary": "Platform module status",
+        "security": [],
+        "responses": { "200": { "description": "Module health" } }
+      }
+    },
+    "/v1/orgs/{orgId}": {
+      "get": {
+        "summary": "Get organization profile",
+        "parameters": [{ "name": "orgId", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Organization" } }
+      },
+      "patch": {
+        "summary": "Update organization",
+        "parameters": [{ "name": "orgId", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": { "name": { "type": "string" } }
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "Updated organization" } }
+      }
+    },
+    "/v1/orgs/{orgId}/workspaces": {
+      "get": {
+        "summary": "List workspaces in organization",
+        "parameters": [{ "name": "orgId", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Workspace list" } }
+      },
+      "post": {
+        "summary": "Create workspace",
+        "parameters": [{ "name": "orgId", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["name"],
+                "properties": {
+                  "name": { "type": "string" },
+                  "slug": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "Workspace created" } }
+      }
+    },
+    "/v1/workspaces/{workspaceId}/projects": {
+      "get": {
+        "summary": "List projects in workspace",
+        "parameters": [{ "name": "workspaceId", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Project list" } }
+      },
+      "post": {
+        "summary": "Create project",
+        "parameters": [{ "name": "workspaceId", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["name"],
+                "properties": { "name": { "type": "string" } }
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "Project created" } }
+      }
+    },
+    "/v1/projects/{projectId}/keys": {
+      "get": {
+        "summary": "List API keys for project (prefix only)",
+        "parameters": [{ "name": "projectId", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "API key list" } }
+      },
+      "post": {
+        "summary": "Create API key (secret shown once)",
+        "parameters": [{ "name": "projectId", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["name"],
+                "properties": {
+                  "name": { "type": "string" },
+                  "environment": { "type": "string", "enum": ["test", "live"] }
+                }
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "API key created" } }
+      }
+    },
+    "/v1/projects/{projectId}/keys/{keyId}": {
+      "delete": {
+        "summary": "Revoke API key",
+        "parameters": [
+          { "name": "projectId", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "keyId", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "Key revoked" } }
+      }
+    }
+  }
+}

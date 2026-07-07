@@ -1,0 +1,29 @@
+{
+  "blog/index.html": {
+    "title": "Blog — Dikey AI Altyapısı İçgörüleri | ozDNA",
+    "description": "Dikey AI kurucuları için rehberler: LLM API maliyetleri, çıkarım yönlendirme, marj riski ve yatırımcıların ince sarmalayıcının ötesinde gördükleri.",
+    "breadcrumbs": [
+      { "name": "Ana Sayfa", "path": "/tr/" },
+      { "name": "Blog", "path": "/tr/blog/" }
+    ],
+    "replacements": [
+      ["Problem-aware writing for teams where API bills, RAG drift, and token pricing show up before product-market fit does. Part of the GPU Bill Bodyguard content series.", "API faturaları, RAG sapması ve token fiyatlandırmasının ürün-pazar uyumundan önce ortaya çıktığı ekipler için sorun odaklı yazılar. GPU Bill Bodyguard içerik serisinin parçası."],
+      ["Production proof: <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a> (academic AI, Turkey) runs on this infrastructure today. <a href=\"/partners/\">Partner profile</a> · <a href=\"/case-studies/tezmakale/\">Case study</a>.", "Üretim kanıtı: <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a> (akademik AI, Türkiye) bugün bu altyapıda çalışıyor. <a href=\"/partners/\">İş ortağı profili</a> · <a href=\"/case-studies/tezmakale/\">Vaka çalışması</a>."],
+      ["Why AI API bills scale faster than revenue — and what to measure before you blame pricing or churn.", "AI API faturaları gelirden neden daha hızlı büyür — fiyatlandırmayı veya churn'ü suçlamadan önce ne ölçmelisiniz."],
+      ["GPU and API spend feel unpredictable until you break cost down by workflow, model, and user — then route accordingly.", "Maliyeti iş akışı, model ve kullanıcıya göre ayırana — ardından buna göre yönlendirene kadar GPU ve API harcaması öngörülemez hissedilir."],
+      ["The difference between a demo chatbot and a product with domain depth — in diligence language, not pitch-deck adjectives.", "Demo chatbot ile alan derinliği olan ürün arasındaki fark — pitch deck sıfatları değil, due diligence diliyle."],
+      ["If gross margin depends on today's LLM list prices staying flat, you have platform risk — not a temporary cost spike.", "Brüt marj bugünkü LLM liste fiyatlarının sabit kalmasına bağlıysa geçici maliyet artışı değil, platform riskiniz vardır."],
+      ["Founder notes on AI infrastructure economics", "AI altyapı ekonomisi üzerine kurucu notları"],
+      ["Vertical AI vs. Thin Wrapper: What Investors Actually See", "Dikey AI vs. İnce Sarmalayıcı: Yatırımcılar Gerçekte Ne Görür"],
+      ["Making Inference Cost Measurable and Routable", "Çıkarım Maliyetini Ölçülebilir ve Yönlendirilebilir Kılmak"],
+      ["When Every Active User Destroys Your Margin", "Her Aktif Kullanıcı Marjınızı Yok Ettiğinde"],
+      ["Hidden Platform Risk: When API Pricing Changes", "Gizli Platform Riski: API Fiyatlandırması Değiştiğinde"],
+      ["Pillar 1 · Cost Control", "Sütun 1 · Maliyet Kontrolü"],
+      ["Pillar 3 · Vertical AI", "Sütun 3 · Dikey AI"],
+      ["Pillar 4 · Margin Resilience", "Sütun 4 · Marj Dayanıklılığı"],
+      ["Live on ozDNA", "ozDNA'da canlı"],
+      ["June 2026", "Haziran 2026"],
+      ["Home", "Ana Sayfa"]
+    ]
+  }
+}

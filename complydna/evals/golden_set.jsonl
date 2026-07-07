@@ -1,0 +1,10 @@
+{"question":"Şüpheli işlem bildirim süresi kaç gündür?","expected_citations":[{"kaynak_kodu":"TEBLIG-MASAK-SAMPLE","madde_no":4,"madde_turu":"madde","fikra_no":2}],"notes":"MASAK tebliği — bildirim süresi"}
+{"question":"Yükümlüler şüpheli işlemleri kime bildirir?","expected_citations":[{"kaynak_kodu":"TEBLIG-MASAK-SAMPLE","madde_no":4,"madde_turu":"madde","fikra_no":1}],"notes":"MASAK — derhal bildirim"}
+{"question":"Bu yönetmeliğin amacı nedir?","expected_citations":[{"kaynak_kodu":"TEBLIG-MASAK-SAMPLE","madde_no":1,"madde_turu":"madde","fikra_no":1}],"notes":"MASAK — amaç maddesi"}
+{"question":"Yönetmelik hangi kanuna dayanmaktadır?","expected_citations":[{"kaynak_kodu":"TEBLIG-MASAK-SAMPLE","madde_no":1,"madde_turu":"madde","fikra_no":2}],"notes":"5549 dayanak"}
+{"question":"Yönetmelik ne zaman yürürlüğe girer?","expected_citations":[{"kaynak_kodu":"TEBLIG-MASAK-SAMPLE","madde_no":1,"madde_turu":"gecici_madde","fikra_no":1}],"notes":"MASAK — geçici madde"}
+{"question":"Kişisel veriler açık rıza olmadan işlenebilir mi?","expected_citations":[{"kaynak_kodu":"LAW-KVKK","madde_no":4,"madde_turu":"madde","fikra_no":1}],"notes":"KVKK — rıza"}
+{"question":"Kişisel verilerin işlenme şartları nerede sayılır?","expected_citations":[{"kaynak_kodu":"LAW-KVKK","madde_no":5,"madde_turu":"madde","fikra_no":1}],"notes":"KVKK — işleme şartları"}
+{"question":"Veri sorumlusunun bilgi verme yükümlülüğü hangi maddededir?","expected_citations":[{"kaynak_kodu":"LAW-KVKK","madde_no":12,"madde_turu":"madde","fikra_no":1}],"notes":"KVKK — bilgi talebi"}
+{"question":"KVKK'ya aykırı veri işlemede ne uygulanır?","expected_citations":[{"kaynak_kodu":"LAW-KVKK","madde_no":18,"madde_turu":"madde","fikra_no":1}],"notes":"KVKK — idari para cezası"}
+{"question":"Şüpheli işlem bildirimi ile ilgili süre sınırı nedir?","expected_citations":[{"kaynak_kodu":"TEBLIG-MASAK-SAMPLE","madde_no":4,"madde_turu":"madde","fikra_no":2}],"notes":"MASAK/KVKK karışık set — MASAK süre"}

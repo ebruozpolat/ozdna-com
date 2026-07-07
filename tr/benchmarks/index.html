@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Ana içeriğe geç</a>
+<nav>
+  <a href="/tr/" class="logo" aria-label="ozDNA ana sayfa">
+    <img src="../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
+  </a>
+  <button class="nav-toggle" aria-label="Menü" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="/tr/products/comply/">ComplyDNA</a>
+    <a href="/tr/architecture/">Platform</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/pricing/">Fiyatlandırma</a>
+    <a href="/tr/#waitlist" class="nav-cta">Erken Erişim</a>
+  </div>
+</nav>
+
+<main id="main-content">
+<div class="bench-disclaimer" role="note">
+  <strong>Yalnızca örnek</strong> — Bu sayfadaki sayılar eğitim ve planlama için varsayımsal örneklerdir. <em>Ölçülmüş üretim kıyaslamaları değildir</em>. Kamuya açık, tekrarlanabilir kıyaslamalar 2026 Q3 için planlanmaktadır.
+</div>
+
+<section class="trust-hero bench-hero">
+  <div class="trust-hero-inner">
+    <div class="section-label">Kıyaslamalar</div>
+    <h1>ozDNA vs<br><span class="accent">doğrudan sağlayıcı</span></h1>
+    <p class="trust-hero-lead">Birleşik bir gateway'in uygulama kodunda OpenAI (veya başka bir sağlayıcı) doğrudan bağlanmasıyla gecikme, maliyet kontrolü ve operasyonel derinlik açısından karşılaştırması.</p>
+  </div>
+</section>
+
+<div class="bench-page">
+
+  <section class="bench-scenario">
+    <h2>Örnek senaryo</h2>
+    <p><strong style="color:var(--txt)">academic</strong> modda <span class="inline-code">POST /v1/detect</span> çalıştıran varsayımsal B2B SaaS — ayda ~50.000 istek, karışık EN/TR metin, tek bölge dağıtımı. Yalnızca aşağıdaki karşılaştırmayı yapılandırmak için kullanılır.</p>
+    <ul class="trust-list">
+      <li><strong>Doğrudan sağlayıcı:</strong> Uygulama → OpenAI API (tek model, özel yeniden deneme mantığı, stdout günlükleri)</li>
+      <li><strong>ozDNA:</strong> Uygulama → ozDNA Gateway → Model Router → Prompt Kayıt defteri → sağlayıcı</li>
+    </ul>
+  </section>
+
+  <section class="bench-table-section" aria-labelledby="bench-metrics-heading">
+    <h2 id="bench-metrics-heading">Metrik karşılaştırması</h2>
+    <p class="bench-table-note"><span class="bench-illus-tag">Örnek*</span> = yukarıdaki senaryo için örnek sayılar, ozDNA üretim telemetrisi değil.</p>
+
+    <div class="bench-table-wrap">
+      <table class="bench-table">
+        <thead>
+          <tr>
+            <th scope="col">Metrik</th>
+            <th scope="col">Doğrudan sağlayıcı</th>
+            <th scope="col">ozDNA</th>
+            <th scope="col">Notlar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Gecikme <span class="bench-illus-tag">Örnek*</span></th>
+            <td><span class="bench-val">~850 ms</span> <span class="bench-unit">p50</span></td>
+            <td><span class="bench-val">~880 ms</span> <span class="bench-unit">p50</span></td>
+            <td class="bench-note">Örnek: küçük gateway atlaması vs doğrudan çağrı. p99'unuz modele ve bölgeye bağlıdır.</td>
+          </tr>
+          <tr>
+            <th scope="row">Token maliyeti <span class="bench-illus-tag">Örnek*</span></th>
+            <td><span class="bench-val">~$0.042</span> <span class="bench-unit">/ 1k req</span></td>
+            <td><span class="bench-val">~$0.031</span> <span class="bench-unit">/ 1k req</span></td>
+            <td class="bench-note">Örnek: router trafiğin %40'ını daha ucuz yetkin modele gönderirse harmanlanmış maliyet. Garanti değildir.</td>
+          </tr>
+          <tr>
+            <th scope="row">Önbellek isabeti <span class="bench-illus-tag">Örnek*</span></th>
+            <td><span class="bench-na">—</span></td>
+            <td><span class="bench-val">~28%</span> <span class="bench-unit">example</span></td>
+            <td class="bench-note">Gateway'de prompt-hash / yanıt önbelleği — özdeş girdiler gerekir. Doğrudan entegrasyon: kendiniz oluşturun.</td>
+          </tr>
+          <tr>
+            <th scope="row">Yeniden denemeler <span class="bench-illus-tag">Örnek*</span></th>
+            <td><span class="bench-val">Manuel</span></td>
+            <td><span class="bench-val">Otomatik</span></td>
+            <td class="bench-note">Örnek: 429/5xx üzerinde yedekleme zinciri. Doğrudan: sağlayıcı SDK'sına göre uygulama kodunda yeniden deneme döngüleri.</td>
+          </tr>
+          <tr>
+            <th scope="row">Observability</th>
+            <td><span class="bench-partial">DIY</span></td>
+            <td><span class="bench-yes">Entegre</span></td>
+            <td class="bench-note">İstek ID'leri, denetim olayları, yapılandırılmış günlükler — sağlayıcı panoları ve uygulama günlüklerini birleştirmeye karşı.</td>
+          </tr>
+          <tr>
+            <th scope="row">Model routing</th>
+            <td><span class="bench-no">Tek model</span></td>
+            <td><span class="bench-yes">Politika tabanlı</span></td>
+            <td class="bench-note">Uygulama kodunu yeniden dağıtmadan iş akışı, maliyet tavanı veya gecikme bütçesine göre yönlendirme.</td>
+          </tr>
+          <tr>
+            <th scope="row">Prompt versioning</th>
+            <td><span class="bench-partial">Git / ortam değişkenleri</span></td>
+            <td><span class="bench-yes">Kayıt defteri</span></td>
+            <td class="bench-note">Prompt Kayıt defteri'de geri alma ve ortam kapsamlarıyla sürümlü prompt'lar.</td>
+          </tr>
+          <tr>
+            <th scope="row">Cost analytics</th>
+            <td><span class="bench-partial">Fatura + elektronik tablo</span></td>
+            <td><span class="bench-yes">İş akışı bazında</span></td>
+            <td class="bench-note">Harcamayı iş akışı, hesap ve modele atayın — yalnızca sağlayıcı aylık faturasına değil.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="bench-cards">
+    <h2>ozDNA'nın değer kattığı alanlar</h2>
+    <div class="bench-card-grid">
+      <article class="bench-card">
+        <h3>Cost control</h3>
+        <p>Direct integration optimizes for time-to-first-call. ozDNA optimizes for <strong style="color:var(--txt)">margin at scale</strong> — routing, cache, and per-workflow attribution.</p>
+      </article>
+      <article class="bench-card">
+        <h3>Çalışıyor depth</h3>
+        <p>Retries, observability, and prompt versioning are product features — not weekend engineering projects bolted onto a provider SDK.</p>
+      </article>
+      <article class="bench-card">
+        <h3>Gecikme ödünleşimi</h3>
+        <p>A gateway adds a hop. Illustrative example shows ~30 ms p50 delta — acceptable when routing and cache savings matter more than raw minimum latency.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="bench-methodology">
+    <h2>Metodoloji ve şeffaflık</h2>
+    <ul class="trust-list">
+      <li>We do <strong style="color:var(--txt)">not</strong> publish production customer metrics on this page.</li>
+      <li>Illustrative numbers use round, clearly labeled examples — not cherry-picked wins.</li>
+      <li>Public benchmarks will document workload, region, model IDs, and reproducible scripts.</li>
+      <li>Production proof today: live workloads on <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a> — qualitative, not quantified here.</li>
+    </ul>
+    <p class="trust-disclaimer">Findbelow Ventures operates ozDNA. Provider names (OpenAI, Anthropic, etc.) describe integration targets — not endorsements or measured comparisons against those vendors.</p>
+  </section>
+
+  <div class="trust-cta">
+    <h2>Kendi karşılaştırmanızı yapın</h2>
+    <p>Sandbox access lets you measure latency and cost on your corpus — the only benchmark that matters for your product.</p>
+    <div class="trust-cta-actions">
+      <a href="/tr/#waitlist" class="btn-primary">Sandbox erişimi isteyin</a>
+      <a href="/docs/tr/" class="btn-ghost">API dokümantasyonu →</a>
+      <a href="/tr/compare/litellm-alternative/" class="btn-ghost">LiteLLM karşılaştırması →</a>
+    </div>
+  </div>
+
+</div>
+
+</main>
+
+<footer>
+  <div class="footer-brand">
+    <a href="/tr/" class="logo" aria-label="ozDNA">
+      <img src="../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
+    </a>
+    <p class="footer-tagline">Findbelow Ventures · Dikey AI altyapısı (PaaS)</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/benchmarks/">Kıyaslamalar</a>
+    <a href="/tr/compare/litellm-alternative/">Karşılaştır</a>
+    <a href="/tr/sdk/">SDK</a>
+    <a href="/tr/architecture/">Mimari</a>
+    <a href="mailto:hello@ozdna.com">İletişim</a>
+  </div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+
+<script src="/analytics.js" defer></script>
+<script src="/main.js" defer></script>
+</body>
+</html>

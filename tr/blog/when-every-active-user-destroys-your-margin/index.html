@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Ana içeriğe geç</a>
+<nav>
+  <a href="/tr/" class="logo" aria-label="ozDNA ana sayfa">
+    <img src="../../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
+  </a>
+  <button class="nav-toggle" aria-label="Menü" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="/tr/products/comply/">ComplyDNA</a>
+    <a href="/tr/architecture/">Platform</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/pricing/">Fiyatlandırma</a>
+    <a href="/tr/#waitlist" class="nav-cta">Erken Erişim</a>
+  </div>
+</nav>
+
+<main id="main-content">
+<article class="blog-article">
+  <a href="/tr/blog/" class="blog-back">← Tüm yazılar</a>
+  <div class="blog-meta">
+    <span class="blog-pillar">Sütun 1 · Maliyet Kontrolü</span>
+    <span class="blog-date">Haziran 2026 · 7 dk okuma</span>
+  </div>
+  <h1>Her Aktif Kullanıcı Marjınızı Yok Ettiğinde</h1>
+  <p class="blog-lead">AI ürününüzün marj sorunu kullanıcıların sevmesinden değil. Her iş akışının çok sık en pahalı modeli çağırmasından — ve bunu ancak aktivasyon eğrileri harika göründükten sonra fark etmenizden kaynaklanır.</p>
+
+  <p>Dikey AI ekiplerinde sürekli gördüğümüz kalıp: <strong>AI API faturaları gelirden daha hızlı büyür</strong>. Ürün bozuk olduğu için değil. Çıkarım maliyeti kullanım yoğunluğuna bağlıdır ve kullanım yoğunluğu ürünü yapışkan kılan özelliklerle artar.</p>
+
+  <p>Sorgu başına on iki belgeyi yeniden okuyan bir uyumluluk asistanı. Tek oturumda tespit, analiz ve özetleme çalıştıran akademik bir araç. Bir insan bileti görmeden üç LLM çağrısı zincirleyen destek ajanı. Her aktif kullanıcı, elektronik tablonuzun varsaydığından oturum başına daha fazla iş yapıyor.</p>
+
+  <h2>Tuzak: büyüme metriklerini birim ekonomisiyle karıştırmak</h2>
+  <p>Founders optimize what dashboards show first: signups, weekly actives, time-in-product. Yatırımcıs ask about those too — early. But the number that kills seed-stage AI companies quietly is <strong>gross margin per active user</strong>, and most teams do not have it instrumented until Series A conversations get awkward.</p>
+  <p>Belirtiler tanıdık SaaS sorunlarına benzer:</p>
+  <ul>
+    <li>Gelir ay ay %15 büyür; altyapı %40.</li>
+    <li>"Yavaş" yanıtlar hakkında destek talepleri — genellikle pahalı model gecikmesi, kötü UX değil.</li>
+    <li>Vaka çalışmalarında sevdiğiniz güç kullanıcılar değişken maliyette zararda.</li>
+    <li>Kredi veya limit eklersiniz ve en çok etkileşimde olan kullanıcılarda churn artar.</li>
+  </ul>
+  <p>Klasik SaaS'tan fark: COGS'unuz yalnızca depolama ve bant genişliğiyle değil, <em>eylem başına zeka</em> ile ölçeklenir. Aynı plandaki iki kullanıcının token tüketimi 10 kat farklı olabilir.</p>
+
+  <h2>Fiyatlandırmayı değiştirmeden önce ne ölçmelisiniz</h2>
+  <p>Fiyat artırmadan veya özellik kısıtlamadan önce maliyetin üç görünümünü edinin — tek birleşik AWS kalemi değil.</p>
+  <ol>
+    <li><strong>İş akışı başına maliyet.</strong> Kullanıcıların ürününüzü gerçekten yaptırmak için tuttuğu işleri adlandırın (rapor taslağı, düzenleme taraması, paragraf yeniden yazma). Her birine token ve dolar atfedin.</li>
+    <li><strong>Cost per account.</strong> Which customer segments drive margin? Kurumsal pilots often look small in seat count but enormous in inference.</li>
+    <li><strong>Model çağrı türü başına maliyet.</strong> Retrieval, sınıflandırma, üretim ve yeniden sıralamanın ekonomisi farklıdır. Bir araya toplamak yönlendirme fırsatlarını gizler.</li>
+  </ol>
+  <p>Bunlar olmadan "daha ucuz modellere ihtiyacımız var" bir tahmindir. Beş adımdan ikincisi için daha ucuz modellere ihtiyacınız olabilir — premium model yalnızca kalite gerçekten elde tutmayı etkilediğinde.</p>
+
+  <h2>Gateway'lerin tek başına bunu neden çözmediği</h2>
+  <p>LLM gateway'leri ve router'lar entegrasyonu çözer: tek API yüzeyi, failover, harcama panoları. Bu gerekli. İş akışı katmanında <strong>LLM maliyet optimizasyonu</strong> ile aynı değildir.</p>
+  <p>Optimizasyon sorar: bu belirli dikey görev için hangi model en düşük maliyet ve gecikmeyle kalite barını geçer? Bu soru genel kıyaslamalara değil alan değerlendirmelerine bağlıdır. RAG pipeline'ınızın hata modlarını bilmeyen router yine de varsayılan olarak pahalı çağrıları pahalı modellere yönlendirir.</p>
+
+  <aside class="blog-proof">
+    <h3>ozDNA üzerinde inşa edildi</h3>
+    <p><a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>'de canlı token limitleri ve ürün başına kullanım ekonomisi yürütüyoruz — iş akışı başına ayrı günlük limitler, analiz başına kelime limitleri, günlük token izleme. Bu slayt değil; "sınırsız ücretsiz katman"ın sunucu tarafı çıkarım yayınlandığı anda öldüğünü böyle öğrendik.</p>
+  </aside>
+
+  <h2>Pratik ilk adım</h2>
+  <p>En yüksek hacimli iş akışınızı seçin. Bir hafta boyunca her çağrı için giriş token'ları, çıkış token'ları, model ID ve gecikmeyi günlükleyin. API isteği başına değil, tamamlanan kullanıcı sonucu başına maliyeti çizin.</p>
+  <p>Neredeyse her zaman harcamanın çoğunu tüketen azınlık adımlar bulursunuz. Routing, önbellekleme veya daha küçük modellerin karşılığını verdiği yer burasıdır — kullanıcıların ödediği sonucu bozmadan.</p>
+  <p>Token tüketimini yapısal hale gelmeden kontrol edin. Bu altyapının işidir, sonradan fiyatlandırma sayfası yaması değil.</p>
+
+  <div class="blog-cta-box">
+    <p>Dikey AI inşa ediyor ve altyapının geliri mi geçiyor? ozDNA erken erişim listesine katılın — kurucular ve CTO'lar için GPU Bill Bodyguard serisi.</p>
+    <a href="/tr/#waitlist" class="btn-primary">Erken Erişim</a>
+  </div>
+</article>
+
+</main>
+
+<footer>
+  <div class="footer-brand">
+    <a href="/tr/" class="logo" aria-label="ozDNA">
+      <img src="../../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
+    </a>
+    <p class="footer-tagline">Findbelow Ventures · Dikey AI altyapısı (PaaS)</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>
+    <a href="/tr/trust/">Güven Merkezi</a>
+    <a href="/tr/security/">Güvenlik</a>
+    <a href="/tr/partners/">İş Ortakları</a>
+    <a href="/tr/blog/">Blog</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/sdk/">SDK</a>
+    <a href="/tr/benchmarks/">Kıyaslamalar</a>
+    <a href="/tr/architecture/">Mimari</a>
+    <a href="mailto:hello@ozdna.com">İletişim</a>
+  </div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+
+<script src="/analytics.js" defer></script>
+<script src="/main.js" defer></script>
+</body>
+</html>

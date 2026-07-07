@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Ana içeriğe geç</a>
+<nav>
+  <a href="/tr/" class="logo" aria-label="ozDNA ana sayfa">
+    <img src="../../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
+  </a>
+  <button class="nav-toggle" aria-label="Menü" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="/tr/products/comply/">ComplyDNA</a>
+    <a href="/tr/architecture/">Platform</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/pricing/">Fiyatlandırma</a>
+    <a href="/tr/#waitlist" class="nav-cta">Erken Erişim</a>
+  </div>
+</nav>
+
+<main id="main-content">
+<section class="page-hero">
+  <div class="section-label">Karşılaştırma</div>
+  <h1><span class="accent">Dikey AI</span> ekipleri için<br>LiteLLM alternatifi</h1>
+  <p>LiteLLM, çoklu sağlayıcı yönlendirmesi için güçlü bir açık kaynak proxy'dir. ozDNA, <strong>dikey AI ürünleri</strong> sunan ekipler için tasarlandı — RAG güvenilirliği, token ekonomisi ve üretim marjı model yedeklemesi kadar önemli.</p>
+</section>
+
+<section class="compare-section">
+  <div class="section-label">Özellik karşılaştırması</div>
+  <h2 class="section-title">Gateway vs dikey AI altyapısı</h2>
+  <p class="section-desc">Fair comparison — choose LiteLLM if you need a lightweight proxy. Choose ozDNA if you run production vertical workflows with RAG, cost per user, and audit requirements. Canlı proof: <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a> on ozDNA today.</p>
+
+  <div class="compare-table-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th scope="col">Yetenek</th>
+          <th scope="col">LiteLLM</th>
+          <th scope="col">ozDNA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Çoklu sağlayıcı LLM yönlendirme</td>
+          <td class="compare-yes">Evet</td>
+          <td class="compare-yes">Evet</td>
+        </tr>
+        <tr>
+          <td>Modeller arası yedekleme / yeniden deneme</td>
+          <td class="compare-yes">Evet</td>
+          <td class="compare-yes">Evet</td>
+        </tr>
+        <tr>
+          <td>İstek / iş akışı başına maliyet</td>
+          <td class="compare-partial">Temel günlükleme</td>
+          <td class="compare-yes">Birinci sınıf maliyet motoru</td>
+        </tr>
+        <tr>
+          <td>Kullanım ekonomisi (krediler → gerçek LLM harcaması)</td>
+          <td class="compare-no">—</td>
+          <td class="compare-yes">Dahili</td>
+        </tr>
+        <tr>
+          <td>Üretim RAG (chunk, ingest, hibrit retrieval)</td>
+          <td class="compare-no">—</td>
+          <td class="compare-yes">RAG operasyon katmanı</td>
+        </tr>
+        <tr>
+          <td>Dikey modlar (akademik, hukuk, finans)</td>
+          <td class="compare-no">—</td>
+          <td class="compare-yes">Mod başına prompt + corpus</td>
+        </tr>
+        <tr>
+          <td>ComplyDNA compliance workflows</td>
+          <td class="compare-no">—</td>
+          <td class="compare-yes">Faz 2 — 5549/BDDK/MASAK/KVKK</td>
+        </tr>
+        <tr>
+          <td>Canlı production vertical AI proof</td>
+          <td class="compare-partial">Topluluk dağıtımları</td>
+          <td class="compare-yes"><a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a> (canlı)</td>
+        </tr>
+        <tr>
+          <td>Dağıtım modeli</td>
+          <td class="compare-partial">Self-host OSS</td>
+          <td class="compare-partial">Yönetilen PaaS (özel beta)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="pillars">
+  <div class="section-label">ozDNA'nın öne çıktığı durumlar</div>
+  <h2 class="section-title">Bir yönlendirme proxy'sinden<br>daha fazlasına ihtiyacınız var.</h2>
+  <div class="pillar-grid" style="grid-template-columns:repeat(3,1fr)">
+    <article class="pillar-card">
+      <div class="pillar-num">01</div>
+      <h3>Marj odaklı AI SaaS</h3>
+      <p>Kullanıcı kredilerini gerçek çıkarım maliyetine eşleyin. Toplu görevler için ucuz modelleri, kalite kritik adımlar için premium modelleri yönlendirin.</p>
+    </article>
+    <article class="pillar-card">
+      <div class="pillar-num">02</div>
+      <h3>Lansmandan sonra ayakta kalan RAG</h3>
+      <p>Chunking, güncellik, hibrit retrieval ve değerlendirme kancaları — gateway'e eklenmiş yalnızca vektör araması değil.</p>
+    </article>
+    <article class="pillar-card">
+      <div class="pillar-num">03</div>
+      <h3>Dikey derinlik</h3>
+      <p><a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>'de akademik AI. <a href="/tr/products/comply/">ComplyDNA</a>'de RegTech. Aynı yığın, farklı corpus'lar.</p>
+    </article>
+  </div>
+</section>
+
+<section class="partner-strip">
+  <div class="partner-inner">
+    <div class="partner-copy">
+      <div class="section-label">Üretim kanıtı</div>
+      <h2>Fork değil — ozDNA üzerinde canlı ürün</h2>
+      <p><a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a> handles real student traffic in Turkey: AI detection, detailed reports, token limits, peak-season spikes. Yatırımcıs and buyers can click through today.</p>
+    </div>
+    <div class="partner-actions">
+      <a href="/tr/case-studies/tezmakale/" class="btn-ghost">Vaka çalışması</a>
+      <a href="https://tezmakale.com" class="btn-primary" target="_blank" rel="noopener">TezMakale →</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>LiteLLM'den geçiş mi yapıyorsunuz?</h2>
+  <p>Erken erişime katılın — yönlendirme kurallarınızı ve RAG corpus'larınızı ozDNA'ya eşlemeye yardımcı oluruz. Bekleme listesi formunda LiteLLM'den bahsedin.</p>
+  <a href="/tr/#waitlist?utm_source=compare&utm_campaign=litellm-alternative" class="btn-primary">Erken Erişim</a>
+  <div class="cta-actions" style="margin-top:1.5rem">
+    <a href="/docs/tr/" class="btn-ghost">API Dokümantasyon →</a>
+    <a href="/tr/pricing/" class="btn-ghost">Fiyatlandırma →</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-brand">
+    <a href="/tr/" class="logo" aria-label="ozDNA">
+      <img src="../../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
+    </a>
+    <p class="footer-tagline">Findbelow Ventures · Dikey AI altyapısı (PaaS)</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>
+    <a href="/tr/trust/">Güven Merkezi</a>
+    <a href="/tr/security/">Güvenlik</a>
+    <a href="/tr/products/comply/">ComplyDNA</a>
+    <a href="/tr/">Ana Sayfa</a>
+    <a href="/tr/blog/">Blog</a>
+    <a href="mailto:hello@ozdna.com">İletişim</a>
+  </div>
+  <p>© 2026 Findbelow Ventures · LiteLLM ayrı bir açık kaynak projedir; bu sayfa ürün uyumunu karşılaştırır, bağlılık iddiası taşımaz.</p>
+</footer>
+
+<script src="/analytics.js" defer></script>
+<script src="/main.js" defer></script>
+</body>
+</html>

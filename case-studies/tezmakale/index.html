@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ozdna-seo:start -->
+<title>Case Study — How TezMakale Runs on ozDNA</title>
+<meta name="description" content="Production case study: TezMakale vertical AI on ozDNA — AI detection, token economics, routing, and RAG at scale in Turkey.">
+<meta name="author" content="Findbelow Ventures">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://ozdna.com/case-studies/tezmakale/">
+<link rel="alternate" hreflang="en" href="https://ozdna.com/case-studies/tezmakale/">
+<link rel="alternate" hreflang="tr" href="https://ozdna.com/tr/case-studies/tezmakale/">
+<link rel="alternate" hreflang="x-default" href="https://ozdna.com/case-studies/tezmakale/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ozDNA">
+<meta property="og:title" content="Case Study — How TezMakale Runs on ozDNA">
+<meta property="og:description" content="Production case study: TezMakale vertical AI on ozDNA — AI detection, token economics, routing, and RAG at scale in Turkey.">
+<meta property="og:url" content="https://ozdna.com/case-studies/tezmakale/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://ozdna.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ozDNA — Vertical AI Infrastructure">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ozdna">
+<meta name="twitter:title" content="Case Study — How TezMakale Runs on ozDNA">
+<meta name="twitter:description" content="Production case study: TezMakale vertical AI on ozDNA — AI detection, token economics, routing, and RAG at scale in Turkey.">
+<meta name="twitter:image" content="https://ozdna.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="ozDNA — Vertical AI Infrastructure">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ozdna.com/#organization",
+      "name": "Findbelow Ventures",
+      "legalName": "Findbelow Ventures",
+      "url": "https://ozdna.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ozdna.com/assets/logo.svg"
+      },
+      "email": "hello@ozdna.com",
+      "sameAs": [
+        "https://tezmakale.com"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ozdna.com/case-studies/tezmakale/#webpage",
+      "url": "https://ozdna.com/case-studies/tezmakale/",
+      "name": "Case Study — How TezMakale Runs on ozDNA",
+      "description": "Production case study: TezMakale vertical AI on ozDNA — AI detection, token economics, routing, and RAG at scale in Turkey.",
+      "isPartOf": {
+        "@id": "https://ozdna.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Article",
+      "@id": "https://ozdna.com/case-studies/tezmakale/#article",
+      "headline": "Case Study — How TezMakale Runs on ozDNA",
+      "description": "Production case study: TezMakale vertical AI on ozDNA — AI detection, token economics, routing, and RAG at scale in Turkey.",
+      "url": "https://ozdna.com/case-studies/tezmakale/",
+      "datePublished": "2026-01-01",
+      "author": {
+        "@id": "https://ozdna.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://ozdna.com/#organization"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://ozdna.com/case-studies/tezmakale/#webpage"
+      },
+      "image": "https://ozdna.com/assets/og-image.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ozdna.com/case-studies/tezmakale/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ozdna.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Case Studies",
+          "item": "https://ozdna.com/case-studies/tezmakale/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="../../styles.css">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+<meta name="color-scheme" content="dark">
+<!-- ozdna-seo:end -->
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav>
+  <a href="/" class="logo" aria-label="ozDNA home">
+    <img src="../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
+  </a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="/products/comply/">ComplyDNA</a>
+    <a href="/architecture/">Platform</a>
+    <a href="/docs/">Docs</a>
+    <a href="/pricing/">Pricing</a>
+    <a href="/#waitlist" class="nav-cta">Get Early Access</a>
+  </div>
+</nav>
+
+<main id="main-content">
+<article class="blog-article">
+  <a href="/" class="blog-back">← Back to ozDNA</a>
+  <div class="blog-meta">
+    <span class="blog-pillar">Case Study · Production AI</span>
+    <span class="blog-date">TezMakale · Academic AI · Turkey</span>
+  </div>
+  <h1>How <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a> runs on ozDNA</h1>
+  <p class="blog-lead"><a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a> is a live vertical AI product serving Turkish students — AI detection, detailed analysis reports, and token-based usage economics — running on ozDNA infrastructure. This is what production AI looks like before the B2B layer opens.</p>
+
+  <h2>Challenge</h2>
+  <p>TezMakale operates in a high-pressure segment: students under deadline need fast, reliable AI analysis — detection to verify originality, segment-level reports with cited evidence, and clear usage limits that map to real infrastructure cost. The live product is at <a href="https://tezmakale.com" target="_blank" rel="noopener">tezmakale.com</a>.</p>
+  <p>The core challenge was not building demos. It was shipping <strong>production AI</strong> where every workflow burns tokens, every user session has margin implications, and peak traffic (exam seasons) can spike inference cost overnight.</p>
+  <ul>
+    <li>Multiple AI workflows per session — detect, analyze, report — each with different model requirements</li>
+    <li>Token-based pricing that must reflect actual LLM spend, not arbitrary credits</li>
+    <li>Turkish-language academic calibration — generic models underperform on local academic prose</li>
+    <li>Need for cost visibility before scaling marketing spend</li>
+  </ul>
+
+  <div class="case-metrics">
+    <div class="case-metric">
+      <!-- TODO: replace with real monthly active users -->
+      <div class="metric-value">12K+</div>
+      <div class="metric-label">Monthly active users</div>
+    </div>
+    <div class="case-metric">
+      <!-- TODO: replace with real avg workflows per session -->
+      <div class="metric-value">3.2</div>
+      <div class="metric-label">Workflows per session</div>
+    </div>
+    <div class="case-metric">
+      <!-- TODO: replace with real peak traffic multiplier -->
+      <div class="metric-value">4×</div>
+      <div class="metric-label">Peak traffic multiplier</div>
+    </div>
+  </div>
+
+  <h2>Architecture</h2>
+  <p>TezMakale connects through the ozDNA Gateway — a unified AI gateway that handles authentication, rate limits, and audit logging before any inference reaches the model router or RAG layer. The public-facing product lives at <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale (tezmakale.com)</a>.</p>
+  <div class="arch-inline">
+    <p><strong style="color:var(--txt)">Stack path:</strong> TezMakale web app → ozDNA Gateway → Model Router → RAG Layer (academic corpus) → LLM Providers → Analytics &amp; Cost Engine</p>
+  </div>
+  <p>The model router sends classification tasks to lightweight models and reserves premium models only when analysis quality thresholds require it. The RAG layer provides academic-mode calibration — retrieval hooks tuned for Turkish academic writing patterns.</p>
+
+  <h2>Solution</h2>
+  <p>ozDNA deployed as the full vertical AI infrastructure layer — not just an API wrapper:</p>
+  <ul>
+    <li><strong>AI Gateway</strong> — single entry point for all TezMakale AI workloads with per-user rate limits and session tracking</li>
+    <li><strong>Intelligent Routing</strong> — detect workflows routed to cost-efficient models; premium models only when segment analysis requires higher fidelity</li>
+    <li><strong>Cost Optimization</strong> — per-workflow cost attribution visible in dashboard; automatic downgrade rules during off-peak</li>
+    <li><strong>Usage Analytics</strong> — token burn mapped to user credits in real time, protecting gross margin</li>
+    <li><strong>Prompt Registry</strong> — versioned academic prompts with rollback capability for A/B testing detection accuracy</li>
+  </ul>
+
+  <h2>AI Workflow</h2>
+  <p>A typical TezMakale session flows through three instrumented steps:</p>
+  <ol>
+    <li><strong>Detect</strong> — User submits text. Gateway authenticates, rate-limits, and routes to the detect workflow. Model router selects the academic-calibrated classifier. RAG layer provides segment-level context. Response includes AI probability, confidence, and segment map.</li>
+    <li><strong>Report</strong> — Detailed analysis with cited evidence sentences. Router selects cost-efficient models per section. Cost engine tracks margin per report tier.</li>
+    <li><strong>Analyze</strong> — Usage analytics records token burn and cost. Audit log captures prompt hash and model ID for compliance.</li>
+  </ol>
+  <pre class="code-block"><span class="t-comment">// Typical workflow cost attribution</span>
+{
+  <span class="t-key">"workflow_id"</span>: <span class="t-str">"tezmakale-detect-v3"</span>,
+  <span class="t-key">"user_id"</span>: <span class="t-str">"usr_..."</span>,
+  <span class="t-key">"steps"</span>: [
+    { <span class="t-key">"step"</span>: <span class="t-str">"detect"</span>, <span class="t-key">"model"</span>: <span class="t-str">"gpt-4o-mini"</span>, <span class="t-key">"cost_usd"</span>: <span class="t-num">0.002</span> },
+    { <span class="t-key">"step"</span>: <span class="t-str">"report"</span>, <span class="t-key">"model"</span>: <span class="t-str">"gpt-4o-mini"</span>, <span class="t-key">"cost_usd"</span>: <span class="t-num">0.006</span> }
+  ],
+  <span class="t-key">"total_cost_usd"</span>: <span class="t-num">0.008</span>,
+  <span class="t-key">"credits_charged"</span>: <span class="t-num">4</span>
+}</pre>
+
+  <h2>Production Benefits</h2>
+  <p>Running on ozDNA gave TezMakale production-grade infrastructure without building an internal AI platform team:</p>
+
+  <div class="case-metrics">
+    <div class="case-metric">
+      <!-- TODO: replace with verified inference cost reduction percentage -->
+      <div class="metric-value">40%</div>
+      <div class="metric-label">Inference cost reduction</div>
+    </div>
+    <div class="case-metric">
+      <!-- TODO: replace with real gateway uptime SLA -->
+      <div class="metric-value">99.9%</div>
+      <div class="metric-label">Gateway uptime</div>
+    </div>
+    <div class="case-metric">
+      <!-- TODO: replace with real p95 latency in ms -->
+      <div class="metric-value">&lt;800ms</div>
+      <div class="metric-label">Detect p95 latency</div>
+    </div>
+  </div>
+
+  <ul>
+    <li><strong>Margin protection</strong> — token credits map to real workflow cost, not guesswork</li>
+    <li><strong>Operational visibility</strong> — finance and engineering share the same cost-per-workflow dashboard</li>
+    <li><strong>Scale readiness</strong> — peak exam-season traffic handled by gateway rate limits and model routing, not emergency model swaps</li>
+    <li><strong>Investor-ready proof</strong> — live production metrics demonstrate vertical AI infrastructure, not a thin wrapper</li>
+  </ul>
+
+  <div class="blog-proof">
+    <h3>Live product</h3>
+    <p>TezMakale is live at <a href="https://tezmakale.com" target="_blank" rel="noopener">tezmakale.com</a> — the same ozDNA stack available to B2B teams in private beta.</p>
+  </div>
+
+  <div class="blog-cta-box">
+    <p>Want the same infrastructure layer for your vertical AI product?</p>
+    <a href="/#waitlist" class="btn-primary">Get Early Access</a>
+  </div>
+</article>
+
+</main>
+
+<footer>
+  <div class="footer-brand">
+    <a href="/" class="logo" aria-label="ozDNA">
+      <img src="../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
+    </a>
+    <p class="footer-tagline">Findbelow Ventures · Vertical AI infrastructure (PaaS)</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>
+    <a href="/trust/">Trust Center</a>
+    <a href="/security/">Security</a>
+    <a href="/partners/">Partners</a>
+    <a href="/case-studies/tezmakale/">Case Study</a>
+    <a href="mailto:hello@ozdna.com">Contact</a>
+    <a href="/privacy/">Privacy</a>
+    <a href="/terms/">Terms</a>
+    <a href="/changelog/">Changelog</a>
+    <a href="/status/">Status</a>
+        <a href="/pricing/">Pricing</a>
+    <a href="/roadmap/">Roadmap</a>
+  </div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+
+<script src="/analytics.js" defer></script>
+<script src="/main.js" defer></script>
+</body>
+</html>

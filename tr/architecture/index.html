@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Ana içeriğe geç</a>
+<nav>
+  <a href="/tr/" class="logo" aria-label="ozDNA ana sayfa">
+    <img src="../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
+  </a>
+  <button class="nav-toggle" aria-label="Menü" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="/tr/products/comply/">ComplyDNA</a>
+    <a href="/tr/architecture/">Platform</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/pricing/">Fiyatlandırma</a>
+    <a href="/tr/#waitlist" class="nav-cta">Erken Erişim</a>
+  </div>
+</nav>
+
+<main id="main-content">
+<section class="trust-hero arch-page-hero">
+  <div class="trust-hero-inner">
+    <div class="section-label">Platform Mimari</div>
+    <h1>Tek yığın.<br>Her katman <span class="accent">ölçümlenmiş</span>.</h1>
+    <p class="trust-hero-lead">İsteklerin uygulamanızdan ozDNA üzerinden LLM sağlayıcılarına — ve analytics, billing ve observability üzerinden geri nasıl aktığını incelemek için herhangi bir katmana tıklayın veya odaklanın.</p>
+  </div>
+</section>
+
+<div class="arch-page" id="arch-interactive" data-default-node="gateway">
+
+  <div class="arch-page-grid">
+    <div class="arch-diagram-wrap">
+      <div class="arch-diagram arch-diagram--interactive" role="group" aria-label="ozDNA platform mimarisi diyagramı">
+        <svg viewBox="0 0 520 920" xmlns="http://www.w3.org/2000/svg" class="arch-svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="archBoxGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" class="arch-grad-top"/>
+              <stop offset="100%" class="arch-grad-bottom"/>
+            </linearGradient>
+            <marker id="archArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6" fill="none" class="arch-arrow-head"/>
+            </marker>
+          </defs>
+
+          <!-- Edges -->
+          <g class="arch-edges">
+            <line class="arch-edge" data-arch-edge data-from="developer" data-to="gateway" x1="260" y1="80" x2="260" y2="98" marker-end="url(#archArrow)"/>
+            <line class="arch-edge" data-arch-edge data-from="gateway" data-to="router" x1="260" y1="170" x2="260" y2="188" marker-end="url(#archArrow)"/>
+            <line class="arch-edge" data-arch-edge data-from="router" data-to="prompts" x1="260" y1="252" x2="260" y2="270" marker-end="url(#archArrow)"/>
+            <line class="arch-edge" data-arch-edge data-from="prompts" data-to="rag" x1="260" y1="334" x2="260" y2="352" marker-end="url(#archArrow)"/>
+            <line class="arch-edge" data-arch-edge data-from="rag" data-to="providers" x1="260" y1="416" x2="260" y2="434" marker-end="url(#archArrow)"/>
+            <line class="arch-edge" data-arch-edge data-from="providers" data-to="analytics" x1="260" y1="548" x2="260" y2="566" marker-end="url(#archArrow)"/>
+            <line class="arch-edge" data-arch-edge data-from="analytics" data-to="billing" x1="260" y1="630" x2="260" y2="648" marker-end="url(#archArrow)"/>
+            <line class="arch-edge" data-arch-edge data-from="billing" data-to="observability" x1="260" y1="712" x2="260" y2="730" marker-end="url(#archArrow)"/>
+          </g>
+
+          <!-- Geliştirici -->
+          <g class="arch-node" data-arch-node="developer" tabindex="0" role="button" aria-label="Geliştirici katmanı">
+            <rect x="130" y="24" width="260" height="56" rx="8" class="arch-node-rect"/>
+            <text x="260" y="48" text-anchor="middle" class="arch-node-title">Geliştirici</text>
+            <text x="260" y="66" text-anchor="middle" class="arch-node-sub">Uygulama · Ajan · Sunucu · Toplu iş</text>
+          </g>
+
+          <!-- Gateway -->
+          <g class="arch-node arch-node--primary" data-arch-node="gateway" tabindex="0" role="button" aria-label="ozDNA Gateway">
+            <rect x="110" y="100" width="300" height="70" rx="10" class="arch-node-rect"/>
+            <text x="260" y="130" text-anchor="middle" class="arch-node-title arch-node-title--accent">ozDNA Gateway</text>
+            <text x="260" y="152" text-anchor="middle" class="arch-node-sub">Kimlik doğrulama · Hız limitleri · Denetim · API girişi</text>
+          </g>
+
+          <!-- Model Router -->
+          <g class="arch-node" data-arch-node="router" tabindex="0" role="button" aria-label="Model Router">
+            <rect x="130" y="190" width="260" height="62" rx="8" class="arch-node-rect"/>
+            <text x="260" y="216" text-anchor="middle" class="arch-node-title">Model Router</text>
+            <text x="260" y="236" text-anchor="middle" class="arch-node-sub">Maliyet odaklı · Yedekleme · A/B yönlendirme</text>
+          </g>
+
+          <!-- Prompt Kayıt Defteri -->
+          <g class="arch-node" data-arch-node="prompts" tabindex="0" role="button" aria-label="Prompt Kayıt Defteri">
+            <rect x="130" y="272" width="260" height="62" rx="8" class="arch-node-rect"/>
+            <text x="260" y="298" text-anchor="middle" class="arch-node-title">Prompt Kayıt Defteri</text>
+            <text x="260" y="318" text-anchor="middle" class="arch-node-sub">Sürümlü · Kapsamlı · Geri alma</text>
+          </g>
+
+          <!-- RAG Layer -->
+          <g class="arch-node" data-arch-node="rag" tabindex="0" role="button" aria-label="RAG Katmanı">
+            <rect x="130" y="354" width="260" height="62" rx="8" class="arch-node-rect"/>
+            <text x="260" y="380" text-anchor="middle" class="arch-node-title">RAG Layer</text>
+            <text x="260" y="400" text-anchor="middle" class="arch-node-sub">Ingest · Hibrit retrieval · Değerlendirmeler</text>
+          </g>
+
+          <!-- Sağlayıcılar -->
+          <g class="arch-node" data-arch-node="providers" tabindex="0" role="button" aria-label="LLM Sağlayıcıları">
+            <rect x="90" y="436" width="340" height="112" rx="10" class="arch-node-rect"/>
+            <text x="260" y="462" text-anchor="middle" class="arch-node-title">Sağlayıcılar</text>
+            <g class="arch-provider-pills">
+              <rect x="108" y="476" width="88" height="26" rx="5" class="arch-pill"/>
+              <text x="152" y="493" text-anchor="middle" class="arch-pill-text">OpenAI</text>
+              <rect x="204" y="476" width="88" height="26" rx="5" class="arch-pill"/>
+              <text x="248" y="493" text-anchor="middle" class="arch-pill-text">Anthropic</text>
+              <rect x="300" y="476" width="88" height="26" rx="5" class="arch-pill"/>
+              <text x="344" y="493" text-anchor="middle" class="arch-pill-text">Google</text>
+              <rect x="156" y="510" width="88" height="26" rx="5" class="arch-pill"/>
+              <text x="200" y="527" text-anchor="middle" class="arch-pill-text">Mistral</text>
+              <rect x="252" y="510" width="88" height="26" rx="5" class="arch-pill"/>
+              <text x="296" y="527" text-anchor="middle" class="arch-pill-text">OpenRouter</text>
+            </g>
+          </g>
+
+          <!-- Analytics -->
+          <g class="arch-node" data-arch-node="analytics" tabindex="0" role="button" aria-label="Analytics">
+            <rect x="130" y="568" width="260" height="62" rx="8" class="arch-node-rect"/>
+            <text x="260" y="594" text-anchor="middle" class="arch-node-title">Analytics</text>
+            <text x="260" y="614" text-anchor="middle" class="arch-node-sub">Kullanım · Token · Gecikme · Maliyet</text>
+          </g>
+
+          <!-- Billing -->
+          <g class="arch-node" data-arch-node="billing" tabindex="0" role="button" aria-label="Billing">
+            <rect x="130" y="650" width="260" height="62" rx="8" class="arch-node-rect"/>
+            <text x="260" y="676" text-anchor="middle" class="arch-node-title">Billing</text>
+            <text x="260" y="696" text-anchor="middle" class="arch-node-sub">Kotalar · Ölçüm · Planlar</text>
+          </g>
+
+          <!-- Gözlemlenebilirlik -->
+          <g class="arch-node" data-arch-node="observability" tabindex="0" role="button" aria-label="Gözlemlenebilirlik">
+            <rect x="130" y="732" width="260" height="62" rx="8" class="arch-node-rect"/>
+            <text x="260" y="758" text-anchor="middle" class="arch-node-title">Gözlemlenebilirlik</text>
+            <text x="260" y="778" text-anchor="middle" class="arch-node-sub">Günlükler · İzler · Denetim dışa aktarımı</text>
+          </g>
+
+          <!-- Telemetri rail -->
+          <rect x="40" y="568" width="8" height="226" rx="4" class="arch-rail"/>
+          <text x="24" y="680" text-anchor="middle" class="arch-rail-label" transform="rotate(-90 24 680)">Telemetri</text>
+          <line x1="48" y1="599" x2="130" y2="599" class="arch-rail-link"/>
+          <line x1="48" y1="681" x2="130" y2="681" class="arch-rail-link"/>
+          <line x1="48" y1="763" x2="130" y2="763" class="arch-rail-link"/>
+        </svg>
+      </div>
+      <p class="arch-hint">Katmanı incelemek için tıklayın · <a href="/docs/tr/">API dokümantasyonu</a> · <a href="/tr/knowledge/platform-architecture.md">Platform modülleri</a></p>
+    </div>
+
+    <aside class="arch-panel" data-arch-panel aria-live="polite">
+      <div class="arch-panel-inner">
+        <span class="arch-panel-tag" data-arch-tag>Giriş noktası</span>
+        <h2 class="arch-panel-title" data-arch-title>ozDNA Gateway</h2>
+        <p class="arch-panel-desc" data-arch-desc>Her istek önce gateway'den geçer.</p>
+        <ul class="arch-panel-list" data-arch-details></ul>
+        <div class="arch-panel-links">
+          <a href="/docs/tr/" class="btn-ghost">Dokümantasyon →</a>
+          <a href="/tr/status/" class="btn-ghost">Sistem durumu →</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <section class="arch-modules">
+    <div class="section-label">Modül haritası</div>
+    <div class="arch-module-grid">
+      <a href="/docs/tr/#authentication" class="arch-module-card"><span class="arch-module-num">01</span><strong>Gateway</strong><span>Kimlik doğrulama ve limitler</span></a>
+      <a href="/docs/tr/#detect" class="arch-module-card"><span class="arch-module-num">02</span><strong>Router</strong><span>Model seçimi</span></a>
+      <a href="/docs/tr/" class="arch-module-card"><span class="arch-module-num">03</span><strong>Prompt'lar</strong><span>Kayıt defteri</span></a>
+      <a href="/docs/tr/#modes" class="arch-module-card"><span class="arch-module-num">04</span><strong>RAG</strong><span>Dikey modlar</span></a>
+      <a href="/tr/pricing/" class="arch-module-card"><span class="arch-module-num">05</span><strong>Billing</strong><span>Kullanım ekonomisi</span></a>
+      <a href="/tr/security/#logging" class="arch-module-card"><span class="arch-module-num">06</span><strong>Gözlemlenebilirlik</strong><span>Denetim günlükleri</span></a>
+    </div>
+  </section>
+
+</div>
+
+</main>
+
+<footer>
+  <div class="footer-brand">
+    <a href="/tr/" class="logo" aria-label="ozDNA">
+      <img src="../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
+    </a>
+    <p class="footer-tagline">Findbelow Ventures · Dikey AI altyapısı (PaaS)</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>
+    <a href="/tr/architecture/">Mimari</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/sdk/">SDK</a>
+    <a href="/tr/benchmarks/">Kıyaslamalar</a>
+    <a href="/tr/trust/">Güven Merkezi</a>
+    <a href="/tr/status/">Durum</a>
+    <a href="/tr/changelog/">Değişiklik Günlüğü</a>
+    <a href="/tr/privacy/">Gizlilik</a>
+    <a href="/tr/terms/">Şartlar</a>
+    <a href="mailto:hello@ozdna.com">İletişim</a>
+  </div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+
+<script src="/analytics.js" defer></script>
+<script src="/main.js" defer></script>
+<script src="/architecture/architecture.js" defer></script>
+</body>
+</html>

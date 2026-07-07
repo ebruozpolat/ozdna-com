@@ -1,0 +1,18 @@
+---
+kaynak_kodu: LAW-5549
+kaynak_adi: 5549 sayılı Suç Gelirlerinin Aklanmasının Önlenmesi Hakkında Kanun
+yururluk_tarihi: 2006-10-11
+surum_etiketi: 2006-10
+---
+5549 SAYILI SUÇ GELİRLERİNİN AKLANMASININ ÖNLENMESİ HAKKINDA KANUN (ÖRNEK MADDELER)
+
+MADDE 1 – Amaç
+(1) Bu Kanunun amacı, suç gelirlerinin aklanmasının önlenmesine ilişkin usul ve esasları düzenlemektir.
+
+MADDE 4 – Yükümlülükler
+(1) Yükümlüler, müşterilerini tanımak ve işlemleri izlemekle yükümlüdür.
+(2) Şüpheli işlem tespit edildiğinde derhal bildirim yapılır.
+
+MADDE 15 – Şüpheli işlem bildirimi
+(1) Yükümlüler, şüpheli işlemleri Maliye Bakanlığı birimine bildirir.
+(2) Bildirim, şüphelenme hâlinin doğduğu andan itibaren gecikmeksizin yapılır.

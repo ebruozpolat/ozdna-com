@@ -1,0 +1,24 @@
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.12.5
+    ports:
+      - "6333:6333"
+    volumes:
+      - qdrant_data:/qdrant/storage
+
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      QDRANT_PATH: ""
+      QDRANT_URL: http://qdrant:6333
+      API_KEY: ${API_KEY:-complydna_sk_test_local}
+    volumes:
+      - ./data/raw:/app/data/raw
+      - ./data/parsed:/app/data/parsed
+    depends_on:
+      - qdrant
+
+volumes:
+  qdrant_data:

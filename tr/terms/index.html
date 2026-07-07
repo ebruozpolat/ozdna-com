@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Ana içeriğe geç</a>
+<nav>
+  <a href="/tr/" class="logo" aria-label="ozDNA ana sayfa">
+    <img src="../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
+  </a>
+  <button class="nav-toggle" aria-label="Menü" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="/tr/products/comply/">ComplyDNA</a>
+    <a href="/tr/architecture/">Platform</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/pricing/">Fiyatlandırma</a>
+    <a href="/tr/#waitlist" class="nav-cta">Erken Erişim</a>
+  </div>
+</nav>
+
+<section class="trust-hero">
+  <div class="trust-hero-inner">
+    <div class="section-label">Legal</div>
+    <h1>Şartlar of Service</h1>
+    <p class="legal-meta">Yürürlük 6 Temmuz 2026 · İşletmeci: Findbelow Ventures · <a href="mailto:hello@ozdna.com">hello@ozdna.com</a></p>
+    <p class="trust-hero-lead">These Şartlar govern access to ozdna.com, the ozDNA platform API, documentation, and related services. By using the Service, you agree to these Şartlar and our <a href="/tr/privacy/">Gizlilik Policy</a>.</p>
+    <div class="trust-hero-actions">
+      <a href="/tr/privacy/" class="btn-ghost">Gizlilik Politikası →</a>
+      <a href="/docs/tr/" class="btn-ghost">API Dokümantasyonu →</a>
+    </div>
+  </div>
+</section>
+
+<div class="trust-layout">
+  <aside class="trust-sidebar" aria-label="Şartlar of service sections">
+    <h3>Bu sayfada</h3>
+    <a href="#service-description">Hizmet Tanımı</a>
+    <a href="#api-usage">API Kullanımı</a>
+    <a href="#acceptable-use">Kabul Edilebilir Kullanım</a>
+    <a href="#intellectual-property">Fikri Mülkiyet</a>
+    <a href="#warranty-disclaimer">Garanti Reddi</a>
+    <a href="#liability">Sorumluluk</a>
+    <a href="#governing-law">Uygulanacak Hukuk</a>
+    <a href="/tr/privacy/">Gizlilik Politikası →</a>
+  </aside>
+
+  <main id="main-content" class="trust-main legal-main">
+
+    <section class="trust-section" id="intro">
+      <p>These Şartlar of Service (“Şartlar”) are a binding agreement between you (“Customer”, “you”) and Findbelow Ventures (“Findbelow”, “we”, “us”), operator of the ozDNA brand and platform (“Service”).</p>
+      <p>If you enter into a separate written enterprise agreement or Data Processing Agreement with us, that agreement prevails where it conflicts with these Şartlar.</p>
+    </section>
+
+    <section class="trust-section" id="service-description">
+      <div class="trust-section-head">
+        <span class="trust-section-num">01</span>
+        <h2>Hizmet Tanımı</h2>
+      </div>
+      <p>ozDNA, üretim AI ürünleri geliştiren ekipler için API gateway, model yönlendirme, prompt yönetimi, RAG iş akışları, kullanım analitiği ve maliyet atfı dahil dikey AI altyapısı sağlar. Hizmet şu anda <strong>özel beta</strong> olarak sunulmaktadır; özellikler, uç noktalar ve kullanılabilirlik önceden haber verilmeksizin değişebilir.</p>
+      <ul class="trust-list">
+        <li><strong>Web sitesi:</strong> ozdna.com'da pazarlama, dokümantasyon, bekleme listesi ve güven kaynakları</li>
+        <li><strong>Platform API:</strong> <span class="inline-code">api.ozdna.com</span> (üretim) ve <span class="inline-code">api.sandbox.ozdna.com</span> (sandbox) kimlik doğrulamalı REST uç noktaları</li>
+        <li><strong>Dikey modlar:</strong> Akademik, hukuk, finans ve genel kullanım senaryoları için ayarlanmış iş akışları</li>
+        <li><strong>Destek:</strong> Beta sırasında en iyi çaba; sunulduğunda kurumsal planlarda resmi SLA'lar</li>
+      </ul>
+      <p>Hizmetin herhangi bir bölümünü değiştirebilir, askıya alabilir veya sonlandırabiliriz. Aktif API müşterilerini önemli breaking change'ler hakkında makul çabayla bilgilendiririz.</p>
+    </section>
+
+    <section class="trust-section" id="api-usage">
+      <div class="trust-section-head">
+        <span class="trust-section-num">02</span>
+        <h2>API Kullanımı</h2>
+      </div>
+      <p>API erişimi Findbelow tarafından verilen geçerli anahtar gerektirir. Anahtarlarınız altındaki tüm aktiviteden siz sorumlusunuz.</p>
+      <ul class="trust-list">
+        <li>Her isteği <span class="inline-code">Authorization: Bearer &lt;key&gt;</span> ile kimlik doğrulayın</li>
+        <li>Anahtarları gizli tutun; canlı anahtarları istemci tarafı kodda veya public repo'larda gömmeyin</li>
+        <li>Hız limitlerine, kotalara ve plan sınırlarına uyun — aşırı kullanım sözleşmeye göre kısıtlanabilir veya faturalandırılabilir</li>
+        <li>Geliştirme için sandbox anahtarları kullanın; üretim anahtarları yalnızca canlı iş yükleri için</li>
+        <li>Çıkarım üçüncü taraflar üzerinden yönlendirildiğinde upstream sağlayıcı şartlarına (ör. OpenAI) uyun</li>
+      </ul>
+      <p>We may revoke keys immediately for violation of these Şartlar, security risk, or non-payment. API documentation at <a href="/docs/tr/">ozdna.com/docs</a> describes current endpoints; undocumented behavior is not guaranteed.</p>
+    </section>
+
+    <section class="trust-section" id="acceptable-use">
+      <div class="trust-section-head">
+        <span class="trust-section-num">03</span>
+        <h2>Kabul Edilebilir Kullanım</h2>
+      </div>
+      <p>Hizmeti şunlar için kullanamazsınız:</p>
+      <ul class="trust-list">
+        <li>Geçerli yasa, düzenleme veya üçüncü taraf haklarını ihlal etmek</li>
+        <li>Kötü amaçlı yazılım, spam, dolandırıcılık veya taciz oluşturmak, dağıtmak veya kolaylaştırmak</li>
+        <li>Kimlik doğrulama, hız limitleri veya faturalama kontrollerini atlatmaya çalışmak</li>
+        <li>Yazılı yetkilendirme olmadan altyapıyı taramak veya keşfetmek (<a href="/tr/security/#responsible-disclosure">sorumlu açıklamaya bakın</a>)</li>
+        <li>Birincil amacı akademik dürüstsüzlük, tespit kaçınma veya açıklama olmadan insan taklidi olan ürünler geliştirmek</li>
+        <li>İşlemek için hukuki dayanağınız olmayan kişisel verileri veya yeterli güvence olmadan özel kategori verileri işlemek</li>
+        <li>Geçerli yasa kapsamında yasak kısıtlamalar uygulanamaz olduğu durumlar dışında Hizmeti tersine mühendislik yapmak</li>
+        <li>Findbelow ile yazılı bayi sözleşmesi olmadan ham API erişimini yeniden satmak</li>
+      </ul>
+      <p>ozDNA metin humanization veya tespit kaçınma aracı sunmaz. Yalnızca AI tespit sistemlerinden kaçmak için tasarlanmış istekler kapsam dışıdır ve engellenebilir.</p>
+      <p>İhlalleri soruşturabilir ve gerektiğinde kolluk kuvvetleriyle iş birliği yapabiliriz.</p>
+    </section>
+
+    <section class="trust-section" id="intellectual-property">
+      <div class="trust-section-head">
+        <span class="trust-section-num">04</span>
+        <h2>Fikri Mülkiyet</h2>
+      </div>
+      <p><strong>Our property:</strong> Findbelow owns the Service, ozDNA trademarks, platform code, default prompts, documentation, and branding. These Şartlar grant no ownership rights — only a limited, revocable license to use the Service during your subscription or beta period.</p>
+      <p><strong>Your property:</strong> You retain ownership of content you submit through the API (“Customer Content”). You grant Findbelow a worldwide, non-exclusive license to host, process, and transmit Customer Content solely to provide and improve the Service, comply with law, and enforce these Şartlar.</p>
+      <p><strong>Çıktı:</strong> Upstream model sağlayıcı şartlarına tabi olarak, çıktı özel şablonlarımızı veya üçüncü taraf kısıtlı içeriği içermediği sürece istekleriniz için üretilen model çıktısı üzerinde hak alırsınız. Üretim kullanımından önce çıktıyı incelemekten siz sorumlusunuz — özellikle düzenlenmiş alanlarda (hukuk, finans, uyumluluk).</p>
+      <p><strong>Geri bildirim:</strong> Sağladığınız öneriler kısıtlama veya tazminat olmaksızın kullanılabilir.</p>
+    </section>
+
+    <section class="trust-section" id="warranty-disclaimer">
+      <div class="trust-section-head">
+        <span class="trust-section-num">05</span>
+        <h2>Garanti Reddi</h2>
+      </div>
+      <p>HİZMET “OLDUĞU GİBİ” VE “MEVCUT OLDUĞU ŞEKİLDE” SUNULUR. YASA İZİN VERDİĞİ AZAMİ ÖLÇÜDE FINDBELOW, SATILABİLİRLİK, BELİRLİ BİR AMACA UYGUNLUK, İHLAL ETMEME VE AI ÜRETİMLİ ÇIKTI DOĞRULUĞU DAHİL TÜM AÇIK VEYA ZIMNİ GARANTİLERİ REDDEDER.</p>
+      <p>Hizmetin kesintisiz, hatasız veya zararlı bileşenlerden arınmış olacağını garanti etmiyoruz. AI çıktıları hatalı, eksik veya güncel olmayabilir — özellikle hukuki, tıbbi veya finansal kararlar için. Risk yüksek olduğunda insan incelemesi uygulamalısınız.</p>
+      <p>Beta özellikleri deneyseldir ve geri çekilebilir. Pazarlama materyallerindeki uptime hedefleri imzalı SLA kapsamında değilse hedef niteliğindedir.</p>
+    </section>
+
+    <section class="trust-section" id="liability">
+      <div class="trust-section-head">
+        <span class="trust-section-num">06</span>
+        <h2>Sorumluluk</h2>
+      </div>
+      <p>YASA İZİN VERDİĞİ AZAMİ ÖLÇÜDE FINDBELOW, HİZMETİ KULLANIMINIZDAN KAYNAKLANAN DOLAYLI, ARIZİ, ÖZEL, SONUÇSAL VEYA CEZAİ ZARARLARDAN VEYA KAYBEDİLEN KÂR, GELİR, VERİ VEYA İTİBARDAN — OLASILIĞI BİLDİRİLMİŞ OLSA BİLE — SORUMLU OLMAYACAKTIR.</p>
+      <p>Hizmetle ilgili tüm talepler için on iki aylık dönemdeki toplam sorumluluğumuz (a) o dönemde Hizmet için Findbelow'a ödediğiniz tutar veya (b) yüz ABD doları (USD $100) — hangisi büyükse — ile sınırlıdır; zorunlu yasa kapsamında sorumluluk sınırlanamıyorsa istisna uygulanır.</p>
+      <p>You agree to indemnify and hold Findbelow harmless from claims arising from your Customer Content, your use of the Service in violation of these Şartlar, or your violation of third-party rights.</p>
+    </section>
+
+    <section class="trust-section" id="governing-law">
+      <div class="trust-section-head">
+        <span class="trust-section-num">07</span>
+        <h2>Uygulanacak Hukuk</h2>
+      </div>
+      <p>These Şartlar are governed by the laws of the Republic of Turkey, without regard to conflict-of-law principles. Courts in Istanbul, Turkey shall have exclusive jurisdiction over disputes, unless mandatory consumer protection rules in your country require otherwise.</p>
+      <p>Dava açmadan önce taraflar, uyuşmazlık doğduktan sonra 30 gün içinde <a href="mailto:hello@ozdna.com">hello@ozdna.com</a> adresine yazarak iyi niyetli çözüm denemeyi kabul eder.</p>
+      <p>Herhangi bir hüküm uygulanamazsa geri kalan yürürlükte kalır. Bir hükmü uygulamama feragat sayılmaz.</p>
+      <p>These Şartlar, together with the <a href="/tr/privacy/">Gizlilik Policy</a> and any signed order form, constitute the entire agreement between you and Findbelow regarding the Service.</p>
+    </section>
+
+    <div class="trust-cta">
+      <h2>Kurumsal agreement?</h2>
+      <p>Beta sırasında nitelikli müşteriler için özel SLA'lar, DPA'lar ve hacim şartları mevcuttur.</p>
+      <div class="trust-cta-actions">
+        <a href="mailto:hello@ozdna.com" class="btn-primary">hello@ozdna.com</a>
+        <a href="/tr/privacy/" class="btn-ghost">Gizlilik Politikası →</a>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="footer-brand">
+    <a href="/tr/" class="logo" aria-label="ozDNA">
+      <img src="../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
+    </a>
+    <p class="footer-tagline">Findbelow Ventures · Dikey AI altyapısı (PaaS)</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>
+    <a href="/tr/trust/">Güven Merkezi</a>
+    <a href="/tr/security/">Güvenlik</a>
+    <a href="/tr/privacy/">Gizlilik</a>
+    <a href="/tr/terms/">Şartlar</a>
+    <a href="/tr/changelog/">Değişiklik Günlüğü</a>
+    <a href="/tr/status/">Durum</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/sdk/">SDK</a>
+    <a href="/tr/benchmarks/">Kıyaslamalar</a>
+    <a href="/tr/architecture/">Mimari</a>
+    <a href="mailto:hello@ozdna.com">İletişim</a>
+  </div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+
+<script src="/analytics.js" defer></script>
+<script src="/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ozdna-seo:start -->
+<title>Benchmarks — ozDNA vs Direct Provider (Illustrative)</title>
+<meta name="description" content="Illustrative benchmark comparison: ozDNA gateway vs direct LLM provider — latency, token cost, cache, routing, and observability. Not production metrics.">
+<meta name="author" content="Findbelow Ventures">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://ozdna.com/benchmarks/">
+<link rel="alternate" hreflang="en" href="https://ozdna.com/benchmarks/">
+<link rel="alternate" hreflang="tr" href="https://ozdna.com/tr/benchmarks/">
+<link rel="alternate" hreflang="x-default" href="https://ozdna.com/benchmarks/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ozDNA">
+<meta property="og:title" content="Benchmarks — ozDNA vs Direct Provider (Illustrative)">
+<meta property="og:description" content="Illustrative benchmark comparison: ozDNA gateway vs direct LLM provider — latency, token cost, cache, routing, and observability. Not production metrics.">
+<meta property="og:url" content="https://ozdna.com/benchmarks/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://ozdna.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ozDNA — Vertical AI Infrastructure">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ozdna">
+<meta name="twitter:title" content="Benchmarks — ozDNA vs Direct Provider (Illustrative)">
+<meta name="twitter:description" content="Illustrative benchmark comparison: ozDNA gateway vs direct LLM provider — latency, token cost, cache, routing, and observability. Not production metrics.">
+<meta name="twitter:image" content="https://ozdna.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="ozDNA — Vertical AI Infrastructure">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ozdna.com/#organization",
+      "name": "Findbelow Ventures",
+      "legalName": "Findbelow Ventures",
+      "url": "https://ozdna.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ozdna.com/assets/logo.svg"
+      },
+      "email": "hello@ozdna.com",
+      "sameAs": [
+        "https://tezmakale.com"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ozdna.com/benchmarks/#webpage",
+      "url": "https://ozdna.com/benchmarks/",
+      "name": "Benchmarks — ozDNA vs Direct Provider (Illustrative)",
+      "description": "Illustrative benchmark comparison: ozDNA gateway vs direct LLM provider — latency, token cost, cache, routing, and observability. Not production metrics.",
+      "isPartOf": {
+        "@id": "https://ozdna.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://ozdna.com/#software",
+      "name": "ozDNA Platform",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web, Linux, macOS",
+      "description": "Vertical AI infrastructure — AI gateway, model routing, prompt registry, RAG governance, and LLM cost optimization for production AI teams.",
+      "url": "https://ozdna.com/",
+      "downloadUrl": "https://ozdna.com/docs/",
+      "softwareVersion": "0.1.0",
+      "releaseNotes": "https://ozdna.com/changelog/",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Early access — paid tiers at launch"
+      },
+      "provider": {
+        "@id": "https://ozdna.com/#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ozdna.com/benchmarks/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ozdna.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Benchmarks",
+          "item": "https://ozdna.com/benchmarks/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="../styles.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+<meta name="color-scheme" content="dark">
+<!-- ozdna-seo:end -->
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav>
+  <a href="/" class="logo" aria-label="ozDNA home">
+    <img src="../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
+  </a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="/products/comply/">ComplyDNA</a>
+    <a href="/architecture/">Platform</a>
+    <a href="/docs/">Docs</a>
+    <a href="/pricing/">Pricing</a>
+    <a href="/#waitlist" class="nav-cta">Get Early Access</a>
+  </div>
+</nav>
+
+<main id="main-content">
+<div class="bench-disclaimer" role="note">
+  <strong>Illustrative only</strong> — Numbers on this page are hypothetical examples for education and planning. They are <em>not</em> measured production benchmarks. Public, reproducible benchmarks are planned for Q3 2026.
+</div>
+
+<section class="trust-hero bench-hero">
+  <div class="trust-hero-inner">
+    <div class="section-label">Benchmarks</div>
+    <h1>ozDNA vs<br><span class="accent">direct provider</span></h1>
+    <p class="trust-hero-lead">How a unified gateway compares to wiring OpenAI (or another provider) directly in application code — on latency, cost control, and operational depth.</p>
+  </div>
+</section>
+
+<div class="bench-page">
+
+  <section class="bench-scenario">
+    <h2>Illustrative scenario</h2>
+    <p>Hypothetical B2B SaaS running <span class="inline-code">POST /v1/detect</span> in <strong style="color:var(--txt)">academic</strong> mode — ~50,000 requests/month, mixed EN/TR text, single-region deployment. Used only to structure the comparison below.</p>
+    <ul class="trust-list">
+      <li><strong>Direct provider:</strong> App → OpenAI API (single model, custom retry logic, logs to stdout)</li>
+      <li><strong>ozDNA:</strong> App → ozDNA Gateway → Model Router → Prompt Registry → provider</li>
+    </ul>
+  </section>
+
+  <section class="bench-table-section" aria-labelledby="bench-metrics-heading">
+    <h2 id="bench-metrics-heading">Metric comparison</h2>
+    <p class="bench-table-note"><span class="bench-illus-tag">Illustrative*</span> = example numbers for the scenario above, not ozDNA production telemetry.</p>
+
+    <div class="bench-table-wrap">
+      <table class="bench-table">
+        <thead>
+          <tr>
+            <th scope="col">Metric</th>
+            <th scope="col">Direct provider</th>
+            <th scope="col">ozDNA</th>
+            <th scope="col">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Latency <span class="bench-illus-tag">Illustrative*</span></th>
+            <td><span class="bench-val">~850 ms</span> <span class="bench-unit">p50</span></td>
+            <td><span class="bench-val">~880 ms</span> <span class="bench-unit">p50</span></td>
+            <td class="bench-note">Example: small gateway hop vs direct call. Your p99 depends on model and region.</td>
+          </tr>
+          <tr>
+            <th scope="row">Token cost <span class="bench-illus-tag">Illustrative*</span></th>
+            <td><span class="bench-val">~$0.042</span> <span class="bench-unit">/ 1k req</span></td>
+            <td><span class="bench-val">~$0.031</span> <span class="bench-unit">/ 1k req</span></td>
+            <td class="bench-note">Example: blended cost if router sends 40% of traffic to a cheaper capable model. Not a guarantee.</td>
+          </tr>
+          <tr>
+            <th scope="row">Cache hit <span class="bench-illus-tag">Illustrative*</span></th>
+            <td><span class="bench-na">—</span></td>
+            <td><span class="bench-val">~28%</span> <span class="bench-unit">example</span></td>
+            <td class="bench-note">Prompt-hash / response cache at gateway — requires identical inputs. Direct integration: build yourself.</td>
+          </tr>
+          <tr>
+            <th scope="row">Retries <span class="bench-illus-tag">Illustrative*</span></th>
+            <td><span class="bench-val">Manual</span></td>
+            <td><span class="bench-val">Automatic</span></td>
+            <td class="bench-note">Example: fallback chain on 429/5xx. Direct: retry loops in app code per provider SDK.</td>
+          </tr>
+          <tr>
+            <th scope="row">Observability</th>
+            <td><span class="bench-partial">DIY</span></td>
+            <td><span class="bench-yes">Integrated</span></td>
+            <td class="bench-note">Request IDs, audit events, structured logs — vs stitching provider dashboards and app logs.</td>
+          </tr>
+          <tr>
+            <th scope="row">Model routing</th>
+            <td><span class="bench-no">Single model</span></td>
+            <td><span class="bench-yes">Policy-based</span></td>
+            <td class="bench-note">Route by workflow, cost ceiling, or latency budget without redeploying app code.</td>
+          </tr>
+          <tr>
+            <th scope="row">Prompt versioning</th>
+            <td><span class="bench-partial">Git / env vars</span></td>
+            <td><span class="bench-yes">Registry</span></td>
+            <td class="bench-note">Versioned prompts with rollback and environment scopes in Prompt Registry.</td>
+          </tr>
+          <tr>
+            <th scope="row">Cost analytics</th>
+            <td><span class="bench-partial">Invoice + spreadsheet</span></td>
+            <td><span class="bench-yes">Per-workflow</span></td>
+            <td class="bench-note">Attribute spend to workflow, account, and model — not only provider monthly bill.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="bench-cards">
+    <h2>Where ozDNA adds value</h2>
+    <div class="bench-card-grid">
+      <article class="bench-card">
+        <h3>Cost control</h3>
+        <p>Direct integration optimizes for time-to-first-call. ozDNA optimizes for <strong style="color:var(--txt)">margin at scale</strong> — routing, cache, and per-workflow attribution.</p>
+      </article>
+      <article class="bench-card">
+        <h3>Operational depth</h3>
+        <p>Retries, observability, and prompt versioning are product features — not weekend engineering projects bolted onto a provider SDK.</p>
+      </article>
+      <article class="bench-card">
+        <h3>Latency trade-off</h3>
+        <p>A gateway adds a hop. Illustrative example shows ~30 ms p50 delta — acceptable when routing and cache savings matter more than raw minimum latency.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="bench-methodology">
+    <h2>Methodology &amp; honesty</h2>
+    <ul class="trust-list">
+      <li>We do <strong style="color:var(--txt)">not</strong> publish production customer metrics on this page.</li>
+      <li>Illustrative numbers use round, clearly labeled examples — not cherry-picked wins.</li>
+      <li>Public benchmarks will document workload, region, model IDs, and reproducible scripts.</li>
+      <li>Production proof today: live workloads on <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a> — qualitative, not quantified here.</li>
+    </ul>
+    <p class="trust-disclaimer">Findbelow Ventures operates ozDNA. Provider names (OpenAI, Anthropic, etc.) describe integration targets — not endorsements or measured comparisons against those vendors.</p>
+  </section>
+
+  <div class="trust-cta">
+    <h2>Run your own comparison</h2>
+    <p>Sandbox access lets you measure latency and cost on your corpus — the only benchmark that matters for your product.</p>
+    <div class="trust-cta-actions">
+      <a href="/#waitlist" class="btn-primary">Request sandbox access</a>
+      <a href="/docs/" class="btn-ghost">API documentation →</a>
+      <a href="/compare/litellm-alternative/" class="btn-ghost">LiteLLM comparison →</a>
+    </div>
+  </div>
+
+</div>
+
+</main>
+
+<footer>
+  <div class="footer-brand">
+    <a href="/" class="logo" aria-label="ozDNA">
+      <img src="../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
+    </a>
+    <p class="footer-tagline">Findbelow Ventures · Vertical AI infrastructure (PaaS)</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>
+    <a href="/docs/">Documentation</a>
+    <a href="/benchmarks/">Benchmarks</a>
+    <a href="/compare/litellm-alternative/">Compare</a>
+    <a href="/sdk/">SDK</a>
+    <a href="/architecture/">Architecture</a>
+    <a href="mailto:hello@ozdna.com">Contact</a>
+  </div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+
+<script src="/analytics.js" defer></script>
+<script src="/main.js" defer></script>
+</body>
+</html>

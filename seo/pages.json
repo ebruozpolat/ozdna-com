@@ -1,0 +1,1245 @@
+{
+  "index.html": {
+    "path": "/",
+    "title": "ozDNA — Vertical AI Infrastructure | LLM Cost Optimization & AI Gateway",
+    "description": "Vertical AI infrastructure for production teams — AI gateway, model routing, prompt registry, RAG governance, and LLM cost optimization. Proven in production at TezMakale.",
+    "ogType": "website",
+    "softwareApplication": true,
+    "webSite": true,
+    "breadcrumbs": [],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/"
+      }
+    ]
+  },
+  "compare/litellm-alternative/index.html": {
+    "path": "/compare/litellm-alternative/",
+    "title": "LiteLLM Alternative — ozDNA for Vertical AI Teams",
+    "description": "Compare LiteLLM vs ozDNA: gateways route requests; ozDNA optimizes cost, RAG reliability, and token economics for vertical AI products in production.",
+    "ogType": "website",
+    "softwareApplication": true,
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Compare",
+        "path": "/compare/litellm-alternative/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/compare/litellm-alternative/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/compare/litellm-alternative/"
+      }
+    ]
+  },
+  "benchmarks/index.html": {
+    "path": "/benchmarks/",
+    "title": "Benchmarks — ozDNA vs Direct Provider (Illustrative)",
+    "description": "Illustrative benchmark comparison: ozDNA gateway vs direct LLM provider — latency, token cost, cache, routing, and observability. Not production metrics.",
+    "ogType": "website",
+    "softwareApplication": true,
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Benchmarks",
+        "path": "/benchmarks/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/benchmarks/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/benchmarks/"
+      }
+    ]
+  },
+  "sdk/index.html": {
+    "path": "/sdk/",
+    "title": "SDKs — Python, Node.js, Go, Java & REST | ozDNA",
+    "description": "Official ozDNA client libraries and REST quick starts for Python, Node.js, Go, and Java. Bearer auth, detect workflow, and sandbox keys.",
+    "ogType": "website",
+    "softwareApplication": true,
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "SDK",
+        "path": "/sdk/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/sdk/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/sdk/"
+      }
+    ]
+  },
+  "architecture/index.html": {
+    "path": "/architecture/",
+    "title": "Platform Architecture — ozDNA Vertical AI Stack",
+    "description": "Interactive architecture diagram: API gateway, model router, prompt registry, RAG layer, cost engine, and provider inference for vertical AI.",
+    "ogType": "website",
+    "softwareApplication": true,
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Architecture",
+        "path": "/architecture/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/architecture/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/architecture/"
+      }
+    ]
+  },
+  "docs/index.html": {
+    "path": "/docs/",
+    "title": "API Documentation — ozDNA Developer Hub",
+    "description": "ozDNA API reference — authentication, POST /v1/detect, vertical modes, rate limits, webhooks, and SDK examples for production AI integration.",
+    "ogType": "website",
+    "softwareApplication": true,
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/docs/"
+      },
+      {
+        "lang": "tr",
+        "path": "/docs/tr/"
+      }
+    ],
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Documentation",
+        "path": "/docs/"
+      }
+    ]
+  },
+  "docs/tr/index.html": {
+    "path": "/docs/tr/",
+    "language": "tr",
+    "locale": "tr_TR",
+    "title": "API Dokümantasyonu — ozDNA Geliştirici Merkezi",
+    "description": "ozDNA API referansı — kimlik doğrulama, POST /v1/detect, dikey modlar, rate limit, webhook ve production entegrasyonu için SDK örnekleri.",
+    "ogType": "website",
+    "softwareApplication": true,
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/docs/"
+      },
+      {
+        "lang": "tr",
+        "path": "/docs/tr/"
+      }
+    ],
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/"
+      },
+      {
+        "name": "Dokümantasyon",
+        "path": "/docs/tr/"
+      }
+    ]
+  },
+  "pricing/index.html": {
+    "path": "/pricing/",
+    "title": "Pricing — ozDNA Vertical AI Infrastructure",
+    "description": "Early-access pricing for ozDNA — Startup, Growth, and Enterprise plans with AI gateway, cost optimization, and observability for production AI.",
+    "ogType": "website",
+    "softwareApplication": true,
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Pricing",
+        "path": "/pricing/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/pricing/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/pricing/"
+      }
+    ]
+  },
+  "products/comply/index.html": {
+    "path": "/products/comply/",
+    "title": "ComplyDNA — Turkish Compliance LLM on ozDNA",
+    "description": "ComplyDNA answers MASAK compliance questions with article-level [TEBLİĞ / Madde] citations. Covers 5549, 6415, KVKK, ROM, Travel Rule, and crypto regulations. Early access.",
+    "ogType": "website",
+    "softwareApplication": true,
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "ComplyDNA",
+        "path": "/products/comply/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/products/comply/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/products/comply/"
+      }
+    ]
+  },
+  "trust/index.html": {
+    "path": "/trust/",
+    "title": "Trust Center — Security & Compliance | ozDNA",
+    "description": "ozDNA Trust Center — security program, privacy, compliance roadmap, incident response, and enterprise governance transparency.",
+    "ogType": "website",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Trust Center",
+        "path": "/trust/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/trust/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/trust/"
+      }
+    ]
+  },
+  "security/index.html": {
+    "path": "/security/",
+    "title": "Security — Architecture & Responsible Disclosure | ozDNA",
+    "description": "ozDNA security architecture — encryption, API authentication, rate limiting, logging, backups, and coordinated vulnerability disclosure.",
+    "ogType": "website",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Security",
+        "path": "/security/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/security/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/security/"
+      }
+    ]
+  },
+  "privacy/index.html": {
+    "path": "/privacy/",
+    "title": "Privacy Policy | ozDNA",
+    "description": "ozDNA Privacy Policy — how Findbelow Ventures collects, uses, stores, and protects personal data for the ozDNA platform, website, and API.",
+    "ogType": "website",
+    "robots": "index, follow",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Privacy Policy",
+        "path": "/privacy/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/privacy/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/privacy/"
+      }
+    ]
+  },
+  "terms/index.html": {
+    "path": "/terms/",
+    "title": "Terms of Service | ozDNA",
+    "description": "ozDNA Terms of Service — acceptable use, API access, billing, warranties, liability, and governing law for the ozDNA platform.",
+    "ogType": "website",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Terms of Service",
+        "path": "/terms/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/terms/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/terms/"
+      }
+    ]
+  },
+  "changelog/index.html": {
+    "path": "/changelog/",
+    "title": "Changelog — ozDNA Releases",
+    "description": "Public changelog for ozDNA — site, API, and platform releases with version history and release notes.",
+    "ogType": "website",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Changelog",
+        "path": "/changelog/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/changelog/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/changelog/"
+      }
+    ]
+  },
+  "status/index.html": {
+    "path": "/status/",
+    "title": "System Status — ozDNA Platform",
+    "description": "Current operational status for ozDNA platform components — API gateway, inference, documentation, and marketing site.",
+    "ogType": "website",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Status",
+        "path": "/status/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/status/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/status/"
+      }
+    ]
+  },
+  "roadmap/index.html": {
+    "path": "/roadmap/",
+    "title": "Product Roadmap — ozDNA Vertical AI Infrastructure",
+    "description": "ozDNA product roadmap — API gateway, cost engine, model routing, prompt registry, agent runtime, and enterprise governance.",
+    "ogType": "website",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Roadmap",
+        "path": "/roadmap/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/roadmap/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/roadmap/"
+      }
+    ]
+  },
+  "partners/index.html": {
+    "path": "/partners/",
+    "title": "Production Partners — TezMakale & ozDNA",
+    "description": "Live vertical AI on ozDNA infrastructure — TezMakale academic AI in production and ComplyDNA on the same stack.",
+    "ogType": "website",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Partners",
+        "path": "/partners/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/partners/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/partners/"
+      }
+    ]
+  },
+  "case-studies/tezmakale/index.html": {
+    "path": "/case-studies/tezmakale/",
+    "title": "Case Study — How TezMakale Runs on ozDNA",
+    "description": "Production case study: TezMakale vertical AI on ozDNA — AI detection, token economics, routing, and RAG at scale in Turkey.",
+    "ogType": "article",
+    "article": true,
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Case Studies",
+        "path": "/case-studies/tezmakale/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/case-studies/tezmakale/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/case-studies/tezmakale/"
+      }
+    ]
+  },
+  "blog/index.html": {
+    "path": "/blog/",
+    "title": "Blog — Vertical AI Infrastructure Insights | ozDNA",
+    "description": "Guides for vertical AI founders: LLM API costs, inference routing, margin risk, and what investors see beyond thin wrappers.",
+    "ogType": "website",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Blog",
+        "path": "/blog/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/blog/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/blog/"
+      }
+    ]
+  },
+  "blog/when-every-active-user-destroys-your-margin/index.html": {
+    "path": "/blog/when-every-active-user-destroys-your-margin/",
+    "title": "When Every Active User Destroys Your Margin — ozDNA Blog",
+    "description": "AI API bills scaling faster than revenue is a structural margin problem. How vertical AI founders should measure token burn per user and workflow.",
+    "ogType": "article",
+    "article": true,
+    "datePublished": "2026-03-15",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Blog",
+        "path": "/blog/"
+      },
+      {
+        "name": "When Every Active User Destroys Your Margin",
+        "path": "/blog/when-every-active-user-destroys-your-margin/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/blog/when-every-active-user-destroys-your-margin/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/blog/when-every-active-user-destroys-your-margin/"
+      }
+    ]
+  },
+  "blog/making-inference-cost-measurable-and-routable/index.html": {
+    "path": "/blog/making-inference-cost-measurable-and-routable/",
+    "title": "Making Inference Cost Measurable and Routable — ozDNA Blog",
+    "description": "GPU and LLM API costs feel unpredictable until inference is measurable per workflow. Model routing and AI inference cost reduction for production teams.",
+    "ogType": "article",
+    "article": true,
+    "datePublished": "2026-04-02",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Blog",
+        "path": "/blog/"
+      },
+      {
+        "name": "Making Inference Cost Measurable and Routable",
+        "path": "/blog/making-inference-cost-measurable-and-routable/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/blog/making-inference-cost-measurable-and-routable/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/blog/making-inference-cost-measurable-and-routable/"
+      }
+    ]
+  },
+  "blog/vertical-ai-vs-thin-wrapper/index.html": {
+    "path": "/blog/vertical-ai-vs-thin-wrapper/",
+    "title": "Vertical AI vs. Thin Wrapper — ozDNA Blog",
+    "description": "Investors diligence workflow depth, domain data, and margin structure — not chat UI. What separates defensible vertical AI infrastructure.",
+    "ogType": "article",
+    "article": true,
+    "datePublished": "2026-05-10",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Blog",
+        "path": "/blog/"
+      },
+      {
+        "name": "Vertical AI vs. Thin Wrapper",
+        "path": "/blog/vertical-ai-vs-thin-wrapper/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/blog/vertical-ai-vs-thin-wrapper/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/blog/vertical-ai-vs-thin-wrapper/"
+      }
+    ]
+  },
+  "blog/hidden-platform-risk-api-pricing/index.html": {
+    "path": "/blog/hidden-platform-risk-api-pricing/",
+    "title": "Hidden Platform Risk: When API Pricing Changes — ozDNA Blog",
+    "description": "LLM pricing risk is hidden platform risk. If your AI SaaS margin depends on flat API prices, a provider change can erase margin overnight.",
+    "ogType": "article",
+    "article": true,
+    "datePublished": "2026-06-01",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Blog",
+        "path": "/blog/"
+      },
+      {
+        "name": "Hidden Platform Risk",
+        "path": "/blog/hidden-platform-risk-api-pricing/"
+      }
+    ],
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/blog/hidden-platform-risk-api-pricing/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/blog/hidden-platform-risk-api-pricing/"
+      }
+    ]
+  },
+  "tr/index.html": {
+    "path": "/tr/",
+    "language": "tr",
+    "locale": "tr_TR",
+    "title": "ozDNA — Dikey AI Altyapısı | LLM Maliyet Optimizasyonu ve AI Gateway",
+    "description": "Üretim ekipleri için dikey AI altyapısı — AI gateway, model yönlendirme, prompt kayıt defteri, RAG yönetişimi ve LLM maliyet optimizasyonu. TezMakale'de üretimde kanıtlandı.",
+    "ogType": "website",
+    "softwareApplication": true,
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/"
+      }
+    ],
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      }
+    ]
+  },
+  "tr/pricing/index.html": {
+    "path": "/tr/pricing/",
+    "language": "tr",
+    "locale": "tr_TR",
+    "title": "Fiyatlandırma — ozDNA Dikey AI Altyapısı",
+    "description": "ozDNA erken erişim fiyatlandırması — Startup, Growth ve Enterprise planları; üretim AI için AI gateway, maliyet optimizasyonu ve gözlemlenebilirlik.",
+    "ogType": "website",
+    "softwareApplication": true,
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/pricing/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/pricing/"
+      }
+    ],
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Fiyatlandırma",
+        "path": "/tr/pricing/"
+      }
+    ]
+  },
+  "tr/compare/litellm-alternative/index.html": {
+    "path": "/tr/compare/litellm-alternative/",
+    "language": "tr",
+    "locale": "tr_TR",
+    "title": "LiteLLM Alternatifi — Dikey AI Ekipleri için ozDNA",
+    "description": "LiteLLM vs ozDNA karşılaştırması: gateway'ler istekleri yönlendirir; ozDNA üretimdeki dikey AI ürünleri için maliyet, RAG güvenilirliği ve token ekonomisini optimize eder.",
+    "ogType": "website",
+    "softwareApplication": true,
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/compare/litellm-alternative/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/compare/litellm-alternative/"
+      }
+    ],
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Karşılaştırma",
+        "path": "/tr/compare/litellm-alternative/"
+      }
+    ]
+  },
+  "tr/benchmarks/index.html": {
+    "path": "/tr/benchmarks/",
+    "language": "tr",
+    "locale": "tr_TR",
+    "title": "Kıyaslamalar — ozDNA vs Doğrudan Sağlayıcı (Örnek)",
+    "description": "Örnek kıyaslama: ozDNA gateway vs doğrudan LLM sağlayıcı — gecikme, token maliyeti, önbellek, yönlendirme ve gözlemlenebilirlik. Üretim metrikleri değildir.",
+    "ogType": "website",
+    "softwareApplication": true,
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/benchmarks/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/benchmarks/"
+      }
+    ],
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Kıyaslamalar",
+        "path": "/tr/benchmarks/"
+      }
+    ]
+  },
+  "tr/sdk/index.html": {
+    "path": "/tr/sdk/",
+    "language": "tr",
+    "locale": "tr_TR",
+    "title": "SDK'lar — Python, Node.js, Go, Java ve REST | ozDNA",
+    "description": "Resmi ozDNA istemci kütüphaneleri ve Python, Node.js, Go ve Java için REST hızlı başlangıçları. Bearer kimlik doğrulama, detect iş akışı ve sandbox anahtarları.",
+    "ogType": "website",
+    "softwareApplication": true,
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/sdk/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/sdk/"
+      }
+    ],
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "SDK",
+        "path": "/tr/sdk/"
+      }
+    ]
+  },
+  "tr/architecture/index.html": {
+    "path": "/tr/architecture/",
+    "language": "tr",
+    "locale": "tr_TR",
+    "title": "Platform Mimarisi — ozDNA Dikey AI Yığını",
+    "description": "Etkileşimli mimari diyagram: API gateway, model router, prompt kayıt defteri, RAG katmanı, maliyet motoru ve dikey AI için sağlayıcı çıkarımı.",
+    "ogType": "website",
+    "softwareApplication": true,
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/architecture/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/architecture/"
+      }
+    ],
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Mimari",
+        "path": "/tr/architecture/"
+      }
+    ]
+  },
+  "tr/products/comply/index.html": {
+    "path": "/tr/products/comply/",
+    "language": "tr",
+    "locale": "tr_TR",
+    "title": "ComplyDNA — ozDNA Üzerinde Türk Uyum LLM'i",
+    "description": "ComplyDNA, MASAK uyum sorularını madde düzeyinde [TEBLİĞ / Madde] atıflarıyla yanıtlar. 5549, 6415, KVKK, ROM, Travel Rule ve kripto düzenlemeleri. Erken erişim.",
+    "ogType": "website",
+    "softwareApplication": true,
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/products/comply/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/products/comply/"
+      }
+    ],
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "ComplyDNA",
+        "path": "/tr/products/comply/"
+      }
+    ]
+  },
+  "tr/trust/index.html": {
+    "path": "/tr/trust/",
+    "language": "tr",
+    "locale": "tr_TR",
+    "title": "Güven Merkezi — Güvenlik ve Uyumluluk | ozDNA",
+    "description": "ozDNA Güven Merkezi — güvenlik programı, gizlilik, uyumluluk yol haritası, olay müdahalesi ve kurumsal yönetişim şeffaflığı.",
+    "ogType": "website",
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/trust/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/trust/"
+      }
+    ],
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Güven Merkezi",
+        "path": "/tr/trust/"
+      }
+    ]
+  },
+  "tr/security/index.html": {
+    "path": "/tr/security/",
+    "language": "tr",
+    "locale": "tr_TR",
+    "title": "Güvenlik — Mimari ve Sorumlu Açıklama | ozDNA",
+    "description": "ozDNA güvenlik mimarisi — şifreleme, API kimlik doğrulama, hız sınırlama, günlükleme, yedeklemeler ve koordineli güvenlik açığı bildirimi.",
+    "ogType": "website",
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/security/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/security/"
+      }
+    ],
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Güvenlik",
+        "path": "/tr/security/"
+      }
+    ]
+  },
+  "tr/privacy/index.html": {
+    "path": "/tr/privacy/",
+    "language": "tr",
+    "locale": "tr_TR",
+    "title": "Gizlilik Politikası | ozDNA",
+    "description": "ozDNA Gizlilik Politikası — Findbelow Ventures'ın ozDNA platformu, web sitesi ve API için kişisel verileri nasıl topladığı, kullandığı, sakladığı ve koruduğu.",
+    "ogType": "website",
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/privacy/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/privacy/"
+      }
+    ],
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Gizlilik Politikası",
+        "path": "/tr/privacy/"
+      }
+    ]
+  },
+  "tr/terms/index.html": {
+    "path": "/tr/terms/",
+    "language": "tr",
+    "locale": "tr_TR",
+    "title": "Hizmet Şartları | ozDNA",
+    "description": "ozDNA Hizmet Şartları — ozDNA platformu için kabul edilebilir kullanım, API erişimi, faturalama, garantiler, sorumluluk ve uygulanacak hukuk.",
+    "ogType": "website",
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/terms/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/terms/"
+      }
+    ],
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Hizmet Şartları",
+        "path": "/tr/terms/"
+      }
+    ]
+  },
+  "tr/changelog/index.html": {
+    "path": "/tr/changelog/",
+    "language": "tr",
+    "locale": "tr_TR",
+    "title": "Değişiklik Günlüğü — ozDNA Sürümleri",
+    "description": "ozDNA için kamuya açık değişiklik günlüğü — site, API ve platform sürümleri, sürüm geçmişi ve sürüm notları.",
+    "ogType": "website",
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/changelog/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/changelog/"
+      }
+    ],
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Değişiklik Günlüğü",
+        "path": "/tr/changelog/"
+      }
+    ]
+  },
+  "tr/status/index.html": {
+    "path": "/tr/status/",
+    "language": "tr",
+    "locale": "tr_TR",
+    "title": "Sistem Durumu — ozDNA Platform",
+    "description": "ozDNA platform bileşenleri için güncel operasyonel durum — API gateway, çıkarım, dokümantasyon ve pazarlama sitesi.",
+    "ogType": "website",
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/status/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/status/"
+      }
+    ],
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Durum",
+        "path": "/tr/status/"
+      }
+    ]
+  },
+  "tr/roadmap/index.html": {
+    "path": "/tr/roadmap/",
+    "language": "tr",
+    "locale": "tr_TR",
+    "title": "Ürün Yol Haritası — ozDNA Dikey AI Altyapısı",
+    "description": "ozDNA ürün yol haritası — API gateway, maliyet motoru, model yönlendirme, prompt kayıt defteri, ajan runtime ve kurumsal yönetişim.",
+    "ogType": "website",
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/roadmap/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/roadmap/"
+      }
+    ],
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Yol Haritası",
+        "path": "/tr/roadmap/"
+      }
+    ]
+  },
+  "tr/partners/index.html": {
+    "path": "/tr/partners/",
+    "language": "tr",
+    "locale": "tr_TR",
+    "title": "Üretim İş Ortakları — TezMakale ve ozDNA",
+    "description": "ozDNA altyapısında canlı dikey AI — üretimde TezMakale akademik AI ve aynı yığın üzerinde ComplyDNA.",
+    "ogType": "website",
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/partners/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/partners/"
+      }
+    ],
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "İş Ortakları",
+        "path": "/tr/partners/"
+      }
+    ]
+  },
+  "tr/case-studies/tezmakale/index.html": {
+    "path": "/tr/case-studies/tezmakale/",
+    "language": "tr",
+    "locale": "tr_TR",
+    "title": "Vaka Çalışması — TezMakale ozDNA Üzerinde Nasıl Çalışır",
+    "description": "Üretim vaka çalışması: TezMakale dikey AI ozDNA üzerinde — Türkiye'de ölçekte AI tespiti, token ekonomisi, yönlendirme ve RAG.",
+    "ogType": "article",
+    "article": true,
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/case-studies/tezmakale/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/case-studies/tezmakale/"
+      }
+    ],
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Vaka Çalışmaları",
+        "path": "/tr/case-studies/tezmakale/"
+      }
+    ]
+  },
+  "tr/blog/index.html": {
+    "path": "/tr/blog/",
+    "language": "tr",
+    "locale": "tr_TR",
+    "title": "Blog — Dikey AI Altyapısı İçgörüleri | ozDNA",
+    "description": "Dikey AI kurucuları için rehberler: LLM API maliyetleri, çıkarım yönlendirme, marj riski ve yatırımcıların ince sarmalayıcının ötesinde gördükleri.",
+    "ogType": "website",
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/blog/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/blog/"
+      }
+    ],
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Blog",
+        "path": "/tr/blog/"
+      }
+    ]
+  },
+  "tr/blog/when-every-active-user-destroys-your-margin/index.html": {
+    "path": "/tr/blog/when-every-active-user-destroys-your-margin/",
+    "language": "tr",
+    "locale": "tr_TR",
+    "title": "Her Aktif Kullanıcı Marjınızı Yok Ettiğinde — ozDNA Blog",
+    "description": "Gelirden daha hızlı büyüyen AI API faturaları yapısal bir marj sorunudur. Dikey AI kurucularının kullanıcı ve iş akışı başına token tüketimini nasıl ölçmesi gerektiği.",
+    "ogType": "article",
+    "article": true,
+    "datePublished": "2026-03-15",
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/blog/when-every-active-user-destroys-your-margin/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/blog/when-every-active-user-destroys-your-margin/"
+      }
+    ],
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Blog",
+        "path": "/tr/blog/"
+      },
+      {
+        "name": "Her Aktif Kullanıcı Marjınızı Yok Ettiğinde",
+        "path": "/tr/blog/when-every-active-user-destroys-your-margin/"
+      }
+    ]
+  },
+  "tr/blog/making-inference-cost-measurable-and-routable/index.html": {
+    "path": "/tr/blog/making-inference-cost-measurable-and-routable/",
+    "language": "tr",
+    "locale": "tr_TR",
+    "title": "Çıkarım Maliyetini Ölçülebilir ve Yönlendirilebilir Kılmak — ozDNA Blog",
+    "description": "GPU ve LLM API maliyetleri, çıkarım iş akışı başına ölçülebilir olana kadar öngörülemez hissedilir. Üretim ekipleri için model yönlendirme ve AI çıkarım maliyeti azaltma.",
+    "ogType": "article",
+    "article": true,
+    "datePublished": "2026-04-02",
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/blog/making-inference-cost-measurable-and-routable/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/blog/making-inference-cost-measurable-and-routable/"
+      }
+    ],
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Blog",
+        "path": "/tr/blog/"
+      },
+      {
+        "name": "Çıkarım Maliyetini Ölçülebilir ve Yönlendirilebilir Kılmak",
+        "path": "/tr/blog/making-inference-cost-measurable-and-routable/"
+      }
+    ]
+  },
+  "tr/blog/vertical-ai-vs-thin-wrapper/index.html": {
+    "path": "/tr/blog/vertical-ai-vs-thin-wrapper/",
+    "language": "tr",
+    "locale": "tr_TR",
+    "title": "Dikey AI vs. İnce Sarmalayıcı — ozDNA Blog",
+    "description": "Yatırımcılar due diligence'ta iş akışı derinliği, alan verisi ve marj yapısını inceler — chat UI'ı değil. Savunulabilir dikey AI altyapısını ayıran unsurlar.",
+    "ogType": "article",
+    "article": true,
+    "datePublished": "2026-05-10",
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/blog/vertical-ai-vs-thin-wrapper/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/blog/vertical-ai-vs-thin-wrapper/"
+      }
+    ],
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Blog",
+        "path": "/tr/blog/"
+      },
+      {
+        "name": "Dikey AI vs. İnce Sarmalayıcı",
+        "path": "/tr/blog/vertical-ai-vs-thin-wrapper/"
+      }
+    ]
+  },
+  "tr/blog/hidden-platform-risk-api-pricing/index.html": {
+    "path": "/tr/blog/hidden-platform-risk-api-pricing/",
+    "language": "tr",
+    "locale": "tr_TR",
+    "title": "Gizli Platform Riski: API Fiyatlandırması Değiştiğinde — ozDNA Blog",
+    "description": "LLM fiyatlandırma riski gizli platform riskidir. AI SaaS marjınız bugünkü düz API fiyatlarına bağlıysa sağlayıcı değişikliği marjı bir gecede silebilir.",
+    "ogType": "article",
+    "article": true,
+    "datePublished": "2026-06-01",
+    "alternateLanguages": [
+      {
+        "lang": "en",
+        "path": "/blog/hidden-platform-risk-api-pricing/"
+      },
+      {
+        "lang": "tr",
+        "path": "/tr/blog/hidden-platform-risk-api-pricing/"
+      }
+    ],
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Blog",
+        "path": "/tr/blog/"
+      },
+      {
+        "name": "Gizli Platform Riski",
+        "path": "/tr/blog/hidden-platform-risk-api-pricing/"
+      }
+    ]
+  }
+}

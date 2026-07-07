@@ -1,0 +1,3966 @@
+{
+  "index.html": {
+    "title": "ozDNA — Dikey AI Altyapısı | LLM Maliyet Optimizasyonu ve AI Gateway",
+    "description": "Üretim ekipleri için dikey AI altyapısı — AI gateway, model yönlendirme, prompt kayıt defteri, RAG yönetişimi ve LLM maliyet optimizasyonu. TezMakale'de üretimde kanıtlandı.",
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      }
+    ],
+    "replacements": [
+      [
+        "Phase 2 ships RegTech (<a href=\"/products/comply/\">ComplyDNA</a>) and opens the B2B gateway — intelligent routing, prompt management, and usage economics on the same stack proven by <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--tq);text-decoration:none;font-weight:500\">TezMakale</a>.",
+        "Faz 2 RegTech (<a href=\"/products/comply/\">ComplyDNA</a>) sunar ve B2B gateway'i açar — akıllı yönlendirme, prompt yönetimi ve kullanım ekonomisi, <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--tq);text-decoration:none;font-weight:500\">TezMakale</a> ile kanıtlanan aynı yığın üzerinde."
+      ],
+      [
+        "<span>Phase 2:</span> ComplyDNA + B2B gateway. Phase 1 production metrics from <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--tq)\">TezMakale</a> — <a href=\"/benchmarks/\" style=\"color:var(--tq)\">illustrative benchmarks</a>, public measured benchmarks Q3 2026.",
+        "<span>Faz 2:</span> ComplyDNA + B2B gateway. Faz 1 üretim metrikleri <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--tq)\">TezMakale</a>'den — <a href=\"/benchmarks/\" style=\"color:var(--tq)\">örnek kıyaslamalar</a>, kamuya açık ölçülmüş kıyaslamalar 2026 Q3."
+      ],
+      [
+        "<a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a> processes real academic workflows — AI detection, detailed analysis reports, and usage-based token limits — on the same ozDNA gateway, model router, and cost engine we sell to B2B teams.",
+        "<a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a> gerçek akademik iş akışlarını işler — AI tespiti, ayrıntılı analiz raporları ve kullanıma dayalı token limitleri — B2B ekiplere sattığımız aynı ozDNA gateway, model router ve cost engine üzerinde."
+      ],
+      [
+        "role=\"img\" aria-label=\"ozDNA architecture: Client Applications connect to ozDNA Gateway, which routes through Model Router and RAG Layer to LLM Providers, with Analytics and Cost Engine monitoring all layers\"",
+        "role=\"img\" aria-label=\"ozDNA mimarisi: İstemci Uygulamaları ozDNA Gateway'e bağlanır; Model Router ve RAG Katmanı üzerinden LLM Sağlayıcılarına yönlendirilir; Analytics ve Cost Engine tüm katmanları izler\""
+      ],
+      [
+        "ozDNA sits between your client applications and LLM providers — routing, retrieving, and measuring every inference call through a unified AI gateway. <a href=\"/architecture/\">Interactive architecture →</a>",
+        "ozDNA, istemci uygulamalarınız ile LLM sağlayıcıları arasında durur — birleşik AI gateway üzerinden her çıkarım çağrısını yönlendirir, retrieve eder ve ölçer. <a href=\"/architecture/\">Etkileşimli mimari →</a>"
+      ],
+      [
+        "Turkey's academic AI platform for AI detection, detailed analysis reports, and thesis workflows — running on ozDNA infrastructure in production. Real users, real usage economics, real proof for investors.",
+        "AI tespiti, ayrıntılı analiz raporları ve tez iş akışları için Türkiye'nin akademik AI platformu — üretimde ozDNA altyapısında çalışıyor. Gerçek kullanıcılar, gerçek kullanım ekonomisi, yatırımcılar için gerçek kanıt."
+      ],
+      [
+        "Regulatory monitoring for 5549, BDDK, MASAK, and KVKK. RAG-heavy compliance layer for fintech, EMI/PSP, and law firms — same ozDNA stack as TezMakale (tezmakale.com).",
+        "5549, BDDK, MASAK ve KVKK için düzenleyici izleme. Fintech, EMI/PSP ve hukuk büroları için RAG ağırlıklı uyumluluk katmanı — TezMakale ile aynı ozDNA yığını (tezmakale.com)."
+      ],
+      [
+        "SSO, RBAC, data residency controls, and VPC deployment options for regulated industries. <a href=\"/trust/\">Trust Center →</a> · <a href=\"/security/\">Security →</a>",
+        "Düzenlenmiş sektörler için SSO, RBAC, veri yerleşimi kontrolleri ve VPC dağıtım seçenekleri. <a href=\"/trust/\">Güven Merkezi →</a> · <a href=\"/security/\">Güvenlik →</a>"
+      ],
+      [
+        "<a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\" style=\"color:inherit;text-decoration:none\">TezMakale</a> live today.<br>ComplyDNA shipping next.",
+        "<a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\" style=\"color:inherit;text-decoration:none\">TezMakale</a> bugün canlı.<br>ComplyDNA sırada."
+      ],
+      [
+        "Phase 1 is live academic AI on ozDNA. Phase 2 is <a href=\"/products/comply/\">ComplyDNA</a> — RegTech for fintech and law firms — plus the external B2B gateway.",
+        "Faz 1, ozDNA üzerinde canlı akademik AI. Faz 2 <a href=\"/products/comply/\">ComplyDNA</a> — fintech ve hukuk büroları için RegTech — artı harici B2B gateway."
+      ],
+      [
+        "Most vertical AI startups are not failing because they cannot build demos. They are failing because API bills, RAG drift, and token pricing outpace revenue.",
+        "Çoğu dikey AI girişimi demo yapamadığı için değil; API faturaları, RAG sapması ve token fiyatlandırması geliri aştığı için başarısız oluyor."
+      ],
+      [
+        "Every layer of the ozDNA stack is designed for enterprise AI — from cost optimization and intelligent routing to audit logs and security controls.",
+        "ozDNA yığınının her katmanı kurumsal AI için tasarlandı — maliyet optimizasyonu ve akıllı yönlendirmeden denetim günlükleri ve güvenlik kontrollerine."
+      ],
+      [
+        "Join the early access list for founders and CTOs who need LLM cost optimization and production RAG governance before scale makes it painful.",
+        "Ölçek büyümeden önce LLM maliyet optimizasyonu ve üretim RAG yönetişimine ihtiyaç duyan kurucular ve CTO'lar için erken erişim listesine katılın."
+      ],
+      [
+        "AI infra should not scale faster than revenue. Route tasks to the cheapest capable model and track cost per workflow, user, and account.",
+        "AI altyapısı gelirden daha hızlı büyümemeli. Görevleri en ucuz yetkin modele yönlendirin; iş akışı, kullanıcı ve hesap bazında maliyeti izleyin."
+      ],
+      [
+        "Defensibility comes from workflow depth, not chatbot UI. Build agents that understand the operating logic of a specific business.",
+        "Savunulabilirlik chatbot arayüzünden değil, iş akışı derinliğinden gelir. Belirli bir işin operasyon mantığını anlayan ajanlar oluşturun."
+      ],
+      [
+        "Powered by ozDNA — live at <a href=\"https://tezmakale.com\" class=\"partner-logo-link\" target=\"_blank\" rel=\"noopener\">TezMakale</a>",
+        "ozDNA ile güçlendirildi — <a href=\"https://tezmakale.com\" class=\"partner-logo-link\" target=\"_blank\" rel=\"noopener\">TezMakale</a>'de canlı"
+      ],
+      [
+        "RAG failure is an operations problem. Connect retrieval quality, freshness, evals, and cost controls into one operating layer.",
+        "RAG başarısızlığı bir operasyon sorunudur. Retrieval kalitesi, güncellik, değerlendirmeler ve maliyet kontrollerini tek operasyon katmanında birleştirin."
+      ],
+      [
+        "Not another LLM gateway — vertical AI infrastructure for RAG governance, LLM cost optimization, and usage economics.",
+        "Başka bir LLM gateway değil — RAG yönetişimi, LLM maliyet optimizasyonu ve kullanım ekonomisi için dikey AI altyapısı."
+      ],
+      [
+        "Map user-facing credits to real token burn, workflow cost, and margin design — not guesses wrapped in pricing pages.",
+        "Kullanıcıya yönelik kredileri gerçek token tüketimi, iş akışı maliyeti ve marj tasarımına eşleyin — fiyatlandırma sayfalarına sarılmış tahminlere değil."
+      ],
+      [
+        "Academic AI · Turkey · <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">tezmakale.com</a>",
+        "Akademik AI · Türkiye · <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">tezmakale.com</a>"
+      ],
+      [
+        "If gross margin depends on today's API pricing staying flat, your AI product has hidden platform risk.",
+        "Brüt marj bugünkü API fiyatlarının sabit kalmasına bağlıysa AI ürününüzde gizli platform riski vardır."
+      ],
+      [
+        "End-to-end traces from gateway to LLM — latency, token burn, and retrieval quality in one view.",
+        "Gateway'den LLM'e uçtan uca izler — gecikme, token tüketimi ve retrieval kalitesi tek görünümde."
+      ],
+      [
+        "Route by task complexity, latency budget, and cost ceiling — with automatic fallback chains.",
+        "Görev karmaşıklığı, gecikme bütçesi ve maliyet tavanına göre yönlendirme — otomatik yedekleme zincirleriyle."
+      ],
+      [
+        "Dashboards by account, workflow, and model — exportable for finance and investor reporting.",
+        "Hesap, iş akışı ve modele göre panolar — finans ve yatırımcı raporlaması için dışa aktarılabilir."
+      ],
+      [
+        "Immutable request logs with prompt hashes, model IDs, and cost attribution for compliance.",
+        "Uyumluluk için prompt hash'leri, model ID'leri ve maliyet atamasıyla değiştirilemez istek günlükleri."
+      ],
+      [
+        "Per-workflow spend tracking, model downgrade rules, and margin alerts before bills spike.",
+        "İş akışı bazında harcama izleme, model düşürme kuralları ve faturalar yükselmeden marj uyarıları."
+      ],
+      [
+        "Investors see a thin wrapper — not a vertical AI product with defensible workflow logic.",
+        "Yatırımcılar savunulabilir iş akışı mantığı olan dikey AI ürünü değil, ince bir sarmalayıcı görür."
+      ],
+      [
+        "Unified entry point for all AI workloads — auth, rate limits, and provider abstraction.",
+        "Tüm AI iş yükleri için birleşik giriş noktası — kimlik doğrulama, hız limitleri ve sağlayıcı soyutlaması."
+      ],
+      [
+        "Every active user destroys margin when every workflow calls the most expensive model.",
+        "Her iş akışı en pahalı modeli çağırdığında her aktif kullanıcı marjı yok eder."
+      ],
+      [
+        "Credit systems that do not map to real infrastructure consumption erode gross margin.",
+        "Gerçek altyapı tüketimine karşılık gelmeyen kredi sistemleri brüt marjı aşındırır."
+      ],
+      [
+        "Versioned prompts with A/B testing, rollback, and environment-scoped deployments.",
+        "A/B testi, geri alma ve ortam kapsamlı dağıtımlarla sürümlü prompt'lar."
+      ],
+      [
+        "LLM Cost Optimization<br>for <span class=\"accent\">Production AI</span> Teams",
+        "Üretim AI Ekipleri için<br><span class=\"accent\">LLM Maliyet Optimizasyonu</span>"
+      ],
+      [
+        "Cost per workflow <span class=\"t-score\">$0.0031</span> · LLM routing active",
+        "İş akışı başına maliyet <span class=\"t-score\">$0.0031</span> · LLM yönlendirme aktif"
+      ],
+      [
+        "Retrieval drift, stale ingestion, and weak evals show up only after launch.",
+        "Retrieval sapması, bayat ingestion ve zayıf değerlendirmeler yalnızca lansmandan sonra ortaya çıkar."
+      ],
+      [
+        "Analytics &amp; Cost Engine — usage · spend · latency · audit trail",
+        "Analytics &amp; Cost Engine — kullanım · harcama · gecikme · denetim izi"
+      ],
+      [
+        "Production economics break<br>before product-market fit does.",
+        "Üretim ekonomisi,<br>ürün-pazar uyumu bozulmadan çöker."
+      ],
+      [
+        "Built for teams shipping<br>production AI at scale.",
+        "Ölçekte üretim AI<br>sunan ekipler için tasarlandı."
+      ],
+      [
+        "Control token burn before it becomes structural.",
+        "Yapısal hale gelmeden önce token tüketimini kontrol edin."
+      ],
+      [
+        "Auth · Rate Limits · Audit Logs · API Gateway",
+        "Kimlik Doğrulama · Hız Limitleri · Denetim Günlükleri · API Gateway"
+      ],
+      [
+        "aria-label=\"Infrastructure metrics example\"",
+        "aria-label=\"Altyapı metrikleri örneği\""
+      ],
+      [
+        "Five pillars. One<br>infrastructure layer.",
+        "Beş sütun. Tek<br>altyapı katmanı."
+      ],
+      [
+        "One gateway.<br>Every layer instrumented.",
+        "Tek gateway.<br>Her katman ölçümlenmiş."
+      ],
+      [
+        "OpenAI · Anthropic · Google · Self-hosted",
+        "OpenAI · Anthropic · Google · Self-hosted"
+      ],
+      [
+        "RAG works in demos, fails in production",
+        "RAG demoda çalışır, üretimde başarısız olur"
+      ],
+      [
+        "Leave empty: <input name=\"bot-field\">",
+        "Boş bırakın: <input name=\"bot-field\">"
+      ],
+      [
+        "Usage Economics &amp; Pricing Design",
+        "Kullanım Ekonomisi ve Fiyatlandırma Tasarımı"
+      ],
+      [
+        "API bills scale faster than revenue",
+        "API faturaları gelirden daha hızlı büyür"
+      ],
+      [
+        "Cost-aware · Fallback · A/B routing",
+        "Maliyet odaklı · Yedekleme · A/B yönlendirme"
+      ],
+      [
+        "Retrieval · Embeddings · Eval hooks",
+        "Retrieval · Embeddings · Değerlendirme kancaları"
+      ],
+      [
+        "Phase 2 · ComplyDNA + B2B Gateway",
+        "Faz 2 · ComplyDNA + B2B Gateway"
+      ],
+      [
+        "Generic agents lack domain depth",
+        "Genel ajanlar alan derinliğinden yoksundur"
+      ],
+      [
+        "Web · Mobile · Agents · B2B API",
+        "Web · Mobil · Ajanlar · B2B API"
+      ],
+      [
+        "Post-Subsidy Margin Resilience",
+        "Sübvansiyon Sonrası Marj Dayanıklılığı"
+      ],
+      [
+        "Token pricing confuses users",
+        "Token fiyatlandırması kullanıcıları şaşırtır"
+      ],
+      [
+        "TezMakale — Phase 1 proof →",
+        "TezMakale — Faz 1 kanıtı →"
+      ],
+      [
+        "ML Engineers · AI Engineers",
+        "ML Mühendisleri · AI Mühendisleri"
+      ],
+      [
+        "Vertical AI Differentiation",
+        "Dikey AI Farklılaşması"
+      ],
+      [
+        "Production RAG Reliability",
+        "Üretim RAG Güvenilirliği"
+      ],
+      [
+        "Founders · CEOs · CTOs",
+        "Kurucular · CEO'lar · CTO'lar"
+      ],
+      [
+        "Product · Monetization",
+        "Ürün · Monetizasyon"
+      ],
+      [
+        "ComplyDNA'yı Keşfedin",
+        "ComplyDNA'yı Keşfedin"
+      ],
+      [
+        "Founders · Investors",
+        "Kurucular · Yatırımcılar"
+      ],
+      [
+        "Inference cost saved",
+        "Çıkarım maliyeti tasarrufu"
+      ],
+      [
+        "Client Applications",
+        "İstemci Uygulamaları"
+      ],
+      [
+        "Visit tezmakale.com",
+        "tezmakale.com'u ziyaret edin"
+      ],
+      [
+        "Enterprise Features",
+        "Kurumsal Özellikler"
+      ],
+      [
+        "Intelligent Routing",
+        "Akıllı Yönlendirme"
+      ],
+      [
+        "Enterprise Security",
+        "Kurumsal Güvenlik"
+      ],
+      [
+        "Phase 2 · Building",
+        "Faz 2 · Geliştiriliyor"
+      ],
+      [
+        "Production Partner",
+        "Üretim Ortağı"
+      ],
+      [
+        "GPU Bill Bodyguard",
+        "GPU Faturası Koruyucusu"
+      ],
+      [
+        "Explore ComplyDNA",
+        "ComplyDNA'yı Keşfedin"
+      ],
+      [
+        "Monthly workflows",
+        "Aylık iş akışları"
+      ],
+      [
+        "Visit TezMakale →",
+        "TezMakale'yi Ziyaret Et →"
+      ],
+      [
+        "RegTech · TR / EU",
+        "RegTech · TR / AB"
+      ],
+      [
+        "Cost Optimization",
+        "Maliyet Optimizasyonu"
+      ],
+      [
+        "Investors · CFOs",
+        "Yatırımcılar · CFO'lar"
+      ],
+      [
+        "Get early access",
+        "Erken erişim alın"
+      ],
+      [
+        "Phase 1 &amp; 2",
+        "Faz 1 ve 2"
+      ],
+      [
+        "Read Case Study",
+        "Vaka Çalışmasını Oku"
+      ],
+      [
+        "Prompt Registry",
+        "Prompt Kayıt Defteri"
+      ],
+      [
+        "Usage Analytics",
+        "Kullanım Analitiği"
+      ],
+      [
+        "Phase 1 · Live",
+        "Faz 1 · Canlı"
+      ],
+      [
+        "Gateway uptime",
+        "Gateway çalışma süresi"
+      ],
+      [
+        "Partnerships →",
+        "İş Ortaklıkları →"
+      ],
+      [
+        "ozDNA Gateway",
+        "ozDNA Gateway"
+      ],
+      [
+        "LLM Providers",
+        "LLM Sağlayıcıları"
+      ],
+      [
+        "Observability",
+        "Gözlemlenebilirlik"
+      ],
+      [
+        "Model Router",
+        "Model Router"
+      ],
+      [
+        "The platform",
+        "Platform"
+      ],
+      [
+        "Cost Control",
+        "Maliyet Kontrolü"
+      ],
+      [
+        "The problem",
+        "Sorun"
+      ],
+      [
+        "API Gateway",
+        "API Gateway"
+      ],
+      [
+        "Audit Logs",
+        "Denetim Günlükleri"
+      ],
+      [
+        "RAG Layer",
+        "RAG Katmanı"
+      ]
+    ]
+  },
+  "pricing/index.html": {
+    "title": "Fiyatlandırma — ozDNA Dikey AI Altyapısı",
+    "description": "ozDNA erken erişim fiyatlandırması — Startup, Growth ve Enterprise planları; üretim AI için AI gateway, maliyet optimizasyonu ve gözlemlenebilirlik.",
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Fiyatlandırma",
+        "path": "/tr/pricing/"
+      }
+    ],
+    "replacements": [
+      [
+        "From sandbox experimentation to enterprise AI gateway — ozDNA scales with your vertical AI product. All paid plans include LLM cost optimization and intelligent routing.",
+        "Sandbox deneylerinden kurumsal AI gateway'e — ozDNA dikey AI ürününüzle ölçeklenir. Tüm ücretli planlar LLM maliyet optimizasyonu ve akıllı yönlendirme içerir."
+      ],
+      [
+        "Explore the ozDNA API gateway and model router in sandbox. Perfect for prototyping vertical AI workflows.",
+        "Sandbox'ta ozDNA API gateway ve model router'ı keşfedin. Dikey AI iş akışlarını prototiplemek için ideal."
+      ],
+      [
+        "Custom infrastructure, enterprise security, audit logs, and white-label options for regulated industries.",
+        "Düzenlenmiş sektörler için özel altyapı, kurumsal güvenlik, denetim günlükleri ve white-label seçenekleri."
+      ],
+      [
+        "For early-stage vertical AI teams shipping their first production workloads with cost controls.",
+        "Maliyet kontrolleriyle ilk üretim iş yüklerini sunan erken aşama dikey AI ekipleri için."
+      ],
+      [
+        "Tell us about your vertical AI product and production workload. We'll recommend the right tier.",
+        "Dikey AI ürününüzü ve üretim iş yükünüzü anlatın. Doğru katmanı önereceğiz."
+      ],
+      [
+        "For teams with consistent production traffic, batch processing needs, and integration SLAs.",
+        "Tutarlı üretim trafiği, toplu işleme ihtiyaçları ve entegrasyon SLA'ları olan ekipler için."
+      ],
+      [
+        "Plans for every stage<br>of production AI.",
+        "Üretim AI'nın her aşaması<br>için planlar."
+      ],
+      [
+        "Model routing &amp; fallback",
+        "Model yönlendirme ve yedekleme"
+      ],
+      [
+        "Audit logs &amp; compliance",
+        "Denetim günlükleri ve uyumluluk"
+      ],
+      [
+        "Per-workflow cost tracking",
+        "İş akışı bazında maliyet izleme"
+      ],
+      [
+        "Private cloud / on-premise",
+        "Özel bulut / şirket içi"
+      ],
+      [
+        "Usage analytics dashboard",
+        "Kullanım analitiği panosu"
+      ],
+      [
+        "Not sure which plan fits?",
+        "Hangi planın uygun olduğundan emin değil misiniz?"
+      ],
+      [
+        "Free<span> · beta</span>",
+        "Ücretsiz<span> · beta</span>"
+      ],
+      [
+        "Vertical mode selection",
+        "Dikey mod seçimi"
+      ],
+      [
+        "Dedicated CSM &amp; SLA",
+        "Özel CSM ve SLA"
+      ],
+      [
+        "Production API gateway",
+        "Üretim API gateway"
+      ],
+      [
+        "Async batch processing",
+        "Asenkron toplu işleme"
+      ],
+      [
+        "Prompt registry (beta)",
+        "Prompt kayıt defteri (beta)"
+      ],
+      [
+        "Custom vertical models",
+        "Özel dikey modeller"
+      ],
+      [
+        "Basic usage analytics",
+        "Temel kullanım analitiği"
+      ],
+      [
+        "Rate-limited requests",
+        "Hız sınırlı istekler"
+      ],
+      [
+        "Everything in Startup",
+        "Startup'taki her şey"
+      ],
+      [
+        "Detect API endpoint",
+        "Detect API uç noktası"
+      ],
+      [
+        "Sandbox API access",
+        "Sandbox API erişimi"
+      ],
+      [
+        "Community support",
+        "Topluluk desteği"
+      ],
+      [
+        "Webhook callbacks",
+        "Webhook geri çağrıları"
+      ],
+      [
+        "Priority support",
+        "Öncelikli destek"
+      ],
+      [
+        "Unlimited volume",
+        "Sınırsız hacim"
+      ],
+      [
+        "SSO &amp; RBAC",
+        "SSO ve RBAC"
+      ],
+      [
+        "Email support",
+        "E-posta desteği"
+      ],
+      [
+        "Enterprise",
+        "Enterprise"
+      ],
+      [
+        "Developer",
+        "Geliştirici"
+      ],
+      [
+        "Startup",
+        "Startup"
+      ],
+      [
+        "Growth",
+        "Growth"
+      ]
+    ]
+  },
+  "compare/litellm-alternative/index.html": {
+    "title": "LiteLLM Alternatifi — Dikey AI Ekipleri için ozDNA",
+    "description": "LiteLLM vs ozDNA karşılaştırması: gateway'ler istekleri yönlendirir; ozDNA üretimdeki dikey AI ürünleri için maliyet, RAG güvenilirliği ve token ekonomisini optimize eder.",
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Karşılaştırma",
+        "path": "/tr/compare/litellm-alternative/"
+      }
+    ],
+    "replacements": [
+      [
+        "Fair comparison — choose LiteLLM if you need a lightweight proxy. Choose ozDNA if you run production vertical workflows with RAG, cost per user, and audit requirements. Live proof: <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a> on ozDNA today.",
+        "Adil karşılaştırma — hafif bir proxy gerekiyorsa LiteLLM'i seçin. RAG, kullanıcı başına maliyet ve denetim gereksinimleriyle üretim dikey iş akışları çalıştırıyorsanız ozDNA'yı seçin. Canlı kanıt: bugün ozDNA üzerinde <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a>."
+      ],
+      [
+        "LiteLLM is a strong open-source proxy for multi-provider routing. ozDNA is built for teams shipping <strong>vertical AI products</strong> — where RAG reliability, token economics, and production margin matter as much as model failover.",
+        "LiteLLM, çoklu sağlayıcı yönlendirmesi için güçlü bir açık kaynak proxy'dir. ozDNA, <strong>dikey AI ürünleri</strong> sunan ekipler için tasarlandı — RAG güvenilirliği, token ekonomisi ve üretim marjı model yedeklemesi kadar önemli."
+      ],
+      [
+        "<a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a> handles real student traffic in Turkey: AI detection, detailed reports, token limits, peak-season spikes. Investors and buyers can click through today.",
+        "<a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a> Türkiye'de gerçek öğrenci trafiğini yönetir: AI tespiti, ayrıntılı raporlar, token limitleri, yoğun sezon zirveleri. Yatırımcılar ve alıcılar bugün tıklayıp görebilir."
+      ],
+      [
+        "Academic AI at <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a>. RegTech at <a href=\"/products/comply/\">ComplyDNA</a>. Same stack, different corpora.",
+        "<a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a>'de akademik AI. <a href=\"/products/comply/\">ComplyDNA</a>'de RegTech. Aynı yığın, farklı corpus'lar."
+      ],
+      [
+        "Join early access — we'll help map your routing rules and RAG corpora onto ozDNA. Mention LiteLLM on the waitlist form.",
+        "Erken erişime katılın — yönlendirme kurallarınızı ve RAG corpus'larınızı ozDNA'ya eşlemeye yardımcı oluruz. Bekleme listesi formunda LiteLLM'den bahsedin."
+      ],
+      [
+        "Map user credits to real inference cost. Route cheap models for bulk tasks, premium models for quality-critical steps.",
+        "Kullanıcı kredilerini gerçek çıkarım maliyetine eşleyin. Toplu görevler için ucuz modelleri, kalite kritik adımlar için premium modelleri yönlendirin."
+      ],
+      [
+        "Chunking, freshness, hybrid retrieval, and eval hooks — not just vector search bolted onto a gateway.",
+        "Chunking, güncellik, hibrit retrieval ve değerlendirme kancaları — gateway'e eklenmiş yalnızca vektör araması değil."
+      ],
+      [
+        "<a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a> (live)",
+        "<a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a> (canlı)"
+      ],
+      [
+        "LiteLLM alternative<br>for <span class=\"accent\">vertical AI</span> teams",
+        "<span class=\"accent\">Dikey AI</span> ekipleri için<br>LiteLLM alternatifi"
+      ],
+      [
+        "Production RAG (chunk, ingest, hybrid retrieval)",
+        "Üretim RAG (chunk, ingest, hibrit retrieval)"
+      ],
+      [
+        "Vertical modes (academic, legal, financial)",
+        "Dikey modlar (akademik, hukuk, finans)"
+      ],
+      [
+        "Usage economics (credits → real LLM spend)",
+        "Kullanım ekonomisi (krediler → gerçek LLM harcaması)"
+      ],
+      [
+        "RegTech / compliance workflows (ComplyDNA)",
+        "ComplyDNA uyumluluk iş akışları"
+      ],
+      [
+        "You need more than<br>a routing proxy.",
+        "Bir yönlendirme proxy'sinden<br>daha fazlasına ihtiyacınız var."
+      ],
+      [
+        "Gateway vs vertical AI infrastructure",
+        "Gateway vs dikey AI altyapısı"
+      ],
+      [
+        "Not a fork — a live product on ozDNA",
+        "Fork değil — ozDNA üzerinde canlı ürün"
+      ],
+      [
+        "Live production vertical AI proof",
+        "Canlı üretim dikey AI kanıtı"
+      ],
+      [
+        "Fallback / retry across models",
+        "Modeller arası yedekleme / yeniden deneme"
+      ],
+      [
+        "Phase 2 — 5549/BDDK/MASAK/KVKK",
+        "Faz 2 — 5549/BDDK/MASAK/KVKK"
+      ],
+      [
+        "Cost per request / workflow",
+        "İstek / iş akışı başına maliyet"
+      ],
+      [
+        "Managed PaaS (private beta)",
+        "Yönetilen PaaS (özel beta)"
+      ],
+      [
+        "Multi-provider LLM routing",
+        "Çoklu sağlayıcı LLM yönlendirme"
+      ],
+      [
+        "Prompt + corpus per mode",
+        "Mod başına prompt + corpus"
+      ],
+      [
+        "RAG that survives launch",
+        "Lansmandan sonra ayakta kalan RAG"
+      ],
+      [
+        "First-class cost engine",
+        "Birinci sınıf maliyet motoru"
+      ],
+      [
+        "Switching from LiteLLM?",
+        "LiteLLM'den geçiş mi yapıyorsunuz?"
+      ],
+      [
+        "Community deployments",
+        "Topluluk dağıtımları"
+      ],
+      [
+        "Margin-aware AI SaaS",
+        "Marj odaklı AI SaaS"
+      ],
+      [
+        "RAG operating layer",
+        "RAG operasyon katmanı"
+      ],
+      [
+        "Feature comparison",
+        "Özellik karşılaştırması"
+      ],
+      [
+        "Deployment model",
+        "Dağıtım modeli"
+      ],
+      [
+        "Production proof",
+        "Üretim kanıtı"
+      ],
+      [
+        "When ozDNA wins",
+        "ozDNA'nın öne çıktığı durumlar"
+      ],
+      [
+        "Vertical depth",
+        "Dikey derinlik"
+      ],
+      [
+        "Basic logging",
+        "Temel günlükleme"
+      ],
+      [
+        "Self-host OSS",
+        "Self-host OSS"
+      ],
+      [
+        "TezMakale →",
+        "TezMakale →"
+      ],
+      [
+        "Comparison",
+        "Karşılaştırma"
+      ],
+      [
+        "Capability",
+        "Yetenek"
+      ],
+      [
+        "Case study",
+        "Vaka çalışması"
+      ],
+      [
+        "API Docs →",
+        "API Dokümantasyonu →"
+      ],
+      [
+        "Pricing →",
+        "Fiyatlandırma →"
+      ],
+      [
+        "Built-in",
+        "Dahili"
+      ],
+      [
+        "—",
+        "—"
+      ]
+    ]
+  },
+  "benchmarks/index.html": {
+    "title": "Kıyaslamalar — ozDNA vs Doğrudan Sağlayıcı (Örnek)",
+    "description": "Örnek kıyaslama: ozDNA gateway vs doğrudan LLM sağlayıcı — gecikme, token maliyeti, önbellek, yönlendirme ve gözlemlenebilirlik. Üretim metrikleri değildir.",
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Kıyaslamalar",
+        "path": "/tr/benchmarks/"
+      }
+    ],
+    "replacements": [
+      [
+        "Hypothetical B2B SaaS running <span class=\"inline-code\">POST /v1/detect</span> in <strong style=\"color:var(--txt)\">academic</strong> mode — ~50,000 requests/month, mixed EN/TR text, single-region deployment. Used only to structure the comparison below.",
+        "<strong style=\"color:var(--txt)\">academic</strong> modda <span class=\"inline-code\">POST /v1/detect</span> çalıştıran varsayımsal B2B SaaS — ayda ~50.000 istek, karışık EN/TR metin, tek bölge dağıtımı. Yalnızca aşağıdaki karşılaştırmayı yapılandırmak için kullanılır."
+      ],
+      [
+        "<strong>Illustrative only</strong> — Numbers on this page are hypothetical examples for education and planning. They are <em>not</em> measured production benchmarks. Public, reproducible benchmarks are planned for Q3 2026.",
+        "<strong>Yalnızca örnek</strong> — Bu sayfadaki sayılar eğitim ve planlama için varsayımsal örneklerdir. <em>Ölçülmüş üretim kıyaslamaları değildir</em>. Kamuya açık, tekrarlanabilir kıyaslamalar 2026 Q3 için planlanmaktadır."
+      ],
+      [
+        "How a unified gateway compares to wiring OpenAI (or another provider) directly in application code — on latency, cost control, and operational depth.",
+        "Birleşik bir gateway'in uygulama kodunda OpenAI (veya başka bir sağlayıcı) doğrudan bağlanmasıyla gecikme, maliyet kontrolü ve operasyonel derinlik açısından karşılaştırması."
+      ],
+      [
+        "<span class=\"bench-illus-tag\">Illustrative*</span> = example numbers for the scenario above, not ozDNA production telemetry.",
+        "<span class=\"bench-illus-tag\">Örnek*</span> = yukarıdaki senaryo için örnek sayılar, ozDNA üretim telemetrisi değil."
+      ],
+      [
+        "Prompt-hash / response cache at gateway — requires identical inputs. Direct integration: build yourself.",
+        "Gateway'de prompt-hash / yanıt önbelleği — özdeş girdiler gerekir. Doğrudan entegrasyon: kendiniz oluşturun."
+      ],
+      [
+        "<strong>Direct provider:</strong> App → OpenAI API (single model, custom retry logic, logs to stdout)",
+        "<strong>Doğrudan sağlayıcı:</strong> Uygulama → OpenAI API (tek model, özel yeniden deneme mantığı, stdout günlükleri)"
+      ],
+      [
+        "Example: blended cost if router sends 40% of traffic to a cheaper capable model. Not a guarantee.",
+        "Örnek: router trafiğin %40'ını daha ucuz yetkin modele gönderirse harmanlanmış maliyet. Garanti değildir."
+      ],
+      [
+        "Request IDs, audit events, structured logs — vs stitching provider dashboards and app logs.",
+        "İstek ID'leri, denetim olayları, yapılandırılmış günlükler — sağlayıcı panoları ve uygulama günlüklerini birleştirmeye karşı."
+      ],
+      [
+        "<strong>ozDNA:</strong> App → ozDNA Gateway → Model Router → Prompt Registry → provider",
+        "<strong>ozDNA:</strong> Uygulama → ozDNA Gateway → Model Router → Prompt Registry → sağlayıcı"
+      ],
+      [
+        "Example: fallback chain on 429/5xx. Direct: retry loops in app code per provider SDK.",
+        "Örnek: 429/5xx üzerinde yedekleme zinciri. Doğrudan: sağlayıcı SDK'sına göre uygulama kodunda yeniden deneme döngüleri."
+      ],
+      [
+        "Attribute spend to workflow, account, and model — not only provider monthly bill.",
+        "Harcamayı iş akışı, hesap ve modele atayın — yalnızca sağlayıcı aylık faturasına değil."
+      ],
+      [
+        "Example: small gateway hop vs direct call. Your p99 depends on model and region.",
+        "Örnek: küçük gateway atlaması vs doğrudan çağrı. p99'unuz modele ve bölgeye bağlıdır."
+      ],
+      [
+        "Route by workflow, cost ceiling, or latency budget without redeploying app code.",
+        "Uygulama kodunu yeniden dağıtmadan iş akışı, maliyet tavanı veya gecikme bütçesine göre yönlendirme."
+      ],
+      [
+        "Versioned prompts with rollback and environment scopes in Prompt Registry.",
+        "Prompt Registry'de geri alma ve ortam kapsamlarıyla sürümlü prompt'lar."
+      ],
+      [
+        "Token cost <span class=\"bench-illus-tag\">Illustrative*</span>",
+        "Token maliyeti <span class=\"bench-illus-tag\">Örnek*</span>"
+      ],
+      [
+        "Cache hit <span class=\"bench-illus-tag\">Illustrative*</span>",
+        "Önbellek isabeti <span class=\"bench-illus-tag\">Örnek*</span>"
+      ],
+      [
+        "Latency <span class=\"bench-illus-tag\">Illustrative*</span>",
+        "Gecikme <span class=\"bench-illus-tag\">Örnek*</span>"
+      ],
+      [
+        "Retries <span class=\"bench-illus-tag\">Illustrative*</span>",
+        "Yeniden denemeler <span class=\"bench-illus-tag\">Örnek*</span>"
+      ],
+      [
+        "ozDNA vs<br><span class=\"accent\">direct provider</span>",
+        "ozDNA vs<br><span class=\"accent\">doğrudan sağlayıcı</span>"
+      ],
+      [
+        "Methodology &amp; honesty",
+        "Metodoloji ve şeffaflık"
+      ],
+      [
+        "Run your own comparison",
+        "Kendi karşılaştırmanızı yapın"
+      ],
+      [
+        "Where ozDNA adds value",
+        "ozDNA'nın değer kattığı alanlar"
+      ],
+      [
+        "Request sandbox access",
+        "Sandbox erişimi isteyin"
+      ],
+      [
+        "Illustrative scenario",
+        "Örnek senaryo"
+      ],
+      [
+        "Invoice + spreadsheet",
+        "Fatura + elektronik tablo"
+      ],
+      [
+        "Metric comparison",
+        "Metrik karşılaştırması"
+      ],
+      [
+        "Operational depth",
+        "Operasyonel derinlik"
+      ],
+      [
+        "Latency trade-off",
+        "Gecikme ödünleşimi"
+      ],
+      [
+        "Direct provider",
+        "Doğrudan sağlayıcı"
+      ],
+      [
+        "Git / env vars",
+        "Git / ortam değişkenleri"
+      ],
+      [
+        "Policy-based",
+        "Politika tabanlı"
+      ],
+      [
+        "Per-workflow",
+        "İş akışı bazında"
+      ],
+      [
+        "Single model",
+        "Tek model"
+      ],
+      [
+        "Integrated",
+        "Entegre"
+      ],
+      [
+        "Automatic",
+        "Otomatik"
+      ],
+      [
+        "Registry",
+        "Kayıt defteri"
+      ],
+      [
+        "Metric",
+        "Metrik"
+      ],
+      [
+        "Manual",
+        "Manuel"
+      ],
+      [
+        "Notes",
+        "Notlar"
+      ]
+    ]
+  },
+  "sdk/index.html": {
+    "title": "SDK'lar — Python, Node.js, Go, Java ve REST | ozDNA",
+    "description": "Resmi ozDNA istemci kütüphaneleri ve Python, Node.js, Go ve Java için REST hızlı başlangıçları. Bearer kimlik doğrulama, detect iş akışı ve sandbox anahtarları.",
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "SDK",
+        "path": "/tr/sdk/"
+      }
+    ],
+    "replacements": [
+      [
+        "Client libraries for the ozDNA gateway — same <span class=\"inline-code\">POST /v1/detect</span> contract documented in the <a href=\"/docs/\">API reference</a>. Sandbox keys use <span class=\"inline-code\">api.sandbox.ozdna.com</span>.",
+        "ozDNA gateway için istemci kütüphaneleri — <a href=\"/docs/\">API referansında</a> belgelenen aynı <span class=\"inline-code\">POST /v1/detect</span> sözleşmesi. Sandbox anahtarları <span class=\"inline-code\">api.sandbox.ozdna.com</span> kullanır."
+      ],
+      [
+        "Maven Central — <strong style=\"color:var(--txt)\">Q4 2026</strong>. Contact <a href=\"mailto:hello@ozdna.com\">hello@ozdna.com</a> for enterprise early access.",
+        "Maven Central — <strong style=\"color:var(--txt)\">2026 Q4</strong>. Kurumsal erken erişim için <a href=\"mailto:hello@ozdna.com\">hello@ozdna.com</a> adresine yazın."
+      ],
+      [
+        "Package registry publish — <strong style=\"color:var(--txt)\">Q3 2026</strong>. Until then use the <a href=\"/docs/#python\">requests example</a> in API docs.",
+        "Paket kayıt defteri yayını — <strong style=\"color:var(--txt)\">2026 Q3</strong>. O zamana kadar API dokümantasyonundaki <a href=\"/docs/#python\">requests örneğini</a> kullanın."
+      ],
+      [
+        "<strong>Private beta</strong> — SDK packages ship alongside API GA. Use REST examples below until your language SDK is published to the registry.",
+        "<strong>Özel beta</strong> — SDK paketleri API GA ile birlikte yayınlanır. Dil SDK'nız kayıt defterine çıkana kadar aşağıdaki REST örneklerini kullanın."
+      ],
+      [
+        "Full reference: <a href=\"/docs/#detect\">POST /v1/detect</a> · <a href=\"/docs/#error-codes\">Error codes</a> · <a href=\"/docs/#openapi\">OpenAPI</a>",
+        "Tam referans: <a href=\"/docs/#detect\">POST /v1/detect</a> · <a href=\"/docs/#error-codes\">Hata kodları</a> · <a href=\"/docs/#openapi\">OpenAPI</a>"
+      ],
+      [
+        "Module tag <span class=\"inline-code\">v0.1.0</span> — early access on request. Full reference: <a href=\"/docs/#detect\">POST /v1/detect</a>.",
+        "Modül etiketi <span class=\"inline-code\">v0.1.0</span> — talep üzerine erken erişim. Tam referans: <a href=\"/docs/#detect\">POST /v1/detect</a>."
+      ],
+      [
+        "npm publish — <strong style=\"color:var(--txt)\">Q3 2026</strong>. Interim: <a href=\"/docs/#nodejs\">fetch example</a>.",
+        "npm yayını — <strong style=\"color:var(--txt)\">2026 Q3</strong>. Geçici: <a href=\"/docs/#nodejs\">fetch örneği</a>."
+      ],
+      [
+        "Sandbox credentials ship with early access. Production keys require invite approval.",
+        "Sandbox kimlik bilgileri erken erişimle birlikte gelir. Üretim anahtarları davet onayı gerektirir."
+      ],
+      [
+        "Language-agnostic HTTP — use from any stack, curl, or low-code integrations.",
+        "Dilden bağımsız HTTP — herhangi bir yığın, curl veya low-code entegrasyonlardan kullanın."
+      ],
+      [
+        "TypeScript-first SDK for server-side and edge runtimes. Node 18+ or Bun.",
+        "Sunucu tarafı ve edge runtime'lar için TypeScript odaklı SDK. Node 18+ veya Bun."
+      ],
+      [
+        "JVM client for Spring services and enterprise integrations. Java 17+.",
+        "Spring servisleri ve kurumsal entegrasyonlar için JVM istemcisi. Java 17+."
+      ],
+      [
+        "Idiomatic client with context cancellation and structured errors.",
+        "Bağlam iptali ve yapılandırılmış hatalarla idiomatik istemci."
+      ],
+      [
+        "Install. Authenticate.<br><span class=\"accent\">Detect.</span>",
+        "Kur. Kimlik doğrula.<br><span class=\"accent\">Detect.</span>"
+      ],
+      [
+        "Sync client with typed responses. Requires Python 3.9+.",
+        "Tipli yanıtlarla senkron istemci. Python 3.9+ gerektirir."
+      ],
+      [
+        "aria-label=\"SDK language\"",
+        "aria-label=\"SDK dili\""
+      ],
+      [
+        "Need an API key?",
+        "API anahtarı mı gerekiyor?"
+      ],
+      [
+        "Developer SDKs",
+        "Geliştirici SDK'ları"
+      ],
+      [
+        "Error handling",
+        "Hata yönetimi"
+      ],
+      [
+        "OpenAPI spec →",
+        "OpenAPI spesifikasyonu →"
+      ],
+      [
+        "Response (200)",
+        "Yanıt (200)"
+      ],
+      [
+        "Quick start",
+        "Hızlı başlangıç"
+      ],
+      [
+        "Base URLs",
+        "Temel URL'ler"
+      ],
+      [
+        "REST API",
+        "REST API"
+      ],
+      [
+        "API docs",
+        "API dokümantasyonu"
+      ],
+      [
+        "Install",
+        "Kurulum"
+      ],
+      [
+        "Node.js",
+        "Node.js"
+      ],
+      [
+        "Gradle",
+        "Gradle"
+      ],
+      [
+        "Python",
+        "Python"
+      ],
+      [
+        "Async",
+        "Asenkron"
+      ],
+      [
+        "Maven",
+        "Maven"
+      ],
+      [
+        "cURL",
+        "cURL"
+      ]
+    ]
+  },
+  "architecture/index.html": {
+    "title": "Platform Mimarisi — ozDNA Dikey AI Yığını",
+    "description": "Etkileşimli mimari diyagram: API gateway, model router, prompt kayıt defteri, RAG katmanı, maliyet motoru ve dikey AI için sağlayıcı çıkarımı.",
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Mimari",
+        "path": "/tr/architecture/"
+      }
+    ],
+    "replacements": [
+      [
+        "Click or focus any layer to inspect how requests flow from your application through ozDNA to LLM providers — and back through analytics, billing, and observability.",
+        "İsteklerin uygulamanızdan ozDNA üzerinden LLM sağlayıcılarına — ve analytics, billing ve observability üzerinden geri nasıl aktığını incelemek için herhangi bir katmana tıklayın veya odaklanın."
+      ],
+      [
+        "Click a layer to inspect · <a href=\"/docs/\">API docs</a> · <a href=\"/knowledge/platform-architecture.md\">Platform modules</a>",
+        "Katmanı incelemek için tıklayın · <a href=\"/docs/\">API dokümantasyonu</a> · <a href=\"/knowledge/platform-architecture.md\">Platform modülleri</a>"
+      ],
+      [
+        "One stack.<br>Every layer <span class=\"accent\">instrumented</span>.",
+        "Tek yığın.<br>Her katman <span class=\"accent\">ölçümlenmiş</span>."
+      ],
+      [
+        "aria-label=\"ozDNA platform architecture diagram\"",
+        "aria-label=\"ozDNA platform mimarisi diyagramı\""
+      ],
+      [
+        "Every request passes through the gateway first.",
+        "Her istek önce gateway'den geçer."
+      ],
+      [
+        "Auth · Rate limits · Audit · API entry",
+        "Kimlik doğrulama · Hız limitleri · Denetim · API girişi"
+      ],
+      [
+        "Cost-aware · Fallback · A/B routing",
+        "Maliyet odaklı · Yedekleme · A/B yönlendirme"
+      ],
+      [
+        "Ingest · Hybrid retrieval · Evals",
+        "Ingest · Hibrit retrieval · Değerlendirmeler"
+      ],
+      [
+        "Usage · Tokens · Latency · Cost",
+        "Kullanım · Token · Gecikme · Maliyet"
+      ],
+      [
+        "Ten modules to production-ready",
+        "Üretime hazır on modül"
+      ],
+      [
+        "Versioned · Scoped · Rollback",
+        "Sürümlü · Kapsamlı · Geri alma"
+      ],
+      [
+        "Logs · Traces · Audit export",
+        "Günlükler · İzler · Denetim dışa aktarımı"
+      ],
+      [
+        "App · Agent · Server · Batch",
+        "Uygulama · Ajan · Sunucu · Toplu iş"
+      ],
+      [
+        "aria-label=\"Developer layer\"",
+        "aria-label=\"Geliştirici katmanı\""
+      ],
+      [
+        "aria-label=\"Prompt Registry\"",
+        "aria-label=\"Prompt Kayıt Defteri\""
+      ],
+      [
+        "aria-label=\"LLM Providers\"",
+        "aria-label=\"LLM Sağlayıcıları\""
+      ],
+      [
+        "aria-label=\"Observability\"",
+        "aria-label=\"Gözlemlenebilirlik\""
+      ],
+      [
+        "aria-label=\"ozDNA Gateway\"",
+        "aria-label=\"ozDNA Gateway\""
+      ],
+      [
+        "Quotas · Metering · Plans",
+        "Kotalar · Ölçüm · Planlar"
+      ],
+      [
+        "aria-label=\"Model Router\"",
+        "aria-label=\"Model Router\""
+      ],
+      [
+        "aria-label=\"RAG Layer\"",
+        "aria-label=\"RAG Katmanı\""
+      ],
+      [
+        "aria-label=\"Analytics\"",
+        "aria-label=\"Analytics\""
+      ],
+      [
+        "Platform Architecture",
+        "Platform Mimarisi"
+      ],
+      [
+        "aria-label=\"Billing\"",
+        "aria-label=\"Billing\""
+      ],
+      [
+        "Auth &amp; limits",
+        "Kimlik doğrulama ve limitler"
+      ],
+      [
+        "Prompt Registry",
+        "Prompt Kayıt Defteri"
+      ],
+      [
+        "Model selection",
+        "Model seçimi"
+      ],
+      [
+        "Usage economics",
+        "Kullanım ekonomisi"
+      ],
+      [
+        "Vertical modes",
+        "Dikey modlar"
+      ],
+      [
+        "Observability",
+        "Gözlemlenebilirlik"
+      ],
+      [
+        "Model Router",
+        "Model Router"
+      ],
+      [
+        "Entry point",
+        "Giriş noktası"
+      ],
+      [
+        "Audit logs",
+        "Denetim günlükleri"
+      ],
+      [
+        "Developers",
+        "Geliştirici"
+      ],
+      [
+        "Module map",
+        "Modül haritası"
+      ],
+      [
+        "Providers",
+        "Sağlayıcılar"
+      ],
+      [
+        "Telemetry",
+        "Telemetri"
+      ],
+      [
+        "Developer",
+        "Geliştirici"
+      ],
+      [
+        "Analytics",
+        "Analytics"
+      ],
+      [
+        "Registry",
+        "Kayıt defteri"
+      ],
+      [
+        "Billing",
+        "Billing"
+      ],
+      [
+        "Gateway",
+        "Gateway"
+      ],
+      [
+        "Prompts",
+        "Prompt'lar"
+      ],
+      [
+        "Router",
+        "Router"
+      ]
+    ]
+  },
+  "products/comply/index.html": {
+    "title": "ComplyDNA — ozDNA Üzerinde Türk Uyum LLM'i",
+    "description": "ComplyDNA, MASAK uyum sorularını madde düzeyinde [TEBLİĞ / Madde] atıflarıyla yanıtlar. 5549, 6415, KVKK, ROM, Travel Rule ve kripto düzenlemeleri. Erken erişim.",
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "ComplyDNA",
+        "path": "/tr/products/comply/"
+      }
+    ],
+    "replacements": [
+      [
+        "Unlike general-purpose LLMs, ComplyDNA does not paraphrase from memory. Each sentence carries an inline [TEBLİĞ / Madde] reference. Responses end with a full source list and effective-date metadata — so your team can verify every claim at sentence level before it reaches a regulator or board.",
+        "Genel amaçlı LLM'lerin aksine ComplyDNA hafızadan parafraz etmez. Her cümle satır içi [TEBLİĞ / Madde] referansı taşır. Yanıtların sonuna kaynak listesi ve yürürlük bilgisi eklenir — böylece uyum ekibiniz her iddiayı düzenleyici veya yönetim kuruluna ulaşmadan cümle düzeyinde doğrulayabilir."
+      ],
+      [
+        "ComplyDNA is a compliance LLM under the ozDNA stack — trained on Turkish regulation, not the open web. It answers the questions your compliance team asks (\"When must a suspicious transaction report be filed?\") with article-level citations, not guesses.",
+        "ComplyDNA, ozDNA çatısı altında Türk mevzuatına özel eğitilmiş bir uyum LLM'idir. Uyum uzmanının soracağı türden soruları (\"Şüpheli işlem bildirimi hangi sürede yapılmalı?\" gibi) tahmin etmek yerine madde düzeyinde kaynak göstererek yanıtlar."
+      ],
+      [
+        "ComplyDNA runs on the <a href=\"/\" style=\"color:var(--tq)\">ozDNA platform</a> — the same stack that powers <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--tq)\">TezMakale</a> in production.",
+        "ComplyDNA, <a href=\"/tr/\" style=\"color:var(--tq)\">ozDNA platformu</a> üzerinde çalışır — üretimde <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--tq)\">TezMakale</a>'yi besleyen aynı yığın."
+      ],
+      [
+        "Ask in Turkish or English. ComplyDNA retrieves the relevant articles, applies LoRA-tuned citation format, and returns an answer your compliance lead can audit line by line.",
+        "Türkçe veya İngilizce sorun. ComplyDNA ilgili maddeleri getirir, LoRA ile öğrenilmiş referans biçimini uygular ve uyum liderinizin satır satır denetleyebileceği bir yanıt döner."
+      ],
+      [
+        "We are in early access. Request a demo or join the waitlist — compliance officers and MLROs at MASAK-obligated institutions welcome.",
+        "Erken erişim aşamasındayız. Demo talep edin veya bekleme listesine katılın — MASAK yükümlüsü kurumlardaki uyum görevlileri ve MLRO'lar davetlidir."
+      ],
+      [
+        "AML/CFT obligations, suspicious transaction reporting, and customer due diligence — answered with cited MASAK and 5549 sources.",
+        "AML/CFT yükümlülükleri, şüpheli işlem bildirimi ve müşteri due diligence — kaynak gösterilen MASAK ve 5549 referanslarıyla yanıtlanır."
+      ],
+      [
+        "Kripto varlık düzenlemeleri, ROM Yönetmeliği, and MASAK genelgeler — native Turkish regulatory language, no translation drift.",
+        "Kripto varlık düzenlemeleri, ROM Yönetmeliği ve MASAK genelgeleri — doğrudan Türk mevzuat dili, çeviri sapması yok."
+      ],
+      [
+        "PSP licensing, transaction monitoring rules, and Travel Rule obligations — verified at article level before policy updates.",
+        "PSP lisanslama, işlem izleme kuralları ve Travel Rule yükümlülükleri — politika güncellemesinden önce madde düzeyinde doğrulanır."
+      ],
+      [
+        "Early access for compliance teams at banks, payment institutions, and crypto asset service providers.",
+        "Bankalar, ödeme kuruluşları ve kripto varlık hizmet sağlayıcılarındaki uyum ekipleri için erken erişim."
+      ],
+      [
+        "Training and validation sets separated at madde level — we measure generalization, not memorization.",
+        "Eğitim ve doğrulama setleri madde düzeyinde ayrılır — ezber değil genelleme ölçülür."
+      ],
+      [
+        "Compliance teams need <strong>precise answers</strong> — vague chat creates exam and audit risk.",
+        "Uyum ekipleri <strong>kesin yanıtlara</strong> ihtiyaç duyar — belirsiz sohbet denetim ve sınav riski yaratır."
+      ],
+      [
+        "Works in <strong>native Turkish regulatory language</strong> — no translation layer in between.",
+        "Doğrudan <strong>Türk mevzuat diliyle</strong> çalışır — araya çeviri katmanı girmez."
+      ],
+      [
+        "Questions written by compliance officers — measured on every release, not just before launch.",
+        "Uyum uzmanlarının yazdığı sorulardan oluşan set — yalnızca lansmanda değil, her sürümde ölçülür."
+      ],
+      [
+        "Generic LLMs guess. ComplyDNA cites <strong>[TEBLİĞ / Madde]</strong> on every sentence.",
+        "Genel amaçlı LLM'ler tahmin eder. ComplyDNA her cümlede <strong>[TEBLİĞ / Madde]</strong> referansı verir."
+      ],
+      [
+        "Three quality controls separate ComplyDNA from a RAG wrapper on a general model.",
+        "Üç güven unsuru ComplyDNA'yı genel bir model üzerindeki RAG sarmalayıcısından ayırır."
+      ],
+      [
+        "Deploy inside your perimeter. Customer data never enters model training.",
+        "Kendi çevrenizde dağıtın. Müşteri verisi eğitime karışmaz."
+      ],
+      [
+        "Retrieved articles + tuned model produce cited answers with source list",
+        "Geri getirilen maddeler + ince ayarlı model, kaynak künyeli yanıtı üretir"
+      ],
+      [
+        "Legislation chunked at article level with effective-date metadata",
+        "Mevzuat madde düzeyinde parçalanıp yürürlük metadata'sıyla etiketlenir"
+      ],
+      [
+        "LoRA fine-tuning teaches citation format and regulatory language",
+        "Model, referans biçimini ve mevzuat dilini LoRA ince ayarıyla öğrenir"
+      ],
+      [
+        "Semantic vector index — Turkish and English queries supported",
+        "Anlamsal vektör indekse yazılır — Türkçe ve İngilizce sorgu destekli"
+      ],
+      [
+        "compliance answers,<br>grounded in <em>Turkish law</em>",
+        "mevzuata dayalı<br><em>uyum yanıtları</em>"
+      ],
+      [
+        "5549 · 6415 · MASAK · KVKK · ROM · Travel Rule",
+        "5549 · 6415 · MASAK · KVKK · ROM · Travel Rule"
+      ],
+      [
+        "aria-label=\"ComplyDNA sample Q&amp;A\"",
+        "aria-label=\"ComplyDNA örnek soru-yanıt\""
+      ],
+      [
+        "Every claim traceable to a madde.",
+        "Her iddia bir maddeye izlenebilir."
+      ],
+      [
+        "Built for exam rooms, not demos.",
+        "Denetim odaları için — demo değil."
+      ],
+      [
+        "Compliance, in the model's DNA.",
+        "Uyum, modelin DNA'sında."
+      ],
+      [
+        "What a cited answer looks like.",
+        "Kaynak gösterimli yanıt nasıl görünür."
+      ],
+      [
+        "MASAK tebliğ &amp; genelgeler",
+        "MASAK tebliğ ve genelgeleri"
+      ],
+      [
+        "MASAK-obligated institutions.",
+        "MASAK yükümlüsü kurumlar."
+      ],
+      [
+        "Kripto varlık düzenlemeleri",
+        "Kripto varlık düzenlemeleri"
+      ],
+      [
+        "Compliance lead · legal",
+        "Uyum lideri · hukuk"
+      ],
+      [
+        "Crypto asset providers",
+        "Kripto varlık kuruluşları"
+      ],
+      [
+        "ComplyDNA early access",
+        "ComplyDNA erken erişim"
+      ],
+      [
+        "Payment &amp; e-money",
+        "Ödeme ve e-para"
+      ],
+      [
+        "Skip to main content",
+        "Ana içeriğe geç"
+      ],
+      [
+        "Early access · ozDNA",
+        "Erken erişim · ozDNA"
+      ],
+      [
+        "How ComplyDNA works",
+        "ComplyDNA nasıl çalışır"
+      ],
+      [
+        "6415 — TF financing",
+        "6415 — Terörizmin finansmanı"
+      ],
+      [
+        "Article-level split",
+        "Madde düzeyinde ayrım"
+      ],
+      [
+        "aria-label=\"Thesis\"",
+        "aria-label=\"Tez\""
+      ],
+      [
+        "See how it works →",
+        "Nasıl çalıştığını gör →"
+      ],
+      [
+        "Head of compliance",
+        "Uyum müdürü"
+      ],
+      [
+        "Compliance · MLRO",
+        "Uyum · MLRO"
+      ],
+      [
+        "ROM Yönetmeliği",
+        "ROM Yönetmeliği"
+      ],
+      [
+        "Sample response",
+        "Örnek yanıt"
+      ],
+      [
+        "5549 — AML/CFT",
+        "5549 — Suç gelirlerinin aklanması"
+      ],
+      [
+        "Example output",
+        "Örnek çıktı"
+      ],
+      [
+        "On-prem option",
+        "Kurum içi dağıtım"
+      ],
+      [
+        "Trust pillars",
+        "Güven unsurları"
+      ],
+      [
+        "Join waitlist",
+        "Bekleme listesine katıl"
+      ],
+      [
+        "Request demo",
+        "Demo talep et"
+      ],
+      [
+        "Who it's for",
+        "Kimler için"
+      ],
+      [
+        "Early Access",
+        "Erken Erişim"
+      ],
+      [
+        "6698 — KVKK",
+        "6698 — KVKK"
+      ],
+      [
+        "Travel Rule",
+        "Travel Rule"
+      ],
+      [
+        "Golden set",
+        "Golden set"
+      ],
+      [
+        "ozDNA Home",
+        "ozDNA Ana Sayfa"
+      ],
+      [
+        "ComplyDNA",
+        "ComplyDNA"
+      ],
+      [
+        "Trust",
+        "Güven"
+      ],
+      [
+        "Banks",
+        "Bankalar"
+      ],
+      [
+        "Menu",
+        "Menü"
+      ]
+    ]
+  },
+  "trust/index.html": {
+    "title": "Güven Merkezi — Güvenlik ve Uyumluluk | ozDNA",
+    "description": "ozDNA Güven Merkezi — güvenlik programı, gizlilik, uyumluluk yol haritası, olay müdahalesi ve kurumsal yönetişim şeffaflığı.",
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Güven Merkezi",
+        "path": "/tr/trust/"
+      }
+    ],
+    "replacements": [
+      [
+        "ozDNA is vertical AI infrastructure — gateway, model router, RAG layer, and cost engine — operated by Findbelow Ventures. Security is built into the platform architecture: authenticated API access, rate limits, audit trails, and least-privilege defaults. Technical details: <a href=\"/security/\">Security page</a>.",
+        "ozDNA, Findbelow Ventures tarafından işletilen gateway, model router, RAG katmanı ve maliyet motorundan oluşan dikey AI altyapısıdır. Güvenlik platform mimarisine gömülüdür: kimlik doğrulamalı API erişimi, hız limitleri, denetim izleri ve en az ayrıcalık varsayılanları. Teknik ayrıntılar: <a href=\"/security/\">Güvenlik sayfası</a>."
+      ],
+      [
+        "All customer-facing endpoints require HTTPS. API keys are stored as salted hashes — raw keys are shown once at creation and never persisted in plaintext. See <a href=\"/security/#encryption-at-rest\">Encryption at Rest</a> and <a href=\"/security/#encryption-in-transit\">Encryption in Transit</a>.",
+        "Tüm müşteriye yönelik uç noktalar HTTPS gerektirir. API anahtarları tuzlanmış hash olarak saklanır — ham anahtarlar yalnızca oluşturulduğunda bir kez gösterilir ve düz metin olarak asla saklanmaz. Bkz. <a href=\"/security/#encryption-at-rest\">Dinlenme Halinde Şifreleme</a> ve <a href=\"/security/#encryption-in-transit\">Aktarım Halinde Şifreleme</a>."
+      ],
+      [
+        "ozDNA processes text submitted to the detect API and metadata required for billing, routing, and audit. We minimize retention and design for vertical modes (academic, legal, financial) with different sensitivity profiles.",
+        "ozDNA, detect API'sine gönderilen metni ve faturalama, yönlendirme ve denetim için gerekli metadata'yı işler. Saklamayı minimize eder ve farklı hassasiyet profilleriyle dikey modlar (akademik, hukuk, finans) için tasarlarız."
+      ],
+      [
+        "ozDNA is designed for production vertical AI workloads where downtime directly impacts customer revenue. Business continuity planning covers provider failover, model routing fallbacks, and cost-engine degradation modes.",
+        "ozDNA, kesinti süresinin müşteri gelirini doğrudan etkilediği üretim dikey AI iş yükleri için tasarlanmıştır. İş sürekliliği planlaması sağlayıcı failover, model yönlendirme yedeklemeleri ve maliyet motoru bozulma modlarını kapsar."
+      ],
+      [
+        "Report vulnerabilities: <a href=\"mailto:security@ozdna.com\">security@ozdna.com</a> · <a href=\"/security/#responsible-disclosure\">Responsible disclosure policy</a> · <a href=\"/.well-known/security.txt\">security.txt</a>",
+        "Güvenlik açıklarını bildirin: <a href=\"mailto:security@ozdna.com\">security@ozdna.com</a> · <a href=\"/security/#responsible-disclosure\">Sorumlu açıklama politikası</a> · <a href=\"/.well-known/security.txt\">security.txt</a>"
+      ],
+      [
+        "ozDNA is operated by Findbelow Ventures. References to SOC 2, ISO 27001, GDPR, KVKK, or AI governance frameworks describe program status — not completed certifications unless explicitly stated otherwise.",
+        "ozDNA Findbelow Ventures tarafından işletilir. SOC 2, ISO 27001, GDPR, KVKK veya AI yönetişim çerçevelerine yapılan atıflar program durumunu tanımlar — aksi açıkça belirtilmedikçe tamamlanmış sertifikasyonları değil."
+      ],
+      [
+        "Every authenticated API request passes through the ozDNA gateway with request ID tracing. The observability module records audit events for authentication, RAG operations, and compliance workflows.",
+        "Her kimlik doğrulamalı API isteği istek ID izlemesiyle ozDNA gateway'den geçer. Gözlemlenebilirlik modülü kimlik doğrulama, RAG operasyonları ve uyumluluk iş akışları için denetim olaylarını kaydeder."
+      ],
+      [
+        "Production roadmap includes automated backups, multi-region failover for the API gateway, and defined recovery time objectives (RTO) and recovery point objectives (RPO) for enterprise customers.",
+        "Üretim yol haritası otomatik yedeklemeler, API gateway için çok bölgeli failover ve kurumsal müşteriler için tanımlı kurtarma süresi (RTO) ve kurtarma noktası (RPO) hedeflerini içerir."
+      ],
+      [
+        "Transparency for security, legal, and procurement teams evaluating ozDNA. We do not claim certifications we have not earned — status below reflects our current roadmap and in-flight work.",
+        "ozDNA'yı değerlendiren güvenlik, hukuk ve tedarik ekipleri için şeffaflık. Kazanmadığımız sertifikaları iddia etmiyoruz — aşağıdaki durum mevcut yol haritamızı ve devam eden çalışmaları yansıtır."
+      ],
+      [
+        "Marketing and documentation are served via Netlify CDN with HTTPS enforced. Platform API runs on containerized infrastructure with environment-separated sandbox and production endpoints.",
+        "Pazarlama ve dokümantasyon Netlify CDN üzerinden HTTPS zorunlu sunulur. Platform API, ortam ayrımlı sandbox ve üretim uç noktalarıyla konteynerize altyapıda çalışır."
+      ],
+      [
+        "<strong>Status:</strong> Core gateway security active in platform. Formal third-party penetration test — <span class=\"trust-inline-status\">Planned</span>.",
+        "<strong>Durum:</strong> Temel gateway güvenliği platformda aktif. Resmi üçüncü taraf sızma testi — <span class=\"trust-inline-status\">Planlandı</span>."
+      ],
+      [
+        "Access to ozDNA platform resources is scoped by organization, project, and API key. Enterprise roadmap includes SSO, RBAC, and environment isolation.",
+        "ozDNA platform kaynaklarına erişim organizasyon, proje ve API anahtarına göre kapsamlanır. Kurumsal yol haritası SSO, RBAC ve ortam izolasyonunu içerir."
+      ],
+      [
+        "We publish our compliance program status honestly. Timelines shift based on customer demand and audit readiness — contact us for current estimates.",
+        "Uyumluluk programı durumumuzu dürüstçe yayınlıyoruz. Zaman çizelgeleri müşteri talebi ve denetim hazırlığına göre değişir — güncel tahminler için bizimle iletişime geçin."
+      ],
+      [
+        "<strong>Privacy policy:</strong> <a href=\"/privacy/\">Privacy Policy</a> · Questions: <a href=\"mailto:privacy@ozdna.com\">privacy@ozdna.com</a>",
+        "<strong>Gizlilik politikası:</strong> <a href=\"/privacy/\">Gizlilik Politikası</a> · Sorular: <a href=\"mailto:privacy@ozdna.com\">privacy@ozdna.com</a>"
+      ],
+      [
+        "Private beta with invite-only API keys (<span class=\"inline-code\">ozdna_sk_test_</span> / <span class=\"inline-code\">ozdna_sk_live_</span>)",
+        "Yalnızca davetle API anahtarlarıyla özel beta (<span class=\"inline-code\">ozdna_sk_test_</span> / <span class=\"inline-code\">ozdna_sk_live_</span>)"
+      ],
+      [
+        "Production discipline validated on live workloads at <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a>",
+        "Canlı iş yüklerinde üretim disiplini <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a>'de doğrulandı"
+      ],
+      [
+        "Findbelow Ventures maintains an incident response process for security events affecting ozDNA infrastructure and customer data.",
+        "Findbelow Ventures, ozDNA altyapısını ve müşteri verilerini etkileyen güvenlik olayları için olay müdahale süreci yürütür."
+      ],
+      [
+        "<strong>Formal IR runbook &amp; SLA:</strong> <span class=\"trust-inline-status planned\">Planned</span> for Enterprise tier.",
+        "<strong>Resmi IR runbook ve SLA:</strong> Enterprise katmanı için <span class=\"trust-inline-status planned\">Planlandı</span>."
+      ],
+      [
+        "Certification status — updated as programs progress. No badge represents a completed audit unless explicitly marked.",
+        "Sertifikasyon durumu — programlar ilerledikçe güncellenir. Açıkça işaretlenmedikçe hiçbir rozet tamamlanmış denetimi temsil etmez."
+      ],
+      [
+        "<li><strong>At rest:</strong> Provider-native encryption for database and object storage (production migration)</li>",
+        "<li><strong>Dinlenmede:</strong> Veritabanı ve nesne depolama için sağlayıcı yerel şifreleme (üretim geçişi)</li>"
+      ],
+      [
+        "<li><strong>Secrets:</strong> Environment-scoped configuration — no secrets in client-side code or public repos</li>",
+        "<li><strong>Gizliler:</strong> Ortam kapsamlı yapılandırma — istemci tarafı kodda veya public repo'larda gizli yok</li>"
+      ],
+      [
+        "Procurement, legal, and security teams — request our security questionnaire or schedule a trust review call.",
+        "Tedarik, hukuk ve güvenlik ekipleri — güvenlik anketimizi talep edin veya güven inceleme görüşmesi planlayın."
+      ],
+      [
+        "Model routing policies, prompt registry audit trails, and human-in-the-loop controls for RegTech workflows.",
+        "RegTech iş akışları için model yönlendirme politikaları, prompt kayıt defteri denetim izleri ve insan-döngüsünde kontroller."
+      ],
+      [
+        "Targeted for enterprise gateway customers. Controls mapping in progress against ozDNA platform modules.",
+        "Kurumsal gateway müşterileri için hedefleniyor. ozDNA platform modüllerine karşı kontrol eşlemesi devam ediyor."
+      ],
+      [
+        "BCP documentation for enterprise procurement — <span class=\"trust-inline-status planned\">Planned</span>",
+        "Kurumsal tedarik için BCP dokümantasyonu — <span class=\"trust-inline-status planned\">Planlandı</span>"
+      ],
+      [
+        "Exportable audit logs for enterprise — <span class=\"trust-inline-status progress\">In Progress</span>",
+        "Kurumsal için dışa aktarılabilir denetim günlükleri — <span class=\"trust-inline-status progress\">Devam Ediyor</span>"
+      ],
+      [
+        "GDPR / KVKK data processing documentation · AI governance framework draft · Penetration test scoping",
+        "GDPR / KVKK veri işleme dokümantasyonu · AI yönetişim çerçevesi taslağı · Sızma testi kapsamı"
+      ],
+      [
+        "<li><strong>In transit:</strong> TLS for ozdna.com, API endpoints, and provider connections</li>",
+        "<li><strong>Aktarımda:</strong> ozdna.com, API uç noktaları ve sağlayıcı bağlantıları için TLS</li>"
+      ],
+      [
+        "Information security management system design aligned with Findbelow Ventures group policy.",
+        "Findbelow Ventures grup politikasıyla uyumlu bilgi güvenliği yönetim sistemi tasarımı."
+      ],
+      [
+        "Data processing agreements, subprocessors list, and retention policies under active review.",
+        "Veri işleme sözleşmeleri, alt işlemci listesi ve saklama politikaları aktif incelemede."
+      ],
+      [
+        "<span class=\"inline-code\">X-Request-Id</span> on all API responses for trace correlation",
+        "İz korelasyonu için tüm API yanıtlarında <span class=\"inline-code\">X-Request-Id</span>"
+      ],
+      [
+        "ISO 27001 alignment · ComplyDNA regulatory corpus certifications · VPC deployment option",
+        "ISO 27001 uyumu · ComplyDNA düzenleyici corpus sertifikasyonları · VPC dağıtım seçeneği"
+      ],
+      [
+        "Turkey data protection alignment — priority for ComplyDNA and TR production workloads.",
+        "Türkiye veri koruma uyumu — ComplyDNA ve TR üretim iş yükleri için öncelik."
+      ],
+      [
+        "SOC 2 Type II readiness assessment · Subprocessor registry · Enterprise DPA templates",
+        "SOC 2 Type II hazırlık değerlendirmesi · Alt işlemci kaydı · Kurumsal DPA şablonları"
+      ],
+      [
+        "Security &amp; compliance<br>for <span class=\"accent\">production AI</span>",
+        "Üretim AI için<br><span class=\"accent\">güvenlik ve uyumluluk</span>"
+      ],
+      [
+        "Segment-level detect API — no detection-evasion or humanization endpoints",
+        "Segment düzeyinde detect API — tespit kaçınma veya humanization uç noktası yok"
+      ],
+      [
+        "Retention policies per corpus and workflow — configurable for enterprise",
+        "Corpus ve iş akışı başına saklama politikaları — kurumsal için yapılandırılabilir"
+      ],
+      [
+        "Model router fallback chains — primary and secondary model per workflow",
+        "Model router yedekleme zincirleri — iş akışı başına birincil ve ikincil model"
+      ],
+      [
+        "Status page for platform availability — <a href=\"/status/\">/status</a>",
+        "Platform kullanılabilirliği için durum sayfası — <a href=\"/status/\">/status</a>"
+      ],
+      [
+        "Data minimization — only fields required for the requested workflow",
+        "Veri minimizasyonu — yalnızca istenen iş akışı için gerekli alanlar"
+      ],
+      [
+        "Prompt hash and model ID captured per inference for reproducibility",
+        "Tekrarlanabilirlik için çıkarım başına prompt hash ve model ID yakalanır"
+      ],
+      [
+        "Per-request authentication at the AI gateway before any inference",
+        "Herhangi bir çıkarımdan önce AI gateway'de istek başına kimlik doğrulama"
+      ],
+      [
+        "Subprocessor transparency — documented in DPA (draft in progress)",
+        "Alt işlemci şeffaflığı — DPA'da belgelenir (taslak devam ediyor)"
+      ],
+      [
+        "KVKK and GDPR alignment prioritized for ComplyDNA customers",
+        "ComplyDNA müşterileri için KVKK ve GDPR uyumu önceliklidir"
+      ],
+      [
+        "RAG ingest, retrieve, and eval events logged with org scope",
+        "RAG ingest, retrieve ve eval olayları org kapsamıyla günlüklenir"
+      ],
+      [
+        "Customer notification for confirmed data-impact incidents",
+        "Doğrulanmış veri etkili olaylar için müşteri bildirimi"
+      ],
+      [
+        "Provider outage handling via configurable routing rules",
+        "Yapılandırılabilir yönlendirme kurallarıyla sağlayıcı kesintisi yönetimi"
+      ],
+      [
+        "Triage within 24 business hours for critical reports",
+        "Kritik bildirimler için 24 iş saati içinde triyaj"
+      ],
+      [
+        "Post-incident review and remediation tracking",
+        "Olay sonrası inceleme ve düzeltme takibi"
+      ],
+      [
+        "aria-label=\"Trust Center sections\"",
+        "aria-label=\"Güven Merkezi bölümleri\""
+      ],
+      [
+        "Enterprise security review?",
+        "Kurumsal güvenlik incelemesi?"
+      ],
+      [
+        "Enterprise Trust Center",
+        "Kurumsal Güven Merkezi"
+      ],
+      [
+        "Business Continuity",
+        "İş Sürekliliği"
+      ],
+      [
+        "Provider / approach",
+        "Sağlayıcı / yaklaşım"
+      ],
+      [
+        "Compliance roadmap",
+        "Uyumluluk yol haritası"
+      ],
+      [
+        "Security details →",
+        "Güvenlik ayrıntıları →"
+      ],
+      [
+        "Disaster Recovery",
+        "Felaket Kurtarma"
+      ],
+      [
+        "Incident Response",
+        "Olay Müdahalesi"
+      ],
+      [
+        "Security Overview",
+        "Güvenlik Genel Bakış"
+      ],
+      [
+        "Data Protection",
+        "Veri Koruma"
+      ],
+      [
+        "Access Control",
+        "Erişim Kontrolü"
+      ],
+      [
+        "Infrastructure",
+        "Altyapı"
+      ],
+      [
+        "Audit Logging",
+        "Denetim Günlüğü"
+      ],
+      [
+        "AI Governance",
+        "AI Yönetişimi"
+      ],
+      [
+        "SOC 2 Type II",
+        "SOC 2 Type II"
+      ],
+      [
+        "Description",
+        "Açıklama"
+      ],
+      [
+        "Encryption",
+        "Şifreleme"
+      ],
+      [
+        "Objective",
+        "Hedef"
+      ],
+      [
+        "Control",
+        "Kontrol"
+      ],
+      [
+        "Status",
+        "Durum"
+      ],
+      [
+        "Layer",
+        "Katman"
+      ]
+    ]
+  },
+  "security/index.html": {
+    "title": "Güvenlik — Mimari ve Sorumlu Açıklama | ozDNA",
+    "description": "ozDNA güvenlik mimarisi — şifreleme, API kimlik doğrulama, hız sınırlama, günlükleme, yedeklemeler ve koordineli güvenlik açığı bildirimi.",
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Güvenlik",
+        "path": "/tr/security/"
+      }
+    ],
+    "replacements": [
+      [
+        "ozDNA is a layered platform: AI gateway, model router, prompt registry, RAG, cost engine, and observability — operated by Findbelow Ventures. Every external request enters through authenticated gateway boundaries before reaching inference or retrieval subsystems.",
+        "ozDNA katmanlı bir platformdur: AI gateway, model router, prompt kayıt defteri, RAG, maliyet motoru ve gözlemlenebilirlik — Findbelow Ventures tarafından işletilir. Her dış istek, çıkarım veya retrieval alt sistemlerine ulaşmadan önce kimlik doğrulamalı gateway sınırlarından girer."
+      ],
+      [
+        "<strong>Recognition:</strong> Security acknowledgments page — <span class=\"trust-inline-status soon\">Coming Soon</span>. Researchers who follow our responsible disclosure policy will be credited with permission.",
+        "<strong>Takdir:</strong> Güvenlik teşekkür sayfası — <span class=\"trust-inline-status soon\">Yakında</span>. Sorumlu açıklama politikamıza uyan araştırmacılar izinle kredilendirilecektir."
+      ],
+      [
+        "<li><strong>Isolation:</strong> Environment-separated sandbox (<span class=\"inline-code\">api.sandbox.ozdna.com</span>) and production (<span class=\"inline-code\">api.ozdna.com</span>)</li>",
+        "<li><strong>İzolasyon:</strong> Ortam ayrımlı sandbox (<span class=\"inline-code\">api.sandbox.ozdna.com</span>) ve üretim (<span class=\"inline-code\">api.ozdna.com</span>)</li>"
+      ],
+      [
+        "Technical security controls for the ozDNA gateway, API, and supporting infrastructure. For compliance roadmap and certifications status, see the <a href=\"/trust/\">Trust Center</a>.",
+        "ozDNA gateway, API ve destekleyici altyapı için teknik güvenlik kontrolleri. Uyumluluk yol haritası ve sertifikasyon durumu için <a href=\"/trust/\">Güven Merkezi</a>'ne bakın."
+      ],
+      [
+        "<li><strong>Contact:</strong> <a href=\"mailto:security@ozdna.com\">security@ozdna.com</a> (placeholder — monitored by Findbelow Ventures security contact)</li>",
+        "<li><strong>İletişim:</strong> <a href=\"mailto:security@ozdna.com\">security@ozdna.com</a> (Findbelow Ventures güvenlik iletişim noktası tarafından izlenir)</li>"
+      ],
+      [
+        "All platform endpoints require a valid Bearer token. Unauthenticated requests receive <span class=\"inline-code\">401</span> before reaching inference logic.",
+        "Tüm platform uç noktaları geçerli Bearer token gerektirir. Kimlik doğrulamasız istekler çıkarım mantığına ulaşmadan <span class=\"inline-code\">401</span> alır."
+      ],
+      [
+        "This policy does not authorize testing that violates applicable law. If you are unsure whether your research is permitted, contact us before proceeding.",
+        "Bu politika geçerli yasayı ihlal eden testleri yetkilendirmez. Araştırmanızın izinli olup olmadığından emin değilseniz, devam etmeden önce bizimle iletişime geçin."
+      ],
+      [
+        "<strong>Status:</strong> Centralized secrets manager (Vault / cloud SM) — <span class=\"trust-inline-status roadmap\">Roadmap</span> for enterprise tier.",
+        "<strong>Durum:</strong> Merkezi gizli yöneticisi (Vault / cloud SM) — kurumsal katman için <span class=\"trust-inline-status roadmap\">Yol Haritası</span>."
+      ],
+      [
+        "<li><strong>WAF:</strong> Dedicated Web Application Firewall — <span class=\"trust-inline-status planned\">Planned</span> for production API</li>",
+        "<li><strong>WAF:</strong> Özel Web Application Firewall — üretim API için <span class=\"trust-inline-status planned\">Planlandı</span></li>"
+      ],
+      [
+        "Report vulnerabilities privately to <a href=\"mailto:security@ozdna.com\">security@ozdna.com</a> with reproduction steps and impact assessment.",
+        "Güvenlik açıklarını yeniden üretim adımları ve etki değerlendirmesiyle <a href=\"mailto:security@ozdna.com\">security@ozdna.com</a> adresine özel olarak bildirin."
+      ],
+      [
+        "<li><strong>Webhooks:</strong> HMAC-SHA256 signatures on outbound callbacks (<span class=\"inline-code\">X-OzDNA-Signature</span>)</li>",
+        "<li><strong>Webhook'lar:</strong> Giden geri çağrılarda HMAC-SHA256 imzaları (<span class=\"inline-code\">X-OzDNA-Signature</span>)</li>"
+      ],
+      [
+        "<strong>Related:</strong> Compliance programs and certification roadmap — <a href=\"/trust/#compliance-roadmap\">Trust Center</a>",
+        "<strong>İlgili:</strong> Uyumluluk programları ve sertifikasyon yol haritası — <a href=\"/trust/#compliance-roadmap\">Güven Merkezi</a>"
+      ],
+      [
+        "<li><strong>Platform API:</strong> HTTPS enforced on <span class=\"inline-code\">api.ozdna.com</span> and sandbox endpoints</li>",
+        "<li><strong>Platform API:</strong> <span class=\"inline-code\">api.ozdna.com</span> ve sandbox uç noktalarında HTTPS zorunlu</li>"
+      ],
+      [
+        "<li><strong>API gateway:</strong> Provider-level network filtering on deployment target (Fly.io / Railway / AWS roadmap)</li>",
+        "<li><strong>API gateway:</strong> Dağıtım hedefinde sağlayıcı düzeyinde ağ filtreleme (Fly.io / Railway / AWS yol haritası)</li>"
+      ],
+      [
+        "Allow reasonable time for remediation before public disclosure — typically 90 days, sooner for critical issues once patched.",
+        "Kamuya açıklamadan önce düzeltme için makul süre tanıyın — genellikle 90 gün, kritik konularda yama sonrası daha erken."
+      ],
+      [
+        "Customer data at rest inherits encryption from underlying cloud providers. ozDNA does not store raw API keys in plaintext.",
+        "Dinlenmedeki müşteri verisi altta yatan bulut sağlayıcılarının şifrelemesini devralır. ozDNA ham API anahtarlarını düz metin olarak saklamaz."
+      ],
+      [
+        "<li><strong>Machine-readable:</strong> <a href=\"/.well-known/security.txt\">/.well-known/security.txt</a> (RFC 9116)</li>",
+        "<li><strong>Makine okunabilir:</strong> <a href=\"/.well-known/security.txt\">/.well-known/security.txt</a> (RFC 9116)</li>"
+      ],
+      [
+        "All customer-facing traffic requires TLS. Internal provider connections use HTTPS to upstream LLM and embedding APIs.",
+        "Tüm müşteriye yönelik trafik TLS gerektirir. Dahili sağlayıcı bağlantıları upstream LLM ve embedding API'lerine HTTPS kullanır."
+      ],
+      [
+        "<li><strong>Out of scope:</strong> Third-party providers (OpenAI, Netlify), social engineering, physical attacks</li>",
+        "<li><strong>Kapsam dışı:</strong> Üçüncü taraf sağlayıcılar (OpenAI, Netlify), sosyal mühendislik, fiziksel saldırılar</li>"
+      ],
+      [
+        "Automated database backups on managed Postgres migration — <span class=\"trust-inline-status roadmap\">Roadmap</span>",
+        "Yönetilen Postgres geçişinde otomatik veritabanı yedeklemeleri — <span class=\"trust-inline-status roadmap\">Yol Haritası</span>"
+      ],
+      [
+        "<li><strong>Response:</strong> Acknowledgment within 3 business days; critical issues triaged within 24 hours</li>",
+        "<li><strong>Yanıt:</strong> 3 iş günü içinde onay; kritik konular 24 saat içinde triyaj</li>"
+      ],
+      [
+        "<li><strong>Vertical boundaries:</strong> Mode-specific prompts and corpora (academic, legal, financial)</li>",
+        "<li><strong>Dikey sınırlar:</strong> Moda özel prompt'lar ve corpus'lar (akademik, hukuk, finans)</li>"
+      ],
+      [
+        "<li><strong>Scope:</strong> ozdna.com, api.ozdna.com, api.sandbox.ozdna.com, and ozDNA platform services</li>",
+        "<li><strong>Kapsam:</strong> ozdna.com, api.ozdna.com, api.sandbox.ozdna.com ve ozDNA platform hizmetleri</li>"
+      ],
+      [
+        "<li><strong>Perimeter:</strong> HTTPS-only public endpoints; invite-only API keys during private beta</li>",
+        "<li><strong>Çevre:</strong> Yalnızca HTTPS public uç noktalar; özel beta sırasında yalnızca davetle API anahtarları</li>"
+      ],
+      [
+        "Do not access, modify, or exfiltrate customer data beyond what is necessary to demonstrate the issue.",
+        "Sorunu göstermek için gerekenden fazla müşteri verisine erişmeyin, değiştirmeyin veya dışarı aktarmayın."
+      ],
+      [
+        "<li><strong>Least privilege:</strong> Scoped API keys; no anonymous inference on paid workflows</li>",
+        "<li><strong>En az ayrıcalık:</strong> Kapsamlı API anahtarları; ücretli iş akışlarında anonim çıkarım yok</li>"
+      ],
+      [
+        "Backup and recovery procedures align with disaster recovery targets documented in the Trust Center.",
+        "Yedekleme ve kurtarma prosedürleri Güven Merkezi'nde belgelenen felaket kurtarma hedefleriyle uyumludur."
+      ],
+      [
+        "<li><strong>Application layer:</strong> Rate limiting and auth as first-line abuse controls</li>",
+        "<li><strong>Uygulama katmanı:</strong> Birinci savunma kötüye kullanım kontrolü olarak hız sınırlama ve kimlik doğrulama</li>"
+      ],
+      [
+        "<li><strong>Gateway:</strong> Auth, rate limits, and audit hooks before workflow execution</li>",
+        "<li><strong>Gateway:</strong> İş akışı yürütmeden önce kimlik doğrulama, hız limitleri ve denetim kancaları</li>"
+      ],
+      [
+        "Do not perform denial-of-service, spam, or social engineering against ozDNA staff or customers.",
+        "ozDNA personeline veya müşterilerine karşı hizmet reddi, spam veya sosyal mühendislik yapmayın."
+      ],
+      [
+        "<li><strong>Marketing &amp; docs:</strong> Netlify CDN edge protection and automatic TLS</li>",
+        "<li><strong>Pazarlama ve dokümantasyon:</strong> Netlify CDN edge koruması ve otomatik TLS</li>"
+      ],
+      [
+        "Structured logs capture security-relevant events without storing unnecessary payload content.",
+        "Yapılandırılmış günlükler gereksiz payload içeriği saklamadan güvenlikle ilgili olayları yakalar."
+      ],
+      [
+        "Secrets never ship in client-side code, public repositories, or static marketing assets.",
+        "Gizliler asla istemci tarafı kodda, public repo'larda veya statik pazarlama varlıklarında dağıtılmaz."
+      ],
+      [
+        "<span class=\"inline-code\">429</span> responses with retry guidance when limits exceeded",
+        "Limit aşıldığında yeniden deneme rehberiyle <span class=\"inline-code\">429</span> yanıtları"
+      ],
+      [
+        "Audit logging details: <a href=\"/trust/#audit-logging\">Trust Center — Audit Logging</a>",
+        "Denetim günlüğü ayrıntıları: <a href=\"/trust/#audit-logging\">Güven Merkezi — Denetim Günlüğü</a>"
+      ],
+      [
+        "DR objectives: <a href=\"/trust/#disaster-recovery\">Trust Center — Disaster Recovery</a>",
+        "DR hedefleri: <a href=\"/trust/#disaster-recovery\">Güven Merkezi — Felaket Kurtarma</a>"
+      ],
+      [
+        "<li><strong>Provider calls:</strong> TLS to OpenAI and routed inference providers</li>",
+        "<li><strong>Sağlayıcı çağrıları:</strong> OpenAI ve yönlendirilen çıkarım sağlayıcılarına TLS</li>"
+      ],
+      [
+        "We welcome good-faith security reports from researchers, customers, and the community.",
+        "Araştırmacılar, müşteriler ve topluluktan iyi niyetli güvenlik bildirimlerini memnuniyetle karşılıyoruz."
+      ],
+      [
+        "Rate limits protect platform stability and enforce plan quotas at the gateway layer.",
+        "Hız limitleri platform kararlılığını korur ve gateway katmanında plan kotalarını uygular."
+      ],
+      [
+        "Platform health and anomaly detection cover availability, latency, and error rates.",
+        "Platform sağlığı ve anomali tespiti kullanılabilirlik, gecikme ve hata oranlarını kapsar."
+      ],
+      [
+        "Do not test against production customer workloads without written authorization.",
+        "Yazılı yetkilendirme olmadan üretim müşteri iş yüklerine karşı test yapmayın."
+      ],
+      [
+        "Rotation supported for API keys via dashboard (roadmap) and manual revoke today",
+        "API anahtarları için dashboard (yol haritası) ve bugün manuel iptal ile rotasyon desteklenir"
+      ],
+      [
+        "To protect ozDNA customers, we ask reporters to follow coordinated disclosure.",
+        "ozDNA müşterilerini korumak için bildirimcilerden koordineli açıklama izlemelerini rica ediyoruz."
+      ],
+      [
+        "<li><strong>Web &amp; docs:</strong> TLS 1.2+ on ozdna.com (Netlify CDN)</li>",
+        "<li><strong>Web ve dokümantasyon:</strong> ozdna.com'da TLS 1.2+ (Netlify CDN)</li>"
+      ],
+      [
+        "Prompt hash and model ID per inference — not full prompt text in default logs",
+        "Çıkarım başına prompt hash ve model ID — varsayılan günlüklerde tam prompt metni değil"
+      ],
+      [
+        "Report vulnerabilities, request a security review, or ask about our controls.",
+        "Güvenlik açıklarını bildirin, güvenlik incelemesi talep edin veya kontrollerimiz hakkında sorun."
+      ],
+      [
+        "Environment-scoped configuration for provider keys and database credentials",
+        "Sağlayıcı anahtarları ve veritabanı kimlik bilgileri için ortam kapsamlı yapılandırma"
+      ],
+      [
+        "See <a href=\"/docs/#auth\">API documentation</a> for integration details.",
+        "Entegrasyon ayrıntıları için <a href=\"/docs/#auth\">API dokümantasyonuna</a> bakın."
+      ],
+      [
+        "Authentication success/failure, rate-limit hits, and quota events logged",
+        "Kimlik doğrulama başarı/başarısızlık, hız limiti isabetleri ve kota olayları günlüklenir"
+      ],
+      [
+        "Configuration and prompt registry versioning via git-backed prompt store",
+        "Git destekli prompt deposu ile yapılandırma ve prompt kayıt defteri sürümleme"
+      ],
+      [
+        "Public surfaces inherit DDoS mitigation from CDN and hosting providers.",
+        "Public yüzeyler CDN ve barındırma sağlayıcılarından DDoS azaltımını devralır."
+      ],
+      [
+        "Security architecture<br>for <span class=\"accent\">production AI</span>",
+        "Üretim AI için<br><span class=\"accent\">güvenlik mimarisi</span>"
+      ],
+      [
+        "CI/CD injects secrets at deploy time — not baked into container images",
+        "CI/CD gizlileri dağıtım anında enjekte eder — konteyner imajlarına gömülmez"
+      ],
+      [
+        "Point-in-time recovery target: RPO &lt; 1 hour (enterprise roadmap)",
+        "Nokta-in-time kurtarma hedefi: RPO &lt; 1 saat (kurumsal yol haritası)"
+      ],
+      [
+        "Credit researchers on our acknowledgments page (with your consent)",
+        "Teşekkür sayfamızda araştırmacıları kredilendirmek (onayınızla)"
+      ],
+      [
+        "<span class=\"inline-code\">402</span> when billing quota exhausted",
+        "Faturalama kotası tükendiğinde <span class=\"inline-code\">402</span>"
+      ],
+      [
+        "Configurable limits per organization — enterprise roadmap",
+        "Organizasyon başına yapılandırılabilir limitler — kurumsal yol haritası"
+      ],
+      [
+        "Separate secrets per sandbox and production environments",
+        "Sandbox ve üretim ortamları için ayrı gizliler"
+      ],
+      [
+        "Per-key request quotas enforced before workflow dispatch",
+        "İş akışı dağıtımından önce anahtar başına istek kotaları uygulanır"
+      ],
+      [
+        "Provide status updates at reasonable intervals",
+        "Makul aralıklarla durum güncellemeleri sağlamak"
+      ],
+      [
+        "Notify you when the issue is resolved",
+        "Sorun çözüldüğünde sizi bilgilendirmek"
+      ],
+      [
+        "aria-label=\"Security page sections\"",
+        "aria-label=\"Güvenlik sayfası bölümleri\""
+      ],
+      [
+        "Acknowledge receipt of your report",
+        "Bildiriminizin alındığını onaylamak"
+      ],
+      [
+        "Responsible Disclosure Policy",
+        "Sorumlu Açıklama Politikası"
+      ],
+      [
+        "Vulnerability Disclosure",
+        "Güvenlik Açığı Bildirimi"
+      ],
+      [
+        "Responsible Disclosure",
+        "Sorumlu Açıklama"
+      ],
+      [
+        "Encryption in Transit",
+        "Aktarım Halinde Şifreleme"
+      ],
+      [
+        "Security Architecture",
+        "Güvenlik Mimarisi"
+      ],
+      [
+        "Secrets Management",
+        "Gizli Yönetimi"
+      ],
+      [
+        "Encryption at Rest",
+        "Dinlenme Halinde Şifreleme"
+      ],
+      [
+        "API Authentication",
+        "API Kimlik Doğrulama"
+      ],
+      [
+        "Platform Security",
+        "Platform Güvenliği"
+      ],
+      [
+        "DDoS Protection",
+        "DDoS Koruması"
+      ],
+      [
+        "security.txt →",
+        "security.txt →"
+      ],
+      [
+        "We commit to:",
+        "Taahhüt ediyoruz:"
+      ],
+      [
+        "Rate Limiting",
+        "Hız Sınırlama"
+      ],
+      [
+        "Monitoring",
+        "İzleme"
+      ],
+      [
+        "Mechanism",
+        "Mekanizma"
+      ],
+      [
+        "Approach",
+        "Yaklaşım"
+      ],
+      [
+        "Logging",
+        "Günlükleme"
+      ],
+      [
+        "Backups",
+        "Yedeklemeler"
+      ],
+      [
+        "Detail",
+        "Ayrıntı"
+      ],
+      [
+        "Signal",
+        "Sinyal"
+      ],
+      [
+        "Asset",
+        "Varlık"
+      ],
+      [
+        "Scope",
+        "Kapsam"
+      ]
+    ]
+  },
+  "privacy/index.html": {
+    "title": "Gizlilik Politikası | ozDNA",
+    "description": "ozDNA Gizlilik Politikası — Findbelow Ventures'ın ozDNA platformu, web sitesi ve API için kişisel verileri nasıl topladığı, kullandığı, sakladığı ve koruduğu.",
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Gizlilik Politikası",
+        "path": "/tr/privacy/"
+      }
+    ],
+    "replacements": [
+      [
+        "<strong>Subprocessors</strong> (non-exhaustive): cloud hosting (Netlify), analytics providers, and LLM inference providers (e.g. OpenAI) invoked when you use API workflows. A formal subprocessor list will be published for enterprise customers; contact <a href=\"mailto:privacy@ozdna.com\">privacy@ozdna.com</a> for current details.",
+        "<strong>Alt işlemciler</strong> (sınırlayıcı değil): bulut barındırma (Netlify), analitik sağlayıcıları ve API iş akışlarını kullandığınızda çağrılan LLM çıkarım sağlayıcıları (ör. OpenAI). Kurumsal müşteriler için resmi alt işlemci listesi yayınlanacaktır; güncel ayrıntılar için <a href=\"mailto:privacy@ozdna.com\">privacy@ozdna.com</a> adresine yazın."
+      ],
+      [
+        "We apply technical and organizational measures appropriate to the nature of the data we process, including TLS for data in transit, hashed API key storage, access controls, and audit logging. Details are published on our <a href=\"/security/\">Security page</a> and <a href=\"/trust/\">Trust Center</a>.",
+        "İşlediğimiz verinin niteliğine uygun teknik ve organizasyonel önlemler uygularız; aktarımdaki veri için TLS, hash'lenmiş API anahtarı depolama, erişim kontrolleri ve denetim günlüğü dahil. Ayrıntılar <a href=\"/security/\">Güvenlik sayfamızda</a> ve <a href=\"/trust/\">Güven Merkezi</a>'nde yayınlanır."
+      ],
+      [
+        "Findbelow Ventures (“we”, “us”, “our”) operates ozdna.com and the ozDNA vertical AI infrastructure platform (the “Service”). We process personal data as a data controller for website visitors, waitlist registrants, and authorized users of our API and dashboard.",
+        "Findbelow Ventures (“biz”, “bize”, “bizim”) ozdna.com ve ozDNA dikey AI altyapı platformunu (“Hizmet”) işletir. Web sitesi ziyaretçileri, bekleme listesi kayıtları ve API ile dashboard yetkili kullanıcıları için veri sorumlusu olarak kişisel verileri işleriz."
+      ],
+      [
+        "We may update this Privacy Policy to reflect product, legal, or operational changes. Material updates will be posted on this page with a revised effective date. Continued use of the Service after changes constitutes acceptance where permitted by law.",
+        "Ürün, hukuki veya operasyonel değişiklikleri yansıtmak için bu Gizlilik Politikasını güncelleyebiliriz. Önemli güncellemeler bu sayfada revize yürürlük tarihiyle yayınlanır. Değişikliklerden sonra Hizmeti kullanmaya devam etmek, yasa izin verdiğinde kabul sayılır."
+      ],
+      [
+        "Findbelow Ventures is established in Turkey. Our Service uses infrastructure and subprocessors that may process data in Turkey, the European Union, the United States, and other regions where our hosting and AI providers operate.",
+        "Findbelow Ventures Türkiye'de kuruludur. Hizmetimiz Türkiye, Avrupa Birliği, Amerika Birleşik Devletleri ve barındırma ile AI sağlayıcılarımızın faaliyet gösterdiği diğer bölgelerde veri işleyebilen altyapı ve alt işlemciler kullanır."
+      ],
+      [
+        "When personal data is transferred outside your jurisdiction, we rely on appropriate safeguards where required — including Standard Contractual Clauses, adequacy decisions, or your explicit consent for specific transfers.",
+        "Kişisel veriler yargı alanınızın dışına aktarıldığında, gerektiğinde Standart Sözleşme Maddeleri, yeterlilik kararları veya belirli aktarımlar için açık rızanız dahil uygun güvencelere dayanırız."
+      ],
+      [
+        "You can control cookies through browser settings. Blocking necessary cookies may limit waitlist or documentation features. Where required by law, we will request consent before non-essential analytics cookies are set.",
+        "Çerezleri tarayıcı ayarlarıyla kontrol edebilirsiniz. Gerekli çerezleri engellemek bekleme listesi veya dokümantasyon özelliklerini sınırlayabilir. Yasa gerektirdiğinde, gerekli olmayan analitik çerezler ayarlanmadan önce rıza isteyeceğiz."
+      ],
+      [
+        "No method of transmission or storage is completely secure. If you believe your account or data has been compromised, contact <a href=\"mailto:security@ozdna.com\">security@ozdna.com</a> immediately.",
+        "Hiçbir iletim veya depolama yöntemi tamamen güvenli değildir. Hesabınızın veya verilerinizin tehlikeye girdiğini düşünüyorsanız derhal <a href=\"mailto:security@ozdna.com\">security@ozdna.com</a> adresine yazın."
+      ],
+      [
+        "<strong>EU/EEA (GDPR):</strong> You may lodge a complaint with your local supervisory authority. Our lead contact for privacy requests is <a href=\"mailto:privacy@ozdna.com\">privacy@ozdna.com</a>.",
+        "<strong>AB/AEA (GDPR):</strong> Yerel denetim otoritenize şikayette bulunabilirsiniz. Gizlilik talepleri için birincil iletişim <a href=\"mailto:privacy@ozdna.com\">privacy@ozdna.com</a>."
+      ],
+      [
+        "By using the Service, you acknowledge this Privacy Policy. If you use ozDNA on behalf of an organization, you represent that you have authority to accept this policy for that organization.",
+        "Hizmeti kullanarak bu Gizlilik Politikasını kabul etmiş olursunuz. ozDNA'yı bir organizasyon adına kullanıyorsanız, bu politika için yetkiniz olduğunu beyan edersiniz."
+      ],
+      [
+        "<strong>Legal bases (where GDPR applies):</strong> contract performance, legitimate interests (security, product improvement), consent (marketing where required), and legal obligation.",
+        "<strong>Hukuki dayanaklar (GDPR uygulandığında):</strong> sözleşme ifası, meşru menfaatler (güvenlik, ürün iyileştirme), rıza (gerektiğinde pazarlama) ve yasal yükümlülük."
+      ],
+      [
+        "<li><strong>Submitted API content:</strong> Processed transiently for workflow execution; retention configurable by plan — default minimal retention after response delivery</li>",
+        "<li><strong>Gönderilen API içeriği:</strong> İş akışı yürütmesi için geçici işlenir; saklama plana göre yapılandırılabilir — yanıt tesliminden sonra varsayılan minimal saklama</li>"
+      ],
+      [
+        "We do not knowingly collect sensitive categories (health, biometric, children’s data) through the public website. Customers must not submit unlawful content via the API.",
+        "Public web sitesi üzerinden bilerek hassas kategoriler (sağlık, biyometrik, çocuk verisi) toplamayız. Müşteriler API üzerinden yasadışı içerik göndermemelidir."
+      ],
+      [
+        "<li><strong>Analytics:</strong> Privacy-oriented analytics (e.g. Plausible) and, when enabled, Google Analytics — used to measure traffic, not to sell personal data</li>",
+        "<li><strong>Analitik:</strong> Gizlilik odaklı analitik (ör. Plausible) ve etkinleştirildiğinde Google Analytics — trafiği ölçmek için, kişisel veri satmak için değil</li>"
+      ],
+      [
+        "This policy describes how we handle personal data when you visit ozdna.com, join our waitlist, or use the ozDNA platform API and related services during private beta.",
+        "Bu politika ozdna.com'u ziyaret ettiğinizde, bekleme listemize katıldığınızda veya özel beta sırasında ozDNA platform API'sini ve ilgili hizmetleri kullandığınızda kişisel verileri nasıl işlediğimizi açıklar."
+      ],
+      [
+        "<strong>Turkey (KVKK):</strong> Data subjects in Turkey may exercise rights under Law No. 6698 by contacting us. We will respond within statutory timeframes.",
+        "<strong>Türkiye (KVKK):</strong> Türkiye'deki veri sahipleri 6698 sayılı Kanun kapsamındaki haklarını bizimle iletişime geçerek kullanabilir. Yasal süreler içinde yanıt veririz."
+      ],
+      [
+        "<li><strong>API logs &amp; audit events:</strong> Per organization settings; default 90 days rolling (enterprise export available on roadmap)</li>",
+        "<li><strong>API günlükleri ve denetim olayları:</strong> Organizasyon ayarlarına göre; varsayılan 90 gün rolling (kurumsal dışa aktarım yol haritasında)</li>"
+      ],
+      [
+        "We may need to verify your identity before fulfilling requests. We will respond within 30 days unless extension is permitted by law.",
+        "Talepleri yerine getirmeden önce kimliğinizi doğrulamamız gerekebilir. Yasa izin vermedikçe 30 gün içinde yanıt veririz."
+      ],
+      [
+        "We collect only data needed to operate the Service, respond to inquiries, and improve platform reliability. Categories include:",
+        "Hizmeti işletmek, sorulara yanıt vermek ve platform güvenilirliğini artırmak için yalnızca gerekli verileri toplarız. Kategoriler:"
+      ],
+      [
+        "We retain personal data only as long as needed for the purposes described above, unless a longer period is required by law.",
+        "Yukarıda açıklanan amaçlar için gerekli olduğu sürece kişisel verileri saklarız; yasa daha uzun süre gerektirmedikçe."
+      ],
+      [
+        "<li><strong>Waitlist records:</strong> Until you unsubscribe or 24 months after last interaction, whichever is sooner</li>",
+        "<li><strong>Bekleme listesi kayıtları:</strong> Abonelikten çıkana veya son etkileşimden 24 ay sonra, hangisi önce gelirse</li>"
+      ],
+      [
+        "<li><strong>Withdraw consent</strong> — where processing is consent-based, without affecting prior lawful processing</li>",
+        "<li><strong>Rızayı geri çekme</strong> — işlem rızaya dayalıysa, önceki hukuki işlemeyi etkilemeden</li>"
+      ],
+      [
+        "<li><strong>Strictly necessary:</strong> Session and security cookies required for form submission and CDN delivery</li>",
+        "<li><strong>Kesinlikle gerekli:</strong> Form gönderimi ve CDN dağıtımı için gerekli oturum ve güvenlik çerezleri</li>"
+      ],
+      [
+        "Effective 6 July 2026 · Data controller: Findbelow Ventures · <a href=\"mailto:privacy@ozdna.com\">privacy@ozdna.com</a>",
+        "Yürürlük 6 Temmuz 2026 · Veri sorumlusu: Findbelow Ventures · <a href=\"mailto:privacy@ozdna.com\">privacy@ozdna.com</a>"
+      ],
+      [
+        "ozdna.com uses cookies and similar technologies to keep the site functional and to understand aggregate usage.",
+        "ozdna.com siteyi işlevsel tutmak ve toplu kullanımı anlamak için çerezler ve benzer teknolojiler kullanır."
+      ],
+      [
+        "<li><strong>Portability</strong> — receive data in a structured, machine-readable format where applicable</li>",
+        "<li><strong>Taşınabilirlik</strong> — uygulanabilir olduğunda yapılandırılmış, makine okunabilir formatta veri alma</li>"
+      ],
+      [
+        "<li><strong>Analytics:</strong> Aggregated; raw event data per provider default (typically 12–24 months)</li>",
+        "<li><strong>Analitik:</strong> Toplu; sağlayıcı varsayılanına göre ham olay verisi (genellikle 12–24 ay)</li>"
+      ],
+      [
+        "<li><strong>Objection</strong> — object to processing based on legitimate interests or direct marketing</li>",
+        "<li><strong>İtiraz</strong> — meşru menfaatlere veya doğrudan pazarlamaya dayalı işlemeye itiraz etme</li>"
+      ],
+      [
+        "<li><strong>Support email:</strong> Up to 3 years for dispute resolution and quality assurance</li>",
+        "<li><strong>Destek e-postası:</strong> Uyuşmazlık çözümü ve kalite güvencesi için en fazla 3 yıl</li>"
+      ],
+      [
+        "Depending on your location, you may have rights regarding your personal data, including:",
+        "Konumunuza bağlı olarak kişisel verilerinizle ilgili haklara sahip olabilirsiniz:"
+      ],
+      [
+        "When retention ends, we delete or anonymize data using commercially reasonable methods.",
+        "Saklama sona erdiğinde verileri ticari olarak makul yöntemlerle siler veya anonimleştiririz."
+      ],
+      [
+        "<li><strong>Access</strong> — request a copy of personal data we hold about you</li>",
+        "<li><strong>Erişim</strong> — hakkınızda tuttuğumuz kişisel verilerin bir kopyasını talep etme</li>"
+      ],
+      [
+        "<li><strong>Erasure</strong> — request deletion where no lawful basis to retain</li>",
+        "<li><strong>Silme</strong> — saklama için hukuki dayanak olmadığında silme talep etme</li>"
+      ],
+      [
+        "<li><strong>Preferences:</strong> Local storage for UI state where applicable</li>",
+        "<li><strong>Tercihler:</strong> Uygulanabilir olduğunda UI durumu için yerel depolama</li>"
+      ],
+      [
+        "<li><strong>Restriction</strong> — limit processing in certain circumstances</li>",
+        "<li><strong>Kısıtlama</strong> — belirli durumlarda işlemeyi sınırlama</li>"
+      ],
+      [
+        "<li><strong>Rectification</strong> — correct inaccurate or incomplete data</li>",
+        "<li><strong>Düzeltme</strong> — hatalı veya eksik verileri düzeltme</li>"
+      ],
+      [
+        "Data subject requests, DPA inquiries, and subprocessor questions.",
+        "Veri sahibi talepleri, DPA soruları ve alt işlemci soruları."
+      ],
+      [
+        "aria-label=\"Privacy policy sections\"",
+        "aria-label=\"Gizlilik politikası bölümleri\""
+      ],
+      [
+        "International Transfers",
+        "Uluslararası Aktarımlar"
+      ],
+      [
+        "Changes to This Policy",
+        "Bu Politikadaki Değişiklikler"
+      ],
+      [
+        "Privacy questions?",
+        "Gizlilik soruları?"
+      ],
+      [
+        "Data Collection",
+        "Veri Toplama"
+      ],
+      [
+        "Privacy Policy",
+        "Gizlilik Politikası"
+      ],
+      [
+        "User Rights",
+        "Kullanıcı Hakları"
+      ],
+      [
+        "Retention",
+        "Saklama"
+      ],
+      [
+        "Examples",
+        "Örnekler"
+      ],
+      [
+        "Category",
+        "Kategori"
+      ],
+      [
+        "Security",
+        "Güvenlik"
+      ],
+      [
+        "Purpose",
+        "Amaç"
+      ],
+      [
+        "Cookies",
+        "Çerezler"
+      ],
+      [
+        "Legal",
+        "Hukuki"
+      ]
+    ]
+  },
+  "terms/index.html": {
+    "title": "Hizmet Şartları | ozDNA",
+    "description": "ozDNA Hizmet Şartları — ozDNA platformu için kabul edilebilir kullanım, API erişimi, faturalama, garantiler, sorumluluk ve uygulanacak hukuk.",
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Hizmet Şartları",
+        "path": "/tr/terms/"
+      }
+    ],
+    "replacements": [
+      [
+        "<strong>Output:</strong> Subject to upstream model provider terms, you receive rights to model output generated for your requests, except where output incorporates our proprietary templates or third-party restricted content. You are responsible for reviewing output before production use — especially in regulated domains (legal, financial, compliance).",
+        "<strong>Çıktı:</strong> Upstream model sağlayıcı şartlarına tabi olarak, çıktı özel şablonlarımızı veya üçüncü taraf kısıtlı içeriği içermediği sürece istekleriniz için üretilen model çıktısı üzerinde hak alırsınız. Üretim kullanımından önce çıktıyı incelemekten siz sorumlusunuz — özellikle düzenlenmiş alanlarda (hukuk, finans, uyumluluk)."
+      ],
+      [
+        "ozDNA provides vertical AI infrastructure — including an API gateway, model routing, prompt management, RAG workflows, usage analytics, and cost attribution — for teams building production AI products. The Service is currently offered in <strong>private beta</strong>; features, endpoints, and availability may change without notice.",
+        "ozDNA, üretim AI ürünleri geliştiren ekipler için API gateway, model yönlendirme, prompt yönetimi, RAG iş akışları, kullanım analitiği ve maliyet atfı dahil dikey AI altyapısı sağlar. Hizmet şu anda <strong>özel beta</strong> olarak sunulmaktadır; özellikler, uç noktalar ve kullanılabilirlik önceden haber verilmeksizin değişebilir."
+      ],
+      [
+        "<strong>Your property:</strong> You retain ownership of content you submit through the API (“Customer Content”). You grant Findbelow a worldwide, non-exclusive license to host, process, and transmit Customer Content solely to provide and improve the Service, comply with law, and enforce these Terms.",
+        "<strong>Sizin mülkiyetiniz:</strong> API üzerinden gönderdiğiniz içeriğin (“Müşteri İçeriği”) sahipliğini korursunuz. Findbelow'a Hizmeti sağlamak ve iyileştirmek, yasaya uymak ve bu Şartları uygulamak için yalnızca Müşteri İçeriğini barındırma, işleme ve iletme konusunda dünya çapında münhasır olmayan lisans verirsiniz."
+      ],
+      [
+        "Our aggregate liability for all claims relating to the Service in any twelve-month period is limited to the greater of (a) amounts you paid Findbelow for the Service in that period, or (b) one hundred United States dollars (USD $100), except where liability cannot be limited under mandatory law.",
+        "Hizmetle ilgili tüm talepler için on iki aylık dönemdeki toplam sorumluluğumuz (a) o dönemde Hizmet için Findbelow'a ödediğiniz tutar veya (b) yüz ABD doları (USD $100) — hangisi büyükse — ile sınırlıdır; zorunlu yasa kapsamında sorumluluk sınırlanamıyorsa istisna uygulanır."
+      ],
+      [
+        "<strong>Our property:</strong> Findbelow owns the Service, ozDNA trademarks, platform code, default prompts, documentation, and branding. These Terms grant no ownership rights — only a limited, revocable license to use the Service during your subscription or beta period.",
+        "<strong>Bizim mülkiyetimiz:</strong> Findbelow Hizmeti, ozDNA ticari markalarını, platform kodunu, varsayılan prompt'ları, dokümantasyonu ve markayı sahiplenir. Bu Şartlar mülkiyet hakkı vermez — yalnızca abonelik veya beta döneminizde Hizmeti kullanmak için sınırlı, geri alınabilir lisans."
+      ],
+      [
+        "We do not warrant that the Service will be uninterrupted, error-free, or free of harmful components. AI outputs may be incorrect, incomplete, or outdated — particularly for legal, medical, or financial decisions. You must implement human review where stakes are high.",
+        "Hizmetin kesintisiz, hatasız veya zararlı bileşenlerden arınmış olacağını garanti etmiyoruz. AI çıktıları hatalı, eksik veya güncel olmayabilir — özellikle hukuki, tıbbi veya finansal kararlar için. Risk yüksek olduğunda insan incelemesi uygulamalısınız."
+      ],
+      [
+        "TO THE MAXIMUM EXTENT PERMITTED BY LAW, FINDBELOW WILL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR FOR LOST PROFITS, REVENUE, DATA, OR GOODWILL, ARISING FROM YOUR USE OF THE SERVICE — EVEN IF ADVISED OF THE POSSIBILITY.",
+        "YASA İZİN VERDİĞİ AZAMİ ÖLÇÜDE FINDBELOW, HİZMETİ KULLANIMINIZDAN KAYNAKLANAN DOLAYLI, ARIZİ, ÖZEL, SONUÇSAL VEYA CEZAİ ZARARLARDAN VEYA KAYBEDİLEN KÂR, GELİR, VERİ VEYA İTİBARDAN — OLASILIĞI BİLDİRİLMİŞ OLSA BİLE — SORUMLU OLMAYACAKTIR."
+      ],
+      [
+        "THE SERVICE IS PROVIDED “AS IS” AND “AS AVAILABLE.” TO THE MAXIMUM EXTENT PERMITTED BY LAW, FINDBELOW DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, AND ACCURACY OF AI-GENERATED OUTPUT.",
+        "HİZMET “OLDUĞU GİBİ” VE “MEVCUT OLDUĞU ŞEKİLDE” SUNULUR. YASA İZİN VERDİĞİ AZAMİ ÖLÇÜDE FINDBELOW, SATILABİLİRLİK, BELİRLİ BİR AMACA UYGUNLUK, İHLAL ETMEME VE AI ÜRETİMLİ ÇIKTI DOĞRULUĞU DAHİL TÜM AÇIK VEYA ZIMNİ GARANTİLERİ REDDEDER."
+      ],
+      [
+        "These Terms are governed by the laws of the Republic of Turkey, without regard to conflict-of-law principles. Courts in Istanbul, Turkey shall have exclusive jurisdiction over disputes, unless mandatory consumer protection rules in your country require otherwise.",
+        "Bu Şartlar, hukuk çatışması ilkelerine bakılmaksızın Türkiye Cumhuriyeti kanunlarına tabidir. Ülkenizdeki zorunlu tüketici koruma kuralları aksini gerektirmedikçe uyuşmazlıklarda İstanbul, Türkiye mahkemeleri münhasır yetkilidir."
+      ],
+      [
+        "We may revoke keys immediately for violation of these Terms, security risk, or non-payment. API documentation at <a href=\"/docs/\">ozdna.com/docs</a> describes current endpoints; undocumented behavior is not guaranteed.",
+        "Bu Şartların ihlali, güvenlik riski veya ödeme yapılmaması durumunda anahtarları derhal iptal edebiliriz. <a href=\"/docs/\">ozdna.com/docs</a> adresindeki API dokümantasyonu güncel uç noktaları açıklar; belgelenmemiş davranış garanti edilmez."
+      ],
+      [
+        "<li><strong>Platform API:</strong> Authenticated REST endpoints at <span class=\"inline-code\">api.ozdna.com</span> (production) and <span class=\"inline-code\">api.sandbox.ozdna.com</span> (sandbox)</li>",
+        "<li><strong>Platform API:</strong> <span class=\"inline-code\">api.ozdna.com</span> (üretim) ve <span class=\"inline-code\">api.sandbox.ozdna.com</span> (sandbox) kimlik doğrulamalı REST uç noktaları</li>"
+      ],
+      [
+        "These Terms govern access to ozdna.com, the ozDNA platform API, documentation, and related services. By using the Service, you agree to these Terms and our <a href=\"/privacy/\">Privacy Policy</a>.",
+        "Bu Şartlar ozdna.com, ozDNA platform API'si, dokümantasyon ve ilgili hizmetlere erişimi düzenler. Hizmeti kullanarak bu Şartları ve <a href=\"/privacy/\">Gizlilik Politikamızı</a> kabul etmiş olursunuz."
+      ],
+      [
+        "These Terms of Service (“Terms”) are a binding agreement between you (“Customer”, “you”) and Findbelow Ventures (“Findbelow”, “we”, “us”), operator of the ozDNA brand and platform (“Service”).",
+        "Bu Hizmet Şartları (“Şartlar”), siz (“Müşteri”, “siz”) ile ozDNA markası ve platformunun (“Hizmet”) işletmecisi Findbelow Ventures (“Findbelow”, “biz”) arasında bağlayıcı bir sözleşmedir."
+      ],
+      [
+        "You agree to indemnify and hold Findbelow harmless from claims arising from your Customer Content, your use of the Service in violation of these Terms, or your violation of third-party rights.",
+        "Müşteri İçeriğinizden, bu Şartları ihlal ederek Hizmeti kullanmanızdan veya üçüncü taraf haklarını ihlal etmenizden kaynaklanan taleplerden Findbelow'u tazmin etmeyi ve zararsız tutmayı kabul edersiniz."
+      ],
+      [
+        "These Terms, together with the <a href=\"/privacy/\">Privacy Policy</a> and any signed order form, constitute the entire agreement between you and Findbelow regarding the Service.",
+        "Bu Şartlar, <a href=\"/privacy/\">Gizlilik Politikası</a> ve imzalı sipariş formuyla birlikte Hizmete ilişkin sizinle Findbelow arasındaki tüm sözleşmeyi oluşturur."
+      ],
+      [
+        "Before filing suit, parties agree to attempt good-faith resolution by contacting <a href=\"mailto:hello@ozdna.com\">hello@ozdna.com</a> within 30 days of the dispute arising.",
+        "Dava açmadan önce taraflar, uyuşmazlık doğduktan sonra 30 gün içinde <a href=\"mailto:hello@ozdna.com\">hello@ozdna.com</a> adresine yazarak iyi niyetli çözüm denemeyi kabul eder."
+      ],
+      [
+        "ozDNA does not offer text humanization or detection-evasion tooling. Requests designed solely to evade AI detection systems are out of scope and may be blocked.",
+        "ozDNA metin humanization veya tespit kaçınma aracı sunmaz. Yalnızca AI tespit sistemlerinden kaçmak için tasarlanmış istekler kapsam dışıdır ve engellenebilir."
+      ],
+      [
+        "If you enter into a separate written enterprise agreement or Data Processing Agreement with us, that agreement prevails where it conflicts with these Terms.",
+        "Bizimle ayrı yazılı kurumsal sözleşme veya Veri İşleme Sözleşmesi imzaladıysanız, çeliştiğinde o sözleşme geçerlidir."
+      ],
+      [
+        "We may modify, suspend, or discontinue any part of the Service. We will use reasonable efforts to notify active API customers of material breaking changes.",
+        "Hizmetin herhangi bir bölümünü değiştirebilir, askıya alabilir veya sonlandırabiliriz. Aktif API müşterilerini önemli breaking change'ler hakkında makul çabayla bilgilendiririz."
+      ],
+      [
+        "Beta features are experimental and may be withdrawn. Uptime targets in marketing materials are aspirational unless covered by a signed SLA.",
+        "Beta özellikleri deneyseldir ve geri çekilebilir. Pazarlama materyallerindeki uptime hedefleri imzalı SLA kapsamında değilse hedef niteliğindedir."
+      ],
+      [
+        "Probe or scan infrastructure without written authorization (<a href=\"/security/#responsible-disclosure\">see responsible disclosure</a>)",
+        "Yazılı yetkilendirme olmadan altyapıyı taramak veya keşfetmek (<a href=\"/security/#responsible-disclosure\">sorumlu açıklamaya bakın</a>)"
+      ],
+      [
+        "Build products whose primary purpose is academic dishonesty, detection evasion, or impersonation of humans without disclosure",
+        "Birincil amacı akademik dürüstsüzlük, tespit kaçınma veya açıklama olmadan insan taklidi olan ürünler geliştirmek"
+      ],
+      [
+        "<li><strong>Support:</strong> Best-effort during beta; formal SLAs available under enterprise plans when offered</li>",
+        "<li><strong>Destek:</strong> Beta sırasında en iyi çaba; sunulduğunda kurumsal planlarda resmi SLA'lar</li>"
+      ],
+      [
+        "If any provision is unenforceable, the remainder stays in effect. Failure to enforce a provision is not a waiver.",
+        "Herhangi bir hüküm uygulanamazsa geri kalan yürürlükte kalır. Bir hükmü uygulamama feragat sayılmaz."
+      ],
+      [
+        "<li><strong>Vertical modes:</strong> Workflows tuned for academic, legal, financial, and general use cases</li>",
+        "<li><strong>Dikey modlar:</strong> Akademik, hukuk, finans ve genel kullanım senaryoları için ayarlanmış iş akışları</li>"
+      ],
+      [
+        "Process personal data you lack lawful basis to process, or special-category data without adequate safeguards",
+        "İşlemek için hukuki dayanağınız olmayan kişisel verileri veya yeterli güvence olmadan özel kategori verileri işlemek"
+      ],
+      [
+        "Effective 6 July 2026 · Operator: Findbelow Ventures · <a href=\"mailto:hello@ozdna.com\">hello@ozdna.com</a>",
+        "Yürürlük 6 Temmuz 2026 · İşletmeci: Findbelow Ventures · <a href=\"mailto:hello@ozdna.com\">hello@ozdna.com</a>"
+      ],
+      [
+        "API access requires a valid key issued by Findbelow. You are responsible for all activity under your keys.",
+        "API erişimi Findbelow tarafından verilen geçerli anahtar gerektirir. Anahtarlarınız altındaki tüm aktiviteden siz sorumlusunuz."
+      ],
+      [
+        "Respect rate limits, quotas, and plan boundaries — excess usage may be throttled or billed per agreement",
+        "Hız limitlerine, kotalara ve plan sınırlarına uyun — aşırı kullanım sözleşmeye göre kısıtlanabilir veya faturalandırılabilir"
+      ],
+      [
+        "Reverse engineer the Service except where prohibited restrictions are unenforceable under applicable law",
+        "Geçerli yasa kapsamında yasak kısıtlamalar uygulanamaz olduğu durumlar dışında Hizmeti tersine mühendislik yapmak"
+      ],
+      [
+        "<li><strong>Website:</strong> Marketing, documentation, waitlist, and trust resources at ozdna.com</li>",
+        "<li><strong>Web sitesi:</strong> ozdna.com'da pazarlama, dokümantasyon, bekleme listesi ve güven kaynakları</li>"
+      ],
+      [
+        "<strong>Feedback:</strong> Suggestions you provide may be used without restriction or compensation.",
+        "<strong>Geri bildirim:</strong> Sağladığınız öneriler kısıtlama veya tazminat olmaksızın kullanılabilir."
+      ],
+      [
+        "Authenticate every request with <span class=\"inline-code\">Authorization: Bearer &lt;key&gt;</span>",
+        "Her isteği <span class=\"inline-code\">Authorization: Bearer &lt;key&gt;</span> ile kimlik doğrulayın"
+      ],
+      [
+        "Comply with upstream provider terms (e.g. OpenAI) when inference is routed through third parties",
+        "Çıkarım üçüncü taraflar üzerinden yönlendirildiğinde upstream sağlayıcı şartlarına (ör. OpenAI) uyun"
+      ],
+      [
+        "Keep keys confidential; do not embed live keys in client-side code or public repositories",
+        "Anahtarları gizli tutun; canlı anahtarları istemci tarafı kodda veya public repo'larda gömmeyin"
+      ],
+      [
+        "Custom SLAs, DPAs, and volume terms are available for qualified customers during beta.",
+        "Beta sırasında nitelikli müşteriler için özel SLA'lar, DPA'lar ve hacim şartları mevcuttur."
+      ],
+      [
+        "We may investigate violations and cooperate with law enforcement where required.",
+        "İhlalleri soruşturabilir ve gerektiğinde kolluk kuvvetleriyle iş birliği yapabiliriz."
+      ],
+      [
+        "Use sandbox keys for development; production keys only for live workloads",
+        "Geliştirme için sandbox anahtarları kullanın; üretim anahtarları yalnızca canlı iş yükleri için"
+      ],
+      [
+        "Resell raw API access without a written reseller agreement with Findbelow",
+        "Findbelow ile yazılı bayi sözleşmesi olmadan ham API erişimini yeniden satmak"
+      ],
+      [
+        "Generate, distribute, or facilitate malware, spam, fraud, or harassment",
+        "Kötü amaçlı yazılım, spam, dolandırıcılık veya taciz oluşturmak, dağıtmak veya kolaylaştırmak"
+      ],
+      [
+        "Attempt to bypass authentication, rate limits, or billing controls",
+        "Kimlik doğrulama, hız limitleri veya faturalama kontrollerini atlatmaya çalışmak"
+      ],
+      [
+        "Violate applicable law, regulation, or third-party rights",
+        "Geçerli yasa, düzenleme veya üçüncü taraf haklarını ihlal etmek"
+      ],
+      [
+        "aria-label=\"Terms of service sections\"",
+        "aria-label=\"Hizmet şartları bölümleri\""
+      ],
+      [
+        "You may not use the Service to:",
+        "Hizmeti şunlar için kullanamazsınız:"
+      ],
+      [
+        "Intellectual Property",
+        "Fikri Mülkiyet"
+      ],
+      [
+        "Enterprise agreement?",
+        "Kurumsal sözleşme?"
+      ],
+      [
+        "Service Description",
+        "Hizmet Tanımı"
+      ],
+      [
+        "Warranty Disclaimer",
+        "Garanti Reddi"
+      ],
+      [
+        "Terms of Service",
+        "Hizmet Şartları"
+      ],
+      [
+        "Acceptable Use",
+        "Kabul Edilebilir Kullanım"
+      ],
+      [
+        "Governing Law",
+        "Uygulanacak Hukuk"
+      ],
+      [
+        "API Usage",
+        "API Kullanımı"
+      ],
+      [
+        "Liability",
+        "Sorumluluk"
+      ]
+    ]
+  },
+  "changelog/index.html": {
+    "title": "Değişiklik Günlüğü — ozDNA Sürümleri",
+    "description": "ozDNA için kamuya açık değişiklik günlüğü — site, API ve platform sürümleri, sürüm geçmişi ve sürüm notları.",
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Değişiklik Günlüğü",
+        "path": "/tr/changelog/"
+      }
+    ],
+    "replacements": [
+      [
+        "Production case study — how <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a> runs on ozDNA infrastructure with live token economics and vertical workflows.",
+        "Üretim vaka çalışması — <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a>'nin canlı token ekonomisi ve dikey iş akışlarıyla ozDNA altyapısında nasıl çalıştığı."
+      ],
+      [
+        "What shipped on the marketing site, documentation, and early-access platform. Platform API versioning follows semver independently — see <a href=\"/docs/\">API docs</a>.",
+        "Pazarlama sitesi, dokümantasyon ve erken erişim platformunda ne yayınlandı. Platform API sürümlemesi bağımsız semver izler — bkz. <a href=\"/docs/\">API dokümantasyonu</a>."
+      ],
+      [
+        "REST API reference — <span class=\"inline-code\">POST /v1/detect</span>, Bearer auth, sandbox and production base URLs, OpenAPI spec pointers.",
+        "REST API referansı — <span class=\"inline-code\">POST /v1/detect</span>, Bearer kimlik doğrulama, sandbox ve üretim temel URL'leri, OpenAPI spesifikasyon işaretçileri."
+      ],
+      [
+        "Initial public site — Phase 2 positioning, developer documentation, pricing, production proof, and agent-readable knowledge bundle.",
+        "İlk kamuya açık site — Faz 2 konumlandırması, geliştirici dokümantasyonu, fiyatlandırma, üretim kanıtı ve ajan okunabilir bilgi paketi."
+      ],
+      [
+        "Phase 2 homepage — LLM cost optimization for production AI teams, ComplyDNA preview, enterprise pillars, and early-access waitlist.",
+        "Faz 2 ana sayfa — üretim AI ekipleri için LLM maliyet optimizasyonu, ComplyDNA önizlemesi, kurumsal sütunlar ve erken erişim bekleme listesi."
+      ],
+      [
+        "Developer documentation hub — authentication, vertical modes, webhooks, integration flow, and platform architecture overview.",
+        "Geliştirici dokümantasyon merkezi — kimlik doğrulama, dikey modlar, webhook'lar, entegrasyon akışı ve platform mimarisi genel bakış."
+      ],
+      [
+        "Agent-readable site manifest — knowledge bundle index, blog series, partner proof, and structured links for LLM crawlers.",
+        "Ajan okunabilir site manifesti — bilgi paketi indeksi, blog serisi, iş ortağı kanıtı ve LLM tarayıcıları için yapılandırılmış bağlantılar."
+      ],
+      [
+        "Platform modules, Trust Center expansions, and ComplyDNA ship on their own cadence — tracked on the public roadmap.",
+        "Platform modülleri, Güven Merkezi genişlemeleri ve ComplyDNA kendi ritimlerinde yayınlanır — kamuya açık yol haritasında izlenir."
+      ],
+      [
+        "Public release history for ozdna.com and developer surfaces · <a href=\"/changelog/feed.json\">JSON feed</a>",
+        "ozdna.com ve geliştirici yüzeyleri için kamuya açık sürüm geçmişi · <a href=\"/changelog/feed.json\">JSON feed</a>"
+      ],
+      [
+        "Early-access pricing tiers — Startup, Growth, and Enterprise plans with invite-only API access model.",
+        "Erken erişim fiyatlandırma katmanları — yalnızca davetle API erişim modeliyle Startup, Growth ve Enterprise planları."
+      ],
+      [
+        "aria-label=\"Release versions\"",
+        "aria-label=\"Sürüm sürümleri\""
+      ],
+      [
+        "What&apos;s next?",
+        "Sırada ne var?"
+      ],
+      [
+        "Release Notes",
+        "Sürüm Notları"
+      ],
+      [
+        "Documentation",
+        "Dokümantasyon"
+      ],
+      [
+        "Case Studies",
+        "Vaka Çalışmaları"
+      ],
+      [
+        "Landing page",
+        "Açılış sayfası"
+      ],
+      [
+        "View Roadmap",
+        "Yol Haritasını Gör"
+      ],
+      [
+        "Subscribe",
+        "Abone ol"
+      ],
+      [
+        "Changelog",
+        "Değişiklik Günlüğü"
+      ],
+      [
+        "Versions",
+        "Sürümler"
+      ],
+      [
+        "Released",
+        "Yayınlandı"
+      ],
+      [
+        "API docs",
+        "API dokümantasyonu"
+      ],
+      [
+        "Pricing",
+        "Fiyatlandırma"
+      ],
+      [
+        "Added",
+        "Eklendi"
+      ]
+    ]
+  },
+  "status/index.html": {
+    "title": "Sistem Durumu — ozDNA Platform",
+    "description": "ozDNA platform bileşenleri için güncel operasyonel durum — API gateway, çıkarım, dokümantasyon ve pazarlama sitesi.",
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Durum",
+        "path": "/tr/status/"
+      }
+    ],
+    "replacements": [
+      [
+        "Status data is published manually during private beta. Live monitoring will poll <code class=\"inline-code\">/status/feed.json</code> — swap <code class=\"inline-code\">data-feed-url</code> on this page when a dynamic endpoint is available.",
+        "Durum verisi özel beta sırasında manuel yayınlanır. Canlı izleme <code class=\"inline-code\">/status/feed.json</code> dosyasını yoklayacaktır — dinamik uç nokta kullanılabilir olduğunda bu sayfadaki <code class=\"inline-code\">data-feed-url</code> değerini değiştirin."
+      ],
+      [
+        "Report issues: <a href=\"mailto:security@ozdna.com\">security@ozdna.com</a> · <a href=\"/security/\">Security</a> · <a href=\"/trust/#business-continuity\">Business continuity</a>",
+        "Sorun bildirin: <a href=\"mailto:security@ozdna.com\">security@ozdna.com</a> · <a href=\"/security/\">Güvenlik</a> · <a href=\"/trust/#business-continuity\">İş sürekliliği</a>"
+      ],
+      [
+        "Static status during private beta · <a href=\"/status/feed.json\">JSON feed</a>",
+        "Özel beta sırasında statik durum · <a href=\"/status/feed.json\">JSON feed</a>"
+      ],
+      [
+        "AI Gateway — authentication, rate limits, and request routing",
+        "AI Gateway — kimlik doğrulama, hız limitleri ve istek yönlendirme"
+      ],
+      [
+        "Marketing site, trust center, and static assets at ozdna.com",
+        "ozdna.com'da pazarlama sitesi, güven merkezi ve statik varlıklar"
+      ],
+      [
+        "Platform REST API at api.ozdna.com and sandbox endpoints",
+        "api.ozdna.com ve sandbox uç noktalarında platform REST API"
+      ],
+      [
+        "Developer docs and API reference at ozdna.com/docs",
+        "ozdna.com/docs adresinde geliştirici dokümantasyonu ve API referansı"
+      ],
+      [
+        "No incidents reported in the last 90 days.",
+        "Son 90 günde bildirilen olay yok."
+      ],
+      [
+        "Updated 6 Jul 2026, 09:00 UTC",
+        "Güncellendi 6 Tem 2026, 09:00 UTC"
+      ],
+      [
+        "All systems operational",
+        "Tüm sistemler çalışıyor"
+      ],
+      [
+        "Platform availability",
+        "Platform kullanılabilirliği"
+      ],
+      [
+        "Incident history",
+        "Olay geçmişi"
+      ],
+      [
+        "System Status",
+        "Sistem Durumu"
+      ],
+      [
+        "Documentation",
+        "Dokümantasyon"
+      ],
+      [
+        "Operational",
+        "Çalışıyor"
+      ],
+      [
+        "Components",
+        "Bileşenler"
+      ],
+      [
+        "Gateway",
+        "Gateway"
+      ],
+      [
+        "Website",
+        "Web Sitesi"
+      ]
+    ]
+  },
+  "roadmap/index.html": {
+    "title": "Ürün Yol Haritası — ozDNA Dikey AI Altyapısı",
+    "description": "ozDNA ürün yol haritası — API gateway, maliyet motoru, model yönlendirme, prompt kayıt defteri, ajan runtime ve kurumsal yönetişim.",
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Yol Haritası",
+        "path": "/tr/roadmap/"
+      }
+    ],
+    "replacements": [
+      [
+        "When the <strong style=\"color:var(--txt)\">ten platform modules</strong> below reach GA, ozDNA is full Vertical AI Infrastructure — not only a marketing site, but a platform developers and enterprise customers can run in production.",
+        "Aşağıdaki <strong style=\"color:var(--txt)\">on platform modülü</strong> GA'ya ulaştığında ozDNA tam Dikey AI Altyapısı olur — yalnızca pazarlama sitesi değil, geliştiricilerin ve kurumsal müşterilerin üretimde çalıştırabileceği bir platform."
+      ],
+      [
+        "ozDNA ships in phases — each quarter adds infrastructure depth for vertical AI teams. Timelines are directional and may shift based on beta feedback.",
+        "ozDNA fazlar halinde yayınlanır — her çeyrek dikey AI ekipleri için altyapı derinliği ekler. Zaman çizelgeleri yönlendiricidir ve beta geri bildirimine göre değişebilir."
+      ],
+      [
+        "Want early access to roadmap features? Private beta participants get priority access to each phase as it ships.",
+        "Yol haritası özelliklerine erken erişim mi istiyorsunuz? Özel beta katılımcıları her faz yayınlandığında öncelikli erişim alır."
+      ],
+      [
+        "What we're building<br>for production AI.",
+        "Üretim AI için<br>ne inşa ediyoruz."
+      ],
+      [
+        "Ten modules to production-ready",
+        "Üretime hazır on modül"
+      ],
+      [
+        "Organization &amp; Workspace",
+        "Organizasyon ve Çalışma Alanı"
+      ],
+      [
+        "Enterprise Governance",
+        "Kurumsal Yönetişim"
+      ],
+      [
+        "Vertical AI Templates",
+        "Dikey AI Şablonları"
+      ],
+      [
+        "Billing &amp; Quotas",
+        "Faturalama ve Kotalar"
+      ],
+      [
+        "ComplyDNA (RegTech)",
+        "ComplyDNA (RegTech)"
+      ],
+      [
+        "API Key Management",
+        "API Anahtarı Yönetimi"
+      ],
+      [
+        "Usage Analytics",
+        "Kullanım Analitiği"
+      ],
+      [
+        "Prompt Registry",
+        "Prompt Kayıt Defteri"
+      ],
+      [
+        "Admin Dashboard",
+        "Yönetici Paneli"
+      ],
+      [
+        "Product Roadmap",
+        "Ürün Yol Haritası"
+      ],
+      [
+        "Agent Runtime",
+        "Ajan Runtime"
+      ],
+      [
+        "Model Routing",
+        "Model Yönlendirme"
+      ],
+      [
+        "Cost Engine",
+        "Maliyet Motoru"
+      ],
+      [
+        "API Gateway",
+        "API Gateway"
+      ],
+      [
+        "Platform GA",
+        "Platform GA"
+      ],
+      [
+        "Marketplace",
+        "Marketplace"
+      ],
+      [
+        "Audit Logs",
+        "Denetim Günlükleri"
+      ],
+      [
+        "Enterprise",
+        "Kurumsal"
+      ],
+      [
+        "Planned",
+        "Planlandı"
+      ],
+      [
+        "Q3 2026",
+        "2026 Q3"
+      ],
+      [
+        "Q4 2026",
+        "2026 Q4"
+      ],
+      [
+        "Future",
+        "Gelecek"
+      ],
+      [
+        "2027",
+        "2027"
+      ]
+    ]
+  },
+  "partners/index.html": {
+    "title": "Üretim İş Ortakları — TezMakale ve ozDNA",
+    "description": "ozDNA altyapısında canlı dikey AI — üretimde TezMakale akademik AI ve aynı yığın üzerinde ComplyDNA.",
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "İş Ortakları",
+        "path": "/tr/partners/"
+      }
+    ],
+    "replacements": [
+      [
+        "<a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a> is Turkey's live academic AI platform —\n      AI detection, detailed analysis reports, plagiarism checks, and token-based usage for students under deadline pressure.\n      Every inference call routes through the ozDNA gateway, model router, and cost engine.",
+        "<a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a> Türkiye'nin canlı akademik AI platformudur —\n      AI tespiti, ayrıntılı analiz raporları, intihal kontrolleri ve teslim baskısı altındaki öğrenciler için token tabanlı kullanım.\n      Her çıkarım çağrısı ozDNA gateway, model router ve maliyet motorundan geçer."
+      ],
+      [
+        "For investors and enterprise buyers, <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">tezmakale.com</a>\n      is the reference deployment: production traffic, real margin constraints, and vertical workflow depth\n      that generic LLM gateways cannot replicate.",
+        "Yatırımcılar ve kurumsal alıcılar için <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">tezmakale.com</a>\n      referans dağıtımdır: üretim trafiği, gerçek marj kısıtları ve genel LLM gateway'lerinin kopyalayamayacağı dikey iş akışı derinliği."
+      ],
+      [
+        "Regulatory monitoring for 5549, BDDK, MASAK, and KVKK — RAG-heavy compliance for fintech and law firms. Built on the same stack as TezMakale (<a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--tq)\">tezmakale.com</a>).",
+        "5549, BDDK, MASAK ve KVKK için düzenleyici izleme — fintech ve hukuk büroları için RAG ağırlıklı uyumluluk. TezMakale ile aynı yığın üzerinde (<a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--tq)\">tezmakale.com</a>)."
+      ],
+      [
+        "We ship vertical AI products on our own stack before selling infrastructure externally. Our partners are the proof — not slide decks.",
+        "Altyapıyı dışarı satmadan önce dikey AI ürünlerini kendi yığınımızda sunuyoruz. İş ortaklarımız kanıt — slayt desteleri değil."
+      ],
+      [
+        "Academic AI · B2C · <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">tezmakale.com</a>",
+        "Akademik AI · B2C · <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">tezmakale.com</a>"
+      ],
+      [
+        "TezMakale is the template — production gateway, routing, RAG, and cost controls out of the box.",
+        "TezMakale şablondur — kutudan çıktığı haliyle üretim gateway, yönlendirme, RAG ve maliyet kontrolleri."
+      ],
+      [
+        "AI dedektörü and segment-level analysis on shared ozDNA stack",
+        "Paylaşılan ozDNA yığınında AI dedektörü ve segment düzeyinde analiz"
+      ],
+      [
+        "Academic-mode RAG calibration for Turkish prose",
+        "Türkçe metin için akademik mod RAG kalibrasyonu"
+      ],
+      [
+        "Usage economics mapped to real LLM spend",
+        "Gerçek LLM harcamasına eşlenmiş kullanım ekonomisi"
+      ],
+      [
+        "Want ozDNA for your vertical AI product?",
+        "Dikey AI ürününüz için ozDNA mı istiyorsunuz?"
+      ],
+      [
+        "Built on ozDNA.<br>Live in production.",
+        "ozDNA üzerinde inşa edildi.<br>Üretimde canlı."
+      ],
+      [
+        "Live · Production · Turkey",
+        "Canlı · Üretim · Türkiye"
+      ],
+      [
+        "ComplyDNA'yı Keşfedin →",
+        "ComplyDNA'yı Keşfet →"
+      ],
+      [
+        "Production Partners",
+        "Üretim İş Ortakları"
+      ],
+      [
+        "Phase 2 · Building",
+        "Faz 2 · Geliştiriliyor"
+      ],
+      [
+        "RegTech · TR / EU",
+        "RegTech · TR / AB"
+      ],
+      [
+        "Open TezMakale →",
+        "TezMakale'yi Aç →"
+      ],
+      [
+        "Read case study",
+        "Vaka çalışmasını oku"
+      ],
+      [
+        "TezMakale proof",
+        "TezMakale kanıtı"
+      ],
+      [
+        "TezMakale",
+        "TezMakale"
+      ]
+    ]
+  },
+  "case-studies/tezmakale/index.html": {
+    "title": "Vaka Çalışması — TezMakale ozDNA Üzerinde Nasıl Çalışır",
+    "description": "Üretim vaka çalışması: TezMakale dikey AI ozDNA üzerinde — Türkiye'de ölçekte AI tespiti, token ekonomisi, yönlendirme ve RAG.",
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Vaka Çalışmaları",
+        "path": "/tr/case-studies/tezmakale/"
+      }
+    ],
+    "replacements": [
+      [
+        "TezMakale operates in a high-pressure segment: students under deadline need fast, reliable AI analysis — detection to verify originality, segment-level reports with cited evidence, and clear usage limits that map to real infrastructure cost. The live product is at <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">tezmakale.com</a>.",
+        "TezMakale yüksek baskılı bir segmentte faaliyet gösterir: teslim baskısı altındaki öğrenciler hızlı, güvenilir AI analizi ister — özgünlüğü doğrulamak için tespit, kaynak gösterilen kanıtlarla segment düzeyinde raporlar ve gerçek altyapı maliyetine karşılık gelen net kullanım limitleri. Canlı ürün <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">tezmakale.com</a> adresindedir."
+      ],
+      [
+        "TezMakale connects through the ozDNA Gateway — a unified AI gateway that handles authentication, rate limits, and audit logging before any inference reaches the model router or RAG layer. The public-facing product lives at <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale (tezmakale.com)</a>.",
+        "TezMakale ozDNA Gateway üzerinden bağlanır — herhangi bir çıkarım model router veya RAG katmanına ulaşmadan önce kimlik doğrulama, hız limitleri ve denetim günlüğünü yöneten birleşik AI gateway. Müşteriye yönelik ürün <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale (tezmakale.com)</a> adresindedir."
+      ],
+      [
+        "<a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a> is a live vertical AI product serving Turkish students — AI detection, detailed analysis reports, and token-based usage economics — running on ozDNA infrastructure. This is what production AI looks like before the B2B layer opens.",
+        "<a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a>, Türk öğrencilere hizmet veren canlı bir dikey AI ürünüdür — AI tespiti, ayrıntılı analiz raporları ve token tabanlı kullanım ekonomisi — ozDNA altyapısında çalışır. B2B katmanı açılmadan önce üretim AI budur."
+      ],
+      [
+        "<li><strong>Detect</strong> — User submits text. Gateway authenticates, rate-limits, and routes to the detect workflow. Model router selects the academic-calibrated classifier. RAG layer provides segment-level context. Response includes AI probability, confidence, and segment map.</li>",
+        "<li><strong>Detect</strong> — Kullanıcı metin gönderir. Gateway kimlik doğrular, hız sınırlar ve detect iş akışına yönlendirir. Model router akademik kalibrasyonlu sınıflandırıcıyı seçer. RAG katmanı segment düzeyinde bağlam sağlar. Yanıt AI olasılığı, güven ve segment haritası içerir.</li>"
+      ],
+      [
+        "The model router sends classification tasks to lightweight models and reserves premium models only when analysis quality thresholds require it. The RAG layer provides academic-mode calibration — retrieval hooks tuned for Turkish academic writing patterns.",
+        "Model router sınıflandırma görevlerini hafif modellere gönderir ve premium modelleri yalnızca analiz kalite eşikleri gerektirdiğinde ayırır. RAG katmanı akademik mod kalibrasyonu sağlar — Türkçe akademik yazım kalıpları için ayarlanmış retrieval kancaları."
+      ],
+      [
+        "The core challenge was not building demos. It was shipping <strong>production AI</strong> where every workflow burns tokens, every user session has margin implications, and peak traffic (exam seasons) can spike inference cost overnight.",
+        "Temel zorluk demo yapmak değildi. Her iş akışının token yaktığı, her kullanıcı oturumunun marj etkisi olduğu ve yoğun trafiğin (sınav dönemleri) çıkarım maliyetini bir gecede artırabildiği <strong>üretim AI</strong> sunmaktı."
+      ],
+      [
+        "<p><strong style=\"color:var(--txt)\">Stack path:</strong> TezMakale web app → ozDNA Gateway → Model Router → RAG Layer (academic corpus) → LLM Providers → Analytics &amp; Cost Engine</p>",
+        "<p><strong style=\"color:var(--txt)\">Yığın yolu:</strong> TezMakale web uygulaması → ozDNA Gateway → Model Router → RAG Katmanı (akademik corpus) → LLM Sağlayıcıları → Analytics ve Cost Engine</p>"
+      ],
+      [
+        "<li><strong>Report</strong> — Detailed analysis with cited evidence sentences. Router selects cost-efficient models per section. Cost engine tracks margin per report tier.</li>",
+        "<li><strong>Report</strong> — Kaynak gösterilen kanıt cümleleriyle ayrıntılı analiz. Router bölüm başına maliyet verimli modeller seçer. Maliyet motoru rapor katmanı başına marjı izler.</li>"
+      ],
+      [
+        "<li><strong>Intelligent Routing</strong> — detect workflows routed to cost-efficient models; premium models only when segment analysis requires higher fidelity</li>",
+        "<li><strong>Akıllı Yönlendirme</strong> — tespit iş akışları maliyet verimli modellere yönlendirilir; premium modeller yalnızca segment analizi daha yüksek doğruluk gerektirdiğinde</li>"
+      ],
+      [
+        "TezMakale is live at <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">tezmakale.com</a> — the same ozDNA stack available to B2B teams in private beta.",
+        "TezMakale <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">tezmakale.com</a> adresinde canlı — özel betadaki B2B ekiplerine sunulan aynı ozDNA yığını."
+      ],
+      [
+        "<li><strong>Scale readiness</strong> — peak exam-season traffic handled by gateway rate limits and model routing, not emergency model swaps</li>",
+        "<li><strong>Ölçek hazırlığı</strong> — sınav dönemi zirve trafiği acil model değişimleriyle değil gateway hız limitleri ve model yönlendirme ile yönetilir</li>"
+      ],
+      [
+        "<li><strong>Analyze</strong> — Usage analytics records token burn and cost. Audit log captures prompt hash and model ID for compliance.</li>",
+        "<li><strong>Analyze</strong> — Kullanım analitiği token tüketimi ve maliyeti kaydeder. Denetim günlüğü uyumluluk için prompt hash ve model ID yakalar.</li>"
+      ],
+      [
+        "<li><strong>Cost Optimization</strong> — per-workflow cost attribution visible in dashboard; automatic downgrade rules during off-peak</li>",
+        "<li><strong>Maliyet Optimizasyonu</strong> — panelde görünen iş akışı başına maliyet atfı; düşük trafikte otomatik düşürme kuralları</li>"
+      ],
+      [
+        "<li><strong>AI Gateway</strong> — single entry point for all TezMakale AI workloads with per-user rate limits and session tracking</li>",
+        "<li><strong>AI Gateway</strong> — kullanıcı başına hız limitleri ve oturum izlemesiyle tüm TezMakale AI iş yükleri için tek giriş noktası</li>"
+      ],
+      [
+        "<li><strong>Investor-ready proof</strong> — live production metrics demonstrate vertical AI infrastructure, not a thin wrapper</li>",
+        "<li><strong>Yatırımcıya hazır kanıt</strong> — canlı üretim metrikleri ince sarmalayıcı değil dikey AI altyapısını gösterir</li>"
+      ],
+      [
+        "<li><strong>Prompt Registry</strong> — versioned academic prompts with rollback capability for A/B testing detection accuracy</li>",
+        "<li><strong>Prompt Kayıt Defteri</strong> — tespit doğruluğu A/B testi için geri alma yeteneğiyle sürümlü akademik prompt'lar</li>"
+      ],
+      [
+        "<li><strong>Operational visibility</strong> — finance and engineering share the same cost-per-workflow dashboard</li>",
+        "<li><strong>Operasyonel görünürlük</strong> — finans ve mühendislik aynı iş akışı başına maliyet panelini paylaşır</li>"
+      ],
+      [
+        "<li><strong>Usage Analytics</strong> — token burn mapped to user credits in real time, protecting gross margin</li>",
+        "<li><strong>Kullanım Analitiği</strong> — token tüketimi gerçek zamanlı kullanıcı kredilerine eşlenir, brüt marjı korur</li>"
+      ],
+      [
+        "Running on ozDNA gave TezMakale production-grade infrastructure without building an internal AI platform team:",
+        "ozDNA üzerinde çalışmak TezMakale'ye dahili AI platform ekibi kurmadan üretim sınıfı altyapı sağladı:"
+      ],
+      [
+        "Multiple AI workflows per session — detect, analyze, report — each with different model requirements",
+        "Oturum başına birden fazla AI iş akışı — tespit, analiz, rapor — her biri farklı model gereksinimleriyle"
+      ],
+      [
+        "<li><strong>Margin protection</strong> — token credits map to real workflow cost, not guesswork</li>",
+        "<li><strong>Marj koruması</strong> — token kredileri tahmine değil gerçek iş akışı maliyetine eşlenir</li>"
+      ],
+      [
+        "How <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a> runs on ozDNA",
+        "<a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a> ozDNA üzerinde nasıl çalışır"
+      ],
+      [
+        "Turkish-language academic calibration — generic models underperform on local academic prose",
+        "Türkçe akademik kalibrasyon — genel modeller yerel akademik metinde yetersiz kalır"
+      ],
+      [
+        "ozDNA deployed as the full vertical AI infrastructure layer — not just an API wrapper:",
+        "ozDNA tam dikey AI altyapı katmanı olarak dağıtıldı — yalnızca API sarmalayıcısı değil:"
+      ],
+      [
+        "Token-based pricing that must reflect actual LLM spend, not arbitrary credits",
+        "Keyfi krediler değil, gerçek LLM harcamasını yansıtan token tabanlı fiyatlandırma"
+      ],
+      [
+        "A typical TezMakale session flows through three instrumented steps:",
+        "Tipik bir TezMakale oturumu üç ölçümlenmiş adımdan geçer:"
+      ],
+      [
+        "Want the same infrastructure layer for your vertical AI product?",
+        "Dikey AI ürününüz için aynı altyapı katmanını mı istiyorsunuz?"
+      ],
+      [
+        "Need for cost visibility before scaling marketing spend",
+        "Pazarlama harcamasını ölçeklemeden önce maliyet görünürlüğü ihtiyacı"
+      ],
+      [
+        "TezMakale · Academic AI · Turkey",
+        "TezMakale · Akademik AI · Türkiye"
+      ],
+      [
+        "Case Study · Production AI",
+        "Vaka Çalışması · Üretim AI"
+      ],
+      [
+        "Inference cost reduction",
+        "Çıkarım maliyeti azaltma"
+      ],
+      [
+        "Peak traffic multiplier",
+        "Zirve trafik çarpanı"
+      ],
+      [
+        "Workflows per session",
+        "Oturum başına iş akışı"
+      ],
+      [
+        "Monthly active users",
+        "Aylık aktif kullanıcı"
+      ],
+      [
+        "Production Benefits",
+        "Üretim Faydaları"
+      ],
+      [
+        "Detect p95 latency",
+        "Detect p95 gecikmesi"
+      ],
+      [
+        "← Back to ozDNA",
+        "← ozDNA'ya dön"
+      ],
+      [
+        "Gateway uptime",
+        "Gateway uptime"
+      ],
+      [
+        "Architecture",
+        "Mimari"
+      ],
+      [
+        "Live product",
+        "Canlı ürün"
+      ],
+      [
+        "AI Workflow",
+        "AI İş Akışı"
+      ],
+      [
+        "Challenge",
+        "Zorluk"
+      ],
+      [
+        "Solution",
+        "Çözüm"
+      ]
+    ]
+  },
+  "blog/index.html": {
+    "title": "Blog — Dikey AI Altyapısı İçgörüleri | ozDNA",
+    "description": "Dikey AI kurucuları için rehberler: LLM API maliyetleri, çıkarım yönlendirme, marj riski ve yatırımcıların ince sarmalayıcının ötesinde gördükleri.",
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Blog",
+        "path": "/tr/blog/"
+      }
+    ],
+    "replacements": [
+      [
+        "Production proof: <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a> (academic AI, Turkey) runs on this infrastructure today. <a href=\"/partners/\">Partner profile</a> · <a href=\"/case-studies/tezmakale/\">Case study</a>.",
+        "Üretim kanıtı: <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a> (akademik AI, Türkiye) bugün bu altyapıda çalışıyor. <a href=\"/partners/\">İş ortağı profili</a> · <a href=\"/case-studies/tezmakale/\">Vaka çalışması</a>."
+      ],
+      [
+        "Problem-aware writing for teams where API bills, RAG drift, and token pricing show up before product-market fit does. Part of the GPU Bill Bodyguard content series.",
+        "API faturaları, RAG sapması ve token fiyatlandırmasının ürün-pazar uyumundan önce ortaya çıktığı ekipler için sorun odaklı yazılar. GPU Bill Bodyguard içerik serisinin parçası."
+      ],
+      [
+        "The difference between a demo chatbot and a product with domain depth — in diligence language, not pitch-deck adjectives.",
+        "Demo chatbot ile alan derinliği olan ürün arasındaki fark — pitch deck sıfatları değil, due diligence diliyle."
+      ],
+      [
+        "GPU and API spend feel unpredictable until you break cost down by workflow, model, and user — then route accordingly.",
+        "Maliyeti iş akışı, model ve kullanıcıya göre ayırana — ardından buna göre yönlendirene kadar GPU ve API harcaması öngörülemez hissedilir."
+      ],
+      [
+        "If gross margin depends on today's LLM list prices staying flat, you have platform risk — not a temporary cost spike.",
+        "Brüt marj bugünkü LLM liste fiyatlarının sabit kalmasına bağlıysa geçici maliyet artışı değil, platform riskiniz vardır."
+      ],
+      [
+        "Why AI API bills scale faster than revenue — and what to measure before you blame pricing or churn.",
+        "AI API faturaları gelirden neden daha hızlı büyür — fiyatlandırmayı veya churn'ü suçlamadan önce ne ölçmelisiniz."
+      ],
+      [
+        "Vertical AI vs. Thin Wrapper: What Investors Actually See",
+        "Dikey AI vs. İnce Sarmalayıcı: Yatırımcılar Gerçekte Ne Görür"
+      ],
+      [
+        "Hidden Platform Risk: When API Pricing Changes",
+        "Gizli Platform Riski: API Fiyatlandırması Değiştiğinde"
+      ],
+      [
+        "Making Inference Cost Measurable and Routable",
+        "Çıkarım Maliyetini Ölçülebilir ve Yönlendirilebilir Kılmak"
+      ],
+      [
+        "Founder notes on AI infrastructure economics",
+        "AI altyapı ekonomisi üzerine kurucu notları"
+      ],
+      [
+        "When Every Active User Destroys Your Margin",
+        "Her Aktif Kullanıcı Marjınızı Yok Ettiğinde"
+      ],
+      [
+        "Pillar 4 · Margin Resilience",
+        "Sütun 4 · Marj Dayanıklılığı"
+      ],
+      [
+        "Pillar 1 · Cost Control",
+        "Sütun 1 · Maliyet Kontrolü"
+      ],
+      [
+        "Pillar 3 · Vertical AI",
+        "Sütun 3 · Dikey AI"
+      ],
+      [
+        "Live on ozDNA",
+        "ozDNA'da canlı"
+      ],
+      [
+        "June 2026",
+        "Haziran 2026"
+      ],
+      [
+        "Home",
+        "Ana Sayfa"
+      ]
+    ]
+  },
+  "blog/when-every-active-user-destroys-your-margin/index.html": {
+    "title": "Her Aktif Kullanıcı Marjınızı Yok Ettiğinde — ozDNA Blog",
+    "description": "Gelirden daha hızlı büyüyen AI API faturaları yapısal bir marj sorunudur. Dikey AI kurucularının kullanıcı ve iş akışı başına token tüketimini nasıl ölçmesi gerektiği.",
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Blog",
+        "path": "/tr/blog/"
+      },
+      {
+        "name": "Her Aktif Kullanıcı Marjınızı Yok Ettiğinde",
+        "path": "/tr/blog/when-every-active-user-destroys-your-margin/"
+      }
+    ],
+    "replacements": [
+      [
+        "We run live token limits and per-product usage economics on <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a> — separate daily caps per workflow, word limits per analysis, daily token tracking. It is not a slide; it is how we learned that \"unlimited free tier\" dies the moment server-side inference ships.",
+        "<a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a>'de canlı token limitleri ve ürün başına kullanım ekonomisi yürütüyoruz — iş akışı başına ayrı günlük limitler, analiz başına kelime limitleri, günlük token izleme. Bu slayt değil; \"sınırsız ücretsiz katman\"ın sunucu tarafı çıkarım yayınlandığı anda öldüğünü böyle öğrendik."
+      ],
+      [
+        "Founders optimize what dashboards show first: signups, weekly actives, time-in-product. Investors ask about those too — early. But the number that kills seed-stage AI companies quietly is <strong>gross margin per active user</strong>, and most teams do not have it instrumented until Series A conversations get awkward.",
+        "Kurucular panellerin önce gösterdiğini optimize eder: kayıtlar, haftalık aktifler, üründe geçirilen süre. Yatırımcılar da erken sorar. Ama seed aşaması AI şirketlerini sessizce öldüren sayı <strong>aktif kullanıcı başına brüt marj</strong>dır ve çoğu ekip Series A görüşmeleri garipleşene kadar bunu ölçümlemez."
+      ],
+      [
+        "Optimization asks: for this specific vertical task, which model clears the quality bar at the lowest cost and latency? That question depends on domain evals — not generic benchmarks. A router that does not know your RAG pipeline's failure modes will still route expensive calls to expensive models by default.",
+        "Optimizasyon sorar: bu belirli dikey görev için hangi model en düşük maliyet ve gecikmeyle kalite barını geçer? Bu soru genel kıyaslamalara değil alan değerlendirmelerine bağlıdır. RAG pipeline'ınızın hata modlarını bilmeyen router yine de varsayılan olarak pahalı çağrıları pahalı modellere yönlendirir."
+      ],
+      [
+        "A compliance assistant that re-reads twelve documents per query. An academic tool that runs detection, analysis, and summarization in one session. A support agent that chains three LLM calls before a human ever sees the ticket. Each active user is doing more work per visit than your spreadsheet assumed.",
+        "Sorgu başına on iki belgeyi yeniden okuyan bir uyumluluk asistanı. Tek oturumda tespit, analiz ve özetleme çalıştıran akademik bir araç. Bir insan bileti görmeden üç LLM çağrısı zincirleyen destek ajanı. Her aktif kullanıcı, elektronik tablonuzun varsaydığından oturum başına daha fazla iş yapıyor."
+      ],
+      [
+        "This is the pattern we keep seeing in vertical AI teams: <strong>AI API bills scale faster than revenue</strong>. Not because the product is broken. Because inference cost is tied to usage intensity, and usage intensity rises with the features that make the product sticky.",
+        "Dikey AI ekiplerinde sürekli gördüğümüz kalıp: <strong>AI API faturaları gelirden daha hızlı büyür</strong>. Ürün bozuk olduğu için değil. Çıkarım maliyeti kullanım yoğunluğuna bağlıdır ve kullanım yoğunluğu ürünü yapışkan kılan özelliklerle artar."
+      ],
+      [
+        "Your AI product does not have a margin problem because users love it. It has a margin problem because every workflow calls the most expensive model too often — and you only notice after activation curves look great.",
+        "AI ürününüzün marj sorunu kullanıcıların sevmesinden değil. Her iş akışının çok sık en pahalı modeli çağırmasından — ve bunu ancak aktivasyon eğrileri harika göründükten sonra fark etmenizden kaynaklanır."
+      ],
+      [
+        "LLM gateways and routers solve integration: one API surface, failover, spend dashboards. That is necessary. It is not the same as <strong>LLM cost optimization</strong> at the workflow layer.",
+        "LLM gateway'leri ve router'lar entegrasyonu çözer: tek API yüzeyi, failover, harcama panoları. Bu gerekli. İş akışı katmanında <strong>LLM maliyet optimizasyonu</strong> ile aynı değildir."
+      ],
+      [
+        "You will almost always find a minority of steps consuming a majority of spend. That is where routing, caching, or smaller models earn their keep — without hurting the outcome users pay for.",
+        "Neredeyse her zaman harcamanın çoğunu tüketen azınlık adımlar bulursunuz. Routing, önbellekleme veya daha küçük modellerin karşılığını verdiği yer burasıdır — kullanıcıların ödediği sonucu bozmadan."
+      ],
+      [
+        "<li><strong>Cost per workflow.</strong> Name the jobs users actually hire your product to do (draft report, scan regulation, rewrite paragraph). Attribute tokens and dollars to each.</li>",
+        "<li><strong>İş akışı başına maliyet.</strong> Kullanıcıların ürününüzü gerçekten yaptırmak için tuttuğu işleri adlandırın (rapor taslağı, düzenleme taraması, paragraf yeniden yazma). Her birine token ve dolar atfedin.</li>"
+      ],
+      [
+        "The difference from classic SaaS: your COGS scales with <em>intelligence per action</em>, not just storage and bandwidth. Two users on the same plan can have 10× different token burn.",
+        "Klasik SaaS'tan fark: COGS'unuz yalnızca depolama ve bant genişliğiyle değil, <em>eylem başına zeka</em> ile ölçeklenir. Aynı plandaki iki kullanıcının token tüketimi 10 kat farklı olabilir."
+      ],
+      [
+        "Pick your highest-volume workflow. Log input tokens, output tokens, model ID, and latency for every call for one week. Plot cost per completed user outcome — not per API request.",
+        "En yüksek hacimli iş akışınızı seçin. Bir hafta boyunca her çağrı için giriş token'ları, çıkış token'ları, model ID ve gecikmeyi günlükleyin. API isteği başına değil, tamamlanan kullanıcı sonucu başına maliyeti çizin."
+      ],
+      [
+        "<li><strong>Cost per model call type.</strong> Retrieval, classification, generation, and re-ranking have different economics. Lumping them hides routing opportunities.</li>",
+        "<li><strong>Model çağrı türü başına maliyet.</strong> Retrieval, sınıflandırma, üretim ve yeniden sıralamanın ekonomisi farklıdır. Bir araya toplamak yönlendirme fırsatlarını gizler.</li>"
+      ],
+      [
+        "Until those exist, \"we need cheaper models\" is a guess. You might need cheaper models for step two of five — and a premium model only where quality actually moves retention.",
+        "Bunlar olmadan \"daha ucuz modellere ihtiyacımız var\" bir tahmindir. Beş adımdan ikincisi için daha ucuz modellere ihtiyacınız olabilir — premium model yalnızca kalite gerçekten elde tutmayı etkilediğinde."
+      ],
+      [
+        "<li><strong>Cost per account.</strong> Which customer segments drive margin? Enterprise pilots often look small in seat count but enormous in inference.</li>",
+        "<li><strong>Hesap başına maliyet.</strong> Hangi müşteri segmentleri marjı sürükler? Kurumsal pilotlar koltuk sayısında küçük, çıkarımda devasa görünür.</li>"
+      ],
+      [
+        "Building vertical AI and watching infra outrun revenue? Join the ozDNA early access list — GPU Bill Bodyguard series for founders and CTOs.",
+        "Dikey AI inşa ediyor ve altyapının geliri mi geçiyor? ozDNA erken erişim listesine katılın — kurucular ve CTO'lar için GPU Bill Bodyguard serisi."
+      ],
+      [
+        "Control token burn before it becomes structural. That is the job of infrastructure, not a pricing-page patch after the fact.",
+        "Token tüketimini yapısal hale gelmeden kontrol edin. Bu altyapının işidir, sonradan fiyatlandırma sayfası yaması değil."
+      ],
+      [
+        "Before you raise prices or throttle features, get three views of cost — not one blended AWS line item.",
+        "Fiyat artırmadan veya özellik kısıtlamadan önce maliyetin üç görünümünü edinin — tek birleşik AWS kalemi değil."
+      ],
+      [
+        "Support tickets about \"slow\" responses — often expensive-model latency, not bad UX.",
+        "\"Yavaş\" yanıtlar hakkında destek talepleri — genellikle pahalı model gecikmesi, kötü UX değil."
+      ],
+      [
+        "You add credits or caps, and churn spikes among the users who were most engaged.",
+        "Kredi veya limit eklersiniz ve en çok etkileşimde olan kullanıcılarda churn artar."
+      ],
+      [
+        "Power users you love in case studies are underwater on variable cost.",
+        "Vaka çalışmalarında sevdiğiniz güç kullanıcılar değişken maliyette zararda."
+      ],
+      [
+        "The trap: confusing growth metrics with unit economics",
+        "Tuzak: büyüme metriklerini birim ekonomisiyle karıştırmak"
+      ],
+      [
+        "Revenue grows 15% month over month; infra grows 40%.",
+        "Gelir ay ay %15 büyür; altyapı %40."
+      ],
+      [
+        "When Every Active User Destroys Your Margin",
+        "Her Aktif Kullanıcı Marjınızı Yok Ettiğinde"
+      ],
+      [
+        "Symptoms look like familiar SaaS problems:",
+        "Belirtiler tanıdık SaaS sorunlarına benzer:"
+      ],
+      [
+        "What to measure before you change pricing",
+        "Fiyatlandırmayı değiştirmeden önce ne ölçmelisiniz"
+      ],
+      [
+        "Why gateways alone do not fix this",
+        "Gateway'lerin tek başına bunu neden çözmediği"
+      ],
+      [
+        "Pillar 1 · Cost Control",
+        "Sütun 1 · Maliyet Kontrolü"
+      ],
+      [
+        "June 2026 · 7 min read",
+        "Haziran 2026 · 7 dk okuma"
+      ],
+      [
+        "A practical first move",
+        "Pratik ilk adım"
+      ],
+      [
+        "Built on ozDNA",
+        "ozDNA üzerinde inşa edildi"
+      ],
+      [
+        "← All posts",
+        "← Tüm yazılar"
+      ]
+    ]
+  },
+  "blog/making-inference-cost-measurable-and-routable/index.html": {
+    "title": "Çıkarım Maliyetini Ölçülebilir ve Yönlendirilebilir Kılmak — ozDNA Blog",
+    "description": "GPU ve LLM API maliyetleri, çıkarım iş akışı başına ölçülebilir olana kadar öngörülemez hissedilir. Üretim ekipleri için model yönlendirme ve AI çıkarım maliyeti azaltma.",
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Blog",
+        "path": "/tr/blog/"
+      },
+      {
+        "name": "Çıkarım Maliyetini Ölçülebilir ve Yönlendirilebilir Kılmak",
+        "path": "/tr/blog/making-inference-cost-measurable-and-routable/"
+      }
+    ],
+    "replacements": [
+      [
+        "Our infrastructure roadmap — exercised first on <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a> and <a href=\"/products/comply/\">ComplyDNA</a> workloads — treats cost per workflow as a first-class metric, not a monthly invoice surprise. Gateways give you pipes; vertical products teach you what should flow through them.",
+        "Altyapı yol haritamız — önce <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a> ve <a href=\"/products/comply/\">ComplyDNA</a> iş yüklerinde uygulandı — iş akışı başına maliyeti aylık fatura sürprizi değil birinci sınıf metrik olarak ele alır. Gateway'ler boru verir; dikey ürünler içlerinden ne akması gerektiğini öğretir."
+      ],
+      [
+        "CTOs describe the same week: finance asks for a forecast, engineering says \"it depends on traffic,\" and the chart of <strong>GPU cost unpredictable</strong> spikes looks like weather. That is not a capacity-planning failure alone. It is missing attribution between <em>what the product did</em> and <em>what infra it burned</em>.",
+        "CTO'lar aynı haftayı anlatır: finans tahmin ister, mühendislik \"trafiğe bağlı\" der ve <strong>öngörülemez GPU maliyeti</strong> grafiği hava durumu gibi sıçrar. Bu yalnızca kapasite planlama hatası değil. <em>Ürünün ne yaptığı</em> ile <em>hangi altyapıyı yaktığı</em> arasında atıf eksikliğidir."
+      ],
+      [
+        "Dashboards that only show \"OpenAI bill\" miss two-thirds of the story. <strong>AI inference cost reduction</strong> starts when retrieval and retries carry the same labels as chat completions.",
+        "Yalnızca \"OpenAI faturası\" gösteren panolar hikâyenin üçte ikisini kaçırır. <strong>AI çıkarım maliyeti azaltma</strong>, retrieval ve yeniden denemeler chat completion'larla aynı etiketleri taşıdığında başlar."
+      ],
+      [
+        "With that schema, questions become answerable: Which workflow blew the budget Tuesday? Did the new prompt increase output tokens? Are retries doubling cost on one customer integration?",
+        "Bu şemayla sorular cevaplanabilir: Salı hangi iş akışı bütçeyi patlattı? Yeni prompt çıkış token'larını artırdı mı? Yeniden denemeler bir müşteri entegrasyonunda maliyeti ikiye mi katlıyor?"
+      ],
+      [
+        "<li><strong>Retry and quality tax.</strong> Failed RAG pulls, guardrail rewrites, user-triggered regenerations. Invisible in demos, massive in production.</li>",
+        "<li><strong>Yeniden deneme ve kalite vergisi.</strong> Başarısız RAG çekmeleri, guardrail yeniden yazmaları, kullanıcı tetiklemeli yeniden üretimler. Demoda görünmez, üretimde devasa.</li>"
+      ],
+      [
+        "This is the foundation of <strong>token cost management</strong> — credits on your pricing page should map back to these rows, or you are guessing margin.",
+        "Bu <strong>token maliyet yönetiminin</strong> temelidir — fiyatlandırma sayfanızdaki krediler bu satırlara eşlenmeli, yoksa marjı tahmin ediyorsunuz."
+      ],
+      [
+        "GPU cost unpredictable is a symptom. The disease is unlabeled spend — you see a bill, not a decision tree. Fix measurement first; routing second.",
+        "Öngörülemez GPU maliyeti bir belirtidir. Hastalık etiketsiz harcamadır — fatura görürsünüz, karar ağacı değil. Önce ölçümü düzeltin; yönlendirme ikinci."
+      ],
+      [
+        "<li><strong>Retrieval and orchestration.</strong> Embeddings, re-ranking, agent tool loops — often more calls than the \"main\" generation.</li>",
+        "<li><strong>Retrieval ve orkestrasyon.</strong> Embeddings, yeniden sıralama, ajan araç döngüleri — genellikle \"ana\" üretimden daha fazla çağrı.</li>"
+      ],
+      [
+        "Without per-step evals, routing is superstition. You will either over-spend on premium models or under-deliver on the steps users notice.",
+        "Adım başına değerlendirme olmadan yönlendirme batıl inançtır. Ya premium modellerde fazla harcarsınız ya da kullanıcıların fark ettiği adımlarda yetersiz kalırsınız."
+      ],
+      [
+        "Want cost per workflow, not just a provider invoice? Early access to ozDNA's routing and governance layer is open for vertical AI teams.",
+        "Sağlayıcı faturası değil iş akışı başına maliyet mi istiyorsunuz? ozDNA yönlendirme ve yönetişim katmanına erken erişim dikey AI ekipleri için açık."
+      ],
+      [
+        "Predictable GPU and API bills are not about locking spend — they are about tying every dollar to a product decision you can change.",
+        "Öngörülebilir GPU ve API faturaları harcamayı kilitlemekle ilgili değil — her doları değiştirebileceğiniz bir ürün kararına bağlamakla ilgili."
+      ],
+      [
+        "Instrument one workflow end to end. Add routing to exactly one step where evals already exist. Resist boiling the ocean.",
+        "Bir iş akışını uçtan uca ölçümleyin. Değerlendirmelerin zaten olduğu tam bir adıma yönlendirme ekleyin. Okyanusu kaynatmaya direnin."
+      ],
+      [
+        "<strong>LLM routing</strong> is not \"send easy stuff to the small model\" as a slogan. It is a policy per step:",
+        "<strong>LLM yönlendirme</strong> slogan olarak \"kolay işleri küçük modele gönder\" değildir. Adım başına bir politikadır:"
+      ],
+      [
+        "Production AI spend usually mixes three buckets. Treating them as one line item guarantees surprise.",
+        "Üretim AI harcaması genellikle üç kova karıştırır. Bunları tek kalem olarak ele almak sürprizi garanti eder."
+      ],
+      [
+        "Log escalations as first-class events — they are your roadmap for fine-tuning or better retrieval.",
+        "Yükseltmeleri birinci sınıf olay olarak günlükleyin — ince ayar veya daha iyi retrieval için yol haritanızdır."
+      ],
+      [
+        "You do not need a data warehouse on day one. You need consistent fields on every inference event:",
+        "İlk günden veri ambarına ihtiyacınız yok. Her çıkarım olayında tutarlı alanlara ihtiyacınız var:"
+      ],
+      [
+        "We shifted 38% of classification calls to a smaller model last release — quality held, cost down.",
+        "Son sürümde sınıflandırma çağrılarının %38'ini daha küçük modele kaydırdık — kalite korundu, maliyet düştü."
+      ],
+      [
+        "That is when inference stops feeling like weather and starts feeling like a system you operate.",
+        "Çıkarımın hava durumu gibi hissettirmeyi bırakıp işlettiğiniz bir sistem gibi hissettirdiği an budur."
+      ],
+      [
+        "<li><strong>Provider inference.</strong> Per-token API charges or self-hosted GPU hours.</li>",
+        "<li><strong>Sağlayıcı çıkarımı.</strong> Token başına API ücretleri veya self-hosted GPU saatleri.</li>"
+      ],
+      [
+        "<li><code>tokens_in</code> / <code>tokens_out</code> — or GPU-seconds for self-hosted</li>",
+        "<li><code>tokens_in</code> / <code>tokens_out</code> — veya self-hosted için GPU-saniye</li>"
+      ],
+      [
+        "<li><code>workflow_id</code> — user-facing job, not internal microservice name</li>",
+        "<li><code>workflow_id</code> — dahili mikroservis adı değil, kullanıcıya yönelik iş</li>"
+      ],
+      [
+        "Define the quality bar for the step (factual grounding, tone, format compliance).",
+        "Adım için kalite barını tanımlayın (gerçek temellendirme, ton, format uyumu)."
+      ],
+      [
+        "Route to the cheapest model that clears the bar; escalate only on low confidence.",
+        "Barı geçen en ucuz modele yönlendirin; yalnızca düşük güvende yükseltin."
+      ],
+      [
+        "Run evals on a fixed set of production-shaped inputs — not cherry-picked demos.",
+        "Sabit üretim şekilli girdiler kümesinde değerlendirme çalıştırın — seçilmiş demolar değil."
+      ],
+      [
+        "Measurable + routable infra means an on-call engineer can answer in minutes:",
+        "Ölçülebilir + yönlendirilebilir altyapı, nöbetçi mühendisin dakikalar içinde yanıtlayabileceği anlamına gelir:"
+      ],
+      [
+        "Account X's integration triggers double retrieval — not a provider outage.",
+        "X hesabının entegrasyonu çift retrieval tetikliyor — sağlayıcı kesintisi değil."
+      ],
+      [
+        "<li><code>account_id</code> — for B2B, tie to customer before user</li>",
+        "<li><code>account_id</code> — B2B için kullanıcıdan önce müşteriye bağlayın</li>"
+      ],
+      [
+        "Latency spike correlates with a routing fallback, not GPU saturation.",
+        "Gecikme artışı GPU doygunluğu değil yönlendirme yedeklemesiyle korele."
+      ],
+      [
+        "<li><code>step</code> — retrieve, classify, generate, validate</li>",
+        "<li><code>step</code> — retrieve, classify, generate, validate</li>"
+      ],
+      [
+        "<li><code>model</code> — provider + model ID actually invoked</li>",
+        "<li><code>model</code> — gerçekten çağrılan sağlayıcı + model ID</li>"
+      ],
+      [
+        "<li><code>outcome</code> — success, retry, fallback model</li>",
+        "<li><code>outcome</code> — success, retry, fallback model</li>"
+      ],
+      [
+        "Making Inference Cost Measurable and Routable",
+        "Çıkarım Maliyetini Ölçülebilir ve Yönlendirilebilir Kılmak"
+      ],
+      [
+        "Make cost routable: cheapest capable model",
+        "Maliyeti yönlendirilebilir kılmak: en ucuz yetkin model"
+      ],
+      [
+        "Make cost measurable: the minimum schema",
+        "Maliyeti ölçülebilir kılmak: minimum şema"
+      ],
+      [
+        "What \"routable\" looks like in ops",
+        "Operasyonda \"yönlendirilebilir\" neye benzer"
+      ],
+      [
+        "Three layers of inference cost",
+        "Çıkarım maliyetinin üç katmanı"
+      ],
+      [
+        "Pillar 1 · Cost Control",
+        "Sütun 1 · Maliyet Kontrolü"
+      ],
+      [
+        "June 2026 · 6 min read",
+        "Haziran 2026 · 6 dk okuma"
+      ],
+      [
+        "Start this week",
+        "Bu hafta başlayın"
+      ],
+      [
+        "Built on ozDNA",
+        "ozDNA üzerinde inşa edildi"
+      ],
+      [
+        "← All posts",
+        "← Tüm yazılar"
+      ]
+    ]
+  },
+  "blog/vertical-ai-vs-thin-wrapper/index.html": {
+    "title": "Dikey AI vs. İnce Sarmalayıcı — ozDNA Blog",
+    "description": "Yatırımcılar due diligence'ta iş akışı derinliği, alan verisi ve marj yapısını inceler — chat UI'ı değil. Savunulabilir dikey AI altyapısını ayıran unsurlar.",
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Blog",
+        "path": "/tr/blog/"
+      },
+      {
+        "name": "Dikey AI vs. İnce Sarmalayıcı",
+        "path": "/tr/blog/vertical-ai-vs-thin-wrapper/"
+      }
+    ],
+    "replacements": [
+      [
+        "Findbelow runs <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a> (academic AI, Turkey) and is building <a href=\"/products/comply/\">ComplyDNA</a> (5549/BDDK/MASAK/KVKK RegTech) on the same stack. We sell infrastructure externally only after we depend on it internally — because \"vertical AI\" without production proof is still a wrapper in diligence.",
+        "Findbelow <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a>'yi (akademik AI, Türkiye) yürütür ve aynı yığın üzerinde <a href=\"/products/comply/\">ComplyDNA</a> (5549/BDDK/MASAK/KVKK RegTech) inşa eder. Altyapıyı dahili olarak bağımlı olmadan dışarı satmayız — çünkü üretim kanıtı olmayan \"dikey AI\" due diligence'ta hâlâ sarmalayıcıdır."
+      ],
+      [
+        "The <strong>vertical AI vs wrapper</strong> conversation gets flattened into slogans: \"we are vertical,\" \"we have proprietary data,\" \"we fine-tune.\" Investors have heard all three from teams that are, functionally, a prompt and a PDF upload away from replacement.",
+        "<strong>Dikey AI vs sarmalayıcı</strong> konuşması sloganlara indirgenir: \"dikeyiz,\" \"özel verimiz var,\" \"fine-tune yapıyoruz.\" Yatırımcılar işlevsel olarak bir prompt ve PDF yüklemesi kadar değiştirilebilir ekiplerden üçünü de duydu."
+      ],
+      [
+        "Publish how freshness, human review, and routing work — not just feature bullets. The goal is not to impress Twitter; it is to survive a partner meeting when someone asks what happens when the model hallucinates a regulatory citation.",
+        "Güncellik, insan incelemesi ve yönlendirmenin nasıl çalıştığını yayınlayın — yalnızca özellik maddeleri değil. Amaç Twitter'ı etkilemek değil; biri modelin düzenleyici atıf uydurduğunda ne olacağını sorduğunda ortak görüşmesinden sağ çıkmaktır."
+      ],
+      [
+        "A generic chatbot answers questions. A vertical AI agent understands the operating logic of a specific business. Diligence is about which one you are building — not which foundation model logo is on your homepage.",
+        "Genel chatbot soruları yanıtlar. Dikey AI ajanı belirli bir işin operasyon mantığını anlar. Due diligence hangisini inşa ettiğinizle ilgilidir — ana sayfanızdaki foundation model logosuyla değil."
+      ],
+      [
+        "What separates categories in a room is not adjectives. It is <strong>workflow depth</strong>: how your product encodes domain decisions, where quality is enforced, and what breaks if the model is swapped tomorrow.",
+        "Odada kategorileri ayıran sıfatlar değil. <strong>İş akışı derinliğidir</strong>: ürününüzün alan kararlarını nasıl kodladığı, kalitenin nerede zorlandığı ve model yarın değiştirilirse neyin bozulacağı."
+      ],
+      [
+        "<li><strong>Quality contracts.</strong> Academic tools that separate fast client-side scans from deep server analysis — privacy and depth as designed modes, not accidents.</li>",
+        "<li><strong>Kalite sözleşmeleri.</strong> Hızlı istemci tarafı taramaları derin sunucu analizinden ayıran akademik araçlar — gizlilik ve derinlik tasarlanmış modlar, kaza değil.</li>"
+      ],
+      [
+        "<li><strong>Regulated workflows.</strong> Compliance products that track source tiers, human approval gates, and publication audit trails — not \"the AI read the law.\"</li>",
+        "<li><strong>Düzenlenmiş iş akışları.</strong> Kaynak katmanlarını, insan onay kapılarını ve yayın denetim izlerini izleyen uyumluluk ürünleri — \"AI yasayı okudu\" değil.</li>"
+      ],
+      [
+        "<li><strong>Token economics tied to jobs.</strong> Credits map to detect vs. rewrite vs. report — users understand limits because the product understands cost.</li>",
+        "<li><strong>İşlere bağlı token ekonomisi.</strong> Krediler detect vs. rewrite vs. report'a eşlenir — kullanıcılar limitleri anlar çünkü ürün maliyeti anlar.</li>"
+      ],
+      [
+        "That is defensibility investors can underwrite: not \"we used GPT-4,\" but \"we built the operating layer a fintech compliance team cannot rip out in a weekend.\"",
+        "Yatırımcıların sigorta edebileceği savunulabilirlik budur: \"GPT-4 kullandık\" değil, \"fintech uyumluluk ekibinin bir hafta sonunda sökemeyeceği operasyon katmanını inşa ettik.\""
+      ],
+      [
+        "You do not rebrand your way out. Pick one domain job, own the full path from input to accountable output, and instrument quality and cost on that path alone.",
+        "Yeniden markalaşarak çıkamazsınız. Bir alan işi seçin, girdiden hesap verilebilir çıktıya tam yolu sahiplenin ve yalnızca o yolda kalite ve maliyeti ölçümleyin."
+      ],
+      [
+        "Teams that answer with UI screenshots struggle. Teams that answer with workflows, metrics, and live customers in one vertical move the conversation.",
+        "UI ekran görüntüleriyle yanıtlayan ekipler zorlanır. İş akışları, metrikler ve tek dikeyde canlı müşterilerle yanıtlayan ekipler konuşmayı ilerletir."
+      ],
+      [
+        "<li><strong>RAG as operations.</strong> Ingestion schedules, eval suites per document type, escalation when retrieval confidence drops.</li>",
+        "<li><strong>Operasyon olarak RAG.</strong> Ingestion programları, belge türü başına değerlendirme paketleri, retrieval güveni düştüğünde yükseltme.</li>"
+      ],
+      [
+        "Building domain depth, not another chat shell? ozDNA helps vertical AI teams ship with RAG governance and cost controls — join early access.",
+        "Başka bir chat kabuğu değil alan derinliği mi inşa ediyorsunuz? ozDNA dikey AI ekiplerinin RAG yönetişimi ve maliyet kontrolleriyle yayınlamasına yardımcı olur — erken erişime katılın."
+      ],
+      [
+        "None of that means the team is bad. It means the moat is thin <em>today</em> — and sophisticated investors price that into round dynamics.",
+        "Bunların hiçbiri ekibin kötü olduğu anlamına gelmez. Hendek bugün <em>ince</em> demektir — sofistike yatırımcılar bunu tur dinamiklerine yansıtır."
+      ],
+      [
+        "Switching models changes behavior unpredictably because business rules live in prompts, not systems.",
+        "İş kuralları sistemlerde değil prompt'larda yaşadığı için model değiştirmek davranışı öngörülemez şekilde değiştirir."
+      ],
+      [
+        "Vertical AI differentiation is earned in operations. Investors know the difference when they see it.",
+        "Dikey AI farklılaşması operasyonlarda kazanılır. Yatırımcılar gördüklerinde farkı bilir."
+      ],
+      [
+        "<strong>Vertical AI infrastructure</strong> shows up as operable subsystems tied to a domain:",
+        "<strong>Dikey AI altyapısı</strong>, bir alana bağlı işletilebilir alt sistemler olarak ortaya çıkar:"
+      ],
+      [
+        "If OpenAI 2× prices tomorrow, what happens to your margin — and your UX promises?",
+        "OpenAI yarın fiyatları 2 kat artırırsa marjınıza — ve UX taahhütlerinize ne olur?"
+      ],
+      [
+        "Retrieval is a generic vector dump without freshness, provenance, or eval loops.",
+        "Retrieval güncellik, kaynak veya değerlendirme döngüsü olmadan genel vektör yığınıdır."
+      ],
+      [
+        "What fails when a customer uploads messy real-world data, not your sample PDF?",
+        "Müşteri örnek PDF'iniz değil dağınık gerçek dünya verisi yüklediğinde ne başarısız olur?"
+      ],
+      [
+        "Gross margin tracks provider list prices with no routing or economics layer.",
+        "Brüt marj yönlendirme veya ekonomi katmanı olmadan sağlayıcı liste fiyatlarını izler."
+      ],
+      [
+        "No durable domain state — session memory does not survive the quarter.",
+        "Kalıcı alan durumu yok — oturum belleği çeyreği geçmez."
+      ],
+      [
+        "What production reference exists beyond your own staging environment?",
+        "Kendi staging ortamınızın ötesinde hangi üretim referansı var?"
+      ],
+      [
+        "Who on the team owns domain correctness — not just model selection?",
+        "Ekipte alan doğruluğundan — yalnızca model seçiminden değil — kim sorumlu?"
+      ],
+      [
+        "Core value is a single chat surface with light system prompting.",
+        "Temel değer hafif sistem prompt'lu tek sohbet yüzeyidir."
+      ],
+      [
+        "Vertical AI vs. Thin Wrapper: What Investors Actually See",
+        "Dikey AI vs. İnce Sarmalayıcı: Yatırımcılar Gerçekte Ne Görür"
+      ],
+      [
+        "When partners push past the demo, they are often asking:",
+        "Ortaklar demoyu geçtiğinde genellikle şunları sorar:"
+      ],
+      [
+        "A thin wrapper typically checks several boxes at once:",
+        "İnce sarmalayıcı genellikle birden fazla kutuyu aynı anda işaretler:"
+      ],
+      [
+        "How to move from wrapper to vertical — honestly",
+        "Sarmalayıcıdan dikeye geçmek — dürüstçe"
+      ],
+      [
+        "The investor questions behind the slide deck",
+        "Slayt destesinin ardındaki yatırımcı soruları"
+      ],
+      [
+        "What vertical AI looks like operationally",
+        "Dikey AI operasyonel olarak nasıl görünür"
+      ],
+      [
+        "What \"thin wrapper\" means in diligence",
+        "\"İnce sarmalayıcı\" due diligence'ta ne anlama gelir"
+      ],
+      [
+        "Pillar 3 · Vertical AI",
+        "Sütun 3 · Dikey AI"
+      ],
+      [
+        "June 2026 · 7 min read",
+        "Haziran 2026 · 7 dk okuma"
+      ],
+      [
+        "Built on ozDNA",
+        "ozDNA üzerinde inşa edildi"
+      ],
+      [
+        "← All posts",
+        "← Tüm yazılar"
+      ]
+    ]
+  },
+  "blog/hidden-platform-risk-api-pricing/index.html": {
+    "title": "Gizli Platform Riski: API Fiyatlandırması Değiştiğinde — ozDNA Blog",
+    "description": "LLM fiyatlandırma riski gizli platform riskidir. AI SaaS marjınız bugünkü düz API fiyatlarına bağlıysa sağlayıcı değişikliği marjı bir gecede silebilir.",
+    "breadcrumbs": [
+      {
+        "name": "Ana Sayfa",
+        "path": "/tr/"
+      },
+      {
+        "name": "Blog",
+        "path": "/tr/blog/"
+      },
+      {
+        "name": "Gizli Platform Riski",
+        "path": "/tr/blog/hidden-platform-risk-api-pricing/"
+      }
+    ],
+    "replacements": [
+      [
+        "Founders treat <strong>LLM pricing risk</strong> as a line-item surprise: \"OpenAI raised output tokens 12%.\" Finance adjusts the forecast. Engineering shrugs. But for AI-native SaaS, provider pricing is not a vendor invoice — it is <strong>structural COGS</strong>. When it moves, your entire pricing architecture moves with it unless you have designed for elasticity.",
+        "Kurucular <strong>LLM fiyatlandırma riskini</strong> kalem sürprizi olarak ele alır: \"OpenAI çıkış token'larını %12 artırdı.\" Finans tahmini günceller. Mühendislik omuz silkerek geçer. Ama AI-native SaaS için sağlayıcı fiyatlandırması tedarikçi faturası değil — <strong>yapısal COGS</strong>'tur. Hareket ettiğinde, esneklik için tasarlamadıysanız tüm fiyatlandırma mimariniz onunla birlikte hareket eder."
+      ],
+      [
+        "On <a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a>, separate limits per product surface and daily token tracking are how we practice token economics before selling infra externally. ComplyDNA's human-in-the-loop RegTech model adds another constraint: you cannot auto-publish when margin and liability both depend on model output.",
+        "<a href=\"https://tezmakale.com\" target=\"_blank\" rel=\"noopener\">TezMakale</a>'de ürün yüzeyi başına ayrı limitler ve günlük token izleme, altyapıyı dışarı satmadan önce token ekonomisini nasıl uyguladığımızdır. ComplyDNA'nin insan-döngüsündeki RegTech modeli başka bir kısıt ekler: marj ve sorumluluk ikisi de model çıktısına bağlıyken otomatik yayınlayamazsınız."
+      ],
+      [
+        "Today's API economics may not be tomorrow's API economics. Teams that treat inference as infrastructure — measurable, routable, governable — convert pricing shocks into roadmap items. Teams that treat it as magic convert them into emergency fundraises or layoffs.",
+        "Bugünkü API ekonomisi yarının API ekonomisi olmayabilir. Çıkarımı altyapı — ölçülebilir, yönlendirilebilir, yönetilebilir — olarak ele alan ekipler fiyat şoklarını yol haritası maddelerine dönüştürür. Sihir olarak ele alan ekipler acil fon toplama veya işten çıkarmalara."
+      ],
+      [
+        "Markets consolidate. Capabilities differentiate. Subsidies shrink. The teams that survive are not the ones that predicted the exact price change — they are the ones that built <strong>margin resilience</strong> into the product:",
+        "Pazarlar konsolide olur. Yetenekler farklılaşır. Sübvansiyonlar küçülür. Hayatta kalan ekipler tam fiyat değişimini tahmin edenler değil — ürüne <strong>marj dayanıklılığı</strong> inşa edenlerdir:"
+      ],
+      [
+        "Do not tell investors you have \"locked in\" API costs unless you literally have enterprise contracts with enforceable terms. Do not market guaranteed savings percentages without production evidence across workflows.",
+        "Yazılı uygulanabilir şartlı kurumsal sözleşmeleriniz yoksa yatırımcılara API maliyetlerini \"kilitlediğinizi\" söylemeyin. İş akışları genelinde üretim kanıtı olmadan garantili tasarruf yüzdeleri pazarlamayın."
+      ],
+      [
+        "Do tell them you measure cost per outcome, route to the cheapest capable model, and can shift provider mix without rewriting the product — because the operating layer sits above any single API.",
+        "Onlara sonuç başına maliyet ölçtüğünüzü, en ucuz yetkin modele yönlendirdiğinizi ve ürünü yeniden yazmadan sağlayıcı karışımını değiştirebildiğinizi söyleyin — çünkü operasyon katmanı tek bir API'nin üzerindedir."
+      ],
+      [
+        "If your gross margin depends on today's API pricing staying flat, your AI product has hidden platform risk — the same way a marketplace depends on a single payment processor with no backup.",
+        "Brüt marjınız bugünkü API fiyatlarının sabit kalmasına bağlıysa AI ürününüzde gizli platform riski vardır — yedeksiz tek ödeme işlemcisine bağlı bir pazar yeri gibi."
+      ],
+      [
+        "Model providers compete for developers today. That competition shows up as aggressive list prices, free tiers, and bundled credits. Your unit economics were modeled in that environment.",
+        "Model sağlayıcıları bugün geliştiriciler için rekabet eder. Bu rekabet agresif liste fiyatları, ücretsiz katmanlar ve paket krediler olarak görünür. Birim ekonominiz o ortamda modellendi."
+      ],
+      [
+        "<li><strong>Maintain provider optionality.</strong> Not twelve adapters for sport — one abstraction with two viable backends and routing tests that run weekly.</li>",
+        "<li><strong>Sağlayıcı seçeneğini koruyun.</strong> Spor için on iki adaptör değil — iki uygulanabilir backend ve haftalık çalışan yönlendirme testleriyle tek soyutlama.</li>"
+      ],
+      [
+        "<li><strong>Index credits to infrastructure.</strong> When token costs rise, credit consumption reflects it — or you absorb consciously, not accidentally.</li>",
+        "<li><strong>Kredileri altyapıya endeksleyin.</strong> Token maliyetleri arttığında kredi tüketimi bunu yansıtır — veya bilinçli emersiniz, kazaen değil.</li>"
+      ],
+      [
+        "<li><strong>Tier features by inference intensity.</strong> Deep analysis costs more credits than lightweight scans — users self-select economics.</li>",
+        "<li><strong>Özellikleri çıkarım yoğunluğuna göre katmanlayın.</strong> Derin analiz hafif taramalardan daha fazla kredi — kullanıcılar ekonomiyi kendileri seçer.</li>"
+      ],
+      [
+        "<li><strong>Scenario plan in board decks.</strong> Show margin at +20% provider cost. If the model breaks, fix the model before the next round.</li>",
+        "<li><strong>Yönetim kurulu sunumlarında senaryo planlayın.</strong> +%20 sağlayıcı maliyetinde marjı gösterin. Model kırılırsa bir sonraki turdan önce düzeltin.</li>"
+      ],
+      [
+        "<li><strong>Margin compression without churn.</strong> Revenue stable, infra % rising — classic pre-pricing-change drift as usage deepens.</li>",
+        "<li><strong>Churn olmadan marj sıkışması.</strong> Gelir stabil, altyapı % artıyor — kullanım derinleştikçe klasik fiyat değişimi öncesi sapma.</li>"
+      ],
+      [
+        "This is post-subsidy thinking while subsidies still exist. It is cheaper than emergency repricing when a provider adjusts enterprise tiers.",
+        "Bu sübvansiyonlar varken sübvansiyon sonrası düşünce. Sağlayıcı kurumsal katmanları ayarladığında acil yeniden fiyatlandırmadan ucuzdur."
+      ],
+      [
+        "<li><strong>Feature debt tied to one model.</strong> \"We need GPT-4o for quality\" with no eval proving which steps actually need it.</li>",
+        "<li><strong>Tek modele bağlı özellik borcu.</strong> Hangi adımların gerçekten ihtiyaç duyduğunu kanıtlayan değerlendirme olmadan \"kalite için GPT-4o gerekli\".</li>"
+      ],
+      [
+        "Building margin resilience into vertical AI? ozDNA early access — for founders who want infrastructure advantage, not invoice surprise.",
+        "Dikey AI'ya marj dayanıklılığı mı inşa ediyorsunuz? ozDNA erken erişim — fatura sürprizi değil altyapı avantajı isteyen kurucular için."
+      ],
+      [
+        "<strong>AI margin optimization</strong> is not finding the cheapest model globally. It is building policies that survive price moves:",
+        "<strong>AI marj optimizasyonu</strong> küresel olarak en ucuz modeli bulmak değildir. Fiyat hareketlerinden sağ çıkan politikalar inşa etmektir:"
+      ],
+      [
+        "<li><strong>Contracts that promise unlimited AI.</strong> Legal and sales locked in language infra cannot honor at scale.</li>",
+        "<li><strong>Sınırsız AI vaat eden sözleşmeler.</strong> Hukuk ve satış altyapının ölçekte yerine getiremeyeceği dile kilitlendi.</li>"
+      ],
+      [
+        "<li><strong>No fallback path.</strong> Provider outage plan exists; provider <em>price</em> plan does not.</li>",
+        "<li><strong>Yedek yol yok.</strong> Sağlayıcı kesinti planı var; sağlayıcı <em>fiyat</em> planı yok.</li>"
+      ],
+      [
+        "Investors grouping you with \"AI wrappers\" are often pricing this bundle of risks — not just judging your UI.",
+        "Sizi \"AI sarmalayıcıları\" ile gruplayan yatırımcılar genellikle yalnızca UI'nızı değil bu risk paketini fiyatlar."
+      ],
+      [
+        "Hidden platform risk is only hidden if you are not looking at margin per workflow. Start there.",
+        "Gizli platform riski yalnızca iş akışı başına marja bakmıyorsanız gizlidir. Oradan başlayın."
+      ],
+      [
+        "Without those, a pricing update is an existential spreadsheet event, not an ops tweak.",
+        "Bunlar olmadan fiyat güncellemesi operasyon ayarı değil, varoluşsal elektronik tablo olayıdır."
+      ],
+      [
+        "User-facing credits indexed to real token burn, not flat \"messages\"",
+        "Düz \"mesaj\" değil gerçek token tüketimine endeksli kullanıcıya yönelik krediler"
+      ],
+      [
+        "You already have early warnings if you know where to look:",
+        "Nereye bakacağınızı biliyorsanız erken uyarılarınız zaten var:"
+      ],
+      [
+        "Retrieval and caching that reduce repeated premium calls",
+        "Tekrarlayan premium çağrıları azaltan retrieval ve önbellekleme"
+      ],
+      [
+        "Workflow-level cost ceilings with graceful degradation",
+        "Zarif bozulmayla iş akışı düzeyinde maliyet tavanları"
+      ],
+      [
+        "How platform risk shows up before the press release",
+        "Basın bülteninden önce platform riski nasıl görünür"
+      ],
+      [
+        "Post-subsidy economics are not a theory exercise",
+        "Sübvansiyon sonrası ekonomi teori egzersizi değil"
+      ],
+      [
+        "Hidden Platform Risk: When API Pricing Changes",
+        "Gizli Platform Riski: API Fiyatlandırması Değiştiğinde"
+      ],
+      [
+        "Routing across providers and model tiers",
+        "Sağlayıcılar ve model katmanları arasında yönlendirme"
+      ],
+      [
+        "Designing for pricing elasticity",
+        "Fiyat esnekliği için tasarım"
+      ],
+      [
+        "Pillar 4 · Margin Resilience",
+        "Sütun 4 · Marj Dayanıklılığı"
+      ],
+      [
+        "June 2026 · 6 min read",
+        "Haziran 2026 · 6 dk okuma"
+      ],
+      [
+        "The strategic takeaway",
+        "Stratejik çıkarım"
+      ],
+      [
+        "What not to promise",
+        "Vaat etmemeniz gerekenler"
+      ],
+      [
+        "Built on ozDNA",
+        "ozDNA üzerinde inşa edildi"
+      ],
+      [
+        "← All posts",
+        "← Tüm yazılar"
+      ]
+    ]
+  }
+}

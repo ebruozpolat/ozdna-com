@@ -1,0 +1,895 @@
+{
+  "summary": "Web research to ground the OzDNA content-provenance product blueprint: competitors, C2PA adoption, EU AI Act demand, grants, paying wedge",
+  "agentCount": 10,
+  "logs": [
+    "Research complete: 5/5 dimensions returned"
+  ],
+  "result": [
+    {
+      "dimension": "competitors",
+      "findings": {
+        "summary": "The mid-2026 provenance landscape splits into three camps, and all three leave the same gap open. (1) Enterprise-only players: Truepic ($39.1M raised, custom-priced enterprise sales, C2PA steering member) and Attestiv (insurance/forensics, drifted toward detection) do not serve individuals or SMBs. (2) Token-attached precedents are a 3-for-3 cautionary tale: Numbers Protocol survives on grants/pivots but NUM is down ~99.8% from its 2021 ATH; Story Protocol's IP token fell ~98% from its Sept 2025 ATH with <$100/day on-chain revenue, forcing a June 2026 rebrand to \"DATA Foundation\"; WordProof quietly dropped its WORD token and stagnated at ~$306K raised. (3) Free/grant-funded tools: Adobe's free Content Authenticity web app (public beta Apr 2025) gives individual creators C2PA signing PLUS durable watermark+fingerprint recovery — directly commoditizing the consumer image use case — and ProofMode covers activists/journalists open-source. TrueMedia's Jan 2025 shutdown (detection compute too expensive for a nonprofit) validates keeping AI detection out of v1 scope. The genuine white space is a neutral, self-serve, cheap provenance layer for small newsrooms, SMBs and non-Adobe/non-US-centric creators — a segment explicitly documented as priced out of the trusted C2PA tier (~$289/yr certs + conformance gatekeeping) — and no funded company is attacking it; the closest survivor model is OriginStamp, a small Swiss B2B timestamping firm alive since 2013.",
+        "key_facts": [
+          {
+            "fact": "Truepic is enterprise-only as of March 2026: a single custom-priced tier (Enterprise C2PA, visual risk intelligence, API, lending verification), all requiring sales engagement; total funding $39.1M (last major round Series B $26M in Sept 2021); customers are insurers/lenders processing claims, 70k auto loans, 23k mortgages, 850k wire transfers — no self-serve or SMB product",
+            "source": "khaby.ai/pricing/truepic (March 2026); truepic.com/c2pa/enterprise-c2pa (2026); crunchbase.com/organization/truepic (accessed 2026-07-06)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "Numbers Protocol's NUM token hit ATH $2.52 on Nov 18, 2021 and trades ~$0.003 in mid-2026, down ~99.8-99.9%; the company nonetheless survives via grants and pivots (Google News Initiative grant Oct 2025, Reuters 2025-election photo pilot, pivot to x402 AI-agent licensing in USDC on Base), showing the token neither funded the company durably nor drove product adoption",
+            "source": "coingecko.com/en/coins/numbers-protocol (accessed 2026-07-06); digitaljournal.com GNI grant PR (Oct 2025); captureapp.xyz (2026)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "Numbers Protocol's Capture Cam claims 1.5M downloads / ~1M users (2024 recap) and 67M+ registered assets, but monetization has cycled through NFT minting, DePIN, and now per-fetch AI licensing — no evidence of meaningful non-token revenue",
+            "source": "numbersprotocol.io/blog/2024-recap (Dec 2024-Jan 2025); numbersprotocol.io (accessed 2026-07-06)",
+            "confidence": "medium",
+            "load_bearing": false
+          },
+          {
+            "fact": "Story Protocol (IP-provenance L1, a16z-backed, TGE Feb 2025): token down ~98% from Sept 2025 ATH, under $100/day on-chain revenue against a ~$500M valuation, first team/investor unlock delayed from Feb 2026 to Aug 2026, and on June 25, 2026 it rebranded to The DATA Foundation, pivoting from general IP provenance to AI-training-data sourcing with a 'Trace' registry — the best-funded provenance-token project abandoned the original thesis within 16 months",
+            "source": "coindesk.com/markets/2026/02/02/story-delays-usdip-token-unlock (Feb 2, 2026); coinmarketcap.com/cmc-ai/story-protocol (June 2026)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "WordProof (token-attached WordPress timestamping, won €1M EU 'Blockchains for Social Good' prize) raised only ~$306K total, swapped CEOs, and its current site sells freemium SaaS timestamping with no mention of the WORD token — the token was quietly abandoned rather than the company killed",
+            "source": "tracxn.com WordProof profile (2026); wordproof.com homepage fetched 2026-07-06",
+            "confidence": "medium",
+            "load_bearing": false
+          },
+          {
+            "fact": "TrueMedia.org (Oren Etzioni's nonprofit deepfake detector, backed by Garrett Camp) shut its service after Jan 13, 2025 and open-sourced the tech, citing the high cost of running detection; Georgetown's Massive Data Institute took stewardship in Dec 2025 — direct evidence that AI-classifier detection is an expensive, unsustainable business for a small team",
+            "source": "geekwire.com TrueMedia shutdown article (Jan 2025); truemedia.org/post/shutting-down-truemedia (Dec 2024-Jan 2025)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "Adobe Content Authenticity is a FREE web app (public beta since Apr 24, 2025) letting any creator batch-apply Content Credentials to images/audio/video from ANY tool, with 'durable' credentials recoverable after metadata stripping or screenshots via digital fingerprinting + invisible watermark + signed metadata, plus LinkedIn 'Cr' badge integration — Adobe has already built a free version of the 'DNA registry + recovery' concept for individual creators",
+            "source": "blog.adobe.com/en/publish/2025/04/24/adobe-content-authenticity-now-public-beta (Apr 24, 2025)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "C2PA distribution reality mid-2026: Google Pixel 10 signs every native JPEG by default, Samsung S25 signs AI edits, LinkedIn displays CR pins, TikTok has labeled 1.3B+ videos, Cloudflare Images preserves credentials, and EU AI Act Article 50 machine-readable disclosure enforcement begins Aug 2026 — but most platforms still strip embedded metadata, which is exactly the failure mode a perceptual-hash recovery registry addresses",
+            "source": "eyesift.com/faq/c2pa-content-credentials-2026 and softwareseni.com C2PA-2026 articles (2026); blog.cloudflare.com Content Credentials post (2025)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "Trusted-tier C2PA signing is gatekept but newly affordable: the conformance program only launched mid-2025 (interim trust list frozen Jan 1, 2026), CA-issued signing certs run ~$289+/yr, and since May 2026 SSL.com offers a free tier (one Level 1 claim-signing cert + 10,000 trusted timestamps/yr) — but it requires a valid C2PA conformance record ID, i.e., a solo founder must still pass conformance enrollment for signatures to validate as trusted",
+            "source": "ssl.com/products/content-authenticity/content-credentials/c2pa (fetched 2026-07-06, free tier dated May 2026); c2pa.org/conformance (2025-2026); truescreen.io C2PA limits article (~2025)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "Documented white space: small newsrooms (especially in developing countries) and independent creators are described as 'effectively excluded from the trusted tier' by recurring cert costs and CA gatekeeping; most newsroom CMSes have no C2PA integration; only large agencies (AP, AFP, France Télévisions Aug 2025) have operational pilots — no funded company sells cheap self-serve provenance to this segment",
+            "source": "truescreen.io/articles/c2pa-standard-history-limitations (~2025-2026); tech.ebu.ch France Télévisions C2PA (Aug 2025); inma.org provenance blog (2025)",
+            "confidence": "medium",
+            "load_bearing": true
+          },
+          {
+            "fact": "Free/OSS competitors cover the activist niche: ProofMode (Guardian Project + WITNESS, grant-funded incl. Filecoin Foundation) is a free open-source verifiable camera with C2PA support; Nodle's Click camera app (ContentSign on-chain notarization) is free with one named enterprise deal (Vivendi, June 2024); CertifiedTrue is a tiny legal/insurance photo-certification niche player funding via StartEngine crowdfunding — none are revenue success stories",
+            "source": "proofmode.org/c2pa (2025-2026); prnewswire.com Vivendi-Nodle (June 2024); startengine.com/certifiedtrue (accessed 2026-07-06)",
+            "confidence": "high",
+            "load_bearing": false
+          },
+          {
+            "fact": "No documented solo/bootstrap revenue success exists in provenance, but the closest survivor model is OriginStamp: a small Swiss company doing Bitcoin/Ethereum-anchored timestamping continuously since 2013, monetizing via API, white-label B2B, and a Swiss-compliance archive product (swiDOC) — niche vertical compliance, not consumer trust, is what sustained it; meanwhile a crop of unfunded indie C2PA utilities (c2paviewer.com, chronoverify.com, eyesift.com, ProofSnap) appeared in 2025-2026, showing entry barriers are low since Adobe's c2pa-rs/c2patool OSS stack does the heavy lifting",
+            "source": "originstamp.com/en/about (accessed 2026-07-06); c2paviewer.com, chronoverify.com (2026 articles); opensource.contentauthenticity.org (2025-2026)",
+            "confidence": "medium",
+            "load_bearing": true
+          }
+        ],
+        "implications": "Three blueprint-shaping conclusions. FIRST — no token, ever, in the core story: the three closest precedents (NUM -99.8%, Story IP -98% + forced pivot, WordProof's WORD silently dropped) show token attachment destroyed credibility and focus without funding the business; OzDNA's 'blockchain' component should be invisible infrastructure (batched hash anchoring, cost measured in cents) pitched as 'cryptographic timestamping', which also keeps the VC/grant AI-x-blockchain narrative honest — grants (Google News Initiative funded Numbers in Oct 2025; EU funded WordProof) are the proven money source in this space, and the founder's media company + PR skills fit grant/coalition plays well. SECOND — the v1 scope is validated but must dodge Adobe: keeping detection out is confirmed by TrueMedia's cost-driven death, but Adobe's free Content Authenticity app already gives individual creators signing + watermark/fingerprint recovery, so OzDNA cannot win as 'free C2PA signing for creators'; the defensible wedge is the segment Adobe and Truepic both ignore — self-serve, API/widget-first provenance for small newsrooms, SMB publishers and marketplaces, priced $10-50/mo, with Turkey/MENA as the beachhead (zero local competition, founder's home turf, and EU AI Act Art. 50 enforcement from Aug 2026 creates adjacent regulatory tailwind). THIRD — operational path exists on zero budget: Adobe's OSS c2pa-rs/c2patool stack plus SSL.com's May-2026 free tier (Level 1 cert + 10k timestamps/yr) means a solo founder can issue TRUSTED credentials nearly free, but the C2PA conformance record ID is the real moat-and-hurdle — budget the conformance enrollment early, because clearing it is itself a differentiator most indie tools lack; and model the business on OriginStamp (niche vertical compliance B2B that survived 13 years), not on consumer trust apps, which have no revenue precedent."
+      },
+      "checks": [
+        {
+          "fact": "Truepic is enterprise-only as of March 2026: a single custom-priced tier (Enterprise C2PA, visual risk intelligence, API, lending verification), all requiring sales engagement; total funding $39.1M (last major round Series B $26M in Sept 2021); customers are insurers/lenders processing claims, 70k auto loans, 23k mortgages, 850k wire transfers — no self-serve or SMB product",
+          "verdict": "nuanced",
+          "correction": "Truepic is enterprise-only with no self-serve, free tier, or published pricing — its own blog states it will 'focus exclusively on delivering best-in-class verification for enterprises,' and truepic.com only offers demo/sales contact. Total funding $39.1M (PitchBook) and the $26M Series B led by M12 in Sept 2021 are confirmed. Two corrections: (1) the 70k auto loans / 23k mortgages / 850k wire transfers are INDUSTRY-WIDE daily transaction volumes Truepic cites as market context ('Institutions process and verify vast volumes of transactions daily...'), not volumes processed by Truepic's customers through Truepic; (2) 'single tier' is loose — Truepic markets multiple product lines (Truepic Vision/visual risk intelligence, Enterprise C2PA, device hardware integration, media services), all custom-priced and sales-led. The load-bearing conclusion (no self-serve/SMB product, enterprise sales motion only) holds.",
+          "source": "truepic.com/blog/verifying-reality-for-the-enterprise-market; truepic.com (fetched 2026-07-06); pitchbook.com/profiles/company/168480-19; prnewswire.com Truepic Series B release (Sept 14, 2021); techcrunch.com/2021/09/14/microsofts-m12-leads-26m-investment-into-truepic/"
+        },
+        {
+          "fact": "Numbers Protocol's NUM token hit ATH $2.52 on Nov 18, 2021 and trades ~$0.003 in mid-2026, down ~99.8-99.9%; the company nonetheless survives via grants and pivots (Google News Initiative grant Oct 2025, Reuters 2025-election photo pilot, pivot to x402 AI-agent licensing in USDC on Base), showing the token neither funded the company durably nor drove product adoption",
+          "verdict": "nuanced",
+          "correction": "NUM's ATH was $2.52 on Nov 27, 2021 (CoinGecko; CoinMarketCap says $2.54 on Nov 28) — not Nov 18. Current price ~$0.0029, down 99.9% from ATH, confirmed. GNI grant announced Oct 2, 2025 — confirmed, but only via the company's own PR (Binary News Network/Digital Journal), no independent Google confirmation found. The x402 AI-agent licensing pivot (USDC per fetch, settling on Base L2) is confirmed via Numbers Protocol's own blog and captureapp.xyz. The Reuters election pilot is well documented for the 2020 US election; a 2025-election Reuters usage claim appears only in a thin secondary source (Gate Learn) — the strongest recent election work is the Taiwan 2024 disinformation project. The load-bearing thesis (token collapsed ~99.9%, company survives on grants and pivots, token didn't fund the company durably or drive adoption) holds.",
+          "source": "coingecko.com/en/coins/numbers-protocol (fetched 2026-07-06); coinmarketcap.com/currencies/numbers-protocol/; digitaljournal.com GNI grant PR (Oct 2, 2025); numbersprotocol.io/blog/when-your-next-subscriber-is-an-ai-agent-recapping-the-x402-licensing-ecosystem-launch/; captureapp.xyz/products/capture-cam/; technode.global (Jan 10, 2024, Taiwan election project); gate.com/learn/articles/what-is-the-numbers-protocol/3647"
+        },
+        {
+          "fact": "Story Protocol (IP-provenance L1, a16z-backed, TGE Feb 2025): token down ~98% from Sept 2025 ATH, under $100/day on-chain revenue against a ~$500M valuation, first team/investor unlock delayed from Feb 2026 to Aug 2026, and on June 25, 2026 it rebranded to The DATA Foundation, pivoting from general IP provenance to AI-training-data sourcing with a 'Trace' registry — the best-funded provenance-token project abandoned the original thesis within 16 months",
+          "verdict": "confirmed",
+          "correction": "",
+          "source": "coindesk.com/markets/2026/02/02/story-delays-usdip-token-unlock-by-6-months (Feb→Aug 2026 delay; '$500M valuation despite less than $100 daily on-chain revenue'); coindesk.com/tech/2025/02/19 (mainnet+TGE Feb 13, 2025); decrypt.co/372107 ('After IP Token Falls 98%'); theblock.co/post/406175 and thedefiant.io and cryptobriefing.com (June 25, 2026 rebrand to DATA Foundation, Trace registry, IP→DATA 1:1 migration); mitrade.com (Sept 2025 ATH rally, $11.66 record Sept 10; aggregators show ATH ~$14.85 Sept 21, 2025). Minor caveats not changing the verdict: co-founder SY Lee publicly disputes on-chain revenue as the right metric (claims off-chain licensing model), and 'best-funded' rests on its $140M raised (a16z-led $80M Series B) — plausible but a superlative."
+        },
+        {
+          "fact": "TrueMedia.org (Oren Etzioni's nonprofit deepfake detector, backed by Garrett Camp) shut its service after Jan 13, 2025 and open-sourced the tech, citing the high cost of running detection; Georgetown's Massive Data Institute took stewardship in Dec 2025 — direct evidence that AI-classifier detection is an expensive, unsustainable business for a small team",
+          "verdict": "nuanced",
+          "correction": "Shutdown after Jan 13, 2025, open-sourcing, the high-cost rationale, and Garrett Camp funding the first year are all confirmed (GeekWire; TrueMedia's own post; 60,000+ media items analyzed). Georgetown stewardship is real and Massive Data Institute-led (Lisa Singh directing, at the McCourt School), but it was announced in APRIL 2025, not Dec 2025 — Georgetown's McCourt announcement is dated April 16, 2025, and GeekWire's revival story said Georgetown would bring the tool back online 'later this year.' The load-bearing conclusion (classifier-based detection was too expensive to sustain for a small nonprofit and ended up in academia) holds.",
+          "source": "geekwire.com/2025/truemedia-org-plans-to-shutter-and-open-source-its-ai-deepfake-detector; truemedia.org/post/shutting-down-truemedia; mccourt.georgetown.edu/news/truemedia-finds-new-home-at-georgetowns-mccourt-school/ (published Apr 16, 2025); geekwire.com/2025/truemedia-is-back-deepfake-detection-tool-revived-now-managed-by-georgetown-university/"
+        },
+        {
+          "fact": "Adobe Content Authenticity is a FREE web app (public beta since Apr 24, 2025) letting any creator batch-apply Content Credentials to images/audio/video from ANY tool, with 'durable' credentials recoverable after metadata stripping or screenshots via digital fingerprinting + invisible watermark + signed metadata, plus LinkedIn 'Cr' badge integration — Adobe has already built a free version of the 'DNA registry + recovery' concept for individual creators",
+          "verdict": "nuanced",
+          "correction": "Free web app, public beta since Apr 24, 2025 (MAX London), works on content from ANY tool, batch up to 50 files, durable Content Credentials (digital fingerprinting + invisible watermarking + cryptographically signed metadata, surviving screenshots, with an Inspect/Chrome-extension recovery path), and LinkedIn 'Cr' pin integration are all confirmed. Correction on scope: the beta supports ONLY JPG/PNG images (max 20MB per file) — audio and video support is still listed as 'coming soon' in Adobe's current docs as of July 2026, so 'batch-apply to images/audio/video' overstates today's capability. The competitive conclusion (Adobe already ships a free registry+recovery product for individual creators) holds for images, which weakens but does not eliminate an image-focused wedge and leaves audio/video open for now.",
+          "source": "blog.adobe.com/en/publish/2025/04/24/adobe-content-authenticity-now-public-beta-helps-creators-secure-attribution (fetched 2026-07-06: JPG/PNG, 50-file batch, 'video and audio coming soon', 'Cr' pin on LinkedIn, durability quotes); blog.adobe.com/en/publish/2024/10/08 (durable credentials tech: fingerprinting + watermark + metadata); helpx.adobe.com Adobe Content Authenticity docs (JPG/PNG, 20MB limit)"
+        }
+      ]
+    },
+    {
+      "dimension": "c2pa",
+      "findings": {
+        "summary": "C2PA is a mature, momentum-rich standard as of mid-2026 (spec v2.4, April 2026; CAI has 5,000+ members and free membership; Leica/Sony/Canon cameras, Pixel 10 and Galaxy S25 sign at capture; Google announced C2PA verification native in Search/Chrome at I/O 2026), and open-source tooling (c2pa-rs, c2pa-web WASM with in-browser manifest creation, native Node bindings, a pure-TS implementation) makes a signing MVP genuinely buildable by a solo founder on Vercel/Cloudflare. Two structural facts define the opportunity and the constraint. Opportunity: every major social platform (Instagram, X, TikTok, Facebook, WhatsApp) still strips C2PA manifests on upload in 2026, and the industry's answer — \"durable Content Credentials\" via watermark/fingerprint soft bindings resolving to a manifest repository — has only ONE major live implementation (Adobe's free beta, images-only, vendor-run); there is no shared neutral industry registry, so OzDNA's perceptual-hash DNA registry targets a real, still-open gap. Constraint: anyone can sign with a self-signed cert and the cryptography validates, but the official Verify tool flags it as an unknown/untrusted source; trusted status requires passing the C2PA Conformance Program (legal agreement + security evaluation, fees not publicly posted) and then a cert from an approved CA (~$50–500/yr; SSL.com launched a free Level 1 cert tier in June 2026 but it requires a conformance record ID). The interim trust list was frozen January 1, 2026, so there is no shortcut around conformance. Net: the MVP is technically feasible at near-zero cost, but \"shows as trusted in Verify\" is gated by a conformance process of unknown cost/duration — the single biggest open risk to resolve (email conformance@c2pa.org) before promising trusted-badge output.",
+        "key_facts": [
+          {
+            "fact": "Current C2PA spec is v2.4, released April 2026 (v2.3, Jan 2026, added live-streaming support; v2.4 added new asset formats, assertions, and JSON-based serialization). The spec is open and royalty-free under the Joint Development Foundation.",
+            "source": "https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html (fetched 2026-07-06; version history states '2.4 - April 2026')",
+            "confidence": "high",
+            "load_bearing": false
+          },
+          {
+            "fact": "Content Authenticity Initiative (CAI) membership is free and open to all (5,000+ members); implementing C2PA requires no paid membership and the SDKs are open source.",
+            "source": "https://contentauthenticity.org/membership and Wikipedia 'Content Authenticity Initiative' (search 2026-07-06)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "As of mid-2026, major social platforms still strip C2PA manifests on upload: Instagram, Facebook, X/Twitter, TikTok, and WhatsApp all remove manifests during re-encode. Meta and TikTok READ incoming C2PA data to trigger simplified 'AI info'/AI-generated labels, then discard the manifest; uploading your own signed photo loses its credentials.",
+            "source": "aiipprotection.org 'Why C2PA Watermarks Fail on Social Media' + c2pa.ai/instagram + c2pa.ai/tiktok (2026 pages, search 2026-07-06)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "Platforms that DO preserve/display Content Credentials in 2026: LinkedIn shows a clickable 'CR' badge with provenance panel; YouTube shows a 'captured with a camera' label for eligible C2PA-signed videos; Google surfaces C2PA in 'About this image' (Images, Lens, Circle to Search) and announced at I/O 2026 (May 19, 2026) that C2PA verification + SynthID detection are coming natively to Search and Chrome, live in the Gemini app first.",
+            "source": "linkedin.com/help/linkedin/answer/a6282984; blog.google 'gen AI content transparency C2PA'; c2paviewer.com 'OpenAI and Google Align on C2PA and SynthID' (May 2026)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "'Durable Content Credentials' = manifest + soft binding (invisible watermark and/or content fingerprint) resolvable against a manifest repository; C2PA v2.4 publishes a decoupled Soft Binding API spec and maintains an approved soft-binding algorithm list on GitHub (c2pa-org/softbinding-algorithm-list). The architecture explicitly anticipates third-party manifest repositories.",
+            "source": "https://spec.c2pa.org/specifications/specifications/2.4/softbinding/Decoupled.html and https://github.com/c2pa-org/softbinding-algorithm-list (fetched/search 2026-07-06)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "There is NO shared cross-industry manifest repository as of mid-2026. The only major live implementation is Adobe's: TrustMark watermark (open source) + Adobe ICN dense fingerprint + CAI Soft Binding Resolution API + the free Adobe Content Authenticity web app (public beta since April 2025: applies durable credentials to up to 50 JPG/PNG files at a time, stores thumbnails in Adobe's cloud, LinkedIn-verified identity). It is vendor-run, images-only, and still labeled beta — the neutral/multi-format registry space is open.",
+            "source": "https://opensource.contentauthenticity.org/docs/durable-cr/; https://developer.adobe.com/cai-soft-binding-api/; blog.adobe.com public-beta post (2025-04-24); helpx.adobe.com ACA beta docs (search 2026-07-06)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "Camera/hardware adoption mid-2026: Leica (M11-P since Oct 2023, plus M11/Q3/SL3 firmware), Sony (standard across pro line: A1 II, A9 III, FX3, FX30), Canon (EOS R1/R5 II firmware July 2025 + 'Authenticity Imaging System' C2PA end-to-end service for newsrooms launched May 11, 2026), Google Pixel 10 (Aug 2025, C2PA at capture with hardware backing), Samsung Galaxy S25 (AI-generated/edited content only). Nikon is the cautionary tale: Z6 III C2PA firmware (Aug 2025) was suspended after a signing vulnerability, all certificates revoked, service not restored as of early 2026.",
+            "source": "attesttrail.com/blog/c2pa-cameras-support (2026); global.canon/en/news/2026/20260511.html; security.googleblog.com Pixel C2PA post (2025-09); lumethic.com camera list (2026)",
+            "confidence": "high",
+            "load_bearing": false
+          },
+          {
+            "fact": "Official open-source tooling is mature and spans all deployment targets: c2pa-rs (Rust core), @contentauth/c2pa-web v0.7.x (WASM via wasm-bindgen, supports reading AND Builder-based manifest creation in-browser, WASM loadable from CDN or inlined), c2pa-node-v2 (native Rust bindings with prebuilt binaries; set C2PA_LIBRARY_PATH to skip Rust compilation in serverless CI), c2patool CLI, plus @trustnxt/c2pa-ts, a pure-TypeScript third-party implementation (read/validate/create) with zero native dependencies — ideal for Cloudflare Workers.",
+            "source": "https://github.com/contentauth/c2pa-js; https://github.com/contentauth/c2pa-node-v2; https://www.npmjs.com/package/@trustnxt/c2pa-ts (search 2026-07-06)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "Serverless feasibility at zero budget: Vercel functions allow 250 MB uncompressed bundles — plenty for the c2pa native binding — with 10s max duration on Hobby (fine for image signing, not video). Cloudflare Workers free tier: 3 MB compressed Worker (c2pa WASM should fit), 128 MB memory, 100k req/day, but only 10 ms CPU per request — enough for small-image hashing/signing at best, not video. In-browser WASM signing offloads all compute to the client and is the cheapest path.",
+            "source": "https://vercel.com/docs/functions/limitations and https://developers.cloudflare.com/workers/platform/limits/ (fetched 2026-07-06); CPU-time adequacy for image hashing is inference from the 10 ms limit",
+            "confidence": "medium",
+            "load_bearing": true
+          },
+          {
+            "fact": "Vercel Hobby (free) plan explicitly prohibits commercial use — a revenue-generating OzDNA MVP on the free tier violates ToS; commercial launch requires Vercel Pro (~$20/mo) or a Cloudflare-first architecture (Workers free tier has no non-commercial clause).",
+            "source": "https://vercel.com/docs/plans/hobby (search 2026-07-06)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "Self-signed certificates technically work — c2patool will sign, and validators report the signature as cryptographically valid — but the official Verify tool (contentcredentials.org/verify) flags the credential as from an 'unknown source' because the cert is not on the trust list. Researcher Neal Krawetz demonstrated a forged 'Leica' manifest that passed every validation except the trust-list check, which is why trust-list status is the entire game for credibility.",
+            "source": "truescreen.io 'C2PA standard history limitations' + softwareseni.com 'C2PA Trust Layer in 2026' (search 2026-07-06)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "Path to trusted status: a Generator product must pass the C2PA Conformance Program (expression-of-interest form, legal agreement with C2PA, documentation, security evaluation at Assurance Level 1 or 2 — level is encoded in an X.509 extension), then obtain a signing cert from a CA on the C2PA Trust List. The Interim Trust List was FROZEN on January 1, 2026 — no new entries — so new entrants must go through the full conformance program.",
+            "source": "https://c2pa.org/conformance/ (fetched 2026-07-06) and https://opensource.contentauthenticity.org/docs/conformance/ (fetched 2026-07-06)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "Trusted signing certificate costs from listed CAs: DigiCert ~$289/yr (Content Trust program); typical CA fees cited at ~$50–500/yr depending on assurance level; Trufo enterprise packages from $20,000/yr (free test certs for development). Since June 2026, SSL.com offers a FREE tier: one Level 1 Claim Signing Certificate (1-year) + 10,000 RFC 3161 trusted timestamps/yr — but it requires a valid C2PA conformance record ID, so conformance remains the gate.",
+            "source": "https://www.ssl.com/products/content-authenticity/content-credentials/c2pa/ (fetched 2026-07-06); digicert.com/solutions/c2pa-media-trust; trufo.ai/tca; webcite.co developer guide (search 2026-07-06)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "The C2PA Conformance Program's own participation fees, evaluation costs, and timeline are NOT published on c2pa.org, the CAI docs, or the c2pa-org/conformance-public GitHub repo; the process requires a signed legal agreement and staff collaboration, and the only contact route is conformance@c2pa.org. Whether a solo founder can afford/complete Level 1 conformance is currently unverifiable from public sources.",
+            "source": "https://c2pa.org/conformance/, https://opensource.contentauthenticity.org/docs/conformance/, https://github.com/c2pa-org/conformance-public (all fetched 2026-07-06 — fee information absent from all three)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "Regulatory tailwind: EU AI Act transparency obligations (Article 50 — machine-readable marking/disclosure of AI-generated content) take effect August 2, 2026; commentary widely cites C2PA as the leading compliance mechanism (though the Act does not mandate C2PA by name), and OpenAI + Google announced a dual-layer C2PA + SynthID provenance model on May 19, 2026.",
+            "source": "aimetadatacleaner.com / fakeout.io explainers citing EU AI Act Aug 2026 deadline; c2paviewer.com OpenAI-Google alignment article (May 2026) — Act text interpretation is secondary-source",
+            "confidence": "medium",
+            "load_bearing": false
+          }
+        ],
+        "implications": "Three blueprint-level conclusions. (1) The MVP is technically feasible at near-zero cost, and the architecture should be: in-browser C2PA signing via @contentauth/c2pa-web WASM (client pays the compute) or Vercel Node functions with c2pa-node-v2 for API-driven signing of images; use @trustnxt/c2pa-ts on Cloudflare Workers for verification/read paths; keep video signing out of v1 (serverless CPU/duration limits make it a paid-infra feature). Budget note: Vercel Hobby bans commercial use, so either launch commercial endpoints on Cloudflare Workers free tier or budget $20/mo for Vercel Pro. (2) OzDNA's differentiator — the perceptual-hash DNA registry — is validated by the market structure: platforms still strip manifests (the pain is real and Google/LinkedIn display momentum makes recovered provenance increasingly valuable), the C2PA spec formally blesses third-party manifest repositories with a published Soft Binding API to implement against, and the only incumbent (Adobe's free beta) is vendor-run, images-only, and Adobe-account-gated — a neutral, API-first, multi-format registry with blockchain anchoring is an open lane and a strong AI-x-Blockchain fundraising story with an EU AI Act (Aug 2026) tailwind. Consider implementing TrustMark (open source, already C2PA-approved) alongside perceptual hashing so OzDNA speaks the standard's own soft-binding language. (3) The critical risk is the trust chain: without C2PA conformance, OzDNA's signatures show 'unknown source' in the official Verify tool — acceptable for a v1 positioned as 'DNA registry + timestamping with own verify UX' (blockchain anchor provides independent proof-of-existence that needs no C2PA trust list), but NOT acceptable if marketing promises 'trusted Content Credentials.' Action item before finalizing the pitch: email conformance@c2pa.org for Level 1 program cost/timeline (fees are unpublished — this is the one unknowable number), and sequence conformance + the SSL.com free Level 1 cert (June 2026 offer, requires conformance record ID) as the first funded milestone. The Nikon Z6 III revocation incident is a useful pitch slide: key management is where provenance products die, so OzDNA's design must treat signing-key custody (per-tenant keys, HSM roadmap) as a first-class feature."
+      },
+      "checks": [
+        {
+          "fact": "Content Authenticity Initiative (CAI) membership is free and open to all (5,000+ members); implementing C2PA requires no paid membership and the SDKs are open source.",
+          "verdict": "confirmed",
+          "correction": "",
+          "source": "Verified independently: contentauthenticity.org/membership states verbatim 'CAI membership is free and open to all' and that 'The CAI's free open-source tools enable implementers to create, verify, and display Content Credentials based on C2PA standards' (no paid membership needed to implement). SDK confirmed open source: github.com/contentauth/c2pa-rs (official Rust reference SDK, dual MIT/Apache-2.0). Member count check: CAI's own 'State of Content Authenticity in 2026' blog (contentauthenticity.org/blog/the-state-of-content-authenticity-in-2026, Jan 2026) now cites 6,000+ members — so '5,000+' is literally true and actually understated; the current citable figure is 6,000+."
+        },
+        {
+          "fact": "As of mid-2026, major social platforms still strip C2PA manifests on upload: Instagram, Facebook, X/Twitter, TikTok, and WhatsApp all remove manifests during re-encode. Meta and TikTok READ incoming C2PA data to trigger simplified 'AI info'/AI-generated labels, then discard the manifest; uploading your own signed photo loses its credentials.",
+          "verdict": "confirmed",
+          "correction": "",
+          "source": "Cross-verified beyond the cited sources. Stripping: multiple independent 2026 sources (aiipprotection.org, metaclean.app, exifreader.com, c2paviewer.com/eyesift.com) report Instagram, Facebook, X/Twitter, TikTok (and LinkedIn files too) remove C2PA manifests during upload re-encode; C2PA's own implementation guidance (spec.c2pa.org) uses the Twitter-recompress → WhatsApp-recompress chain as its canonical example of provenance loss. Meta reading C2PA to label: Meta's own posts (about.fb.com/news/2024/02/labeling-ai-generated-images..., transparency.meta.com/governance/tracking-impact/labeling-ai-content/) confirm automated 'AI info' labels triggered by C2PA/IPTC signals. TikTok reading C2PA to auto-label AIGC: newsroom.tiktok.com 'Partnering with our industry to advance AI transparency' (May 2024) + NBC News coverage. c2pa.ai/tiktok confirms full preservation 'has not yet shipped in production' — a signed video 'loses its provenance data upon upload'; c2pa.ai/instagram confirms the same for Instagram. Minor note: TikTok announced (May 2024) it would eventually ATTACH Content Credentials to downloaded TikTok content, but per mid-2026 sources that end-to-end preservation still hasn't shipped, so the fact stands."
+        },
+        {
+          "fact": "Platforms that DO preserve/display Content Credentials in 2026: LinkedIn shows a clickable 'CR' badge with provenance panel; YouTube shows a 'captured with a camera' label for eligible C2PA-signed videos; Google surfaces C2PA in 'About this image' (Images, Lens, Circle to Search) and announced at I/O 2026 (May 19, 2026) that C2PA verification + SynthID detection are coming natively to Search and Chrome, live in the Gemini app first.",
+          "verdict": "confirmed",
+          "correction": "",
+          "source": "All three prongs verified independently. LinkedIn: linkedin.com/help/linkedin/answer/a6282984 ('Content credentials') is live; multiple 2026 write-ups confirm the clickable CR badge (top-left of image) opening a plain-language provenance panel. YouTube: support.google.com/youtube/answer/15446725 (''Captured with a camera' disclosure') — requires capture tools with C2PA v2.1+ and no audio/visual edits. Google: blog.google 'How Google and the C2PA are increasing transparency for gen AI content' + TechCrunch (Sept 2024) confirm C2PA in 'About this image' across Images, Lens, Circle to Search. I/O 2026: 9to5google.com/2026/05/19/google-io-2026-news/ confirms the May 19, 2026 keynote date; Yahoo Tech and Beebom Gadgets independently confirm the announcement that C2PA Content Credentials verification + SynthID detection are coming to Search and Chrome with the Gemini app already supporting detection (dual-layer provenance model announced jointly with OpenAI; Pixel 8/9/10 to embed C2PA in video capture)."
+        },
+        {
+          "fact": "'Durable Content Credentials' = manifest + soft binding (invisible watermark and/or content fingerprint) resolvable against a manifest repository; C2PA v2.4 publishes a decoupled Soft Binding API spec and maintains an approved soft-binding algorithm list on GitHub (c2pa-org/softbinding-algorithm-list). The architecture explicitly anticipates third-party manifest repositories.",
+          "verdict": "confirmed",
+          "correction": "",
+          "source": "Fetched primary sources directly. spec.c2pa.org/specifications/specifications/2.4/softbinding/Decoupled.html exists and defines the Soft Binding Resolution API for 'retrieving C2PA Manifest stores' via watermark/fingerprint lookup in a Manifest Repository, explicitly supporting third-party repositories and federated lookups. github.com/c2pa-org/softbinding-algorithm-list exists: 'an authoritative list of soft binding algorithm names' (invisible watermarks or content fingerprints), PR-based submissions reviewed by the C2PA Technical Working Group. Durable CR definition confirmed at opensource.contentauthenticity.org/docs/durable-cr/ (manifest + watermark/fingerprint; 'If a copy of the manifest data is stored in an online database, you can use a watermark or a fingerprint to find it again'). C2PA Implementation Guidance 2.2 additionally states a single centralized repository is unlikely and anticipates 'multiple federated manifest repositories... for different industry verticals'."
+        },
+        {
+          "fact": "There is NO shared cross-industry manifest repository as of mid-2026. The only major live implementation is Adobe's: TrustMark watermark (open source) + Adobe ICN dense fingerprint + CAI Soft Binding Resolution API + the free Adobe Content Authenticity web app (public beta since April 2025: applies durable credentials to up to 50 JPG/PNG files at a time, stores thumbnails in Adobe's cloud, LinkedIn-verified identity). It is vendor-run, images-only, and still labeled beta — the neutral/multi-format registry space is open.",
+          "verdict": "confirmed",
+          "correction": "",
+          "source": "Verified each element from primary sources. Adobe stack: developer.adobe.com/cai-soft-binding-api/ confirms the API is Adobe-operated (endpoints cai-msb.adobe.io / cai-manifests.adobe.com) and names both algorithms verbatim: 'com.adobe.trustmark.P' (TrustMark) and 'com.adobe.icn.dense' (Adobe Image Comparator Network dense fingerprint). TrustMark open source: github.com/adobe/trustmark (Python + Rust implementations). App: blog.adobe.com post dated April 24, 2025 confirms free public beta, up to 50 JPG/PNG at once, LinkedIn 'Verified on LinkedIn' identity, thumbnail + credentials backup to Adobe's public Content Credentials cloud, and JPG/PNG-only ('video and audio coming soon'). Still beta mid-2026: contentauthenticity.adobe.com is titled 'Adobe Content Authenticity Beta' and helpx.adobe.com pages all say '(Beta)'. Negative claim: searches for shared/federated manifest repositories found none live — C2PA's own guidance (2025) describes federated vertical repositories only as anticipated future architecture; Digimarc offers watermarking and a C2PA Chrome extension but no public cross-industry manifest repository. Caveat inherent to any negative claim: absence was verified by search, not exhaustively provable, but C2PA's own documents corroborate that the space is unoccupied."
+        }
+      ]
+    },
+    {
+      "dimension": "regulation",
+      "findings": {
+        "summary": "The regulatory tailwind is real, dated, and peaks exactly now: EU AI Act Article 50 becomes applicable August 2, 2026 (27 days from today), backed by fines up to EUR 15M or 3% of worldwide turnover, and the May 2026 Digital Omnibus explicitly did NOT postpone it (only a narrow grace to Dec 2, 2026 for machine-readable marking by GenAI systems already on the market). The Commission's final voluntary Code of Practice (June 10, 2026) operationalizes compliance through exactly the three mechanisms OzDNA proposes: digitally-signed metadata (de facto C2PA, per IPTC \"the only technology that meets these criteria\"), imperceptible watermarking, and optional fingerprinting/logging with registry databases. Convergent regimes elsewhere reinforce the story: China's labeling rules in force since Sept 2025, California SB 942 effective the same day as the EU (Aug 2, 2026) and forcing large platforms to RETAIN provenance data, 46 US states with synthetic-media laws, and a pending Turkish parliamentary bill (Nov 2025) mandating deepfake labels with BTK fines of TRY 500K-5M. Fraud statistics are pitch-ready (Arup $25M deepfake CFO call; ~$1.65B global deepfake fraud losses in 2025; Deloitte's $40B-by-2027 GenAI fraud projection; Verisk March 2026: 99% of insurers have encountered AI-altered claim documentation). Demand evidence is directional rather than conclusive: provenance/compliance market reports show low-single-digit billions at 25-37% CAGRs and blue-chip adoption (Adobe enterprise provenance APIs, C2PA cameras, LinkedIn/Threads preserving Content Credentials), but hard proof of mid-market companies buying third-party provenance tooling specifically for AI Act compliance is still thin, because the legal duty falls mainly on model providers, deployers of deepfakes, and platforms.",
+        "key_facts": [
+          {
+            "fact": "EU AI Act Article 50 transparency obligations become applicable August 2, 2026: providers of generative AI (incl. GPAI) must ensure outputs are marked in machine-readable format and detectable as AI-generated (Art 50(2)); deployers must disclose deepfakes (Art 50(4)(a)) and AI-generated public-interest text unless it underwent human editorial review (Art 50(4)(b)); chatbot providers must disclose AI interaction (Art 50(1)); emotion-recognition deployers must inform exposed persons (Art 50(3)). Exceptions: assistive/standard editing, evidently artistic/satirical works (reduced disclosure), law-enforcement authorization.",
+            "source": "https://artificialintelligenceact.eu/transparency-rules-article-50/ and https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50 (fetched July 6, 2026)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "Non-compliance with Article 50 is fined up to EUR 15,000,000 or 3% of total worldwide annual turnover, whichever is higher (Article 99(4)); for SMEs/startups the LOWER of the two applies (Article 99(6)).",
+            "source": "https://artificialintelligenceact.eu/article/99/ (accessed July 6, 2026)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "The EU Digital/AI Omnibus provisional agreement (May 7, 2026) did NOT postpone Article 50: obligations still apply August 2, 2026; the only relief is that generative AI systems placed on the market before Aug 2, 2026 get until December 2, 2026 to implement the Art 50(2) machine-readable marking. Deployer disclosure duties (deepfakes, public-interest text) were not deferred at all. New systems entering the market after Aug 2, 2026 must mark from day one.",
+            "source": "Gibson Dunn, \"EU AI Act Omnibus Agreement\" (May 2026), https://www.gibsondunn.com/eu-ai-act-omnibus-agreement-postponed-high-risk-deadlines-and-other-key-changes/",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "The European Commission published the FINAL Code of Practice on marking and labelling of AI-generated content on June 10, 2026. It is voluntary; signatories gain a practical presumption-of-conformity benefit; the initial signatory list closes July 22, 2026; the Code is undergoing adequacy assessment by the Commission and AI Board; the EU published a set of official icons for labelling AI content.",
+            "source": "https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content and https://digital-strategy.ec.europa.eu/en/news/commission-publishes-code-practice-marking-and-labelling-ai-generated-content (both fetched July 6, 2026); signatory deadline via getactready.com (June 2026)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "The final Code's Measure 1.1 prescribes a layered marking approach with three mechanisms: (1.1.1) digitally-signed metadata, (1.1.2) imperceptible watermarking, (1.1.3) optional fingerprinting/logging backed by registry databases; providers must implement interoperable detection solutions using publicly available industry standards by February 2, 2027. C2PA is NOT named in the Code text, but IPTC (standards body) states \"the only technology that meets these criteria is C2PA,\" and legal/industry commentary uniformly treats C2PA Content Credentials as the de facto compliance pathway.",
+            "source": "IPTC, \"European AI Office releases Code of Practice on Transparency of AI-Generated Content\" (June 2026), https://iptc.org/news/eu-ai-transparency-code-of-practice-june-2026/ ; corroborated by Jones Day (Jan 2026) noting the draft named no standard",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "California SB 942 (AI Transparency Act, as amended by AB 853) takes effect August 2, 2026 — the same day as EU Article 50 — requiring covered GenAI providers to embed provenance data and offer free detection tools, large online platforms (2M+ monthly users) to RETAIN and surface provenance data in uploaded content, and adding capture-device manufacturer duties; $5,000 civil penalty per violation. Separately, 46 US states had synthetic-media/deepfake laws as of spring 2026, and the federal TAKE IT DOWN Act (signed May 2025) required platform takedown infrastructure for intimate deepfakes by May 19, 2026 with FTC penalties up to $53,088 per violation.",
+            "source": "Pillsbury / A&O Shearman California AI law analyses (late 2025-2026), https://www.aoshearman.com/en/insights/ao-shearman-on-tech/zooming-in-on-ai-california-evolving-ai-legal-landscape-entering-2026 ; MultiState deepfake law tracker (Feb 12, 2026); King & Spalding (Jan 2026)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "China's Measures for Labeling of AI-Generated Synthetic Content (CAC, published March 14, 2025) have been in force since September 1, 2025: mandatory EXPLICIT labels (visible text/graphic; for images text height >=5% of shortest side; audio requires spoken or Morse-rhythm 'AI' cues) AND mandatory IMPLICIT labels embedded in file metadata (provider name, content ID) for all AI-generated text, images, audio, video and virtual scenes.",
+            "source": "Loeb & Loeb (March 2025), https://www.loeb.com/en/insights/publications/2025/03/chinas-ai-labeling-measures-and-mandatory-national-standards-take-effect-september-1 ; China Law Translate",
+            "confidence": "high",
+            "load_bearing": false
+          },
+          {
+            "fact": "Denmark's first-of-its-kind Copyright Act amendment giving every person copyright-style rights over their face, voice and likeness (tabled June 26, 2025, enabling takedowns, compensation without proof of reputational harm, and platform liability) had NOT received final parliamentary adoption as of April 2026 — usable in a pitch as momentum, not as law in force.",
+            "source": "Global Law Experts, \"Denmark Deepfake Law 2026\" (April 2026), https://globallawexperts.com/denmark-deepfake-law-2026/ ; Schjødt analysis (2025)",
+            "confidence": "medium",
+            "load_bearing": false
+          },
+          {
+            "fact": "Turkey: a draft omnibus AI law (Esas No. 2/3358, 11 articles) was submitted to the Grand National Assembly on November 7, 2025, amending TCK 5237, Internet Law 5651, KVKK 6698 and others; it requires ALL deepfake content to display 'Generated by Artificial Intelligence' with BTK-imposed administrative fines of TRY 500,000-5,000,000, and makes users who direct AI to commit insult principal offenders with enhanced developer liability; still pending as of mid-2026. Separately, TCK Article 217/A (in force since Oct 18, 2022) criminalizes public dissemination of false information with 1-3 years imprisonment (3-5 years if anonymous/organized) — criticized by the Venice Commission but establishing that synthetic disinformation is already criminally actionable in Turkey.",
+            "source": "Gide Loyrette Nouel (Nov 18, 2025), https://www.gide.com/en/news-insights/draft-law-on-measures-concerning-ai-generated-content/ ; regulations.ai RAI-TR-NA-ACLRAXX-2025; Library of Congress (Nov 30, 2022) on TCK 217/A",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "UAE has no binding deepfake-specific statute: the National Programme for AI's Deepfake Guide (2021) is an advisory framework recommending content provenance verification and labeling for platforms/publishers, complementing existing cybercrime law; the UAE is running a light-touch, pro-AI licensing regime (e.g., DIFC AI Licence) — no regulatory conflict for a Sharjah-based provenance vendor serving EU/Turkey customers.",
+            "source": "regulations.ai, Deepfake Guide (UAE National Programme for AI, 2021), https://regulations.ai/regulations/RAI-AE-NA-DGUNPXX-2021 (accessed July 6, 2026)",
+            "confidence": "medium",
+            "load_bearing": false
+          },
+          {
+            "fact": "Pitch-deck fraud anchors: Arup (Hong Kong) lost $25M via a video call in which the CFO and all participants were deepfakes (2024, most-cited corporate case); global deepfake fraud losses were ~$1.65B in 2025 alone (of $2.19B cumulative Jan 2019-Mar 2026, per vendor-aggregated trackers); H1 2025 alone exceeded $410M; Deloitte Center for Financial Services projects GenAI-enabled fraud in the US could reach $40B annually by 2027; deepfake CEO-fraud attempts reportedly target ~400 companies/day.",
+            "source": "Bright Defense deepfake statistics (March 2026), https://www.brightdefense.com/resources/deepfake-statistics/ ; StationX (2026); Deloitte FSI prediction (2024); Arup case widely reported Feb 2024",
+            "confidence": "medium",
+            "load_bearing": true
+          },
+          {
+            "fact": "Insurance photo/document fraud (a core authentic-at-capture use case): Verisk study (March 2026) found 99% of insurers have already encountered manipulated or AI-altered claim documentation and 98% agree AI editing tools are fueling digital fraud; UK insurer Admiral reported a 71% fraud rise in 2025 partly attributed to AI-generated images; AI-enhanced insurance fraud cases grew from ~20,000 (2022) to 80,000+ (2025); total US insurance fraud runs $308.6B/year (Coalition Against Insurance Fraud baseline).",
+            "source": "Debevoise Data Blog (Jan 19, 2026), https://www.debevoisedatablog.com/2026/01/19/use-of-ai-generated-images-for-fake-insurance-claims-and-other-frauds/ ; SimpleSolve/InsurTech Amsterdam citing Verisk (March 2026)",
+            "confidence": "medium",
+            "load_bearing": true
+          },
+          {
+            "fact": "Market-size/demand signals (directional, research-mill quality): C2PA content provenance solutions market estimated $1.63B (2025) growing to $2.06B (2026) at 25.9% CAGR, to $5.12B by 2030 (The Business Research Company); dedicated 'EU AI Act compliance solutions' market estimated $609.4M in 2026 at 37.3% CAGR (Dimension Market Research); Deloitte estimated the deepfake detection market growing 42%/yr toward $15.7B in 2026; enterprise AI governance/compliance spending ~$2.2-2.5B in 2025-26 growing to $8-11B by mid-2030s.",
+            "source": "TBRC via https://www.researchandmarkets.com/reports/6215178/coalition-content-provenance-authenticity-c2pa (2026); https://dimensionmarketresearch.com/report/eu-ai-act-compliance-solutions-market/ (2026)",
+            "confidence": "low",
+            "load_bearing": false
+          },
+          {
+            "fact": "Concrete ecosystem adoption proving the category (though mostly by large players, not yet mass SME procurement): Adobe launched Content Authenticity for Enterprise (Content Authenticity API via Firefly Services, GenStudio integration); Truepic sells enterprise C2PA signing; Sony, Nikon, Leica ship C2PA-enabled cameras and smartphone makers have begun embedding C2PA at capture; LinkedIn and Threads preserve/display Content Credentials; AP, Reuters and BBC use C2PA in editorial workflows; C2PA steering committee includes Adobe, Amazon, Google, Meta, Microsoft, OpenAI, Sony, Truepic; C2PA spec v2.3 published February 2026; the US NSA/CISA issued joint guidance recommending Content Credentials adoption (Jan 2025).",
+            "source": "https://business.adobe.com/blog/content-authenticity-arrives-for-enterprises (2025); https://c2paviewer.com/articles/what-is-c2pa (Jan 2026); NSA/CISA CSI-CONTENT-CREDENTIALS.PDF (Jan 29, 2025)",
+            "confidence": "medium",
+            "load_bearing": true
+          },
+          {
+            "fact": "Gap in demand evidence: the Article 50 legal duty to mark falls on PROVIDERS of generative AI systems and DEPLOYERS publishing deepfakes/public-interest AI text — not on ordinary creators of authentic human content. No procurement reports were found showing SMEs buying third-party provenance tooling specifically for AI Act compliance as of July 2026; the compliance-driven buyers identifiable today are model providers, media/publishers needing labeling workflows, platforms subject to provenance-retention rules (California), and fraud-exposed verticals (insurance, KYC).",
+            "source": "Synthesis across artificialintelligenceact.eu Article 50 guide, Commission Code of Practice pages, and market searches (all accessed July 6, 2026)",
+            "confidence": "high",
+            "load_bearing": true
+          }
+        ],
+        "implications": "For the OzDNA blueprint: (1) The 'why now' is airtight and precisely dated — anchor the deck to August 2, 2026 (EU Article 50 + California SB 942 land the SAME day), the July 22, 2026 Code-of-Practice signatory cutoff, the Dec 2, 2026 marking grace expiry, and the Feb 2, 2027 interoperable-detection deadline; this is a 7-month regulatory cascade starting 27 days from now. (2) OzDNA's proposed architecture maps one-to-one onto the Code of Practice's Measure 1.1: C2PA signing = mechanism 1.1.1 (digitally-signed metadata), and the perceptual-hash DNA registry = mechanism 1.1.3 (fingerprinting/logging with registry databases) — the EU literally described OzDNA's product category in its compliance guidance; pitch it as 'the registry-and-signing layer the EU Code describes,' which also validates excluding detection classifiers from v1. (3) Be honest in the deck that C2PA is not mandated by name — say 'the Code's criteria are today only met by C2PA (per IPTC)' rather than 'C2PA is required.' (4) The legal duty sits with GenAI providers, deployers of deepfakes, and platforms — not everyday creators — so compliance-driven revenue should target (a) EU-exposed media/publishers and agencies needing deepfake/AI-text labeling plus audit trails, (b) smaller GenAI tool vendors who lack marking infrastructure (Dec 2026 deadline pressure), and (c) fraud-exposed verticals (insurance claims capture is the best-evidenced pain: 99% of insurers seeing altered documentation); authentic-content provenance for creators is the adjacent wedge, not the mandated market. (5) Turkey is a genuine home-market angle: the pending TBMM bill with TRY 500K-5M deepfake-labeling fines creates local urgency with zero Turkish-language provenance vendors, and the UAE entity faces no conflicting regime — a defensible EMEA-bridge story for grants. (6) For fundability, lead with Arup ($25M), Deloitte ($40B by 2027) and Verisk (99% of insurers) as the defensible stats; treat the $1.6-2B market-size figures as directional only, and note the open risk that the provenance-buying obligation may consolidate at platform/model-provider level, squeezing independent vendors — the registry (matching stripped-metadata copies back to origin) is the differentiator that big-co C2PA signing does not solve."
+      },
+      "checks": [
+        {
+          "fact": "EU AI Act Article 50 transparency obligations become applicable August 2, 2026: providers of generative AI (incl. GPAI) must ensure outputs are marked in machine-readable format and detectable as AI-generated (Art 50(2)); deployers must disclose deepfakes (Art 50(4)(a)) and AI-generated public-interest text unless it underwent human editorial review (Art 50(4)(b)); chatbot providers must disclose AI interaction (Art 50(1)); emotion-recognition deployers must inform exposed persons (Art 50(3)). Exceptions: assistive/standard editing, evidently artistic/satirical works (reduced disclosure), law-enforcement authorization.",
+          "verdict": "confirmed",
+          "correction": "",
+          "source": "Independently verified via Greenberg Traurig, 'Deepfakes, Chatbots, AI-Generated Text' (June 2026), https://www.gtlaw.com/en/insights/2026/6/deepfakes-chatbots-ai-generated-text-european-commission-details-transparency-obligations-under-the-ai-act (confirms 2 Aug 2026 application, all four sub-obligations mapped to the correct paragraphs, the human-editorial-review exception requiring 'genuine substantive review' with 'clearly attributable editorial responsibility', and reduced disclosure for artistic/creative/satirical content); corroborated by Pearl Cohen and Bratby Law analyses surfaced in search. Law-enforcement carve-outs are in the regulation text itself (Art 50(2), (3), (4)). Only caveat: for generative systems already on the market before 2 Aug 2026, the Art 50(2) marking duty is deferred to 2 Dec 2026 by the Omnibus (covered in fact 3), which slightly softens the headline date for legacy providers only."
+        },
+        {
+          "fact": "Non-compliance with Article 50 is fined up to EUR 15,000,000 or 3% of total worldwide annual turnover, whichever is higher (Article 99(4)); for SMEs/startups the LOWER of the two applies (Article 99(6)).",
+          "verdict": "confirmed",
+          "correction": "",
+          "source": "European Commission's official AI Act Service Desk, Article 99, https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-99 — exact text fetched: Art 99(4) 'up to EUR 15 000 000 or, if the offender is an undertaking, up to 3 % of its total worldwide annual turnover for the preceding financial year, whichever is higher'; Art 99(4)(g) explicitly lists 'transparency obligations for providers and deployers pursuant to Article 50'; Art 99(6): for SMEs incl. start-ups each fine is capped at 'the percentages or amount... whichever thereof is lower'. Corroborated by White & Case and aiactblog.nl. Practical note for a solo founder: as an SME the effective cap is 3% of your (small) turnover, not EUR 15M."
+        },
+        {
+          "fact": "The EU Digital/AI Omnibus provisional agreement (May 7, 2026) did NOT postpone Article 50: obligations still apply August 2, 2026; the only relief is that generative AI systems placed on the market before Aug 2, 2026 get until December 2, 2026 to implement the Art 50(2) machine-readable marking. Deployer disclosure duties (deepfakes, public-interest text) were not deferred at all. New systems entering the market after Aug 2, 2026 must mark from day one.",
+          "verdict": "confirmed",
+          "correction": "",
+          "source": "Independently verified: Council press release dated 7 May 2026 (consilium.europa.eu, surfaced in search); Freshfields 'EU AI Act Unpacked #33' confirms the Omnibus 'four-month transitional period' defers only 'provider obligations in Article 50(2)' to '2 December 2026 for AI systems placed on the market before 2 August 2026'; VerifyWise omnibus table confirms Art 50(2): 2 Aug 2026 -> 2 Dec 2026; Hogan Lovells and ComplianceHub analyses confirm chatbot (50(1)), emotion-recognition (50(3)) and deepfake/text deployer duties (50(4)) remain in force 2 Aug 2026. Status update since the fact was written: Parliament formally endorsed 16 June 2026 and Council gave final approval 29 June 2026; Official Journal publication imminent — so the relief is now essentially certain, not merely provisional. High-risk deadlines were separately postponed (Annex III to Dec 2027, Annex I to Aug 2028) but that does not touch Article 50."
+        },
+        {
+          "fact": "The European Commission published the FINAL Code of Practice on marking and labelling of AI-generated content on June 10, 2026. It is voluntary; signatories gain a practical presumption-of-conformity benefit; the initial signatory list closes July 22, 2026; the Code is undergoing adequacy assessment by the Commission and AI Board; the EU published a set of official icons for labelling AI content.",
+          "verdict": "confirmed",
+          "correction": "",
+          "source": "Independently verified: Jones Day (June 2026), https://www.jonesday.com/en/insights/2026/06/european-commission-publishes-final-code-of-practice-on-marking-and-labelling-aigenerated-content — confirms 10 June 2026 publication, voluntary status, 'open for signature and being assessed for adequacy by the Commission and the AI Board', and the 'publicly available EU icon'; TechPolicy.Press confirms signatory form deadline '18:00 CET on July 22, 2026'; EU icons page https://digital-strategy.ec.europa.eu/en/policies/eu-icons-labelling-ai-generated-content and ppc.land confirm three official icons (basic, Fully AI-Generated, Partially AI-Modified) in SVG/PNG, free to use. Wording note: official sources phrase the benefit as signatories 'may rely on the Code's measures to demonstrate compliance' — a formal presumption of conformity attaches only if the Commission/AI Board adequacy assessment is positive, which matches the fact's 'practical' hedge."
+        },
+        {
+          "fact": "The final Code's Measure 1.1 prescribes a layered marking approach with three mechanisms: (1.1.1) digitally-signed metadata, (1.1.2) imperceptible watermarking, (1.1.3) optional fingerprinting/logging backed by registry databases; providers must implement interoperable detection solutions using publicly available industry standards by February 2, 2027. C2PA is NOT named in the Code text, but IPTC (standards body) states 'the only technology that meets these criteria is C2PA,' and legal/industry commentary uniformly treats C2PA Content Credentials as the de facto compliance pathway.",
+          "verdict": "nuanced",
+          "correction": "Structure and dates check out; two claims need tightening. (1) Measure 1.1's three mechanisms are confirmed (Freshfields: 1.1.1 digitally-signed, time-stamped, tamper-evident metadata; 1.1.2 imperceptible watermarking; 1.1.3 fingerprinting/logging as 'optional supplementary measures'; at least two layers required where one technique is insufficient), and the 2 February 2027 interoperable-detection deadline is confirmed. BUT the interoperability duty is not limited to 'publicly available industry standards' — the Code offers four alternative routes: (i) a publicly available industry-standard access method/API, (ii) a publicly readable 'signpost' embedded in the content pointing to the right detection solution, (iii) a shared provider-agnostic detection solution run by a consortium of signatories (explicitly open to SMEs), or (iv) any other solution achieving comparable interoperability. (2) 'Uniformly treats C2PA as the de facto compliance pathway' is overstated: C2PA is indeed not named in the Code, and IPTC plus practitioner commentary (getactready: 'the obvious reference point') do point to C2PA as the leading technology for sub-measure 1.1.1 — but several major analyses of the final Code (Freshfields, Jones Day, TechPolicy.Press) describe the layered approach without naming C2PA at all, and TechPolicy.Press stresses 'common evaluation standards have yet to emerge.' Corrected framing: C2PA Content Credentials is the leading candidate for the signed-metadata layer and the strongest current fit, but it is neither mandated nor a universally-agreed compliance pathway, and the consortium/SME option means a small provider is not forced into C2PA specifically.",
+          "source": "Freshfields 'EU AI Act Unpacked #33' (final Code analysis), https://www.freshfields.com/en/our-thinking/blogs/technology-quotient/eu-ai-act-unpacked-33-the-final-code-of-practice-on-transparency-of-ai-generate-102n4yx (sub-measures, 2 Feb 2027, no standard named); Pearl Cohen and related search cluster confirming the four interoperability options and Feb 2, 2027 date; TechPolicy.Press explainer (no C2PA mention, standards immature); getactready (C2PA as reference point but 'not explicit Code language'); IPTC quote existence confirmed via search of iptc.org June 2026 release."
+        }
+      ]
+    },
+    {
+      "dimension": "funding",
+      "findings": {
+        "summary": "The zero-budget funding path for OzDNA is grants-first, token-never, VC-later. The strongest evidence in mid-2026: (a) the only direct token comparable, Numbers Protocol (NUM), is down 99.9% from its 2021 ATH to a ~$2.6M market cap and hit an all-time low on June 27, 2026, despite real media partnerships — while the token-free comparable WordProof survives as a small SaaS funded by a €1M EU grant; (b) crypto VCs in January 2026 explicitly favor revenue fundamentals over token narratives and call the crypto-AI intersection a sector where \"hype dramatically exceeds execution,\" so an \"AI x Blockchain story\" pitch is now a liability unless backed by usage/revenue; (c) VC money in content authenticity flowed to deepfake DETECTION companies (Reality Defender $33M, GetReal $17.5M, Loti AI $16.2M — all 2025 Series A), while provenance-native Truepic hasn't raised since 2021 — meaning provenance alone doesn't currently attract VC without revenue traction. The realistic non-dilutive stack for a solo founder: Story Protocol's Academy (IP provenance is literally their thesis; grants $20k–$100k), Filecoin devgrants (up to $50k, storage-adjacent fit for a DNA registry), Base Batches/Builder Grants ($10k grants, 1–5 ETH retro grants, $50k investments), plus rolling Solana Foundation grants and 2x/year Colosseum hackathons feeding a $250k accelerator. For equity capital, Alliance (rolling applications, $500k, \"most Alliance startups never launch a token\") is the best-fit accelerator; a16z CSX ($500k/7%, ~3% acceptance) is the long shot.",
+        "key_facts": [
+          {
+            "fact": "Numbers Protocol (NUM), the closest token-based content-provenance comparable, trades at $0.0029 with a $2.6M market cap, down 99.9% from its $2.52 ATH (Nov 27, 2021), and set a new all-time low ($0.0025) on June 27, 2026 — despite partnerships with Rolling Stone/China Times and citation in the US NIST AI Risk Framework",
+            "source": "https://www.coingecko.com/en/coins/numbers-protocol (fetched 2026-07-06)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "WordProof, the token-free blockchain-timestamping comparable, is still operational as a SaaS in 2026 (Yoast SEO integration updated March 2026) and was originally funded by winning the European Commission's €1M 'Blockchains for Social Good' prize — a no-token, grant-funded survival path",
+            "source": "wordproof.com + wptavern.com + yoast.com/features/wordproof-integration (checked 2026-07-06)",
+            "confidence": "medium",
+            "load_bearing": true
+          },
+          {
+            "fact": "Crypto VCs' 2026 consensus (The Block survey, Jan 4, 2026): fundamentals/traction over narratives; the token model has 'broken down as a reliable exit'; pre-revenue token launches at high valuations are not coming back; and the crypto-AI intersection is explicitly flagged as a sector where 'hype dramatically exceeds execution'",
+            "source": "https://www.theblock.co/post/384209/top-crypto-vcs-share-2026-funding-and-token-sales-outlook (2026-01-04) + vaasblock.com crypto VC 2026 analysis",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "VC funding in content authenticity 2025 went entirely to DETECTION/likeness-protection, not provenance: Reality Defender $33M Series A (Jul 30, 2025; $52.4M total; BNY, DCVC), GetReal Security $17.5M Series A (Mar 2025, Forgepoint), Loti AI $16.2M Series A (Apr 2025, Khosla Ventures); provenance-native Truepic last raised $26M in Sep 2021 — no fresh provenance rounds found in 2025-2026",
+            "source": "fundz.net, crunchbase.com, tracxn.com, variety.com (2025 dates as listed)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "Story Protocol is the best thematic grant fit (an L1 built for IP provenance/attribution): Story Academy runs a 12-week incubator + 6-7 week accelerator with grants reported at $10k–$100k (foundation site says MVP grants of $20k–$50k in rare cases); 38.4% of the 1B IP token supply is reserved for ecosystem/grants; but the program prioritizes projects building ON Story, reviews on a rolling basis, and the current accelerator application round shows as closed (July 2026)",
+            "source": "story.foundation/academy + forbes.com (2025-03-25) + medium.com Story 2025 review (checked 2026-07-06)",
+            "confidence": "medium",
+            "load_bearing": true
+          },
+          {
+            "fact": "Filecoin Foundation grants are open and rolling: Open Grants up to $50,000 (categories include developer/data tooling, integrations, storage/retrieval — a natural fit for a content-DNA registry with decentralized storage), plus FIL Builder Next Step Grants of $5k–$10k; applications via GitHub devgrants repo",
+            "source": "https://fil.org/grants + github.com/filecoin-project/devgrants (checked 2026-07-06)",
+            "confidence": "medium",
+            "load_bearing": true
+          },
+          {
+            "fact": "Alliance (formerly Alliance DAO) is the best-fit accelerator for a no-token strategy: applications accepted year-round with ~2-week decisions, invests $500k on founder-friendly terms, states 'most Alliance startups never launch a token' (1:1 token side letter only applies if you ever do), median graduate raises $3.5M at $25M post; ALL17 cohort started May 2026",
+            "source": "alliance.xyz + prodevs.io/accelerators/alliance-dao + blockworks.com (checked 2026-07-06)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "a16z crypto CSX: $500k for 7%, 12-week in-person program in SF, runs twice per year (~3% acceptance); CSX 04 cohort started Feb 2026 (applications closed Feb 7, 2026), implying a fall 2026 cohort application window in H2 2026",
+            "source": "a16zcrypto.com/accelerator + superscout.co (checked 2026-07-06)",
+            "confidence": "medium",
+            "load_bearing": false
+          },
+          {
+            "fact": "Base offers three stacked paths: retroactive Builder Grants of 1–5 ETH (no application — nomination/discovery after shipping), Base Batches annual cohort (top 15 teams get $10k grants + 8-week program; minimum 3 teams get $50k Base Ecosystem Fund investment; Batches 003 announced 2026), and Base Batches buildathon tracks on Devfolio",
+            "source": "docs.base.org/get-started/get-funded + basebatches.xyz + blog.base.org (checked 2026-07-06)",
+            "confidence": "medium",
+            "load_bearing": false
+          },
+          {
+            "fact": "Colosseum runs two global online Solana hackathons per year with select winners receiving $250k accelerator investment; the latest (Cypherpunk) drew 1,576 submissions with a $30k grand prize and $5k–$25k track prizes — the next hackathon falls in H2 2026; Solana Foundation grants are separately open on a rolling, milestone-based basis (standard and convertible grants)",
+            "source": "colosseum.com/hackathon + blog.colosseum.com + solana.org/grants-funding (checked 2026-07-06)",
+            "confidence": "medium",
+            "load_bearing": true
+          },
+          {
+            "fact": "Ethereum Foundation ESP paused open applications in Aug 2025 and relaunched with a narrowed Wishlist + RFP model focused on core-protocol priorities (cryptography, ZK, security, protocol research) — an app-layer provenance service is a weak fit in 2026",
+            "source": "esp.ethereum.foundation + theblock.co/post/368804 (2025) + crypto.news (checked 2026-07-06)",
+            "confidence": "medium",
+            "load_bearing": false
+          },
+          {
+            "fact": "Polygon Community Grants Program Season 2 is open via Questbook with 35M POL (AI is a named track; Direct Track pool up to 20M POL); World Foundation moved to a continuous (anytime) grants model with RFPs around World ID apps, governance, and dev tooling — both are open but thematically weaker fits than Story/Filecoin",
+            "source": "polygon.technology/blog (Season 2, Jan 2025) + polygon.questbook.xyz + world.org/grants (checked 2026-07-06)",
+            "confidence": "medium",
+            "load_bearing": false
+          },
+          {
+            "fact": "Optimism Retro Funding remains retroactive-only (rewards already-shipped, measurable Superchain impact in OP tokens, e.g. Dev Tooling and Onchain Builders missions with monthly application deadlines) — it cannot fund an MVP upfront, only reward it after deployment on an OP chain",
+            "source": "gov.optimism.io Retro Funding missions + gitcoin.co/apps/optimism-retropgf (checked 2026-07-06)",
+            "confidence": "medium",
+            "load_bearing": false
+          },
+          {
+            "fact": "ETHGlobal's H2 2026 in-person calendar: Lisbon (Jul 24–26), Tokyo (Sep 25–27), Mumbai (Q4); recent events carry $225k+ total prize pools split across sponsor tracks ($5k–$20k per track) with recurring 'AI x Crypto' tracks — winnable pocket money and sponsor-ecosystem visibility, not runway",
+            "source": "ethglobal.com + cryptobriefing.com (Jun 2026)",
+            "confidence": "medium",
+            "load_bearing": false
+          },
+          {
+            "fact": "YZi Labs (ex-Binance Labs) runs the chain-agnostic EASY Residency incubation (8-week curriculum, Web3+AI+biotech) and added a $1M CertiK audit grant pool for participants on Jan 6, 2026 — an open incubation door but no stated cash grant amounts",
+            "source": "yzilabs.com + cryptorank.io (2026-01-06)",
+            "confidence": "medium",
+            "load_bearing": false
+          },
+          {
+            "fact": "Arweave/AO ecosystem funding exists (a $10M AO Ecosystem Fund plus PEDG and ao Ventures) but is less structured/transparent than Filecoin's program; permanent-storage anchoring of DNA records could qualify, but it is a secondary target",
+            "source": "arweave.org/funding + Perma DAO Medium weekly (checked 2026-07-06)",
+            "confidence": "low",
+            "load_bearing": false
+          }
+        ],
+        "implications": "1) Kill the token permanently, not just for v1: the single closest comparable (Numbers Protocol) shows a provenance token collapsing 99.9% to all-time lows in June 2026 even with real adoption signals, while the token-free comparable (WordProof) survived on an EU grant. A token would also directly conflict with 2026 VC preferences. 2) Reframe the pitch: do NOT lead with 'AI x Blockchain' — that exact intersection is flagged by VCs as hype-over-execution in 2026. Lead with 'content provenance infrastructure with SaaS revenue' (C2PA signing + DNA registry as an API business); blockchain anchoring is a cheap implementation detail, not the story. 3) Funding sequence for a solo, zero-budget founder: (a) ship MVP on Vercel/Cloudflare; (b) apply to Filecoin Open Grants (up to $50k, storage/data-tooling fit) and Story Academy (best thematic fit — watch for the next application window; their accelerator prioritizes teams building on Story, so registering DNA records on Story is a funding lever worth weighing in the architecture); (c) deploy the anchoring contract on Base to farm retroactive Builder Grants (1–5 ETH) and enter Base Batches; (d) enter one H2 2026 Colosseum hackathon and/or ETHGlobal Lisbon/Tokyo for prizes and visibility. This stack plausibly yields $50k–$150k non-dilutive within 6–12 months. 4) The equity path: Alliance is the priority application (rolling, $500k, explicitly token-optional, founder-friendly) once there is any usage; a16z CSX fall 2026 cohort is the long shot. 5) The VC market's revealed preference — funding detection SaaS with enterprise revenue while ignoring provenance-native startups — means OzDNA's fundable milestone is paying API customers (publishers, agencies, KYC/insurance workflows), not registry size; the blueprint should define a revenue instrument (per-signature or per-verification pricing) from day one. 6) Chain choice is a funding decision: a chain-agnostic hash-anchoring design that can settle to Story, Base, or Solana lets the founder apply to all three ecosystems' programs without re-architecture."
+      },
+      "checks": [
+        {
+          "fact": "Numbers Protocol (NUM), the closest token-based content-provenance comparable, trades at $0.0029 with a $2.6M market cap, down 99.9% from its $2.52 ATH (Nov 27, 2021), and set a new all-time low ($0.0025) on June 27, 2026 — despite partnerships with Rolling Stone/China Times and citation in the US NIST AI Risk Framework",
+          "verdict": "nuanced",
+          "correction": "All market data confirmed and cross-checked on independent trackers: price $0.002912, market cap ~$2.6M (CoinGecko $2.64M; CMC $2.47M; CoinCodex $2.38M), ATH $2.52 on Nov 27, 2021 (CoinCodex shows Nov 28, timezone), ATL $0.002492 on Jun 27, 2026, ~99.9% below peak. Rolling Stone partnership confirmed (war-crimes documentation project with Starling Lab); China Times confirmed via Numbers' own blog/docs (Capture Eye verification widget integrated into China Times, self-reported only). The one scope error: the NIST citation is NOT in the 'AI Risk Management Framework' (that is NIST AI 100-1/AI RMF). Numbers Protocol is listed on p.67 (appendix table of existing provenance frameworks) of NIST AI 100-4, 'Reducing Risks Posed by Synthetic Content' — a companion NIST Trustworthy AI report, and it is an inventory listing, not an endorsement. The load-bearing point stands: maximal thematic validation coexisting with ~total token value destruction.",
+          "source": "coingecko.com/en/coins/numbers-protocol; coincodex.com/crypto/numbers-protocol; coinmarketcap.com; NIST.AI.100-4.pdf (nvlpubs.nist.gov, verified in PDF text p.67); numbersprotocol.io/blog (Rolling Stone/Starling, China Times, NIST recognition posts)"
+        },
+        {
+          "fact": "WordProof, the token-free blockchain-timestamping comparable, is still operational as a SaaS in 2026 (Yoast SEO integration updated March 2026) and was originally funded by winning the European Commission's €1M 'Blockchains for Social Good' prize — a no-token, grant-funded survival path",
+          "verdict": "nuanced",
+          "correction": "The €1M EC prize is confirmed (EIC Horizon Prize 'Blockchains for Social Good', winners announced 2020; WordProof took the €1M first prize among 6 winners sharing €5M). But the Yoast claim is refuted: Yoast SEO DEPRECATED the WordProof integration on July 2, 2024 (Yoast SEO 23.0 changelog; the yoast.com feature page now carries the notice 'This feature was deprecated on 2nd July 2024'). Any 'March 2026' date is a page-metadata artifact, not an integration update. 'Still operational' is overstated: the website is live (© 2026 WordProof B.V., free plan offered) but the newest news post is July 25, 2023, the WordPress plugin has only ~200+ active installs and is tested only to WP 6.5.8 (mid-2024). Corrected framing: WordProof survived on the grant without a token but is now dormant/zombie — its flagship distribution channel (Yoast) is gone. It is a cautionary tale about grant-funded survival without distribution, not proof of a healthy no-token SaaS path.",
+          "source": "developer.yoast.com/changelog/yoast-seo/23.0/ (release Jul 2, 2024); yoast.com/features/wordproof-integration/ (deprecation notice); digital-strategy.ec.europa.eu (EIC €5M award news); wordproof.com/news/ (latest post Jul 2023); wordpress.org/plugins/wordproof/"
+        },
+        {
+          "fact": "Crypto VCs' 2026 consensus (The Block survey, Jan 4, 2026): fundamentals/traction over narratives; the token model has 'broken down as a reliable exit'; pre-revenue token launches at high valuations are not coming back; and the crypto-AI intersection is explicitly flagged as a sector where 'hype dramatically exceeds execution'",
+          "verdict": "nuanced",
+          "correction": "All four claims are real and from The Block, but they come from TWO articles, not one. The Jan 4, 2026 survey (post/384209, date confirmed) contains: fundamentals/traction over narratives (Quynh Ho: 'focused on traction and fundamentals rather than narratives') and the crypto-AI flag (Anirudh Pai: hype has 'dramatically' outpaced execution; Rob Hadick: 'evidence of anything real happening at the intersection of AI and crypto is still next to zero'). The other two quotes are from The Block's 'The Funding: Why the bar for crypto VC is higher than ever' (post/398015, April 19, 2026): Anirudh Pai (Robot Ventures) on the token model having 'broken down as a reliable exit', and Richard Galvin (Digital Asset Capital Management) saying it is 'unlikely the industry returns to the old model where pre-product or pre-revenue projects can launch tokens at high valuations.' Supporting data: ~85% of 2025 VC-backed token launches trade below first valuation. The strategic conclusion (no pre-revenue token path in 2026) is fully supported; only the single-source attribution is wrong.",
+          "source": "theblock.co/post/384209 (fetched; pub date Jan 4, 2026); theblock.co/post/398015 (fetched; pub date Apr 19, 2026); corroborating: thecoinrepublic.com Feb 19, 2026 (85% of 2025 tokens underwater, Messari data)"
+        },
+        {
+          "fact": "VC funding in content authenticity 2025 went entirely to DETECTION/likeness-protection, not provenance: Reality Defender $33M Series A (Jul 30, 2025; $52.4M total; BNY, DCVC), GetReal Security $17.5M Series A (Mar 2025, Forgepoint), Loti AI $16.2M Series A (Apr 2025, Khosla Ventures); provenance-native Truepic last raised $26M in Sep 2021 — no fresh provenance rounds found in 2025-2026",
+          "verdict": "nuanced",
+          "correction": "Direction fully confirmed, one date wrong. Reality Defender's $33M Series A expansion was announced Oct 22, 2024 (led by Illuminate Financial, with DCVC as original Series A lead, plus Booz Allen, IBM Ventures, Accenture) — the 'Jul 30, 2025' date is a fundz.net database-entry artifact. Reality Defender's actual 2025 event was an undisclosed strategic round from BNY, Samsung Next, and Fusion Fund announced Apr 3, 2025; $52.4M total funding confirmed (Tracxn). GetReal Security $17.5M Series A led by Forgepoint confirmed (announced Mar 26, 2025; also In-Q-Tel, Cisco Investments, Capital One Ventures). Loti AI $16.2M Series A led by Khosla confirmed (announced Apr 15, 2025; $23M total; WME/CAA-adjacent). Truepic's last raise confirmed as the $26M Series B on Sep 14, 2021 led by M12, with no equity round since per Tracxn/Crunchbase. Independent searches likewise surfaced no 2025-26 provenance-native rounds (an absolute negative can't be proven, but nothing contradicts it). Corrected version: detection/likeness got the fresh 2024-25 capital; pure provenance has seen no new equity since 2021.",
+          "source": "prnewswire.com + dcvc.com (Reality Defender $33M, Oct 22, 2024); prnewswire.com 302419647 (BNY/Samsung Next strategic, Apr 2025); tracxn.com ($52.4M total); getrealsecurity.com + techcrunch.com 2025-03-26; businesswire.com + variety.com (Loti, Apr 15, 2025); truepic.com + techcrunch.com 2021-09-14 + tracxn.com (no round since)"
+        },
+        {
+          "fact": "Story Protocol is the best thematic grant fit (an L1 built for IP provenance/attribution): Story Academy runs a 12-week incubator + 6-7 week accelerator with grants reported at $10k–$100k (foundation site says MVP grants of $20k–$50k in rare cases); 38.4% of the 1B IP token supply is reserved for ecosystem/grants; but the program prioritizes projects building ON Story, reviews on a rolling basis, and the current accelerator application round shows as closed (July 2026)",
+          "verdict": "nuanced",
+          "correction": "Every program detail checks out against the archived foundation page (Mar 2026 snapshot, verified verbatim): 12-week incubator (Sep start, demo day), milestones-based accelerator 'on average 6-7 weeks', rolling review, 'the program will prioritize projects already launched on or actively integrating Story', and 'in the rare cases where a grant is critical to the development of an MVP... between $20k and $50k (maximum amount)'; third-party reports of $10k-$100k ranges and the 38.4% Ecosystem+Community allocation of the 1B supply are also confirmed. Two corrections: (1) BOTH incubator and accelerator show 'Application Ended', not just the accelerator, and the incubator's listed application window was Jul-Sep 2024 — the program looks stale, not merely between rounds. (2) Critically, the thesis is outdated: on June 25, 2026 Story Foundation rebranded to the DATA Foundation / DATA Network, migrating $IP to $DATA 1:1 and pivoting from creative-IP provenance to licensed AI-training-data infrastructure (new 'Trace' provenance registry, Kled partnership) after the IP token fell ~98% and IP owners pushed back on licensing tokenization; story.foundation/academy now 308-redirects to datafdn.org/academy. Any grant-fit decision must be re-underwritten against the DATA Foundation's new mandate — which is arguably closer to AI-data provenance but is no longer 'an L1 built for IP provenance/attribution', and whether the Academy continues under it is unconfirmed.",
+          "source": "web.archive.org snapshot 2026-03-12 of story.foundation/academy (text extracted and quoted); live redirect story.foundation -> datafdn.org observed 2026-07-06; cryptobriefing.com + thedefiant.io + decrypt.co + globenewswire.com 2026-06-25/26 (DATA Foundation rebrand, IP->DATA migration, ~98% drawdown); thedefiant.io + datawallet.com (38.4% ecosystem+community of 1B IP)"
+        }
+      ]
+    },
+    {
+      "dimension": "wedge",
+      "findings": {
+        "summary": "The only wedge with both a hard deadline and self-serve reachability for a solo PR/SEO founder is EU AI Act Article 50 compliance: from August 2, 2026, providers/deployers of generative AI must machine-readably mark synthetic content (fines up to EUR 15M or 3% of turnover), and the EU's draft Code of Practice explicitly names C2PA as a compliant marking technique — creating urgent demand from thousands of small AI apps for a sign-plus-verify API, a space where incumbents (Truepic, Capture/Numbers, Trufo, DigiCert) are enterprise-oriented or crypto-niche. Proven willingness-to-pay exists mainly in evidence/inspection (Truepic Vision at $1,450/mo + $58/inspection; TrueScreen from EUR 60/mo; Attestiv from ~$10/mo), but that is an enterprise/insurer sales motion largely out of a solo founder's reach except at the SMB-legal fringe. Individual creators have real pain (photographers disqualified over false AI accusations; Etsy's mandatory AI-disclosure field enforced since January 2026 with 12,000+ listings removed) but low price tolerance ($5–12/mo, the Not By AI benchmark) and face free giants (Adobe Content Authenticity, Capture, Click) — creators are a growth/PR channel, not the revenue wedge. Newsrooms and fact-checkers, especially Turkey/MENA (Teyit lost ~half its revenue after Meta killed its program), are 76% financially vulnerable or in crisis and cannot pay; they are grant co-applicants and credibility partners only. Recommended ranking: (1) EU AI Act C2PA-marking/provenance API for small gen-AI providers, self-serve; (2) e-commerce seller photo-authenticity + AI-disclosure compliance (Etsy-first), self-serve SEO; (3) SMB legal/insurance evidence capture in Turkey/MENA at TrueScreen-like pricing as a later expansion.",
+        "key_facts": [
+          {
+            "fact": "EU AI Act Article 50 transparency obligations apply from August 2, 2026 (existing generative systems get until December 2, 2026 for machine-readable marking); providers must mark AI-generated content in machine-readable, detectable format and deployers must label deepfakes.",
+            "source": "artificialintelligenceact.eu practical guide to Article 50 + EC digital-strategy.ec.europa.eu Code of Practice page (fetched July 2026)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "The European Commission's draft Code of Practice on marking/labelling of AI-generated content names C2PA (alongside Google SynthID) as an example technical solution meeting all four criteria (effective, interoperable, robust, reliable); final version expected June 2026, ahead of the August deadline.",
+            "source": "c2paviewer.com/articles/eu-ai-act-content-credentials + EC digital-strategy page + Kirkland & Ellis alert (Feb 2026)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "Non-compliance with Article 50 carries fines up to EUR 15 million or 3% of global annual turnover (AI Act Article 99), with proportionality for SMEs.",
+            "source": "c2paviewer.com EU AI Act analysis (fetched July 2026)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "Truepic Vision publishes pricing: Growth plan $1,450/month ($17,400/yr), $58 per inspection at base tier, 300–5,000 inspections/yr, overages $28–$65; Enterprise custom above 5,000; no self-serve tier beyond a free demo. Target: insurance, lending, warranty, recalls.",
+            "source": "truepic.com/pricing (fetched July 6, 2026)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "TrueScreen (Italy) sells court-admissible certified capture (qualified timestamp, SHA-256, GPS, chain of custody, claimed recognition in 150+ countries): Personal pay-per-use credits, Business from EUR 60/month for up to 3 users, Enterprise custom with APIs/SDKs — proof that SMB-priced legal-evidence capture is a real market.",
+            "source": "truescreen.io/pricing (July 2026)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "Etsy made an AI-disclosure field mandatory effective January 14, 2026 (AI-assisted products must use 'Designed by', disclosure in description); in Q1 2026 Etsy reportedly removed 12,000+ non-compliant listings and warned 8,500+ seller accounts.",
+            "source": "rewarx.com and artomate.app Etsy policy guides (2026) — secondary sources, policy date corroborated across multiple sites; enforcement figures single-sourced",
+            "confidence": "medium",
+            "load_bearing": true
+          },
+          {
+            "fact": "Amazon permits AI-generated/enhanced product images if they accurately represent the shipped product, requires disclosure for substantial AI generation, and prohibits fabricated features/accessories — i.e., pressure exists but no hard 'verified real photo' mandate as of mid-2026.",
+            "source": "rewarx.com, nightjar.so, ecombalance.com Amazon AI image policy guides (2026) — secondary sources",
+            "confidence": "medium",
+            "load_bearing": true
+          },
+          {
+            "fact": "Adobe Content Authenticity web app is a free public beta (since April 2025) letting anyone attach Content Credentials (with LinkedIn-verified identity) to up to 50 JPG/PNG files at once, even non-Adobe content; CAI coalition has 4,500+ members.",
+            "source": "blog.adobe.com (Apr 24, 2025)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "Not By AI charges $5/mo (individuals <$100K revenue), $7/mo (<$1M), $12/mo (>$1M), or $99 lifetime for a commercial 'human-made' badge with honor-system verification — the clearest existing creator willingness-to-pay benchmark for 'prove it's not AI', and it is tiny.",
+            "source": "notbyai.fyi/pricing (fetched via search, July 2026)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "Photographers have been publicly disqualified or accused over false AI suspicions (Miles Astray's real photo won then was DQ'd from 1839 Awards AI category; Australian photographer Suzi Dougherty DQ'd from a contest on mistaken AI suspicion) — real creator pain, heavily PR-able.",
+            "source": "artnews.com, news.artnet.com, creativebloq.com (2024, still cited through 2025-26)",
+            "confidence": "high",
+            "load_bearing": false
+          },
+          {
+            "fact": "76% of fact-checking organizations describe their finances as vulnerable or in crisis; grants are now 46.2% of average revenue after Meta ended its third-party fact-checking program (announced Jan 7, 2025); Turkey's Teyit said it would lose at least half its revenue and turned to Patreon; Logically Facts shut down in 2025.",
+            "source": "Poynter IFCN State of Fact-Checkers Report (published March 2026); Teyit letter via erkansaka.net (Jan 11, 2025); Nieman Lab GlobalFact coverage (June 2026)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "ProofMode (Guardian Project) is free and open-source with only ~10K+ Google Play downloads and a 3.8 rating — journalists' provenance tooling is donated, not purchased.",
+            "source": "guardianproject.info + Google Play (2025)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "C2PA signing certificates historically cost ~$50–500/yr (DigiCert ~$289/yr) with no free option, creating a two-tier trust system — but SSL.com launched a free C2PA tier in May 2026 (one Level 1 claim-signing certificate + 10,000 trusted timestamps/yr), with paid Premium for Level 2, API access, and device certs; Trufo also issues free test certs.",
+            "source": "truescreen.io C2PA analysis (2026) + ssl.com/products/content-authenticity (May 2026) + trufo.ai/tca",
+            "confidence": "medium",
+            "load_bearing": true
+          },
+          {
+            "fact": "Capture (Numbers Protocol) already sells server-side C2PA signing at scale ('millions of files per day', ISO 27001, own intermediate CA, CLI/HTTP APIs) and offers a free creator app plus on-chain registry with $0.0001 Base L2 anchoring and $0.01–$1.00 USDC pay-per-fetch AI licensing — the closest existing competitor to the OzDNA concept, from the crypto world.",
+            "source": "captureapp.xyz and captureapp.xyz/products/c2pa-signing (fetched July 6, 2026)",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "Social platforms routinely strip C2PA metadata via recompression/screenshots; RAND analysis (June 2025) concluded C2PA's success 'depends on end-to-end compliance by all elements of the ecosystem, [which] in an open ecosystem is unrealistic' — validating the need for a perceptual-hash registry that survives metadata stripping.",
+            "source": "RAND Corporation analysis (June 2025) via truescreen.io C2PA article",
+            "confidence": "high",
+            "load_bearing": true
+          },
+          {
+            "fact": "AI-generated images are now an acknowledged insurance-fraud vector: Zurich reported AI-generated damage scams; a 2025 Deloitte survey found 35% of insurance executives rank fraud detection among top genAI investment priorities; major law firm client alerts (Debevoise, Jan 19, 2026) flag AI-image claim fraud.",
+            "source": "debevoise.com / debevoisedatablog.com (Jan 19, 2026); Guidewire blog; TruthScan 2025 trends",
+            "confidence": "high",
+            "load_bearing": false
+          },
+          {
+            "fact": "Identity/selfie verification for dating apps runs $0.50–$2.00 per verification via established vendors (Persona, Onfido, Jumio) plus $5K–$10K integration; Tinder made Face Check mandatory across the US (Oct 2025) using in-house/enterprise vendors — a closed enterprise market for a solo founder.",
+            "source": "groovyweb.co dating app cost guide (2026); tinderpressroom.com (Oct 22, 2025); realeyes.ai liveness pricing guide (2026)",
+            "confidence": "medium",
+            "load_bearing": false
+          },
+          {
+            "fact": "Deepfake-AI market sized at ~$1.14B in 2025 growing to ~$8.11B by 2030 (48% CAGR, Mordor Intelligence); detection-software-only estimates are smaller ($198M in 2024 to $1.9B by 2030, Infinity Market Research) — directional VC-story numbers, not bottom-up demand.",
+            "source": "mordorintelligence.com deepfake-ai-market; infinitymarketresearch.com (2025)",
+            "confidence": "medium",
+            "load_bearing": false
+          },
+          {
+            "fact": "Attestiv (photo/video fraud detection for insurance) has paid plans starting around $10/month with a free tier (5 video scans/mo) and API access on self-serve plans — evidence that low-cost self-serve pricing exists even in the insurance-adjacent authenticity market.",
+            "source": "attestiv.com + F6S company profile (2025-2026)",
+            "confidence": "medium",
+            "load_bearing": false
+          }
+        ],
+        "implications": "The blueprint should be built as a provenance API/registry business with a free creator front-end, not a creator-subscription business. (1) Primary wedge: 'EU AI Act Article 50 compliance in one API' — C2PA signing (using SSL.com/Trufo certs or own intermediate CA later), batched blockchain anchoring, and a hosted verify page — sold self-serve at $29–$199/mo to small/mid generative-AI apps whose deadline is August 2, 2026 (existing systems: December 2, 2026). This is the only wedge where regulation, timing (deadline weeks away at launch), C2PA's official naming in the Code of Practice, and the founder's SEO/PR + crypto-network strengths all align; content marketing targets 'EU AI Act content marking/labeling' queries that law-firm alerts are already validating. Differentiate from Capture/Numbers (crypto-native, creator-centric) and Truepic (enterprise, $17K+/yr) with transparent self-serve pricing and the perceptual-hash 'DNA registry' that survives platform metadata stripping — the RAND-documented C2PA gap is the core technical narrative for both customers and grant/VC pitches. (2) Secondary wedge: Etsy/e-commerce sellers needing AI-disclosure compliance and 'verified real photo' badges — pure SEO play, low price ($5–15/mo, Not By AI anchor), enforcement pain already visible; validates the same signing pipeline. (3) Later expansion: SMB legal/insurance evidence capture for Turkey/MENA at TrueScreen-like pricing (EUR 60/mo), leveraging locality — but only after the API core exists, because it needs trust-building and possibly qualified-timestamp partnerships. Explicitly do NOT monetize newsrooms/fact-checkers or individual photojournalists — they are broke (76% in crisis); instead recruit Turkish/MENA fact-checkers (e.g., Teyit) as free flagship users to power the PR story and joint journalism-tech/trust-tech grant applications. Kill the dating/IDV wedge. Pricing architecture implied by benchmarks: free tier (compete with Adobe/Capture at zero), ~$10/mo prosumer badge tier, $49–199/mo compliance API tiers, per-verification metering at $0.05–$0.50 (undercutting the $0.50–$2.00 IDV norm). The market-size slide for fundraising uses the $1.1B-to-$8.1B deepfake-AI figures plus the EUR 15M/3% fine exposure as the demand driver, with fact-checker deployments as social proof."
+      },
+      "checks": [
+        {
+          "fact": "EU AI Act Article 50 transparency obligations apply from August 2, 2026 (existing generative systems get until December 2, 2026 for machine-readable marking); providers must mark AI-generated content in machine-readable, detectable format and deployers must label deepfakes.",
+          "verdict": "confirmed",
+          "correction": "",
+          "source": "Independently verified: aiactblog.nl (aiactblog.nl/en/posts/article-50-transparency-deadline-2-august-2026) confirms the 2 Aug 2026 date 'has not been postponed' and quotes the grace period verbatim: 'providers of generative systems get until 2 December 2026 to have their machine-readable marking solutions implemented and operating reliably' (framed as applying to systems already on the market, per the May 2026 AI Omnibus provisional agreement). Sidley Data Matters (datamatters.sidley.com, 24 Jun 2026) and artificialintelligenceact.eu/article/50 corroborate the date and the provider-marks / deployer-labels-deepfakes split. Digital Omnibus postponed high-risk deadlines but left Article 50 untouched."
+        },
+        {
+          "fact": "The European Commission's draft Code of Practice on marking/labelling of AI-generated content names C2PA (alongside Google SynthID) as an example technical solution meeting all four criteria (effective, interoperable, robust, reliable); final version expected June 2026, ahead of the August deadline.",
+          "verdict": "nuanced",
+          "correction": "Timeline is right — better than claimed: the FINAL Code of Practice was published 10 June 2026 (first draft 17 Dec 2025, second draft 3 Mar 2026, draft guidelines + consultation 8 May 2026) and is now undergoing Commission/AI Board adequacy assessment. But the endorsement claim is overstated: the Code is technology-neutral and, per TechPolicy.Press's analysis, explicitly states it 'does not prescribe a single technical solution... as no single marking technique can currently meet all four requirements set out in Article 50(2)' — i.e., the Code says NO technology (C2PA or SynthID included) meets all four criteria alone; it mandates layered solutions (metadata/provenance + watermarking + detection). The EC policy page does not name C2PA or SynthID. Commentary treats C2PA/Content Credentials as the de facto reference standard for embedded provenance, and draft 2 reportedly discussed SynthID as a proprietary alternative with open-access/interoperability concerns. Do not build positioning on an official 'C2PA = compliant' EU stamp — none exists.",
+          "source": "digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content (timeline, no named technologies, four-criteria language); techpolicy.press 'The EU's AI Transparency Code of Practice, Explained' (no-single-solution quote, neither C2PA nor SynthID named); getactready.com final-code analysis (C2PA as 'obvious reference point' only, SynthID not named, published 10 June 2026)."
+        },
+        {
+          "fact": "Non-compliance with Article 50 carries fines up to EUR 15 million or 3% of global annual turnover (AI Act Article 99), with proportionality for SMEs.",
+          "verdict": "confirmed",
+          "correction": "",
+          "source": "Independently verified via artificialintelligenceact.eu/article/99 and the EC AI Act Service Desk (ai-act-service-desk.ec.europa.eu/en/ai-act/article-99): Article 50 breaches fall in the middle tier — up to EUR 15M or 3% of total worldwide annual turnover, whichever is HIGHER; for SMEs/startups the fine is capped at whichever is LOWER (the claimed 'proportionality for SMEs' is accurate). Enforcement powers for these fines also start 2 Aug 2026 (aiactblog.nl enforcement post)."
+        },
+        {
+          "fact": "Truepic Vision publishes pricing: Growth plan $1,450/month ($17,400/yr), $58 per inspection at base tier, 300–5,000 inspections/yr, overages $28–$65; Enterprise custom above 5,000; no self-serve tier beyond a free demo. Target: insurance, lending, warranty, recalls.",
+          "verdict": "confirmed",
+          "correction": "",
+          "source": "Live fetch of truepic.com/pricing on 6 July 2026 (primary source; no secondary coverage of these figures exists): Growth $1,450/mo, $17,400/yr annual, $58 per inspection, committed volume 300–5,000 inspections/yr, tiered overages $28–$65; Enterprise custom for 5,000+; only self-serve element is a free no-credit-card sample-inspection demo. Listed industries: insurance, business lending, auto warranty, equipment financing, private lending, product recalls, home lending — matches the claimed insurance/lending/warranty/recalls framing."
+        },
+        {
+          "fact": "TrueScreen (Italy) sells court-admissible certified capture (qualified timestamp, SHA-256, GPS, chain of custody, claimed recognition in 150+ countries): Personal pay-per-use credits, Business from EUR 60/month for up to 3 users, Enterprise custom with APIs/SDKs — proof that SMB-priced legal-evidence capture is a real market.",
+          "verdict": "nuanced",
+          "correction": "Product claims verified, but pricing is stale and one claim is misframed. Live truescreen.io homepage (6 July 2026) confirms: qualified timestamp from a QTSP, SHA-256 hash, GPS geolocation, chain of custody, court admissibility ('Outputs admissible as evidence in court across the EU and beyond', eIDAS EU 910/2014), REST API/SDK. However: (1) Business plan is 'from €99/month' on the current pricing page, not €60/month — the €60/3-users figure appears only in older cached content; (2) no 'up to 3 users' cap is published on the current page (Business = 'small teams', Enterprise = unlimited users); (3) '150+ countries' is a market-footprint claim ('10+ industries across 150+ countries'), not a claim of legal recognition in 150+ jurisdictions — the legal-validity basis stated is eIDAS (EU-wide). The core thesis survives: SMB-priced legal-evidence capture is a real, live market — but model the entry point at €99/month, ~65% above the claimed figure.",
+          "source": "Live fetches on 6 July 2026: truescreen.io/pricing (Personal pay-per-use, Business 'Start from 99€/month', Enterprise custom with API/SDK/SSO/white-label); truescreen.io homepage (QTSP qualified timestamp, SHA-256, GPS, chain of custody, court admissibility, '150+ countries' footprint phrasing); truescreen.io/faq (eIDAS compliance, chain-of-custody detail, no country-count or pricing)."
+        }
+      ]
+    }
+  ],
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Research"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Verify"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "research:competitors",
+      "phaseIndex": 1,
+      "phaseTitle": "Research",
+      "agentId": "a6510384e48b7e9c2",
+      "model": "claude-fable-5",
+      "state": "done",
+      "startedAt": 1783290318169,
+      "queuedAt": 1783290318158,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "The mid-2026 provenance landscape splits into three camps, …",
+      "promptPreview": "Today is July 6, 2026. You are researching for a product blueprint. The founder: solo, based in Turkey, owns a media company in Sharjah Publishing City Free Zone (UAE), 5+ years of crypto CEX and crypto-PR experience (strong industry network, strong PR/distribution skills, NOT a deep engineer), essentially zero budget (Vercel account, Cloudflare free tier, Claude subscription). The product hypothe…",
+      "lastProgressAt": 1783290842604,
+      "tokens": 44622,
+      "toolCalls": 24,
+      "durationMs": 524435,
+      "resultPreview": "{\"summary\":\"The mid-2026 provenance landscape splits into three camps, and all three leave the same gap open. (1) Enterprise-only players: Truepic ($39.1M raised, custom-priced enterprise sales, C2PA steering member) and Attestiv (insurance/forensics, drifted toward detection) do not serve individuals or SMBs. (2) Token-attached precedents are a 3-for-3 cautionary tale: Numbers Protocol survives o…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "research:c2pa",
+      "phaseIndex": 1,
+      "phaseTitle": "Research",
+      "agentId": "aa0a118565c4af1f0",
+      "model": "claude-fable-5",
+      "state": "done",
+      "startedAt": 1783290318170,
+      "queuedAt": 1783290318158,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "C2PA is a mature, momentum-rich standard as of mid-2026 (sp…",
+      "promptPreview": "Today is July 6, 2026. You are researching for a product blueprint. The founder: solo, based in Turkey, owns a media company in Sharjah Publishing City Free Zone (UAE), 5+ years of crypto CEX and crypto-PR experience (strong industry network, strong PR/distribution skills, NOT a deep engineer), essentially zero budget (Vercel account, Cloudflare free tier, Claude subscription). The product hypothe…",
+      "lastProgressAt": 1783290919703,
+      "tokens": 42799,
+      "toolCalls": 25,
+      "durationMs": 601532,
+      "resultPreview": "{\"summary\":\"C2PA is a mature, momentum-rich standard as of mid-2026 (spec v2.4, April 2026; CAI has 5,000+ members and free membership; Leica/Sony/Canon cameras, Pixel 10 and Galaxy S25 sign at capture; Google announced C2PA verification native in Search/Chrome at I/O 2026), and open-source tooling (c2pa-rs, c2pa-web WASM with in-browser manifest creation, native Node bindings, a pure-TS implement…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "research:regulation",
+      "phaseIndex": 1,
+      "phaseTitle": "Research",
+      "agentId": "a344e1b07aeef8e8b",
+      "model": "claude-fable-5",
+      "state": "done",
+      "startedAt": 1783290318170,
+      "queuedAt": 1783290318158,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "The regulatory tailwind is real, dated, and peaks exactly n…",
+      "promptPreview": "Today is July 6, 2026. You are researching for a product blueprint. The founder: solo, based in Turkey, owns a media company in Sharjah Publishing City Free Zone (UAE), 5+ years of crypto CEX and crypto-PR experience (strong industry network, strong PR/distribution skills, NOT a deep engineer), essentially zero budget (Vercel account, Cloudflare free tier, Claude subscription). The product hypothe…",
+      "lastProgressAt": 1783290965843,
+      "tokens": 54533,
+      "toolCalls": 27,
+      "durationMs": 647673,
+      "resultPreview": "{\"summary\":\"The regulatory tailwind is real, dated, and peaks exactly now: EU AI Act Article 50 becomes applicable August 2, 2026 (27 days from today), backed by fines up to EUR 15M or 3% of worldwide turnover, and the May 2026 Digital Omnibus explicitly did NOT postpone it (only a narrow grace to Dec 2, 2026 for machine-readable marking by GenAI systems already on the market). The Commission's fi…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 4,
+      "label": "research:funding",
+      "phaseIndex": 1,
+      "phaseTitle": "Research",
+      "agentId": "ae262b06a4cc37a94",
+      "model": "claude-fable-5",
+      "state": "done",
+      "startedAt": 1783290318170,
+      "queuedAt": 1783290318158,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "The zero-budget funding path for OzDNA is grants-first, tok…",
+      "promptPreview": "Today is July 6, 2026. You are researching for a product blueprint. The founder: solo, based in Turkey, owns a media company in Sharjah Publishing City Free Zone (UAE), 5+ years of crypto CEX and crypto-PR experience (strong industry network, strong PR/distribution skills, NOT a deep engineer), essentially zero budget (Vercel account, Cloudflare free tier, Claude subscription). The product hypothe…",
+      "lastProgressAt": 1783290910387,
+      "tokens": 47514,
+      "toolCalls": 29,
+      "durationMs": 592217,
+      "resultPreview": "{\"summary\":\"The zero-budget funding path for OzDNA is grants-first, token-never, VC-later. The strongest evidence in mid-2026: (a) the only direct token comparable, Numbers Protocol (NUM), is down 99.9% from its 2021 ATH to a ~$2.6M market cap and hit an all-time low on June 27, 2026, despite real media partnerships — while the token-free comparable WordProof survives as a small SaaS funded by a €…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 5,
+      "label": "research:wedge",
+      "phaseIndex": 1,
+      "phaseTitle": "Research",
+      "agentId": "ad9a4fd0b445c30b4",
+      "model": "claude-fable-5",
+      "state": "done",
+      "startedAt": 1783290318170,
+      "queuedAt": 1783290318158,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "The only wedge with both a hard deadline and self-serve rea…",
+      "promptPreview": "Today is July 6, 2026. You are researching for a product blueprint. The founder: solo, based in Turkey, owns a media company in Sharjah Publishing City Free Zone (UAE), 5+ years of crypto CEX and crypto-PR experience (strong industry network, strong PR/distribution skills, NOT a deep engineer), essentially zero budget (Vercel account, Cloudflare free tier, Claude subscription). The product hypothe…",
+      "lastProgressAt": 1783290960335,
+      "tokens": 51334,
+      "toolCalls": 28,
+      "durationMs": 642165,
+      "resultPreview": "{\"summary\":\"The only wedge with both a hard deadline and self-serve reachability for a solo PR/SEO founder is EU AI Act Article 50 compliance: from August 2, 2026, providers/deployers of generative AI must machine-readably mark synthetic content (fines up to EUR 15M or 3% of turnover), and the EU's draft Code of Practice explicitly names C2PA as a compliant marking technique — creating urgent dema…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 6,
+      "label": "verify:competitors",
+      "phaseIndex": 2,
+      "phaseTitle": "Verify",
+      "agentId": "ae217dfb6e857154b",
+      "model": "claude-fable-5",
+      "state": "done",
+      "startedAt": 1783290842627,
+      "queuedAt": 1783290842610,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "Today is July 6, 2026. You are an adversarial fact-checker. First use ToolSearch with query \"select:WebSearch,WebFetch\" to load web tools. For EACH fact below, run independent web searches (do not rely on the fact's own cited source) and decide: confirmed, refuted, nuanced (directionally right but numbers/dates/scope wrong), or unverifiable. If not confirmed, write the corrected version. Prefer pr…",
+      "lastProgressAt": 1783291462120,
+      "tokens": 50112,
+      "toolCalls": 27,
+      "durationMs": 619493,
+      "resultPreview": "{\"checks\":[{\"fact\":\"Truepic is enterprise-only as of March 2026: a single custom-priced tier (Enterprise C2PA, visual risk intelligence, API, lending verification), all requiring sales engagement; total funding $39.1M (last major round Series B $26M in Sept 2021); customers are insurers/lenders processing claims, 70k auto loans, 23k mortgages, 850k wire transfers — no self-serve or SMB product\",\"v…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 7,
+      "label": "verify:funding",
+      "phaseIndex": 2,
+      "phaseTitle": "Verify",
+      "agentId": "a8961a0b949ee3ff3",
+      "model": "claude-fable-5",
+      "state": "done",
+      "startedAt": 1783290910393,
+      "queuedAt": 1783290910392,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "Today is July 6, 2026. You are an adversarial fact-checker. First use ToolSearch with query \"select:WebSearch,WebFetch\" to load web tools. For EACH fact below, run independent web searches (do not rely on the fact's own cited source) and decide: confirmed, refuted, nuanced (directionally right but numbers/dates/scope wrong), or unverifiable. If not confirmed, write the corrected version. Prefer pr…",
+      "lastProgressAt": 1783291952421,
+      "tokens": 68849,
+      "toolCalls": 48,
+      "durationMs": 1042028,
+      "resultPreview": "{\"checks\":[{\"fact\":\"Numbers Protocol (NUM), the closest token-based content-provenance comparable, trades at $0.0029 with a $2.6M market cap, down 99.9% from its $2.52 ATH (Nov 27, 2021), and set a new all-time low ($0.0025) on June 27, 2026 — despite partnerships with Rolling Stone/China Times and citation in the US NIST AI Risk Framework\",\"verdict\":\"nuanced\",\"correction\":\"All market data confirm…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 8,
+      "label": "verify:c2pa",
+      "phaseIndex": 2,
+      "phaseTitle": "Verify",
+      "agentId": "ae9060b493271ce6c",
+      "model": "claude-fable-5",
+      "state": "done",
+      "startedAt": 1783290919704,
+      "queuedAt": 1783290919703,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "Today is July 6, 2026. You are an adversarial fact-checker. First use ToolSearch with query \"select:WebSearch,WebFetch\" to load web tools. For EACH fact below, run independent web searches (do not rely on the fact's own cited source) and decide: confirmed, refuted, nuanced (directionally right but numbers/dates/scope wrong), or unverifiable. If not confirmed, write the corrected version. Prefer pr…",
+      "lastProgressAt": 1783291475900,
+      "tokens": 39732,
+      "toolCalls": 21,
+      "durationMs": 556196,
+      "resultPreview": "{\"checks\":[{\"fact\":\"Content Authenticity Initiative (CAI) membership is free and open to all (5,000+ members); implementing C2PA requires no paid membership and the SDKs are open source.\",\"verdict\":\"confirmed\",\"correction\":\"\",\"source\":\"Verified independently: contentauthenticity.org/membership states verbatim 'CAI membership is free and open to all' and that 'The CAI's free open-source tools enabl…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 9,
+      "label": "verify:wedge",
+      "phaseIndex": 2,
+      "phaseTitle": "Verify",
+      "agentId": "ad0920abc26523036",
+      "model": "claude-fable-5",
+      "state": "done",
+      "startedAt": 1783290960342,
+      "queuedAt": 1783290960341,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "Today is July 6, 2026. You are an adversarial fact-checker. First use ToolSearch with query \"select:WebSearch,WebFetch\" to load web tools. For EACH fact below, run independent web searches (do not rely on the fact's own cited source) and decide: confirmed, refuted, nuanced (directionally right but numbers/dates/scope wrong), or unverifiable. If not confirmed, write the corrected version. Prefer pr…",
+      "lastProgressAt": 1783291355334,
+      "tokens": 29085,
+      "toolCalls": 15,
+      "durationMs": 394991,
+      "resultPreview": "{\"checks\":[{\"fact\":\"EU AI Act Article 50 transparency obligations apply from August 2, 2026 (existing generative systems get until December 2, 2026 for machine-readable marking); providers must mark AI-generated content in machine-readable, detectable format and deployers must label deepfakes.\",\"verdict\":\"confirmed\",\"correction\":\"\",\"source\":\"Independently verified: aiactblog.nl (aiactblog.nl/en/po…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 10,
+      "label": "verify:regulation",
+      "phaseIndex": 2,
+      "phaseTitle": "Verify",
+      "agentId": "a1ccdbb3b7609b6c2",
+      "model": "claude-fable-5",
+      "state": "done",
+      "startedAt": 1783290965851,
+      "queuedAt": 1783290965850,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "Today is July 6, 2026. You are an adversarial fact-checker. First use ToolSearch with query \"select:WebSearch,WebFetch\" to load web tools. For EACH fact below, run independent web searches (do not rely on the fact's own cited source) and decide: confirmed, refuted, nuanced (directionally right but numbers/dates/scope wrong), or unverifiable. If not confirmed, write the corrected version. Prefer pr…",
+      "lastProgressAt": 1783291408099,
+      "tokens": 40318,
+      "toolCalls": 22,
+      "durationMs": 442248,
+      "resultPreview": "{\"checks\":[{\"fact\":\"EU AI Act Article 50 transparency obligations become applicable August 2, 2026: providers of generative AI (incl. GPAI) must ensure outputs are marked in machine-readable format and detectable as AI-generated (Art 50(2)); deployers must disclose deepfakes (Art 50(4)(a)) and AI-generated public-interest text unless it underwent human editorial review (Art 50(4)(b)); chatbot prov…"
+    }
+  ],
+  "totalTokens": 468898,
+  "totalToolCalls": 266
+}

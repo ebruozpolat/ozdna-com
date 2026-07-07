@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Ana içeriğe geç</a>
+<nav>
+  <a href="/tr/" class="logo" aria-label="ozDNA ana sayfa">
+    <img src="../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
+  </a>
+  <button class="nav-toggle" aria-label="Menü" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="/tr/products/comply/">ComplyDNA</a>
+    <a href="/tr/architecture/">Platform</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/pricing/">Fiyatlandırma</a>
+    <a href="/tr/#waitlist" class="nav-cta">Erken Erişim</a>
+  </div>
+</nav>
+
+<main id="main-content">
+<div class="docs-banner">
+  <strong>Özel beta</strong> — SDK paketleri API GA ile birlikte yayınlanır. Dil SDK'nız kayıt defterine çıkana kadar aşağıdaki REST örneklerini kullanın.
+</div>
+
+<section class="trust-hero sdk-hero">
+  <div class="trust-hero-inner">
+    <div class="section-label">Geliştirici SDK'ları</div>
+    <h1>Kur. Kimlik doğrula.<br><span class="accent">Detect.</span></h1>
+    <p class="trust-hero-lead">ozDNA gateway için istemci kütüphaneleri — <a href="/docs/tr/">API referansında</a> belgelenen aynı <span class="inline-code">POST /v1/detect</span> sözleşmesi. Sandbox anahtarları <span class="inline-code">api.sandbox.ozdna.com</span> kullanır.</p>
+    <div class="trust-hero-actions">
+      <a href="/docs/tr/#authentication" class="btn-primary">API dokümantasyonu</a>
+      <a href="/docs/tr/#openapi" class="btn-ghost">OpenAPI spesifikasyonu →</a>
+    </div>
+  </div>
+</section>
+
+<div class="sdk-page" id="sdk-page">
+
+  <div class="sdk-lang-grid" role="tablist" aria-label="SDK dili">
+    <button type="button" class="sdk-tab is-active" data-sdk-tab="python" role="tab" aria-selected="true" aria-controls="sdk-panel-python">Python</button>
+    <button type="button" class="sdk-tab" data-sdk-tab="nodejs" role="tab" aria-selected="false" aria-controls="sdk-panel-nodejs">Node.js</button>
+    <button type="button" class="sdk-tab" data-sdk-tab="go" role="tab" aria-selected="false" aria-controls="sdk-panel-go">Go</button>
+    <button type="button" class="sdk-tab" data-sdk-tab="java" role="tab" aria-selected="false" aria-controls="sdk-panel-java">Java</button>
+    <button type="button" class="sdk-tab" data-sdk-tab="rest" role="tab" aria-selected="false" aria-controls="sdk-panel-rest">REST API</button>
+  </div>
+
+  <!-- Python -->
+  <section class="sdk-panel is-active" id="sdk-panel-python" data-sdk-panel="python" role="tabpanel">
+    <div class="sdk-panel-head">
+      <h2>Python</h2>
+      <p>Tipli yanıtlarla senkron istemci. Python 3.9+ gerektirir.</p>
+    </div>
+    <div class="sdk-install">
+      <span class="sdk-install-label">Kurulum</span>
+      <pre class="code-block sdk-code"><span class="t-key">pip install</span> ozdna</pre>
+    </div>
+    <div class="sdk-install">
+      <span class="sdk-install-label">Hızlı başlangıç</span>
+      <pre class="code-block sdk-code"><span class="t-key">import</span> os
+<span class="t-key">from</span> ozdna <span class="t-key">import</span> OzDNA
+
+client = OzDNA(
+    api_key=os.environ[<span class="t-str">"OZDNA_API_KEY"</span>],
+    base_url=<span class="t-str">"https://api.sandbox.ozdna.com"</span>,  <span class="t-comment"># sandbox</span>
+)
+
+result = client.detect(
+    text=<span class="t-str">"This methodology applies a mixed-methods approach..."</span>,
+    mode=<span class="t-str">"academic"</span>,
+    language=<span class="t-str">"en"</span>,
+)
+
+print(result.ai_probability)   <span class="t-comment"># 0.0 – 1.0</span>
+print(result.request_id)     <span class="t-comment"># X-Request-Id for support</span></pre>
+    </div>
+    <div class="sdk-install">
+      <span class="sdk-install-label">Asenkron</span>
+      <pre class="code-block sdk-code"><span class="t-key">from</span> ozdna <span class="t-key">import</span> AsenkronOzDNA
+
+<span class="t-key">async with</span> AsenkronOzDNA(api_key=<span class="t-str">"ozdna_sk_test_..."</span>) <span class="t-key">as</span> client:
+    result = <span class="t-key">await</span> client.detect(text=<span class="t-str">"Sample thesis excerpt..."</span>, mode=<span class="t-str">"academic"</span>)</pre>
+    </div>
+    <p class="sdk-footnote">Paket kayıt defteri yayını — <strong style="color:var(--txt)">2026 Q3</strong>. O zamana kadar API dokümantasyonundaki <a href="/docs/tr/#python">requests örneğini</a> kullanın.</p>
+  </section>
+
+  <!-- Node.js -->
+  <section class="sdk-panel" id="sdk-panel-nodejs" data-sdk-panel="nodejs" role="tabpanel" hidden>
+    <div class="sdk-panel-head">
+      <h2>Node.js</h2>
+      <p>Sunucu tarafı ve edge runtime'lar için TypeScript odaklı SDK. Node 18+ veya Bun.</p>
+    </div>
+    <div class="sdk-install">
+      <span class="sdk-install-label">Kurulum</span>
+      <pre class="code-block sdk-code"><span class="t-key">npm install</span> @ozdna/sdk
+<span class="t-comment"># or</span>
+<span class="t-key">pnpm add</span> @ozdna/sdk</pre>
+    </div>
+    <div class="sdk-install">
+      <span class="sdk-install-label">Hızlı başlangıç</span>
+      <pre class="code-block sdk-code"><span class="t-key">import</span> { OzDNA } <span class="t-key">from</span> <span class="t-str">'@ozdna/sdk'</span>;
+
+<span class="t-key">const</span> client = <span class="t-key">new</span> OzDNA({
+  apiKey: process.env.OZDNA_API_KEY,
+  baseURL: <span class="t-str">'https://api.sandbox.ozdna.com'</span>,
+});
+
+<span class="t-key">const</span> result = <span class="t-key">await</span> client.detect({
+  text: <span class="t-str">'Segment-level analysis for production RAG workflows.'</span>,
+  mode: <span class="t-str">'financial'</span>,
+  language: <span class="t-str">'en'</span>,
+});
+
+console.log(result.aiProbability);
+console.log(result.segments);  <span class="t-comment">// per-span scores when enabled</span></pre>
+    </div>
+    <div class="sdk-install">
+      <span class="sdk-install-label">Hata yönetimi</span>
+      <pre class="code-block sdk-code"><span class="t-key">import</span> { OzDNA, OzDNAError } <span class="t-key">from</span> <span class="t-str">'@ozdna/sdk'</span>;
+
+<span class="t-key">try</span> {
+  <span class="t-key">await</span> client.detect({ text, mode: <span class="t-str">'legal'</span> });
+} <span class="t-key">catch</span> (err) {
+  <span class="t-key">if</span> (err <span class="t-key">instanceof</span> OzDNAError &amp;&amp; err.status === <span class="t-num">429</span>) {
+    console.warn(<span class="t-str">'Rate limited — retry after'</span>, err.retryAfter);
+  }
+}</pre>
+    </div>
+    <p class="sdk-footnote">npm yayını — <strong style="color:var(--txt)">2026 Q3</strong>. Geçici: <a href="/docs/tr/#nodejs">fetch örneği</a>.</p>
+  </section>
+
+  <!-- Go -->
+  <section class="sdk-panel" id="sdk-panel-go" data-sdk-panel="go" role="tabpanel" hidden>
+    <div class="sdk-panel-head">
+      <h2>Go</h2>
+      <p>Bağlam iptali ve yapılandırılmış hatalarla idiomatik istemci.</p>
+    </div>
+    <div class="sdk-install">
+      <span class="sdk-install-label">Kurulum</span>
+      <pre class="code-block sdk-code"><span class="t-key">go get</span> github.com/ozdna/ozdna-go@v0.1.0</pre>
+    </div>
+    <div class="sdk-install">
+      <span class="sdk-install-label">Hızlı başlangıç</span>
+      <pre class="code-block sdk-code"><span class="t-key">package</span> main
+
+<span class="t-key">import</span> (
+    <span class="t-str">"context"</span>
+    <span class="t-str">"fmt"</span>
+    <span class="t-str">"log"</span>
+    <span class="t-str">"os"</span>
+
+    <span class="t-str">"github.com/ozdna/ozdna-go"</span>
+    <span class="t-str">"github.com/ozdna/ozdna-go/detect"</span>
+)
+
+<span class="t-key">func</span> main() {
+    client := ozdna.NewClient(
+        os.Getenv(<span class="t-str">"OZDNA_API_KEY"</span>),
+        ozdna.WithBaseURL(<span class="t-str">"https://api.sandbox.ozdna.com"</span>),
+    )
+
+    resp, err := client.Detect(context.Background(), detect.Request{
+        Text:     <span class="t-str">"Compliance monitoring corpus excerpt..."</span>,
+        Mode:     detect.ModeFinancial,
+        Language: <span class="t-str">"en"</span>,
+    })
+    <span class="t-key">if</span> err != <span class="t-key">nil</span> {
+        log.Fatal(err)
+    }
+
+    fmt.Printf(<span class="t-str">"ai_probability=%.3f request_id=%s\n"</span>,
+        resp.AIProbability, resp.RequestID)
+}</pre>
+    </div>
+    <p class="sdk-footnote">Modül etiketi <span class="inline-code">v0.1.0</span> — talep üzerine erken erişim. Tam referans: <a href="/docs/tr/#detect">POST /v1/detect</a>.</p>
+  </section>
+
+  <!-- Java -->
+  <section class="sdk-panel" id="sdk-panel-java" data-sdk-panel="java" role="tabpanel" hidden>
+    <div class="sdk-panel-head">
+      <h2>Java</h2>
+      <p>Spring servisleri ve kurumsal entegrasyonlar için JVM istemcisi. Java 17+.</p>
+    </div>
+    <div class="sdk-install">
+      <span class="sdk-install-label">Maven</span>
+      <pre class="code-block sdk-code"><span class="t-key">&lt;dependency&gt;</span>
+  <span class="t-key">&lt;groupId&gt;</span>com.ozdna<span class="t-key">&lt;/groupId&gt;</span>
+  <span class="t-key">&lt;artifactId&gt;</span>ozdna-java<span class="t-key">&lt;/artifactId&gt;</span>
+  <span class="t-key">&lt;version&gt;</span>0.1.0<span class="t-key">&lt;/version&gt;</span>
+<span class="t-key">&lt;/dependency&gt;</span></pre>
+    </div>
+    <div class="sdk-install">
+      <span class="sdk-install-label">Gradle</span>
+      <pre class="code-block sdk-code">implementation <span class="t-str">"com.ozdna:ozdna-java:0.1.0"</span></pre>
+    </div>
+    <div class="sdk-install">
+      <span class="sdk-install-label">Hızlı başlangıç</span>
+      <pre class="code-block sdk-code"><span class="t-key">import</span> com.ozdna.OzDNAClient;
+<span class="t-key">import</span> com.ozdna.models.DetectRequest;
+<span class="t-key">import</span> com.ozdna.models.DetectResponse;
+
+OzDNAClient client = OzDNAClient.builder()
+    .apiKey(System.getenv(<span class="t-str">"OZDNA_API_KEY"</span>))
+    .baseUrl(<span class="t-str">"https://api.sandbox.ozdna.com"</span>)
+    .build();
+
+DetectResponse result = client.detect(DetectRequest.builder()
+    .text(<span class="t-str">"Regulatory delta summary for BDDK scope..."</span>)
+    .mode(<span class="t-str">"financial"</span>)
+    .language(<span class="t-str">"tr"</span>)
+    .build());
+
+System.out.println(result.getAiProbability());</pre>
+    </div>
+    <p class="sdk-footnote">Maven Central — <strong style="color:var(--txt)">Q4 2026</strong>. İletişim <a href="mailto:hello@ozdna.com">hello@ozdna.com</a> for enterprise early access.</p>
+  </section>
+
+  <!-- REST -->
+  <section class="sdk-panel" id="sdk-panel-rest" data-sdk-panel="rest" role="tabpanel" hidden>
+    <div class="sdk-panel-head">
+      <h2>REST API</h2>
+      <p>Dilden bağımsız HTTP — herhangi bir yığın, curl veya low-code entegrasyonlardan kullanın.</p>
+    </div>
+    <div class="sdk-install">
+      <span class="sdk-install-label">Temel URL'ler</span>
+      <pre class="code-block sdk-code"><span class="t-str">https://api.ozdna.com</span>          <span class="t-comment"># production (beta)</span>
+<span class="t-str">https://api.sandbox.ozdna.com</span>  <span class="t-comment"># sandbox</span></pre>
+    </div>
+    <div class="sdk-install">
+      <span class="sdk-install-label">cURL</span>
+      <pre class="code-block sdk-code">curl -X POST https://api.sandbox.ozdna.com/v1/detect \
+  -H <span class="t-str">"Authorization: Bearer $OZDNA_API_KEY"</span> \
+  -H <span class="t-str">"Content-Type: application/json"</span> \
+  -H <span class="t-str">"X-Request-Id: $(uuidgen)"</span> \
+  -d <span class="t-str">'{
+    "text": "This methodology applies a mixed-methods approach...",
+    "mode": "academic",
+    "language": "en"
+  }'</span></pre>
+    </div>
+    <div class="sdk-install">
+      <span class="sdk-install-label">Yanıt (200)</span>
+      <pre class="code-block sdk-code">{
+  <span class="t-key">"ai_probability"</span>: <span class="t-num">0.87</span>,
+  <span class="t-key">"mode"</span>: <span class="t-str">"academic"</span>,
+  <span class="t-key">"language"</span>: <span class="t-str">"en"</span>,
+  <span class="t-key">"segments"</span>: [...],
+  <span class="t-key">"request_id"</span>: <span class="t-str">"req_abc123"</span>
+}</pre>
+    </div>
+    <p class="sdk-footnote">Tam referans: <a href="/docs/tr/#detect">POST /v1/detect</a> · <a href="/docs/tr/#error-codes">Hata kodları</a> · <a href="/docs/tr/#openapi">OpenAPI</a></p>
+  </section>
+
+  <section class="sdk-cta">
+    <div class="trust-cta">
+      <h2>API anahtarı mı gerekiyor?</h2>
+      <p>Sandbox kimlik bilgileri erken erişimle birlikte gelir. Üretim anahtarları davet onayı gerektirir.</p>
+      <div class="trust-cta-actions">
+        <a href="/tr/#waitlist" class="btn-primary">Bekleme Listesine Katıl</a>
+        <a href="/docs/tr/" class="btn-ghost">Tam API dokümantasyonu →</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+</main>
+
+<footer>
+  <div class="footer-brand">
+    <a href="/tr/" class="logo" aria-label="ozDNA">
+      <img src="../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
+    </a>
+    <p class="footer-tagline">Findbelow Ventures · Dikey AI altyapısı (PaaS)</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/sdk/">SDK</a>
+    <a href="/tr/benchmarks/">Kıyaslamalar</a>
+    <a href="/tr/architecture/">Mimari</a>
+    <a href="/tr/trust/">Güven Merkezi</a>
+    <a href="/tr/status/">Durum</a>
+    <a href="/tr/changelog/">Değişiklik Günlüğü</a>
+    <a href="mailto:hello@ozdna.com">İletişim</a>
+  </div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+
+<script src="/analytics.js" defer></script>
+<script src="/main.js" defer></script>
+<script src="/sdk/sdk.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "name": "@ozdna/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "OZDNA_DB_PATH=../../data/ozdna.db tsx --watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ozdna/core": "*",
+    "@ozdna/db": "*",
+    "@ozdna/gateway": "*",
+    "@ozdna/inference": "*",
+    "@ozdna/analytics": "*",
+    "@ozdna/cost": "*",
+    "@ozdna/billing": "*",
+    "@ozdna/prompts": "*",
+    "@ozdna/rag": "*",
+    "@ozdna/router": "*",
+    "@ozdna/observability": "*",
+    "@ozdna/admin": "*",
+    "@hono/node-server": "^1.13.7",
+    "hono": "^4.6.19"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}

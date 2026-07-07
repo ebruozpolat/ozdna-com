@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#080D12">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Ana içeriğe geç</a>
+<nav>
+  <a href="/tr/" class="logo" aria-label="ozDNA ana sayfa">
+    <img src="../../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
+  </a>
+  <button class="nav-toggle" aria-label="Menü" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="/tr/products/comply/">ComplyDNA</a>
+    <a href="/tr/architecture/">Platform</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/pricing/">Fiyatlandırma</a>
+    <a href="/tr/#waitlist" class="nav-cta">Erken Erişim</a>
+  </div>
+</nav>
+
+<main id="main-content">
+<article class="blog-article">
+  <a href="/tr/blog/" class="blog-back">← Tüm yazılar</a>
+  <div class="blog-meta">
+    <span class="blog-pillar">Sütun 4 · Marj Dayanıklılığı</span>
+    <span class="blog-date">Haziran 2026 · 6 dk okuma</span>
+  </div>
+  <h1>Hidden Platform Risk: When API Fiyatlandırma Changes</h1>
+  <p class="blog-lead">Brüt marjınız bugünkü API fiyatlarının sabit kalmasına bağlıysa AI ürününüzde gizli platform riski vardır — yedeksiz tek ödeme işlemcisine bağlı bir pazar yeri gibi.</p>
+
+  <p>Kurucular <strong>LLM fiyatlandırma riskini</strong> kalem sürprizi olarak ele alır: "OpenAI çıkış token'larını %12 artırdı." Finans tahmini günceller. Mühendislik omuz silkerek geçer. Ama AI-native SaaS için sağlayıcı fiyatlandırması tedarikçi faturası değil — <strong>yapısal COGS</strong>'tur. Hareket ettiğinde, esneklik için tasarlamadıysanız tüm fiyatlandırma mimariniz onunla birlikte hareket eder.</p>
+
+  <h2>Sübvansiyon sonrası ekonomi teori egzersizi değil</h2>
+  <p>Model sağlayıcıları bugün geliştiriciler için rekabet eder. Bu rekabet agresif liste fiyatları, ücretsiz katmanlar ve paket krediler olarak görünür. Birim ekonominiz o ortamda modellendi.</p>
+  <p>Pazarlar konsolide olur. Yetenekler farklılaşır. Sübvansiyonlar küçülür. Hayatta kalan ekipler tam fiyat değişimini tahmin edenler değil — ürüne <strong>marj dayanıklılığı</strong> inşa edenlerdir:</p>
+  <ul>
+    <li>Sağlayıcılar ve model katmanları arasında yönlendirme</li>
+    <li>Zarif bozulmayla iş akışı düzeyinde maliyet tavanları</li>
+    <li>Düz "mesaj" değil gerçek token tüketimine endeksli kullanıcıya yönelik krediler</li>
+    <li>Tekrarlayan premium çağrıları azaltan retrieval ve önbellekleme</li>
+  </ul>
+  <p>Bunlar olmadan fiyat güncellemesi operasyon ayarı değil, varoluşsal elektronik tablo olayıdır.</p>
+
+  <h2>Basın bülteninden önce platform riski nasıl görünür</h2>
+  <p>Nereye bakacağınızı biliyorsanız erken uyarılarınız zaten var:</p>
+  <ol>
+    <li><strong>Churn olmadan marj sıkışması.</strong> Gelir stabil, altyapı % artıyor — kullanım derinleştikçe klasik fiyat değişimi öncesi sapma.</li>
+    <li><strong>Tek modele bağlı özellik borcu.</strong> Hangi adımların gerçekten ihtiyaç duyduğunu kanıtlayan değerlendirme olmadan "kalite için GPT-4o gerekli".</li>
+    <li><strong>Sınırsız AI vaat eden sözleşmeler.</strong> Hukuk ve satış altyapının ölçekte yerine getiremeyeceği dile kilitlendi.</li>
+    <li><strong>Yedek yol yok.</strong> Sağlayıcı kesinti planı var; sağlayıcı <em>fiyat</em> planı yok.</li>
+  </ol>
+  <p>Yatırımcıs grouping you with "AI wrappers" are often pricing this bundle of risks — not just judging your UI.</p>
+
+  <h2>Fiyat esnekliği için tasarım</h2>
+  <p><strong>AI marj optimizasyonu</strong> küresel olarak en ucuz modeli bulmak değildir. Fiyat hareketlerinden sağ çıkan politikalar inşa etmektir:</p>
+  <ul>
+    <li><strong>Kredileri altyapıya endeksleyin.</strong> Token maliyetleri arttığında kredi tüketimi bunu yansıtır — veya bilinçli emersiniz, kazaen değil.</li>
+    <li><strong>Özellikleri çıkarım yoğunluğuna göre katmanlayın.</strong> Derin analiz hafif taramalardan daha fazla kredi — kullanıcılar ekonomiyi kendileri seçer.</li>
+    <li><strong>Sağlayıcı seçeneğini koruyun.</strong> Spor için on iki adaptör değil — iki uygulanabilir backend ve haftalık çalışan yönlendirme testleriyle tek soyutlama.</li>
+    <li><strong>Yönetim kurulu sunumlarında senaryo planlayın.</strong> +%20 sağlayıcı maliyetinde marjı gösterin. Model kırılırsa bir sonraki turdan önce düzeltin.</li>
+  </ul>
+  <p>Bu sübvansiyonlar varken sübvansiyon sonrası düşünce. Sağlayıcı kurumsal katmanları ayarladığında acil yeniden fiyatlandırmadan ucuzdur.</p>
+
+  <aside class="blog-proof">
+    <h3>ozDNA üzerinde inşa edildi</h3>
+    <p><a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>'de ürün yüzeyi başına ayrı limitler ve günlük token izleme, altyapıyı dışarı satmadan önce token ekonomisini nasıl uyguladığımızdır. ComplyDNA'nin insan-döngüsündeki RegTech modeli başka bir kısıt ekler: marj ve sorumluluk ikisi de model çıktısına bağlıyken otomatik yayınlayamazsınız.</p>
+  </aside>
+
+  <h2>Vaat etmemeniz gerekenler</h2>
+  <p>Yazılı uygulanabilir şartlı kurumsal sözleşmeleriniz yoksa yatırımcılara API maliyetlerini "kilitlediğinizi" söylemeyin. İş akışları genelinde üretim kanıtı olmadan garantili tasarruf yüzdeleri pazarlamayın.</p>
+  <p>Onlara sonuç başına maliyet ölçtüğünüzü, en ucuz yetkin modele yönlendirdiğinizi ve ürünü yeniden yazmadan sağlayıcı karışımını değiştirebildiğinizi söyleyin — çünkü operasyon katmanı tek bir API'nin üzerindedir.</p>
+
+  <h2>Stratejik çıkarım</h2>
+  <p>Bugünkü API ekonomisi yarının API ekonomisi olmayabilir. Çıkarımı altyapı — ölçülebilir, yönlendirilebilir, yönetilebilir — olarak ele alan ekipler fiyat şoklarını yol haritası maddelerine dönüştürür. Sihir olarak ele alan ekipler acil fon toplama veya işten çıkarmalara.</p>
+  <p>Gizli platform riski yalnızca iş akışı başına marja bakmıyorsanız gizlidir. Oradan başlayın.</p>
+
+  <div class="blog-cta-box">
+    <p>Dikey AI'ya marj dayanıklılığı mı inşa ediyorsunuz? ozDNA erken erişim — fatura sürprizi değil altyapı avantajı isteyen kurucular için.</p>
+    <a href="/tr/#waitlist" class="btn-primary">Erken Erişim</a>
+  </div>
+</article>
+
+</main>
+
+<footer>
+  <div class="footer-brand">
+    <a href="/tr/" class="logo" aria-label="ozDNA">
+      <img src="../../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
+    </a>
+    <p class="footer-tagline">Findbelow Ventures · Dikey AI altyapısı (PaaS)</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>
+    <a href="/tr/trust/">Güven Merkezi</a>
+    <a href="/tr/security/">Güvenlik</a>
+    <a href="/tr/partners/">İş Ortakları</a>
+    <a href="/tr/blog/">Blog</a>
+    <a href="/docs/tr/">Dokümantasyon</a>
+    <a href="/tr/sdk/">SDK</a>
+    <a href="/tr/benchmarks/">Kıyaslamalar</a>
+    <a href="/tr/architecture/">Mimari</a>
+    <a href="mailto:hello@ozdna.com">İletişim</a>
+  </div>
+  <p>© 2026 Findbelow Ventures</p>
+</footer>
+
+<script src="/analytics.js" defer></script>
+<script src="/main.js" defer></script>
+</body>
+</html>

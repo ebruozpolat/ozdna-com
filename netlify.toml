@@ -1,0 +1,78 @@
+[build]
+  publish = "."
+
+# Force HTTPS once custom domain is attached (ozdna.com / www) — migration deferred; see docs/DOMAIN.md
+[[redirects]]
+  from = "http://ozdna.com/*"
+  to = "https://ozdna.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.ozdna.com/*"
+  to = "https://www.ozdna.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.ozdna.com/*"
+  to = "https://ozdna.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/success"
+  to = "/?submitted=true#waitlist"
+  status = 302
+
+[[redirects]]
+  from = "/tr"
+  to = "/tr/"
+  status = 301
+
+# RFC 9116 — security.txt canonical location
+[[redirects]]
+  from = "/security.txt"
+  to = "/.well-known/security.txt"
+  status = 301
+  force = true
+
+[[headers]]
+  for = "/.well-known/security.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/favicon.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/assets/og-image.png"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+    Content-Type = "image/png"

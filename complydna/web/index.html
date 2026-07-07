@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ComplyDNA Demo — cite-first uyum asistanı</title>
+  <meta name="description" content="ComplyDNA demo — Türk mevzuatına kaynak künyeli RAG yanıtları">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#080D12">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">◆</span>
+        <span class="brand-name">ComplyDNA</span>
+        <span class="brand-sub">/demo</span>
+      </div>
+      <div class="topbar-meta">
+        <span class="mode-pill">kaynak modu: açık</span>
+        <span class="version-pill" id="version-pill" hidden></span>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="chat-column">
+        <div class="terminal" aria-label="ComplyDNA soru-cevap">
+          <div class="term-header">
+            <div class="term-dot" style="background:#FF5F57"></div>
+            <div class="term-dot" style="background:#FFBD2E"></div>
+            <div class="term-dot" style="background:#28CA41"></div>
+            <div class="term-title">ComplyDNA · POST /v1/ask</div>
+          </div>
+          <div class="term-body">
+            <div id="thread" class="thread" aria-live="polite"></div>
+            <form id="ask-form" class="ask-form" autocomplete="off">
+              <label class="ask-label" for="question-input"><span class="t-key">Q</span>:</label>
+              <input
+                id="question-input"
+                name="question"
+                type="text"
+                placeholder="Mevzuat sorusu yazın…"
+                required
+                maxlength="2000"
+              >
+              <button type="submit" class="btn-ask" id="submit-btn">Sor</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="examples" aria-label="Örnek sorular">
+          <span class="examples-label">örnek:</span>
+          <button type="button" class="example-chip" data-question="Şüpheli işlem bildirim süresi kaç gündür?">
+            bildirim süresi
+          </button>
+          <button type="button" class="example-chip" data-question="Yükümlüler şüpheli işlemleri kime bildirir?">
+            kime bildirilir
+          </button>
+          <button type="button" class="example-chip" data-question="5549 sayılı kanunda şüpheli işlem bildirimi kime yapılır?">
+            5549 bildirim
+          </button>
+          <button type="button" class="example-chip" data-question="Terörün finansmanı şüphesi hangi kanunda düzenlenir?">
+            6415 TF
+          </button>
+        </div>
+
+        <section class="sources-block" id="sources-block" hidden>
+          <div class="sources-header">KAYNAKLAR</div>
+          <ul class="sources-list" id="sources-list"></ul>
+        </section>
+      </section>
+
+      <aside class="source-panel" id="source-panel" aria-hidden="true">
+        <div class="source-panel-header">
+          <h2 class="source-panel-title" id="source-panel-title">Madde metni</h2>
+          <button type="button" class="source-panel-close" id="source-panel-close" aria-label="Kapat">×</button>
+        </div>
+        <div class="source-panel-meta" id="source-panel-meta"></div>
+        <pre class="source-panel-text" id="source-panel-text"></pre>
+        <p class="source-panel-placeholder" id="source-placeholder">Künyeye tıklayın — madde metni burada açılır</p>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <span>Her cümle mevzuat künyesi taşır · veri kurum içinde kalır</span>
+      <span class="footer-key" id="api-key-hint"></span>
+    </footer>
+  </div>
+  <script src="app.js" type="module"></script>
+</body>
+</html>
