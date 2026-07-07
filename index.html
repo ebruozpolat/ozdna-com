@@ -327,6 +327,48 @@
   .node .n-label { font-size: 10px; letter-spacing: 0.14em; color: var(--accent); text-transform: uppercase; }
   .node .n-name { font-size: 13px; font-weight: 700; text-transform: uppercase; }
   .node p { margin: 0; font-size: 12px; color: var(--muted); line-height: 1.55; }
+  .node ul {
+    margin: 4px 0 0; padding: 0 0 0 14px; list-style: none;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .node li {
+    position: relative; font-size: 11.5px; color: var(--muted); line-height: 1.5;
+    padding-left: 10px;
+  }
+  .node li::before {
+    content: "—"; position: absolute; left: 0; color: var(--accent);
+  }
+  .node li strong { color: var(--ink); font-weight: 700; }
+  .pipe-lead {
+    margin: 18px 0 0; max-width: 72ch; font-size: 14px; line-height: 1.7; color: var(--muted);
+  }
+  .pipe-lead strong { color: var(--ink); }
+  .contrast {
+    margin-top: 42px; border: 1px solid var(--rule);
+    display: grid; grid-template-columns: 1fr 1fr;
+  }
+  .contrast-col { padding: 0; }
+  .contrast-col + .contrast-col { border-left: 1px solid var(--rule); }
+  .contrast-head {
+    padding: 14px 18px; border-bottom: 1px solid var(--rule-soft);
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .contrast-head.weak { color: var(--muted); background: var(--card); }
+  .contrast-head.strong { color: var(--accent); background: var(--paper); font-weight: 700; }
+  .contrast-item {
+    padding: 16px 18px; border-bottom: 1px solid var(--rule-soft);
+    font-size: 12.5px; line-height: 1.55; color: var(--muted);
+  }
+  .contrast-item:last-child { border-bottom: 0; }
+  .contrast-item strong { color: var(--ink); display: block; margin-bottom: 4px; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .stack-row {
+    margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  }
+  .stack-row .label { margin-right: 6px; }
+  .stack-tag {
+    font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 6px 10px; border: 1px solid var(--rule); color: var(--muted);
+  }
   .arrow {
     align-self: center; color: var(--accent);
     font-size: 16px; padding: 0 2px; user-select: none;
@@ -429,6 +471,8 @@
     .cols3 { grid-template-columns: 1fr; }
     .pipe { grid-template-columns: 1fr; }
     .arrow { transform: rotate(90deg); padding: 2px 0; justify-self: start; }
+    .contrast { grid-template-columns: 1fr; }
+    .contrast-col + .contrast-col { border-left: 0; border-top: 1px solid var(--rule); }
     nav { display: none; }
   }
 </style>
@@ -532,53 +576,111 @@
   <div class="shell">
     <div class="sec-head"><span class="sec-no">[02]</span><span class="label">YÖNTEM — PIPELINE</span></div>
     <div class="sec-body">
-      <h2 class="sec-title">Mevzuattan modele dört adım</h2>
+      <h2 class="sec-title">Mevzuattan denetlenebilir yanıta<br>dört aşamalı üretim hattı</h2>
+      <p class="pipe-lead">
+        ComplyDNA, PDF yükleyip sohbet eden bir RAG sarmalayıcısı değil. Her aşama uyum ekibinin
+        denetim gereksinimine göre tasarlandı: <strong>madde düzeyinde metadata</strong>,
+        <strong>geri getirme isabeti eşiği</strong>, <strong>künye zorunluluğu</strong> ve
+        <strong>sürüm izlenebilirliği</strong> üretim hattının parçası — sonradan eklenen bir kontrol değil.
+      </p>
       <div class="pipe">
         <div class="node">
           <span class="n-label">SEQ 01</span>
           <span class="n-name">Mevzuat korpusu</span>
-          <p>Tebliğ, kanun ve yönetmelikler madde düzeyinde parçalanır; yürürlük
-          ve statü metadata'sıyla etiketlenir.</p>
+          <p>Ham tebliğ, kanun ve yönetmelik metinleri yapılandırılmış madde/fıkra kayıtlarına dönüştürülür.</p>
+          <ul>
+            <li><strong>Parse:</strong> her parça <code>kaynak_kodu</code>, <code>madde_no</code>, <code>fıkra</code> taşır</li>
+            <li><strong>Metadata:</strong> <code>yürürlük_durumu</code>, <code>yürürlük_tarihi</code>, <code>sürüm</code></li>
+            <li><strong>Filtre:</strong> yürürlükten kalkan maddeler indekse girmez — eski hüküm yanlış yanıt üretmez</li>
+          </ul>
         </div>
         <span class="arrow">→</span>
         <div class="node">
           <span class="n-label">SEQ 02</span>
           <span class="n-name">Vektör indeks</span>
-          <p>Madde parçaları anlamsal indekse yazılır; Türkçe/İngilizce çift
-          sorgu ile geri getirme.</p>
+          <p>Madde parçaları anlamsal indekse yazılır; sorgu dili Türkçe veya İngilizce olabilir.</p>
+          <ul>
+            <li><strong>Embedding:</strong> çok dilli model (bge-m3) — aynı madde TR/EN sorguda bulunur</li>
+            <li><strong>Store:</strong> Qdrant + metadata filtreleri; kurum içi disk veya compose stack</li>
+            <li><strong>Eşik:</strong> düşük isabetli geri getirme yanıt üretimine geçmez — boş tahmin yok</li>
+          </ul>
         </div>
         <span class="arrow">→</span>
         <div class="node">
           <span class="n-label">SEQ 03</span>
-          <span class="n-name">İnce ayar</span>
-          <p>Model, referans biçimini ve mevzuat dilini LoRA ince ayarıyla öğrenir —
-          eğitim/val ayrımı madde düzeyinde, veri sızıntısız.</p>
+          <span class="n-name">İnce ayar + cite-first</span>
+          <p>Model mevzuat dilini ve künye biçimini öğrenir; künyesiz çıktı üretim hattından geçemez.</p>
+          <ul>
+            <li><strong>LoRA:</strong> <code>[KAYNAK / Madde X]</code> referans biçimi ve düzenleyici Türkçe</li>
+            <li><strong>Split:</strong> eğitim/val ayrımı madde düzeyinde — aynı madde iki sette birden yok</li>
+            <li><strong>Post-check:</strong> künyesiz cümle red edilir; otomatik retry ile düzeltme denenir</li>
+          </ul>
         </div>
         <span class="arrow">→</span>
         <div class="node">
           <span class="n-label">SEQ 04</span>
           <span class="n-name">Referanslı yanıt</span>
-          <p>Geri getirilen maddeler + ince ayarlı model = kaynak künyeli,
-          denetlenebilir yanıt.</p>
+          <p>Geri getirilen madde metinleri + ince ayarlı model = denetlenebilir çıktı paketi.</p>
+          <ul>
+            <li><strong>Girdi:</strong> soru + top-k madde metinleri (tam metin, özet değil)</li>
+            <li><strong>Çıktı:</strong> satır içi künye + kaynak listesi + yürürlük bilgisi</li>
+            <li><strong>Audit:</strong> soru/yanıt SHA-256 hash — düz metin loglanmaz, iz sürülebilir</li>
+          </ul>
         </div>
+      </div>
+
+      <div class="contrast" aria-label="RAG sarmalayıcı ile ComplyDNA karşılaştırması">
+        <div class="contrast-col">
+          <div class="contrast-head weak">Genel RAG / ChatGPT</div>
+          <div class="contrast-item"><strong>Kaynak</strong>PDF yükle veya web'den tahmin — güncel tebliğ garantisi yok</div>
+          <div class="contrast-item"><strong>Referans</strong>Kaynak opsiyonel; çoğu cümle künyesiz kalır</div>
+          <div class="contrast-item"><strong>Değerlendirme</strong>Demo hissi — golden set veya madde-level metrik yok</div>
+          <div class="contrast-item"><strong>Veri</strong>Sorgular üçüncü taraf API'ye gider; kurum içi seçenek sınırlı</div>
+        </div>
+        <div class="contrast-col">
+          <div class="contrast-head strong">ComplyDNA</div>
+          <div class="contrast-item"><strong>Kaynak</strong>Sürümlü mevzuat korpusu — madde/fıkra JSONL, yürürlük metadata'sı</div>
+          <div class="contrast-item"><strong>Referans</strong>Her cümle <code>[TEBLİĞ / Madde]</code> zorunlu; post-check ile enforce</div>
+          <div class="contrast-item"><strong>Değerlendirme</strong>Uyum uzmanı golden set — retrieval + künye doğruluğu her sürümde</div>
+          <div class="contrast-item"><strong>Veri</strong>On-prem: model, indeks ve inference kurum çevrenizde kalır</div>
+        </div>
+      </div>
+
+      <div class="stack-row" aria-label="Teknik yığın">
+        <span class="label"><b>STACK</b></span>
+        <span class="stack-tag">FastAPI</span>
+        <span class="stack-tag">Qdrant</span>
+        <span class="stack-tag">bge-m3</span>
+        <span class="stack-tag">LoRA</span>
+        <span class="stack-tag">cite-first post-check</span>
+        <span class="stack-tag">golden-set eval</span>
+        <span class="stack-tag">on-prem / Ollama</span>
       </div>
 
       <div class="rows">
         <div class="row">
           <span class="k">Değerlendirme</span>
-          <span class="v"><strong>Golden set:</strong> uyum uzmanlarının yazdığı gerçek sorularla
-          sürekli ölçüm — geri getirme isabeti ve kaynak doğruluğu her sürümde raporlanır,
-          metrik geçmişi versiyonlanır.</span>
+          <span class="v"><strong>Golden set:</strong> uyum uzmanlarının yazdığı gerçek sorularla sürekli ölçüm.
+          Retrieval isabeti (@k), künye doğruluğu ve yanıt reddi oranı her sürümde raporlanır;
+          metrik geçmişi versiyonlanır — lansman öncesi tek seferlik test değil, üretim disiplini.</span>
         </div>
         <div class="row">
           <span class="k">Veri hijyeni</span>
-          <span class="v"><strong>Madde düzeyinde ayrım:</strong> aynı mevzuat metni eğitim ve
-          doğrulama setinde aynı anda bulunamaz. Ölçtüğümüz şey ezber değil, genelleme.</span>
+          <span class="v"><strong>Madde düzeyinde ayrım:</strong> aynı mevzuat metni eğitim ve doğrulama setinde
+          aynı anda bulunamaz. Ölçtüğümüz şey ezber değil genelleme — model aynı maddeyi soruda görüp
+          cevabı kopyalamaz; komşu madde ve farklı ifadeyle gelen sorularda künye doğruluğunu ölçeriz.</span>
         </div>
         <div class="row">
           <span class="k">Dağıtım</span>
-          <span class="v"><strong>Kurum içi veya bulut:</strong> model ve indeks sizin
-          altyapınızda çalışabilir — müşteri verisi eğitime karışmaz.</span>
+          <span class="v"><strong>Kurum içi veya bulut:</strong> yerel Qdrant + API + demo UI tek makinede çalışır;
+          Docker Compose ile kurumsal ağa alınır. OpenAI-compatible endpoint (Ollama/vLLM) bağlanabilir —
+          müşteri sorguları ve belgeleri model eğitimine karışmaz.</span>
+        </div>
+        <div class="row">
+          <span class="k">Güncellik</span>
+          <span class="v"><strong>Sürümlü corpus:</strong> yeni tebliğ veya genelge geldiğinde parse → indeks →
+          golden-set yeniden koşulur. Yanıttaki yürürlük tarihi metadata'sından okunur — "bugün hangi hüküm
+          geçerli?" sorusu da cevaplanabilir.</span>
         </div>
       </div>
     </div>
