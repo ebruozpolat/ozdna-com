@@ -4,11 +4,11 @@
 
 | Product | Status | Docs |
 |---------|--------|------|
-| **ozDNA Platform** | Live v0.1 — LLM gateway, routing, RAG, cost | `README.md`, `platform/` |
+| **ozDNA Platform** | Live v0.1 — LLM gateway, routing, RAG, cost | `platform/README.md`, `platform/` |
 | **ComplyDNA** | Q3 2026 — RegTech compliance monitoring | `products/comply/`, `ROADMAP.md` |
 | **OriginDNA** *(working name)* | Pre-build — content provenance / Proof of Origin | `docs/products/ORIGINDNA.md`, `plan/`, `docs/BLUEPRINT.md` |
 
-This file is the ground-truth brief for **OriginDNA** (partner-authored planning corpus, July 2026). For platform engineering, start with `README.md`.
+This file is the ground-truth brief for **OriginDNA** (partner-authored planning corpus, July 2026). Repo-root `README.md` is the dev-team orientation page for OriginDNA (and the monorepo). For platform engineering, start with `platform/README.md`.
 
 ---
 
