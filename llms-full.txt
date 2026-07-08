@@ -1,377 +1,224 @@
 ---
 # FILE: knowledge/_index.md
 ---
+---
 title: ozDNA Knowledge Index
-version: 0.2
-lang: en
-updated: 2026-06-15
+version: 0.3
+lang: en/tr
+updated: 2026-07-08
 publisher: Findbelow Ventures
 site: https://ozdna.com
-tags: [b2b, infrastructure, llm-cost-optimization, rag, vertical-ai, regtech, academic]
+tags: [verifiability, regtech, compliance-llm, content-provenance, eu-ai-act]
 ---
 
 # ozDNA Knowledge Bundle
 
 Structured content for agents. Read these files instead of scraping the site.
 
-## Pages
+**ozDNA** is the brand of Findbelow Ventures for verifiability software. Two products:
 
-| File | Topic | Related |
-|------|-------|---------|
-| [overview.md](./overview.md) | Platform positioning, five pillars | → ecosystem, integration |
-| [ecosystem.md](./ecosystem.md) | Product portfolio | → overview |
-| [integration.md](./integration.md) | Integration flow | → api-overview, contact |
-| [pricing.md](./pricing.md) | Pricing / early access | → contact |
-| [contact.md](./contact.md) | Waitlist & contact | → pricing |
-| [api-overview.md](./api-overview.md) | REST API overview (Phase 2) | → api-detect |
-| [api-detect.md](./api-detect.md) | POST /v1/detect | → vertical-modes |
-| [POST /v1/humanize | → vertical-modes |
-| [api-auth.md](./api-auth.md) | Authentication | → api-overview |
-| [vertical-modes.md](./vertical-modes.md) | Vertical modes | → api-detect |
+| Product | One line | Page |
+|---------|----------|------|
+| **ComplyDNA** | Compliance LLM for Turkish financial regulation — every answer carries inline statutory citations | https://ozdna.com/products/comply/ |
+| **OriginDNA** | Content provenance infrastructure for EU AI Act Article 50 content marking — waitlist open | https://ozdna.com/products/origin/ |
+
+## Files
+
+| File | Topic |
+|------|-------|
+| [overview.md](./overview.md) | Brand positioning, the two products |
+| [complydna.md](./complydna.md) | ComplyDNA — coverage, method, deployment |
+| [origindna.md](./origindna.md) | OriginDNA — provenance, regulatory clock, waitlist |
+| [pricing.md](./pricing.md) | Pricing / early-access status for both products |
+| [contact.md](./contact.md) | Contact & waitlist |
 
 ## Web
 
-- Homepage: https://ozdna.com
-- API docs: https://ozdna.com/docs/
+- Home: https://ozdna.com
 - llms.txt: https://ozdna.com/llms.txt
-- SEO plan (internal): https://ozdna.com/docs/ozdna_SEO_Keyword_Plani.md
-
----
-# FILE: knowledge/api-auth.md
----
-title: API Kimlik Doğrulama
-tags: [api, auth, security]
-related: [api-overview.md, integration.md]
----
-
-# Kimlik Doğrulama
-
-Tüm isteklerde `Authorization` header zorunludur:
-
-```
-Authorization: Bearer ozdna_sk_live_...
-```
-
-## Anahtar türleri
-
-| Önek | Ortam |
-|------|-------|
-| `ozdna_sk_test_` | Sandbox |
-| `ozdna_sk_live_` | Production |
-
-Anahtarlar dashboard üzerinden proje kapsamında oluşturulur. SDK gerekmez.
-
-## Webhook imza doğrulama
-
-Asenkron callback'lerde `X-OzDNA-Signature` header — HMAC-SHA256.
-
----
-# FILE: knowledge/api-detect.md
----
-title: Detect API
-tags: [api, detect, ai-detection]
-related: [api-auth.md, vertical-modes.md]
-endpoint: POST /v1/detect
----
-
-# POST /v1/detect
-
-Segment düzeyinde AI dedeksiyonu. Dikeye özel kalibrasyon.
-
-## İstek
-
-```json
-{
-  "text": "Bu çalışmada uygulanan metodoloji...",
-  "mode": "academic",
-  "language": "tr",
-  "webhook_url": "https://example.com/hook"
-}
-```
-
-| Alan | Zorunlu | Tip | Açıklama |
-|------|---------|-----|----------|
-| text | evet | string | Analiz metni (max 50.000 karakter) |
-| mode | hayır | string | academic · legal · financial · general |
-| language | hayır | string | ISO 639-1 (tr, en, …) |
-| webhook_url | hayır | string | Asenkron callback (Growth+) |
-
-## Yanıt (örnek)
-
-```json
-{
-  "ai_probability": 0.94,
-  "confidence": "high",
-  "verdict": "ai_generated",
-  "segments": 12,
-  "segment_map": [
-    { "start": 0, "end": 142, "score": 0.97 }
-  ],
-  "processing_ms": 210,
-  "mode": "academic",
-  "language": "tr"
-}
-```
-
-## Özellikler
-
-- Segment düzeyinde ısı haritası
-- Türkçe ve çok dilli destek
-- Webhook callback (async)
-
-→ [vertical-modes.md](./vertical-modes.md) · [api-auth.md](./api-auth.md)
-
----
-# FILE: knowledge/api-overview.md
----
-title: API Genel Bakış
-tags: [api, rest, openapi]
-related: [api-detect.md.md, api-auth.md, integration.md]
----
-
-# ozDNA REST API
-
-JSON istek/yanıt, Bearer token kimlik doğrulama, OpenAPI 3.1 uyumlu sözleşme.
-
-## Base URL
-
-```
-https://api.ozdna.com          # production (beta)
-https://api.sandbox.ozdna.com  # sandbox
-```
-
-## Çekirdek endpoint'ler
-
-| Method | Path | Açıklama |
-|--------|------|----------|
-| POST | `/v1/detect` | AI metin dedeksiyonu |
-| POST | `/v1/batch` | Toplu asenkron detect (Growth+) |
-
-## OpenAPI
-
-```
-https://api.ozdna.com/openapi.json
-https://api.ozdna.com/openapi.yaml
-```
-
-Phase 2 önizleme — tam spec beta erişimi ile yayınlanacak.
-
-→ [api-detect.md](./api-detect.md) · [api-auth.md](./api-auth.md)
-
----
-# FILE: knowledge/contact.md
----
-title: İletişim & Erişim
-tags: [contact, waitlist, sales]
-related: [pricing.md]
----
-
-# İletişim
-
-## API erişimi
-
-Production API **davet usulü** özel beta. Öncelikli segmentler:
-
-- Fintech / Finans
-- Hukuk
-- Üniversite / Kurum
-- EdTech / Akademik
-
-## Bekleme listesi
-
-https://ozdna.com/#bekleme-listesi
-
-Form alanları: e-posta, şirket/kurum, kullanım alanı.
-
-## Satış
-
-- E-posta: hello@ozdna.com
-- Enterprise: özel altyapı, white-label, on-premise
-
-## Şirket
-
-Findbelow Ventures · © 2026
-
----
-# FILE: knowledge/ecosystem.md
----
-title: Ecosystem
-tags: [ecosystem, products, findbelow-ventures, built-on-ozdna]
-related: [overview.md]
----
-
-# Findbelow Ventures Ecosystem
-
-Multi-layer product stack. All vertical products run on the same ozDNA platform stack; ozdna.com is the external infrastructure (PaaS) layer.
-
-## tezmakale.com — Live · TR
-
-- **Segment:** B2C — Turkey students
-- **Role:** Academic panic solver (AI detection, detection & analysis, plagiarism, advising)
-- **Proof value:** Live token economics, usage limits, production workload on ozDNA stack
-- **URL:** https://tezmakale.com
-
-## OzDNA Academic — Phase 2
-
-- **Segment:** B2C/B2B — Global
-- **Features:** Detection + detection & analysis, citation verification, academic editing
-- **Languages:** TR + EN
-
-## ComplyDNA — Phase 2–3
-
-- **Segment:** B2B — TR / EU RegTech
-- **Scope:** 5549, BDDK, MASAK, KVKK regulatory monitoring
-- **Customers:** Fintech, EMI/PSP, law firms
-- **Proof value:** RAG-heavy vertical depth — differentiation vs generic LLM gateways
-
-## ozdna.com — Phase 1
-
-- **Segment:** B2B / Developer / Investor
-- **Role:** LLM cost optimization platform, API docs, corporate identity
-- **Campaign:** GPU Bill Bodyguard — control token burn before scale
-
----
-# FILE: knowledge/integration.md
----
-title: Entegrasyon
-tags: [integration, onboarding, developer]
-related: [api-overview.md, api-auth.md, contact.md]
----
-
-# Entegrasyon Akışı
-
-Kayıttan production'a dakikalar içinde.
-
-## 1 — Auth
-
-Dashboard'dan proje oluştur, scoped API anahtarı al. Bearer token.
-
-## 2 — POST
-
-`/v1/detect` veya `/v1/humanize` ile ilk istek. JSON in, JSON out.
-
-```bash
-curl -X POST https://api.ozdna.com/v1/detect \
-  -H "Authorization: Bearer ozdna_sk_live_..." \
-  -H "Content-Type: application/json" \
-  -d '{"text":"...","mode":"academic","language":"tr"}'
-```
-
-## 3 — Scale
-
-Dashboard'dan kullanım, maliyet ve doğruluk metrikleri. Hacim eşiklerinde otomatik indirim.
-
-## Hata kodları
-
-| Kod | Anlam |
-|-----|-------|
-| 400 | Geçersiz istek |
-| 401 | Geçersiz API anahtarı |
-| 402 | Kota aşıldı |
-| 429 | Rate limit |
-| 503 | Geçici kesinti |
-
-→ [contact.md](./contact.md) — API erişimi davet usulü
 
 ---
 # FILE: knowledge/overview.md
 ---
-title: ozDNA Platform Overview
-tags: [overview, b2b, infrastructure, findbelow-ventures]
-related: [ecosystem.md, pricing.md]
+---
+title: ozDNA Overview
+tags: [brand, positioning]
+related: [complydna.md, origindna.md]
 ---
 
-# ozDNA — Vertical AI Infrastructure
+# ozDNA — Verifiable by design
 
-**ozdna.com** is Findbelow Ventures' B2B infrastructure layer (PaaS). It helps vertical AI startups reduce LLM/API costs, stabilize production RAG, and design token economics that protect margins.
+ozDNA (Findbelow Ventures) builds software for one problem: **trusting what AI produces**.
+Every product follows the same principle — an output must carry the evidence needed to
+verify it. No claim without a source; no content without an origin.
 
-## Positioning
+## The two products
 
-- **Primary:** AI cost optimization platform for vertical AI teams
-- **Audience:** Founders, CTOs/ML engineers, investors (Phase 1)
-- **Status:** Private beta — early access invite only
-- **Language:** English first; Turkish hreflang planned
+**ComplyDNA** (RegTech, Türkçe) — a compliance LLM for Turkish financial regulation
+(MASAK communiqués, AML/CFT laws 5549 & 6415, KVKK). Every sentence in every answer
+carries an inline statutory citation in the form `[TEBLİĞ / Madde]`, so compliance teams
+can verify the exact article behind each claim. Cloud API or fully on-premises.
+Status: early access / pilot program.
 
-## Shared platform stack
+**OriginDNA** (content provenance, global) — infrastructure that gives every image a
+"DNA": a cryptographic signature at creation (open C2PA standard), a timestamp anchored
+in a public, independently verifiable record, and a perceptual fingerprint that survives
+metadata stripping. Built for EU AI Act Article 50 content marking (applies Aug 2, 2026;
+grace for existing GenAI systems ends Dec 2, 2026). Status: pre-launch, waitlist open.
 
-Phase 1: OpenAI API wrapped with prompts, RAG, and (roadmap) routing/caching/cost optimization. Not a standalone model — an infrastructure layer.
+## What ozDNA is not
 
-| Product | Stack role |
-|---------|------------|
-| tezmakale.com | Live TR academic AI — production token economics |
-| OzDNA Academic | Global academic quality (Phase 2) |
-| ComplyDNA | RegTech monitoring — 5549/BDDK/MASAK/KVKK (Phase 2) |
-| ozdna.com | B2B API + docs — external infrastructure layer |
+- Not an AI-text detector or humanizer — no detection-evasion products exist under this brand.
+- OriginDNA is provenance, not AI detection; it has no token and holds no user funds.
 
-## Five pillars
+---
+# FILE: knowledge/complydna.md
+---
+---
+title: ComplyDNA
+tags: [regtech, compliance, llm, masak, kvkk, aml]
+related: [overview.md, pricing.md, contact.md]
+---
 
-1. **Cost Control** — LLM routing, inference cost reduction, cost per workflow
-2. **Production RAG Reliability** — retrieval governance, freshness, evals
-3. **Vertical AI Differentiation** — domain depth vs thin wrappers
-4. **Post-Subsidy Margin Resilience** — platform risk from API pricing changes
-5. **Usage Economics & Pricing Design** — credits mapped to real token burn
+# ComplyDNA — Türk mevzuatına özel uyum LLM'i
 
-## Differentiation
+ComplyDNA, Türk mevzuatı (MASAK tebliğleri, AML/CFT kanunları, KVKK) üzerine eğitilmiş
+bir uyum LLM'idir. Her yanıtını `[TEBLİĞ / Madde]` biçiminde satır içi kaynak künyesiyle
+verir; yanıtın dayandığı mevzuat parçası cümle düzeyinde doğrulanabilir.
 
-Gateways (LiteLLM, Portkey, Helicone) solve routing and observability. ozDNA focuses on **vertical AI RAG governance + cost optimization**, proven by TezMakale and ComplyDNA in production.
+ComplyDNA is a compliance LLM for Turkish financial regulation, answering compliance
+questions with inline statutory citations in the form [COMMUNIQUE / Article].
 
-→ Next: [ecosystem.md](./ecosystem.md) · [integration.md](./integration.md)
+## Kapsam / Coverage
+
+- 5549 — Suç Gelirlerinin Aklanmasının Önlenmesi Hakkında Kanun
+- 6415 — Terörizmin Finansmanının Önlenmesi Hakkında Kanun
+- 6698 — Kişisel Verilerin Korunması Kanunu (KVKK)
+- MASAK tebliğ ve genelgeleri, Tedbirler Yönetmeliği
+- Kripto varlık hizmet sağlayıcı (VASP/CASP) düzenlemeleri
+
+## Yöntem / Method
+
+1. Mevzuat korpusu madde düzeyinde parçalanır, yürürlük metadata'sıyla etiketlenir
+2. Anlamsal indeks üzerinden geri getirme (TR/EN çift sorgu)
+3. Model referans biçimini ve mevzuat dilini ince ayarla öğrenir
+4. Yanıt: kaynak künyeli, denetlenebilir — golden-set ile her sürümde ölçülür
+
+## Dağıtım / Deployment
+
+- Bulut API / web arayüzü, veya tam kurum içi (on-prem) — model ve indeks kurumda
+- Müşteri verisi model eğitiminde kullanılmaz
+
+## Not
+
+Çıktılar bilgilendirme amaçlıdır, hukuki tavsiye değildir.
+
+Page: https://ozdna.com/products/comply/
+
+---
+# FILE: knowledge/origindna.md
+---
+---
+title: OriginDNA
+tags: [content-provenance, eu-ai-act, c2pa, article-50, proof-of-origin]
+related: [overview.md, pricing.md, contact.md]
+---
+
+# OriginDNA — Proof of Origin
+
+OriginDNA is **content provenance infrastructure**. Every image gets a DNA:
+
+1. **Signature** — a cryptographic signature attached at creation, following the open
+   C2PA standard: who made it, with what tool, when. Tampering breaks the signature.
+2. **Timestamp** — the image's fingerprint is anchored into a public, append-only record;
+   anyone can independently confirm "this existed by this date" without an OriginDNA
+   account.
+3. **Fingerprint** — a perceptual fingerprint stored at registration, so stripped,
+   resized or recompressed copies can be matched back to the registered original.
+
+## Why now — the regulatory clock
+
+- **Aug 2, 2026** — EU AI Act Article 50 applies; California SB 942 takes effect the same day.
+  Generative-AI providers must mark AI-generated content in machine-readable form.
+- **Dec 2, 2026** — grace period ends for GenAI systems already on the market.
+- **Feb 2, 2027** — interoperable detection/marking requirements tighten.
+
+## Who it's for
+
+1. GenAI apps needing EU AI Act marking — self-serve API (primary)
+2. Marketplace sellers & creators (Etsy requires AI disclosure since Jan 2026) — badge plans
+3. Newsrooms & fact-checking organizations — free, forever
+4. Legal / enterprise evidence capture (TR/MENA) — later
+
+## Honest status
+
+- Pre-launch. MVP ships October 2026; launch targets the Dec 2, 2026 compliance wave.
+  Waitlist: https://ozdna.com/products/origin/#waitlist
+- v1 = images only (JPG/PNG). Video/audio later.
+- OriginDNA signs to the open C2PA standard but is **not yet** a certified member of the
+  C2PA conformance program and does not claim "trusted Content Credentials" status.
+  Verification runs through OriginDNA's own public verify page and public record.
+- No token exists or is planned. No user funds are ever held. This is SaaS.
+- OriginDNA is provenance, **not** AI detection — it does not classify content as
+  AI-generated after the fact.
+
+Page: https://ozdna.com/products/origin/
 
 ---
 # FILE: knowledge/pricing.md
 ---
-title: Fiyatlandırma
-tags: [pricing, plans, b2b]
+---
+title: Pricing
+tags: [pricing, plans]
 related: [contact.md]
 ---
 
-# Fiyatlandırma
+# Pricing
 
-Kullanım bazlı, şeffaf planlar. USD.
+## ComplyDNA — early access
 
-## Starter — $49/ay
+Pricing is set per institution during the pilot program (regulatory scope + usage volume).
 
-- 5.000 API çağrısı / ay
-- Detect endpoint'leri
-- Standart yanıt SLA
-- E-posta desteği
+- **Pilot** — fixed-fee 4-week POC with an institution-specific golden-set evaluation
+- **Team** — annual subscription, seat-based + monthly query quota, cloud API or web UI
+- **Enterprise / On-prem** — annual license; model and index run inside your infrastructure
 
-## Growth — $249/ay
+Contact: hello@ozdna.com (subject: ComplyDNA)
 
-- 50.000 API çağrısı / ay
-- Dikey mod seçimi
-- Asenkron batch işleme
-- Webhook callback'leri
-- Öncelikli destek
+## OriginDNA — pre-launch (waitlist)
 
-## Enterprise — Özel
+Planned launch pricing (October 2026 MVP, subject to change until launch):
 
-- Sınırsız hacim
-- Özel dikey modeller
-- On-premise veya private cloud
-- White-label API
-- Özel SLA & CSM
+- **Compliance API** for GenAI apps — self-serve, from **$49/mo**
+- **Seller / creator badge** — from **$5/mo**
+- **Newsrooms & fact-checkers** — free, forever
+- Legal / enterprise evidence capture — later, priced separately
 
-→ [contact.md](./contact.md)
+Waitlist: https://ozdna.com/products/origin/#waitlist
 
 ---
-# FILE: knowledge/vertical-modes.md
+# FILE: knowledge/contact.md
 ---
-title: Dikey Modlar
-tags: [api, vertical, academic, legal, financial]
-related: [api-detect.md.md]
+---
+title: Contact & Access
+tags: [contact, waitlist, sales]
+related: [pricing.md]
 ---
 
-# Dikey Modlar
+# Contact
 
-Detect endpoint'lerinde `mode` parametresi.
+## ComplyDNA
 
-| Mod | Kullanım | Hedef segment |
-|-----|----------|---------------|
-| academic | Tez, makale, akademik metin | Üniversite, EdTech, OzDNA Academic |
-| legal | Sözleşme, dilekçe, mevzuat | Hukuk firmaları, ComplyDNA |
-| financial | Rapor, uyum metni | Fintech, EMI/PSP, RegTech |
-| general | Genel amaçlı | Varsayılan |
+Early-access pilot program is open for Turkish compliance teams (banks, financial
+institutions, VASPs). Email hello@ozdna.com with subject "ComplyDNA".
 
-Dil: `language` parametresi ile ISO 639-1 (örn. `tr`, `en`).
+## OriginDNA
+
+Pre-launch. Segmented waitlist (GenAI apps / sellers & creators / newsrooms &
+fact-checkers / legal & enterprise): https://ozdna.com/products/origin/#waitlist
+
+## Company
+
+- Email: hello@ozdna.com
+- Findbelow Ventures · © 2026
 
