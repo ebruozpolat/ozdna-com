@@ -1,37 +1,35 @@
 ---
 title: ozDNA Knowledge Index
-version: 0.2
-lang: en
-updated: 2026-06-15
+version: 0.3
+lang: en/tr
+updated: 2026-07-08
 publisher: Findbelow Ventures
 site: https://ozdna.com
-tags: [b2b, infrastructure, llm-cost-optimization, rag, vertical-ai, regtech, academic]
+tags: [verifiability, regtech, compliance-llm, content-provenance, eu-ai-act]
 ---
 
 # ozDNA Knowledge Bundle
 
 Structured content for agents. Read these files instead of scraping the site.
 
-## Pages
+**ozDNA** is the brand of Findbelow Ventures for verifiability software. Two products:
 
-| File | Topic | Related |
-|------|-------|---------|
-| [overview.md](./overview.md) | Platform positioning, five pillars | → ecosystem, integration |
-| [platform-architecture.md](./platform-architecture.md) | Runnable platform modules | → overview, integration |
-| [rag-management.md](./rag-management.md) | RAG Phase 2 — vector, ingest, eval | → platform-architecture |
-| [ecosystem.md](./ecosystem.md) | Product portfolio | → overview |
-| [partners](https://ozdna.com/partners/) | TezMakale production partner (web) | → ecosystem, case study |
-| [integration.md](./integration.md) | Integration flow | → api-overview, contact |
-| [pricing.md](./pricing.md) | Pricing / early access | → contact |
-| [contact.md](./contact.md) | Waitlist & contact | → pricing |
-| [api-overview.md](./api-overview.md) | REST API overview (Phase 2) | → api-detect |
-| [api-detect.md](./api-detect.md) | POST /v1/detect | → vertical-modes |
-| [api-auth.md](./api-auth.md) | Authentication | → api-overview |
-| [vertical-modes.md](./vertical-modes.md) | Vertical modes | → api-detect |
+| Product | One line | Page |
+|---------|----------|------|
+| **ComplyDNA** | Compliance LLM for Turkish financial regulation — every answer carries inline statutory citations | https://ozdna.com/products/comply/ |
+| **OriginDNA** | Content provenance infrastructure for EU AI Act Article 50 content marking — waitlist open | https://ozdna.com/products/origin/ |
+
+## Files
+
+| File | Topic |
+|------|-------|
+| [overview.md](./overview.md) | Brand positioning, the two products |
+| [complydna.md](./complydna.md) | ComplyDNA — coverage, method, deployment |
+| [origindna.md](./origindna.md) | OriginDNA — provenance, regulatory clock, waitlist |
+| [pricing.md](./pricing.md) | Pricing / early-access status for both products |
+| [contact.md](./contact.md) | Contact & waitlist |
 
 ## Web
 
-- Homepage: https://ozdna.com
-- API docs: https://ozdna.com/docs/
+- Home: https://ozdna.com
 - llms.txt: https://ozdna.com/llms.txt
-- SEO plan (internal): https://ozdna.com/docs/ozdna_SEO_Keyword_Plani.md

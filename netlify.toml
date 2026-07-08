@@ -1,7 +1,7 @@
 [build]
   publish = "."
 
-# Force HTTPS once custom domain is attached (ozdna.com / www) — migration deferred; see docs/DOMAIN.md
+# Netlify (site ozdna-614) is the CANONICAL host for ozdna.com — see docs/DOMAIN.md (decided 2026-07-08).
 [[redirects]]
   from = "http://ozdna.com/*"
   to = "https://ozdna.com/:splat"
@@ -20,10 +20,121 @@
   status = 301
   force = true
 
+# Legacy platform waitlist form (tr/index.html) posts to /success
 [[redirects]]
   from = "/success"
-  to = "/?submitted=true#waitlist"
+  to = "/tr/?submitted=true#waitlist"
   status = 302
+
+# Internal strategy/source files — never serve on the public domain
+[[redirects]]
+  from = "/plan/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/seo/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/scripts/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/i18n/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/complydna/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/platform/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/docs/products/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# Netlify splats can't match extensions — list internal docs explicitly
+[[redirects]]
+  from = "/docs/ACTION_PLAN.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/docs/BLUEPRINT.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/docs/BRAND-NOTES.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/docs/DOMAIN.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/docs/ozdna_SEO_Keyword_Plani.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/docs/research-2026-07-06.json"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/CLAUDE.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/README.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/ROADMAP.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/LAUNCH-0TL.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/package-lock.json"
+  to = "/404.html"
+  status = 404
+  force = true
 
 [[redirects]]
   from = "/tr"

@@ -4,7 +4,7 @@
 
 | Product | Status | Docs |
 |---------|--------|------|
-| **ozDNA Platform** | Live v0.1 — LLM gateway, routing, RAG, cost | `platform/README.md`, `platform/` |
+| **ozDNA Platform** | Internal — out of public positioning since Jul 8, 2026 (code: `platform/`) | `platform/README.md` |
 | **ComplyDNA** | Q3 2026 — RegTech compliance monitoring | `products/comply/`, `ROADMAP.md` |
 | **OriginDNA** *(working name)* | Pre-build — content provenance / Proof of Origin | `docs/products/ORIGINDNA.md`, `plan/`, `docs/BLUEPRINT.md` |
 
@@ -18,7 +18,7 @@ Content provenance service: every image gets a "DNA" — a C2PA cryptographic si
 
 **Status (July 7, 2026):** blueprint stage. Nothing is built yet. All strategy decisions below are locked and research-verified — read `docs/BLUEPRINT.md` before proposing changes to any of them.
 
-**Domain note:** ozdna.com is on Netlify (`ozdna-614`, ebru0zpolat account) and currently serves the **ozDNA Platform** marketing site. OriginDNA will eventually own the public brand on that domain; the partner's humanizer must never appear under ozDNA. See `docs/ACTION_PLAN.md` 0.9. Detailed build plan: `plan/` — start at `plan/00-INDEX.md`.
+**Domain note (updated Jul 8, 2026):** ozdna.com is on Netlify (`ozdna-614`, ebru0zpolat account) — the **canonical host** (DNS-verified; see `docs/DOMAIN.md`). Public positioning is the ozDNA umbrella with **two products**: `/` brand page, `/products/comply/` ComplyDNA, `/products/origin/` OriginDNA waitlist. The ozDNA Platform (LLM gateway) is out of public positioning — code stays in `platform/`, internal only. The partner's humanizer must never appear under ozDNA. See `docs/ACTION_PLAN.md` 0.9. Detailed build plan: `plan/` — start at `plan/00-INDEX.md`.
 
 ## Who is building this
 

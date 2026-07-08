@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="OriginDNA — content provenance infrastructure. Sign images at creation, get an independently verifiable timestamp and a fingerprint that survives metadata stripping. Built for EU AI Act Article 50 content marking. Join the waitlist.">
+<link rel="canonical" href="https://ozdna.com/products/origin/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ozDNA">
+<meta property="og:title" content="OriginDNA — Every image gets a DNA">
+<meta property="og:description" content="Content provenance for the EU AI Act era: cryptographic signing at creation, a timestamp no one can backdate, a fingerprint that survives stripped metadata. Waitlist open.">
+<meta property="og:url" content="https://ozdna.com/products/origin/">
+<meta property="og:image" content="https://ozdna.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OriginDNA — Every image gets a DNA">
+<meta name="twitter:description" content="Content provenance for the EU AI Act era. Compliance as a simple API. Waitlist open.">
+<meta name="twitter:image" content="https://ozdna.com/og.png">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "OriginDNA",
+ "url": "https://ozdna.com/products/origin/",
+ "applicationCategory": "BusinessApplication",
+ "operatingSystem": "Web",
+ "description": "Content provenance infrastructure: cryptographic signing at creation, an independently verifiable timestamp, and a perceptual fingerprint that survives metadata stripping. Built for EU AI Act Article 50 content marking.",
+ "publisher": {
+  "@type": "Organization",
+  "name": "Findbelow Ventures",
+  "url": "https://ozdna.com/",
+  "email": "hello@ozdna.com"
+ }
+}
+</script>
+<title>OriginDNA — Every image gets a DNA · Proof of Origin by ozDNA</title>
+<style>
+  :root {
+    --paper: #F2EFE6;
+    --ink: #191611;
+    --accent: #E23D0E;
+    --muted: #6F6A5C;
+    --rule: rgba(25, 22, 17, 0.18);
+    --rule-soft: rgba(25, 22, 17, 0.08);
+    --card: rgba(25, 22, 17, 0.03);
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #141208; --ink: #EDE8D9; --accent: #FF6B3D; --muted: #938D7B;
+      --rule: rgba(237, 232, 217, 0.22); --rule-soft: rgba(237, 232, 217, 0.09); --card: rgba(237, 232, 217, 0.04);
+    }
+  }
+  :root[data-theme="light"] {
+    --paper: #F2EFE6; --ink: #191611; --accent: #E23D0E; --muted: #6F6A5C;
+    --rule: rgba(25, 22, 17, 0.18); --rule-soft: rgba(25, 22, 17, 0.08); --card: rgba(25, 22, 17, 0.03);
+  }
+  :root[data-theme="dark"] {
+    --paper: #141208; --ink: #EDE8D9; --accent: #FF6B3D; --muted: #938D7B;
+    --rule: rgba(237, 232, 217, 0.22); --rule-soft: rgba(237, 232, 217, 0.09); --card: rgba(237, 232, 217, 0.04);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--mono); font-size: 15px; line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  ::selection { background: var(--accent); color: var(--paper); }
+  .shell { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .label b { color: var(--accent); font-weight: 400; }
+  code { font-family: var(--mono); }
+
+  header { position: sticky; top: 0; z-index: 10; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; }
+  .wordmark { display: flex; align-items: baseline; gap: 10px; font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; white-space: nowrap; }
+  .wordmark .dot { color: var(--accent); }
+  .wordmark small { font-size: 10px; letter-spacing: 0.14em; color: var(--muted); }
+  nav { display: flex; gap: 22px; }
+  nav a { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--muted); }
+  nav a:hover { color: var(--accent); }
+  @media (max-width: 720px) { nav { display: none; } }
+
+  .hero { border-bottom: 1px solid var(--rule); padding: 84px 0 68px; }
+  .hero h1 { font-size: clamp(32px, 5.6vw, 60px); line-height: 1.12; font-weight: 700; text-transform: uppercase; margin: 18px 0 22px; text-wrap: balance; }
+  .hero h1 .acc { color: var(--accent); }
+  .lede { max-width: 64ch; color: var(--muted); font-size: 16px; }
+  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 26px; }
+  .btn { display: inline-block; padding: 12px 22px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; cursor: pointer; font-family: var(--mono); }
+  .btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn.ghost { background: transparent; color: var(--ink); }
+  .btn.ghost:hover { background: transparent; color: var(--accent); border-color: var(--accent); }
+
+  section { border-bottom: 1px solid var(--rule); padding: 64px 0; }
+  .sec-head { display: flex; gap: 14px; align-items: baseline; margin-bottom: 34px; }
+  .sec-no { color: var(--accent); font-size: 12px; letter-spacing: 0.14em; }
+  .sec-title { font-size: clamp(22px, 3.4vw, 34px); text-transform: uppercase; line-height: 1.15; font-weight: 700; margin: 0 0 28px; text-wrap: balance; }
+
+  .cols3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 880px) { .cols3 { grid-template-columns: 1fr; } }
+  .cell { border-top: 2px solid var(--ink); padding-top: 16px; }
+  .cell h3 { margin: 8px 0 10px; font-size: 16px; text-transform: uppercase; }
+  .cell p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  .clock { width: 100%; border-collapse: collapse; }
+  .clock th, .clock td { text-align: left; padding: 14px 12px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+  .clock th { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
+  .clock .d { color: var(--accent); white-space: nowrap; font-weight: 700; }
+  .clock td:last-child { color: var(--muted); }
+
+  .who { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  @media (max-width: 880px) { .who { grid-template-columns: 1fr; } }
+  .seg { border: 1px solid var(--rule); background: var(--card); padding: 22px; }
+  .seg h3 { margin: 6px 0 8px; font-size: 15px; text-transform: uppercase; }
+  .seg p { margin: 0; color: var(--muted); font-size: 14px; }
+  .seg .price { display: block; margin-top: 12px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+
+  .waitlist-box { max-width: 640px; }
+  .waitlist-box form { display: grid; gap: 16px; margin-top: 26px; }
+  .field label { display: block; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .field input, .field select {
+    width: 100%; padding: 12px 14px; font-family: var(--mono); font-size: 14px;
+    background: var(--paper); color: var(--ink); border: 1px solid var(--rule);
+  }
+  .field input:focus, .field select:focus { outline: 2px solid var(--accent); outline-offset: 0; }
+  .fine { font-size: 12px; color: var(--muted); }
+  .hidden { display: none; }
+
+  .faq details { border-top: 1px solid var(--rule-soft); padding: 14px 0; }
+  .faq summary { cursor: pointer; font-weight: 700; text-transform: uppercase; font-size: 13px; letter-spacing: 0.04em; }
+  .faq .a { color: var(--muted); font-size: 14px; margin: 10px 0 0; max-width: 75ch; }
+
+  .site-footer { padding: 40px 0 48px; }
+  .foot { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); border-top: 1px solid var(--rule-soft); padding-top: 18px; }
+  .footer-links { font-size: 12px; color: var(--muted); margin-top: 10px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="shell bar">
+    <a class="wordmark" href="/">
+      ORIGIN<span class="dot">DNA</span> <small>BY OZDNA</small>
+    </a>
+    <nav>
+      <a href="#what">What</a>
+      <a href="#clock">The deadline</a>
+      <a href="#who">Who it's for</a>
+      <a href="#faq">FAQ</a>
+      <a href="#waitlist">Waitlist</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="shell">
+    <div class="label"><b>OZDNA.COM/PRODUCTS/ORIGIN</b> — PROOF OF ORIGIN · PRE-LAUNCH</div>
+    <h1>Every image gets<br>a <span class="acc">DNA.</span></h1>
+    <p class="lede">
+      OriginDNA is content provenance infrastructure. Each image is signed at
+      creation, timestamped in a public record no one can backdate, and
+      fingerprinted so its origin survives screenshots, re-uploads and stripped
+      metadata. From August 2, 2026 the EU AI Act requires AI-generated content
+      to be marked — OriginDNA turns that obligation into one API call.
+    </p>
+    <div class="cta-row">
+      <a class="btn" href="#waitlist">Join the waitlist</a>
+      <a class="btn ghost" href="#what">How it works ↓</a>
+    </div>
+  </div>
+</div>
+
+<section id="what">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[01]</span><span class="label">WHAT YOU GET</span></div>
+    <h2 class="sec-title">Three proofs per image.<br>Zero trust required.</h2>
+    <div class="cols3">
+      <div class="cell">
+        <div class="label"><b>A</b> / SIGNATURE</div>
+        <h3>Signed at creation</h3>
+        <p>A cryptographic signature is attached the moment the image is made,
+        following the open C2PA standard — who made it, with what tool, when.
+        Tamper with the file and the signature breaks.</p>
+      </div>
+      <div class="cell">
+        <div class="label"><b>B</b> / TIMESTAMP</div>
+        <h3>A date no one can backdate</h3>
+        <p>The image's fingerprint is anchored into a public, append-only record.
+        Anyone can independently confirm "this existed by this date" — without an
+        OriginDNA account and without trusting us.</p>
+      </div>
+      <div class="cell">
+        <div class="label"><b>C</b> / FINGERPRINT</div>
+        <h3>Survives the strip</h3>
+        <p>Social platforms strip metadata on upload. OriginDNA also stores a
+        perceptual fingerprint, so a stripped, resized or recompressed copy can
+        still be matched back to its registered original.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="clock">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[02]</span><span class="label">THE REGULATORY CLOCK</span></div>
+    <h2 class="sec-title">The deadline is not abstract.<br>It has dates.</h2>
+    <table class="clock">
+      <tr><th>Date</th><th>What happens</th><th>What it means for you</th></tr>
+      <tr>
+        <td class="d">Aug 2, 2026</td>
+        <td>EU AI Act Article 50 applies; California SB 942 takes effect the same day.</td>
+        <td>Providers of generative AI must mark AI-generated content in machine-readable form.</td>
+      </tr>
+      <tr>
+        <td class="d">Dec 2, 2026</td>
+        <td>Grace period ends for GenAI systems already on the market.</td>
+        <td>Existing apps must comply — the enforcement wave OriginDNA launches into.</td>
+      </tr>
+      <tr>
+        <td class="d">Feb 2, 2027</td>
+        <td>Interoperable detection/marking requirements tighten.</td>
+        <td>Ad-hoc watermarks won't cut it; standards-based marking will.</td>
+      </tr>
+    </table>
+    <p class="fine" style="margin-top:18px">Not legal advice — dates from the EU AI Act's published application timeline. Your obligations depend on your product and jurisdiction.</p>
+  </div>
+</section>
+
+<section id="who">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[03]</span><span class="label">WHO IT'S FOR</span></div>
+    <h2 class="sec-title">Built for the teams<br>the deadline actually hits</h2>
+    <div class="who">
+      <div class="seg">
+        <div class="label"><b>S1</b> / GENAI APPS — PRIMARY</div>
+        <h3>AI apps that must mark content</h3>
+        <p>Image generators, avatar apps, design tools. Add Article 50-oriented
+        marking with one API call: sign, timestamp, fingerprint — and give your
+        users a public verify link.</p>
+        <span class="price">Self-serve API · from $49/mo at launch</span>
+      </div>
+      <div class="seg">
+        <div class="label"><b>S2</b> / SELLERS &amp; CREATORS</div>
+        <h3>Marketplace sellers &amp; creators</h3>
+        <p>Etsy requires AI disclosure since January 2026. Prove which of your
+        work is original, when it was made, and show buyers a verifiable badge.</p>
+        <span class="price">Badge plans · from $5/mo at launch</span>
+      </div>
+      <div class="seg">
+        <div class="label"><b>S3</b> / NEWSROOMS &amp; FACT-CHECKERS</div>
+        <h3>Newsrooms &amp; fact-checkers</h3>
+        <p>Verify what you publish and check what you're sent. Free for
+        fact-checking organizations — forever. That's a promise, not a trial.</p>
+        <span class="price">Free for fact-checkers</span>
+      </div>
+      <div class="seg">
+        <div class="label"><b>S4</b> / LEGAL &amp; ENTERPRISE</div>
+        <h3>Evidence-grade capture</h3>
+        <p>Timestamped, tamper-evident records of digital content for disputes
+        and documentation. TR/MENA focus. Coming after the core API.</p>
+        <span class="price">Later — join the waitlist to shape it</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[04]</span><span class="label">FAQ</span></div>
+    <div class="faq">
+      <details>
+        <summary>Is this an "AI detector"?</summary>
+        <p class="a">No — deliberately. Detectors guess after the fact and are wrong
+        often enough to be dangerous. OriginDNA works from the other end: content
+        proves where it came from at creation. Provenance, not detection.</p>
+      </details>
+      <details>
+        <summary>Do I need a crypto wallet, or is there a token?</summary>
+        <p class="a">No wallet, no token, nothing to buy or hold — and no token is
+        planned. OriginDNA is a normal SaaS subscription. We never touch user funds.</p>
+      </details>
+      <details>
+        <summary>How can a timestamp be "independently verifiable"?</summary>
+        <p class="a">Your image's fingerprint is written into a public, append-only
+        record. Anyone can recompute the fingerprint and look it up there —
+        no OriginDNA account needed. If we disappeared tomorrow, the proof would
+        still stand.</p>
+      </details>
+      <details>
+        <summary>Is this "verified Content Credentials"?</summary>
+        <p class="a">Careful answer: OriginDNA signs to the open C2PA standard, and
+        we operate our own public verify page. We are not yet a certified member of
+        the C2PA conformance program, so we don't claim "trusted Content Credentials"
+        status — and we won't until it's true.</p>
+      </details>
+      <details>
+        <summary>What formats are supported?</summary>
+        <p class="a">v1 is images — JPG and PNG. Video, audio and mobile SDKs are on
+        the roadmap after the core API is solid.</p>
+      </details>
+      <details>
+        <summary>When can I use it?</summary>
+        <p class="a">The MVP ships in October 2026 and launches into the December 2
+        EU compliance wave. Waitlist members get early access, launch pricing, and a
+        say in the API design.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="waitlist">
+  <div class="shell waitlist-box">
+    <div class="label"><b>[05]</b> — WAITLIST</div>
+    <h2 class="sec-title">Be compliant before<br>your competitors are.</h2>
+    <p class="fine">Tell us which deadline is yours. Early access, launch pricing,
+    API design input — no spam, a handful of emails total.</p>
+    <form name="origindna-waitlist" method="POST" action="/products/origin/thanks/" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="origindna-waitlist">
+      <p class="hidden"><label>Don't fill this out: <input name="bot-field"></label></p>
+      <div class="field">
+        <label for="wl-email">Work email</label>
+        <input id="wl-email" type="email" name="email" required placeholder="you@company.com" autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="wl-segment">Which describes you best?</label>
+        <select id="wl-segment" name="segment" required>
+          <option value="" disabled selected>Choose one…</option>
+          <option value="genai-app">We run a GenAI app and need EU AI Act marking</option>
+          <option value="seller-creator">I sell / create and want to prove my work is mine</option>
+          <option value="newsroom-factchecker">Newsroom / fact-checking organization</option>
+          <option value="legal-enterprise">Legal / enterprise evidence use</option>
+          <option value="other">Other / just curious</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="wl-company">Company or project <span style="text-transform:none">(optional)</span></label>
+        <input id="wl-company" type="text" name="company" placeholder="Acme Avatars">
+      </div>
+      <div class="cta-row" style="margin-top:6px">
+        <button class="btn" type="submit">Join the waitlist</button>
+      </div>
+      <p class="fine">We store your email and segment to contact you about OriginDNA
+      early access — nothing else, shared with no one. Unsubscribe with one reply.
+      See our <a href="/privacy/">privacy policy</a>.</p>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="shell">
+    <div class="foot">
+      <span>OriginDNA · <a href="/">ozDNA</a> · Findbelow Ventures</span>
+      <span>© 2026 Findbelow Ventures · All rights reserved</span>
+    </div>
+    <p class="footer-links">
+      <a href="mailto:hello@ozdna.com">hello@ozdna.com</a>
+      · <a href="/products/comply/">ComplyDNA</a>
+      · <a href="/privacy/">Privacy</a>
+      · <a href="/terms/">Terms</a>
+    </p>
+  </div>
+</footer>
+
+<script defer src="/analytics.js"></script>
+</body>
+</html>

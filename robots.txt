@@ -1,26 +1,83 @@
 # ozdna.com — arama motorları ve AI crawler'lara açık
+# Internal/source paths are disallowed (and 404'd at the edge)
 User-agent: *
 Allow: /
+Disallow: /plan/
+Disallow: /seo/
+Disallow: /scripts/
+Disallow: /i18n/
+Disallow: /complydna/
+Disallow: /platform/
+Disallow: /docs/products/
 
 User-agent: GPTBot
 Allow: /
+Disallow: /plan/
+Disallow: /seo/
+Disallow: /scripts/
+Disallow: /i18n/
+Disallow: /complydna/
+Disallow: /platform/
+Disallow: /docs/products/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /plan/
+Disallow: /seo/
+Disallow: /scripts/
+Disallow: /i18n/
+Disallow: /complydna/
+Disallow: /platform/
+Disallow: /docs/products/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /plan/
+Disallow: /seo/
+Disallow: /scripts/
+Disallow: /i18n/
+Disallow: /complydna/
+Disallow: /platform/
+Disallow: /docs/products/
 
 User-agent: Claude-Web
 Allow: /
+Disallow: /plan/
+Disallow: /seo/
+Disallow: /scripts/
+Disallow: /i18n/
+Disallow: /complydna/
+Disallow: /platform/
+Disallow: /docs/products/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /plan/
+Disallow: /seo/
+Disallow: /scripts/
+Disallow: /i18n/
+Disallow: /complydna/
+Disallow: /platform/
+Disallow: /docs/products/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /plan/
+Disallow: /seo/
+Disallow: /scripts/
+Disallow: /i18n/
+Disallow: /complydna/
+Disallow: /platform/
+Disallow: /docs/products/
 
 User-agent: CCBot
 Allow: /
+Disallow: /plan/
+Disallow: /seo/
+Disallow: /scripts/
+Disallow: /i18n/
+Disallow: /complydna/
+Disallow: /platform/
+Disallow: /docs/products/
 
 Sitemap: https://ozdna.com/sitemap.xml

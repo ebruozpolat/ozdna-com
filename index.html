@@ -1,23 +1,22 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="ComplyDNA — Türk mevzuatına (MASAK, AML/CFT, KVKK) özel eğitilmiş uyum LLM'i. Her yanıt [TEBLİĞ / Madde] kaynak künyesiyle: tahmin değil, denetlenebilir yanıt.">
+<meta name="description" content="ozDNA builds verifiability infrastructure: ComplyDNA answers Turkish compliance questions with article-level citations; OriginDNA gives images a provable origin for EU AI Act content marking.">
 <link rel="canonical" href="https://ozdna.com/">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧬</text></svg>">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="ComplyDNA">
-<meta property="og:title" content="ComplyDNA — Uyum, modelin DNA'sında">
-<meta property="og:description" content="ComplyDNA — Türk mevzuatına (MASAK, AML/CFT, KVKK) özel eğitilmiş uyum LLM'i. Her yanıt [TEBLİĞ / Madde] kaynak künyesiyle: tahmin değil, denetlenebilir yanıt.">
+<meta property="og:site_name" content="ozDNA">
+<meta property="og:title" content="ozDNA — Verifiable by design">
+<meta property="og:description" content="Two products, one principle: claims you can check. ComplyDNA — compliance answers with statutory citations. OriginDNA — content provenance for the EU AI Act era.">
 <meta property="og:url" content="https://ozdna.com/">
 <meta property="og:image" content="https://ozdna.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:locale" content="tr_TR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ComplyDNA — Uyum, modelin DNA'sında">
-<meta name="twitter:description" content="ComplyDNA — Türk mevzuatına (MASAK, AML/CFT, KVKK) özel eğitilmiş uyum LLM'i. Her yanıt [TEBLİĞ / Madde] kaynak künyesiyle: tahmin değil, denetlenebilir yanıt.">
+<meta name="twitter:title" content="ozDNA — Verifiable by design">
+<meta name="twitter:description" content="ComplyDNA — compliance answers with statutory citations. OriginDNA — content provenance for the EU AI Act era.">
 <meta name="twitter:image" content="https://ozdna.com/og.png">
 <script type="application/ld+json">
 {
@@ -27,93 +26,37 @@
    "@type": "Organization",
    "@id": "https://ozdna.com/#org",
    "name": "Findbelow Ventures",
-   "legalName": "Findbelow Ventures",
    "url": "https://ozdna.com/",
    "email": "hello@ozdna.com",
-   "brand": {
-    "@type": "Brand",
-    "name": "ComplyDNA",
-    "parentOrganization": {
-     "@type": "Brand",
-     "name": "ozDNA"
-    }
-   }
+   "brand": [
+    {"@type": "Brand", "name": "ozDNA"},
+    {"@type": "Brand", "name": "ComplyDNA"},
+    {"@type": "Brand", "name": "OriginDNA"}
+   ]
   },
   {
    "@type": "SoftwareApplication",
    "name": "ComplyDNA",
-   "url": "https://ozdna.com/",
+   "url": "https://ozdna.com/products/comply/",
    "applicationCategory": "BusinessApplication",
    "operatingSystem": "Web, On-premises",
    "inLanguage": "tr",
-   "description": "ComplyDNA — Türk mevzuatına (MASAK, AML/CFT, KVKK) özel eğitilmiş uyum LLM'i. Her yanıt [TEBLİĞ / Madde] kaynak künyesiyle: tahmin değil, denetlenebilir yanıt.",
-   "publisher": {
-    "@id": "https://ozdna.com/#org"
-   },
-   "featureList": [
-    "Satır içi mevzuat referansı [TEBLİĞ / Madde]",
-    "MASAK, 5549, 6415, KVKK kapsamı",
-    "Kurum içi (on-prem) veya bulut dağıtım",
-    "Golden-set tabanlı sürekli değerlendirme"
-   ]
+   "description": "Compliance LLM for Turkish financial regulation (MASAK, AML/CFT, KVKK). Every answer carries inline statutory citations in the form [COMMUNIQUE / Article].",
+   "publisher": {"@id": "https://ozdna.com/#org"}
   },
   {
-   "@type": "FAQPage",
-   "mainEntity": [
-    {
-     "@type": "Question",
-     "name": "ComplyDNA nedir?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "ComplyDNA, Türk mevzuatı (MASAK tebliğleri, AML/CFT kanunları, KVKK) üzerine eğitilmiş bir uyum LLM'idir. Uyum sorularını, her cümlesinde [TEBLİĞ / Madde] biçiminde satır içi kaynak künyesi vererek yanıtlar — yanıtın dayandığı mevzuat parçası her zaman doğrulanabilir."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Hangi mevzuatı kapsıyor?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "5549 sayılı Suç Gelirlerinin Aklanmasının Önlenmesi Hakkında Kanun, 6415 sayılı Terörizmin Finansmanının Önlenmesi Hakkında Kanun, 6698 sayılı KVKK, MASAK tebliğ ve genelgeleri, Tedbirler Yönetmeliği ve kripto varlık hizmet sağlayıcılarına ilişkin düzenlemeler. Kapsam, mevzuat değişikliklerine göre sürümlenerek güncellenir."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Genel bir LLM'den (ChatGPT vb.) farkı nedir?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Genel modeller Türk mevzuatı sorularında kaynak gösteremez ve güncel tebliğ metnine dayanmaz. ComplyDNA yanıtı önce ilgili madde metnini geri getirerek kurar, her iddiayı kaynağa bağlar ve mevzuat diliyle yazar. Değerlendirme, uyum uzmanlarının yazdığı golden-set sorularla her sürümde ölçülür."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Verilerimiz model eğitiminde kullanılıyor mu?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Hayır. Müşteri sorguları ve belgeleri model eğitimine karışmaz. Enterprise planında model ve indeks tamamen kurum içi altyapınızda çalışır; veri kurum dışına çıkmaz."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Nasıl dağıtılıyor — bulut mu, kurum içi mi?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Her ikisi de: bulut API / web arayüzü ile hızlı başlangıç, ya da banka ve finansal kuruluşlar için tam kurum içi (on-prem) kurulum. Pilot programı genellikle bulutta başlar."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Yanıtlar hukuki tavsiye midir?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Hayır. ComplyDNA çıktıları bilgilendirme amaçlıdır ve hukuki tavsiye değildir; nihai kararlar uyum uzmanı doğrulaması gerektirir. Kaynak künyeleri tam da bu doğrulamayı hızlandırmak için var."
-     }
-    }
-   ]
+   "@type": "SoftwareApplication",
+   "name": "OriginDNA",
+   "url": "https://ozdna.com/products/origin/",
+   "applicationCategory": "BusinessApplication",
+   "operatingSystem": "Web",
+   "description": "Content provenance infrastructure: cryptographic signing at creation, an independently verifiable timestamp, and a perceptual fingerprint that survives metadata stripping. Built for EU AI Act Article 50 content marking.",
+   "publisher": {"@id": "https://ozdna.com/#org"}
   }
  ]
 }
 </script>
-<title>ComplyDNA — Uyum, modelin DNA'sında</title>
+<title>ozDNA — Verifiable by design · ComplyDNA & OriginDNA</title>
 <style>
   :root {
     --paper: #F2EFE6;
@@ -123,10 +66,6 @@
     --rule: rgba(25, 22, 17, 0.18);
     --rule-soft: rgba(25, 22, 17, 0.08);
     --card: rgba(25, 22, 17, 0.03);
-    --term-bg: #191611;
-    --term-ink: #EDE8D9;
-    --term-dim: #8A8474;
-    --term-accent: #FF6B3D;
     --mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
   }
   @media (prefers-color-scheme: dark) {
@@ -138,700 +77,208 @@
       --rule: rgba(237, 232, 217, 0.22);
       --rule-soft: rgba(237, 232, 217, 0.09);
       --card: rgba(237, 232, 217, 0.04);
-      --term-bg: #0C0B05;
-      --term-ink: #EDE8D9;
-      --term-dim: #7E7866;
-      --term-accent: #FF6B3D;
     }
   }
   :root[data-theme="light"] {
-    --paper: #F2EFE6;
-    --ink: #191611;
-    --accent: #E23D0E;
-    --muted: #6F6A5C;
-    --rule: rgba(25, 22, 17, 0.18);
-    --rule-soft: rgba(25, 22, 17, 0.08);
-    --card: rgba(25, 22, 17, 0.03);
-    --term-bg: #191611;
-    --term-ink: #EDE8D9;
-    --term-dim: #8A8474;
-    --term-accent: #FF6B3D;
+    --paper: #F2EFE6; --ink: #191611; --accent: #E23D0E; --muted: #6F6A5C;
+    --rule: rgba(25, 22, 17, 0.18); --rule-soft: rgba(25, 22, 17, 0.08); --card: rgba(25, 22, 17, 0.03);
   }
   :root[data-theme="dark"] {
-    --paper: #141208;
-    --ink: #EDE8D9;
-    --accent: #FF6B3D;
-    --muted: #938D7B;
-    --rule: rgba(237, 232, 217, 0.22);
-    --rule-soft: rgba(237, 232, 217, 0.09);
-    --card: rgba(237, 232, 217, 0.04);
-    --term-bg: #0C0B05;
-    --term-ink: #EDE8D9;
-    --term-dim: #7E7866;
-    --term-accent: #FF6B3D;
+    --paper: #141208; --ink: #EDE8D9; --accent: #FF6B3D; --muted: #938D7B;
+    --rule: rgba(237, 232, 217, 0.22); --rule-soft: rgba(237, 232, 217, 0.09); --card: rgba(237, 232, 217, 0.04);
   }
 
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   body {
-    margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--mono);
-    font-size: 15px;
-    line-height: 1.65;
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--mono); font-size: 15px; line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
   a { color: inherit; }
   ::selection { background: var(--accent); color: var(--paper); }
-
   .shell { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-
-  .label {
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
+  .label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
   .label b { color: var(--accent); font-weight: 400; }
 
-  /* ---------- top bar ---------- */
-  header {
-    position: sticky; top: 0; z-index: 10;
-    background: var(--paper);
-    border-bottom: 1px solid var(--rule);
-  }
-  .bar {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 16px; padding: 14px 0;
-  }
-  .wordmark {
-    display: flex; align-items: baseline; gap: 10px;
-    font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase;
-    text-decoration: none; white-space: nowrap;
-  }
+  header { position: sticky; top: 0; z-index: 10; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; }
+  .wordmark { display: flex; align-items: baseline; gap: 10px; font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; white-space: nowrap; }
   .wordmark .dot { color: var(--accent); }
   .wordmark small { font-size: 10px; letter-spacing: 0.14em; color: var(--muted); }
   nav { display: flex; gap: 22px; }
-  nav a {
-    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-    text-decoration: none; color: var(--muted);
-  }
-  nav a:hover, nav a:focus-visible { color: var(--accent); }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  nav a { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--muted); }
+  nav a:hover { color: var(--accent); }
+  @media (max-width: 720px) { nav { display: none; } }
 
-  /* ---------- hero ---------- */
-  .hero { border-bottom: 1px solid var(--rule); }
-  .hero-grid {
-    display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-    gap: 40px; align-items: stretch; padding: 72px 0 64px;
-  }
-  .hero h1 {
-    margin: 18px 0 0;
-    font-size: clamp(34px, 5.2vw, 62px);
-    line-height: 1.04;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-    text-wrap: balance;
-  }
+  .hero { border-bottom: 1px solid var(--rule); padding: 88px 0 72px; }
+  .hero h1 { font-size: clamp(34px, 6vw, 64px); line-height: 1.12; font-weight: 700; text-transform: uppercase; margin: 18px 0 22px; text-wrap: balance; }
   .hero h1 .acc { color: var(--accent); }
-  .hero p.lede {
-    margin: 26px 0 0; max-width: 56ch; color: var(--muted); font-size: 15px;
-  }
-  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
-  .btn {
-    display: inline-block; padding: 13px 22px;
-    font-family: var(--mono); font-size: 12px;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    text-decoration: none; border: 1px solid var(--ink);
-    background: var(--ink); color: var(--paper);
-    transition: background .15s, color .15s;
-  }
-  .btn:hover { background: var(--accent); border-color: var(--accent); color: #FFF6EC; }
+  .lede { max-width: 62ch; color: var(--muted); font-size: 16px; }
+
+  section { border-bottom: 1px solid var(--rule); padding: 64px 0; }
+  .sec-head { display: flex; gap: 14px; align-items: baseline; margin-bottom: 34px; }
+  .sec-no { color: var(--accent); font-size: 12px; letter-spacing: 0.14em; }
+  .sec-title { font-size: clamp(22px, 3.4vw, 34px); text-transform: uppercase; line-height: 1.15; font-weight: 700; margin: 0 0 28px; text-wrap: balance; }
+
+  .products { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 880px) { .products { grid-template-columns: 1fr; } }
+  .product { border: 1px solid var(--rule); background: var(--card); padding: 28px; display: flex; flex-direction: column; gap: 14px; }
+  .product h3 { margin: 0; font-size: 22px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .product h3 .dot { color: var(--accent); }
+  .product p { margin: 0; color: var(--muted); }
+  .product .meta { display: flex; flex-wrap: wrap; gap: 8px 18px; padding: 12px 0; border-top: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); }
+  .product .meta span { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .product .meta b { color: var(--accent); font-weight: 400; }
+  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: auto; padding-top: 10px; }
+  .btn { display: inline-block; padding: 12px 22px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+  .btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
   .btn.ghost { background: transparent; color: var(--ink); }
   .btn.ghost:hover { background: transparent; color: var(--accent); border-color: var(--accent); }
 
-  .helix-frame {
-    border: 1px solid var(--rule);
-    background: var(--card);
-    position: relative;
-    min-height: 320px;
-    display: flex; flex-direction: column;
-  }
-  .helix-frame .frame-head {
-    display: flex; justify-content: space-between; gap: 8px;
-    padding: 10px 14px; border-bottom: 1px solid var(--rule-soft);
-  }
-  .helix-frame canvas { display: block; width: 100%; flex: 1; }
-  .frame-foot {
-    display: flex; justify-content: space-between; gap: 8px;
-    padding: 10px 14px; border-top: 1px solid var(--rule-soft);
-  }
+  .principle { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 880px) { .principle { grid-template-columns: 1fr; } }
+  .cell { border-top: 2px solid var(--ink); padding-top: 16px; }
+  .cell h4 { margin: 8px 0 10px; font-size: 15px; text-transform: uppercase; }
+  .cell p { margin: 0; color: var(--muted); font-size: 14px; }
 
-  /* ---------- ticker strip ---------- */
-  .strip {
-    border-bottom: 1px solid var(--rule);
-    overflow: hidden; white-space: nowrap;
-  }
-  .strip-inner {
-    display: inline-block; padding: 12px 0;
-    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
-    animation: marquee 36s linear infinite;
-  }
-  .strip-inner span { margin-right: 3.2em; }
-  .strip-inner .sep { color: var(--accent); }
-  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  @media (prefers-reduced-motion: reduce) { .strip-inner { animation: none; } }
+  .contact { text-align: left; max-width: 720px; }
+  .contact h2 { font-size: clamp(22px, 3.4vw, 34px); text-transform: uppercase; line-height: 1.15; margin: 14px 0 16px; }
+  .contact p { color: var(--muted); }
 
-  /* ---------- sections ---------- */
-  section { border-bottom: 1px solid var(--rule); }
-  .sec-head {
-    display: flex; align-items: baseline; gap: 18px;
-    padding: 26px 0 0;
-  }
-  .sec-no { color: var(--accent); font-size: 11px; letter-spacing: 0.14em; }
-  .sec-title {
-    margin: 14px 0 0; font-size: clamp(22px, 3vw, 32px);
-    line-height: 1.15; font-weight: 700; text-transform: uppercase; letter-spacing: 0;
-    text-wrap: balance;
-  }
-  .sec-body { padding: 8px 0 56px; }
-
-  .cols3 {
-    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1px; background: var(--rule-soft);
-    border: 1px solid var(--rule); margin-top: 34px;
-  }
-  .cell { background: var(--paper); padding: 24px 22px 28px; }
-  .cell h3 {
-    margin: 14px 0 10px; font-size: 15px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.04em;
-  }
-  .cell p { margin: 0; color: var(--muted); font-size: 13.5px; }
-  .cell code {
-    font-family: var(--mono); font-size: 12px;
-    color: var(--accent); background: transparent;
-  }
-
-  /* ---------- pipeline ---------- */
-  .pipe {
-    display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
-    gap: 10px; align-items: stretch; margin-top: 38px;
-  }
-  .node {
-    border: 1px dashed var(--rule); padding: 18px 16px;
-    background: var(--card); display: flex; flex-direction: column; gap: 8px;
-  }
-  .node .n-label { font-size: 10px; letter-spacing: 0.14em; color: var(--accent); text-transform: uppercase; }
-  .node .n-name { font-size: 13px; font-weight: 700; text-transform: uppercase; }
-  .node p { margin: 0; font-size: 12px; color: var(--muted); line-height: 1.55; }
-  .arrow {
-    align-self: center; color: var(--accent);
-    font-size: 16px; padding: 0 2px; user-select: none;
-  }
-
-  /* ---------- terminal sample ---------- */
-  .term {
-    margin-top: 38px; border: 1px solid var(--rule);
-    background: var(--term-bg); color: var(--term-ink);
-    font-size: 13px; line-height: 1.7;
-  }
-  .term-head {
-    display: flex; justify-content: space-between; gap: 8px;
-    padding: 10px 16px; border-bottom: 1px solid rgba(237, 232, 217, 0.12);
-    color: var(--term-dim); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
-  }
-  .term-body { padding: 20px 16px 24px; overflow-x: auto; }
-  .term-body .q { color: var(--term-accent); }
-  .term-body .dim { color: var(--term-dim); }
-  .term-body .cite { color: var(--term-accent); }
-  .term-body p { margin: 0 0 14px; max-width: 74ch; }
-  .term-body p:last-child { margin-bottom: 0; }
-
-  /* ---------- method rows ---------- */
-  .rows { margin-top: 34px; border-top: 1px solid var(--rule); }
-  .row {
-    display: grid; grid-template-columns: 140px minmax(0, 1fr);
-    gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--rule-soft);
-  }
-  .row .k { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); padding-top: 3px; }
-  .row .v { color: var(--muted); font-size: 13.5px; max-width: 68ch; }
-  .row .v strong { color: var(--ink); font-weight: 700; }
-
-  /* ---------- pricing ---------- */
-  .plan-head { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
-  .plan-name { font-size: 16px; font-weight: 700; text-transform: uppercase; }
-  .plan-for { font-size: 12px; color: var(--muted); }
-  .plan-list { list-style: none; margin: 0 0 18px; padding: 0; }
-  .plan-list li {
-    padding: 7px 0 7px 18px; position: relative;
-    font-size: 12.5px; color: var(--muted);
-    border-bottom: 1px solid var(--rule-soft);
-  }
-  .plan-list li::before { content: "+"; position: absolute; left: 0; color: var(--accent); }
-  .plan-price { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
-  .cell .btn { padding: 10px 16px; font-size: 11px; }
-  .plan-note { margin-top: 16px; font-size: 12px; color: var(--muted); max-width: 72ch; }
-
-  /* ---------- faq ---------- */
-  .faq { margin-top: 34px; border-top: 1px solid var(--rule); }
-  .faq details { border-bottom: 1px solid var(--rule-soft); }
-  .faq summary {
-    cursor: pointer; padding: 18px 0; list-style: none;
-    display: flex; justify-content: space-between; gap: 16px; align-items: baseline;
-    font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em;
-  }
-  .faq summary::-webkit-details-marker { display: none; }
-  .faq summary::after { content: "+"; color: var(--accent); flex-shrink: 0; }
-  .faq details[open] summary::after { content: "−"; }
-  .faq summary:hover { color: var(--accent); }
-  .faq .a { margin: 0; padding: 0 0 20px; color: var(--muted); font-size: 13.5px; max-width: 70ch; }
-
-  /* ---------- contact ---------- */
-  .contact { padding: 72px 0 84px; }
-  .contact h2 {
-    margin: 16px 0 0; font-size: clamp(26px, 4vw, 44px);
-    text-transform: uppercase; line-height: 1.1; font-weight: 700; text-wrap: balance;
-  }
-  .contact p { color: var(--muted); max-width: 52ch; }
-
-  footer { padding: 32px 0 44px; border-top: 1px solid var(--rule); }
-  .footer-legal { max-width: 72ch; margin-bottom: 28px; }
-  .footer-legal__product {
-    margin: 0 0 20px; font-size: 12px; line-height: 1.55; color: var(--muted);
-  }
-  .footer-legal__notice {
-    padding: 16px 18px; border: 1px solid var(--rule-soft);
-    background: var(--card); font-size: 11.5px; line-height: 1.65; color: var(--muted);
-  }
-  .footer-legal__label {
-    margin: 0 0 10px; font-size: 10px; font-weight: 700;
-    letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink);
-  }
-  .footer-legal__notice p { margin: 0 0 10px; }
-  .footer-legal__notice p:last-child { margin-bottom: 0; }
-  .footer-links {
-    margin: 14px 0 0; font-size: 11px; color: var(--muted);
-  }
-  .footer-links a { color: var(--muted); text-decoration: none; }
-  .footer-links a:hover { color: var(--accent); }
-  .foot {
-    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px;
-    font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
-  }
-  .foot a { text-decoration: none; }
-  .foot a:hover { color: var(--accent); }
-
-  @media (max-width: 900px) {
-    .hero-grid { grid-template-columns: 1fr; padding: 48px 0; }
-    .cols3 { grid-template-columns: 1fr; }
-    .pipe { grid-template-columns: 1fr; }
-    .arrow { transform: rotate(90deg); padding: 2px 0; justify-self: start; }
-    nav { display: none; }
-  }
+  .site-footer { padding: 40px 0 48px; }
+  .foot { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); border-top: 1px solid var(--rule-soft); padding-top: 18px; }
+  .footer-links { font-size: 12px; color: var(--muted); margin-top: 10px; }
 </style>
 </head>
 <body>
 <header>
   <div class="shell bar">
-    <a class="wordmark" href="#">
-      COMPLY<span class="dot">DNA</span> <small>BY OZDNA</small>
+    <a class="wordmark" href="/">
+      OZ<span class="dot">DNA</span> <small>FINDBELOW VENTURES</small>
     </a>
     <nav>
-      <a href="#urun">Ürün</a>
-      <a href="#yontem">Yöntem</a>
-      <a href="#ornek">Örnek</a>
-      <a href="#fiyat">Fiyatlandırma</a>
-      <a href="#sss">SSS</a>
-      <a href="#iletisim">İletişim</a>
+      <a href="#products">Products</a>
+      <a href="/products/comply/">ComplyDNA</a>
+      <a href="/products/origin/">OriginDNA</a>
+      <a href="#principle">Principle</a>
+      <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
 
 <div class="hero">
-  <div class="shell hero-grid">
-    <div>
-      <div class="label"><b>OZDNA.COM</b> — TÜRK MEVZUATINA ÖZEL UYUM LLM'İ</div>
-      <h1>Uyum, modelin <span class="acc">DNA'sında.</span></h1>
-      <p class="lede">
-        ComplyDNA, Türk mevzuatı üzerine eğitilmiş uyum LLM'idir. MASAK tebliğleri,
-        AML/CFT kanunları ve KVKK'yı kaynak zinciriyle bilir; her cümlesini
-        [TEBLİĞ / Madde] biçiminde satır içi referansla verir. Tahmin değil, denetlenebilir yanıt.
-      </p>
-      <div class="cta-row">
-        <a class="btn" href="mailto:hello@ozdna.com?subject=ComplyDNA%20demo%20talebi">Demo talep et</a>
-        <a class="btn ghost" href="#yontem">Teknik yaklaşım ↓</a>
-      </div>
-    </div>
-    <div class="helix-frame" aria-hidden="true">
-      <div class="frame-head">
-        <span class="label">FIG. 01 — REGULATORY GENOME</span>
-        <span class="label"><b>●</b> LIVE</span>
-      </div>
-      <canvas id="helix"></canvas>
-      <div class="frame-foot">
-        <span class="label">5549 · 6415 · KVKK · MASAK</span>
-        <span class="label">SEQ / TR-MEVZUAT</span>
-      </div>
-    </div>
+  <div class="shell">
+    <div class="label"><b>OZDNA.COM</b> — VERIFIABILITY INFRASTRUCTURE</div>
+    <h1>Claims you can check.<br>It's in the <span class="acc">DNA.</span></h1>
+    <p class="lede">
+      ozDNA builds software for one problem: trusting what AI produces.
+      ComplyDNA answers Turkish compliance questions with article-level statutory
+      citations. OriginDNA gives images a provable origin for the EU AI Act's
+      content-marking rules. Different markets — same principle: every output
+      carries the evidence to verify it.
+    </p>
   </div>
 </div>
 
-<div class="strip" aria-hidden="true">
-  <div class="strip-inner" id="ticker">
-    <span>MASAK Tebliğleri</span><span class="sep">///</span>
-    <span>5549 — Suç Gelirlerinin Aklanmasının Önlenmesi</span><span class="sep">///</span>
-    <span>6415 — Terörizmin Finansmanı</span><span class="sep">///</span>
-    <span>KVKK — 6698</span><span class="sep">///</span>
-    <span>Travel Rule</span><span class="sep">///</span>
-    <span>ROM Yönetmeliği</span><span class="sep">///</span>
-    <span>MASAK Tebliğleri</span><span class="sep">///</span>
-    <span>5549 — Suç Gelirlerinin Aklanmasının Önlenmesi</span><span class="sep">///</span>
-    <span>6415 — Terörizmin Finansmanı</span><span class="sep">///</span>
-    <span>KVKK — 6698</span><span class="sep">///</span>
-    <span>Travel Rule</span><span class="sep">///</span>
-    <span>ROM Yönetmeliği</span><span class="sep">///</span>
-  </div>
-</div>
-
-<section id="urun">
+<section id="products">
   <div class="shell">
-    <div class="sec-head"><span class="sec-no">[01]</span><span class="label">NE YAPAR</span></div>
-    <div class="sec-body">
-      <h2 class="sec-title">Genel LLM tahmin eder.<br>ComplyDNA kaynak gösterir.</h2>
-      <div class="cols3">
-        <div class="cell">
-          <div class="label"><b>A</b> / CITE-FIRST</div>
-          <h3>Satır içi referans</h3>
-          <p>Her iddia <code>[TEBLİĞ / Madde]</code> künyesiyle gelir. Yanıtın hangi
-          mevzuat parçasına dayandığı cümle düzeyinde izlenebilir — uyum ekibi
-          kaynağı tek tıkla doğrular.</p>
+    <div class="sec-head"><span class="sec-no">[01]</span><span class="label">PRODUCTS</span></div>
+    <div class="products">
+      <div class="product">
+        <div class="label"><b>P1</b> / REGTECH — TÜRKÇE</div>
+        <h3>COMPLY<span class="dot">DNA</span></h3>
+        <p>Compliance LLM for Turkish financial regulation. MASAK communiqués,
+        AML/CFT laws 5549 &amp; 6415, KVKK — every sentence answered with an inline
+        <code>[TEBLİĞ / Madde]</code> citation. Auditable answers, not guesses.
+        Cloud API or fully on-premises.</p>
+        <div class="meta">
+          <span><b>STATUS</b> Early access</span>
+          <span><b>MARKET</b> TR compliance teams</span>
+          <span><b>LANG</b> Türkçe</span>
         </div>
-        <div class="cell">
-          <div class="label"><b>B</b> / TR-NATIVE</div>
-          <h3>Türk mevzuatı yerlisi</h3>
-          <p>MASAK tebliğ ve genelgeleri, 5549, 6415, KVKK, ROM Yönetmeliği ve
-          kripto varlık düzenlemeleri modelin eğitim setinde — çeviri katmanı yok,
-          mevzuat dili doğrudan.</p>
+        <div class="cta-row">
+          <a class="btn" href="/products/comply/">ComplyDNA →</a>
+          <a class="btn ghost" href="mailto:hello@ozdna.com?subject=ComplyDNA%20demo">Request demo</a>
         </div>
-        <div class="cell">
-          <div class="label"><b>C</b> / AUDIT-READY</div>
-          <h3>Denetime hazır</h3>
-          <p>Yanıt + kaynak listesi + sürüm bilgisi birlikte üretilir. Yürürlük
-          tarihi metadata'sı sayesinde "hangi tarihte hangi hüküm" sorusu da
-          yanıtlanabilir.</p>
+      </div>
+      <div class="product">
+        <div class="label"><b>P2</b> / PROVENANCE — GLOBAL</div>
+        <h3>ORIGIN<span class="dot">DNA</span></h3>
+        <p>Content provenance infrastructure. Every image gets a DNA: a
+        cryptographic signature at creation, a timestamp no one can backdate,
+        and a perceptual fingerprint that survives when platforms strip metadata.
+        Built for EU AI Act Article 50 content marking — compliance as a simple API.</p>
+        <div class="meta">
+          <span><b>STATUS</b> Waitlist open</span>
+          <span><b>MARKET</b> GenAI apps · sellers · newsrooms</span>
+          <span><b>CLOCK</b> EU deadline Dec 2, 2026</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn" href="/products/origin/">OriginDNA →</a>
+          <a class="btn ghost" href="/products/origin/#waitlist">Join waitlist</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="yontem">
+<section id="principle">
   <div class="shell">
-    <div class="sec-head"><span class="sec-no">[02]</span><span class="label">YÖNTEM — PIPELINE</span></div>
-    <div class="sec-body">
-      <h2 class="sec-title">Mevzuattan modele dört adım</h2>
-      <div class="pipe">
-        <div class="node">
-          <span class="n-label">SEQ 01</span>
-          <span class="n-name">Mevzuat korpusu</span>
-          <p>Tebliğ, kanun ve yönetmelikler madde düzeyinde parçalanır; yürürlük
-          ve statü metadata'sıyla etiketlenir.</p>
-        </div>
-        <span class="arrow">→</span>
-        <div class="node">
-          <span class="n-label">SEQ 02</span>
-          <span class="n-name">Vektör indeks</span>
-          <p>Madde parçaları anlamsal indekse yazılır; Türkçe/İngilizce çift
-          sorgu ile geri getirme.</p>
-        </div>
-        <span class="arrow">→</span>
-        <div class="node">
-          <span class="n-label">SEQ 03</span>
-          <span class="n-name">İnce ayar</span>
-          <p>Model, referans biçimini ve mevzuat dilini LoRA ince ayarıyla öğrenir —
-          eğitim/val ayrımı madde düzeyinde, veri sızıntısız.</p>
-        </div>
-        <span class="arrow">→</span>
-        <div class="node">
-          <span class="n-label">SEQ 04</span>
-          <span class="n-name">Referanslı yanıt</span>
-          <p>Geri getirilen maddeler + ince ayarlı model = kaynak künyeli,
-          denetlenebilir yanıt.</p>
-        </div>
+    <div class="sec-head"><span class="sec-no">[02]</span><span class="label">ONE PRINCIPLE</span></div>
+    <h2 class="sec-title">Trust is not a claim.<br>It's a chain you can follow.</h2>
+    <div class="principle">
+      <div class="cell">
+        <div class="label"><b>A</b> / CITE</div>
+        <h4>Answers cite sources</h4>
+        <p>ComplyDNA never asserts without a statutory reference. The regulation
+        article behind every sentence is one click away.</p>
       </div>
-
-      <div class="rows">
-        <div class="row">
-          <span class="k">Değerlendirme</span>
-          <span class="v"><strong>Golden set:</strong> uyum uzmanlarının yazdığı gerçek sorularla
-          sürekli ölçüm — geri getirme isabeti ve kaynak doğruluğu her sürümde raporlanır,
-          metrik geçmişi versiyonlanır.</span>
-        </div>
-        <div class="row">
-          <span class="k">Veri hijyeni</span>
-          <span class="v"><strong>Madde düzeyinde ayrım:</strong> aynı mevzuat metni eğitim ve
-          doğrulama setinde aynı anda bulunamaz. Ölçtüğümüz şey ezber değil, genelleme.</span>
-        </div>
-        <div class="row">
-          <span class="k">Dağıtım</span>
-          <span class="v"><strong>Kurum içi veya bulut:</strong> model ve indeks sizin
-          altyapınızda çalışabilir — müşteri verisi eğitime karışmaz.</span>
-        </div>
+      <div class="cell">
+        <div class="label"><b>B</b> / SIGN</div>
+        <h4>Content proves origin</h4>
+        <p>OriginDNA signs content at creation and records a fingerprint, so
+        origin survives screenshots, re-uploads and stripped metadata.</p>
+      </div>
+      <div class="cell">
+        <div class="label"><b>C</b> / VERIFY</div>
+        <h4>Anyone can check</h4>
+        <p>Verification is public and independent — no account, no trust-us
+        button. If it can't be checked, we don't ship it.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="ornek">
-  <div class="shell">
-    <div class="sec-head"><span class="sec-no">[03]</span><span class="label">ÖRNEK ÇIKTI</span></div>
-    <div class="sec-body">
-      <h2 class="sec-title">Yanıtın anatomisi</h2>
-      <div class="term">
-        <div class="term-head">
-          <span>complydna / oturum</span>
-          <span>kaynak modu: açık</span>
-        </div>
-        <div class="term-body">
-          <p><span class="q">&gt; soru:</span> Şüpheli işlem bildirimi hangi sürede yapılmalı?</p>
-          <p>Şüpheli işlemler, işleme ilişkin şüphenin oluştuğu tarihten itibaren
-          <strong>en geç on iş günü</strong> içinde, gecikmesinde sakınca bulunan
-          hâllerde ise <strong>derhâl</strong> MASAK Başkanlığına bildirilir
-          <span class="cite">[TEDBİRLER-YÖN. / Madde 28]</span>. Bildirim yükümlülüğü,
-          yükümlünün 5549 sayılı Kanun kapsamındaki statüsünden doğar
-          <span class="cite">[LAW-5549 / Madde 4]</span>.</p>
-          <p class="dim">--- KAYNAKLAR ---<br>
-          [1] TEDBİRLER-YÖNETMELİĞİ / Madde 28 · yürürlük: aktif<br>
-          [2] LAW-5549 / Madde 4 · yürürlük: aktif</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="fiyat">
-  <div class="shell">
-    <div class="sec-head"><span class="sec-no">[04]</span><span class="label">FİYATLANDIRMA</span></div>
-    <div class="sec-body">
-      <h2 class="sec-title">Kurumunuzun ölçeğine göre</h2>
-      <div class="cols3">
-        <div class="cell">
-          <div class="plan-head">
-            <div class="label"><b>P1</b> / PILOT</div>
-            <span class="plan-name">Pilot</span>
-            <span class="plan-for">Ürünü kendi mevzuat kapsamınızda test etmek isteyen ekipler için</span>
-          </div>
-          <ul class="plan-list">
-            <li>Tek ekip, sınırlı sorgu kotası</li>
-            <li>Kurumunuza özel golden-set değerlendirmesi</li>
-            <li>4 haftalık yapılandırılmış POC</li>
-            <li>Haftalık değerlendirme raporu</li>
-          </ul>
-          <div class="plan-price">Sabit POC bedeli — teklifle</div>
-          <a class="btn ghost" href="mailto:hello@ozdna.com?subject=ComplyDNA%20Pilot">Pilot başlat</a>
-        </div>
-        <div class="cell">
-          <div class="plan-head">
-            <div class="label"><b>P2</b> / TEAM</div>
-            <span class="plan-name">Team</span>
-            <span class="plan-for">Uyum ekibinin günlük iş akışına almak isteyen kurumlar için</span>
-          </div>
-          <ul class="plan-list">
-            <li>Koltuk bazlı erişim + aylık sorgu kotası</li>
-            <li>Bulut API veya web arayüzü</li>
-            <li>Mevzuat korpusu güncelleme aboneliği dahil</li>
-            <li>Öncelikli destek</li>
-          </ul>
-          <div class="plan-price">Yıllık abonelik — erken erişimde belirlenir</div>
-          <a class="btn ghost" href="mailto:hello@ozdna.com?subject=ComplyDNA%20Team">Teklif iste</a>
-        </div>
-        <div class="cell">
-          <div class="plan-head">
-            <div class="label"><b>P3</b> / ENTERPRISE</div>
-            <span class="plan-name">Enterprise / On-prem</span>
-            <span class="plan-for">Verisi kurum dışına çıkamayan banka ve finansal kuruluşlar için</span>
-          </div>
-          <ul class="plan-list">
-            <li>Kurum içi (on-prem) dağıtım — model ve indeks sizde</li>
-            <li>Sınırsız kullanıcı, kurum SSO entegrasyonu</li>
-            <li>Yıllık lisans + bakım ve mevzuat güncellemeleri</li>
-            <li>Özel entegrasyon (API, iç sistemler)</li>
-          </ul>
-          <div class="plan-price">Yıllık lisans — iletişime geçin</div>
-          <a class="btn ghost" href="mailto:hello@ozdna.com?subject=ComplyDNA%20Enterprise">İletişime geç</a>
-        </div>
-      </div>
-      <p class="plan-note">Erken erişim dönemindeyiz: fiyatlandırma, pilot programı kapsamında kurumunuzun
-      mevzuat kapsamı ve kullanım hacmine göre birlikte belirlenir.</p>
-    </div>
-  </div>
-</section>
-
-<section id="sss">
-  <div class="shell">
-    <div class="sec-head"><span class="sec-no">[05]</span><span class="label">SIK SORULAN SORULAR</span></div>
-    <div class="sec-body">
-      <h2 class="sec-title">SSS</h2>
-      <div class="faq">
-        <details>
-          <summary>ComplyDNA nedir?</summary>
-          <p class="a">ComplyDNA, Türk mevzuatı (MASAK tebliğleri, AML/CFT kanunları, KVKK) üzerine
-          eğitilmiş bir uyum LLM'idir. Uyum sorularını, her cümlesinde [TEBLİĞ / Madde] biçiminde
-          satır içi kaynak künyesi vererek yanıtlar — yanıtın dayandığı mevzuat parçası her zaman
-          doğrulanabilir.</p>
-        </details>
-        <details>
-          <summary>Hangi mevzuatı kapsıyor?</summary>
-          <p class="a">5549 sayılı Suç Gelirlerinin Aklanmasının Önlenmesi Hakkında Kanun, 6415 sayılı
-          Terörizmin Finansmanının Önlenmesi Hakkında Kanun, 6698 sayılı KVKK, MASAK tebliğ ve
-          genelgeleri, Tedbirler Yönetmeliği ve kripto varlık hizmet sağlayıcılarına ilişkin
-          düzenlemeler. Kapsam, mevzuat değişikliklerine göre sürümlenerek güncellenir.</p>
-        </details>
-        <details>
-          <summary>Genel bir LLM'den (ChatGPT vb.) farkı nedir?</summary>
-          <p class="a">Genel modeller Türk mevzuatı sorularında kaynak gösteremez ve güncel tebliğ
-          metnine dayanmaz. ComplyDNA yanıtı önce ilgili madde metnini geri getirerek kurar, her
-          iddiayı kaynağa bağlar ve mevzuat diliyle yazar. Değerlendirme, uyum uzmanlarının yazdığı
-          golden-set sorularla her sürümde ölçülür.</p>
-        </details>
-        <details>
-          <summary>Verilerimiz model eğitiminde kullanılıyor mu?</summary>
-          <p class="a">Hayır. Müşteri sorguları ve belgeleri model eğitimine karışmaz. Enterprise
-          planında model ve indeks tamamen kurum içi altyapınızda çalışır; veri kurum dışına çıkmaz.</p>
-        </details>
-        <details>
-          <summary>Nasıl dağıtılıyor — bulut mu, kurum içi mi?</summary>
-          <p class="a">Her ikisi de: bulut API / web arayüzü ile hızlı başlangıç, ya da banka ve finansal
-          kuruluşlar için tam kurum içi (on-prem) kurulum. Pilot programı genellikle bulutta başlar.</p>
-        </details>
-        <details>
-          <summary>Yanıtlar hukuki tavsiye midir?</summary>
-          <p class="a">Hayır. ComplyDNA çıktıları bilgilendirme amaçlıdır ve hukuki tavsiye değildir;
-          nihai kararlar uyum uzmanı doğrulaması gerektirir. Kaynak künyeleri tam da bu doğrulamayı
-          hızlandırmak için var.</p>
-        </details>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="iletisim">
+<section id="contact">
   <div class="shell contact">
-    <div class="label"><b>[06]</b> — İLETİŞİM</div>
-    <h2>Uyum ekibinize bir LLM değil,<br>bir kaynak zinciri verin.</h2>
-    <p>Erken erişim programı açık. Kurumunuzun mevzuat kapsamına göre
-    özel demo hazırlıyoruz — bir e-posta yeterli.</p>
+    <div class="label"><b>[03]</b> — CONTACT</div>
+    <h2>Talk to us.</h2>
+    <p>ComplyDNA pilots, OriginDNA early access, press, partnerships —
+    one address, a human reads it.</p>
     <div class="cta-row">
-      <a class="btn" href="mailto:hello@ozdna.com?subject=ComplyDNA%20erken%20eri%C5%9Fim">Erken erişim iste</a>
+      <a class="btn" href="mailto:hello@ozdna.com">hello@ozdna.com</a>
     </div>
   </div>
 </section>
 
 <footer class="site-footer">
   <div class="shell">
-    <div class="footer-legal">
-      <p class="footer-legal__product" lang="en">
-        ComplyDNA is a compliance LLM for Turkish financial regulation (MASAK, AML/CFT, KVKK),
-        delivering responses with inline statutory citations. A product of the ozDNA platform,
-        operated by Findbelow Ventures.
-      </p>
-      <div class="footer-legal__notice" role="note" aria-label="Yasal uyarı">
-        <p class="footer-legal__label">Yasal uyarı</p>
-        <p>ComplyDNA çıktıları yalnızca genel bilgilendirme amacıyla sunulur; avukatlık, mali
-        müşavirlik veya düzenleyici danışmanlık niteliği taşımaz ve sizinle Findbelow Ventures
-        arasında avukat–müvekkil ilişkisi doğurmaz.</p>
-        <p>Uyum, risk ve yasal kararlar yalnızca yetkili uyum görevlisi, hukuk birimi veya
-        dış danışmanınızın profesyonel değerlendirmesiyle alınmalıdır. Mevzuat zaman içinde
-        değişebilir; içeriklerin güncelliği, eksiksizliği veya belirli bir işlem veya kuruma
-        uygunluğu garanti edilmez.</p>
-        <p>Satır içi kaynak künyeleri ([TEBLİĞ / Madde]) doğrulama sürecini desteklemek içindir;
-        tek başına yeterli düzenleyici temsil veya denetim kanıtı sayılmaz.</p>
-      </div>
-    </div>
     <div class="foot">
-      <span>ComplyDNA · <a href="https://ozdna.com">ozDNA</a> · Findbelow Ventures</span>
-      <span>© 2026 Findbelow Ventures · Tüm hakları saklıdır</span>
+      <span>ozDNA · ComplyDNA · OriginDNA — Findbelow Ventures</span>
+      <span>© 2026 Findbelow Ventures · All rights reserved</span>
     </div>
     <p class="footer-links">
       <a href="mailto:hello@ozdna.com">hello@ozdna.com</a>
-      · <a href="/privacy/">Gizlilik</a>
-      · <a href="/terms/">Kullanım şartları</a>
+      · <a href="/products/comply/">ComplyDNA</a>
+      · <a href="/products/origin/">OriginDNA</a>
+      · <a href="/privacy/">Privacy</a>
+      · <a href="/terms/">Terms</a>
     </p>
   </div>
 </footer>
 
-<script>
-(function () {
-  const canvas = document.getElementById("helix");
-  const ctx = canvas.getContext("2d");
-  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  function themeColors() {
-    const s = getComputedStyle(document.documentElement);
-    return {
-      ink: s.getPropertyValue("--ink").trim(),
-      accent: s.getPropertyValue("--accent").trim(),
-      muted: s.getPropertyValue("--muted").trim(),
-    };
-  }
-
-  let w, h, dpr;
-  function resize() {
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const r = canvas.getBoundingClientRect();
-    w = r.width; h = r.height;
-    canvas.width = w * dpr; canvas.height = h * dpr;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  }
-  resize();
-  addEventListener("resize", () => { resize(); if (reduced) draw(4); });
-
-  function draw(t) {
-    const { ink, accent, muted } = themeColors();
-    ctx.clearRect(0, 0, w, h);
-    const cx = w / 2;
-    const amp = Math.min(w * 0.26, 110);
-    const step = 9;
-    const twist = 0.045;
-    for (let y = 8; y < h - 8; y += step) {
-      const ph = y * twist + t;
-      const x1 = cx + Math.sin(ph) * amp;
-      const x2 = cx + Math.sin(ph + Math.PI) * amp;
-      const z1 = Math.cos(ph);            // -1 arkada, +1 önde
-      const z2 = Math.cos(ph + Math.PI);
-      // basamak (rung): her 3 adımda bir
-      if (Math.round(y / step) % 3 === 0) {
-        ctx.strokeStyle = muted; ctx.globalAlpha = 0.28;
-        ctx.beginPath(); ctx.moveTo(x1, y); ctx.lineTo(x2, y); ctx.stroke();
-        ctx.globalAlpha = 1;
-      }
-      // iplikler: nokta matrisi
-      for (const [x, z, hot] of [[x1, z1, true], [x2, z2, false]]) {
-        const r = 1.2 + (z + 1) * 1.1;
-        ctx.globalAlpha = 0.35 + (z + 1) * 0.32;
-        ctx.fillStyle = hot && z > 0.4 ? accent : ink;
-        ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill();
-      }
-      ctx.globalAlpha = 1;
-    }
-  }
-
-  if (reduced) {
-    draw(4);
-    new MutationObserver(() => draw(4)).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
-  } else {
-    let t = 0;
-    (function loop() {
-      t += 0.016;
-      draw(t);
-      requestAnimationFrame(loop);
-    })();
-  }
-})();
-</script>
-
+<script defer src="/analytics.js"></script>
 </body>
 </html>

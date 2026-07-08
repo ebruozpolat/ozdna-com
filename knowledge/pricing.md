@@ -1,34 +1,28 @@
 ---
-title: Fiyatlandırma
-tags: [pricing, plans, b2b]
+title: Pricing
+tags: [pricing, plans]
 related: [contact.md]
 ---
 
-# Fiyatlandırma
+# Pricing
 
-Kullanım bazlı, şeffaf planlar. USD.
+## ComplyDNA — early access
 
-## Starter — $49/ay
+Pricing is set per institution during the pilot program (regulatory scope + usage volume).
 
-- 5.000 API çağrısı / ay
-- Detect API endpoint
-- Standart yanıt SLA
-- E-posta desteği
+- **Pilot** — fixed-fee 4-week POC with an institution-specific golden-set evaluation
+- **Team** — annual subscription, seat-based + monthly query quota, cloud API or web UI
+- **Enterprise / On-prem** — annual license; model and index run inside your infrastructure
 
-## Growth — $249/ay
+Contact: hello@ozdna.com (subject: ComplyDNA)
 
-- 50.000 API çağrısı / ay
-- Dikey mod seçimi
-- Asenkron batch işleme
-- Webhook callback'leri
-- Öncelikli destek
+## OriginDNA — pre-launch (waitlist)
 
-## Enterprise — Özel
+Planned launch pricing (October 2026 MVP, subject to change until launch):
 
-- Sınırsız hacim
-- Özel dikey modeller
-- On-premise veya private cloud
-- White-label API
-- Özel SLA & CSM
+- **Compliance API** for GenAI apps — self-serve, from **$49/mo**
+- **Seller / creator badge** — from **$5/mo**
+- **Newsrooms & fact-checkers** — free, forever
+- Legal / enterprise evidence capture — later, priced separately
 
-→ [contact.md](./contact.md)
+Waitlist: https://ozdna.com/products/origin/#waitlist

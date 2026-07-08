@@ -1,31 +1,22 @@
 ---
-title: İletişim & Erişim
+title: Contact & Access
 tags: [contact, waitlist, sales]
 related: [pricing.md]
 ---
 
-# İletişim
+# Contact
 
-## API erişimi
+## ComplyDNA
 
-Production API **davet usulü** özel beta. Öncelikli segmentler:
+Early-access pilot program is open for Turkish compliance teams (banks, financial
+institutions, VASPs). Email hello@ozdna.com with subject "ComplyDNA".
 
-- Fintech / Finans
-- Hukuk
-- Üniversite / Kurum
-- EdTech / Akademik
+## OriginDNA
 
-## Bekleme listesi
+Pre-launch. Segmented waitlist (GenAI apps / sellers & creators / newsrooms &
+fact-checkers / legal & enterprise): https://ozdna.com/products/origin/#waitlist
 
-https://ozdna.com/#bekleme-listesi
+## Company
 
-Form alanları: e-posta, şirket/kurum, kullanım alanı.
-
-## Satış
-
-- E-posta: hello@ozdna.com
-- Enterprise: özel altyapı, white-label, on-premise
-
-## Şirket
-
-Findbelow Ventures · © 2026
+- Email: hello@ozdna.com
+- Findbelow Ventures · © 2026

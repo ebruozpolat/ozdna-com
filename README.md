@@ -41,9 +41,9 @@ These are the hard rules from `CLAUDE.md` in plain terms. They are not up for de
 6. **Cloudflare-first, ~$0–20/mo budget.** Vercel Hobby bans commercial use (hard rule 7). Deploy rarely — builds and deploys cost money or quota; batch work locally, review, deploy once per batch.
 7. **Never deploy, spend, or post publicly without founder sign-off.** No exceptions.
 
-## Current blocker — do not deploy OriginDNA to ozdna.com yet
+## Deploy state — ozdna.com
 
-Nothing ships to ozdna.com for OriginDNA until `docs/ACTION_PLAN.md` item **0.9** is logged DONE. Status (Jul 7, 2026): the domain has been reclaimed from the partner's account and attached to the founder's hosting (see `docs/DOMAIN.md` for the current canonical host and DNS); repurposing the ozdna.com content toward the OriginDNA waitlist is still TODO, and the partner's AI-text humanizer must never appear under the ozDNA brand. Until 0.9 is DONE, deploy OriginDNA work only to a throwaway target — a `*.workers.dev` / `*.pages.dev` / staging subdomain.
+Canonical host is **Netlify** (`ozdna-614`), repo-connected to `main` — decided Jul 8, 2026; see `docs/DOMAIN.md` for the one-time console steps and DNS facts. Public positioning (Jul 8): ozDNA umbrella at `/`, ComplyDNA at `/products/comply/`, OriginDNA landing + segmented waitlist at `/products/origin/` (that waitlist is ACTION_PLAN 0.3 — the demand validation). `docs/ACTION_PLAN.md` item **0.9** gets logged DONE once this is live on `main`. The partner's AI-text humanizer must never appear under the ozDNA brand. Merging to `main` deploys the public site — founder sign-off required, no exceptions.
 
 ## What else lives in this repo
 
@@ -51,7 +51,7 @@ Nothing ships to ozdna.com for OriginDNA until `docs/ACTION_PLAN.md` item **0.9*
 
 | Area | What it is |
 |------|------------|
-| `index.html` + site dirs (`blog/`, `pillars/`, `tr/`, …) | The live ozdna.com marketing site. Hosting/DNS: `docs/DOMAIN.md`. |
+| `index.html` + site dirs (`products/`, `blog/`, `tr/`, …) | The live ozdna.com site: ozDNA umbrella + ComplyDNA + OriginDNA pages (legacy platform-era pages pending pruning). Hosting/DNS: `docs/DOMAIN.md`. |
 | `complydna/` | ComplyDNA — Turkish RegTech compliance LLM (FastAPI + Qdrant). See `complydna/README.md` and `docs/products/COMPLYDNA.md`. |
 | `platform/` | ozDNA Platform v0.1 — LLM gateway, routing, RAG, cost. Start at `platform/README.md`. |
 | `docs/products/ORIGINDNA.md` | The OriginDNA product card (name, scope, links into the plan corpus). |
