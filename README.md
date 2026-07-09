@@ -51,7 +51,7 @@ Canonical marketing host is **Netlify** (site `ozdna-614`, repo-linked, auto-pub
 
 | Area | What it is |
 |------|------------|
-| `index.html` + site dirs (`products/`, `tr/`, …) | Live ozdna.com: ozDNA umbrella at `/`, ComplyDNA + OriginDNA under `/products/`, Turkish versions under `/tr/`. Legacy platform-era paths (root-level `blog/`, `sdk/`, … and old `/tr/` subpages) are pending pruning; the `/tr/` ones are already 404'd at the edge. Publish runbook: `SITE.md`; DNS notes: `docs/DOMAIN.md`. |
+| `index.html` + site dirs (`products/`, `tr/`, …) | Live ozdna.com: ozDNA umbrella at `/`, ComplyDNA + OriginDNA under `/products/`, Turkish versions under `/tr/`. Legacy platform-era paths (root-level `blog/`, `sdk/`, … and old `/tr/` subpages) are retired from public serving — 404'd at the edge via `netlify.toml` (2026-07-09); files remain in the repo. Publish runbook: `SITE.md`; DNS notes: `docs/DOMAIN.md`. |
 | `complydna/` | ComplyDNA — Turkish RegTech compliance LLM (FastAPI + Qdrant). See `complydna/README.md` and `docs/products/COMPLYDNA.md`. |
 | `platform/` | ozDNA Platform v0.1 — LLM gateway, routing, RAG, cost. Start at `platform/README.md`. |
 | `docs/products/ORIGINDNA.md` | The OriginDNA product card (name, scope, links into the plan corpus). |
