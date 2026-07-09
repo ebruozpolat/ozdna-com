@@ -43,15 +43,15 @@ These are the hard rules from `CLAUDE.md` in plain terms. They are not up for de
 
 ## Deploy state — ozdna.com
 
-Canonical marketing host is **GitHub Pages** (`main` / root) with custom domain `ozdna.com` — see **`SITE.md`** for DNS, Pages settings, and the static file list. Public positioning (Jul 9): **ComplyDNA landing at `/`**, product pages at `/products/comply/` and `/products/origin/` (OriginDNA waitlist = ACTION_PLAN 0.3). Netlify (`ozdna-614`) is not the canonical host once Pages DNS is live; details in `docs/DOMAIN.md`. The partner's AI-text humanizer must never appear under the ozDNA brand. Merging to `main` deploys the public site — founder sign-off required, no exceptions.
+Canonical marketing host is **Netlify** (site `ozdna-614`, repo-linked, auto-publishes `main`, publish dir `.`) with custom domain `ozdna.com` — see **`SITE.md`** for the publish runbook and `docs/DOMAIN.md` for DNS/hosting strategy. GitHub Pages is disabled (Jul 9); its `CNAME`/`.nojekyll` were removed. Public positioning (Jul 9): **ozDNA umbrella page at `/`**, product pages at `/products/comply/` (EN) and `/products/origin/` (OriginDNA waitlist = ACTION_PLAN 0.3), with Turkish versions under `/tr/`, `/tr/products/comply/`, `/tr/products/origin/` (hreflang-paired). Legacy platform-era pages under `/tr/` are 404'd at the edge via `netlify.toml`. The partner's AI-text humanizer must never appear under the ozDNA brand. Merging to `main` deploys the public site — founder sign-off required, no exceptions.
 
 ## What else lives in this repo
 
-`ozdna-com` is a monorepo for the whole ozDNA brand; OriginDNA is one product line inside it.
+`ozdna-com` is a monorepo for the whole ozDNA brand; OriginDNA is one product line inside it. The repo also hosts the **ozDNA Platform LLM gateway** (`platform/`) — internal only, out of public positioning per `docs/ACTION_PLAN.md` 0.9.
 
 | Area | What it is |
 |------|------------|
-| `index.html` + site dirs (`products/`, `blog/`, `tr/`, …) | Live ozdna.com: ComplyDNA landing at `/`, plus product/docs/blog paths (legacy platform-era pages pending pruning). Publish runbook: `SITE.md`; DNS notes: `docs/DOMAIN.md`. |
+| `index.html` + site dirs (`products/`, `tr/`, …) | Live ozdna.com: ozDNA umbrella at `/`, ComplyDNA + OriginDNA under `/products/`, Turkish versions under `/tr/`. Legacy platform-era paths (root-level `blog/`, `sdk/`, … and old `/tr/` subpages) are pending pruning; the `/tr/` ones are already 404'd at the edge. Publish runbook: `SITE.md`; DNS notes: `docs/DOMAIN.md`. |
 | `complydna/` | ComplyDNA — Turkish RegTech compliance LLM (FastAPI + Qdrant). See `complydna/README.md` and `docs/products/COMPLYDNA.md`. |
 | `platform/` | ozDNA Platform v0.1 — LLM gateway, routing, RAG, cost. Start at `platform/README.md`. |
 | `docs/products/ORIGINDNA.md` | The OriginDNA product card (name, scope, links into the plan corpus). |
