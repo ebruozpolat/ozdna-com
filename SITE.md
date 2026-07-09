@@ -1,51 +1,34 @@
-# ozdna.com — GitHub Pages
+# ozdna.com — publish runbook
 
-Public marketing site for the ozDNA brand. Root `index.html` is the **ComplyDNA** landing; product deep-links and legacy platform pages live under `products/`, `blog/`, etc.
+Public marketing site for the ozDNA brand. Root `index.html` is the **ozDNA umbrella**
+page; products live at `products/comply/` (ComplyDNA) and `products/origin/` (OriginDNA
+waitlist). Full domain/hosting strategy and the static-file inventory: `docs/DOMAIN.md`.
 
 ## Hosting
 
 | Surface | Where | Notes |
 |---------|--------|--------|
-| **ozdna.com** (marketing) | **GitHub Pages** — `ebruozpolat/ozdna-com`, branch `main`, `/ (root)` | Custom domain via `CNAME` |
-| **ComplyDNA API / demo** | On-prem / separate host (`complydna/` → `make serve`) | Pages does not run Python |
-| **Netlify (`ozdna-614`)** | Not the canonical marketing host | Remove `ozdna.com` from Netlify when Pages DNS is live |
+| **ozdna.com** (marketing) | **Netlify** — site `ozdna-614`, repo `ebruozpolat/ozdna-com`, branch `main`, publish dir `.` | Canonical host (DNS-verified 2026-07-08); redirects/headers/forms via `netlify.toml` |
+| **ComplyDNA API / demo** | On-prem / separate host (`complydna/` → `make serve`) | Static hosts don't run Python; `/complydna/*` is 404'd at the edge |
+| **GitHub Pages** | Disabled (removed 2026-07-09) | Do not re-enable with the custom domain; no `CNAME` file in the repo. Dual DNS (Netlify + Pages) is the failure mode we're avoiding. |
 
-One canonical marketing host: **GitHub Pages**. Avoid dual DNS (Netlify + Pages).
-
-## Static site files (root)
-
-| File | Role |
-|------|------|
-| `index.html` | ComplyDNA landing (single file, embedded CSS) |
-| `og.png` | Social share image (1200×630) |
-| `robots.txt` | Search + AI crawler allowlist; `Disallow` for `/plan/`, `/complydna/`, `/platform/`, etc. |
-| `sitemap.xml` | Full site URL set (homepage + product/docs/blog paths) |
-| `llms.txt` | LLM-oriented product summary (TR/EN) |
-| `CNAME` | Custom domain: `ozdna.com` |
-| `.nojekyll` | Skip Jekyll processing on Pages |
-
-Monorepo orientation for engineers stays in root `README.md` (OriginDNA / plan corpus). This file is the publish runbook only.
+One canonical marketing host: **Netlify (`ozdna-614`)**.
 
 ## Publish
 
-1. Merge/push site changes to `main`.
-2. GitHub → **Settings → Pages** → Deploy from branch → `main` / **`/ (root)`**.
-3. **DNS** (registrar) — GitHub Pages only:
-
-   ```
-   A     @    185.199.108.153
-   A     @    185.199.109.153
-   A     @    185.199.110.153
-   A     @    185.199.111.153
-   CNAME www  ebruozpolat.github.io
-   ```
-
-4. Pages → custom domain `ozdna.com` → **Enforce HTTPS** after DNS propagates.
+1. Merge/push site changes to `main` — Netlify auto-publishes production from `main`.
+2. That's it. No build command; the repo root is served as-is with `netlify.toml`
+   redirects, security headers, and internal-path 404s applied at the edge.
+3. DNS (Namecheap) is already correct — apex A → Netlify LB, `www` → Netlify alias
+   CNAME. Do not add GitHub Pages A records (185.199.x.x).
 
 ## Contact CTAs
 
-Landing mailto targets use `hello@ozdna.com`. Until that mailbox exists, replies may bounce — swap the address in `index.html` / `llms.txt` when corporate mail is ready.
+Landing mailto targets use `hello@ozdna.com`. Until that mailbox exists, replies may
+bounce — swap the address in the landing pages / `llms.txt` when corporate mail is ready.
 
 ## Sitemap
 
-Keep the **full** URL set while `products/`, `blog/`, `pillars/`, etc. remain published. Bump `<lastmod>` on changed URLs when content updates. Do not collapse to a single homepage URL unless those paths are removed from the deploy.
+Keep the **full** URL set while `products/`, `blog/`, `pillars/`, etc. remain published.
+Bump `<lastmod>` on changed URLs when content updates. Do not collapse to a single
+homepage URL unless those paths are removed from the deploy.
