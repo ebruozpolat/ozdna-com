@@ -204,7 +204,7 @@
   }
   .bar {
     display: flex; align-items: center; justify-content: space-between;
-    gap: 16px; padding: 14px 0;
+    gap: 16px; padding-top: 14px; padding-bottom: 14px;
   }
   .wordmark {
     display: flex; align-items: baseline; gap: 10px;
@@ -225,7 +225,7 @@
   .hero { border-bottom: 1px solid var(--rule); }
   .hero-grid {
     display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-    gap: 40px; align-items: stretch; padding: 72px 0 64px;
+    gap: 40px; align-items: stretch; padding-top: 72px; padding-bottom: 64px;
   }
   .hero h1 {
     margin: 18px 0 0;
@@ -467,7 +467,7 @@
   .foot a:hover { color: var(--accent); }
 
   @media (max-width: 900px) {
-    .hero-grid { grid-template-columns: 1fr; padding: 48px 0; }
+    .hero-grid { grid-template-columns: 1fr; padding-top: 48px; padding-bottom: 48px; }
     .cols3 { grid-template-columns: 1fr; }
     .pipe { grid-template-columns: 1fr; }
     .arrow { transform: rotate(90deg); padding: 2px 0; justify-self: start; }
