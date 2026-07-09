@@ -3,8 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="OriginDNA — content provenance infrastructure. Sign images at creation, get an independently verifiable timestamp and a fingerprint that survives metadata stripping. Built for EU AI Act Article 50 content marking. Join the waitlist.">
+<meta name="description" content="OriginDNA signs images at creation with a verifiable timestamp and a fingerprint that survives metadata stripping. Built for EU AI Act Article 50 marking.">
 <link rel="canonical" href="https://ozdna.com/products/origin/">
+<link rel="alternate" hreflang="en" href="https://ozdna.com/products/origin/">
+<link rel="alternate" hreflang="tr" href="https://ozdna.com/tr/products/origin/">
+<link rel="alternate" hreflang="x-default" href="https://ozdna.com/products/origin/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ozDNA">
@@ -12,6 +15,8 @@
 <meta property="og:description" content="Content provenance for the EU AI Act era: cryptographic signing at creation, a timestamp no one can backdate, a fingerprint that survives stripped metadata. Waitlist open.">
 <meta property="og:url" content="https://ozdna.com/products/origin/">
 <meta property="og:image" content="https://ozdna.com/og.png">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="tr_TR">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="OriginDNA — Every image gets a DNA">
 <meta name="twitter:description" content="Content provenance for the EU AI Act era. Compliance as a simple API. Waitlist open.">
@@ -33,7 +38,7 @@
  }
 }
 </script>
-<title>OriginDNA — Every image gets a DNA · Proof of Origin by ozDNA</title>
+<title>OriginDNA — Every image gets a DNA · Proof of Origin</title>
 <style>
   :root {
     --paper: #F2EFE6;
@@ -76,7 +81,7 @@
   code { font-family: var(--mono); }
 
   header { position: sticky; top: 0; z-index: 10; background: var(--paper); border-bottom: 1px solid var(--rule); }
-  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 14px; padding-bottom: 14px; }
   .wordmark { display: flex; align-items: baseline; gap: 10px; font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; white-space: nowrap; }
   .wordmark .dot { color: var(--accent); }
   .wordmark small { font-size: 10px; letter-spacing: 0.14em; color: var(--muted); }
@@ -84,6 +89,8 @@
   nav a { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--muted); }
   nav a:hover { color: var(--accent); }
   @media (max-width: 720px) { nav { display: none; } }
+  .lang { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--muted); border: 1px solid var(--rule); padding: 4px 10px; white-space: nowrap; }
+  .lang:hover { color: var(--accent); border-color: var(--accent); }
 
   .hero { border-bottom: 1px solid var(--rule); padding: 84px 0 68px; }
   .hero h1 { font-size: clamp(32px, 5.6vw, 60px); line-height: 1.12; font-weight: 700; text-transform: uppercase; margin: 18px 0 22px; text-wrap: balance; }
@@ -152,8 +159,11 @@
       <a href="#faq">FAQ</a>
       <a href="#waitlist">Waitlist</a>
     </nav>
+    <a class="lang" href="/tr/products/origin/" lang="tr" hreflang="tr">TR</a>
   </div>
 </header>
+
+<main>
 
 <div class="hero">
   <div class="shell">
@@ -349,6 +359,8 @@
   </div>
 </section>
 
+</main>
+
 <footer class="site-footer">
   <div class="shell">
     <div class="foot">
@@ -360,6 +372,8 @@
       · <a href="/products/comply/">ComplyDNA</a>
       · <a href="/privacy/">Privacy</a>
       · <a href="/terms/">Terms</a>
+      · <a href="/tr/products/origin/" lang="tr" hreflang="tr">Türkçe</a>
+      · Updated <time datetime="2026-07-09">July 9, 2026</time>
     </p>
   </div>
 </footer>

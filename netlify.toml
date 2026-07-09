@@ -20,11 +20,91 @@
   status = 301
   force = true
 
-# Legacy platform waitlist form (tr/index.html) posts to /success
+# Legacy platform-era Turkish pages (pre-umbrella) — retired from public serving.
+# /tr/ and /tr/products/* are the live Turkish pages; everything else under /tr/ is 404'd.
 [[redirects]]
-  from = "/success"
-  to = "/tr/?submitted=true#waitlist"
-  status = 302
+  from = "/tr/architecture/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/tr/benchmarks/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/tr/blog/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/tr/case-studies/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/tr/changelog/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/tr/compare/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/tr/partners/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/tr/pricing/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/tr/privacy/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/tr/roadmap/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/tr/sdk/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/tr/status/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/tr/terms/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/tr/trust/*"
+  to = "/404.html"
+  status = 404
+  force = true
 
 # Internal strategy/source files — never serve on the public domain
 [[redirects]]

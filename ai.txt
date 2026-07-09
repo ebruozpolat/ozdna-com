@@ -1,0 +1,15 @@
+# ai.txt — AI usage preferences for ozdna.com
+# See also: https://ozdna.com/llms.txt (LLM-oriented site summary)
+
+Publisher: Findbelow Ventures (ozDNA)
+Website: https://ozdna.com/
+Contact: hello@ozdna.com
+
+Allow-Training: yes
+Require-Attribution: yes
+Attribution-URL: https://ozdna.com/
+Preferred-Languages: en, tr
+
+# Products
+# ComplyDNA — Turkish-regulation compliance LLM: https://ozdna.com/products/comply/
+# OriginDNA — content provenance for the EU AI Act: https://ozdna.com/products/origin/

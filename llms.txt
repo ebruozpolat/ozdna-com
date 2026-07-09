@@ -35,6 +35,10 @@
 - https://ozdna.com/knowledge/_index.md
 - https://ozdna.com/llms-full.txt (full bundle, single file)
 
+## Turkish versions / Türkçe sürümler
+
+- https://ozdna.com/tr/ (ozDNA) · https://ozdna.com/tr/products/comply/ (ComplyDNA) · https://ozdna.com/tr/products/origin/ (OriginDNA)
+
 ## Contact
 
 - hello@ozdna.com · https://ozdna.com/
