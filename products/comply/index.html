@@ -1,23 +1,27 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="ComplyDNA — Türk mevzuatına (MASAK, AML/CFT, KVKK) özel eğitilmiş uyum LLM'i. Her yanıt [TEBLİĞ / Madde] kaynak künyesiyle: tahmin değil, denetlenebilir yanıt.">
+<meta name="description" content="ComplyDNA is a compliance LLM trained on Turkish regulation (MASAK, AML/CFT, KVKK). Every answer carries inline statutory citations you can verify.">
 <link rel="canonical" href="https://ozdna.com/products/comply/">
+<link rel="alternate" hreflang="en" href="https://ozdna.com/products/comply/">
+<link rel="alternate" hreflang="tr" href="https://ozdna.com/tr/products/comply/">
+<link rel="alternate" hreflang="x-default" href="https://ozdna.com/products/comply/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ComplyDNA">
-<meta property="og:title" content="ComplyDNA — Uyum, modelin DNA'sında">
-<meta property="og:description" content="ComplyDNA — Türk mevzuatına (MASAK, AML/CFT, KVKK) özel eğitilmiş uyum LLM'i. Her yanıt [TEBLİĞ / Madde] kaynak künyesiyle: tahmin değil, denetlenebilir yanıt.">
+<meta property="og:title" content="ComplyDNA — Compliance in the model's DNA">
+<meta property="og:description" content="A compliance LLM for Turkish financial regulation. Every sentence answered with an inline statutory citation — auditable answers, not guesses.">
 <meta property="og:url" content="https://ozdna.com/products/comply/">
 <meta property="og:image" content="https://ozdna.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:locale" content="tr_TR">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="tr_TR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ComplyDNA — Uyum, modelin DNA'sında">
-<meta name="twitter:description" content="ComplyDNA — Türk mevzuatına (MASAK, AML/CFT, KVKK) özel eğitilmiş uyum LLM'i. Her yanıt [TEBLİĞ / Madde] kaynak künyesiyle: tahmin değil, denetlenebilir yanıt.">
+<meta name="twitter:title" content="ComplyDNA — Compliance in the model's DNA">
+<meta name="twitter:description" content="A compliance LLM for Turkish financial regulation. Every sentence answered with an inline statutory citation.">
 <meta name="twitter:image" content="https://ozdna.com/og.png">
 <script type="application/ld+json">
 {
@@ -46,15 +50,15 @@
    "applicationCategory": "BusinessApplication",
    "operatingSystem": "Web, On-premises",
    "inLanguage": "tr",
-   "description": "ComplyDNA — Türk mevzuatına (MASAK, AML/CFT, KVKK) özel eğitilmiş uyum LLM'i. Her yanıt [TEBLİĞ / Madde] kaynak künyesiyle: tahmin değil, denetlenebilir yanıt.",
+   "description": "ComplyDNA is a compliance LLM trained on Turkish financial regulation (MASAK, AML/CFT, KVKK). Every answer carries inline statutory citations in the form [COMMUNIQUE / Article] — auditable answers, not guesses.",
    "publisher": {
     "@id": "https://ozdna.com/#org"
    },
    "featureList": [
-    "Satır içi mevzuat referansı [TEBLİĞ / Madde]",
-    "MASAK, 5549, 6415, KVKK kapsamı",
-    "Kurum içi (on-prem) veya bulut dağıtım",
-    "Golden-set tabanlı sürekli değerlendirme"
+    "Inline statutory citations [COMMUNIQUE / Article]",
+    "Coverage: MASAK, laws 5549 and 6415, KVKK",
+    "On-premises or cloud deployment",
+    "Continuous golden-set evaluation"
    ]
   },
   {
@@ -62,50 +66,50 @@
    "mainEntity": [
     {
      "@type": "Question",
-     "name": "ComplyDNA nedir?",
+     "name": "What is ComplyDNA?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "ComplyDNA, Türk mevzuatı (MASAK tebliğleri, AML/CFT kanunları, KVKK) üzerine eğitilmiş bir uyum LLM'idir. Uyum sorularını, her cümlesinde [TEBLİĞ / Madde] biçiminde satır içi kaynak künyesi vererek yanıtlar — yanıtın dayandığı mevzuat parçası her zaman doğrulanabilir."
+      "text": "ComplyDNA is a compliance LLM trained on Turkish regulation (MASAK communiqués, AML/CFT laws, KVKK). It answers compliance questions with an inline statutory citation in the form [COMMUNIQUE / Article] on every sentence — the piece of regulation behind each answer is always verifiable."
      }
     },
     {
      "@type": "Question",
-     "name": "Hangi mevzuatı kapsıyor?",
+     "name": "Which regulation does it cover?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "5549 sayılı Suç Gelirlerinin Aklanmasının Önlenmesi Hakkında Kanun, 6415 sayılı Terörizmin Finansmanının Önlenmesi Hakkında Kanun, 6698 sayılı KVKK, MASAK tebliğ ve genelgeleri, Tedbirler Yönetmeliği ve kripto varlık hizmet sağlayıcılarına ilişkin düzenlemeler. Kapsam, mevzuat değişikliklerine göre sürümlenerek güncellenir."
+      "text": "Law No. 5549 on the Prevention of Laundering of Crime Proceeds, Law No. 6415 on the Prevention of the Financing of Terrorism, the Turkish data-protection law KVKK (6698), MASAK communiqués and circulars, the Measures Regulation, and crypto-asset service provider (VASP/CASP) rules. Coverage is versioned and updated as regulation changes."
      }
     },
     {
      "@type": "Question",
-     "name": "Genel bir LLM'den (ChatGPT vb.) farkı nedir?",
+     "name": "How is it different from a general LLM (ChatGPT etc.)?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Genel modeller Türk mevzuatı sorularında kaynak gösteremez ve güncel tebliğ metnine dayanmaz. ComplyDNA yanıtı önce ilgili madde metnini geri getirerek kurar, her iddiayı kaynağa bağlar ve mevzuat diliyle yazar. Değerlendirme, uyum uzmanlarının yazdığı golden-set sorularla her sürümde ölçülür."
+      "text": "General models cannot cite sources on Turkish regulation questions and do not ground answers in current communiqué text. ComplyDNA builds each answer by first retrieving the relevant article text, ties every claim to its source, and writes in regulatory language. Quality is measured on every release against a golden set written by compliance experts."
      }
     },
     {
      "@type": "Question",
-     "name": "Verilerimiz model eğitiminde kullanılıyor mu?",
+     "name": "Is our data used to train the model?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Hayır. Müşteri sorguları ve belgeleri model eğitimine karışmaz. Enterprise planında model ve indeks tamamen kurum içi altyapınızda çalışır; veri kurum dışına çıkmaz."
+      "text": "No. Customer queries and documents never enter model training. On the Enterprise plan the model and index run entirely inside your own infrastructure; data never leaves your perimeter."
      }
     },
     {
      "@type": "Question",
-     "name": "Nasıl dağıtılıyor — bulut mu, kurum içi mi?",
+     "name": "How is it deployed — cloud or on-premises?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Her ikisi de: bulut API / web arayüzü ile hızlı başlangıç, ya da banka ve finansal kuruluşlar için tam kurum içi (on-prem) kurulum. Pilot programı genellikle bulutta başlar."
+      "text": "Both: a fast start via cloud API / web interface, or a fully on-premises installation for banks and financial institutions. Pilot programs usually start in the cloud."
      }
     },
     {
      "@type": "Question",
-     "name": "Yanıtlar hukuki tavsiye midir?",
+     "name": "Are the answers legal advice?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Hayır. ComplyDNA çıktıları bilgilendirme amaçlıdır ve hukuki tavsiye değildir; nihai kararlar uyum uzmanı doğrulaması gerektirir. Kaynak künyeleri tam da bu doğrulamayı hızlandırmak için var."
+      "text": "No. ComplyDNA outputs are informational and do not constitute legal advice; final decisions require verification by a compliance professional. The inline citations exist precisely to speed up that verification."
      }
     }
    ]
@@ -113,7 +117,7 @@
  ]
 }
 </script>
-<title>ComplyDNA — Uyum, modelin DNA'sında · Mevzuat uyum LLM'i</title>
+<title>ComplyDNA — Compliance in the model's DNA · by ozDNA</title>
 <style>
   :root {
     --paper: #F2EFE6;
@@ -219,6 +223,12 @@
     text-decoration: none; color: var(--muted);
   }
   nav a:hover, nav a:focus-visible { color: var(--accent); }
+  .lang {
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; color: var(--muted);
+    border: 1px solid var(--rule); padding: 4px 10px; white-space: nowrap;
+  }
+  .lang:hover { color: var(--accent); border-color: var(--accent); }
   a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
   /* ---------- hero ---------- */
@@ -484,13 +494,14 @@
       COMPLY<span class="dot">DNA</span> <small>BY OZDNA</small>
     </a>
     <nav>
-      <a href="#urun">Ürün</a>
-      <a href="#yontem">Yöntem</a>
-      <a href="#ornek">Örnek</a>
-      <a href="#fiyat">Fiyatlandırma</a>
-      <a href="#sss">SSS</a>
-      <a href="#iletisim">İletişim</a>
+      <a href="#product">Product</a>
+      <a href="#method">Method</a>
+      <a href="#example">Example</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
     </nav>
+    <a class="lang" href="/tr/products/comply/" lang="tr" hreflang="tr">TR</a>
   </div>
 </header>
 
@@ -499,16 +510,17 @@
 <div class="hero">
   <div class="shell hero-grid">
     <div>
-      <div class="label"><b>OZDNA.COM</b> — TÜRK MEVZUATINA ÖZEL UYUM LLM'İ</div>
-      <h1>Uyum, modelin <span class="acc">DNA'sında.</span></h1>
+      <div class="label"><b>OZDNA.COM</b> — A COMPLIANCE LLM FOR TURKISH REGULATION</div>
+      <h1>Compliance, in the model's <span class="acc">DNA.</span></h1>
       <p class="lede">
-        ComplyDNA, Türk mevzuatı üzerine eğitilmiş uyum LLM'idir. MASAK tebliğleri,
-        AML/CFT kanunları ve KVKK'yı kaynak zinciriyle bilir; her cümlesini
-        [TEBLİĞ / Madde] biçiminde satır içi referansla verir. Tahmin değil, denetlenebilir yanıt.
+        ComplyDNA is a compliance LLM trained on Turkish regulation. It knows the
+        MASAK communiqués, the AML/CFT laws and KVKK with their chain of sources, and
+        answers every sentence with an inline [COMMUNIQUÉ / Article] citation.
+        Auditable answers, not guesses.
       </p>
       <div class="cta-row">
-        <a class="btn" href="mailto:hello@ozdna.com?subject=ComplyDNA%20demo%20talebi">Demo talep et</a>
-        <a class="btn ghost" href="#yontem">Teknik yaklaşım ↓</a>
+        <a class="btn" href="mailto:hello@ozdna.com?subject=ComplyDNA%20demo">Request a demo</a>
+        <a class="btn ghost" href="#method">Technical approach ↓</a>
       </div>
     </div>
     <div class="helix-frame" aria-hidden="true">
@@ -519,7 +531,7 @@
       <canvas id="helix"></canvas>
       <div class="frame-foot">
         <span class="label">5549 · 6415 · KVKK · MASAK</span>
-        <span class="label">SEQ / TR-MEVZUAT</span>
+        <span class="label">SEQ / TR-REGULATION</span>
       </div>
     </div>
   </div>
@@ -527,128 +539,128 @@
 
 <div class="strip" aria-hidden="true">
   <div class="strip-inner" id="ticker">
-    <span>MASAK Tebliğleri</span><span class="sep">///</span>
-    <span>5549 — Suç Gelirlerinin Aklanmasının Önlenmesi</span><span class="sep">///</span>
-    <span>6415 — Terörizmin Finansmanı</span><span class="sep">///</span>
+    <span>MASAK Communiqués</span><span class="sep">///</span>
+    <span>5549 — Prevention of Laundering of Crime Proceeds</span><span class="sep">///</span>
+    <span>6415 — Financing of Terrorism</span><span class="sep">///</span>
     <span>KVKK — 6698</span><span class="sep">///</span>
     <span>Travel Rule</span><span class="sep">///</span>
-    <span>ROM Yönetmeliği</span><span class="sep">///</span>
-    <span>MASAK Tebliğleri</span><span class="sep">///</span>
-    <span>5549 — Suç Gelirlerinin Aklanmasının Önlenmesi</span><span class="sep">///</span>
-    <span>6415 — Terörizmin Finansmanı</span><span class="sep">///</span>
+    <span>ROM Regulation</span><span class="sep">///</span>
+    <span>MASAK Communiqués</span><span class="sep">///</span>
+    <span>5549 — Prevention of Laundering of Crime Proceeds</span><span class="sep">///</span>
+    <span>6415 — Financing of Terrorism</span><span class="sep">///</span>
     <span>KVKK — 6698</span><span class="sep">///</span>
     <span>Travel Rule</span><span class="sep">///</span>
-    <span>ROM Yönetmeliği</span><span class="sep">///</span>
+    <span>ROM Regulation</span><span class="sep">///</span>
   </div>
 </div>
 
-<section id="urun">
+<section id="product">
   <div class="shell">
-    <div class="sec-head"><span class="sec-no">[01]</span><span class="label">NE YAPAR</span></div>
+    <div class="sec-head"><span class="sec-no">[01]</span><span class="label">WHAT IT DOES</span></div>
     <div class="sec-body">
-      <h2 class="sec-title">Genel LLM tahmin eder.<br>ComplyDNA kaynak gösterir.</h2>
+      <h2 class="sec-title">A general LLM guesses.<br>ComplyDNA cites its sources.</h2>
       <div class="cols3">
         <div class="cell">
           <div class="label"><b>A</b> / CITE-FIRST</div>
-          <h3>Satır içi referans</h3>
-          <p>Her iddia <code>[TEBLİĞ / Madde]</code> künyesiyle gelir. Yanıtın hangi
-          mevzuat parçasına dayandığı cümle düzeyinde izlenebilir — uyum ekibi
-          kaynağı tek tıkla doğrular.</p>
+          <h3>Inline citations</h3>
+          <p>Every claim arrives with a <code>[COMMUNIQUÉ / Article]</code> tag. Which
+          piece of regulation an answer rests on is traceable at sentence level — the
+          compliance team verifies the source in one click.</p>
         </div>
         <div class="cell">
           <div class="label"><b>B</b> / TR-NATIVE</div>
-          <h3>Türk mevzuatı yerlisi</h3>
-          <p>MASAK tebliğ ve genelgeleri, 5549, 6415, KVKK, ROM Yönetmeliği ve
-          kripto varlık düzenlemeleri modelin eğitim setinde — çeviri katmanı yok,
-          mevzuat dili doğrudan.</p>
+          <h3>Native to Turkish regulation</h3>
+          <p>MASAK communiqués and circulars, laws 5549 and 6415, KVKK, the ROM
+          Regulation and crypto-asset rules are in the model's training set — no
+          translation layer, regulatory language handled directly.</p>
         </div>
         <div class="cell">
           <div class="label"><b>C</b> / AUDIT-READY</div>
-          <h3>Denetime hazır</h3>
-          <p>Yanıt + kaynak listesi + sürüm bilgisi birlikte üretilir. Yürürlük
-          tarihi metadata'sı sayesinde "hangi tarihte hangi hüküm" sorusu da
-          yanıtlanabilir.</p>
+          <h3>Audit-ready</h3>
+          <p>Answer + source list + version info are produced together. Thanks to
+          effective-date metadata, "which provision applied on which date" can be
+          answered too.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="yontem">
+<section id="method">
   <div class="shell">
-    <div class="sec-head"><span class="sec-no">[02]</span><span class="label">YÖNTEM — PIPELINE</span></div>
+    <div class="sec-head"><span class="sec-no">[02]</span><span class="label">METHOD — PIPELINE</span></div>
     <div class="sec-body">
-      <h2 class="sec-title">Mevzuattan denetlenebilir yanıta<br>dört aşamalı üretim hattı</h2>
+      <h2 class="sec-title">From regulation to auditable answer<br>in a four-stage pipeline</h2>
       <p class="pipe-lead">
-        ComplyDNA, PDF yükleyip sohbet eden bir RAG sarmalayıcısı değil. Her aşama uyum ekibinin
-        denetim gereksinimine göre tasarlandı: <strong>madde düzeyinde metadata</strong>,
-        <strong>geri getirme isabeti eşiği</strong>, <strong>künye zorunluluğu</strong> ve
-        <strong>sürüm izlenebilirliği</strong> üretim hattının parçası — sonradan eklenen bir kontrol değil.
+        ComplyDNA is not a RAG wrapper you upload PDFs into and chat with. Every stage is
+        designed around a compliance team's audit requirements: <strong>article-level metadata</strong>,
+        a <strong>retrieval-confidence threshold</strong>, <strong>mandatory citations</strong> and
+        <strong>version traceability</strong> are part of the pipeline — not a check bolted on afterwards.
       </p>
       <div class="pipe">
         <div class="node">
           <span class="n-label">SEQ 01</span>
-          <span class="n-name">Mevzuat korpusu</span>
-          <p>Ham tebliğ, kanun ve yönetmelik metinleri yapılandırılmış madde/fıkra kayıtlarına dönüştürülür.</p>
+          <span class="n-name">Regulation corpus</span>
+          <p>Raw communiqué, law and regulation texts are converted into structured article/paragraph records.</p>
           <ul>
-            <li><strong>Parse:</strong> her parça <code>kaynak_kodu</code>, <code>madde_no</code>, <code>fıkra</code> taşır</li>
-            <li><strong>Metadata:</strong> <code>yürürlük_durumu</code>, <code>yürürlük_tarihi</code>, <code>sürüm</code></li>
-            <li><strong>Filtre:</strong> yürürlükten kalkan maddeler indekse girmez — eski hüküm yanlış yanıt üretmez</li>
+            <li><strong>Parse:</strong> every chunk carries <code>source_code</code>, <code>article_no</code>, <code>paragraph</code></li>
+            <li><strong>Metadata:</strong> <code>validity_status</code>, <code>effective_date</code>, <code>version</code></li>
+            <li><strong>Filter:</strong> repealed articles never enter the index — stale provisions can't produce wrong answers</li>
           </ul>
         </div>
         <span class="arrow">→</span>
         <div class="node">
           <span class="n-label">SEQ 02</span>
-          <span class="n-name">Vektör indeks</span>
-          <p>Madde parçaları anlamsal indekse yazılır; sorgu dili Türkçe veya İngilizce olabilir.</p>
+          <span class="n-name">Vector index</span>
+          <p>Article chunks are written into a semantic index; queries can be in Turkish or English.</p>
           <ul>
-            <li><strong>Embedding:</strong> çok dilli model (bge-m3) — aynı madde TR/EN sorguda bulunur</li>
-            <li><strong>Store:</strong> Qdrant + metadata filtreleri; kurum içi disk veya compose stack</li>
-            <li><strong>Eşik:</strong> düşük isabetli geri getirme yanıt üretimine geçmez — boş tahmin yok</li>
+            <li><strong>Embedding:</strong> multilingual model (bge-m3) — the same article is found by TR and EN queries</li>
+            <li><strong>Store:</strong> Qdrant + metadata filters; on-prem disk or a compose stack</li>
+            <li><strong>Threshold:</strong> low-confidence retrieval never reaches answer generation — no empty guessing</li>
           </ul>
         </div>
         <span class="arrow">→</span>
         <div class="node">
           <span class="n-label">SEQ 03</span>
-          <span class="n-name">İnce ayar + cite-first</span>
-          <p>Model mevzuat dilini ve künye biçimini öğrenir; künyesiz çıktı üretim hattından geçemez.</p>
+          <span class="n-name">Fine-tuning + cite-first</span>
+          <p>The model learns regulatory language and the citation format; uncited output cannot pass the pipeline.</p>
           <ul>
-            <li><strong>LoRA:</strong> <code>[KAYNAK / Madde X]</code> referans biçimi ve düzenleyici Türkçe</li>
-            <li><strong>Split:</strong> eğitim/val ayrımı madde düzeyinde — aynı madde iki sette birden yok</li>
-            <li><strong>Post-check:</strong> künyesiz cümle red edilir; otomatik retry ile düzeltme denenir</li>
+            <li><strong>LoRA:</strong> the <code>[SOURCE / Article X]</code> reference format and regulatory Turkish</li>
+            <li><strong>Split:</strong> train/validation separated at article level — no article appears in both sets</li>
+            <li><strong>Post-check:</strong> uncited sentences are rejected; an automatic retry attempts a fix</li>
           </ul>
         </div>
         <span class="arrow">→</span>
         <div class="node">
           <span class="n-label">SEQ 04</span>
-          <span class="n-name">Referanslı yanıt</span>
-          <p>Geri getirilen madde metinleri + ince ayarlı model = denetlenebilir çıktı paketi.</p>
+          <span class="n-name">Cited answer</span>
+          <p>Retrieved article texts + the fine-tuned model = an auditable output package.</p>
           <ul>
-            <li><strong>Girdi:</strong> soru + top-k madde metinleri (tam metin, özet değil)</li>
-            <li><strong>Çıktı:</strong> satır içi künye + kaynak listesi + yürürlük bilgisi</li>
-            <li><strong>Audit:</strong> soru/yanıt SHA-256 hash — düz metin loglanmaz, iz sürülebilir</li>
+            <li><strong>Input:</strong> question + top-k article texts (full text, not summaries)</li>
+            <li><strong>Output:</strong> inline citations + source list + validity info</li>
+            <li><strong>Audit:</strong> question/answer SHA-256 hashes — no plaintext logging, still traceable</li>
           </ul>
         </div>
       </div>
 
-      <div class="contrast" aria-label="RAG sarmalayıcı ile ComplyDNA karşılaştırması">
+      <div class="contrast" aria-label="Comparison of a RAG wrapper and ComplyDNA">
         <div class="contrast-col">
-          <div class="contrast-head weak">Genel RAG / ChatGPT</div>
-          <div class="contrast-item"><strong>Kaynak</strong>PDF yükle veya web'den tahmin — güncel tebliğ garantisi yok</div>
-          <div class="contrast-item"><strong>Referans</strong>Kaynak opsiyonel; çoğu cümle künyesiz kalır</div>
-          <div class="contrast-item"><strong>Değerlendirme</strong>Demo hissi — golden set veya madde-level metrik yok</div>
-          <div class="contrast-item"><strong>Veri</strong>Sorgular üçüncü taraf API'ye gider; kurum içi seçenek sınırlı</div>
+          <div class="contrast-head weak">Generic RAG / ChatGPT</div>
+          <div class="contrast-item"><strong>Source</strong>Upload PDFs or guess from the web — no guarantee of the current communiqué</div>
+          <div class="contrast-item"><strong>Citations</strong>Optional; most sentences remain uncited</div>
+          <div class="contrast-item"><strong>Evaluation</strong>Demo vibes — no golden set, no article-level metrics</div>
+          <div class="contrast-item"><strong>Data</strong>Queries go to a third-party API; limited on-prem options</div>
         </div>
         <div class="contrast-col">
           <div class="contrast-head strong">ComplyDNA</div>
-          <div class="contrast-item"><strong>Kaynak</strong>Sürümlü mevzuat korpusu — madde/fıkra JSONL, yürürlük metadata'sı</div>
-          <div class="contrast-item"><strong>Referans</strong>Her cümle <code>[TEBLİĞ / Madde]</code> zorunlu; post-check ile enforce</div>
-          <div class="contrast-item"><strong>Değerlendirme</strong>Uyum uzmanı golden set — retrieval + künye doğruluğu her sürümde</div>
-          <div class="contrast-item"><strong>Veri</strong>On-prem: model, indeks ve inference kurum çevrenizde kalır</div>
+          <div class="contrast-item"><strong>Source</strong>Versioned regulation corpus — article/paragraph JSONL with validity metadata</div>
+          <div class="contrast-item"><strong>Citations</strong>Every sentence requires <code>[COMMUNIQUÉ / Article]</code>; enforced by post-check</div>
+          <div class="contrast-item"><strong>Evaluation</strong>Compliance-expert golden set — retrieval + citation accuracy on every release</div>
+          <div class="contrast-item"><strong>Data</strong>On-prem: model, index and inference stay inside your perimeter</div>
         </div>
       </div>
 
-      <div class="stack-row" aria-label="Teknik yığın">
+      <div class="stack-row" aria-label="Technical stack">
         <span class="label"><b>STACK</b></span>
         <span class="stack-tag">FastAPI</span>
         <span class="stack-tag">Qdrant</span>
@@ -661,175 +673,176 @@
 
       <div class="rows">
         <div class="row">
-          <span class="k">Değerlendirme</span>
-          <span class="v"><strong>Golden set:</strong> uyum uzmanlarının yazdığı gerçek sorularla sürekli ölçüm.
-          Retrieval isabeti (@k), künye doğruluğu ve yanıt reddi oranı her sürümde raporlanır;
-          metrik geçmişi versiyonlanır — lansman öncesi tek seferlik test değil, üretim disiplini.</span>
+          <span class="k">Evaluation</span>
+          <span class="v"><strong>Golden set:</strong> continuous measurement against real questions written by
+          compliance experts. Retrieval accuracy (@k), citation accuracy and answer-refusal rate are reported
+          on every release; metric history is versioned — production discipline, not a one-off pre-launch test.</span>
         </div>
         <div class="row">
-          <span class="k">Veri hijyeni</span>
-          <span class="v"><strong>Madde düzeyinde ayrım:</strong> aynı mevzuat metni eğitim ve doğrulama setinde
-          aynı anda bulunamaz. Ölçtüğümüz şey ezber değil genelleme — model aynı maddeyi soruda görüp
-          cevabı kopyalamaz; komşu madde ve farklı ifadeyle gelen sorularda künye doğruluğunu ölçeriz.</span>
+          <span class="k">Data hygiene</span>
+          <span class="v"><strong>Article-level separation:</strong> the same piece of regulation never sits in the
+          training and validation sets at once. What we measure is generalisation, not memorisation — the model
+          can't see an article in the question and copy the answer; citation accuracy is measured on neighbouring
+          articles and differently-phrased questions.</span>
         </div>
         <div class="row">
-          <span class="k">Dağıtım</span>
-          <span class="v"><strong>Kurum içi veya bulut:</strong> yerel Qdrant + API + demo UI tek makinede çalışır;
-          Docker Compose ile kurumsal ağa alınır. OpenAI-compatible endpoint (Ollama/vLLM) bağlanabilir —
-          müşteri sorguları ve belgeleri model eğitimine karışmaz.</span>
+          <span class="k">Deployment</span>
+          <span class="v"><strong>On-premises or cloud:</strong> local Qdrant + API + demo UI run on a single machine
+          and move onto the corporate network with Docker Compose. An OpenAI-compatible endpoint (Ollama/vLLM) can be
+          attached — customer queries and documents never enter model training.</span>
         </div>
         <div class="row">
-          <span class="k">Güncellik</span>
-          <span class="v"><strong>Sürümlü corpus:</strong> yeni tebliğ veya genelge geldiğinde parse → indeks →
-          golden-set yeniden koşulur. Yanıttaki yürürlük tarihi metadata'sından okunur — "bugün hangi hüküm
-          geçerli?" sorusu da cevaplanabilir.</span>
+          <span class="k">Freshness</span>
+          <span class="v"><strong>Versioned corpus:</strong> when a new communiqué or circular lands, parse → index →
+          golden set are re-run. The effective date in an answer is read from metadata — "which provision applies
+          today?" is answerable too.</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="ornek">
+<section id="example">
   <div class="shell">
-    <div class="sec-head"><span class="sec-no">[03]</span><span class="label">ÖRNEK ÇIKTI</span></div>
+    <div class="sec-head"><span class="sec-no">[03]</span><span class="label">SAMPLE OUTPUT</span></div>
     <div class="sec-body">
-      <h2 class="sec-title">Yanıtın anatomisi</h2>
+      <h2 class="sec-title">Anatomy of an answer</h2>
       <div class="term">
         <div class="term-head">
-          <span>complydna / oturum</span>
-          <span>kaynak modu: açık</span>
+          <span>complydna / session</span>
+          <span>source mode: on</span>
         </div>
         <div class="term-body">
-          <p><span class="q">&gt; soru:</span> Şüpheli işlem bildirimi hangi sürede yapılmalı?</p>
-          <p>Şüpheli işlemler, işleme ilişkin şüphenin oluştuğu tarihten itibaren
-          <strong>en geç on iş günü</strong> içinde, gecikmesinde sakınca bulunan
-          hâllerde ise <strong>derhâl</strong> MASAK Başkanlığına bildirilir
-          <span class="cite">[TEDBİRLER-YÖN. / Madde 28]</span>. Bildirim yükümlülüğü,
-          yükümlünün 5549 sayılı Kanun kapsamındaki statüsünden doğar
-          <span class="cite">[LAW-5549 / Madde 4]</span>.</p>
-          <p class="dim">--- KAYNAKLAR ---<br>
-          [1] TEDBİRLER-YÖNETMELİĞİ / Madde 28 · yürürlük: aktif<br>
-          [2] LAW-5549 / Madde 4 · yürürlük: aktif</p>
+          <p><span class="q">&gt; query:</span> Within what period must a suspicious transaction be reported?</p>
+          <p>Suspicious transactions are reported to the MASAK Presidency within
+          <strong>ten business days</strong> at the latest from the date the suspicion
+          arises — and <strong>immediately</strong> where any delay would be risky
+          <span class="cite">[MEASURES-REG. / Article 28]</span>. The reporting obligation
+          arises from the institution's obliged-party status under Law No. 5549
+          <span class="cite">[LAW-5549 / Article 4]</span>.</p>
+          <p class="dim">--- SOURCES ---<br>
+          [1] MEASURES-REGULATION / Article 28 · validity: in force<br>
+          [2] LAW-5549 / Article 4 · validity: in force</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="fiyat">
+<section id="pricing">
   <div class="shell">
-    <div class="sec-head"><span class="sec-no">[04]</span><span class="label">FİYATLANDIRMA</span></div>
+    <div class="sec-head"><span class="sec-no">[04]</span><span class="label">PRICING</span></div>
     <div class="sec-body">
-      <h2 class="sec-title">Kurumunuzun ölçeğine göre</h2>
+      <h2 class="sec-title">Scaled to your institution</h2>
       <div class="cols3">
         <div class="cell">
           <div class="plan-head">
             <div class="label"><b>P1</b> / PILOT</div>
             <span class="plan-name">Pilot</span>
-            <span class="plan-for">Ürünü kendi mevzuat kapsamınızda test etmek isteyen ekipler için</span>
+            <span class="plan-for">For teams that want to test the product on their own regulatory scope</span>
           </div>
           <ul class="plan-list">
-            <li>Tek ekip, sınırlı sorgu kotası</li>
-            <li>Kurumunuza özel golden-set değerlendirmesi</li>
-            <li>4 haftalık yapılandırılmış POC</li>
-            <li>Haftalık değerlendirme raporu</li>
+            <li>Single team, limited query quota</li>
+            <li>Golden-set evaluation tailored to your institution</li>
+            <li>4-week structured POC</li>
+            <li>Weekly evaluation report</li>
           </ul>
-          <div class="plan-price">Sabit POC bedeli — teklifle</div>
-          <a class="btn ghost" href="mailto:hello@ozdna.com?subject=ComplyDNA%20Pilot">Pilot başlat</a>
+          <div class="plan-price">Fixed POC fee — by quote</div>
+          <a class="btn ghost" href="mailto:hello@ozdna.com?subject=ComplyDNA%20Pilot">Start a pilot</a>
         </div>
         <div class="cell">
           <div class="plan-head">
             <div class="label"><b>P2</b> / TEAM</div>
             <span class="plan-name">Team</span>
-            <span class="plan-for">Uyum ekibinin günlük iş akışına almak isteyen kurumlar için</span>
+            <span class="plan-for">For institutions bringing it into the compliance team's daily workflow</span>
           </div>
           <ul class="plan-list">
-            <li>Koltuk bazlı erişim + aylık sorgu kotası</li>
-            <li>Bulut API veya web arayüzü</li>
-            <li>Mevzuat korpusu güncelleme aboneliği dahil</li>
-            <li>Öncelikli destek</li>
+            <li>Seat-based access + monthly query quota</li>
+            <li>Cloud API or web interface</li>
+            <li>Regulation-corpus update subscription included</li>
+            <li>Priority support</li>
           </ul>
-          <div class="plan-price">Yıllık abonelik — erken erişimde belirlenir</div>
-          <a class="btn ghost" href="mailto:hello@ozdna.com?subject=ComplyDNA%20Team">Teklif iste</a>
+          <div class="plan-price">Annual subscription — set during early access</div>
+          <a class="btn ghost" href="mailto:hello@ozdna.com?subject=ComplyDNA%20Team">Request a quote</a>
         </div>
         <div class="cell">
           <div class="plan-head">
             <div class="label"><b>P3</b> / ENTERPRISE</div>
             <span class="plan-name">Enterprise / On-prem</span>
-            <span class="plan-for">Verisi kurum dışına çıkamayan banka ve finansal kuruluşlar için</span>
+            <span class="plan-for">For banks and financial institutions whose data cannot leave the premises</span>
           </div>
           <ul class="plan-list">
-            <li>Kurum içi (on-prem) dağıtım — model ve indeks sizde</li>
-            <li>Sınırsız kullanıcı, kurum SSO entegrasyonu</li>
-            <li>Yıllık lisans + bakım ve mevzuat güncellemeleri</li>
-            <li>Özel entegrasyon (API, iç sistemler)</li>
+            <li>On-premises deployment — you hold the model and index</li>
+            <li>Unlimited users, corporate SSO integration</li>
+            <li>Annual licence + maintenance and regulation updates</li>
+            <li>Custom integration (API, internal systems)</li>
           </ul>
-          <div class="plan-price">Yıllık lisans — iletişime geçin</div>
-          <a class="btn ghost" href="mailto:hello@ozdna.com?subject=ComplyDNA%20Enterprise">İletişime geç</a>
+          <div class="plan-price">Annual licence — get in touch</div>
+          <a class="btn ghost" href="mailto:hello@ozdna.com?subject=ComplyDNA%20Enterprise">Contact us</a>
         </div>
       </div>
-      <p class="plan-note">Erken erişim dönemindeyiz: fiyatlandırma, pilot programı kapsamında kurumunuzun
-      mevzuat kapsamı ve kullanım hacmine göre birlikte belirlenir.</p>
+      <p class="plan-note">We are in early access: pricing is set together within the pilot program,
+      based on your institution's regulatory scope and usage volume.</p>
     </div>
   </div>
 </section>
 
-<section id="sss">
+<section id="faq">
   <div class="shell">
-    <div class="sec-head"><span class="sec-no">[05]</span><span class="label">SIK SORULAN SORULAR</span></div>
+    <div class="sec-head"><span class="sec-no">[05]</span><span class="label">FREQUENTLY ASKED QUESTIONS</span></div>
     <div class="sec-body">
-      <h2 class="sec-title">SSS</h2>
+      <h2 class="sec-title">FAQ</h2>
       <div class="faq">
         <details>
-          <summary>ComplyDNA nedir?</summary>
-          <p class="a">ComplyDNA, Türk mevzuatı (MASAK tebliğleri, AML/CFT kanunları, KVKK) üzerine
-          eğitilmiş bir uyum LLM'idir. Uyum sorularını, her cümlesinde [TEBLİĞ / Madde] biçiminde
-          satır içi kaynak künyesi vererek yanıtlar — yanıtın dayandığı mevzuat parçası her zaman
-          doğrulanabilir.</p>
+          <summary>What is ComplyDNA?</summary>
+          <p class="a">ComplyDNA is a compliance LLM trained on Turkish regulation (MASAK communiqués,
+          AML/CFT laws, KVKK). It answers compliance questions with an inline [COMMUNIQUÉ / Article]
+          citation on every sentence — the piece of regulation behind each answer is always verifiable.</p>
         </details>
         <details>
-          <summary>Hangi mevzuatı kapsıyor?</summary>
-          <p class="a">5549 sayılı Suç Gelirlerinin Aklanmasının Önlenmesi Hakkında Kanun, 6415 sayılı
-          Terörizmin Finansmanının Önlenmesi Hakkında Kanun, 6698 sayılı KVKK, MASAK tebliğ ve
-          genelgeleri, Tedbirler Yönetmeliği ve kripto varlık hizmet sağlayıcılarına ilişkin
-          düzenlemeler. Kapsam, mevzuat değişikliklerine göre sürümlenerek güncellenir.</p>
+          <summary>Which regulation does it cover?</summary>
+          <p class="a">Law No. 5549 on the Prevention of Laundering of Crime Proceeds, Law No. 6415 on
+          the Prevention of the Financing of Terrorism, the Turkish data-protection law KVKK (6698),
+          MASAK communiqués and circulars, the Measures Regulation, and crypto-asset service provider
+          (VASP/CASP) rules. Coverage is versioned and updated as regulation changes.</p>
         </details>
         <details>
-          <summary>Genel bir LLM'den (ChatGPT vb.) farkı nedir?</summary>
-          <p class="a">Genel modeller Türk mevzuatı sorularında kaynak gösteremez ve güncel tebliğ
-          metnine dayanmaz. ComplyDNA yanıtı önce ilgili madde metnini geri getirerek kurar, her
-          iddiayı kaynağa bağlar ve mevzuat diliyle yazar. Değerlendirme, uyum uzmanlarının yazdığı
-          golden-set sorularla her sürümde ölçülür.</p>
+          <summary>How is it different from a general LLM (ChatGPT etc.)?</summary>
+          <p class="a">General models can't cite sources on Turkish regulation questions and don't
+          ground answers in current communiqué text. ComplyDNA builds each answer by first retrieving
+          the relevant article text, ties every claim to its source, and writes in regulatory language.
+          Quality is measured on every release against a golden set written by compliance experts.</p>
         </details>
         <details>
-          <summary>Verilerimiz model eğitiminde kullanılıyor mu?</summary>
-          <p class="a">Hayır. Müşteri sorguları ve belgeleri model eğitimine karışmaz. Enterprise
-          planında model ve indeks tamamen kurum içi altyapınızda çalışır; veri kurum dışına çıkmaz.</p>
+          <summary>Is our data used to train the model?</summary>
+          <p class="a">No. Customer queries and documents never enter model training. On the Enterprise
+          plan the model and index run entirely inside your own infrastructure; data never leaves your
+          perimeter.</p>
         </details>
         <details>
-          <summary>Nasıl dağıtılıyor — bulut mu, kurum içi mi?</summary>
-          <p class="a">Her ikisi de: bulut API / web arayüzü ile hızlı başlangıç, ya da banka ve finansal
-          kuruluşlar için tam kurum içi (on-prem) kurulum. Pilot programı genellikle bulutta başlar.</p>
+          <summary>How is it deployed — cloud or on-premises?</summary>
+          <p class="a">Both: a fast start via cloud API / web interface, or a fully on-premises
+          installation for banks and financial institutions. Pilot programs usually start in the cloud.</p>
         </details>
         <details>
-          <summary>Yanıtlar hukuki tavsiye midir?</summary>
-          <p class="a">Hayır. ComplyDNA çıktıları bilgilendirme amaçlıdır ve hukuki tavsiye değildir;
-          nihai kararlar uyum uzmanı doğrulaması gerektirir. Kaynak künyeleri tam da bu doğrulamayı
-          hızlandırmak için var.</p>
+          <summary>Are the answers legal advice?</summary>
+          <p class="a">No. ComplyDNA outputs are informational and do not constitute legal advice;
+          final decisions require verification by a compliance professional. The inline citations exist
+          precisely to speed up that verification.</p>
         </details>
       </div>
     </div>
   </div>
 </section>
 
-<section id="iletisim">
+<section id="contact">
   <div class="shell contact">
-    <div class="label"><b>[06]</b> — İLETİŞİM</div>
-    <h2>Uyum ekibinize bir LLM değil,<br>bir kaynak zinciri verin.</h2>
-    <p>Erken erişim programı açık. Kurumunuzun mevzuat kapsamına göre
-    özel demo hazırlıyoruz — bir e-posta yeterli.</p>
+    <div class="label"><b>[06]</b> — CONTACT</div>
+    <h2>Give your compliance team<br>a chain of sources, not just an LLM.</h2>
+    <p>The early access program is open. We prepare a demo tailored to your
+    institution's regulatory scope — one email is enough.</p>
     <div class="cta-row">
-      <a class="btn" href="mailto:hello@ozdna.com?subject=ComplyDNA%20erken%20eri%C5%9Fim">Erken erişim iste</a>
+      <a class="btn" href="mailto:hello@ozdna.com?subject=ComplyDNA%20early%20access">Request early access</a>
     </div>
   </div>
 </section>
@@ -839,33 +852,34 @@
 <footer class="site-footer">
   <div class="shell">
     <div class="footer-legal">
-      <p class="footer-legal__product" lang="en">
+      <p class="footer-legal__product">
         ComplyDNA is a compliance LLM for Turkish financial regulation (MASAK, AML/CFT, KVKK),
         delivering responses with inline statutory citations. A product of the ozDNA platform,
         operated by Findbelow Ventures.
       </p>
-      <div class="footer-legal__notice" role="note" aria-label="Yasal uyarı">
-        <p class="footer-legal__label">Yasal uyarı</p>
-        <p>ComplyDNA çıktıları yalnızca genel bilgilendirme amacıyla sunulur; avukatlık, mali
-        müşavirlik veya düzenleyici danışmanlık niteliği taşımaz ve sizinle Findbelow Ventures
-        arasında avukat–müvekkil ilişkisi doğurmaz.</p>
-        <p>Uyum, risk ve yasal kararlar yalnızca yetkili uyum görevlisi, hukuk birimi veya
-        dış danışmanınızın profesyonel değerlendirmesiyle alınmalıdır. Mevzuat zaman içinde
-        değişebilir; içeriklerin güncelliği, eksiksizliği veya belirli bir işlem veya kuruma
-        uygunluğu garanti edilmez.</p>
-        <p>Satır içi kaynak künyeleri ([TEBLİĞ / Madde]) doğrulama sürecini desteklemek içindir;
-        tek başına yeterli düzenleyici temsil veya denetim kanıtı sayılmaz.</p>
+      <div class="footer-legal__notice" role="note" aria-label="Legal notice">
+        <p class="footer-legal__label">Legal notice</p>
+        <p>ComplyDNA outputs are provided for general informational purposes only; they do not
+        constitute legal, accounting or regulatory advice, and they do not create an
+        attorney–client relationship between you and Findbelow Ventures.</p>
+        <p>Compliance, risk and legal decisions must rest solely on the professional judgment of
+        your authorised compliance officer, legal department or external counsel. Regulation
+        changes over time; no guarantee is given that content is current, complete, or suitable
+        for a specific transaction or institution.</p>
+        <p>Inline citations ([COMMUNIQUÉ / Article]) exist to support your verification process;
+        on their own they are not sufficient regulatory representation or audit evidence.</p>
       </div>
     </div>
     <div class="foot">
-      <span>ComplyDNA · <a href="https://ozdna.com">ozDNA</a> · Findbelow Ventures</span>
-      <span>© 2026 Findbelow Ventures · Tüm hakları saklıdır</span>
+      <span>ComplyDNA · <a href="/">ozDNA</a> · Findbelow Ventures</span>
+      <span>© 2026 Findbelow Ventures · All rights reserved</span>
     </div>
     <p class="footer-links">
       <a href="mailto:hello@ozdna.com">hello@ozdna.com</a>
-      · <a href="/privacy/">Gizlilik</a>
-      · <a href="/terms/">Kullanım şartları</a>
-      · Güncelleme: <time datetime="2026-07-09">9 Temmuz 2026</time>
+      · <a href="/privacy/">Privacy</a>
+      · <a href="/terms/">Terms</a>
+      · <a href="/tr/products/comply/" lang="tr" hreflang="tr">Türkçe</a>
+      · Updated <time datetime="2026-07-09">July 9, 2026</time>
     </p>
   </div>
 </footer>
