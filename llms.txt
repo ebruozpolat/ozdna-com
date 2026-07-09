@@ -1,40 +1,34 @@
-# ozDNA
+# ComplyDNA
 
-> ozDNA (Findbelow Ventures) builds verifiability software. Two products: **ComplyDNA**,
-> a compliance LLM for Turkish financial regulation that answers with inline statutory
-> citations; and **OriginDNA**, content provenance infrastructure for EU AI Act
-> Article 50 content marking (pre-launch, waitlist open).
+> ComplyDNA, Türk mevzuatına (MASAK tebliğleri, AML/CFT kanunları, KVKK) özel eğitilmiş bir uyum
+> LLM'idir. Her yanıtını [TEBLİĞ / Madde] biçiminde satır içi kaynak künyesiyle verir; yanıtın
+> dayandığı mevzuat parçası cümle düzeyinde doğrulanabilir. ozDNA'nın ürünüdür.
 
-## ComplyDNA — https://ozdna.com/products/comply/
+> ComplyDNA is a compliance LLM trained on Turkish financial regulation (MASAK communiqués,
+> AML/CFT laws 5549 and 6415, KVKK), answering compliance questions with inline statutory
+> citations in the form [COMMUNIQUE / Article]. Built by ozDNA.
 
-> ComplyDNA, Türk mevzuatına (MASAK tebliğleri, AML/CFT kanunları 5549 ve 6415, KVKK) özel
-> eğitilmiş bir uyum LLM'idir. Her yanıtını [TEBLİĞ / Madde] biçiminde satır içi kaynak
-> künyesiyle verir; yanıtın dayandığı mevzuat parçası cümle düzeyinde doğrulanabilir.
+## Kapsam / Coverage
 
-- Kapsam: 5549, 6415, KVKK (6698), MASAK tebliğ/genelgeleri, Tedbirler Yönetmeliği, kripto varlık (VASP/CASP) düzenlemeleri
-- Cite-first: her iddia mevzuat kaynağına bağlanır; müşteri verisi eğitime karışmaz
+- 5549 — Suç Gelirlerinin Aklanmasının Önlenmesi Hakkında Kanun
+- 6415 — Terörizmin Finansmanının Önlenmesi Hakkında Kanun
+- 6698 — Kişisel Verilerin Korunması Kanunu (KVKK)
+- MASAK tebliğ ve genelgeleri, Tedbirler Yönetmeliği
+- Kripto varlık hizmet sağlayıcı (VASP/CASP) düzenlemeleri
+
+## Ürün / Product
+
+- Cite-first: her iddia mevzuat kaynağına bağlanır, kaynak listesi ve yürürlük bilgisiyle
 - Dağıtım: bulut API / web arayüzü veya tam kurum içi (on-prem)
+- Müşteri verisi model eğitiminde kullanılmaz
 - Planlar: Pilot (POC), Team (yıllık abonelik), Enterprise/On-prem (yıllık lisans)
-- Çıktılar bilgilendirme amaçlıdır, hukuki tavsiye değildir
 
-## OriginDNA — https://ozdna.com/products/origin/
+## İletişim / Contact
 
-> OriginDNA is content provenance infrastructure: every image gets a cryptographic
-> signature at creation (open C2PA standard), a timestamp anchored in a public,
-> independently verifiable record, and a perceptual fingerprint that survives metadata
-> stripping. Built for EU AI Act Article 50 content marking (applies Aug 2, 2026; grace
-> for existing GenAI systems ends Dec 2, 2026).
+- Web: https://ozdna.com/
+- E-posta: hello@ozdna.com
 
-- Status: pre-launch; MVP October 2026; segmented waitlist open at /products/origin/#waitlist
-- v1 scope: images (JPG/PNG); provenance, not AI detection; no token; no user funds held
-- Segments: GenAI apps (API, from $49/mo at launch), sellers/creators (badge), newsrooms & fact-checkers (free forever), legal/enterprise (later)
-- Not yet a certified C2PA-conformance member; verification runs via OriginDNA's own public verify page
+## Not / Note
 
-## Knowledge bundle (read these instead of scraping)
-
-- https://ozdna.com/knowledge/_index.md
-- https://ozdna.com/llms-full.txt (full bundle, single file)
-
-## Contact
-
-- hello@ozdna.com · https://ozdna.com/
+ComplyDNA çıktıları bilgilendirme amaçlıdır, hukuki tavsiye değildir. / Outputs are informational
+and do not constitute legal advice.

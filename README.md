@@ -43,7 +43,7 @@ These are the hard rules from `CLAUDE.md` in plain terms. They are not up for de
 
 ## Deploy state — ozdna.com
 
-Canonical host is **Netlify** (`ozdna-614`), repo-connected to `main` — decided Jul 8, 2026; see `docs/DOMAIN.md` for the one-time console steps and DNS facts. Public positioning (Jul 8): ozDNA umbrella at `/`, ComplyDNA at `/products/comply/`, OriginDNA landing + segmented waitlist at `/products/origin/` (that waitlist is ACTION_PLAN 0.3 — the demand validation). `docs/ACTION_PLAN.md` item **0.9** gets logged DONE once this is live on `main`. The partner's AI-text humanizer must never appear under the ozDNA brand. Merging to `main` deploys the public site — founder sign-off required, no exceptions.
+Canonical marketing host is **GitHub Pages** (`main` / root) with custom domain `ozdna.com` — see **`SITE.md`** for DNS, Pages settings, and the static file list. Public positioning (Jul 9): **ComplyDNA landing at `/`**, product pages at `/products/comply/` and `/products/origin/` (OriginDNA waitlist = ACTION_PLAN 0.3). Netlify (`ozdna-614`) is not the canonical host once Pages DNS is live; details in `docs/DOMAIN.md`. The partner's AI-text humanizer must never appear under the ozDNA brand. Merging to `main` deploys the public site — founder sign-off required, no exceptions.
 
 ## What else lives in this repo
 
@@ -51,7 +51,7 @@ Canonical host is **Netlify** (`ozdna-614`), repo-connected to `main` — decide
 
 | Area | What it is |
 |------|------------|
-| `index.html` + site dirs (`products/`, `blog/`, `tr/`, …) | The live ozdna.com site: ozDNA umbrella + ComplyDNA + OriginDNA pages (legacy platform-era pages pending pruning). Hosting/DNS: `docs/DOMAIN.md`. |
+| `index.html` + site dirs (`products/`, `blog/`, `tr/`, …) | Live ozdna.com: ComplyDNA landing at `/`, plus product/docs/blog paths (legacy platform-era pages pending pruning). Publish runbook: `SITE.md`; DNS notes: `docs/DOMAIN.md`. |
 | `complydna/` | ComplyDNA — Turkish RegTech compliance LLM (FastAPI + Qdrant). See `complydna/README.md` and `docs/products/COMPLYDNA.md`. |
 | `platform/` | ozDNA Platform v0.1 — LLM gateway, routing, RAG, cost. Start at `platform/README.md`. |
 | `docs/products/ORIGINDNA.md` | The OriginDNA product card (name, scope, links into the plan corpus). |
