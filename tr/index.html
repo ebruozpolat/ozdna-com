@@ -36,9 +36,18 @@
    "url": "https://ozdna.com/",
    "email": "hello@ozdna.com",
    "brand": [
-    {"@type": "Brand", "name": "ozDNA"},
-    {"@type": "Brand", "name": "ComplyDNA"},
-    {"@type": "Brand", "name": "OriginDNA"}
+    {
+     "@type": "Brand",
+     "name": "ozDNA"
+    },
+    {
+     "@type": "Brand",
+     "name": "ComplyDNA"
+    },
+    {
+     "@type": "Brand",
+     "name": "OriginDNA"
+    }
    ]
   },
   {
@@ -49,7 +58,9 @@
    "operatingSystem": "Web, On-premises",
    "inLanguage": "tr",
    "description": "Türk finansal mevzuatı (MASAK, AML/CFT, KVKK) için uyum LLM'i. Her yanıt [TEBLİĞ / Madde] biçiminde satır içi kaynak künyesi taşır.",
-   "publisher": {"@id": "https://ozdna.com/#org"}
+   "publisher": {
+    "@id": "https://ozdna.com/#org"
+   }
   },
   {
    "@type": "SoftwareApplication",
@@ -59,7 +70,47 @@
    "operatingSystem": "Web",
    "inLanguage": "tr",
    "description": "İçerik kökeni altyapısı: oluşturma anında kriptografik imza, bağımsız doğrulanabilir zaman damgası ve metadata silinse bile hayatta kalan algısal parmak izi. AB Yapay Zekâ Yasası Madde 50 içerik işaretleme için.",
-   "publisher": {"@id": "https://ozdna.com/#org"}
+   "publisher": {
+    "@id": "https://ozdna.com/#org"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "tr",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "ozDNA ne geliştiriyor?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Doğrulanabilirlik yazılımı. Tek ilke altında iki ürün: her çıktı, kontrol edilmesini sağlayan kanıtı taşır. ComplyDNA, Türk mevzuatına ilişkin uyum sorularını madde düzeyinde kaynak künyesiyle yanıtlar; OriginDNA, AB Yapay Zekâ Yasası'nın içerik işaretleme kuralları için görsellere kanıtlanabilir köken verir."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "ComplyDNA ile OriginDNA'nın ilişkisi ne?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Farklı müşterilere hizmet ederler ama aynı mühendislik disiplinini paylaşırlar: kaynağa bağlı iddialar, halka açık doğrulama ve her sürümde ölçülen doğruluk."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "ozDNA'nın arkasında kim var?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Findbelow Ventures. ComplyDNA, Türk uyum ekipleriyle erken erişim aşamasında; OriginDNA, Ekim 2026 geliştirmesi öncesinde açık bekleme listesiyle lansman öncesi dönemde. İletişim: hello@ozdna.com."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Ürünleri bugün deneyebilir miyim?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ComplyDNA — evet, erken erişim programıyla: kurumunuzun mevzuat kapsamına göre demo hazırlanır. OriginDNA — erken erişim ve lansman fiyatı için bekleme listesine katılın. Teyit kuruluşları OriginDNA'yı sonsuza dek ücretsiz kullanır."
+     }
+    }
+   ]
   }
  ]
 }
@@ -152,6 +203,12 @@
   .cell { border-top: 2px solid var(--ink); padding-top: 16px; }
   .cell h4 { margin: 8px 0 10px; font-size: 15px; text-transform: uppercase; }
   .cell p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  .faq { border-top: 1px solid var(--rule); }
+  .faq details { border-bottom: 1px solid var(--rule-soft); padding: 14px 0; }
+  .faq summary { cursor: pointer; font-weight: 700; text-transform: uppercase; font-size: 13px; letter-spacing: 0.04em; }
+  .faq summary:hover { color: var(--accent); }
+  .faq .a { color: var(--muted); font-size: 14px; margin: 10px 0 0; max-width: 75ch; }
 
   .contact { text-align: left; max-width: 720px; }
   .contact h2 { font-size: clamp(22px, 3.4vw, 34px); text-transform: uppercase; line-height: 1.15; margin: 14px 0 16px; }
@@ -266,9 +323,86 @@
   </div>
 </section>
 
+<section id="why">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[03]</span><span class="label">NEDEN ŞİMDİ</span></div>
+    <h2 class="sec-title">Üretmesi ucuz.<br>Güvenmesi pahalı.</h2>
+    <p class="lede" style="margin-bottom:34px">
+      Üretken yapay zekâ; metin, görsel ve tavsiye üretmenin maliyetini sıfıra indirdi —
+      maliyeti sessizce başka bir yere taşıdı: doğrulamaya. Uyum ekipleri, hangi maddeye
+      dayandığı izlenemeyen makul yanıtlar okuyor. Platformlar kimseye atfedilemeyen
+      görseller barındırıyor. Düzenleyiciler buna rehberle değil, kesin tarihlerle yanıt
+      verdi — ve tarihler yakın.
+    </p>
+    <div class="principle">
+      <div class="cell">
+        <div class="label"><b>2 AĞU</b> / 2026</div>
+        <h4>İşaretleme kuralları başlıyor</h4>
+        <p>AB Yapay Zekâ Yasası Madde 50 uygulanmaya başlıyor; Kaliforniya SB 942 aynı gün
+        yürürlüğe giriyor. Üretken yapay zekâ sağlayıcıları, AI ile üretilen içeriği makine
+        tarafından okunabilir biçimde işaretlemek zorunda.</p>
+      </div>
+      <div class="cell">
+        <div class="label"><b>2 ARA</b> / 2026</div>
+        <h4>Geçiş süresi bitiyor</h4>
+        <p>Halihazırda piyasada olan GenAI sistemleri de uymak zorunda. OriginDNA'nın içine
+        lansman yaptığı uygulama dalgası bu — mevcut uygulamalara söz değil, işaretleme gerekiyor.</p>
+      </div>
+      <div class="cell">
+        <div class="label"><b>OCAK'TAN BERİ</b> / 2026</div>
+        <h4>Pazar yerleri önden gitti</h4>
+        <p>Etsy, satıcılardan AI ile üretilen işleri beyan etmelerini zaten zorunlu tutuyor.
+        Alıcılar "bu orijinal mi?" diye sormayı öğreniyor — satıcıların onay kutusundan iyi
+        bir cevaba ihtiyacı var.</p>
+      </div>
+    </div>
+    <p class="lede" style="margin-top:34px">
+      ozDNA tam da bu an için geliştiriyor. ComplyDNA düzenleyici yanıtları bugün, cümle
+      cümle kontrol edilebilir kılıyor. OriginDNA görsel kökenini son tarihler gelmeden
+      kontrol edilebilir yapıyor — kurumsal bir projeyle değil, küçük ekiplerin bir öğleden
+      sonra entegre edebileceği bir API ile. Tarihler AB Yapay Zekâ Yasası'nın yayımlanmış
+      takvimindendir; yükümlülükleriniz ürününüze ve yargı bölgenize bağlıdır.
+    </p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[04]</span><span class="label">SSS</span></div>
+    <div class="faq">
+      <details>
+        <summary>ozDNA ne geliştiriyor?</summary>
+        <p class="a">Doğrulanabilirlik yazılımı. Tek ilke altında iki ürün: her çıktı,
+        kontrol edilmesini sağlayan kanıtı taşır. ComplyDNA, Türk mevzuatına ilişkin uyum
+        sorularını madde düzeyinde kaynak künyesiyle yanıtlar; OriginDNA, AB Yapay Zekâ
+        Yasası'nın içerik işaretleme kuralları için görsellere kanıtlanabilir köken verir.</p>
+      </details>
+      <details>
+        <summary>ComplyDNA ile OriginDNA'nın ilişkisi ne?</summary>
+        <p class="a">Farklı müşterilere hizmet ederler — bir yanda Türk uyum ekipleri, diğer
+        yanda küresel GenAI uygulamaları, satıcılar ve haber odaları — ama aynı mühendislik
+        disiplinini paylaşırlar: kaynağa bağlı iddialar, "bize güvenin" yerine halka açık
+        doğrulama ve her sürümde ölçülen doğruluk.</p>
+      </details>
+      <details>
+        <summary>ozDNA'nın arkasında kim var?</summary>
+        <p class="a">Findbelow Ventures. ComplyDNA, Türk uyum ekipleriyle erken erişim
+        aşamasında; OriginDNA, Ekim 2026 geliştirmesi öncesinde açık bekleme listesiyle
+        lansman öncesi dönemde. Ekibe tek adresten ulaşılır: hello@ozdna.com.</p>
+      </details>
+      <details>
+        <summary>Ürünleri bugün deneyebilir miyim?</summary>
+        <p class="a">ComplyDNA — evet, erken erişim programıyla: kurumunuzun mevzuat kapsamına
+        göre demo hazırlıyoruz. OriginDNA — erken erişim ve lansman fiyatı için bekleme
+        listesine katılın. Teyit kuruluşları OriginDNA'yı sonsuza dek ücretsiz kullanır.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
 <section id="contact">
   <div class="shell contact">
-    <div class="label"><b>[03]</b> — İLETİŞİM</div>
+    <div class="label"><b>[05]</b> — İLETİŞİM</div>
     <h2>Bizimle konuşun.</h2>
     <p>ComplyDNA pilotları, OriginDNA erken erişimi, basın, iş birlikleri —
     tek adres, bir insan okuyor.</p>
