@@ -36,9 +36,18 @@
    "url": "https://ozdna.com/",
    "email": "hello@ozdna.com",
    "brand": [
-    {"@type": "Brand", "name": "ozDNA"},
-    {"@type": "Brand", "name": "ComplyDNA"},
-    {"@type": "Brand", "name": "OriginDNA"}
+    {
+     "@type": "Brand",
+     "name": "ozDNA"
+    },
+    {
+     "@type": "Brand",
+     "name": "ComplyDNA"
+    },
+    {
+     "@type": "Brand",
+     "name": "OriginDNA"
+    }
    ]
   },
   {
@@ -49,7 +58,9 @@
    "operatingSystem": "Web, On-premises",
    "inLanguage": "tr",
    "description": "Compliance LLM for Turkish financial regulation (MASAK, AML/CFT, KVKK). Every answer carries inline statutory citations in the form [COMMUNIQUE / Article].",
-   "publisher": {"@id": "https://ozdna.com/#org"}
+   "publisher": {
+    "@id": "https://ozdna.com/#org"
+   }
   },
   {
    "@type": "SoftwareApplication",
@@ -58,7 +69,46 @@
    "applicationCategory": "BusinessApplication",
    "operatingSystem": "Web",
    "description": "Content provenance infrastructure: cryptographic signing at creation, an independently verifiable timestamp, and a perceptual fingerprint that survives metadata stripping. Built for EU AI Act Article 50 content marking.",
-   "publisher": {"@id": "https://ozdna.com/#org"}
+   "publisher": {
+    "@id": "https://ozdna.com/#org"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What does ozDNA build?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Verifiability software. Two products under one principle: every output carries the evidence to check it. ComplyDNA answers Turkish compliance questions with article-level statutory citations; OriginDNA gives images a provable origin for the EU AI Act's content-marking rules."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How are ComplyDNA and OriginDNA related?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "They serve different customers — Turkish compliance teams on one side, global GenAI apps, sellers and newsrooms on the other — but share the same engineering discipline: claims tied to sources, public verification instead of trust-us, and measured accuracy on every release."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Who is behind ozDNA?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Findbelow Ventures. ComplyDNA is in early access with Turkish compliance teams; OriginDNA is pre-launch with an open waitlist ahead of an October 2026 build. Contact: hello@ozdna.com."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I try the products today?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ComplyDNA — yes, via the early access program with a demo scoped to your institution's regulation. OriginDNA — join the waitlist for early access and launch pricing. Fact-checking organizations get OriginDNA free, forever."
+     }
+    }
+   ]
   }
  ]
 }
@@ -151,6 +201,12 @@
   .cell { border-top: 2px solid var(--ink); padding-top: 16px; }
   .cell h4 { margin: 8px 0 10px; font-size: 15px; text-transform: uppercase; }
   .cell p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  .faq { border-top: 1px solid var(--rule); }
+  .faq details { border-bottom: 1px solid var(--rule-soft); padding: 14px 0; }
+  .faq summary { cursor: pointer; font-weight: 700; text-transform: uppercase; font-size: 13px; letter-spacing: 0.04em; }
+  .faq summary:hover { color: var(--accent); }
+  .faq .a { color: var(--muted); font-size: 14px; margin: 10px 0 0; max-width: 75ch; }
 
   .contact { text-align: left; max-width: 720px; }
   .contact h2 { font-size: clamp(22px, 3.4vw, 34px); text-transform: uppercase; line-height: 1.15; margin: 14px 0 16px; }
@@ -263,9 +319,84 @@
   </div>
 </section>
 
+<section id="why">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[03]</span><span class="label">WHY NOW</span></div>
+    <h2 class="sec-title">Cheap to generate.<br>Expensive to trust.</h2>
+    <p class="lede" style="margin-bottom:34px">
+      Generative AI collapsed the cost of producing text, images and advice — and quietly
+      moved the cost somewhere else: verification. Compliance teams read plausible answers
+      they can't trace to a statute. Platforms host images nobody can attribute. Regulators
+      answered with hard dates, not guidelines — and the dates are close.
+    </p>
+    <div class="principle">
+      <div class="cell">
+        <div class="label"><b>AUG 2</b> / 2026</div>
+        <h4>The marking rules apply</h4>
+        <p>EU AI Act Article 50 starts applying; California SB 942 takes effect the same
+        day. Providers of generative AI must mark AI-generated content in
+        machine-readable form.</p>
+      </div>
+      <div class="cell">
+        <div class="label"><b>DEC 2</b> / 2026</div>
+        <h4>The grace period ends</h4>
+        <p>GenAI systems already on the market must comply too. This is the enforcement
+        wave OriginDNA launches into — existing apps need marking, not promises.</p>
+      </div>
+      <div class="cell">
+        <div class="label"><b>SINCE JAN</b> / 2026</div>
+        <h4>Marketplaces moved first</h4>
+        <p>Etsy already requires sellers to disclose AI-made work. Buyers are learning to
+        ask "is this original?" — sellers need a better answer than a checkbox.</p>
+      </div>
+    </div>
+    <p class="lede" style="margin-top:34px">
+      ozDNA builds for exactly that moment. ComplyDNA makes regulatory answers checkable
+      today, sentence by sentence. OriginDNA makes image origin checkable before the
+      deadlines land — as an API small teams can adopt in an afternoon, not an enterprise
+      project. Deadlines from the EU AI Act's published timeline; your obligations depend
+      on your product and jurisdiction.
+    </p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[04]</span><span class="label">FAQ</span></div>
+    <div class="faq">
+      <details>
+        <summary>What does ozDNA build?</summary>
+        <p class="a">Verifiability software. Two products under one principle: every output
+        carries the evidence to check it. ComplyDNA answers Turkish compliance questions with
+        article-level statutory citations; OriginDNA gives images a provable origin for the
+        EU AI Act's content-marking rules.</p>
+      </details>
+      <details>
+        <summary>How are ComplyDNA and OriginDNA related?</summary>
+        <p class="a">They serve different customers — Turkish compliance teams on one side,
+        global GenAI apps, sellers and newsrooms on the other — but share the same engineering
+        discipline: claims tied to sources, public verification instead of "trust us," and
+        measured accuracy on every release.</p>
+      </details>
+      <details>
+        <summary>Who is behind ozDNA?</summary>
+        <p class="a">Findbelow Ventures. ComplyDNA is in early access with Turkish compliance
+        teams; OriginDNA is pre-launch with an open waitlist ahead of an October 2026 build.
+        One address reaches the team: hello@ozdna.com.</p>
+      </details>
+      <details>
+        <summary>Can I try the products today?</summary>
+        <p class="a">ComplyDNA — yes, via the early access program: we prepare a demo scoped
+        to your institution's regulation. OriginDNA — join the waitlist for early access and
+        launch pricing. Fact-checking organizations get OriginDNA free, forever.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
 <section id="contact">
   <div class="shell contact">
-    <div class="label"><b>[03]</b> — CONTACT</div>
+    <div class="label"><b>[05]</b> — CONTACT</div>
     <h2>Talk to us.</h2>
     <p>ComplyDNA pilots, OriginDNA early access, press, partnerships —
     one address, a human reads it.</p>
