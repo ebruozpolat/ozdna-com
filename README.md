@@ -47,7 +47,7 @@ Canonical marketing host is **GitHub Pages** (`main` / root) with custom domain 
 
 ## What else lives in this repo
 
-`ozdna-com` is a monorepo for the whole ozDNA brand; OriginDNA is one product line inside it.
+`ozdna-com` is a monorepo for the whole ozDNA brand; OriginDNA is one product line inside it. The repo also hosts the **ozDNA Platform LLM gateway** (`platform/`) — internal only, out of public positioning per `docs/ACTION_PLAN.md` 0.9.
 
 | Area | What it is |
 |------|------------|
