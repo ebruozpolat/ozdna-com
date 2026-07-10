@@ -19,6 +19,11 @@
       active: path.includes('/products/comply/'),
     },
     {
+      href: `${prefix}/products/detect/`,
+      label: 'Ozdna',
+      active: path.includes('/products/detect/'),
+    },
+    {
       href: `${prefix}/architecture/`,
       label: isTr ? 'Platform' : 'Platform',
       active: path.includes('/architecture/'),

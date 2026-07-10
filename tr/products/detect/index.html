@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ozdna — Türkçe ve İngilizce akademik metinler için AI tespit motoru. Tek skor yerine çok katmanlı risk metrikleri. LMS, yayıncılık ve kurumsal iş akışlarına API-first entegrasyon.">
+<link rel="canonical" href="https://ozdna.com/tr/products/detect/">
+<link rel="alternate" hreflang="en" href="https://ozdna.com/products/detect/">
+<link rel="alternate" hreflang="tr" href="https://ozdna.com/tr/products/detect/">
+<link rel="alternate" hreflang="x-default" href="https://ozdna.com/products/detect/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ozDNA">
+<meta property="og:title" content="Ozdna — Akademik Metinler için AI Tespit Motoru">
+<meta property="og:description" content="Türkçe ve İngilizce akademik içerik için çok boyutlu AI risk analizi. API-first mimari — LMS, yayıncılık ve SaaS ürünlerine entegre edin.">
+<meta property="og:url" content="https://ozdna.com/tr/products/detect/">
+<meta property="og:image" content="https://ozdna.com/og.png">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ozdna — Akademik Metinler için AI Tespit Motoru">
+<meta name="twitter:description" content="Türkçe ve İngilizce akademik içerik için çok boyutlu AI risk analizi. API-first entegrasyon.">
+<meta name="twitter:image" content="https://ozdna.com/og.png">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Ozdna Detection",
+ "url": "https://ozdna.com/tr/products/detect/",
+ "applicationCategory": "DeveloperApplication",
+ "operatingSystem": "Web",
+ "inLanguage": "tr",
+ "description": "Türkçe ve İngilizce akademik metinler için çok katmanlı metriklerle AI tespit motoru. LMS, yayıncılık ve kurumsal entegrasyonlar için API-first mimari.",
+ "publisher": {
+  "@type": "Organization",
+  "name": "Findbelow Ventures",
+  "url": "https://ozdna.com/",
+  "email": "hello@ozdna.com"
+ },
+ "featureList": [
+  "Genel risk skoru (0–1)",
+  "Tekrar ve ritim analizi",
+  "Dolgu ve homojenlik tespiti",
+  "Bağlam uyumu skorlaması",
+  "Türkçe ve İngilizce akademik kalibrasyon"
+ ]
+}
+</script>
+<title>Ozdna — Akademik Metinler için AI Tespit Motoru</title>
+<style>
+  :root {
+    --paper: #F2EFE6;
+    --ink: #191611;
+    --accent: #E23D0E;
+    --muted: #6F6A5C;
+    --rule: rgba(25, 22, 17, 0.18);
+    --rule-soft: rgba(25, 22, 17, 0.08);
+    --card: rgba(25, 22, 17, 0.03);
+    --term-bg: #191611;
+    --term-ink: #EDE8D9;
+    --term-dim: #8A8474;
+    --term-accent: #FF6B3D;
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #141208; --ink: #EDE8D9; --accent: #FF6B3D; --muted: #938D7B;
+      --rule: rgba(237, 232, 217, 0.22); --rule-soft: rgba(237, 232, 217, 0.09); --card: rgba(237, 232, 217, 0.04);
+      --term-bg: #0C0B05; --term-ink: #EDE8D9; --term-dim: #7E7866; --term-accent: #FF6B3D;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--mono); font-size: 15px; line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  ::selection { background: var(--accent); color: var(--paper); }
+  .shell { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .label b { color: var(--accent); font-weight: 400; }
+  code { font-family: var(--mono); }
+
+  header { position: sticky; top: 0; z-index: 10; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; }
+  .wordmark { display: flex; align-items: baseline; gap: 10px; font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; white-space: nowrap; }
+  .wordmark .dot { color: var(--accent); }
+  .wordmark small { font-size: 10px; letter-spacing: 0.14em; color: var(--muted); }
+  .bar-right { display: flex; align-items: center; gap: 22px; }
+  nav { display: flex; gap: 22px; }
+  nav a { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--muted); }
+  nav a:hover { color: var(--accent); }
+  .lang { display: flex; gap: 8px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
+  .lang a { text-decoration: none; color: var(--muted); }
+  .lang a.is-active { color: var(--accent); font-weight: 700; }
+  .lang a:hover { color: var(--accent); }
+  @media (max-width: 720px) { nav { display: none; } }
+
+  .hero { border-bottom: 1px solid var(--rule); padding: 84px 0 68px; }
+  .hero h1 { font-size: clamp(32px, 5.6vw, 60px); line-height: 1.12; font-weight: 700; text-transform: uppercase; margin: 18px 0 22px; text-wrap: balance; }
+  .hero h1 .acc { color: var(--accent); }
+  .hero h1 .sub { display: block; font-size: clamp(18px, 2.8vw, 28px); margin-top: 12px; letter-spacing: 0.02em; }
+  .lede { max-width: 64ch; color: var(--muted); font-size: 16px; }
+  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 26px; }
+  .btn { display: inline-block; padding: 12px 22px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; cursor: pointer; font-family: var(--mono); }
+  .btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn.ghost { background: transparent; color: var(--ink); }
+  .btn.ghost:hover { background: transparent; color: var(--accent); border-color: var(--accent); }
+
+  section { border-bottom: 1px solid var(--rule); padding: 64px 0; }
+  .sec-head { display: flex; gap: 14px; align-items: baseline; margin-bottom: 34px; }
+  .sec-no { color: var(--accent); font-size: 12px; letter-spacing: 0.14em; }
+  .sec-title { font-size: clamp(22px, 3.4vw, 34px); text-transform: uppercase; line-height: 1.15; font-weight: 700; margin: 0 0 28px; text-wrap: balance; }
+  .sec-lede { max-width: 68ch; color: var(--muted); margin: -12px 0 28px; }
+
+  .who { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  @media (max-width: 880px) { .who { grid-template-columns: 1fr; } }
+  .seg { border: 1px solid var(--rule); background: var(--card); padding: 22px; }
+  .seg h3 { margin: 6px 0 8px; font-size: 15px; text-transform: uppercase; }
+  .seg p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  .metrics { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  .metrics th, .metrics td { text-align: left; padding: 14px 12px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+  .metrics th { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
+  .metrics .m { color: var(--accent); font-weight: 700; }
+  .metrics td:last-child { color: var(--muted); font-size: 14px; }
+
+  .term {
+    margin-top: 28px; border: 1px solid var(--rule);
+    background: var(--term-bg); color: var(--term-ink); font-size: 13px; line-height: 1.7;
+  }
+  .term-head {
+    display: flex; justify-content: space-between; gap: 8px;
+    padding: 10px 16px; border-bottom: 1px solid rgba(237, 232, 217, 0.12);
+    color: var(--term-dim); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .term-body { padding: 20px 16px 24px; overflow-x: auto; }
+  .term-body pre { margin: 0 0 18px; white-space: pre-wrap; word-break: break-word; }
+  .term-body pre:last-child { margin-bottom: 0; }
+  .term-body .cmd { color: var(--term-accent); }
+  .term-body .dim { color: var(--term-dim); }
+  .term-body .key { color: var(--term-accent); }
+  .term-body .str { color: #B8D4A8; }
+  .term-foot { padding: 12px 16px; border-top: 1px solid rgba(237, 232, 217, 0.12); color: var(--term-dim); font-size: 12px; }
+  .term-foot a { color: var(--term-accent); }
+
+  .start { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  @media (max-width: 880px) { .start { grid-template-columns: 1fr; } }
+  .start-card { border-top: 2px solid var(--ink); padding-top: 18px; }
+  .start-card h3 { margin: 0 0 10px; font-size: 16px; text-transform: uppercase; }
+  .start-card p { margin: 0 0 18px; color: var(--muted); font-size: 14px; max-width: 42ch; }
+
+  .site-footer { padding: 40px 0 48px; }
+  .foot { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); border-top: 1px solid var(--rule-soft); padding-top: 18px; }
+  .footer-links { font-size: 12px; color: var(--muted); margin-top: 10px; }
+  .footer-links a { color: var(--muted); text-decoration: none; }
+  .footer-links a:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <div class="shell bar">
+    <a class="wordmark" href="/">
+      OZ<span class="dot">DNA</span> <small>DETECTION</small>
+    </a>
+    <div class="bar-right">
+      <nav>
+        <a href="#kimler">Kimler için?</a>
+        <a href="#detection">Detection</a>
+        <a href="#api">API</a>
+        <a href="#basla">Başlayın</a>
+      </nav>
+      <div class="lang" aria-label="Dil">
+        <a href="/products/detect/" lang="en">EN</a>
+        <span aria-hidden="true">/</span>
+        <a href="/tr/products/detect/" class="is-active" lang="tr">TR</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="shell">
+    <div class="label"><b>OZDNA.COM/TR/PRODUCTS/DETECT</b> — AKADEMİK AI TESPİT API'Sİ</div>
+    <h1>
+      Ozdna
+      <span class="sub">Akademik Metinler için <span class="acc">AI Tespit Motoru</span></span>
+    </h1>
+    <p class="lede">
+      Ozdna, Türkçe ve İngilizce akademik metinleri tek boyutlu bir skor yerine çok katmanlı
+      metriklerle analiz eden bir AI modelidir. API-first mimarisiyle LMS'lerden yayıncılık
+      platformlarına kadar her ürüne entegre edilebilir.
+    </p>
+    <div class="cta-row">
+      <a class="btn" href="https://docs.findbelow.ai/ozdna" target="_blank" rel="noopener">API dokümantasyonunu görüntüle</a>
+      <a class="btn ghost" href="mailto:hello@ozdna.com?subject=Ozdna%20Detection%20Erken%20Eri%C5%9Fim">Erken erişim talep et</a>
+    </div>
+  </div>
+</div>
+
+<section id="kimler">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[01]</span><span class="label">KİMLER İÇİN?</span></div>
+    <h2 class="sec-title">Yapılandırılmış AI risk sinyallerine<br>ihtiyaç duyan ekipler için</h2>
+    <div class="who">
+      <div class="seg">
+        <div class="label"><b>S1</b> / LMS &amp; EDTECH</div>
+        <h3>LMS ve EdTech platformları</h3>
+        <p>Öğrenci ödevlerinde ve sınav cevaplarında AI kullanım riskini otomatik olarak skorlayın.
+        Öğretim görevlilerine intihal değil, AI izi konusunda da görünürlük sunun.</p>
+      </div>
+      <div class="seg">
+        <div class="label"><b>S2</b> / YAYINCILIK</div>
+        <h3>Akademik denetim ve yayıncılık</h3>
+        <p>Dergilere ve akademik ofislere gönderilen metinlerde yapay zeka kullanımını ön
+        değerlendirmeden geçirin. YÖK uyumlu risk çıktılarını raporlarınıza entegre edin.</p>
+      </div>
+      <div class="seg">
+        <div class="label"><b>S3</b> / SAAS &amp; AJANSLAR</div>
+        <h3>İçerik SaaS ürünleri ve ajanslar</h3>
+        <p>Yazar kalitesini ölçün, AI kaynaklı içerik riskini izleyin. Kullanıcılarınıza
+        "insanlık skoru" gibi bir katma değer özelliği sunun.</p>
+      </div>
+      <div class="seg">
+        <div class="label"><b>S4</b> / KURUMSAL</div>
+        <h3>Kurumsal ekipler</h3>
+        <p>Uyum, hukuk ve risk ekipleri için kurum içi metinlerde — raporlar, dış iletişim
+        taslakları — AI kullanımını yönetilebilir hale getirin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="detection">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[02]</span><span class="label">DETECTION</span></div>
+    <h2 class="sec-title">Çok boyutlu<br>AI risk analizi</h2>
+    <p class="sec-lede">Klasik dedektörler tek bir yüzde verir. Ozdna metni dört ayrı boyutta değerlendirir. API yanıtında tüm metrikleri veya ihtiyacınıza göre bir alt kümeyi kullanabilirsiniz.</p>
+    <table class="metrics">
+      <thead>
+        <tr><th>Metrik</th><th>Ne ölçer?</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="m">Genel Risk Skoru</td>
+          <td>Metnin AI üretimi olma olasılığı, 0–1 arası</td>
+        </tr>
+        <tr>
+          <td class="m">Tekrar &amp; Ritim</td>
+          <td>LLM'e özgü cümle uzunluğu kalıpları ve akış tekrarı</td>
+        </tr>
+        <tr>
+          <td class="m">Dolgu &amp; Homojenlik</td>
+          <td>Gereksiz dolgu ifadeleri, aşırı pürüzsüz cümle yapısı</td>
+        </tr>
+        <tr>
+          <td class="m">Bağlam Uyumu</td>
+          <td>Paragraf içi tutarlılık ve insanvari varyasyon düzeyi</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="api">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[03]</span><span class="label">API</span></div>
+    <h2 class="sec-title">Tek endpoint.<br>Yapılandırılabilir metrikler.</h2>
+    <div class="term">
+      <div class="term-head">
+        <span>POST /v1/ozdna/detect</span>
+        <span>api.findbelow.ai</span>
+      </div>
+      <div class="term-body">
+        <pre><span class="cmd">POST</span> https://api.findbelow.ai/v1/ozdna/detect
+<span class="dim">Authorization: Bearer YOUR_API_KEY</span></pre>
+        <pre>{
+  <span class="key">"text"</span>: <span class="str">"Metninizi buraya ekleyin..."</span>,
+  <span class="key">"language"</span>: <span class="str">"tr"</span>,
+  <span class="key">"metrics"</span>: [<span class="str">"overall_risk"</span>, <span class="str">"repetition"</span>, <span class="str">"coherence"</span>]
+}</pre>
+        <pre>{
+  <span class="key">"overall_risk"</span>: 0.18,
+  <span class="key">"label"</span>: <span class="str">"low_risk_human_like"</span>,
+  <span class="key">"metrics"</span>: {
+    <span class="key">"repetition"</span>: 0.12,
+    <span class="key">"coherence"</span>: 0.91
+  }
+}</pre>
+      </div>
+      <div class="term-foot">
+        Tüm parametreler ve sandbox ortamı için → <a href="https://docs.findbelow.ai/ozdna" target="_blank" rel="noopener">docs.findbelow.ai/ozdna</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="basla">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[04]</span><span class="label">BAŞLAYIN</span></div>
+    <h2 class="sec-title">Modeli inşa etmeden<br>tespit katmanını devreye alın</h2>
+    <div class="start">
+      <div class="start-card">
+        <h3>Geliştirici misiniz?</h3>
+        <p>API dokümantasyonunu inceleyin, sandbox'ta deneyin.</p>
+        <a class="btn" href="https://docs.findbelow.ai/ozdna" target="_blank" rel="noopener">Dokümantasyona git</a>
+      </div>
+      <div class="start-card">
+        <h3>Üniversite, platform veya yayıncı mısınız?</h3>
+        <p>İhtiyaçlarınızı dinleyelim, size özel metrik seti ve entegrasyon planı tasarlayalım.</p>
+        <a class="btn ghost" href="mailto:hello@ozdna.com?subject=Ozdna%20Detection%20Erken%20Eri%C5%9Fim">Erken erişim talep et</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="shell">
+    <div class="foot">
+      <span>Ozdna Detection · <a href="/">ozDNA</a> · Findbelow Ventures</span>
+      <span>© 2026 Findbelow Ventures · Tüm hakları saklıdır</span>
+    </div>
+    <p class="footer-links">
+      <a href="mailto:hello@ozdna.com">hello@ozdna.com</a>
+      · <a href="/products/comply/">ComplyDNA</a>
+      · <a href="/products/origin/">OriginDNA</a>
+      · <a href="/products/detect/">English</a>
+      · <a href="/privacy/">Gizlilik</a>
+      · <a href="/terms/">Koşullar</a>
+    </p>
+  </div>
+</footer>
+
+<script defer src="/analytics.js"></script>
+</body>
+</html>
