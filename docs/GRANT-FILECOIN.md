@@ -1,6 +1,7 @@
 # Filecoin Open Grant Application — OriginDNA Public Provenance Archive
 
 **Status: DRAFT (prepared July 10, 2026). To be FILED after the October MVP ships (Nov–Dec 2026), per ACTION_PLAN Phase 2.1 — apply with a live product.**
+**⚠️ ŞERH / CAVEAT: The application's core thesis — Filecoin as the registry's public permanent archive layer — is a PROPOSAL PENDING FOUNDER DECISION (not yet ratified; see ACTION_PLAN decisions log, 2026-07-10). Do not file, share, or build against this document until the founder ratifies the archive-layer direction.**
 **Template: `filecoin-project/devgrants` → Open Grant Application. Sections below mirror the official template. Items marked `{FOUNDER}` need founder input before filing.**
 
 ---
@@ -118,7 +119,7 @@ Found the program via fil.org/grants. Contact: hello@ozdna.com. Supporting mater
 
 ## İç notlar (başvuruya girmez)
 
-- **Onaylandı (founder, 10 Tem 2026):** Filecoin/IPFS = DNA registry'nin halka açık kalıcı arşiv katmanı. v1 MVP kapsamını değiştirmez (Cloudflare-first, Ekim 4 hafta); arşiv katmanı grant-fonlu MVP-sonrası iş.
+- **KARAR BEKLİYOR (founder):** Filecoin/IPFS = DNA registry'nin halka açık kalıcı arşiv katmanı — Claude önerisi (10 Tem 2026), founder henüz onaylamadı. Onaylanırsa v1 MVP kapsamını değiştirmez (Cloudflare-first, Ekim 4 hafta); arşiv katmanı grant-fonlu MVP-sonrası iş olur.
 - Dosyalama zamanı: MVP canlıya çıktıktan sonra (Kas–Ara 2026), `filecoin-project/devgrants`'ta issue olarak.
 - Dosyalamadan önce: `{FOUNDER}` alanları, aylık veri projeksiyonlarının MVP gerçekleriyle güncellenmesi, whitepaper PDF'i, yeni `origindna-archive` deposunun adı.
 - Açık kaynak taahhüdü yalnızca arşiv katmanı için — ticari API kapsam dışı (metinde açıkça sınırlandı).
