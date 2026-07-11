@@ -1,235 +1,188 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- ozdna-seo:start -->
-<title>Product Roadmap — ozDNA Vertical AI Infrastructure</title>
-<meta name="description" content="ozDNA product roadmap — API gateway, cost engine, model routing, prompt registry, agent runtime, and enterprise governance.">
-<meta name="author" content="Findbelow Ventures">
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ozDNA roadmap — the EU AI Act compliance clock (Aug 2 and Dec 2, 2026) and ozDNA's build phases: ComplyDNA early access now, OriginDNA pre-build ahead of an October 2026 MVP.">
 <link rel="canonical" href="https://ozdna.com/roadmap/">
 <link rel="alternate" hreflang="en" href="https://ozdna.com/roadmap/">
 <link rel="alternate" hreflang="tr" href="https://ozdna.com/tr/roadmap/">
 <link rel="alternate" hreflang="x-default" href="https://ozdna.com/roadmap/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ozDNA">
-<meta property="og:title" content="Product Roadmap — ozDNA Vertical AI Infrastructure">
-<meta property="og:description" content="ozDNA product roadmap — API gateway, cost engine, model routing, prompt registry, agent runtime, and enterprise governance.">
+<meta property="og:title" content="Roadmap — ozDNA">
+<meta property="og:description" content="The compliance clock and ozDNA's build phases. ComplyDNA early access now; OriginDNA pre-build ahead of an October 2026 MVP.">
 <meta property="og:url" content="https://ozdna.com/roadmap/">
+<meta property="og:image" content="https://ozdna.com/og.png">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://ozdna.com/assets/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ozDNA — Vertical AI Infrastructure">
+<meta property="og:locale:alternate" content="tr_TR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@ozdna">
-<meta name="twitter:title" content="Product Roadmap — ozDNA Vertical AI Infrastructure">
-<meta name="twitter:description" content="ozDNA product roadmap — API gateway, cost engine, model routing, prompt registry, agent runtime, and enterprise governance.">
-<meta name="twitter:image" content="https://ozdna.com/assets/og-image.png">
-<meta name="twitter:image:alt" content="ozDNA — Vertical AI Infrastructure">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://ozdna.com/#organization",
-      "name": "Findbelow Ventures",
-      "legalName": "Findbelow Ventures",
-      "url": "https://ozdna.com/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://ozdna.com/assets/logo.svg"
-      },
-      "email": "hello@ozdna.com",
-      "sameAs": [
-        "https://tezmakale.com"
-      ]
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://ozdna.com/roadmap/#webpage",
-      "url": "https://ozdna.com/roadmap/",
-      "name": "Product Roadmap — ozDNA Vertical AI Infrastructure",
-      "description": "ozDNA product roadmap — API gateway, cost engine, model routing, prompt registry, agent runtime, and enterprise governance.",
-      "isPartOf": {
-        "@id": "https://ozdna.com/#organization"
-      },
-      "inLanguage": "en"
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://ozdna.com/roadmap/#breadcrumb",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://ozdna.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Roadmap",
-          "item": "https://ozdna.com/roadmap/"
-        }
-      ]
-    }
-  ]
-}
-</script>
-<link rel="stylesheet" href="../styles.css">
-<link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#080D12">
-<meta name="color-scheme" content="dark">
-<!-- ozdna-seo:end -->
-<link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#080D12">
+<meta name="twitter:title" content="Roadmap — ozDNA">
+<meta name="twitter:image" content="https://ozdna.com/og.png">
+<title>Roadmap — ozDNA · The compliance clock</title>
+<link rel="stylesheet" href="/assets/ozdna.css">
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav>
-  <a href="/" class="logo" aria-label="ozDNA home">
-    <img src="../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
-  </a>
-  <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="nav-links">
-    <a href="/products/comply/">ComplyDNA</a>
-    <a href="/architecture/">Platform</a>
-    <a href="/docs/">Docs</a>
-    <a href="/pricing/">Pricing</a>
-    <a href="/#products" class="nav-cta">Get Early Access</a>
-  </div>
-</nav>
+<a class="skip-link" href="#main">Skip to content</a>
 
-<main id="main-content">
-<section class="page-hero">
-  <div class="section-label">Product Roadmap</div>
-  <h1>What we're building<br>for production AI.</h1>
-  <p>ozDNA ships in phases — each quarter adds infrastructure depth for vertical AI teams. Timelines are directional and may shift based on beta feedback.</p>
-  <p style="max-width:640px;margin:1rem auto 0;font-size:0.88rem;color:var(--txt-b);line-height:1.65">When the <strong style="color:var(--txt)">ten platform modules</strong> below reach GA, ozDNA is full Vertical AI Infrastructure — not only a marketing site, but a platform developers and enterprise customers can run in production.</p>
+<header>
+  <div class="shell bar">
+    <a class="wordmark" href="/">OZ<span class="dot">DNA</span> <small>FINDBELOW VENTURES</small></a>
+    <nav>
+      <a href="/#products">Products</a>
+      <a href="/products/comply/">ComplyDNA</a>
+      <a href="/products/origin/">OriginDNA</a>
+      <a href="/about/">About</a>
+      <a href="mailto:hello@ozdna.com">Contact</a>
+    </nav>
+    <a class="lang" href="/tr/roadmap/" lang="tr" hreflang="tr">TR</a>
+  </div>
+</header>
+
+<main id="main">
+
+<div class="hero">
+  <div class="shell">
+    <div class="label"><b>OZDNA.COM</b> — ROADMAP</div>
+    <h1>The dates are<br>already <span class="acc">set.</span></h1>
+    <p class="lede">
+      Our roadmap isn't a wish list — it's pinned to the regulatory calendar. The EU AI Act
+      and California SB 942 fixed hard dates; ozDNA is built to meet the wave they create.
+      Dates below are from the EU AI Act's published timeline; your obligations depend on
+      your product and jurisdiction.
+    </p>
+  </div>
+</div>
+
+<section id="clock">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[01]</span><span class="label">THE COMPLIANCE CLOCK</span></div>
+    <div class="stack">
+      <div class="stage">
+        <div class="when">Jul 22, 2026</div>
+        <div>
+          <h4>Code of Practice list closes</h4>
+          <p>The EU GenAI Code of Practice signatory list closes. Who signs is a signal —
+          and a lead list for who needs content marking next.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="when">Aug 2, 2026</div>
+        <div>
+          <h4>The marking rules apply</h4>
+          <p>EU AI Act Article 50 starts applying and California SB 942 takes effect the same
+          day. Generative-AI providers must mark AI-generated content in machine-readable
+          form. This is the PR moment.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="when">Dec 2, 2026</div>
+        <div>
+          <h4>The grace period ends</h4>
+          <p>Marking obligations reach GenAI systems already on the market. The enforcement
+          wave OriginDNA launches into — existing apps need marking, not promises.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="when">Feb 2, 2027</div>
+        <div>
+          <h4>Interoperable detection</h4>
+          <p>Interoperable detection of marked content is required, with a consortium route
+          open to smaller providers — the direction our provenance approach is built for.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="roadmap-page" style="padding-top:0">
-  <div class="section-label" style="text-align:center">Platform GA</div>
-  <h2 class="section-title" style="text-align:center;margin-bottom:2rem">Ten modules to production-ready</h2>
-  <div class="roadmap-items" style="max-width:760px;margin:0 auto 3rem">
-    <div class="roadmap-item">API Gateway <span class="roadmap-status shipped">v0.1</span></div>
-    <div class="roadmap-item">Model Router <span class="roadmap-status shipped">v0.1</span></div>
-    <div class="roadmap-item">Prompt Registry <span class="roadmap-status shipped">v0.1</span></div>
-    <div class="roadmap-item">Usage Analytics <span class="roadmap-status shipped">v0.1</span></div>
-    <div class="roadmap-item">Cost Engine <span class="roadmap-status shipped">v0.1</span></div>
-    <div class="roadmap-item">API Key Management <span class="roadmap-status shipped">v0.1</span></div>
-    <div class="roadmap-item">Organization &amp; Workspace <span class="roadmap-status shipped">In Progress</span></div>
-    <div class="roadmap-item">Billing &amp; Quotas <span class="roadmap-status shipped">In Progress</span></div>
-    <div class="roadmap-item">Audit Logs <span class="roadmap-status shipped">In Progress</span></div>
-    <div class="roadmap-item">Admin Dashboard <span class="roadmap-status planned">Q4 2026</span></div>
+<section id="build">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[02]</span><span class="label">WHAT WE'RE BUILDING, WHEN</span></div>
+    <div class="stack">
+      <div class="stage">
+        <div class="when">Now · Q3 2026</div>
+        <div>
+          <h4>ComplyDNA — early access</h4>
+          <p>Live with Turkish compliance teams: demos scoped to each institution's
+          regulation, cited answers, cloud or on-premises.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="when">Jul–Sep 2026</div>
+        <div>
+          <h4>OriginDNA — pre-build</h4>
+          <p>Foundations before code: C2PA conformance groundwork, joining the Content
+          Authenticity Initiative, a segmented waitlist for demand validation, and a v1
+          whitepaper — building toward the August 2 moment.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="when">Oct 2026</div>
+        <div>
+          <h4>OriginDNA — MVP</h4>
+          <p>The first buildable slice: images only (JPG/PNG), in-browser signing, a public
+          verify page and chain anchor, and the AI Act marking API for small GenAI teams.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="when">Dec 2, 2026 →</div>
+        <div>
+          <h4>Launch into enforcement</h4>
+          <p>As the grace period closes, OriginDNA moves from waitlist to sales — with the
+          seller badge and later the TR/MENA legal evidence plan following the API.</p>
+        </div>
+      </div>
+    </div>
+    <div class="note" style="margin-top:26px">
+      <b>Honest status.</b> OriginDNA is pre-build — nothing is shipped yet. This roadmap is
+      a plan against fixed external dates, not a record of released features. Scope and
+      timing can move; the regulatory dates can't.
+    </div>
   </div>
 </section>
 
-<section class="roadmap-page">
-  <div class="roadmap-timeline">
-
-    <div class="roadmap-quarter">
-      <div class="roadmap-label">Q3 2026</div>
-      <div class="roadmap-items">
-        <div class="roadmap-item">
-          ComplyDNA (RegTech)
-          <span class="roadmap-status shipped">In Progress</span>
-        </div>
-        <div class="roadmap-item">
-          API Gateway
-          <span class="roadmap-status shipped">In Progress</span>
-        </div>
-        <div class="roadmap-item">
-          Cost Engine
-          <span class="roadmap-status shipped">In Progress</span>
-        </div>
-        <div class="roadmap-item">
-          Model Routing
-          <span class="roadmap-status shipped">In Progress</span>
-        </div>
-      </div>
+<section id="contact">
+  <div class="shell contact">
+    <div class="label"><b>[03]</b> — GET AHEAD OF IT</div>
+    <h2>Beat the deadline.</h2>
+    <p>Join the OriginDNA waitlist to lock early-access pricing before December, or ask about
+    a ComplyDNA pilot today.</p>
+    <div class="cta-row">
+      <a class="btn" href="/products/origin/#waitlist">Join waitlist</a>
+      <a class="btn ghost" href="mailto:hello@ozdna.com">hello@ozdna.com</a>
     </div>
-
-    <div class="roadmap-quarter">
-      <div class="roadmap-label">Q4 2026</div>
-      <div class="roadmap-items">
-        <div class="roadmap-item">
-          Prompt Registry
-          <span class="roadmap-status planned">Planned</span>
-        </div>
-        <div class="roadmap-item">
-          Agent Runtime
-          <span class="roadmap-status planned">Planned</span>
-        </div>
-        <div class="roadmap-item">
-          Usage Analytics
-          <span class="roadmap-status planned">Planned</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="roadmap-quarter">
-      <div class="roadmap-label">2027</div>
-      <div class="roadmap-items">
-        <div class="roadmap-item">
-          Enterprise Governance
-          <span class="roadmap-status future">Future</span>
-        </div>
-        <div class="roadmap-item">
-          Marketplace
-          <span class="roadmap-status future">Future</span>
-        </div>
-        <div class="roadmap-item">
-          Vertical AI Templates
-          <span class="roadmap-status future">Future</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="docs-cta" style="margin-top:3rem">
-    <p><strong style="color:var(--txt)">Want early access to roadmap features?</strong> Private beta participants get priority access to each phase as it ships.</p>
-    <a href="/#products" class="btn-primary">Join the Waitlist</a>
   </div>
 </section>
 
 </main>
 
-<footer>
-  <div class="footer-brand">
-    <a href="/" class="logo" aria-label="ozDNA">
-      <img src="../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
-    </a>
-    <p class="footer-tagline">Findbelow Ventures · Vertical AI infrastructure (PaaS)</p>
+<footer class="site-footer">
+  <div class="shell">
+    <div class="foot">
+      <span>ozDNA · ComplyDNA · OriginDNA — Findbelow Ventures</span>
+      <span>© 2026 Findbelow Ventures · All rights reserved</span>
+    </div>
+    <p class="footer-links">
+      <a href="mailto:hello@ozdna.com">hello@ozdna.com</a>
+      · <a href="/products/comply/">ComplyDNA</a>
+      · <a href="/products/origin/">OriginDNA</a>
+      · <a href="/pricing/">Pricing</a>
+      · <a href="/roadmap/">Roadmap</a>
+      · <a href="/architecture/">Architecture</a>
+      · <a href="/security/">Security</a>
+      · <a href="/trust/">Trust</a>
+      · <a href="/partners/">Partners</a>
+      · <a href="/about/">About</a>
+      · <a href="/privacy/">Privacy</a>
+      · <a href="/terms/">Terms</a>
+      · <a href="/tr/roadmap/" lang="tr" hreflang="tr">Türkçe</a>
+    </p>
   </div>
-  <div class="footer-links">
-    <a href="/products/comply/">ComplyDNA</a>
-    <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>
-    <a href="/trust/">Trust Center</a>
-    <a href="/security/">Security</a>
-    <a href="/partners/">Partners</a>
-    <a href="/case-studies/tezmakale/">Case Study</a>
-    <a href="/docs/">Documentation</a>
-    <a href="/sdk/">SDK</a>
-    <a href="/benchmarks/">Benchmarks</a>
-    <a href="mailto:hello@ozdna.com">Contact</a>
-    <a href="/privacy/">Privacy</a>
-    <a href="/terms/">Terms</a>
-    <a href="/changelog/">Changelog</a>
-    <a href="/status/">Status</a>
-        <a href="/pricing/">Pricing</a>
-    <a href="/case-studies/tezmakale/">Case Study</a>
-  </div>
-  <p>© 2026 Findbelow Ventures</p>
 </footer>
 
-<script src="/analytics.js" defer></script>
-<script src="/main.js" defer></script>
+<script defer src="/analytics.js"></script>
 </body>
 </html>

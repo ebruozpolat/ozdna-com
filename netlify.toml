@@ -20,76 +20,99 @@
   status = 301
   force = true
 
-# Legacy platform-era Turkish pages (pre-umbrella) — retired from public serving.
-# /tr/ and /tr/products/* are the live Turkish pages; everything else under /tr/ is 404'd.
+# Two-product live pages (rebuilt 2026-07-11): /architecture/, /pricing/, /roadmap/,
+# /security/, /trust/, /partners/ now serve two-product content in EN and /tr/ — no
+# redirect. Legacy platform-era pages with no two-product equivalent redirect (below).
+
+# Retired platform-era pages — redirect to the nearest live page (EN)
 [[redirects]]
-  from = "/tr/architecture/*"
-  to = "/404.html"
-  status = 404
+  from = "/benchmarks/*"
+  to = "/products/origin/"
+  status = 301
   force = true
 
+[[redirects]]
+  from = "/sdk/*"
+  to = "/products/origin/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/status/*"
+  to = "/roadmap/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/changelog/*"
+  to = "/roadmap/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/*"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/case-studies/*"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/compare/*"
+  to = "/"
+  status = 301
+  force = true
+
+# Retired platform-era pages — redirect to the nearest live page (TR)
 [[redirects]]
   from = "/tr/benchmarks/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/tr/blog/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/tr/case-studies/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/tr/changelog/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/tr/compare/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/tr/partners/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/tr/pricing/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/tr/privacy/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/tr/roadmap/*"
-  to = "/404.html"
-  status = 404
+  to = "/tr/products/origin/"
+  status = 301
   force = true
 
 [[redirects]]
   from = "/tr/sdk/*"
-  to = "/404.html"
-  status = 404
+  to = "/tr/products/origin/"
+  status = 301
   force = true
 
 [[redirects]]
   from = "/tr/status/*"
+  to = "/tr/roadmap/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tr/changelog/*"
+  to = "/tr/roadmap/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tr/blog/*"
+  to = "/tr/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tr/case-studies/*"
+  to = "/tr/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tr/compare/*"
+  to = "/tr/"
+  status = 301
+  force = true
+
+# Legacy TR privacy/terms 404 (Turkish users use the EN /privacy/ and /terms/ pages)
+[[redirects]]
+  from = "/tr/privacy/*"
   to = "/404.html"
   status = 404
   force = true
@@ -100,51 +123,7 @@
   status = 404
   force = true
 
-[[redirects]]
-  from = "/tr/trust/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-# Legacy platform-era root pages (pre-umbrella positioning) — retired from public
-# serving 2026-07-09 (founder-ratified). Files stay in the repo. /privacy/ and /terms/
-# stay live (linked from current pages); /knowledge/ + llms-full.txt stay (current content).
-[[redirects]]
-  from = "/architecture/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/benchmarks/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/blog/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/case-studies/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/changelog/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/compare/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
+# Retired platform-era sections with no successor page — 404
 [[redirects]]
   from = "/docs/*"
   to = "/404.html"
@@ -158,49 +137,7 @@
   force = true
 
 [[redirects]]
-  from = "/partners/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
   from = "/pillars/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/pricing/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/roadmap/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/sdk/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/security/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/status/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/trust/*"
   to = "/404.html"
   status = 404
   force = true

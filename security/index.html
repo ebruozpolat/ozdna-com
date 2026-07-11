@@ -1,383 +1,165 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- ozdna-seo:start -->
-<title>Security — Architecture &amp; Responsible Disclosure | ozDNA</title>
-<meta name="description" content="ozDNA security architecture — encryption, API authentication, rate limiting, logging, backups, and coordinated vulnerability disclosure.">
-<meta name="author" content="Findbelow Ventures">
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ozDNA security — no custody of user funds, no wallets holding value; in-browser signing so images stay on device; batched hash anchoring paid by us; responsible disclosure to security@ozdna.com.">
 <link rel="canonical" href="https://ozdna.com/security/">
 <link rel="alternate" hreflang="en" href="https://ozdna.com/security/">
 <link rel="alternate" hreflang="tr" href="https://ozdna.com/tr/security/">
 <link rel="alternate" hreflang="x-default" href="https://ozdna.com/security/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ozDNA">
-<meta property="og:title" content="Security — Architecture &amp; Responsible Disclosure | ozDNA">
-<meta property="og:description" content="ozDNA security architecture — encryption, API authentication, rate limiting, logging, backups, and coordinated vulnerability disclosure.">
+<meta property="og:title" content="Security — ozDNA">
+<meta property="og:description" content="No custody, no wallets holding value, in-browser signing, and responsible disclosure. How ozDNA is built to be safe by construction.">
 <meta property="og:url" content="https://ozdna.com/security/">
+<meta property="og:image" content="https://ozdna.com/og.png">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://ozdna.com/assets/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ozDNA — Vertical AI Infrastructure">
+<meta property="og:locale:alternate" content="tr_TR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@ozdna">
-<meta name="twitter:title" content="Security — Architecture &amp; Responsible Disclosure | ozDNA">
-<meta name="twitter:description" content="ozDNA security architecture — encryption, API authentication, rate limiting, logging, backups, and coordinated vulnerability disclosure.">
-<meta name="twitter:image" content="https://ozdna.com/assets/og-image.png">
-<meta name="twitter:image:alt" content="ozDNA — Vertical AI Infrastructure">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://ozdna.com/#organization",
-      "name": "Findbelow Ventures",
-      "legalName": "Findbelow Ventures",
-      "url": "https://ozdna.com/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://ozdna.com/assets/logo.svg"
-      },
-      "email": "hello@ozdna.com",
-      "sameAs": [
-        "https://tezmakale.com"
-      ]
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://ozdna.com/security/#webpage",
-      "url": "https://ozdna.com/security/",
-      "name": "Security — Architecture & Responsible Disclosure | ozDNA",
-      "description": "ozDNA security architecture — encryption, API authentication, rate limiting, logging, backups, and coordinated vulnerability disclosure.",
-      "isPartOf": {
-        "@id": "https://ozdna.com/#organization"
-      },
-      "inLanguage": "en"
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://ozdna.com/security/#breadcrumb",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://ozdna.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Security",
-          "item": "https://ozdna.com/security/"
-        }
-      ]
-    }
-  ]
-}
-</script>
-<link rel="stylesheet" href="../styles.css">
-<link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#080D12">
-<meta name="color-scheme" content="dark">
-<!-- ozdna-seo:end -->
-<link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#080D12">
+<meta name="twitter:title" content="Security — ozDNA">
+<meta name="twitter:image" content="https://ozdna.com/og.png">
+<title>Security — ozDNA · Safe by construction</title>
+<link rel="stylesheet" href="/assets/ozdna.css">
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav>
-  <a href="/" class="logo" aria-label="ozDNA home">
-    <img src="../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
-  </a>
-  <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="nav-links">
-    <a href="/products/comply/">ComplyDNA</a>
-    <a href="/architecture/">Platform</a>
-    <a href="/docs/">Docs</a>
-    <a href="/pricing/">Pricing</a>
-    <a href="/#products" class="nav-cta">Get Early Access</a>
-  </div>
-</nav>
+<a class="skip-link" href="#main">Skip to content</a>
 
-<section class="trust-hero">
-  <div class="trust-hero-inner">
-    <div class="section-label">Platform Security</div>
-    <h1>Security architecture<br>for <span class="accent">production AI</span></h1>
-    <p class="trust-hero-lead">Technical security controls for the ozDNA gateway, API, and supporting infrastructure. For compliance roadmap and certifications status, see the <a href="/trust/">Trust Center</a>.</p>
-    <div class="trust-hero-actions">
-      <a href="mailto:security@ozdna.com" class="btn-primary">security@ozdna.com</a>
-      <a href="/.well-known/security.txt" class="btn-ghost">security.txt →</a>
+<header>
+  <div class="shell bar">
+    <a class="wordmark" href="/">OZ<span class="dot">DNA</span> <small>FINDBELOW VENTURES</small></a>
+    <nav>
+      <a href="/#products">Products</a>
+      <a href="/products/comply/">ComplyDNA</a>
+      <a href="/products/origin/">OriginDNA</a>
+      <a href="/about/">About</a>
+      <a href="mailto:hello@ozdna.com">Contact</a>
+    </nav>
+    <a class="lang" href="/tr/security/" lang="tr" hreflang="tr">TR</a>
+  </div>
+</header>
+
+<main id="main">
+
+<div class="hero">
+  <div class="shell">
+    <div class="label"><b>OZDNA.COM</b> — SECURITY</div>
+    <h1>Safe by<br><span class="acc">construction.</span></h1>
+    <p class="lede">
+      The strongest security control is the risk you never take on. ozDNA is designed so the
+      most dangerous things simply aren't in the system: no custody of funds, no wallets
+      holding value, and — in the free flow — no image leaving your device to be signed.
+    </p>
+  </div>
+</div>
+
+<section id="by-design">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[01]</span><span class="label">WHAT WE DON'T TOUCH</span></div>
+    <ul class="flist cols">
+      <li><b>No user funds, ever</b>ozDNA never custodies, brokers, or moves user money, and
+      holds no wallet of value. Timestamp anchoring is batched and paid by us — nothing in
+      the product moves anyone's money.</li>
+      <li><b>On-device signing</b>OriginDNA's free flow signs images in your browser via
+      WebAssembly. The image is never uploaded to us to be signed, so there's nothing to
+      leak on that path.</li>
+      <li><b>Provenance, not detection</b>There are no AI-detection classifiers ingesting
+      your content in v1. We record origin; we don't run a black-box verdict on your media.</li>
+      <li><b>Data residency for ComplyDNA</b>Regulated institutions can run ComplyDNA fully
+      on-premises, keeping sensitive compliance data inside their own boundary.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="platform">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[02]</span><span class="label">PLATFORM HARDENING</span></div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="label"><b>TRANSPORT</b></div>
+        <h3>HTTPS + HSTS</h3>
+        <p>The site is served over HTTPS only, with HSTS preload, and http/www variants are
+        redirected to the canonical host.</p>
+      </div>
+      <div class="card">
+        <div class="label"><b>HEADERS</b></div>
+        <h3>Locked down</h3>
+        <p>Responses set <code>X-Content-Type-Options</code>, <code>X-Frame-Options: DENY</code>,
+        a strict <code>Referrer-Policy</code>, and a restrictive <code>Permissions-Policy</code>.</p>
+      </div>
+      <div class="card">
+        <div class="label"><b>SURFACE</b></div>
+        <h3>Minimal</h3>
+        <p>Internal strategy, source and platform paths are 404'd at the edge and never
+        served on the public domain.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="trust-layout">
-  <aside class="trust-sidebar" aria-label="Security page sections">
-    <h3>On this page</h3>
-    <a href="#security-architecture">Security Architecture</a>
-    <a href="#encryption-at-rest">Encryption at Rest</a>
-    <a href="#encryption-in-transit">Encryption in Transit</a>
-    <a href="#secrets-management">Secrets Management</a>
-    <a href="#api-authentication">API Authentication</a>
-    <a href="#rate-limiting">Rate Limiting</a>
-    <a href="#ddos-protection">DDoS Protection</a>
-    <a href="#logging">Logging</a>
-    <a href="#monitoring">Monitoring</a>
-    <a href="#backups">Backups</a>
-    <a href="#vulnerability-disclosure">Vulnerability Disclosure</a>
-    <a href="#responsible-disclosure">Responsible Disclosure</a>
-    <a href="/trust/">Trust Center →</a>
-  </aside>
-
-  <main id="main-content" class="trust-main">
-
-    <section class="trust-section" id="security-architecture">
-      <div class="trust-section-head">
-        <span class="trust-section-num">01</span>
-        <h2>Security Architecture</h2>
-      </div>
-      <p>ozDNA is a layered platform: AI gateway, model router, prompt registry, RAG, cost engine, and observability — operated by Findbelow Ventures. Every external request enters through authenticated gateway boundaries before reaching inference or retrieval subsystems.</p>
-      <ul class="trust-list">
-        <li><strong>Perimeter:</strong> HTTPS-only public endpoints; invite-only API keys during private beta</li>
-        <li><strong>Gateway:</strong> Auth, rate limits, and audit hooks before workflow execution</li>
-        <li><strong>Isolation:</strong> Environment-separated sandbox (<span class="inline-code">api.sandbox.ozdna.com</span>) and production (<span class="inline-code">api.ozdna.com</span>)</li>
-        <li><strong>Least privilege:</strong> Scoped API keys; no anonymous inference on paid workflows</li>
-        <li><strong>Vertical boundaries:</strong> Mode-specific prompts and corpora (academic, legal, financial)</li>
-      </ul>
-      <div class="trust-callout"><strong>Related:</strong> Compliance programs and certification roadmap — <a href="/trust/#compliance-roadmap">Trust Center</a></div>
-    </section>
-
-    <section class="trust-section" id="encryption-at-rest">
-      <div class="trust-section-head">
-        <span class="trust-section-num">02</span>
-        <h2>Encryption at Rest</h2>
-      </div>
-      <p>Customer data at rest inherits encryption from underlying cloud providers. ozDNA does not store raw API keys in plaintext.</p>
-      <div class="trust-table-wrap">
-        <table class="trust-table">
-          <thead><tr><th>Asset</th><th>Approach</th><th>Status</th></tr></thead>
-          <tbody>
-            <tr><td>API keys (stored)</td><td>Salted hashes only; plaintext shown once at creation</td><td><span class="trust-inline-status live">Live</span></td></tr>
-            <tr><td>Database</td><td>Provider-native encryption (managed Postgres roadmap)</td><td><span class="trust-inline-status progress">In Progress</span></td></tr>
-            <tr><td>Object / vector storage</td><td>Provider-managed encryption for RAG corpora</td><td><span class="trust-inline-status roadmap">Roadmap</span></td></tr>
-            <tr><td>Backups</td><td>Encrypted backup volumes per provider policy</td><td><span class="trust-inline-status planned">Planned</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="trust-section" id="encryption-in-transit">
-      <div class="trust-section-head">
-        <span class="trust-section-num">03</span>
-        <h2>Encryption in Transit</h2>
-      </div>
-      <p>All customer-facing traffic requires TLS. Internal provider connections use HTTPS to upstream LLM and embedding APIs.</p>
-      <ul class="trust-list">
-        <li><strong>Web &amp; docs:</strong> TLS 1.2+ on ozdna.com (Netlify CDN)</li>
-        <li><strong>Platform API:</strong> HTTPS enforced on <span class="inline-code">api.ozdna.com</span> and sandbox endpoints</li>
-        <li><strong>Provider calls:</strong> TLS to OpenAI and routed inference providers</li>
-        <li><strong>Webhooks:</strong> HMAC-SHA256 signatures on outbound callbacks (<span class="inline-code">X-OzDNA-Signature</span>)</li>
-      </ul>
-    </section>
-
-    <section class="trust-section" id="secrets-management">
-      <div class="trust-section-head">
-        <span class="trust-section-num">04</span>
-        <h2>Secrets Management</h2>
-      </div>
-      <p>Secrets never ship in client-side code, public repositories, or static marketing assets.</p>
-      <ul class="trust-list">
-        <li>Environment-scoped configuration for provider keys and database credentials</li>
-        <li>Separate secrets per sandbox and production environments</li>
-        <li>Rotation supported for API keys via dashboard (roadmap) and manual revoke today</li>
-        <li>CI/CD injects secrets at deploy time — not baked into container images</li>
-      </ul>
-      <div class="trust-callout"><strong>Status:</strong> Centralized secrets manager (Vault / cloud SM) — <span class="trust-inline-status roadmap">Roadmap</span> for enterprise tier.</div>
-    </section>
-
-    <section class="trust-section" id="api-authentication">
-      <div class="trust-section-head">
-        <span class="trust-section-num">05</span>
-        <h2>API Authentication</h2>
-      </div>
-      <p>All platform endpoints require a valid Bearer token. Unauthenticated requests receive <span class="inline-code">401</span> before reaching inference logic.</p>
-      <div class="trust-table-wrap">
-        <table class="trust-table">
-          <thead><tr><th>Mechanism</th><th>Detail</th><th>Status</th></tr></thead>
-          <tbody>
-            <tr><td>Bearer tokens</td><td><span class="inline-code">Authorization: Bearer ozdna_sk_*</span></td><td><span class="trust-inline-status live">Live</span></td></tr>
-            <tr><td>Key prefixes</td><td><span class="inline-code">ozdna_sk_test_</span> / <span class="inline-code">ozdna_sk_live_</span></td><td><span class="trust-inline-status live">Live</span></td></tr>
-            <tr><td>Revocation</td><td>Immediate invalidation on key delete</td><td><span class="trust-inline-status live">Live</span></td></tr>
-            <tr><td>SSO / SAML</td><td>Dashboard and enterprise identity</td><td><span class="trust-inline-status planned">Planned</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p>See <a href="/docs/#auth">API documentation</a> for integration details.</p>
-    </section>
-
-    <section class="trust-section" id="rate-limiting">
-      <div class="trust-section-head">
-        <span class="trust-section-num">06</span>
-        <h2>Rate Limiting</h2>
-      </div>
-      <p>Rate limits protect platform stability and enforce plan quotas at the gateway layer.</p>
-      <ul class="trust-list">
-        <li>Per-key request quotas enforced before workflow dispatch</li>
-        <li><span class="inline-code">429</span> responses with retry guidance when limits exceeded</li>
-        <li><span class="inline-code">402</span> when billing quota exhausted</li>
-        <li>Configurable limits per organization — enterprise roadmap</li>
-      </ul>
-    </section>
-
-    <section class="trust-section" id="ddos-protection">
-      <div class="trust-section-head">
-        <span class="trust-section-num">07</span>
-        <h2>DDoS Protection</h2>
-      </div>
-      <p>Public surfaces inherit DDoS mitigation from CDN and hosting providers.</p>
-      <ul class="trust-list">
-        <li><strong>Marketing &amp; docs:</strong> Netlify CDN edge protection and automatic TLS</li>
-        <li><strong>API gateway:</strong> Provider-level network filtering on deployment target (Fly.io / Railway / AWS roadmap)</li>
-        <li><strong>Application layer:</strong> Rate limiting and auth as first-line abuse controls</li>
-        <li><strong>WAF:</strong> Dedicated Web Application Firewall — <span class="trust-inline-status planned">Planned</span> for production API</li>
-      </ul>
-    </section>
-
-    <section class="trust-section" id="logging">
-      <div class="trust-section-head">
-        <span class="trust-section-num">08</span>
-        <h2>Logging</h2>
-      </div>
-      <p>Structured logs capture security-relevant events without storing unnecessary payload content.</p>
-      <ul class="trust-list">
-        <li><span class="inline-code">X-Request-Id</span> on every API response for trace correlation</li>
-        <li>Authentication success/failure, rate-limit hits, and quota events logged</li>
-        <li>Prompt hash and model ID per inference — not full prompt text in default logs</li>
-        <li>RAG ingest, retrieve, and eval events with org scope</li>
-        <li>Exportable audit logs for enterprise — <span class="trust-inline-status progress">In Progress</span></li>
-      </ul>
-      <p>Audit logging details: <a href="/trust/#audit-logging">Trust Center — Audit Logging</a></p>
-    </section>
-
-    <section class="trust-section" id="monitoring">
-      <div class="trust-section-head">
-        <span class="trust-section-num">09</span>
-        <h2>Monitoring</h2>
-      </div>
-      <p>Platform health and anomaly detection cover availability, latency, and error rates.</p>
-      <div class="trust-table-wrap">
-        <table class="trust-table">
-          <thead><tr><th>Signal</th><th>Scope</th><th>Status</th></tr></thead>
-          <tbody>
-            <tr><td>Health checks</td><td><span class="inline-code">GET /health</span>, gateway status</td><td><span class="trust-inline-status live">Live</span></td></tr>
-            <tr><td>Error rates</td><td>4xx/5xx by endpoint and org</td><td><span class="trust-inline-status live">Live</span></td></tr>
-            <tr><td>Latency &amp; cost</td><td>Per-workflow metrics dashboard</td><td><span class="trust-inline-status progress">In Progress</span></td></tr>
-            <tr><td>Public status page</td><td><a href="/status/">Platform availability</a></td><td><span class="trust-inline-status live">Live</span></td></tr>
-            <tr><td>On-call paging</td><td>24/7 for enterprise tier</td><td><span class="trust-inline-status planned">Planned</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="trust-section" id="backups">
-      <div class="trust-section-head">
-        <span class="trust-section-num">10</span>
-        <h2>Backups</h2>
-      </div>
-      <p>Backup and recovery procedures align with disaster recovery targets documented in the Trust Center.</p>
-      <ul class="trust-list">
-        <li>Automated database backups on managed Postgres migration — <span class="trust-inline-status roadmap">Roadmap</span></li>
-        <li>Point-in-time recovery target: RPO &lt; 1 hour (enterprise roadmap)</li>
-        <li>Quarterly restore drills — <span class="trust-inline-status planned">Planned</span></li>
-        <li>Configuration and prompt registry versioning via git-backed prompt store</li>
-      </ul>
-      <p>DR objectives: <a href="/trust/#disaster-recovery">Trust Center — Disaster Recovery</a></p>
-    </section>
-
-    <section class="trust-section" id="vulnerability-disclosure">
-      <div class="trust-section-head">
-        <span class="trust-section-num">11</span>
-        <h2>Vulnerability Disclosure</h2>
-      </div>
-      <p>We welcome good-faith security reports from researchers, customers, and the community.</p>
-      <ul class="trust-list">
-        <li><strong>Contact:</strong> <a href="mailto:security@ozdna.com">security@ozdna.com</a> (placeholder — monitored by Findbelow Ventures security contact)</li>
-        <li><strong>Machine-readable:</strong> <a href="/.well-known/security.txt">/.well-known/security.txt</a> (RFC 9116)</li>
-        <li><strong>Scope:</strong> ozdna.com, api.ozdna.com, api.sandbox.ozdna.com, and ozDNA platform services</li>
-        <li><strong>Out of scope:</strong> Third-party providers (OpenAI, Netlify), social engineering, physical attacks</li>
-        <li><strong>Response:</strong> Acknowledgment within 3 business days; critical issues triaged within 24 hours</li>
-      </ul>
-      <div class="trust-callout"><strong>Recognition:</strong> Security acknowledgments page — <span class="trust-inline-status soon">Coming Soon</span>. Researchers who follow our responsible disclosure policy will be credited with permission.</div>
-    </section>
-
-    <section class="trust-section" id="responsible-disclosure">
-      <div class="trust-section-head">
-        <span class="trust-section-num">12</span>
-        <h2>Responsible Disclosure Policy</h2>
-      </div>
-      <p>To protect ozDNA customers, we ask reporters to follow coordinated disclosure.</p>
-      <ul class="trust-list">
-        <li>Report vulnerabilities privately to <a href="mailto:security@ozdna.com">security@ozdna.com</a> with reproduction steps and impact assessment.</li>
-        <li>Allow reasonable time for remediation before public disclosure — typically 90 days, sooner for critical issues once patched.</li>
-        <li>Do not access, modify, or exfiltrate customer data beyond what is necessary to demonstrate the issue.</li>
-        <li>Do not perform denial-of-service, spam, or social engineering against ozDNA staff or customers.</li>
-        <li>Do not test against production customer workloads without written authorization.</li>
-      </ul>
-      <p>We commit to:</p>
-      <ul class="trust-list">
-        <li>Acknowledge receipt of your report</li>
-        <li>Provide status updates at reasonable intervals</li>
-        <li>Notify you when the issue is resolved</li>
-        <li>Credit researchers on our acknowledgments page (with your consent)</li>
-      </ul>
-      <p class="trust-disclaimer">This policy does not authorize testing that violates applicable law. If you are unsure whether your research is permitted, contact us before proceeding.</p>
-    </section>
-
-    <div class="trust-cta">
-      <h2>Security contact</h2>
-      <p>Report vulnerabilities, request a security review, or ask about our controls.</p>
-      <div class="trust-cta-actions">
-        <a href="mailto:security@ozdna.com" class="btn-primary">security@ozdna.com</a>
-        <a href="/trust/" class="btn-ghost">Trust Center →</a>
-      </div>
+<section id="responsible-disclosure">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[03]</span><span class="label" id="vulnerability-disclosure">RESPONSIBLE DISCLOSURE</span></div>
+    <h2 class="sec-title">Found something?<br>Tell us first.</h2>
+    <div class="prose">
+      <p>If you believe you've found a vulnerability, email
+      <strong><a href="mailto:security@ozdna.com">security@ozdna.com</a></strong>. Please give
+      us a reasonable window to investigate and fix before any public disclosure, and don't
+      access or modify data that isn't yours while testing.</p>
+      <p>Our machine-readable policy lives at
+      <a href="/.well-known/security.txt">/.well-known/security.txt</a> (RFC 9116). We're a
+      small team and read every report — good-faith researchers are credited here on request.</p>
     </div>
-
-  </main>
-</div>
-
-<footer>
-  <div class="footer-brand">
-    <a href="/" class="logo" aria-label="ozDNA">
-      <img src="../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
-    </a>
-    <p class="footer-tagline">Findbelow Ventures · Vertical AI infrastructure (PaaS)</p>
+    <div class="note" style="margin-top:20px">
+      <b>Pre-build note.</b> OriginDNA is not yet in production. This page describes how the
+      product and site are being built to be safe; it will grow into full operational detail
+      as services go live.
+    </div>
   </div>
-  <div class="footer-links">
-    <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>
-    <a href="/trust/">Trust Center</a>
-    <a href="/security/">Security</a>
-    <a href="/privacy/">Privacy</a>
-    <a href="/terms/">Terms</a>
-    <a href="/changelog/">Changelog</a>
-    <a href="/status/">Status</a>
-    <a href="/products/comply/">ComplyDNA</a>
-    <a href="/docs/">Documentation</a>
-    <a href="/sdk/">SDK</a>
-    <a href="/benchmarks/">Benchmarks</a>
-    <a href="/architecture/">Architecture</a>
-    <a href="/pricing/">Pricing</a>
-    <a href="mailto:hello@ozdna.com">Contact</a>
+</section>
+
+<section id="contact">
+  <div class="shell contact">
+    <div class="label"><b>[04]</b> — CONTACT</div>
+    <h2>Security questions?</h2>
+    <p>Vendor security reviews, data-handling questions for a ComplyDNA pilot, or a
+    disclosure — reach the team directly.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:security@ozdna.com">security@ozdna.com</a>
+      <a class="btn ghost" href="/trust/">Trust center</a>
+    </div>
   </div>
-  <p>© 2026 Findbelow Ventures · <a href="/.well-known/security.txt" style="color:var(--txt-m);text-decoration:none">security.txt</a></p>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="shell">
+    <div class="foot">
+      <span>ozDNA · ComplyDNA · OriginDNA — Findbelow Ventures</span>
+      <span>© 2026 Findbelow Ventures · All rights reserved</span>
+    </div>
+    <p class="footer-links">
+      <a href="mailto:hello@ozdna.com">hello@ozdna.com</a>
+      · <a href="/products/comply/">ComplyDNA</a>
+      · <a href="/products/origin/">OriginDNA</a>
+      · <a href="/pricing/">Pricing</a>
+      · <a href="/roadmap/">Roadmap</a>
+      · <a href="/architecture/">Architecture</a>
+      · <a href="/security/">Security</a>
+      · <a href="/trust/">Trust</a>
+      · <a href="/partners/">Partners</a>
+      · <a href="/about/">About</a>
+      · <a href="/privacy/">Privacy</a>
+      · <a href="/terms/">Terms</a>
+      · <a href="/tr/security/" lang="tr" hreflang="tr">Türkçe</a>
+    </p>
+  </div>
 </footer>
 
-<script src="/analytics.js" defer></script>
-<script src="/main.js" defer></script>
+<script defer src="/analytics.js"></script>
 </body>
 </html>
