@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="About ozDNA — Findbelow Ventures builds verifiability software. ComplyDNA and OriginDNA under one principle: every output carries the evidence to check it.">
+<link rel="canonical" href="https://ozdna.com/about/">
+<link rel="alternate" hreflang="en" href="https://ozdna.com/about/">
+<link rel="alternate" hreflang="x-default" href="https://ozdna.com/about/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ozDNA">
+<meta property="og:title" content="About ozDNA — Verifiable by design">
+<meta property="og:description" content="Findbelow Ventures builds verifiability software. Two products, one principle: claims you can check.">
+<meta property="og:url" content="https://ozdna.com/about/">
+<meta property="og:image" content="https://ozdna.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About ozDNA — Verifiable by design">
+<meta name="twitter:description" content="Findbelow Ventures builds verifiability software. Two products, one principle: claims you can check.">
+<meta name="twitter:image" content="https://ozdna.com/og.png">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "AboutPage",
+ "name": "About ozDNA",
+ "url": "https://ozdna.com/about/",
+ "publisher": {
+  "@type": "Organization",
+  "name": "Findbelow Ventures",
+  "url": "https://ozdna.com/",
+  "email": "hello@ozdna.com",
+  "brand": [
+   { "@type": "Brand", "name": "ozDNA" },
+   { "@type": "Brand", "name": "ComplyDNA" },
+   { "@type": "Brand", "name": "OriginDNA" }
+  ]
+ }
+}
+</script>
+<title>About ozDNA — Verifiable by design · Findbelow Ventures</title>
+<style>
+  :root {
+    --paper: #F2EFE6;
+    --ink: #191611;
+    --accent: #E23D0E;
+    --muted: #6F6A5C;
+    --rule: rgba(25, 22, 17, 0.18);
+    --rule-soft: rgba(25, 22, 17, 0.08);
+    --card: rgba(25, 22, 17, 0.03);
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #141208;
+      --ink: #EDE8D9;
+      --accent: #FF6B3D;
+      --muted: #938D7B;
+      --rule: rgba(237, 232, 217, 0.22);
+      --rule-soft: rgba(237, 232, 217, 0.09);
+      --card: rgba(237, 232, 217, 0.04);
+    }
+  }
+  :root[data-theme="light"] {
+    --paper: #F2EFE6; --ink: #191611; --accent: #E23D0E; --muted: #6F6A5C;
+    --rule: rgba(25, 22, 17, 0.18); --rule-soft: rgba(25, 22, 17, 0.08); --card: rgba(25, 22, 17, 0.03);
+  }
+  :root[data-theme="dark"] {
+    --paper: #141208; --ink: #EDE8D9; --accent: #FF6B3D; --muted: #938D7B;
+    --rule: rgba(237, 232, 217, 0.22); --rule-soft: rgba(237, 232, 217, 0.09); --card: rgba(237, 232, 217, 0.04);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--mono); font-size: 15px; line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  ::selection { background: var(--accent); color: var(--paper); }
+  .shell { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .label b { color: var(--accent); font-weight: 400; }
+
+  header { position: sticky; top: 0; z-index: 10; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 14px; padding-bottom: 14px; }
+  .wordmark { display: flex; align-items: baseline; gap: 10px; font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; white-space: nowrap; }
+  .wordmark .dot { color: var(--accent); }
+  .wordmark small { font-size: 10px; letter-spacing: 0.14em; color: var(--muted); }
+  nav { display: flex; gap: 22px; }
+  nav a { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--muted); }
+  nav a:hover { color: var(--accent); }
+  @media (max-width: 720px) { nav { display: none; } }
+  .lang { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--muted); border: 1px solid var(--rule); padding: 4px 10px; white-space: nowrap; }
+  .lang:hover { color: var(--accent); border-color: var(--accent); }
+
+  .hero { border-bottom: 1px solid var(--rule); padding: 88px 0 72px; }
+  .hero h1 { font-size: clamp(34px, 6vw, 64px); line-height: 1.12; font-weight: 700; text-transform: uppercase; margin: 18px 0 22px; text-wrap: balance; }
+  .hero h1 .acc { color: var(--accent); }
+  .lede { max-width: 62ch; color: var(--muted); font-size: 16px; }
+
+  section { border-bottom: 1px solid var(--rule); padding: 64px 0; }
+  .sec-head { display: flex; gap: 14px; align-items: baseline; margin-bottom: 34px; }
+  .sec-no { color: var(--accent); font-size: 12px; letter-spacing: 0.14em; }
+  .sec-title { font-size: clamp(22px, 3.4vw, 34px); text-transform: uppercase; line-height: 1.15; font-weight: 700; margin: 0 0 28px; text-wrap: balance; }
+  .prose { max-width: 68ch; }
+  .prose p { color: var(--muted); margin: 0 0 18px; }
+  .prose p:last-child { margin-bottom: 0; }
+  .prose strong { color: var(--ink); font-weight: 700; }
+
+  .products { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 880px) { .products { grid-template-columns: 1fr; } }
+  .product { border: 1px solid var(--rule); background: var(--card); padding: 28px; display: flex; flex-direction: column; gap: 14px; }
+  .product h3 { margin: 0; font-size: 22px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .product h3 .dot { color: var(--accent); }
+  .product p { margin: 0; color: var(--muted); }
+  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: auto; padding-top: 10px; }
+  .btn { display: inline-block; padding: 12px 22px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+  .btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn.ghost { background: transparent; color: var(--ink); }
+  .btn.ghost:hover { background: transparent; color: var(--accent); border-color: var(--accent); }
+
+  .principle { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 880px) { .principle { grid-template-columns: 1fr; } }
+  .cell { border-top: 2px solid var(--ink); padding-top: 16px; }
+  .cell h4 { margin: 8px 0 10px; font-size: 15px; text-transform: uppercase; }
+  .cell p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  .contact { text-align: left; max-width: 720px; }
+  .contact h2 { font-size: clamp(22px, 3.4vw, 34px); text-transform: uppercase; line-height: 1.15; margin: 14px 0 16px; }
+  .contact p { color: var(--muted); }
+
+  .site-footer { padding: 40px 0 48px; }
+  .foot { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); border-top: 1px solid var(--rule-soft); padding-top: 18px; }
+  .footer-links { font-size: 12px; color: var(--muted); margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="shell bar">
+    <a class="wordmark" href="/">
+      OZ<span class="dot">DNA</span> <small>FINDBELOW VENTURES</small>
+    </a>
+    <nav>
+      <a href="/#products">Products</a>
+      <a href="/products/comply/">ComplyDNA</a>
+      <a href="/products/origin/">OriginDNA</a>
+      <a href="/about/">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="lang" href="/tr/" lang="tr" hreflang="tr">TR</a>
+  </div>
+</header>
+
+<main>
+
+<div class="hero">
+  <div class="shell">
+    <div class="label"><b>OZDNA.COM</b> — ABOUT</div>
+    <h1>Verifiable<br>by <span class="acc">design.</span></h1>
+    <p class="lede">
+      ozDNA is the software studio of Findbelow Ventures. We build one thing:
+      infrastructure that lets people trust what AI produces — not by asking them to,
+      but by making every output checkable.
+    </p>
+  </div>
+</div>
+
+<section id="principle">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[01]</span><span class="label">THE PRINCIPLE</span></div>
+    <div class="prose">
+      <p>Generative AI collapsed the cost of producing text, images and advice — and quietly
+      moved the cost somewhere else: <strong>verification</strong>. Compliance teams read
+      plausible answers they can't trace to a statute. Platforms host images nobody can
+      attribute. Regulators answered with hard dates, not guidelines.</p>
+      <p><strong>ozDNA builds for exactly that moment.</strong> ComplyDNA makes regulatory
+      answers checkable today, sentence by sentence. OriginDNA makes image origin checkable
+      before the deadlines land — as an API small teams can adopt in an afternoon, not an
+      enterprise project.</p>
+      <p>Different markets, one discipline: claims tied to sources, public verification
+      instead of "trust us," and measured accuracy on every release.</p>
+    </div>
+  </div>
+</section>
+
+<section id="products">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[02]</span><span class="label">TWO PRODUCTS</span></div>
+    <div class="products">
+      <div class="product">
+        <div class="label"><b>P1</b> / REGTECH — TÜRKÇE</div>
+        <h3>COMPLY<span class="dot">DNA</span></h3>
+        <p>A compliance LLM for Turkish financial regulation — MASAK communiqués, AML/CFT
+        laws 5549 &amp; 6415, KVKK. Every sentence answered with an inline
+        <code>[TEBLİĞ / Madde]</code> citation. Auditable answers, not guesses.</p>
+        <div class="cta-row">
+          <a class="btn" href="/products/comply/">ComplyDNA →</a>
+        </div>
+      </div>
+      <div class="product">
+        <div class="label"><b>P2</b> / PROVENANCE — GLOBAL</div>
+        <h3>ORIGIN<span class="dot">DNA</span></h3>
+        <p>Content provenance infrastructure. Every image gets a DNA: a cryptographic
+        signature at creation, a timestamp no one can backdate, and a perceptual fingerprint
+        that survives when platforms strip metadata. Built for EU AI Act Article 50.</p>
+        <div class="cta-row">
+          <a class="btn" href="/products/origin/">OriginDNA →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why-now">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[03]</span><span class="label">WHY NOW</span></div>
+    <div class="principle">
+      <div class="cell">
+        <div class="label"><b>AUG 2</b> / 2026</div>
+        <h4>The marking rules apply</h4>
+        <p>EU AI Act Article 50 starts applying; California SB 942 takes effect the same
+        day. Providers of generative AI must mark AI-generated content in machine-readable
+        form.</p>
+      </div>
+      <div class="cell">
+        <div class="label"><b>DEC 2</b> / 2026</div>
+        <h4>The grace period ends</h4>
+        <p>GenAI systems already on the market must comply too. This is the enforcement
+        wave OriginDNA launches into — existing apps need marking, not promises.</p>
+      </div>
+      <div class="cell">
+        <div class="label"><b>SINCE JAN</b> / 2026</div>
+        <h4>Marketplaces moved first</h4>
+        <p>Etsy already requires sellers to disclose AI-made work. Buyers are learning to
+        ask "is this original?" — sellers need a better answer than a checkbox.</p>
+      </div>
+    </div>
+    <p class="lede" style="margin-top:34px">
+      Deadlines from the EU AI Act's published timeline; your obligations depend on your
+      product and jurisdiction.
+    </p>
+  </div>
+</section>
+
+<section id="who">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[04]</span><span class="label">WHO'S BEHIND IT</span></div>
+    <div class="prose">
+      <p><strong>Findbelow Ventures</strong> is the company behind ozDNA. ComplyDNA is in
+      early access with Turkish compliance teams; OriginDNA is pre-launch with an open
+      waitlist ahead of an October 2026 build.</p>
+      <p>Fact-checking organizations get OriginDNA free, forever — they are flagship users,
+      not a revenue line.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="shell contact">
+    <div class="label"><b>[05]</b> — CONTACT</div>
+    <h2>Talk to us.</h2>
+    <p>ComplyDNA pilots, OriginDNA early access, press, partnerships —
+    one address, a human reads it.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:hello@ozdna.com">hello@ozdna.com</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="shell">
+    <div class="foot">
+      <span>ozDNA · ComplyDNA · OriginDNA — Findbelow Ventures</span>
+      <span>© 2026 Findbelow Ventures · All rights reserved</span>
+    </div>
+    <p class="footer-links">
+      <a href="mailto:hello@ozdna.com">hello@ozdna.com</a>
+      · <a href="/products/comply/">ComplyDNA</a>
+      · <a href="/products/origin/">OriginDNA</a>
+      · <a href="/about/">About</a>
+      · <a href="/privacy/">Privacy</a>
+      · <a href="/terms/">Terms</a>
+      · <a href="/tr/" lang="tr" hreflang="tr">Türkçe</a>
+    </p>
+  </div>
+</footer>
+
+<script defer src="/analytics.js"></script>
+</body>
+</html>
