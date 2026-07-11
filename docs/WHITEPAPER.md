@@ -1,6 +1,6 @@
 # OriginDNA — Proof of Origin for the AI Era
 
-**Whitepaper v0.1 — DRAFT for founder review. Not for external distribution until ratified.**
+**Whitepaper v1.0 — ratified by founder July 10, 2026.**
 
 *Find Below Ventures · Sharjah Publishing City Free Zone, UAE · July 2026*
 *Product line under the ozDNA brand (ozdna.com). Working name.*
@@ -115,4 +115,4 @@ OriginDNA is built by **Find Below Ventures** (Sharjah Publishing City Free Zone
 ---
 
 *Contact: hello@ozdna.com · https://ozdna.com/products/origin/*
-*v0.1 · July 10, 2026 · Sources and per-claim verification: `docs/BLUEPRINT.md`, `docs/research-2026-07-06.json`.*
+*v1.0 · July 10, 2026 · Sources and per-claim verification: `docs/BLUEPRINT.md`, `docs/research-2026-07-06.json`.*
