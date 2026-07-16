@@ -157,8 +157,15 @@ function getProjectInOrg(projectId: string, orgId: string, requestId: string) {
   return project;
 }
 
-export function listApiKeys(projectId: string, ctx: ApiContext, requestId: string) {
+function assertProjectScope(projectId: string, ctx: ApiContext, requestId: string): void {
   getProjectInOrg(projectId, ctx.orgId, requestId);
+  if (ctx.projectId !== projectId) {
+    throw ERRORS.forbidden("Access denied to this project", requestId);
+  }
+}
+
+export function listApiKeys(projectId: string, ctx: ApiContext, requestId: string) {
+  assertProjectScope(projectId, ctx, requestId);
   const db = getDb();
   const rows = db.select().from(apiKeys).where(eq(apiKeys.projectId, projectId)).all();
   return {
@@ -184,7 +191,7 @@ export function createProjectApiKey(
   requestId: string,
   body: { name?: string; environment?: string },
 ) {
-  getProjectInOrg(projectId, ctx.orgId, requestId);
+  assertProjectScope(projectId, ctx, requestId);
   if (!body.name?.trim()) throw ERRORS.invalidRequest("Missing field: name", requestId);
   const env: KeyEnvironment = body.environment === "live" ? "live" : "test";
   const rawKey = generateRawKey(env);
@@ -225,7 +232,7 @@ export function revokeProjectApiKey(
   ctx: ApiContext,
   requestId: string,
 ) {
-  getProjectInOrg(projectId, ctx.orgId, requestId);
+  assertProjectScope(projectId, ctx, requestId);
   const db = getDb();
   const key = db
     .select()
