@@ -425,7 +425,10 @@
     border-bottom: 1px solid var(--rule-soft);
   }
   .plan-list li::before { content: "+"; position: absolute; left: 0; color: var(--accent); }
-  .plan-price { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+  .plan-price { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+  .plan-amount { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); margin: 0 0 4px; line-height: 1.1; }
+  .plan-amount span { font-size: 13px; font-weight: 500; letter-spacing: 0.04em; color: var(--muted); }
+  .plan-billing { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
   .cell .btn { padding: 10px 16px; font-size: 11px; }
   .plan-note { margin-top: 16px; font-size: 12px; color: var(--muted); max-width: 72ch; }
 
@@ -735,7 +738,7 @@
   <div class="shell">
     <div class="sec-head"><span class="sec-no">[04]</span><span class="label">PRICING</span></div>
     <div class="sec-body">
-      <h2 class="sec-title">Scaled to your institution</h2>
+      <h2 class="sec-title">Clear plans. Visible prices.</h2>
       <div class="cols3">
         <div class="cell">
           <div class="plan-head">
@@ -743,14 +746,15 @@
             <span class="plan-name">Pilot</span>
             <span class="plan-for">For teams that want to test the product on their own regulatory scope</span>
           </div>
+          <div class="plan-amount">$2,490<span> USD</span></div>
+          <div class="plan-billing">One-time · 4-week POC</div>
           <ul class="plan-list">
             <li>Single team, limited query quota</li>
             <li>Golden-set evaluation tailored to your institution</li>
             <li>4-week structured POC</li>
             <li>Weekly evaluation report</li>
           </ul>
-          <div class="plan-price">Fixed POC fee — by quote</div>
-          <a class="btn ghost" href="mailto:hello@ozdna.com?subject=ComplyDNA%20Pilot">Start a pilot</a>
+          <a class="btn ghost" href="mailto:hello@ozdna.com?subject=ComplyDNA%20Pilot%20%28%242%2C490%29">Start a pilot</a>
         </div>
         <div class="cell">
           <div class="plan-head">
@@ -758,14 +762,15 @@
             <span class="plan-name">Team</span>
             <span class="plan-for">For institutions bringing it into the compliance team's daily workflow</span>
           </div>
+          <div class="plan-amount">$499<span> / mo</span></div>
+          <div class="plan-billing">Billed annually · $5,988/year</div>
           <ul class="plan-list">
             <li>Seat-based access + monthly query quota</li>
             <li>Cloud API or web interface</li>
             <li>Regulation-corpus update subscription included</li>
             <li>Priority support</li>
           </ul>
-          <div class="plan-price">Annual subscription — set during early access</div>
-          <a class="btn ghost" href="mailto:hello@ozdna.com?subject=ComplyDNA%20Team">Request a quote</a>
+          <a class="btn" href="mailto:hello@ozdna.com?subject=ComplyDNA%20Team%20%28%24499%2Fmo%29">Get Team</a>
         </div>
         <div class="cell">
           <div class="plan-head">
@@ -773,18 +778,20 @@
             <span class="plan-name">Enterprise / On-prem</span>
             <span class="plan-for">For banks and financial institutions whose data cannot leave the premises</span>
           </div>
+          <div class="plan-amount">$1,990<span> / mo</span></div>
+          <div class="plan-billing">Starting at · custom scope available</div>
           <ul class="plan-list">
             <li>On-premises deployment — you hold the model and index</li>
             <li>Unlimited users, corporate SSO integration</li>
             <li>Annual licence + maintenance and regulation updates</li>
             <li>Custom integration (API, internal systems)</li>
           </ul>
-          <div class="plan-price">Annual licence — get in touch</div>
-          <a class="btn ghost" href="mailto:hello@ozdna.com?subject=ComplyDNA%20Enterprise">Contact us</a>
+          <a class="btn ghost" href="mailto:hello@ozdna.com?subject=ComplyDNA%20Enterprise%20%28from%20%241%2C990%2Fmo%29">Contact sales</a>
         </div>
       </div>
-      <p class="plan-note">We are in early access: pricing is set together within the pilot program,
-      based on your institution's regulatory scope and usage volume.</p>
+      <p class="plan-note">Prices in USD. Team is billed annually. Enterprise starts at $1,990/mo and scales with
+      regulatory corpus scope, seats, and deployment (cloud or on-prem). Questions:
+      <a href="mailto:hello@ozdna.com">hello@ozdna.com</a>.</p>
     </div>
   </div>
 </section>

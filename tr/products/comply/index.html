@@ -425,7 +425,10 @@
     border-bottom: 1px solid var(--rule-soft);
   }
   .plan-list li::before { content: "+"; position: absolute; left: 0; color: var(--accent); }
-  .plan-price { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+  .plan-price { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+  .plan-amount { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); margin: 0 0 4px; line-height: 1.1; }
+  .plan-amount span { font-size: 13px; font-weight: 500; letter-spacing: 0.04em; color: var(--muted); }
+  .plan-billing { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
   .cell .btn { padding: 10px 16px; font-size: 11px; }
   .plan-note { margin-top: 16px; font-size: 12px; color: var(--muted); max-width: 72ch; }
 
@@ -733,7 +736,7 @@
   <div class="shell">
     <div class="sec-head"><span class="sec-no">[04]</span><span class="label">FİYATLANDIRMA</span></div>
     <div class="sec-body">
-      <h2 class="sec-title">Kurumunuzun ölçeğine göre</h2>
+      <h2 class="sec-title">Net planlar. Görünür fiyatlar.</h2>
       <div class="cols3">
         <div class="cell">
           <div class="plan-head">
@@ -741,14 +744,15 @@
             <span class="plan-name">Pilot</span>
             <span class="plan-for">Ürünü kendi mevzuat kapsamınızda test etmek isteyen ekipler için</span>
           </div>
+          <div class="plan-amount">$2,490<span> USD</span></div>
+          <div class="plan-billing">Tek seferlik · 4 haftalık POC</div>
           <ul class="plan-list">
             <li>Tek ekip, sınırlı sorgu kotası</li>
             <li>Kurumunuza özel golden-set değerlendirmesi</li>
             <li>4 haftalık yapılandırılmış POC</li>
             <li>Haftalık değerlendirme raporu</li>
           </ul>
-          <div class="plan-price">Sabit POC bedeli — teklifle</div>
-          <a class="btn ghost" href="mailto:hello@ozdna.com?subject=ComplyDNA%20Pilot">Pilot başlat</a>
+          <a class="btn ghost" href="mailto:hello@ozdna.com?subject=ComplyDNA%20Pilot%20%28%242%2C490%29">Pilot başlat</a>
         </div>
         <div class="cell">
           <div class="plan-head">
@@ -756,14 +760,15 @@
             <span class="plan-name">Team</span>
             <span class="plan-for">Uyum ekibinin günlük iş akışına almak isteyen kurumlar için</span>
           </div>
+          <div class="plan-amount">$499<span> / ay</span></div>
+          <div class="plan-billing">Yıllık faturalandırma · $5,988/yıl</div>
           <ul class="plan-list">
             <li>Koltuk bazlı erişim + aylık sorgu kotası</li>
             <li>Bulut API veya web arayüzü</li>
             <li>Mevzuat korpusu güncelleme aboneliği dahil</li>
             <li>Öncelikli destek</li>
           </ul>
-          <div class="plan-price">Yıllık abonelik — erken erişimde belirlenir</div>
-          <a class="btn ghost" href="mailto:hello@ozdna.com?subject=ComplyDNA%20Team">Teklif iste</a>
+          <a class="btn" href="mailto:hello@ozdna.com?subject=ComplyDNA%20Team%20%28%24499%2Fmo%29">Team'i al</a>
         </div>
         <div class="cell">
           <div class="plan-head">
@@ -771,18 +776,20 @@
             <span class="plan-name">Enterprise / On-prem</span>
             <span class="plan-for">Verisi kurum dışına çıkamayan banka ve finansal kuruluşlar için</span>
           </div>
+          <div class="plan-amount">$1,990<span> / ay</span></div>
+          <div class="plan-billing">Başlangıç · özel kapsam mümkün</div>
           <ul class="plan-list">
             <li>Kurum içi (on-prem) dağıtım — model ve indeks sizde</li>
             <li>Sınırsız kullanıcı, kurum SSO entegrasyonu</li>
             <li>Yıllık lisans + bakım ve mevzuat güncellemeleri</li>
             <li>Özel entegrasyon (API, iç sistemler)</li>
           </ul>
-          <div class="plan-price">Yıllık lisans — iletişime geçin</div>
-          <a class="btn ghost" href="mailto:hello@ozdna.com?subject=ComplyDNA%20Enterprise">İletişime geç</a>
+          <a class="btn ghost" href="mailto:hello@ozdna.com?subject=ComplyDNA%20Enterprise%20%28from%20%241%2C990%2Fmo%29">Satışla iletişim</a>
         </div>
       </div>
-      <p class="plan-note">Erken erişim dönemindeyiz: fiyatlandırma, pilot programı kapsamında kurumunuzun
-      mevzuat kapsamı ve kullanım hacmine göre birlikte belirlenir.</p>
+      <p class="plan-note">Fiyatlar USD cinsindendir. Team yıllık faturalandırılır. Enterprise $1,990/ay'dan
+      başlar; mevzuat kapsamı, koltuk sayısı ve dağıtım (bulut veya on-prem) ile ölçeklenir.
+      Sorular: <a href="mailto:hello@ozdna.com">hello@ozdna.com</a>.</p>
     </div>
   </div>
 </section>
