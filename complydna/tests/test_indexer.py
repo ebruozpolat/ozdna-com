@@ -80,6 +80,36 @@ def test_index_directory(memory_indexer: LegislationIndexer, tmp_path: Path) -> 
     assert summaries[0].upserted == 6
 
 
+def test_index_directory_deletes_removed_articles(
+    memory_indexer: LegislationIndexer,
+    sample_articles: list[Article],
+    tmp_path: Path,
+) -> None:
+    parsed = tmp_path / "parsed"
+    parsed.mkdir()
+    target = parsed / "TEBLIG-MASAK-SAMPLE.jsonl"
+    original_articles = sample_articles[:2]
+    target.write_text(
+        "\n".join(article.model_dump_json() for article in original_articles),
+        encoding="utf-8",
+    )
+
+    index_directory(parsed, memory_indexer)
+    assert memory_indexer.client.count(collection_name=COLLECTION_NAME, exact=True).count == 2
+
+    target.write_text(original_articles[0].model_dump_json(), encoding="utf-8")
+    summaries = index_directory(parsed, memory_indexer)
+
+    assert summaries[0].upserted == 1
+    assert summaries[0].deleted_stale == 1
+    records, _ = memory_indexer.client.scroll(
+        collection_name=COLLECTION_NAME,
+        with_payload=["chunk_id"],
+        with_vectors=False,
+    )
+    assert [record.payload["chunk_id"] for record in records] == [original_articles[0].chunk_id()]
+
+
 @pytest.mark.integration
 def test_bge_m3_search_integration(sample_articles: list[Article]) -> None:
     try:
