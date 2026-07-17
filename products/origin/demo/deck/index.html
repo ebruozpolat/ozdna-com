@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="description" content="OriginDNA — investor pitch deck. The compliance engine for auditable AI: risk-tier classification, human-oversight logging, and immutable audit trails anchored to Solana.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<title>OriginDNA — Pitch Deck</title>
+<style>
+  :root {
+    --paper: #F2EFE6; --ink: #191611; --accent: #E23D0E; --muted: #6F6A5C;
+    --rule: rgba(25, 22, 17, 0.18); --rule-soft: rgba(25, 22, 17, 0.08); --card: rgba(25, 22, 17, 0.03);
+    --ok: #1E7A46; --warn: #B25E00; --danger: #B4231A;
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #141208; --ink: #EDE8D9; --accent: #FF6B3D; --muted: #938D7B;
+      --rule: rgba(237, 232, 217, 0.22); --rule-soft: rgba(237, 232, 217, 0.09); --card: rgba(237, 232, 217, 0.04);
+      --ok: #4FB980; --warn: #E0913A; --danger: #E8695E;
+    }
+  }
+  :root[data-theme="light"] { --paper:#F2EFE6;--ink:#191611;--accent:#E23D0E;--muted:#6F6A5C;--rule:rgba(25,22,17,.18);--rule-soft:rgba(25,22,17,.08);--card:rgba(25,22,17,.03);--ok:#1E7A46;--warn:#B25E00;--danger:#B4231A; }
+  :root[data-theme="dark"]  { --paper:#141208;--ink:#EDE8D9;--accent:#FF6B3D;--muted:#938D7B;--rule:rgba(237,232,217,.22);--rule-soft:rgba(237,232,217,.09);--card:rgba(237,232,217,.04);--ok:#4FB980;--warn:#E0913A;--danger:#E8695E; }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: var(--paper); color: var(--ink);
+    font-family: var(--mono); font-size: 16px; line-height: 1.55;
+    -webkit-font-smoothing: antialiased; overflow: hidden;
+  }
+  ::selection { background: var(--accent); color: var(--paper); }
+
+  .deck { height: 100vh; width: 100vw; position: relative; }
+
+  .slide {
+    position: absolute; inset: 0; display: none;
+    padding: clamp(28px, 5vw, 72px) clamp(28px, 7vw, 110px);
+    flex-direction: column; justify-content: center;
+    animation: fade .28s ease;
+  }
+  .slide.active { display: flex; }
+  @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .slide { animation: none; } }
+
+  .kicker { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 22px; }
+  .kicker b { color: var(--accent); font-weight: 400; }
+  h1 { font-size: clamp(34px, 6.6vw, 84px); line-height: 1.04; font-weight: 700; text-transform: uppercase; margin: 0 0 24px; text-wrap: balance; }
+  h1 .acc { color: var(--accent); }
+  h2 { font-size: clamp(26px, 4.4vw, 52px); line-height: 1.08; font-weight: 700; text-transform: uppercase; margin: 0 0 28px; text-wrap: balance; }
+  h2 .acc { color: var(--accent); }
+  .lede { font-size: clamp(16px, 1.9vw, 22px); color: var(--muted); max-width: 60ch; }
+  .lede.ink { color: var(--ink); }
+  p { margin: 0 0 16px; }
+  strong { color: var(--ink); }
+  .big { font-size: clamp(20px, 2.6vw, 30px); line-height: 1.3; max-width: 40ch; }
+
+  /* layout helpers */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 44px); align-items: start; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.2vw, 30px); }
+  @media (max-width: 820px) { .grid2, .grid3 { grid-template-columns: 1fr; } }
+
+  .cell { border-top: 2px solid var(--ink); padding-top: 14px; }
+  .cell .n { color: var(--accent); font-size: 13px; letter-spacing: 0.14em; }
+  .cell h3 { margin: 8px 0 8px; font-size: clamp(16px, 1.8vw, 20px); text-transform: uppercase; }
+  .cell p { margin: 0; color: var(--muted); font-size: clamp(13px, 1.5vw, 16px); }
+
+  .stat { display: flex; flex-direction: column; gap: 4px; }
+  .stat .v { font-size: clamp(30px, 4.6vw, 56px); font-weight: 700; color: var(--accent); line-height: 1; }
+  .stat .l { font-size: clamp(12px, 1.4vw, 15px); color: var(--muted); }
+
+  .clock { width: 100%; border-collapse: collapse; font-size: clamp(13px, 1.55vw, 17px); }
+  .clock td { padding: 13px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+  .clock tr:first-child td { border-top: 1px solid var(--rule); }
+  .clock .d { color: var(--accent); font-weight: 700; white-space: nowrap; width: 1%; }
+  .clock td:last-child { color: var(--muted); }
+  .clock tr.hot .d, .clock tr.hot td:last-child { color: var(--ink); }
+  .clock tr.hot td:first-child { color: var(--accent); }
+
+  ul.ticks { list-style: none; padding: 0; margin: 0; }
+  ul.ticks li { position: relative; padding: 10px 0 10px 26px; border-bottom: 1px solid var(--rule-soft); font-size: clamp(14px, 1.6vw, 18px); }
+  ul.ticks li:before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+  ul.ticks li small { display: block; color: var(--muted); font-size: 0.82em; }
+
+  .card { border: 1px solid var(--rule); background: var(--card); padding: clamp(16px, 2vw, 26px); }
+  .card h3 { margin: 0 0 10px; font-size: clamp(15px, 1.7vw, 19px); text-transform: uppercase; }
+  .card p { margin: 0; color: var(--muted); font-size: clamp(13px, 1.5vw, 16px); }
+  .card .price { display: block; margin-top: 12px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+  .card.primary { border-color: var(--accent); }
+
+  .flow { display: flex; align-items: stretch; gap: 0; flex-wrap: wrap; }
+  .flow .node { flex: 1 1 0; min-width: 200px; border: 1px solid var(--rule); background: var(--card); padding: clamp(16px,2vw,26px); position: relative; }
+  .flow .node + .node { border-left: none; }
+  @media (max-width: 820px) { .flow .node { flex-basis: 100%; } .flow .node + .node { border-left: 1px solid var(--rule); border-top: none; } }
+  .flow .node .n { color: var(--accent); font-size: 13px; letter-spacing: 0.14em; }
+  .flow .node h3 { margin: 8px 0 8px; font-size: clamp(17px,2vw,22px); text-transform: uppercase; }
+  .flow .node p { margin: 0; color: var(--muted); font-size: clamp(12.5px,1.4vw,15px); }
+
+  .pill { display: inline-block; border: 1px solid var(--accent); color: var(--accent); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; padding: 5px 11px; }
+  .tag { display: inline-block; border: 1px solid var(--rule); color: var(--muted); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 9px; margin: 0 6px 6px 0; }
+  .note { font-size: clamp(11px, 1.2vw, 13px); color: var(--muted); margin-top: 18px; max-width: 70ch; }
+  .accent { color: var(--accent); }
+  .quote { font-size: clamp(18px, 2.4vw, 30px); line-height: 1.32; max-width: 30ch; }
+
+  /* chrome */
+  .chrome { position: fixed; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: space-between; padding: 12px clamp(20px, 4vw, 44px); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); z-index: 20; pointer-events: none; }
+  .chrome .wm { display: flex; align-items: baseline; gap: 8px; }
+  .chrome .wm .dot { color: var(--accent); }
+  .progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--accent); z-index: 30; transition: width .28s ease; }
+  .dots { position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; gap: 9px; z-index: 25; }
+  .dots button { width: 9px; height: 9px; border-radius: 50%; border: 1px solid var(--rule); background: transparent; padding: 0; cursor: pointer; }
+  .dots button.on { background: var(--accent); border-color: var(--accent); }
+  .arrows { position: fixed; right: clamp(16px, 3vw, 34px); bottom: 46px; display: flex; gap: 8px; z-index: 25; }
+  .arrows button { font-family: var(--mono); font-size: 15px; width: 40px; height: 40px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); cursor: pointer; }
+  .arrows button:hover { border-color: var(--accent); color: var(--accent); }
+  .hint { position: fixed; top: 14px; right: clamp(16px, 3vw, 34px); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); z-index: 25; }
+
+  @media print {
+    body { overflow: visible; }
+    .chrome, .dots, .arrows, .hint, .progress { display: none !important; }
+    .deck { height: auto; }
+    .slide { position: relative; display: flex !important; inset: auto; height: 100vh; page-break-after: always; break-after: page; border-bottom: 1px solid var(--rule); }
+  }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="hint">← → to move · F fullscreen · P print</div>
+
+<div class="deck" id="deck">
+
+  <!-- 1 · TITLE -->
+  <section class="slide active">
+    <div class="pill" style="margin-bottom:26px">OriginDNA · by ozDNA / Find Below Ventures</div>
+    <h1>The compliance engine<br>for <span class="acc">auditable AI.</span></h1>
+    <p class="lede ink" style="max-width:64ch">Risk-tier classification, human-oversight logging, and
+    immutable audit trails — a <strong>Solana-native proof layer</strong> for autonomous agents and
+    tokenized real-world assets. The same provenance engine that gives an image a DNA, pointed at a decision.</p>
+    <p class="note">Investor / accelerator pitch · RWA track · August 2026. Provenance, not detection. Compliance, not custody.</p>
+  </section>
+
+  <!-- 2 · PROBLEM -->
+  <section class="slide">
+    <div class="kicker"><b>01</b> — The problem</div>
+    <h2>Agents ship faster than<br>anyone can <span class="acc">prove them compliant.</span></h2>
+    <div class="grid2">
+      <div>
+        <p class="big">Autonomous agents and tokenized RWAs are being deployed into
+        regulated markets with <strong>no answer to four questions</strong> — and no way to
+        prove the answer later.</p>
+      </div>
+      <ul class="ticks">
+        <li>What risk tier is this system under the law?</li>
+        <li>Which obligations attach to that tier?</li>
+        <li>Who oversaw the decision, and when?<small>Human-in-the-loop, evidenced — not asserted</small></li>
+        <li>Can you prove all of it to a regulator or LP a year from now, untampered?</li>
+      </ul>
+    </div>
+    <p class="note">Today the answer lives in a spreadsheet and a promise. Regulators now require better; RWA investors demand the audit trail before they allocate.</p>
+  </section>
+
+  <!-- 3 · THE MOMENT -->
+  <section class="slide">
+    <div class="kicker"><b>02</b> — Why now</div>
+    <h2>This became legally<br>mandatory <span class="acc">24 days ago.</span></h2>
+    <div class="grid2">
+      <div>
+        <table class="clock">
+          <tr class="hot"><td class="d">Aug 2, 2026</td><td>EU AI Act Article 50 applies. California SB 942 the same day. Transparency &amp; marking duties begin.</td></tr>
+          <tr><td class="d">Aug 26, 2026</td><td>Today. The obligation is live and unmet across the market.</td></tr>
+          <tr class="hot"><td class="d">Dec 2, 2026</td><td>Marking grace expires for existing GenAI systems — the enforcement &amp; sales wave.</td></tr>
+          <tr><td class="d">Feb 2, 2027</td><td>Interoperable, standards-based detection required.</td></tr>
+        </table>
+      </div>
+      <div>
+        <p class="big">A regulatory deadline with <strong>dates on a calendar</strong> is the
+        best go-to-market a startup can ask for. Ours is already past.</p>
+        <p class="note">Not legal advice. Dates from the EU AI Act timeline and the Digital Omnibus Art. 50(2) carve-out.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · SOLUTION -->
+  <section class="slide">
+    <div class="kicker"><b>03</b> — The solution</div>
+    <h2>One engine. <span class="acc">Three steps.</span></h2>
+    <div class="flow">
+      <div class="node"><div class="n">[01]</div><h3>Classify</h3><p>Deterministic risk-tier logic over EU AI Act Art. 5 (prohibited), Annex III (high-risk) and Art. 50 (transparency). Transparent rules — not a black-box guess.</p></div>
+      <div class="node"><div class="n">[02]</div><h3>Oblige</h3><p>Each tier generates its exact obligations with article citations, plus a human-oversight log entry (Art. 14) recording who signed off and when.</p></div>
+      <div class="node"><div class="n">[03]</div><h3>Anchor</h3><p>The assessment is hashed (real SHA-256) and written to an immutable audit record anchored to Solana. Tamper with it and the hash no longer matches.</p></div>
+    </div>
+    <p class="note" style="margin-top:26px">Same core as OriginDNA's image provenance — sign, timestamp, fingerprint — repurposed from a pixel to a decision. <span class="accent">A working demo is live at ozdna.com/products/origin/demo/.</span></p>
+  </section>
+
+  <!-- 5 · PRODUCT / DEMO -->
+  <section class="slide">
+    <div class="kicker"><b>04</b> — The product, working today</div>
+    <h2>Describe a system →<br><span class="acc">get proof.</span></h2>
+    <div class="grid2">
+      <ul class="ticks">
+        <li>Input: any AI system — RWA settlement agent, hiring screener, image generator.</li>
+        <li>Output: risk tier + article-cited obligations checklist.</li>
+        <li>Human-oversight log entry (Art. 14), assessed &amp; timestamped.</li>
+        <li>Immutable audit record: <strong>real SHA-256</strong>, recomputable, anchored to Solana.</li>
+        <li>One-click "Verify hash" re-derives integrity on stage.</li>
+      </ul>
+      <div class="card">
+        <h3>Honest by construction</h3>
+        <p><strong>Real:</strong> classification logic, obligations, the SHA-256 fingerprint (verifiable in-browser), the downloadable record.</p>
+        <p style="margin-top:12px"><strong>Simulated &amp; labeled:</strong> the on-chain broadcast — derived from the real hash for the demo, nothing broadcast yet.</p>
+        <span class="price">No token · no custody · no user funds</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · WHY SOLANA / RWA FIT -->
+  <section class="slide">
+    <div class="kicker"><b>05</b> — Why Solana, why this track</div>
+    <h2>The audit trail is<br><span class="acc">the infrastructure that makes RWA compliant.</span></h2>
+    <div class="grid2">
+      <div>
+        <p class="big">Every assessment's hash is written to Solana: cheap, fast,
+        immutable, publicly look-up-able. An LP or regulator verifies the record
+        without trusting us — and without an account.</p>
+        <div style="margin-top:18px">
+          <span class="tag">Batched anchoring</span>
+          <span class="tag">We pay the fee</span>
+          <span class="tag">Sub-cent per record</span>
+        </div>
+      </div>
+      <div class="card primary">
+        <h3>The one rule that de-risks us</h3>
+        <p><strong>No token. No user funds. No custody.</strong> Blockchain is invisible plumbing — a hash write, not an asset. That reads as execution, not hype, to a 2026 room — and keeps us clear of Turkey's CASP licensing regime entirely.</p>
+        <span class="price">Provenance infrastructure with SaaS revenue</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · MARKET / CUSTOMERS -->
+  <section class="slide">
+    <div class="kicker"><b>06</b> — Who pays, ranked</div>
+    <h2>Priced for the teams the<br><span class="acc">deadline actually hits.</span></h2>
+    <div class="grid3">
+      <div class="card primary"><h3>AI Act compliance API</h3><p>Small GenAI apps &amp; agent operators that must classify, mark and evidence. Self-serve, SEO-led. <strong>Primary.</strong></p><span class="price">$49–199 / mo</span></div>
+      <div class="card"><h3>Seller authenticity badge</h3><p>Etsy has mandated AI disclosure since Jan 14, 2026. Marketplace sellers &amp; creators prove and display provenance.</p><span class="price">$5–15 / mo</span></div>
+      <div class="card"><h3>TR / MENA legal evidence</h3><p>Timestamped, tamper-evident capture for disputes. TrueScreen-benchmarked. After the core API.</p><span class="price">€99 / mo</span></div>
+    </div>
+    <p class="note" style="margin-top:24px">Fact-checkers &amp; individual creators: <span class="accent">free, forever</span> — flagship users and PR channel, not revenue. Every small GenAI app and RWA operator in the EU is in scope as of Aug 2.</p>
+  </section>
+
+  <!-- 8 · BUSINESS MODEL -->
+  <section class="slide">
+    <div class="kicker"><b>07</b> — The economics</div>
+    <h2>SaaS margins,<br><span class="acc">near-zero marginal cost.</span></h2>
+    <div class="grid3" style="margin-bottom:28px">
+      <div class="stat"><span class="v">~93%</span><span class="l">Gross margin on metered server-side compute</span></div>
+      <div class="stat"><span class="v">$0.000004</span><span class="l">Unit cost per image, server-side (ratified)</span></div>
+      <div class="stat"><span class="v">$0</span><span class="l">Compute cost on the FREE tier — client signs in-browser (WASM)</span></div>
+    </div>
+    <ul class="ticks">
+      <li>Recurring SaaS subscriptions; self-serve funnel fed by SEO on "EU AI Act content marking" queries.</li>
+      <li>Cloudflare-first hosting — infra cost rounds to zero at MVP scale.</li>
+      <li>The FREE flow pushes compute onto the client; paid tenants pay for metered Worker compute, priced into tier.</li>
+    </ul>
+  </section>
+
+  <!-- 9 · TRACTION / ROADMAP -->
+  <section class="slide">
+    <div class="kicker"><b>08</b> — Where we are</div>
+    <h2>Pre-build, but the<br><span class="acc">clock does the selling.</span></h2>
+    <div class="grid2">
+      <ul class="ticks">
+        <li><strong>Now:</strong> landing page + segmented waitlist live on ozdna.com; working compliance-engine demo built; whitepaper v1.</li>
+        <li><strong>Aug 2:</strong> the PR moment — Art. 50 goes live.</li>
+        <li><strong>October 2026:</strong> MVP ships — images, real C2PA signing + chain anchor + verify page.</li>
+        <li><strong>Dec 2:</strong> launch into the enforcement wave with a live product.</li>
+      </ul>
+      <div>
+        <p class="big">Capital-light by design: Claude does the technical lifting;
+        the founder does distribution. Budget to date is <strong>near zero</strong> —
+        every dollar raised buys reach, not runway.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 · TEAM / ASK / CLOSE -->
+  <section class="slide">
+    <div class="kicker"><b>09</b> — The team &amp; the ask</div>
+    <h2>Distribution founder.<br><span class="acc">Deadline tailwind.</span></h2>
+    <div class="grid2">
+      <div>
+        <ul class="ticks">
+          <li><strong>Founder</strong> — 5+ yrs crypto CEXs &amp; crypto PR. Superpowers: PR, distribution, SEO, industry network.</li>
+          <li><strong>Technical partner</strong> — built and ships ozdna.com.</li>
+          <li><strong>Find Below Ventures</strong> — Sharjah Publishing City Free Zone, UAE. Sister properties in SEO &amp; AI tooling.</li>
+        </ul>
+      </div>
+      <div class="card primary">
+        <h3>The ask</h3>
+        <p>A place in the RWA track to ship the Solana-native proof layer — the audit infrastructure that makes autonomous agents and tokenized assets provably compliant, on-chain, by December 2.</p>
+        <span class="price">hello@ozdna.com · ozdna.com/products/origin</span>
+      </div>
+    </div>
+    <p class="quote" style="margin-top:26px">Provenance, not detection.<br>Compliance, not custody.<br><span class="accent">And it's already the law.</span></p>
+  </section>
+
+</div>
+
+<div class="chrome">
+  <span class="wm">ORIGIN<span class="dot">DNA</span> — COMPLIANCE ENGINE</span>
+  <span id="counter">01 / 10</span>
+</div>
+<div class="dots" id="dots"></div>
+<div class="arrows">
+  <button id="prev" aria-label="Previous slide">‹</button>
+  <button id="next" aria-label="Next slide">›</button>
+</div>
+
+<script>
+  const slides = [...document.querySelectorAll('.slide')];
+  const dotsWrap = document.getElementById('dots');
+  const counter = document.getElementById('counter');
+  const progress = document.getElementById('progress');
+  let i = 0;
+
+  slides.forEach((_, n) => {
+    const b = document.createElement('button');
+    b.setAttribute('aria-label', 'Go to slide ' + (n + 1));
+    b.onclick = () => go(n);
+    dotsWrap.appendChild(b);
+  });
+  const dots = [...dotsWrap.children];
+
+  function go(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((s, k) => s.classList.toggle('active', k === i));
+    dots.forEach((d, k) => d.classList.toggle('on', k === i));
+    const pad = x => String(x).padStart(2, '0');
+    counter.textContent = pad(i + 1) + ' / ' + pad(slides.length);
+    progress.style.width = ((i + 1) / slides.length * 100) + '%';
+    location.hash = i + 1;
+  }
+  const next = () => go(i + 1);
+  const prev = () => go(i - 1);
+
+  document.getElementById('next').onclick = next;
+  document.getElementById('prev').onclick = prev;
+
+  addEventListener('keydown', e => {
+    if (['ArrowRight', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); next(); }
+    else if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); prev(); }
+    else if (e.key === 'Home') go(0);
+    else if (e.key === 'End') go(slides.length - 1);
+    else if (e.key.toLowerCase() === 'f') { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); }
+    else if (e.key.toLowerCase() === 'p') { window.print(); }
+    else if (/^[1-9]$/.test(e.key)) go(+e.key - 1);
+    else if (e.key === '0') go(9);
+  });
+
+  // click left/right third of screen to navigate (ignore taps on controls)
+  addEventListener('click', e => {
+    if (e.target.closest('.arrows, .dots, a, button')) return;
+    if (e.clientX > innerWidth * 0.66) next();
+    else if (e.clientX < innerWidth * 0.34) prev();
+  });
+
+  // swipe
+  let sx = 0;
+  addEventListener('touchstart', e => sx = e.touches[0].clientX, { passive: true });
+  addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - sx;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+  }, { passive: true });
+
+  const start = parseInt(location.hash.slice(1), 10);
+  go(Number.isFinite(start) && start >= 1 ? start - 1 : 0);
+</script>
+</body>
+</html>
