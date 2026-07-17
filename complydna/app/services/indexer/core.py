@@ -5,7 +5,14 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from qdrant_client import QdrantClient
-from qdrant_client.http.models import Distance, FieldCondition, Filter, MatchValue, PointStruct, VectorParams
+from qdrant_client.http.models import (
+    Distance,
+    FieldCondition,
+    Filter,
+    MatchValue,
+    PointStruct,
+    VectorParams,
+)
 
 from app.config import Settings, get_settings
 from app.models.legislation import Article
@@ -120,7 +127,10 @@ class LegislationIndexer:
                     break
 
         if stale_point_ids:
-            self.client.delete(collection_name=self.collection_name, points_selector=stale_point_ids)
+            self.client.delete(
+                collection_name=self.collection_name,
+                points_selector=stale_point_ids,
+            )
         return len(stale_point_ids)
 
     def search(
