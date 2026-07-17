@@ -68,7 +68,7 @@ export async function runChat(
 ): Promise<ProxyResult> {
   const start = Date.now();
   const route = routeModel("chat", mode);
-  const model = (body.model as string) || route.model;
+  const model = route.model;
   const workflowId = `chat-${mode}-v1`;
   const apiKey = openAiKey();
   const payload = { ...body, model };
@@ -108,7 +108,7 @@ export async function runChat(
     "/v1/chat",
     workflowId,
     "chat",
-    data.model ?? model,
+    model,
     mode,
     data.usage?.prompt_tokens ?? estimateTokens(JSON.stringify(body)),
     data.usage?.completion_tokens ?? 0,
@@ -117,7 +117,7 @@ export async function runChat(
   );
   traceSpan(ctx.requestId, "gateway", "chat", Date.now() - start, { model });
 
-  return { body: upstream.json, model: data.model ?? model, cost_usd: cost };
+  return { body: upstream.json, model, cost_usd: cost };
 }
 
 export async function runCompletion(
@@ -127,7 +127,7 @@ export async function runCompletion(
 ): Promise<ProxyResult> {
   const start = Date.now();
   const route = routeModel("completion", mode);
-  const model = (body.model as string) || route.model;
+  const model = route.model;
   const workflowId = `completion-${mode}-v1`;
   const apiKey = openAiKey();
   const payload = { ...body, model };
@@ -164,14 +164,14 @@ export async function runCompletion(
     "/v1/completion",
     workflowId,
     "completion",
-    data.model ?? model,
+    model,
     mode,
     data.usage?.prompt_tokens ?? 0,
     data.usage?.completion_tokens ?? 0,
     Date.now() - start,
     "success",
   );
-  return { body: upstream.json, model: data.model ?? model, cost_usd: cost };
+  return { body: upstream.json, model, cost_usd: cost };
 }
 
 export async function runEmbeddings(
@@ -181,7 +181,7 @@ export async function runEmbeddings(
 ): Promise<ProxyResult> {
   const start = Date.now();
   const route = routeModel("embeddings", mode);
-  const model = (body.model as string) || route.model;
+  const model = route.model;
   const workflowId = `embeddings-${mode}-v1`;
   const input = body.input;
   const cacheK = cacheKey(ctx.orgId, "/v1/embeddings", { model, input });
@@ -208,7 +208,7 @@ export async function runEmbeddings(
         "/v1/embeddings",
         workflowId,
         "embeddings",
-        data.model ?? model,
+        model,
         mode,
         tokensIn,
         0,
@@ -216,7 +216,7 @@ export async function runEmbeddings(
         "success",
       );
       setCachedResponse(cacheK, upstream.json, 60_000);
-      return { body: upstream.json, model: data.model ?? model, cost_usd: cost };
+      return { body: upstream.json, model, cost_usd: cost };
     } catch (err) {
       if (!(err instanceof UpstreamError)) throw err;
       log({
@@ -253,7 +253,7 @@ export async function runRerank(
 ): Promise<ProxyResult> {
   const start = Date.now();
   const route = routeModel("rerank", mode);
-  const model = (body.model as string) || route.model;
+  const model = route.model;
   const query = String(body.query ?? "");
   const documents = (body.documents as string[]) ?? [];
   const topN = Number(body.top_n ?? documents.length);
@@ -289,7 +289,7 @@ export async function runModeration(
 ): Promise<ProxyResult> {
   const start = Date.now();
   const route = routeModel("moderation", mode);
-  const model = (body.model as string) || route.model;
+  const model = route.model;
   const input = body.input ?? body.text;
   const text = Array.isArray(input) ? (input as string[]).join("\n") : String(input ?? "");
   const workflowId = `moderation-${mode}-v1`;
