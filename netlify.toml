@@ -64,11 +64,7 @@
   status = 404
   force = true
 
-[[redirects]]
-  from = "/tr/pricing/*"
-  to = "/404.html"
-  status = 404
-  force = true
+# /tr/pricing/ re-published 2026-07-17 (production Pricing page)
 
 [[redirects]]
   from = "/tr/privacy/*"
@@ -169,11 +165,7 @@
   status = 404
   force = true
 
-[[redirects]]
-  from = "/pricing/*"
-  to = "/404.html"
-  status = 404
-  force = true
+# /pricing/ re-published 2026-07-17 (production Pricing page)
 
 [[redirects]]
   from = "/roadmap/*"

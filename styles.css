@@ -256,9 +256,37 @@ nav{position:relative}
 .page-hero{padding:4rem 3rem 2rem;max-width:1200px;margin:0 auto;text-align:center}
 .page-hero h1{font-size:2.75rem;margin-bottom:0.75rem}
 .page-hero>p{color:var(--txt-b);font-size:1rem;line-height:1.65;max-width:560px;margin:0 auto}
+.pricing-hero{padding-bottom:1.5rem;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(64,224,208,0.08) 0%,transparent 70%)}
 .pricing-page{padding:2rem 3rem 4rem;max-width:1200px;margin:0 auto}
-.plan-grid-4{grid-template-columns:repeat(4,1fr)}
-.plan-price-contact{font-size:1.35rem;font-weight:600;color:var(--txt-m);letter-spacing:-0.02em}
+.plan-grid-4{grid-template-columns:repeat(4,1fr);align-items:stretch}
+.plan{position:relative}
+.plan-badge{position:absolute;top:-0.65rem;left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:0.62rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#080D12;background:var(--tq);padding:0.25rem 0.7rem;border-radius:100px;white-space:nowrap}
+.plan.featured{padding-top:2rem}
+.plan-price-contact{font-size:1.35rem;font-weight:600;color:var(--txt-m);letter-spacing:-0.02em;min-height:2.5rem;display:flex;align-items:center}
+.pricing-footnote{margin-top:1.75rem;text-align:center;font-size:0.78rem;color:var(--txt-b);line-height:1.55}
+.usage-billing{padding:4rem 3rem;border-top:0.5px solid var(--bs);border-bottom:0.5px solid var(--bs);background:var(--bg-card)}
+.usage-billing-inner{max-width:1200px;margin:0 auto}
+.usage-billing .section-title{margin-top:0.25rem}
+.usage-billing .section-desc{margin-bottom:0}
+.usage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.5rem}
+.usage-card{background:var(--bg);border:0.5px solid var(--bs);border-radius:12px;padding:1.5rem;transition:border-color 0.25s}
+.usage-card:hover{border-color:var(--border)}
+.usage-card h3{font-size:0.95rem;font-weight:600;color:var(--txt);margin:0 0 0.55rem;letter-spacing:-0.01em}
+.usage-card p{font-size:0.83rem;color:var(--txt-b);line-height:1.65;margin:0}
+.pricing-faq{padding:4rem 3rem;max-width:800px;margin:0 auto}
+.pricing-faq-inner{width:100%}
+.pricing-faq .section-title{margin-top:0.25rem}
+.faq{margin-top:2.25rem;border-top:0.5px solid var(--bs)}
+.faq details{border-bottom:0.5px solid var(--bs)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.15rem 0;font-size:0.95rem;font-weight:600;color:var(--txt);letter-spacing:-0.01em;transition:color 0.2s}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';font-family:var(--font-mono);font-size:1.1rem;font-weight:500;color:var(--tq);flex-shrink:0;line-height:1}
+.faq details[open] summary::after{content:'−'}
+.faq summary:hover{color:var(--tq)}
+.faq-a{margin:0;padding:0 0 1.25rem;font-size:0.88rem;color:var(--txt-b);line-height:1.7;max-width:70ch}
+.faq-a a{color:var(--tq);text-decoration:none}
+.faq-a a:hover{text-decoration:underline}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 /* ——— Roadmap ——— */
 .roadmap-page{padding:2rem 3rem 4rem;max-width:900px;margin:0 auto}
 .roadmap-timeline{position:relative;margin-top:2.5rem;padding-left:2rem;border-left:2px solid var(--border)}
@@ -573,6 +601,11 @@ nav{position:relative}
 .gensyn-link-arrow{color:var(--tq);text-decoration:none;font-size:0.9rem;font-weight:500;display:inline-flex;align-items:center;gap:0.35rem;margin-top:1rem}
 .gensyn-link-arrow:hover{text-decoration:underline}
 
+@media(max-width:1100px) and (min-width:901px){
+  .plan-grid-4{grid-template-columns:repeat(2,1fr)}
+  .usage-grid{grid-template-columns:repeat(2,1fr)}
+  .usage-grid .usage-card:last-child{grid-column:1 / -1}
+}
 @media(max-width:900px){
   nav{padding:1rem 1.5rem}
   .nav-toggle{display:flex;align-items:center;justify-content:center;min-width:48px;min-height:48px}
@@ -588,8 +621,11 @@ nav{position:relative}
   .flow{grid-template-columns:1fr}
   .flow-step:first-child,.flow-step:last-child{border-radius:10px}
   .flow-step+.flow-step{border-left:0.5px solid var(--bs);border-top:0}
-  .products,.how,.pricing,.ecosystem,.pillars,.built-on,.cta-section,.architecture,.enterprise,.production,.page-hero,.pricing-page,.roadmap-page,.partner-strip{padding:3rem 1.5rem}
-  .production-hero,.production-metrics,.enterprise-grid,.plan-grid-4,.case-metrics,.phase-grid{grid-template-columns:1fr}
+  .products,.how,.pricing,.ecosystem,.pillars,.built-on,.cta-section,.architecture,.enterprise,.production,.page-hero,.pricing-page,.roadmap-page,.partner-strip,.usage-billing,.pricing-faq{padding:3rem 1.5rem}
+  .production-hero,.production-metrics,.enterprise-grid,.case-metrics,.phase-grid{grid-template-columns:1fr}
+  .plan-grid-4{grid-template-columns:1fr}
+  .usage-grid{grid-template-columns:1fr}
+  .page-hero h1{font-size:2rem}
   .partner-strip,.partner-inner{flex-direction:column;align-items:flex-start}
   .arch-diagram{padding:1rem}
   .trust-badges-grid{grid-template-columns:1fr}
