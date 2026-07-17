@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- ozdna-seo:start -->
-<title>Pricing — ozDNA Vertical AI Infrastructure</title>
-<meta name="description" content="Early-access pricing for ozDNA — Startup, Growth, and Enterprise plans with AI gateway, cost optimization, and observability for production AI.">
+<title>Pricing — ozDNA Platform Plans &amp; Usage Billing</title>
+<meta name="description" content="ozDNA pricing: Developer (Free), Startup ($79/mo), Growth ($399/mo), and Enterprise. Platform subscriptions are separate from AI usage charges. BYOK supported.">
 <meta name="author" content="Findbelow Ventures">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="https://ozdna.com/pricing/">
@@ -14,8 +14,8 @@
 <link rel="alternate" hreflang="x-default" href="https://ozdna.com/pricing/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ozDNA">
-<meta property="og:title" content="Pricing — ozDNA Vertical AI Infrastructure">
-<meta property="og:description" content="Early-access pricing for ozDNA — Startup, Growth, and Enterprise plans with AI gateway, cost optimization, and observability for production AI.">
+<meta property="og:title" content="Pricing — ozDNA Platform Plans &amp; Usage Billing">
+<meta property="og:description" content="ozDNA pricing: Developer (Free), Startup ($79/mo), Growth ($399/mo), and Enterprise. Platform subscriptions are separate from AI usage charges.">
 <meta property="og:url" content="https://ozdna.com/pricing/">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://ozdna.com/assets/og-image.png">
@@ -24,8 +24,8 @@
 <meta property="og:image:alt" content="ozDNA — Vertical AI Infrastructure">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@ozdna">
-<meta name="twitter:title" content="Pricing — ozDNA Vertical AI Infrastructure">
-<meta name="twitter:description" content="Early-access pricing for ozDNA — Startup, Growth, and Enterprise plans with AI gateway, cost optimization, and observability for production AI.">
+<meta name="twitter:title" content="Pricing — ozDNA Platform Plans &amp; Usage Billing">
+<meta name="twitter:description" content="ozDNA pricing: Developer (Free), Startup ($79/mo), Growth ($399/mo), and Enterprise. Platform subscriptions are separate from AI usage charges.">
 <meta name="twitter:image" content="https://ozdna.com/assets/og-image.png">
 <meta name="twitter:image:alt" content="ozDNA — Vertical AI Infrastructure">
 <script type="application/ld+json">
@@ -51,8 +51,8 @@
       "@type": "WebPage",
       "@id": "https://ozdna.com/pricing/#webpage",
       "url": "https://ozdna.com/pricing/",
-      "name": "Pricing — ozDNA Vertical AI Infrastructure",
-      "description": "Early-access pricing for ozDNA — Startup, Growth, and Enterprise plans with AI gateway, cost optimization, and observability for production AI.",
+      "name": "Pricing — ozDNA Platform Plans & Usage Billing",
+      "description": "ozDNA pricing: Developer (Free), Startup ($79/mo), Growth ($399/mo), and Enterprise. Platform subscriptions are separate from AI usage charges.",
       "isPartOf": {
         "@id": "https://ozdna.com/#organization"
       },
@@ -70,14 +70,98 @@
       "softwareVersion": "0.1.0",
       "releaseNotes": "https://ozdna.com/changelog/",
       "offers": {
-        "@type": "Offer",
-        "price": "0",
+        "@type": "AggregateOffer",
+        "lowPrice": "0",
+        "highPrice": "399",
         "priceCurrency": "USD",
-        "description": "Early access — paid tiers at launch"
+        "offerCount": "4"
       },
       "provider": {
         "@id": "https://ozdna.com/#organization"
       }
+    },
+    {
+      "@type": "OfferCatalog",
+      "@id": "https://ozdna.com/pricing/#catalog",
+      "name": "ozDNA Platform Plans",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "Developer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "Free sandbox plan with 1 workspace, 2 API keys, basic analytics, and community support."
+        },
+        {
+          "@type": "Offer",
+          "name": "Startup",
+          "price": "79",
+          "priceCurrency": "USD",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "79",
+            "priceCurrency": "USD",
+            "billingDuration": "P1M"
+          },
+          "description": "Unlimited projects and API keys, intelligent model routing, prompt registry, usage analytics, team members, and email support."
+        },
+        {
+          "@type": "Offer",
+          "name": "Growth",
+          "price": "399",
+          "priceCurrency": "USD",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "399",
+            "priceCurrency": "USD",
+            "billingDuration": "P1M"
+          },
+          "description": "Everything in Startup plus organizations, RBAC, audit logs, priority support, and SLA."
+        },
+        {
+          "@type": "Offer",
+          "name": "Enterprise",
+          "description": "SSO, SAML, dedicated infrastructure, private deployment, compliance support, dedicated success manager, and custom SLA. Contact sales."
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://ozdna.com/pricing/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I bring my own API key (BYOK)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. ozDNA supports Bring Your Own API Key (BYOK). Route traffic through the ozDNA gateway using your own provider keys so you keep direct billing relationships with OpenAI, Anthropic, Google, and others while still getting routing, observability, and cost controls."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does billing work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Platform subscriptions and AI usage are billed separately. Your monthly plan covers gateway features, workspaces, analytics, and support. AI inference is charged based on actual token usage (or billed by your provider if you use BYOK). You can view usage and invoices in the dashboard."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does Enterprise deployment include?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Enterprise includes SSO/SAML, dedicated or private deployment options, compliance support, a dedicated success manager, and a custom SLA. Contact sales to scope infrastructure, residency, and security requirements for your organization."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the Free plan limits?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Developer plan includes 1 workspace, 2 API keys, basic analytics, community support, and a limited monthly request allowance suitable for prototyping. Upgrade to Startup when you need unlimited projects, team members, and production routing."
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -105,8 +189,6 @@
 <meta name="theme-color" content="#080D12">
 <meta name="color-scheme" content="dark">
 <!-- ozdna-seo:end -->
-<link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#080D12">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -121,86 +203,144 @@
     <a href="/products/comply/">ComplyDNA</a>
     <a href="/architecture/">Platform</a>
     <a href="/docs/">Docs</a>
-    <a href="/pricing/">Pricing</a>
-    <a href="/#products" class="nav-cta">Get Early Access</a>
+    <a href="/pricing/" class="active">Pricing</a>
+    <a href="/#waitlist" class="nav-cta">Get Early Access</a>
   </div>
 </nav>
 
 <main id="main-content">
-<section class="page-hero">
+<section class="page-hero pricing-hero">
   <div class="section-label">Pricing</div>
-  <h1>Plans for every stage<br>of production AI.</h1>
-  <p>From sandbox experimentation to enterprise AI gateway — ozDNA scales with your vertical AI product. All paid plans include LLM cost optimization and intelligent routing.</p>
+  <h1>Simple plans for production AI.</h1>
+  <p>Choose a platform tier that matches your team. Subscriptions cover gateway features — AI usage is billed separately so costs stay transparent.</p>
 </section>
 
-<section class="pricing-page">
+<section class="pricing-page" aria-labelledby="plans-heading">
+  <h2 id="plans-heading" class="visually-hidden">Platform plans</h2>
   <div class="plan-grid plan-grid-4">
-    <div class="plan">
+    <article class="plan">
       <div class="plan-name">Developer</div>
-      <div class="plan-price">Free<span> · beta</span></div>
-      <div class="plan-desc">Explore the ozDNA API gateway and model router in sandbox. Perfect for prototyping vertical AI workflows.</div>
+      <div class="plan-price">Free<span> / forever</span></div>
+      <p class="plan-desc">Sandbox access to prototype vertical AI workflows with the ozDNA gateway.</p>
       <div class="plan-features">
-        <div class="plan-feature">Sandbox API access</div>
-        <div class="plan-feature">Detect API endpoint</div>
-        <div class="plan-feature">Basic usage analytics</div>
-        <div class="plan-feature">Community support</div>
-        <div class="plan-feature">Rate-limited requests</div>
+        <div class="plan-feature">1 Workspace</div>
+        <div class="plan-feature">2 API Keys</div>
+        <div class="plan-feature">Basic Analytics</div>
+        <div class="plan-feature">Community Support</div>
+        <div class="plan-feature">Limited monthly requests</div>
       </div>
-      <a href="/#products" class="plan-btn">Get Early Access</a>
-    </div>
-    <div class="plan">
+      <a href="/#waitlist" class="plan-btn">Get Started</a>
+    </article>
+
+    <article class="plan">
       <div class="plan-name">Startup</div>
-      <div class="plan-price-contact">Contact Sales</div>
-      <div class="plan-desc">For early-stage vertical AI teams shipping their first production workloads with cost controls.</div>
+      <div class="plan-price">$79<span> / month</span></div>
+      <p class="plan-desc">For early-stage teams shipping their first production AI workloads with cost controls.</p>
       <div class="plan-features">
-        <div class="plan-feature">Production API gateway</div>
-        <div class="plan-feature">Model routing &amp; fallback</div>
-        <div class="plan-feature">Per-workflow cost tracking</div>
-        <div class="plan-feature">Vertical mode selection</div>
-        <div class="plan-feature">Email support</div>
+        <div class="plan-feature">Unlimited Projects</div>
+        <div class="plan-feature">Unlimited API Keys</div>
+        <div class="plan-feature">Intelligent Model Routing</div>
+        <div class="plan-feature">Prompt Registry</div>
+        <div class="plan-feature">Usage Analytics</div>
+        <div class="plan-feature">Team Members</div>
+        <div class="plan-feature">Email Support</div>
       </div>
-      <a href="mailto:hello@ozdna.com?subject=ozDNA%20Startup%20Plan" class="plan-btn">Contact Sales</a>
-    </div>
-    <div class="plan featured">
+      <a href="mailto:hello@ozdna.com?subject=ozDNA%20Startup%20Plan%20%28%2479%2Fmo%29" class="plan-btn">Start Startup</a>
+    </article>
+
+    <article class="plan featured">
+      <div class="plan-badge">Most popular</div>
       <div class="plan-name">Growth</div>
-      <div class="plan-price-contact">Contact Sales</div>
-      <div class="plan-desc">For teams with consistent production traffic, batch processing needs, and integration SLAs.</div>
+      <div class="plan-price">$399<span> / month</span></div>
+      <p class="plan-desc">For teams with consistent production traffic, org structure, and support SLAs.</p>
       <div class="plan-features">
         <div class="plan-feature">Everything in Startup</div>
-        <div class="plan-feature">Async batch processing</div>
-        <div class="plan-feature">Webhook callbacks</div>
-        <div class="plan-feature">Prompt registry (beta)</div>
-        <div class="plan-feature">Usage analytics dashboard</div>
-        <div class="plan-feature">Priority support</div>
+        <div class="plan-feature">Organizations</div>
+        <div class="plan-feature">RBAC</div>
+        <div class="plan-feature">Audit Logs</div>
+        <div class="plan-feature">Priority Support</div>
+        <div class="plan-feature">SLA</div>
       </div>
-      <a href="mailto:hello@ozdna.com?subject=ozDNA%20Growth%20Plan" class="plan-btn">Contact Sales</a>
-    </div>
-    <div class="plan">
+      <a href="mailto:hello@ozdna.com?subject=ozDNA%20Growth%20Plan%20%28%24399%2Fmo%29" class="plan-btn">Start Growth</a>
+    </article>
+
+    <article class="plan">
       <div class="plan-name">Enterprise</div>
       <div class="plan-price-contact">Contact Sales</div>
-      <div class="plan-desc">Custom infrastructure, enterprise security, audit logs, and white-label options for regulated industries.</div>
+      <p class="plan-desc">Custom security, dedicated infrastructure, and compliance for regulated industries.</p>
       <div class="plan-features">
-        <div class="plan-feature">Unlimited volume</div>
-        <div class="plan-feature">SSO &amp; RBAC</div>
-        <div class="plan-feature">Audit logs &amp; compliance</div>
-        <div class="plan-feature">Private cloud / on-premise</div>
-        <div class="plan-feature">Custom vertical models</div>
-        <div class="plan-feature">Dedicated CSM &amp; SLA</div>
+        <div class="plan-feature">SSO</div>
+        <div class="plan-feature">SAML</div>
+        <div class="plan-feature">Dedicated Infrastructure</div>
+        <div class="plan-feature">Private Deployment</div>
+        <div class="plan-feature">Compliance Support</div>
+        <div class="plan-feature">Dedicated Success Manager</div>
+        <div class="plan-feature">Custom SLA</div>
       </div>
       <a href="mailto:hello@ozdna.com?subject=ozDNA%20Enterprise%20Plan" class="plan-btn">Contact Sales</a>
+    </article>
+  </div>
+  <p class="pricing-footnote">All prices in USD. Platform fees billed monthly. AI usage billed separately — see below.</p>
+</section>
+
+<section class="usage-billing" aria-labelledby="usage-heading">
+  <div class="usage-billing-inner">
+    <div class="section-label">Billing model</div>
+    <h2 id="usage-heading" class="section-title">Usage-Based Billing</h2>
+    <p class="section-desc">Platform subscriptions are separate from AI usage charges. Your plan covers the gateway, routing, analytics, and support. Inference costs track actual consumption — or your provider’s invoice if you bring your own keys.</p>
+
+    <div class="usage-grid">
+      <div class="usage-card">
+        <h3>Platform subscription</h3>
+        <p>Fixed monthly fee for workspaces, API keys, model routing, prompt registry, analytics, team features, and support tier. Predictable — independent of token volume.</p>
+      </div>
+      <div class="usage-card">
+        <h3>AI usage charges</h3>
+        <p>Token and request costs for models routed through ozDNA. Metered by provider rates with cost visibility per workflow. With BYOK, usage bills go to your provider; ozDNA still meters for observability.</p>
+      </div>
+      <div class="usage-card">
+        <h3>Bring Your Own Key</h3>
+        <p>Connect OpenAI, Anthropic, Google, and other providers with your own API keys. Keep existing contracts and spend caps while ozDNA handles routing, fallbacks, and cost analytics.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-faq" aria-labelledby="faq-heading">
+  <div class="pricing-faq-inner">
+    <div class="section-label">FAQ</div>
+    <h2 id="faq-heading" class="section-title">Common questions</h2>
+    <p class="section-desc">Billing, keys, limits, and enterprise deployment — answered clearly.</p>
+
+    <div class="faq">
+      <details>
+        <summary>Bring Your Own API Key (BYOK)</summary>
+        <p class="faq-a">Yes. Route traffic through the ozDNA gateway using your own provider keys. You keep direct billing with OpenAI, Anthropic, Google, and others, while ozDNA provides intelligent routing, observability, prompt registry, and cost controls on top.</p>
+      </details>
+      <details>
+        <summary>How does billing work?</summary>
+        <p class="faq-a">Two line items: (1) your platform plan — Developer free, Startup $79/mo, Growth $399/mo, or Enterprise custom — and (2) AI usage, metered by tokens/requests when using ozDNA-managed keys, or billed by your provider under BYOK. Invoices and usage breakdowns are available in the dashboard.</p>
+      </details>
+      <details>
+        <summary>Enterprise deployment</summary>
+        <p class="faq-a">Enterprise includes SSO and SAML, dedicated or private deployment options, compliance support, a dedicated success manager, and a custom SLA. We’ll scope residency, networking, and security requirements with your team — <a href="mailto:hello@ozdna.com?subject=ozDNA%20Enterprise%20Deployment">contact sales</a> to start.</p>
+      </details>
+      <details>
+        <summary>Free plan limits</summary>
+        <p class="faq-a">Developer includes 1 workspace, 2 API keys, basic analytics, community support, and a limited monthly request allowance for prototyping. When you need unlimited projects, team members, production routing, and email support, upgrade to Startup.</p>
+      </details>
     </div>
   </div>
 </section>
 
 <section class="cta-section">
   <h2>Not sure which plan fits?</h2>
-  <p>Tell us about your vertical AI product and production workload. We'll recommend the right tier.</p>
+  <p>Tell us about your vertical AI product and production workload. We’ll recommend the right tier and walk through usage billing.</p>
   <div class="cta-actions">
-    <a href="mailto:hello@ozdna.com" class="btn-primary">Talk to Sales</a>
+    <a href="mailto:hello@ozdna.com?subject=ozDNA%20Pricing%20Recommendation" class="btn-primary">Talk to Sales</a>
     <a href="/docs/" class="btn-ghost">Read the Docs →</a>
   </div>
 </section>
-
 </main>
 
 <footer>
@@ -224,8 +364,7 @@
     <a href="/terms/">Terms</a>
     <a href="/changelog/">Changelog</a>
     <a href="/status/">Status</a>
-        <a href="/roadmap/">Roadmap</a>
-    <a href="/case-studies/tezmakale/">Case Study</a>
+    <a href="/roadmap/">Roadmap</a>
   </div>
   <p>© 2026 Findbelow Ventures</p>
 </footer>
