@@ -6,14 +6,15 @@ related: [contact.md]
 
 # Pricing
 
-## ComplyDNA — early access
+## ComplyDNA — published plans
 
-Pricing is set per institution during the pilot program (regulatory scope + usage volume).
+Visible public pricing (USD) for self-serve / Creem checkout readiness:
 
-- **Pilot** — fixed-fee 4-week POC with an institution-specific golden-set evaluation
-- **Team** — annual subscription, seat-based + monthly query quota, cloud API or web UI
-- **Enterprise / On-prem** — annual license; model and index run inside your infrastructure
+- **Pilot** — **$2,490** one-time · 4-week POC with institution-specific golden-set evaluation
+- **Team** — **$499/mo** billed annually ($5,988/year) · seat-based + monthly query quota, cloud API or web UI
+- **Enterprise / On-prem** — from **$1,990/mo** · model and index inside your infrastructure; custom scope available
 
+Page: https://ozdna.com/products/comply/#pricing  
 Contact: hello@ozdna.com (subject: ComplyDNA)
 
 ## OriginDNA — pre-launch (waitlist)
