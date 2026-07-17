@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="description" content="OriginDNA compliance engine — a working demo: describe an AI system, get an EU AI Act risk-tier classification, an obligations checklist, and a simulated on-chain audit record anchored to Solana.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ozDNA">
+<meta property="og:title" content="OriginDNA Compliance Engine — Live Demo">
+<meta property="og:description" content="Classify any AI system under the EU AI Act, generate its obligations, and anchor an immutable audit record. Risk-tier logic + human-oversight logging + Solana-anchored proof.">
+<meta property="og:url" content="https://ozdna.com/products/origin/demo/">
+<title>Compliance Engine — Live Demo · OriginDNA</title>
+<style>
+  :root {
+    --paper: #F2EFE6;
+    --ink: #191611;
+    --accent: #E23D0E;
+    --muted: #6F6A5C;
+    --rule: rgba(25, 22, 17, 0.18);
+    --rule-soft: rgba(25, 22, 17, 0.08);
+    --card: rgba(25, 22, 17, 0.03);
+    --ok: #1E7A46;
+    --warn: #B25E00;
+    --danger: #B4231A;
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #141208; --ink: #EDE8D9; --accent: #FF6B3D; --muted: #938D7B;
+      --rule: rgba(237, 232, 217, 0.22); --rule-soft: rgba(237, 232, 217, 0.09); --card: rgba(237, 232, 217, 0.04);
+      --ok: #4FB980; --warn: #E0913A; --danger: #E8695E;
+    }
+  }
+  :root[data-theme="light"] {
+    --paper: #F2EFE6; --ink: #191611; --accent: #E23D0E; --muted: #6F6A5C;
+    --rule: rgba(25, 22, 17, 0.18); --rule-soft: rgba(25, 22, 17, 0.08); --card: rgba(25, 22, 17, 0.03);
+    --ok: #1E7A46; --warn: #B25E00; --danger: #B4231A;
+  }
+  :root[data-theme="dark"] {
+    --paper: #141208; --ink: #EDE8D9; --accent: #FF6B3D; --muted: #938D7B;
+    --rule: rgba(237, 232, 217, 0.22); --rule-soft: rgba(237, 232, 217, 0.09); --card: rgba(237, 232, 217, 0.04);
+    --ok: #4FB980; --warn: #E0913A; --danger: #E8695E;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--mono); font-size: 15px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  ::selection { background: var(--accent); color: var(--paper); }
+  .shell { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .label b { color: var(--accent); font-weight: 400; }
+  code { font-family: var(--mono); }
+
+  header { position: sticky; top: 0; z-index: 10; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; }
+  .wordmark { display: flex; align-items: baseline; gap: 10px; font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; white-space: nowrap; }
+  .wordmark .dot { color: var(--accent); }
+  .wordmark small { font-size: 10px; letter-spacing: 0.14em; color: var(--muted); }
+  nav { display: flex; gap: 22px; }
+  nav a { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--muted); }
+  nav a:hover { color: var(--accent); }
+  @media (max-width: 780px) { nav { display: none; } }
+
+  .hero { border-bottom: 1px solid var(--rule); padding: 56px 0 40px; }
+  .hero h1 { font-size: clamp(28px, 5vw, 52px); line-height: 1.1; font-weight: 700; text-transform: uppercase; margin: 16px 0 18px; text-wrap: balance; }
+  .hero h1 .acc { color: var(--accent); }
+  .lede { max-width: 70ch; color: var(--muted); font-size: 16px; }
+  .pill { display: inline-block; border: 1px solid var(--accent); color: var(--accent); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; padding: 4px 9px; border-radius: 2px; }
+
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 30px; }
+  @media (max-width: 780px) { .steps { grid-template-columns: 1fr; } }
+  .step { border-top: 2px solid var(--ink); padding-top: 12px; }
+  .step .n { color: var(--accent); font-size: 12px; letter-spacing: 0.14em; }
+  .step h3 { margin: 6px 0 6px; font-size: 14px; text-transform: uppercase; }
+  .step p { margin: 0; color: var(--muted); font-size: 13px; }
+
+  .app { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 0; border-bottom: 1px solid var(--rule); }
+  @media (max-width: 980px) { .app { grid-template-columns: 1fr; } }
+  .panel { padding: 40px 0; }
+  .panel.left { border-right: 1px solid var(--rule); padding-right: 40px; }
+  @media (max-width: 980px) { .panel.left { border-right: none; padding-right: 0; border-bottom: 1px solid var(--rule); } }
+  .panel.right { padding-left: 40px; }
+  @media (max-width: 980px) { .panel.right { padding-left: 0; } }
+
+  .sec-title { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 0 0 18px; }
+
+  .presets { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .preset { font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; padding: 7px 11px; border: 1px solid var(--rule); background: var(--card); color: var(--ink); cursor: pointer; font-family: var(--mono); }
+  .preset:hover { border-color: var(--accent); color: var(--accent); }
+
+  .field { margin-bottom: 18px; }
+  .field label { display: block; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .field input[type=text], .field textarea, .field select {
+    width: 100%; padding: 11px 13px; font-family: var(--mono); font-size: 14px;
+    background: var(--paper); color: var(--ink); border: 1px solid var(--rule);
+  }
+  .field textarea { min-height: 84px; resize: vertical; line-height: 1.5; }
+  .field input:focus, .field textarea:focus, .field select:focus { outline: 2px solid var(--accent); outline-offset: 0; }
+
+  .toggles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; }
+  @media (max-width: 520px) { .toggles { grid-template-columns: 1fr; } }
+  .toggle { display: flex; gap: 9px; align-items: flex-start; font-size: 12.5px; color: var(--ink); cursor: pointer; line-height: 1.35; padding: 4px 0; }
+  .toggle input { margin: 2px 0 0; accent-color: var(--accent); width: 15px; height: 15px; flex: none; }
+  .toggle span small { display: block; color: var(--muted); font-size: 11px; }
+
+  .btn { display: inline-block; padding: 12px 22px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; cursor: pointer; font-family: var(--mono); }
+  .btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn.ghost { background: transparent; color: var(--ink); }
+  .btn.ghost:hover { background: transparent; color: var(--accent); border-color: var(--accent); }
+  .btn.sm { padding: 8px 14px; font-size: 11px; }
+  .btn:disabled { opacity: 0.5; cursor: default; }
+
+  /* Result */
+  .empty { color: var(--muted); font-size: 14px; border: 1px dashed var(--rule); padding: 28px; text-align: center; }
+  .verdict { border: 1px solid var(--rule); background: var(--card); padding: 0; margin-bottom: 20px; }
+  .verdict .top { display: flex; align-items: center; gap: 14px; padding: 18px 20px; border-bottom: 1px solid var(--rule-soft); }
+  .tier-dot { width: 14px; height: 14px; border-radius: 50%; flex: none; }
+  .verdict .tier-name { font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; }
+  .verdict .tier-sub { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .verdict .body { padding: 16px 20px; }
+  .verdict .rationale { font-size: 13.5px; color: var(--ink); margin: 0 0 12px; }
+  .cites { display: flex; flex-wrap: wrap; gap: 6px; }
+  .cite { font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid var(--rule); padding: 3px 8px; color: var(--muted); }
+
+  .tier-prohibited { --tc: var(--danger); }
+  .tier-high { --tc: var(--warn); }
+  .tier-limited { --tc: var(--accent); }
+  .tier-minimal { --tc: var(--ok); }
+
+  .block { margin-bottom: 20px; }
+  .block h4 { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--rule-soft); }
+  .oblig { list-style: none; padding: 0; margin: 0; }
+  .oblig li { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid var(--rule-soft); font-size: 13px; }
+  .oblig li:last-child { border-bottom: none; }
+  .oblig input { margin: 2px 0 0; accent-color: var(--ok); width: 15px; height: 15px; flex: none; }
+  .oblig .art { display: block; color: var(--muted); font-size: 11px; margin-top: 2px; }
+
+  .kv { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  .kv td { padding: 8px 0; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+  .kv td:first-child { color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-size: 11px; width: 42%; padding-right: 12px; }
+  .kv td:last-child { word-break: break-all; }
+
+  .anchor-card { border: 1px solid var(--tc, var(--accent)); background: var(--card); }
+  .anchor-card .head { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--rule-soft); }
+  .anchor-card .head .t { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; }
+  .anchor-card .head .sim { font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--paper); background: var(--warn); padding: 3px 7px; }
+  .anchor-card .inner { padding: 6px 16px 14px; }
+  .mono-blob { font-size: 11.5px; word-break: break-all; color: var(--ink); }
+
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+
+  .note { font-size: 11.5px; color: var(--muted); border-left: 2px solid var(--rule); padding: 2px 0 2px 12px; margin-top: 8px; }
+
+  section.honesty { border-bottom: 1px solid var(--rule); padding: 48px 0; }
+  .honesty h2 { font-size: clamp(20px, 3vw, 28px); text-transform: uppercase; margin: 0 0 24px; }
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 780px) { .split { grid-template-columns: 1fr; } }
+  .split .col { border-top: 2px solid var(--ink); padding-top: 14px; }
+  .split .col.real { border-color: var(--ok); }
+  .split .col.sim { border-color: var(--warn); }
+  .split h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 12px; }
+  .split ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 13px; }
+  .split li { margin-bottom: 8px; }
+
+  .site-footer { padding: 36px 0 44px; }
+  .foot { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); border-top: 1px solid var(--rule-soft); padding-top: 18px; }
+  .footer-links { font-size: 12px; color: var(--muted); margin-top: 10px; }
+  .disclaimer { font-size: 11.5px; color: var(--muted); max-width: 80ch; margin-top: 10px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="shell bar">
+    <a class="wordmark" href="/products/origin/">
+      ORIGIN<span class="dot">DNA</span> <small>COMPLIANCE ENGINE</small>
+    </a>
+    <nav>
+      <a href="#how">How it works</a>
+      <a href="#engine">The engine</a>
+      <a href="#honesty">Real vs. simulated</a>
+      <a href="/products/origin/">← Product</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="hero">
+  <div class="shell">
+    <span class="pill">Live demo · rule-based · nothing broadcast</span>
+    <h1>The compliance engine<br>for <span class="acc">auditable AI.</span></h1>
+    <p class="lede">
+      Describe any AI system — an autonomous agent, a tokenized-RWA workflow, a
+      recruitment screener, an image generator. The engine classifies its risk
+      tier under the EU AI Act, generates the exact obligations that attach to
+      that tier, logs the human-oversight decision, and anchors an immutable
+      audit record. Same provenance engine that gives an image a DNA — pointed
+      at a decision instead of a pixel.
+    </p>
+    <div class="steps" id="how">
+      <div class="step">
+        <div class="n">[01]</div>
+        <h3>Classify</h3>
+        <p>Deterministic risk-tier logic over EU AI Act Art. 5 (prohibited),
+        Annex III (high-risk) and Art. 50 (transparency). Transparent rules, not
+        a black-box guess.</p>
+      </div>
+      <div class="step">
+        <div class="n">[02]</div>
+        <h3>Oblige</h3>
+        <p>Each tier generates its own obligations checklist with article
+        citations, plus a human-oversight log entry (Art. 14) recording who
+        signed off and when.</p>
+      </div>
+      <div class="step">
+        <div class="n">[03]</div>
+        <h3>Anchor</h3>
+        <p>The assessment is hashed (real SHA-256) and written to an immutable
+        audit record, anchored to Solana. Tamper with the record and the hash
+        no longer matches.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="shell">
+<div class="app" id="engine">
+
+  <!-- INPUT -->
+  <div class="panel left">
+    <p class="sec-title">Describe the AI system</p>
+
+    <div class="presets" id="presets"></div>
+
+    <form id="assess-form" autocomplete="off">
+      <div class="field">
+        <label for="sys-name">System name</label>
+        <input type="text" id="sys-name" placeholder="e.g. Atlas RWA Settlement Agent">
+      </div>
+      <div class="field">
+        <label for="sys-desc">What does it do?</label>
+        <textarea id="sys-desc" placeholder="One or two sentences describing the system, its users, and what decisions or content it produces."></textarea>
+      </div>
+      <div class="field">
+        <label for="sys-domain">Primary domain / use case</label>
+        <select id="sys-domain">
+          <option value="general">General-purpose / productivity</option>
+          <option value="genmedia">Generative media (image / video / audio)</option>
+          <option value="chatbot">Conversational agent / chatbot</option>
+          <option value="finance">Finance / tokenized RWA / trading agent</option>
+          <option value="employment">Employment, hiring, worker management</option>
+          <option value="credit">Creditworthiness / essential services access</option>
+          <option value="biometric">Biometric identification / categorisation</option>
+          <option value="education">Education / vocational training / proctoring</option>
+          <option value="critical">Critical infrastructure safety component</option>
+          <option value="lawenf">Law enforcement</option>
+          <option value="migration">Migration / asylum / border control</option>
+          <option value="justice">Administration of justice / elections</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Deployment context (check all that apply)</label>
+        <div class="toggles" id="toggles"></div>
+      </div>
+
+      <div class="actions">
+        <button class="btn" type="submit">Run compliance assessment →</button>
+        <button class="btn ghost sm" type="reset" id="reset-btn">Clear</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- OUTPUT -->
+  <div class="panel right">
+    <p class="sec-title">Assessment &amp; audit record</p>
+    <div id="result">
+      <div class="empty">
+        Pick a preset or describe a system, then run the assessment.<br>
+        The result — risk tier, obligations, and the anchored audit record —
+        appears here, ready to project.
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<section class="honesty" id="honesty">
+  <div class="shell">
+    <h2>What's real, what's simulated</h2>
+    <p class="lede" style="margin-bottom:8px">Honesty is the product. Here is exactly
+    what this demo computes for real and what it stands in for.</p>
+    <div class="split">
+      <div class="col real">
+        <h3>✓ Real in this demo</h3>
+        <ul>
+          <li>The risk-tier classification logic — deterministic rules mapped to
+          EU AI Act Art. 5, Annex III and Art. 50.</li>
+          <li>The obligations checklist generated per tier, with article
+          citations.</li>
+          <li>The SHA-256 fingerprint of the assessment — computed in your
+          browser with the Web Crypto API. Change one field and the hash
+          changes.</li>
+          <li>The canonical, downloadable assessment record (JSON) that the hash
+          is taken over.</li>
+        </ul>
+      </div>
+      <div class="col sim">
+        <h3>◑ Simulated (production layer)</h3>
+        <ul>
+          <li>The Solana anchor — transaction signature, slot and block time are
+          <b>derived deterministically from the real hash</b> for the demo.
+          Nothing is broadcast to any network.</li>
+          <li>In production the same hash is submitted in a batched memo/PDA
+          write on Solana; the audit record then carries a verifiable, look-up-able
+          transaction — no token, no user funds, we pay the anchor fee.</li>
+          <li>Legal classification here is illustrative engineering logic, not
+          legal advice. A production engine keeps the Annex III / Art. 50 mapping
+          versioned against the current consolidated text.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="disclaimer">
+      OriginDNA is pre-launch. This page demonstrates the compliance-engine
+      concept and is not a certified compliance tool. Classifications are
+      rule-based illustrations of the EU AI Act (Regulation (EU) 2024/1689) and
+      do not constitute legal advice. C2PA conformance and any "trusted Content
+      Credentials" status are not claimed. No token exists or is planned; the
+      engine never holds or moves user funds.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="shell">
+    <div class="foot">
+      <span>OriginDNA Compliance Engine · <a href="/">ozDNA</a> · Findbelow Ventures</span>
+      <span>© 2026 Findbelow Ventures</span>
+    </div>
+    <p class="footer-links">
+      <a href="/products/origin/">OriginDNA</a>
+      · <a href="mailto:hello@ozdna.com">hello@ozdna.com</a>
+      · <a href="/privacy/">Privacy</a>
+      · <a href="/terms/">Terms</a>
+      · Demo build <time datetime="2026-07-17">July 17, 2026</time>
+    </p>
+  </div>
+</footer>
+
+<script>
+/* ============================================================================
+   OriginDNA Compliance Engine — demo classifier
+   Deterministic, transparent rule logic over the EU AI Act. Rules are ordered
+   by severity: prohibited (Art. 5) > high-risk (Annex III) > limited /
+   transparency (Art. 50) > minimal. Everything runs client-side so the client
+   pays the compute — consistent with OriginDNA's free in-browser signing flow.
+   ========================================================================== */
+
+const TOGGLES = [
+  { id: 'publicAuthority', label: 'Deployed by / for a public authority',
+    hint: 'Government, agency or public-sector body' },
+  { id: 'accessServices', label: 'Gates access to essential services',
+    hint: 'Credit, benefits, insurance, healthcare, utilities' },
+  { id: 'biometric', label: 'Processes biometric data',
+    hint: 'Face, voice, fingerprint, gait' },
+  { id: 'emotionWorkEdu', label: 'Infers emotions at work or school',
+    hint: 'Emotion recognition in workplace / education' },
+  { id: 'minorsVulnerable', label: 'Targets minors or vulnerable people',
+    hint: 'Children, disability, economic vulnerability' },
+  { id: 'socialScoring', label: 'Scores people by behaviour / traits',
+    hint: 'General-purpose social scoring' },
+  { id: 'subliminal', label: 'Uses manipulative / subliminal techniques',
+    hint: 'Distorts behaviour beyond a person’s awareness' },
+  { id: 'syntheticMedia', label: 'Generates synthetic image / audio / video',
+    hint: 'Output could be mistaken for real; deepfakes' },
+  { id: 'humanInteraction', label: 'Interacts directly with people',
+    hint: 'Chatbot, voice agent, assistant' },
+  { id: 'autonomousActions', label: 'Takes autonomous actions with real effects',
+    hint: 'Executes transactions, moves assets, actuates systems' },
+];
+
+const ANNEX_III_DOMAINS = {
+  employment:  { pt: 'Annex III(4)', desc: 'employment, worker management and access to self-employment' },
+  credit:      { pt: 'Annex III(5)', desc: 'access to and enjoyment of essential private and public services (incl. creditworthiness)' },
+  biometric:   { pt: 'Annex III(1)', desc: 'biometrics (remote identification, categorisation, emotion recognition)' },
+  education:   { pt: 'Annex III(3)', desc: 'education and vocational training' },
+  critical:    { pt: 'Annex III(2)', desc: 'safety components of critical infrastructure' },
+  lawenf:      { pt: 'Annex III(6)', desc: 'law enforcement' },
+  migration:   { pt: 'Annex III(7)', desc: 'migration, asylum and border-control management' },
+  justice:     { pt: 'Annex III(8)', desc: 'administration of justice and democratic processes' },
+};
+
+const PRESETS = [
+  { name: 'Atlas RWA Settlement Agent',
+    desc: 'Autonomous agent that prices, executes and settles trades in tokenized real-world assets on behalf of a fund, rebalancing positions without a human in the loop.',
+    domain: 'finance', toggles: ['autonomousActions', 'humanInteraction'] },
+  { name: 'HireRank Screener',
+    desc: 'Ranks and filters job applicants from their CVs and video interviews, recommending who advances to interview.',
+    domain: 'employment', toggles: ['accessServices'] },
+  { name: 'CreditFlow Scoring API',
+    desc: 'Scores loan applicants’ creditworthiness for a consumer-lending app and returns an approve / decline recommendation.',
+    domain: 'credit', toggles: ['accessServices'] },
+  { name: 'Muse Image Generator',
+    desc: 'Consumer app that generates photorealistic images and avatars from text prompts.',
+    domain: 'genmedia', toggles: ['syntheticMedia'] },
+  { name: 'GateFace Access Control',
+    desc: 'Identifies people at building entrances by matching live camera feeds against an enrolled face database.',
+    domain: 'biometric', toggles: ['biometric', 'publicAuthority'] },
+  { name: 'CityTrust Behaviour Score',
+    desc: 'Assigns residents a general trust score from their payment history, social activity and public records, used across unrelated services.',
+    domain: 'general', toggles: ['socialScoring', 'publicAuthority'] },
+  { name: 'DeskHelper Support Bot',
+    desc: 'Customer-support chatbot that answers product questions and files tickets.',
+    domain: 'chatbot', toggles: ['humanInteraction'] },
+];
+
+/* ---------- classifier ---------------------------------------------------- */
+
+function classify(input) {
+  const t = input.toggles;
+  const cites = [];
+  const push = (c) => { if (!cites.includes(c)) cites.push(c); };
+
+  // 1. PROHIBITED — EU AI Act Article 5
+  const prohibitedReasons = [];
+  if (t.socialScoring) prohibitedReasons.push('general-purpose social scoring of people');
+  if (t.subliminal) prohibitedReasons.push('manipulative or subliminal techniques that distort behaviour');
+  if (t.emotionWorkEdu) prohibitedReasons.push('emotion inference in the workplace or education settings');
+  if (t.minorsVulnerable && t.subliminal) prohibitedReasons.push('exploitation of the vulnerabilities of a protected group');
+  if (prohibitedReasons.length) {
+    push('Art. 5 — Prohibited practices');
+    return {
+      tier: 'prohibited', tierClass: 'tier-prohibited',
+      name: 'Prohibited', sub: 'EU AI Act — Article 5',
+      rationale: 'This system matches an EU AI Act Article 5 prohibited practice: '
+        + prohibitedReasons.join('; ') + '. Prohibited AI cannot be placed on the '
+        + 'EU market or put into service at all — these bans have applied since '
+        + '2 February 2025. The obligation is to stop or redesign, not to document.',
+      cites,
+      obligations: [
+        { t: 'Do not place on the EU market or put into service.', a: 'Art. 5' },
+        { t: 'Redesign to remove the prohibited function, or geofence the EU out entirely.', a: 'Art. 5' },
+        { t: 'Document the redesign decision and re-run this assessment on the new design.', a: 'Art. 5' },
+      ],
+    };
+  }
+
+  // 2. HIGH-RISK — Annex III
+  const highReasons = [];
+  let annex = ANNEX_III_DOMAINS[input.domain] || null;
+  if (annex) highReasons.push(annex.desc);
+  if (t.biometric && !annex) { annex = ANNEX_III_DOMAINS.biometric; highReasons.push(annex.desc); }
+  if (t.accessServices && input.domain !== 'credit' && !ANNEX_III_DOMAINS[input.domain]) {
+    if (!annex) annex = ANNEX_III_DOMAINS.credit;
+    highReasons.push('determines access to essential private or public services');
+  }
+  if (annex || highReasons.length) {
+    if (annex) push(annex.pt);
+    push('Art. 6 — High-risk classification');
+    push('Art. 9–15 — Provider requirements');
+    push('Art. 14 — Human oversight');
+    const obligations = [
+      { t: 'Establish and maintain a risk-management system across the lifecycle.', a: 'Art. 9' },
+      { t: 'Apply data governance to training, validation and testing data.', a: 'Art. 10' },
+      { t: 'Draw up technical documentation before placing on the market.', a: 'Art. 11 + Annex IV' },
+      { t: 'Enable automatic logging of events over the system’s lifetime.', a: 'Art. 12' },
+      { t: 'Provide clear instructions for use to deployers.', a: 'Art. 13' },
+      { t: 'Ensure effective human oversight (a person can intervene / stop it).', a: 'Art. 14' },
+      { t: 'Meet accuracy, robustness and cybersecurity thresholds.', a: 'Art. 15' },
+      { t: 'Register the system in the EU database before market placement.', a: 'Art. 49' },
+      { t: 'Run a conformity assessment and affix CE marking.', a: 'Art. 43 + 48' },
+    ];
+    if (t.syntheticMedia) obligations.push({ t: 'Also mark generated media as AI-made in machine-readable form.', a: 'Art. 50(2)' });
+    if (t.humanInteraction) obligations.push({ t: 'Also disclose to people that they are interacting with an AI system.', a: 'Art. 50(1)' });
+    return {
+      tier: 'high', tierClass: 'tier-high',
+      name: 'High-risk', sub: 'EU AI Act — Annex III',
+      rationale: 'This system falls under ' + (annex ? annex.pt + ', ' : '')
+        + 'covering ' + highReasons.join('; ') + '. High-risk systems are '
+        + 'permitted but carry the full provider obligation stack (Art. 9–15), '
+        + 'must keep a person able to intervene (Art. 14), and must be registered '
+        + 'and conformity-assessed before going to market.'
+        + (t.autonomousActions ? ' Because it acts autonomously with real-world effects, the human-oversight and logging duties are the load-bearing controls — and exactly what the audit anchor below evidences.' : ''),
+      cites, obligations,
+    };
+  }
+
+  // 3. LIMITED / TRANSPARENCY — Article 50
+  const limitedReasons = [];
+  if (t.syntheticMedia || input.domain === 'genmedia') limitedReasons.push('it generates synthetic media (Art. 50(2))');
+  if (t.humanInteraction || input.domain === 'chatbot') limitedReasons.push('it interacts directly with people (Art. 50(1))');
+  if (limitedReasons.length) {
+    const obligations = [];
+    if (t.humanInteraction || input.domain === 'chatbot')
+      obligations.push({ t: 'Tell people they are interacting with an AI system (unless obvious).', a: 'Art. 50(1)' });
+    if (t.syntheticMedia || input.domain === 'genmedia') {
+      obligations.push({ t: 'Mark AI-generated / manipulated media as such in a machine-readable format.', a: 'Art. 50(2)' });
+      obligations.push({ t: 'Ensure the marking is interoperable and robust to the extent technically feasible.', a: 'Art. 50(2)' });
+      push('Art. 50(2)');
+    }
+    if (t.humanInteraction || input.domain === 'chatbot') push('Art. 50(1)');
+    obligations.push({ t: 'Keep evidence that the disclosure / marking was applied — anchored below.', a: 'Art. 50' });
+    if (input.domain === 'finance' && t.autonomousActions) {
+      obligations.push({ t: 'Note: financial-agent conduct may also engage MiCA / national financial-conduct rules outside the AI Act — an immutable action log is the common denominator.', a: 'Context' });
+      push('Context — financial conduct');
+    }
+    return {
+      tier: 'limited', tierClass: 'tier-limited',
+      name: 'Limited risk', sub: 'EU AI Act — Article 50 (transparency)',
+      rationale: 'This system is not high-risk under Annex III, but transparency '
+        + 'duties apply because ' + limitedReasons.join(' and ') + '. From '
+        + '2 August 2026 (with a marking grace period to 2 December 2026 for '
+        + 'existing GenAI systems) these disclosures become enforceable.',
+      cites, obligations,
+    };
+  }
+
+  // 4. MINIMAL
+  push('No mandatory AI Act obligations');
+  const obligations = [
+    { t: 'No mandatory EU AI Act obligations at this tier.', a: '—' },
+    { t: 'Voluntary: adopt a code of conduct (Art. 95) to signal trustworthiness.', a: 'Art. 95' },
+    { t: 'Recommended: anchor an audit record anyway — cheap insurance if scope changes.', a: 'Best practice' },
+  ];
+  if (input.domain === 'finance' && t.autonomousActions) {
+    obligations.push({ t: 'Autonomous financial actions may engage MiCA / national rules outside the AI Act — keep an immutable action log.', a: 'Context' });
+  }
+  return {
+    tier: 'minimal', tierClass: 'tier-minimal',
+    name: 'Minimal risk', sub: 'EU AI Act — no mandatory duties',
+    rationale: 'Nothing in the description engages a prohibited practice, an '
+      + 'Annex III high-risk area, or an Article 50 transparency trigger. The '
+      + 'AI Act imposes no mandatory obligations here — but an anchored audit '
+      + 'record is still the cheapest way to prove that position if a regulator '
+      + 'or investor later asks.',
+    cites, obligations,
+  };
+}
+
+/* ---------- hashing + simulated Solana anchor ----------------------------- */
+
+const B58 = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
+function base58(bytes) {
+  let digits = [0];
+  for (const b of bytes) {
+    let carry = b;
+    for (let i = 0; i < digits.length; i++) {
+      carry += digits[i] << 8;
+      digits[i] = carry % 58;
+      carry = (carry / 58) | 0;
+    }
+    while (carry) { digits.push(carry % 58); carry = (carry / 58) | 0; }
+  }
+  let out = '';
+  for (const b of bytes) { if (b === 0) out += '1'; else break; }
+  for (let i = digits.length - 1; i >= 0; i--) out += B58[digits[i]];
+  return out;
+}
+
+async function sha256Hex(str) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  const b = new Uint8Array(buf);
+  return { hex: [...b].map(x => x.toString(16).padStart(2, '0')).join(''), bytes: b };
+}
+
+// Derive a plausible-looking (simulated) Solana signature + slot from the hash,
+// deterministically, so the same assessment always yields the same anchor.
+async function simulatedAnchor(hashBytes) {
+  const doubled = await crypto.subtle.digest('SHA-256', hashBytes);
+  const sigBytes = new Uint8Array(64);
+  sigBytes.set(hashBytes, 0);
+  sigBytes.set(new Uint8Array(doubled), 32);
+  const signature = base58(sigBytes);
+  // Slot: derive a stable large number from the first 6 hash bytes.
+  let slot = 0;
+  for (let i = 0; i < 6; i++) slot = slot * 256 + hashBytes[i];
+  slot = 318_000_000 + (slot % 40_000_000); // plausible late-2026 devnet range
+  return { signature, slot };
+}
+
+/* ---------- render -------------------------------------------------------- */
+
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c])); }
+
+async function runAssessment(input) {
+  const r = classify(input);
+
+  const record = {
+    schema: 'origindna.compliance.assessment/v0',
+    system: { name: input.name || '(unnamed)', description: input.desc || '', domain: input.domain },
+    context: input.toggles,
+    result: { tier: r.tier, tierLabel: r.name, basis: r.sub, citations: r.cites },
+    obligations: r.obligations.map(o => ({ obligation: o.t, ref: o.a })),
+    oversight: {
+      required: r.tier === 'high' || r.tier === 'prohibited',
+      method: r.tier === 'high' ? 'human-in-the-loop review before action' :
+              r.tier === 'prohibited' ? 'halt — redesign required' : 'not mandated',
+      assessedBy: 'demo-operator',
+      assessedAtISO: new Date().toISOString(),
+      engineVersion: 'demo-0.1',
+    },
+  };
+  const canonical = JSON.stringify(record);
+  const { hex, bytes } = await sha256Hex(canonical);
+  const anchor = await simulatedAnchor(bytes);
+  const blockTimeISO = record.oversight.assessedAtISO;
+
+  const fullRecord = { ...record, audit: {
+    contentHashSHA256: hex,
+    anchor: { network: 'solana-devnet', status: 'SIMULATED — not broadcast',
+      signature: anchor.signature, slot: anchor.slot, blockTimeISO },
+  }};
+
+  render(r, hex, anchor, blockTimeISO, fullRecord);
+}
+
+function render(r, hex, anchor, blockTimeISO, fullRecord) {
+  const oblig = r.obligations.map(o => `
+    <li><input type="checkbox"><span>${esc(o.t)}<span class="art">${esc(o.a)}</span></span></li>`).join('');
+  const cites = r.cites.map(c => `<span class="cite">${esc(c)}</span>`).join('');
+
+  const oversightRequired = (r.tier === 'high' || r.tier === 'prohibited');
+
+  const html = `
+    <div class="verdict ${r.tierClass}">
+      <div class="top">
+        <span class="tier-dot" style="background:var(--tc)"></span>
+        <div>
+          <div class="tier-name" style="color:var(--tc)">${esc(r.name)}</div>
+          <div class="tier-sub">${esc(r.sub)}</div>
+        </div>
+      </div>
+      <div class="body">
+        <p class="rationale">${esc(r.rationale)}</p>
+        <div class="cites">${cites}</div>
+      </div>
+    </div>
+
+    <div class="block ${r.tierClass}">
+      <h4>Obligations checklist</h4>
+      <ul class="oblig">${oblig}</ul>
+    </div>
+
+    <div class="block ${r.tierClass}">
+      <h4>Human-oversight log · Art. 14</h4>
+      <table class="kv">
+        <tr><td>Oversight required</td><td>${oversightRequired ? 'YES' : 'No — not mandated at this tier'}</td></tr>
+        <tr><td>Method</td><td>${esc(fullRecord.oversight.method)}</td></tr>
+        <tr><td>Assessed by</td><td>${esc(fullRecord.oversight.assessedBy)}</td></tr>
+        <tr><td>Assessed at</td><td>${esc(fullRecord.oversight.assessedAtISO)}</td></tr>
+      </table>
+    </div>
+
+    <div class="block ${r.tierClass}">
+      <h4>Immutable audit record</h4>
+      <div class="anchor-card">
+        <div class="head">
+          <span class="t">Solana anchor</span>
+          <span class="sim">Simulated · not broadcast</span>
+        </div>
+        <div class="inner">
+          <table class="kv">
+            <tr><td>Content hash (SHA-256)</td><td class="mono-blob">${hex}</td></tr>
+            <tr><td>Network</td><td>solana-devnet</td></tr>
+            <tr><td>Tx signature</td><td class="mono-blob">${esc(anchor.signature)}</td></tr>
+            <tr><td>Slot</td><td>${anchor.slot.toLocaleString('en-US')}</td></tr>
+            <tr><td>Block time</td><td>${esc(blockTimeISO)}</td></tr>
+          </table>
+          <p class="note">The hash is real — computed over the assessment record in
+          your browser. The signature and slot are derived from that hash for the
+          demo; in production this same hash is written to Solana in a batched,
+          no-token memo we pay for.</p>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn ghost sm" id="copy-btn">Copy record JSON</button>
+        <button class="btn ghost sm" id="dl-btn">Download .json</button>
+        <button class="btn ghost sm" id="verify-btn">Verify hash</button>
+      </div>
+      <p class="note" id="verify-out" style="display:none"></p>
+    </div>
+  `;
+  const el = document.getElementById('result');
+  el.innerHTML = html;
+  el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+  const json = JSON.stringify(fullRecord, null, 2);
+  document.getElementById('copy-btn').onclick = async (e) => {
+    try { await navigator.clipboard.writeText(json); e.target.textContent = 'Copied ✓';
+      setTimeout(() => e.target.textContent = 'Copy record JSON', 1500); }
+    catch { e.target.textContent = 'Copy failed'; }
+  };
+  document.getElementById('dl-btn').onclick = () => {
+    const blob = new Blob([json], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'origindna-assessment.json';
+    a.click(); URL.revokeObjectURL(a.href);
+  };
+  document.getElementById('verify-btn').onclick = async () => {
+    // Recompute the hash over the canonical record to prove integrity.
+    const canonical = JSON.stringify({
+      schema: fullRecord.schema, system: fullRecord.system, context: fullRecord.context,
+      result: fullRecord.result, obligations: fullRecord.obligations, oversight: fullRecord.oversight,
+    });
+    const { hex: check } = await sha256Hex(canonical);
+    const out = document.getElementById('verify-out');
+    out.style.display = 'block';
+    const ok = check === hex;
+    out.style.color = ok ? 'var(--ok)' : 'var(--danger)';
+    out.textContent = ok
+      ? '✓ Recomputed SHA-256 matches the anchored hash — record is intact.'
+      : '✗ Hash mismatch — the record was altered.';
+  };
+}
+
+/* ---------- wire up UI ---------------------------------------------------- */
+
+function readForm() {
+  const toggles = {};
+  TOGGLES.forEach(t => { toggles[t.id] = document.getElementById('tg-' + t.id).checked; });
+  return {
+    name: document.getElementById('sys-name').value.trim(),
+    desc: document.getElementById('sys-desc').value.trim(),
+    domain: document.getElementById('sys-domain').value,
+    toggles,
+  };
+}
+
+function buildToggles() {
+  document.getElementById('toggles').innerHTML = TOGGLES.map(t => `
+    <label class="toggle">
+      <input type="checkbox" id="tg-${t.id}">
+      <span>${esc(t.label)}<small>${esc(t.hint)}</small></span>
+    </label>`).join('');
+}
+
+function buildPresets() {
+  document.getElementById('presets').innerHTML = PRESETS.map((p, i) =>
+    `<button type="button" class="preset" data-i="${i}">${esc(p.name)}</button>`).join('');
+  document.querySelectorAll('.preset').forEach(btn => {
+    btn.onclick = () => {
+      const p = PRESETS[+btn.dataset.i];
+      document.getElementById('sys-name').value = p.name;
+      document.getElementById('sys-desc').value = p.desc;
+      document.getElementById('sys-domain').value = p.domain;
+      TOGGLES.forEach(t => { document.getElementById('tg-' + t.id).checked = p.toggles.includes(t.id); });
+      runAssessment(readForm());
+    };
+  });
+}
+
+buildToggles();
+buildPresets();
+
+document.getElementById('assess-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  runAssessment(readForm());
+});
+document.getElementById('reset-btn').addEventListener('click', () => {
+  setTimeout(() => {
+    document.getElementById('result').innerHTML =
+      '<div class="empty">Pick a preset or describe a system, then run the assessment.</div>';
+  }, 0);
+});
+</script>
+<script defer src="/analytics.js"></script>
+</body>
+</html>
