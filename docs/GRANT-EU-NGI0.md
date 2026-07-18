@@ -2,7 +2,7 @@
 
 **Durum: TASLAK (10 Tem 2026). Önerilen program: NGI Zero Commons Fund (NLnet / AB Horizon Europe kaskad fonu). Bir sonraki son tarih: 1 Ağustos 2026, 12:00 CEST.**
 **Ürün çerçevesi (founder, 10 Tem):** *"EU AI Act Madde 50 içerik işaretleme için içerik kökeni API'si. Lansman öncesi — herkese açık API referansı Ekim 2026 MVP'siyle gelir. Bekleme listesindekiler önce alır."* Tespit sınıflandırıcısı yok; kilitli kurallarla tam uyumlu.
-**⚠️ Dosyalama öncesi founder kararları:** (1) başvuran kimlik — aşağıda "Uygunluk"; (2) açık kaynak kapsamı — NLnet, fonlanan TÜM çıktıların FOSS lisanslı olmasını şart koşar; (3) 1 Ağustos son tarihi, 2 Ağustos PR hamlesiyle aynı haftaya denk geliyor — iş yükü kararı.
+**⚠️ Dosyalama öncesi founder kararları:** ~~(1) başvuran kimlik~~ **ÇÖZÜLDÜ (founder, 10 Tem):** başvuran = Ebru Özpolat şahıs işletmesi (TR, vergi levhalı danışmanlık firması) — aşağıda "Uygunluk"; (2) açık kaynak kapsamı — NLnet, fonlanan TÜM çıktıların FOSS lisanslı olmasını şart koşar; (3) 1 Ağustos son tarihi, 2 Ağustos PR hamlesiyle aynı haftaya denk geliyor — iş yükü kararı.
 
 ---
 
@@ -11,11 +11,11 @@
 | Program | Uygunluk | Neden / neden değil |
 |---|---|---|
 | **NGI Zero Commons Fund** ✅ önerilen | Başvuru portalı herkese açık; "belirgin Avrupa boyutu" şart — ürünün konusu bizzat AB AI Yasası uyumu, Avrupa boyutu yapısal. Bireyler de kurumlar da başvurabilir. | €5K–50K, 1-2 sayfalık hafif başvuru, konsorsiyum yok, ~2-3 ayda karar → para MVP dönemine (Eki–Ara) denk gelir. Çıktılar FOSS olmalı. |
-| EIC Accelerator | ❌ AB/asosiye ülke KOBİ'si şart — BAE kuruluşuyla olmaz | Türk tüzel kişilik kurulursa ileride düşünülebilir |
+| EIC Accelerator | ⚠️ AB/asosiye ülke KOBİ'si şart — founder'ın TR şahıs işletmesi bu tanımı karşılar (PIC kaydı gerekir) | Ölçek olarak erken: EIC scale-up arar; MVP + ilk gelir sonrası düşünülür |
 | Horizon Europe konsorsiyum çağrıları | ⚠️ Türk kurumu ortak olabilir ama konsorsiyum + aylarca hazırlık ister | Solo kurucu + sıfır bütçeyle gerçekçi değil; Şubat 2027 "birlikte çalışabilirlik" konsorsiyum oyunu için ileride not |
 | Digital Europe | ❌ genelde kamu/büyük konsorsiyum odaklı | — |
 
-**Uygunluk notu (founder kararı):** NLnet bireysel başvuru kabul eder. Find Below Ventures (BAE) yerine **founder'ın şahsen (Türkiye — Horizon Europe asosiye ülkesi) başvurması** Avrupa-boyutu değerlendirmesinde daha güvenli olabilir. Alternatif: BAE kuruluşuyla başvurup Avrupa boyutunu ürünle (AB AI Yasası + AB kullanıcıları) savunmak — kabul edilebilir ama daha riskli. Karar founder'ın.
+**Uygunluk (founder bilgisiyle çözüldü, 10 Tem):** Başvuran = **Ebru Özpolat şahıs işletmesi** (Türkiye — Horizon Europe asosiye ülkesi; vergi levhalı danışmanlık firması). AB KOBİ tanımı hukuki biçimden bağımsız ekonomik faaliyet yürüten her birimi kapsar — şahıs işletmesi "işletme" sayılır. ozdna.com founder'a şahsen ait → başvuran = ürün sahibi, tutarlı. Find Below Ventures (BAE) başvuruda YER ALMAZ (ayrı tüzel kişilik). İleriki AB programları için: aynı işletmeyle Funding & Tenders Portal PIC kaydı yapılabilir. Muhasebeci soruları (başvuru engeli değil): hibe gelirinin vergilendirmesi; gerekirse NACE faaliyet kodu ekleme.
 
 ## Açık kaynak kapsamı (founder kararı)
 
@@ -33,6 +33,10 @@ Ticari barındırılan API, faturalama ve operasyon **kapsam dışı** kalır (F
 ## Project name
 
 OriginDNA Open Verification Stack — content provenance for EU AI Act Article 50 content marking
+
+## Applicant
+
+Ebru Özpolat — sole proprietorship (registered consultancy, Türkiye; Horizon Europe associated country). Owner of ozdna.com and the OriginDNA project.
 
 ## Website / repository
 
