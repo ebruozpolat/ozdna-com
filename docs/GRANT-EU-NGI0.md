@@ -1,8 +1,8 @@
 # AB Projesi — NGI Zero Commons Fund Başvuru Taslağı (OriginDNA)
 
-**Durum: TASLAK (10 Tem 2026). Önerilen program: NGI Zero Commons Fund (NLnet / AB Horizon Europe kaskad fonu). Bir sonraki son tarih: 1 Ağustos 2026, 12:00 CEST.**
+**Durum: DOSYALAMAYA HAZIR (founder onayları tamam, 10 Tem 2026). Hedef: 1 Ağustos 2026, 12:00 CEST son tarihinden önce dosyalama. Program: NGI Zero Commons Fund (NLnet / AB Horizon Europe kaskad fonu).**
 **Ürün çerçevesi (founder, 10 Tem):** *"EU AI Act Madde 50 içerik işaretleme için içerik kökeni API'si. Lansman öncesi — herkese açık API referansı Ekim 2026 MVP'siyle gelir. Bekleme listesindekiler önce alır."* Tespit sınıflandırıcısı yok; kilitli kurallarla tam uyumlu.
-**⚠️ Dosyalama öncesi founder kararları:** ~~(1) başvuran kimlik~~ **ÇÖZÜLDÜ (founder, 10 Tem):** başvuran = Ebru Özpolat şahıs işletmesi (TR, vergi levhalı danışmanlık firması) — aşağıda "Uygunluk"; (2) açık kaynak kapsamı — NLnet, fonlanan TÜM çıktıların FOSS lisanslı olmasını şart koşar; (3) 1 Ağustos son tarihi, 2 Ağustos PR hamlesiyle aynı haftaya denk geliyor — iş yükü kararı.
+**✅ Founder kararları (10 Tem 2026) — üçü de kapandı:** (1) Başvuran = Ebru Özpolat şahıs işletmesi (TR, vergi levhalı danışmanlık firması). (2) FOSS kapsamı ONAYLANDI — fonlanan "Açık Doğrulama Yığını" açık kaynak, ticari API kapsam dışı. (3) 1 Ağustos'a YETİŞTİRİLECEK — Aug 2 PR hamlesi bu dosyalama lehine geri çekildi (0.5 duruma bak).
 
 ---
 
@@ -17,7 +17,7 @@
 
 **Uygunluk (founder bilgisiyle çözüldü, 10 Tem):** Başvuran = **Ebru Özpolat şahıs işletmesi** (Türkiye — Horizon Europe asosiye ülkesi; vergi levhalı danışmanlık firması). AB KOBİ tanımı hukuki biçimden bağımsız ekonomik faaliyet yürüten her birimi kapsar — şahıs işletmesi "işletme" sayılır. ozdna.com founder'a şahsen ait → başvuran = ürün sahibi, tutarlı. Find Below Ventures (BAE) başvuruda YER ALMAZ (ayrı tüzel kişilik). İleriki AB programları için: aynı işletmeyle Funding & Tenders Portal PIC kaydı yapılabilir. Muhasebeci soruları (başvuru engeli değil): hibe gelirinin vergilendirmesi; gerekirse NACE faaliyet kodu ekleme.
 
-## Açık kaynak kapsamı (founder kararı)
+## Açık kaynak kapsamı (founder onayladı, 10 Tem)
 
 NLnet fonladığı işin tamamının FOSS (tanınmış açık lisans) olmasını ister. Öneri: fonlanan proje **"OriginDNA Açık Doğrulama Yığını"** olarak sınırlanır —
 1. tarayıcı-içi C2PA imzalama akışı (WASM entegrasyon kodu),
@@ -79,9 +79,20 @@ The user ecosystem is the long tail of European GenAI applications facing the 2 
 
 ## Relevant experience
 
-`{FOUNDER: 2-3 cümle — dağıtım/PR/SEO geçmişi + ozdna.com'un yayında olduğu, planlama korpusu ve Ekim MVP planı}`
+*(Taslak — founder kendi sesine göre düzeltebilir; dosyalamadan önce son okuma sizde.)*
+
+I run a registered consultancy in Türkiye and have 5+ years of professional experience in communications, distribution and SEO in the financial-technology industry. I own and operate ozdna.com, where the OriginDNA landing, segmented waitlist and bilingual (EN/TR) site are already live, backed by an adversarially-reviewed technical build plan for the October 2026 MVP. Development is executed by my team using AI-assisted engineering with contract engineering support; the project's technical architecture, algorithms (DCT pHash, PDQ-256, C2PA integration) and milestones are fully specified and public-ready.
 
 ---
+
+## Dosyalama kontrol listesi (founder — 1 Ağustos 12:00 CEST'ten önce)
+
+1. **Form:** https://nlnet.nl/propose/ → "NGI Zero Commons Fund" seçin. Yanıtları bu belgedeki EN bölümlerinden kopyalayın (Abstract ≈1200 karakter sınırına dikkat — mevcut metin uygun).
+2. **Relevant experience** metnini kendi sesinize göre son kez okuyun/düzeltin.
+3. İletişim: hello@ozdna.com (veya şahsi e-posta — form sahibiyle tutarlı olsun).
+4. Repo alanına `ebruozpolat/ozdna-com` yazılabilir; `origindna-verify` açık repo'su proje başında açılacak diye not düşün (formda böyle dedik).
+5. Gönderim sonrası: başvuru numarası/onay e-postasını saklayın; ACTION_PLAN 2.6'ya "FILED + tarih" işleyeceğiz. Karar süreci ~2-3 ay; ek soru gelirse (NLnet kısa soru turu yapar) birlikte yanıtlarız.
+6. Kaçırılırsa panik yok: çağrı periyodik — ama Ekim MVP eşleşmesi için en iyi pencere bu.
 
 ## İç notlar (başvuruya girmez)
 
