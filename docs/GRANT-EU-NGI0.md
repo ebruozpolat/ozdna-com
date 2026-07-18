@@ -11,7 +11,7 @@
 | Program | Uygunluk | Neden / neden değil |
 |---|---|---|
 | **NGI Zero Commons Fund** ✅ önerilen | Başvuru portalı herkese açık; "belirgin Avrupa boyutu" şart — ürünün konusu bizzat AB AI Yasası uyumu, Avrupa boyutu yapısal. Bireyler de kurumlar da başvurabilir. | €5K–50K, 1-2 sayfalık hafif başvuru, konsorsiyum yok, ~2-3 ayda karar → para MVP dönemine (Eki–Ara) denk gelir. Çıktılar FOSS olmalı. |
-| EIC Accelerator | ❌ AB/asosiye ülke KOBİ'si şart — BAE kuruluşuyla olmaz | Türk tüzel kişilik kurulursa ileride düşünülebilir |
+| EIC Accelerator | ⚠️ AB/asosiye ülke KOBİ'si şart — founder'ın TR şahıs işletmesi bu tanımı karşılar (PIC kaydı gerekir) | Ölçek olarak erken: EIC scale-up arar; MVP + ilk gelir sonrası düşünülür |
 | Horizon Europe konsorsiyum çağrıları | ⚠️ Türk kurumu ortak olabilir ama konsorsiyum + aylarca hazırlık ister | Solo kurucu + sıfır bütçeyle gerçekçi değil; Şubat 2027 "birlikte çalışabilirlik" konsorsiyum oyunu için ileride not |
 | Digital Europe | ❌ genelde kamu/büyük konsorsiyum odaklı | — |
 
