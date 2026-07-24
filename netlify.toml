@@ -199,6 +199,12 @@
 
 # Internal strategy/source files — never serve on the public domain
 [[redirects]]
+  from = "/data/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
   from = "/plan/*"
   to = "/404.html"
   status = 404
