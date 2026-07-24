@@ -76,6 +76,14 @@
     },
     {
      "@type": "Question",
+     "name": "Jurisdiction Risk, Risk Appetite ve STR Assist bugün kullanılıyor mu?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Hayır. Birincil ürün Ask’tır. Bu üç modül yol haritasındadır ve yalnızca design-partner pilotunda kapsam tartışılır; genel kullanıma açık değildir."
+     }
+    },
+    {
+     "@type": "Question",
      "name": "Hangi mevzuatı kapsıyor?",
      "acceptedAnswer": {
       "@type": "Answer",
@@ -326,6 +334,15 @@
     font-family: var(--mono); font-size: 12px;
     color: var(--accent); background: transparent;
   }
+  .cell .status {
+    display: inline-block; margin-top: 16px;
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .suite-lead {
+    margin: 12px 0 0; max-width: 62ch;
+    font-size: 14px; line-height: 1.55; color: var(--muted);
+  }
 
   /* ---------- pipeline ---------- */
   .pipe {
@@ -502,6 +519,7 @@
       <a href="#urun">Ürün</a>
       <a href="#yontem">Yöntem</a>
       <a href="#ornek">Örnek</a>
+      <a href="#paket">Yol haritası</a>
       <a href="#fiyat">Fiyatlandırma</a>
       <a href="#sss">SSS</a>
       <a href="#iletisim">İletişim</a>
@@ -732,9 +750,49 @@
   </div>
 </section>
 
+<section id="paket">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[04]</span><span class="label">UYUM PAKETİ — YOL HARİTASI</span></div>
+    <div class="sec-body">
+      <h2 class="sec-title">Ask bugün.<br>Uyum paketi sırada.</h2>
+      <p class="suite-lead">
+        ComplyDNA’nın birincil ürünü cite-first <strong>Ask</strong>’tır.
+        Aşağıdaki modüller design-partner kapsamındadır — henüz genel kullanıma açık değildir;
+        yöntem detayları kamuya yayınlanmaz.
+      </p>
+      <div class="cols3">
+        <div class="cell">
+          <div class="label"><b>JR</b> / JURISDICTION RISK</div>
+          <h3>Ülke / yargı riski</h3>
+          <p>Onboarding ve koridorlar için Lower / Medium / Higher bantları —
+          yaptırım ve FATF listeleriyle birlikte çok kaynaklı AML coğrafi risk görünümü.
+          Müşteri due diligence’ın yerine geçmez.</p>
+          <span class="status">Yakında · design partner</span>
+        </div>
+        <div class="cell">
+          <div class="label"><b>RA</b> / RISK APPETITE</div>
+          <h3>Risk iştahı çerçevesi</h3>
+          <p>Yönetim Kurulu’nun belirlediği iştah sınırlarını EWRA ve KRI izlemeyle
+          bağlayan VASP / fintech uyum çerçevesi — kabul, kısıt ve yasak satırları.</p>
+          <span class="status">Yakında · design partner</span>
+        </div>
+        <div class="cell">
+          <div class="label"><b>SA</b> / STR ASSIST</div>
+          <h3>ŞİB / STR destek</h3>
+          <p>MASAK.ONLINE’a uygun ŞİB XML taslağı ve doğrulama desteği.
+          Bildirimi uyum görevlisi inceler ve yükler — otomatik gönderim yoktur.</p>
+          <span class="status">Yakında · design partner</span>
+        </div>
+      </div>
+      <p class="plan-note">Design partner pilotunda Ask ile birlikte kapsam konuşulur.
+      Modül metodolojisi yalnızca NDA / pilot kapsamında paylaşılır.</p>
+    </div>
+  </div>
+</section>
+
 <section id="fiyat">
   <div class="shell">
-    <div class="sec-head"><span class="sec-no">[04]</span><span class="label">FİYATLANDIRMA</span></div>
+    <div class="sec-head"><span class="sec-no">[05]</span><span class="label">FİYATLANDIRMA</span></div>
     <div class="sec-body">
       <h2 class="sec-title">Net planlar. Görünür fiyatlar.</h2>
       <div class="cols3">
@@ -796,7 +854,7 @@
 
 <section id="sss">
   <div class="shell">
-    <div class="sec-head"><span class="sec-no">[05]</span><span class="label">SIK SORULAN SORULAR</span></div>
+    <div class="sec-head"><span class="sec-no">[06]</span><span class="label">SIK SORULAN SORULAR</span></div>
     <div class="sec-body">
       <h2 class="sec-title">SSS</h2>
       <div class="faq">
@@ -806,6 +864,11 @@
           eğitilmiş bir uyum LLM'idir. Uyum sorularını, her cümlesinde [TEBLİĞ / Madde] biçiminde
           satır içi kaynak künyesi vererek yanıtlar — yanıtın dayandığı mevzuat parçası her zaman
           doğrulanabilir.</p>
+        </details>
+        <details>
+          <summary>Jurisdiction Risk, Risk Appetite ve STR Assist bugün kullanılıyor mu?</summary>
+          <p class="a">Hayır. Birincil ürün Ask’tır. Bu üç modül yol haritasındadır ve yalnızca
+          design-partner pilotunda kapsam tartışılır; genel kullanıma açık değildir.</p>
         </details>
         <details>
           <summary>Hangi mevzuatı kapsıyor?</summary>
@@ -844,7 +907,7 @@
 
 <section id="iletisim">
   <div class="shell contact">
-    <div class="label"><b>[06]</b> — İLETİŞİM</div>
+    <div class="label"><b>[07]</b> — İLETİŞİM</div>
     <h2>Uyum ekibinize bir LLM değil,<br>bir kaynak zinciri verin.</h2>
     <p>Erken erişim programı açık. Kurumunuzun mevzuat kapsamına göre
     özel demo hazırlıyoruz — bir e-posta yeterli.</p>

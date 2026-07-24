@@ -76,6 +76,14 @@
     },
     {
      "@type": "Question",
+     "name": "Are Jurisdiction Risk, Risk Appetite, and STR Assist available today?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Ask is the primary product. Those three modules are on the roadmap and discussed only in design-partner pilots; they are not generally available."
+     }
+    },
+    {
+     "@type": "Question",
      "name": "Which regulation does it cover?",
      "acceptedAnswer": {
       "@type": "Answer",
@@ -326,6 +334,15 @@
     font-family: var(--mono); font-size: 12px;
     color: var(--accent); background: transparent;
   }
+  .cell .status {
+    display: inline-block; margin-top: 16px;
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .suite-lead {
+    margin: 12px 0 0; max-width: 62ch;
+    font-size: 14px; line-height: 1.55; color: var(--muted);
+  }
 
   /* ---------- pipeline ---------- */
   .pipe {
@@ -502,6 +519,7 @@
       <a href="#product">Product</a>
       <a href="#method">Method</a>
       <a href="#example">Example</a>
+      <a href="#roadmap">Roadmap</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
@@ -734,9 +752,49 @@
   </div>
 </section>
 
+<section id="roadmap">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[04]</span><span class="label">COMPLIANCE SUITE — ROADMAP</span></div>
+    <div class="sec-body">
+      <h2 class="sec-title">Ask today.<br>The suite is next.</h2>
+      <p class="suite-lead">
+        ComplyDNA’s primary product is cite-first <strong>Ask</strong>.
+        The modules below are design-partner scope — not generally available;
+        methodology details are not published publicly.
+      </p>
+      <div class="cols3">
+        <div class="cell">
+          <div class="label"><b>JR</b> / JURISDICTION RISK</div>
+          <h3>Country / jurisdiction risk</h3>
+          <p>Lower / Medium / Higher bands for onboarding and corridors —
+          multi-source AML geographic risk alongside sanctions and FATF lists.
+          Does not replace customer due diligence.</p>
+          <span class="status">Coming soon · design partner</span>
+        </div>
+        <div class="cell">
+          <div class="label"><b>RA</b> / RISK APPETITE</div>
+          <h3>Risk appetite framework</h3>
+          <p>A VASP / fintech compliance frame that ties Board-set appetite limits
+          to EWRA and KRI monitoring — accept, restrict, and prohibit rows.</p>
+          <span class="status">Coming soon · design partner</span>
+        </div>
+        <div class="cell">
+          <div class="label"><b>SA</b> / STR ASSIST</div>
+          <h3>STR / ŞİB assist</h3>
+          <p>MASAK.ONLINE-ready ŞİB XML draft and validation support.
+          The compliance officer reviews and uploads — no auto-submit.</p>
+          <span class="status">Coming soon · design partner</span>
+        </div>
+      </div>
+      <p class="plan-note">Design-partner pilots discuss suite scope alongside Ask.
+      Module methodology is shared only under NDA / pilot terms.</p>
+    </div>
+  </div>
+</section>
+
 <section id="pricing">
   <div class="shell">
-    <div class="sec-head"><span class="sec-no">[04]</span><span class="label">PRICING</span></div>
+    <div class="sec-head"><span class="sec-no">[05]</span><span class="label">PRICING</span></div>
     <div class="sec-body">
       <h2 class="sec-title">Clear plans. Visible prices.</h2>
       <div class="cols3">
@@ -798,7 +856,7 @@
 
 <section id="faq">
   <div class="shell">
-    <div class="sec-head"><span class="sec-no">[05]</span><span class="label">FREQUENTLY ASKED QUESTIONS</span></div>
+    <div class="sec-head"><span class="sec-no">[06]</span><span class="label">FREQUENTLY ASKED QUESTIONS</span></div>
     <div class="sec-body">
       <h2 class="sec-title">FAQ</h2>
       <div class="faq">
@@ -807,6 +865,11 @@
           <p class="a">ComplyDNA is a compliance LLM trained on Turkish regulation (MASAK communiqués,
           AML/CFT laws, KVKK). It answers compliance questions with an inline [COMMUNIQUÉ / Article]
           citation on every sentence — the piece of regulation behind each answer is always verifiable.</p>
+        </details>
+        <details>
+          <summary>Are Jurisdiction Risk, Risk Appetite, and STR Assist available today?</summary>
+          <p class="a">No. Ask is the primary product. Those three modules are on the roadmap and
+          discussed only in design-partner pilots; they are not generally available.</p>
         </details>
         <details>
           <summary>Which regulation does it cover?</summary>
@@ -846,7 +909,7 @@
 
 <section id="contact">
   <div class="shell contact">
-    <div class="label"><b>[06]</b> — CONTACT</div>
+    <div class="label"><b>[07]</b> — CONTACT</div>
     <h2>Give your compliance team<br>a chain of sources, not just an LLM.</h2>
     <p>The early access program is open. We prepare a demo tailored to your
     institution's regulatory scope — one email is enough.</p>
