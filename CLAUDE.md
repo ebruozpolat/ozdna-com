@@ -1,6 +1,6 @@
 # ozDNA — agent context
 
-**ozDNA** is the company brand ([Find Below Ventures](https://findbelow.com)). Multiple product lines live under it:
+**ozDNA** is a standalone brand. Its operating legal entity is **not yet formed (TBD)**; the **ozdna.com** domain is owned personally by the founder, and a trademark application for *ozDNA* has been filed. It is **not** a [Find Below Ventures](https://findbelow.com) brand — Find Below's ventures are tezmakale.com and metaltakip.com (see *Who is building this*). Multiple product lines live under the ozDNA brand:
 
 | Product | Status | Docs |
 |---------|--------|------|
@@ -24,7 +24,7 @@ Content provenance service: every image gets a "DNA" — a C2PA cryptographic si
 
 ## Who is building this
 
-- Founder + one partner, based in Turkey (partner independently built the current ozdna.com site — see Domain note above). Company: **Find Below Ventures**, Sharjah Publishing City Free Zone, UAE (findbelow.com). Sister properties: metaltakip.com (Turkish precious-metals SEO site, currently mid-90-day traffic plan — **that project stays primary until ~October 2026; OzDNA gets afternoons only until then**), tezmakale.com (AI text detector).
+- Founder + one partner, based in Turkey (partner independently built the current ozdna.com site — see Domain note above). **ozDNA's own operating entity is not yet formed (TBD)**; the founder owns the **ozdna.com** domain personally and has filed a trademark application for *ozDNA*. Separately, the founder runs **Find Below Ventures** (Sharjah Publishing City Free Zone, UAE — findbelow.com), whose ventures are **metaltakip.com** (Turkish precious-metals SEO site, currently mid-90-day traffic plan — **that project stays primary until ~October 2026; ozDNA gets afternoons only until then**) and **tezmakale.com** (AI text detector). Find Below is a sibling operator run by the same founder, **not** the entity behind ozDNA. (The AlignX Partners consulting firm — see the separate-track note above — is a third, distinct entity.)
 - Founder background: 5+ years at crypto CEXs and crypto PR agencies. Superpowers are PR, distribution, SEO, and industry network — **not** deep engineering. Claude does the heavy technical lifting; explain architecture decisions plainly.
 - Budget: essentially zero. Claude subscription + Vercel account exist; Cloudflare free tier acceptable. The only pre-approved fixed cost is ~$20/mo (Vercel Pro) if unavoidable.
 
