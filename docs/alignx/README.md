@@ -11,7 +11,7 @@ hiçbiri diğerini geçersiz kılmaz. Karıştırma.
 |---|---|---|
 | Otorite doküman | `CLAUDE.md`, `docs/BLUEPRINT.md`, `plan/` | `docs/alignx/*` (bu klasör) |
 | Tarih | 6–8 Tem 2026 | 25 Tem 2026 |
-| Şemsiye tüzel kişi | Find Below Ventures | AlignX Partners (alignxpartners.com) |
+| Tüzel kişi | Find Below Ventures (findbelow.com) | AlignX Partners — danışmanlık firması / hibe başvurucusu (alignxpartners.com) |
 | ozDNA ne? | İçerik provenansı (C2PA imza + chain anchor + perceptual hash) | "AI oversight infrastructure" (regülasyonun risk-temelli mantığı → runtime) |
 | **originDNA** | Görsel imzalama / perceptual-hash fingerprint | Ledger (hash-chained, append-only) + Attestation → AI Act Art. 12/13 |
 | **complyDNA** | RegTech uyum izleme | DT 5.0 sınıflandırma + Council → AI Act Art. 9/14 |
