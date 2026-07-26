@@ -10,6 +10,8 @@
 
 This file is the ground-truth brief for **OriginDNA** (partner-authored planning corpus, July 2026). Repo-root `README.md` is the dev-team orientation page for OriginDNA (and the monorepo). For platform engineering, start with `platform/README.md`.
 
+> **Separate track — do not conflate:** `docs/alignx/` holds a distinct **AlignX Partners "AI oversight infrastructure"** corpus (dated Jul 25, 2026) that reuses the names *ozDNA / originDNA / complyDNA* for entirely different things (AI Act Art. 9/12/13/14 runtime — classification, Council oversight, decision Ledger, Attestation). Per founder decision it is a **separate business track**, not an update to this brief and not superseded by it. This file (OriginDNA / content-provenance under Find Below Ventures) stays authoritative for its own track. See `docs/alignx/README.md` for the split and the unresolved name/domain collision.
+
 ---
 
 ## OriginDNA — Proof of Origin

@@ -14,7 +14,7 @@ Tek hedef kitleye tek iş: EU hibe değerlendiricisi veya regüle kurum yönetic
 1. **Hero** — Tek cümle konum (positioning.md'deki EN cümle birebir) + tek CTA: "Request a compliance audit"
 2. **Problem** — 3 kısa blok: AI harcaması riske orantısız / gözetim manuel / kanıt dağınık
 3. **Nasıl çalışır** — 4 adımlı akış diyagramı: Classify → Route → Oversee → Prove (DT → Route → Council → Ledger)
-4. **AI Act eşlemesi** — docs/ai-act-mapping.md'den tablo: bileşen ↔ madde. Bu bölüm sitenin ayırt edici parçası; öne çıkar.
+4. **AI Act eşlemesi** — ai-act-mapping.md'den tablo: bileşen ↔ madde. Bu bölüm sitenin ayırt edici parçası; öne çıkar.
 5. **Canlı kanıt** — DT motoru sahada: Türkçe AI dedektör doğrulaması (brand-architecture.md §4'teki izinli cümle kalıbıyla; TezMakale adı linklenmez, karar kullanıcıda)
 6. **Kim için** — KVHS / CASP / regüle fintech; KOBİ dili KULLANILMAZ
 7. **CTA tekrar** — audit talep formu (ad, kurum, e-posta, "hangi AI sistemleri" serbest metin). Form verisi: başlangıçta e-posta iletimi yeterli, CRM yok.
