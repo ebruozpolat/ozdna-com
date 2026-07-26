@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>originDNA — the ledger and the attestation · ozDNA</title>
+<meta name="description" content="originDNA is the evidence layer of ozDNA: an append-only, hash-chained Ledger that records every decision, vote, rationale and outcome (AI Act Art. 12), and an Attestation an auditor or regulator can read (Art. 13). Record-keeping and transparency as runtime." />
+<link rel="canonical" href="https://ozdna.com/origin/" />
+<link rel="alternate" hreflang="en" href="https://ozdna.com/origin/" />
+<link rel="alternate" hreflang="tr" href="https://ozdna.com/tr/origin/" />
+<link rel="alternate" hreflang="x-default" href="https://ozdna.com/origin/" />
+<meta name="robots" content="index,follow" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0c10'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='15' font-weight='700' text-anchor='middle' fill='%235eead4'%3Eoz%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="/assets/site.css" />
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="/"><b>oz</b>DNA</a>
+    <nav>
+      <a href="/comply/">complyDNA</a>
+      <a href="/origin/" aria-current="page">originDNA</a>
+      <a href="/use-cases/immortal-mlro/">Use cases</a>
+      <a href="/#audit">Request an audit</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">originDNA · ledger + attestation</p>
+      <h1>The decision, on the record — and readable.</h1>
+      <p class="lede">originDNA is the evidence layer of ozDNA. The <strong>Ledger</strong>
+        writes every decision, vote, rationale and outcome to an append-only, hash-chained
+        record (Article 12). The <strong>Attestation</strong> renders that record into
+        something an auditor or regulator can actually read (Article 13).</p>
+      <div class="hero-actions">
+        <a class="cta" href="/#audit">Request a compliance audit</a>
+        <a class="cta ghost" href="/comply/">← See complyDNA</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ledger -->
+  <section id="ledger">
+    <div class="wrap">
+      <p class="kicker">Ledger · Art. 12 — record-keeping</p>
+      <h2>Append-only, hash-chained</h2>
+      <p class="lede" style="margin-bottom:22px">Article 12 asks for automatic event
+        logs that are traceable and cannot be quietly altered after the fact. The Ledger
+        chains each entry to the previous one by hash, so any later edit breaks the chain
+        and is detectable.</p>
+      <div class="grid3">
+        <div class="card"><p class="n">APPEND-ONLY</p><h3>Nothing is overwritten</h3><p>Entries are only added. A correction is a new entry, not an edit — the original stays on the record.</p></div>
+        <div class="card"><p class="n">HASH-CHAINED</p><h3>Tamper-evident</h3><p>Each entry carries the previous entry's hash. Change one and every entry after it no longer verifies.</p></div>
+        <div class="card"><p class="n">COMPLETE</p><h3>Decision + votes + rationale</h3><p>The record isn't just the outcome — it's how the outcome was reached, including the Council's votes and any veto.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Attestation -->
+  <section id="attestation">
+    <div class="wrap">
+      <p class="kicker">Attestation · Art. 13 — transparency</p>
+      <h2>One decision, as it leaves the Ledger</h2>
+      <p class="lede" style="margin-bottom:22px">A redacted, illustrative attestation for
+        a single high-risk decision the Council reviewed. The veto path — a decision
+        <em>held</em> rather than cleared — is the point: the record shows oversight
+        actually bit.</p>
+      <div class="att">
+        <div class="head"><span class="t">attestation · sample</span><span class="st">SEALED · APPEND-ONLY</span></div>
+<pre><span class="k">decision_id  </span> <span class="v">ozd-2026-08-04-7Q31</span>
+<span class="k">risk_tier    </span> <span class="v">HIGH</span>  <span class="k">(DT 5.0 · Art. 9)</span>
+<span class="k">routed_to    </span> Council  <span class="k">(Art. 14)</span>
+<span class="k">council_vote </span> 4 approve · 1 veto  →  <span class="r">HELD (fail-closed)</span>
+<span class="k">rationale    </span> one model raised an unresolved edge case;
+             the judge defaulted to a stop.
+<span class="k">outcome      </span> escalated to a human owner; not auto-cleared
+<span class="k">recorded     </span> 2026-08-04T09:41:22Z  <span class="k">(Ledger · Art. 12)</span>
+<span class="k">prev_hash    </span> <span class="k">a91f…c40d</span>
+<span class="k">this_hash    </span> <span class="v">3e77…8b12</span>  <span class="k">(hash-chained)</span>
+<span class="k">attested_to  </span> deployer + auditor  <span class="k">(Art. 13)</span></pre>
+        <div class="note">Illustrative mock, values redacted. No real case data.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mapping">
+    <div class="wrap">
+      <p class="kicker">Mapping</p>
+      <h2>originDNA ↔ the Act</h2>
+      <div class="tbl-scroll">
+        <table class="tbl">
+          <thead><tr><th>Component</th><th>What it implements</th><th>Article</th></tr></thead>
+          <tbody>
+            <tr><td class="comp">Ledger</td><td>Automatic, traceable, tamper-evident event logging</td><td class="art">Art. 12</td></tr>
+            <tr><td class="comp">Attestation</td><td>A decision's rationale and limits, presented to a deployer or auditor</td><td class="art">Art. 13</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fine">originDNA <em>evidences</em> these obligations; it makes no absolute
+        compliance claim. The decisions it records are produced by
+        <a href="/comply/">complyDNA</a>.</p>
+    </div>
+  </section>
+
+  <section id="cta">
+    <div class="wrap">
+      <h2>Turn your decisions into evidence</h2>
+      <p class="lede" style="margin-bottom:22px">An audit shows what a sealed, readable
+        record of your automated decisions would look like.</p>
+      <a class="cta" href="/#audit">Request a compliance audit</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <div><span class="mono"><b style="color:var(--accent)">oz</b>DNA</span> · originDNA — ledger + attestation.</div>
+      <div><a href="https://www.linkedin.com/">LinkedIn</a> · <a href="/#audit">Request an audit</a> · <a href="/tr/origin/" hreflang="tr" lang="tr">TR</a></div>
+    </div>
+    <p class="fine">An AlignX Partners product. No absolute compliance claims are made;
+      originDNA implements, supports and evidences the obligations described. AI Act
+      article numbers and dates must be re-verified before publication.</p>
+  </div>
+</footer>
+
+</body>
+</html>
