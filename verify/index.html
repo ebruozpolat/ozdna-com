@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Verify an image's OriginDNA: check its C2PA signature, its independently verifiable anchored timestamp, and its perceptual fingerprint — even after metadata was stripped. Our own public verify page; no account and no trust list required.">
+<link rel="canonical" href="https://ozdna.com/verify/">
+<link rel="alternate" hreflang="en" href="https://ozdna.com/verify/">
+<link rel="alternate" hreflang="tr" href="https://ozdna.com/tr/verify/">
+<link rel="alternate" hreflang="x-default" href="https://ozdna.com/verify/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ozDNA">
+<meta property="og:title" content="Verify an image — OriginDNA">
+<meta property="og:description" content="Check an image's DNA: signature, an anchored timestamp no one can backdate, and a fingerprint that survives stripped metadata. No account, no trust list.">
+<meta property="og:url" content="https://ozdna.com/verify/">
+<meta property="og:image" content="https://ozdna.com/og.png">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Verify an image — OriginDNA">
+<meta name="twitter:description" content="Our own public verify page: signature, anchored timestamp, perceptual fingerprint. No account required.">
+<meta name="twitter:image" content="https://ozdna.com/og.png">
+<title>Verify an image's DNA · OriginDNA</title>
+<style>
+  :root {
+    --paper: #F2EFE6; --ink: #191611; --accent: #E23D0E; --muted: #6F6A5C;
+    --rule: rgba(25, 22, 17, 0.18); --rule-soft: rgba(25, 22, 17, 0.08); --card: rgba(25, 22, 17, 0.03);
+    --ok: #1F7A3D; --hold: #B4680E;
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --paper: #141208; --ink: #EDE8D9; --accent: #FF6B3D; --muted: #938D7B;
+      --rule: rgba(237,232,217,0.22); --rule-soft: rgba(237,232,217,0.09); --card: rgba(237,232,217,0.04);
+      --ok:#4CC470; --hold:#E0A44B; }
+  }
+  :root[data-theme="light"] { --paper:#F2EFE6;--ink:#191611;--accent:#E23D0E;--muted:#6F6A5C;
+    --rule:rgba(25,22,17,0.18);--rule-soft:rgba(25,22,17,0.08);--card:rgba(25,22,17,0.03);--ok:#1F7A3D;--hold:#B4680E; }
+  :root[data-theme="dark"] { --paper:#141208;--ink:#EDE8D9;--accent:#FF6B3D;--muted:#938D7B;
+    --rule:rgba(237,232,217,0.22);--rule-soft:rgba(237,232,217,0.09);--card:rgba(237,232,217,0.04);--ok:#4CC470;--hold:#E0A44B; }
+
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+  body { margin:0;background:var(--paper);color:var(--ink);font-family:var(--mono);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased; }
+  a { color:inherit; }
+  ::selection { background:var(--accent);color:var(--paper); }
+  .shell { max-width:1200px;margin:0 auto;padding:0 24px; }
+  .label { font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted); }
+  .label b { color:var(--accent);font-weight:400; }
+
+  header { position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1px solid var(--rule); }
+  .bar { display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0; }
+  .wordmark { display:flex;align-items:baseline;gap:10px;font-size:14px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;white-space:nowrap; }
+  .wordmark .dot { color:var(--accent); }
+  .wordmark small { font-size:10px;letter-spacing:0.14em;color:var(--muted); }
+  nav { display:flex;gap:22px; }
+  nav a { font-size:12px;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;color:var(--muted); }
+  nav a:hover { color:var(--accent); }
+  @media (max-width:720px){ nav{display:none;} }
+  .lang { font-size:11px;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;color:var(--muted);border:1px solid var(--rule);padding:4px 10px;white-space:nowrap; }
+  .lang:hover { color:var(--accent);border-color:var(--accent); }
+
+  .hero { border-bottom:1px solid var(--rule);padding:72px 0 56px; }
+  .hero h1 { font-size:clamp(30px,5.2vw,54px);line-height:1.12;font-weight:700;text-transform:uppercase;margin:18px 0 20px;text-wrap:balance; }
+  .hero h1 .acc { color:var(--accent); }
+  .lede { max-width:66ch;color:var(--muted);font-size:16px; }
+
+  section { border-bottom:1px solid var(--rule);padding:60px 0; }
+  .sec-head { display:flex;gap:14px;align-items:baseline;margin-bottom:30px; }
+  .sec-no { color:var(--accent);font-size:12px;letter-spacing:0.14em; }
+  .sec-title { font-size:clamp(22px,3.4vw,32px);text-transform:uppercase;line-height:1.15;font-weight:700;margin:0 0 24px;text-wrap:balance; }
+
+  /* verify widget */
+  .verify { display:grid;grid-template-columns:340px 1fr;gap:28px;align-items:start; }
+  @media (max-width:860px){ .verify{grid-template-columns:1fr;} }
+  .drop { border:1.5px dashed var(--rule);background:var(--card);padding:26px 20px;text-align:center;transition:border-color .15s; }
+  .drop.hot { border-color:var(--accent); }
+  .drop .icon { font-size:26px; }
+  .drop h3 { margin:12px 0 6px;font-size:14px;text-transform:uppercase;letter-spacing:0.06em; }
+  .drop p { margin:0;color:var(--muted);font-size:12.5px; }
+  .drop input { display:none; }
+  .drop button { margin-top:16px;padding:10px 18px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;cursor:pointer; }
+  .drop button:hover { background:var(--accent);border-color:var(--accent);color:#fff; }
+  .privacy-line { margin-top:14px;font-size:11.5px;color:var(--muted); }
+
+  .result { border:1px solid var(--rule); }
+  .result .rhead { display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--rule);background:var(--card);flex-wrap:wrap; }
+  .result .rhead .fn { font-size:12.5px;color:var(--muted);word-break:break-all; }
+  .badge { font-size:11px;letter-spacing:0.08em;text-transform:uppercase;border:1px solid var(--rule);padding:3px 10px;white-space:nowrap; }
+  .badge.demo { color:var(--accent);border-color:var(--accent); }
+  .check { display:grid;grid-template-columns:26px 1fr;gap:12px;padding:18px;border-bottom:1px solid var(--rule-soft); }
+  .check:last-child { border-bottom:none; }
+  .check .mk { font-size:16px;line-height:1.4; }
+  .check .mk.ok { color:var(--ok); }
+  .check .mk.hold { color:var(--hold); }
+  .check h4 { margin:0 0 4px;font-size:13px;text-transform:uppercase;letter-spacing:0.05em; }
+  .check .sub { margin:0;color:var(--muted);font-size:13px; }
+  .check .kv { margin:8px 0 0;font-size:12px;color:var(--muted); }
+  .check .kv code { color:var(--ink); }
+
+  .cols3 { display:grid;grid-template-columns:repeat(3,1fr);gap:24px; }
+  @media (max-width:880px){ .cols3{grid-template-columns:1fr;} }
+  .cell { border-top:2px solid var(--ink);padding-top:16px; }
+  .cell h3 { margin:8px 0 10px;font-size:16px;text-transform:uppercase; }
+  .cell p { margin:0;color:var(--muted);font-size:14px; }
+
+  .note { border:1px solid var(--accent);background:var(--card);padding:20px 22px; }
+  .note h3 { margin:0 0 10px;font-size:14px;text-transform:uppercase;letter-spacing:0.05em;color:var(--accent); }
+  .note p { margin:0 0 10px;font-size:14px;color:var(--muted); }
+  .note p:last-child { margin:0; }
+
+  .faq details { border-top:1px solid var(--rule-soft);padding:14px 0; }
+  .faq summary { cursor:pointer;font-weight:700;text-transform:uppercase;font-size:13px;letter-spacing:0.04em; }
+  .faq .a { color:var(--muted);font-size:14px;margin:10px 0 0;max-width:75ch; }
+
+  .site-footer { padding:40px 0 48px; }
+  .foot { display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--rule-soft);padding-top:18px; }
+  .footer-links { font-size:12px;color:var(--muted);margin-top:10px; }
+  .fine { font-size:12px;color:var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <div class="shell bar">
+    <a class="wordmark" href="/">ORIGIN<span class="dot">DNA</span> <small>BY OZDNA</small></a>
+    <nav>
+      <a href="/products/origin/#what">How it works</a>
+      <a href="#verify">Verify</a>
+      <a href="#honest">C2PA status</a>
+      <a href="/products/origin/#waitlist">Waitlist</a>
+    </nav>
+    <a class="lang" href="/tr/verify/" lang="tr" hreflang="tr">TR</a>
+  </div>
+</header>
+
+<main>
+
+<div class="hero">
+  <div class="shell">
+    <div class="label"><b>OZDNA.COM/VERIFY</b> — PUBLIC VERIFY PAGE · PROTOTYPE</div>
+    <h1>Check an image's <span class="acc">DNA.</span></h1>
+    <p class="lede">
+      Every image OriginDNA signs carries three independent proofs: a cryptographic
+      signature, an anchored timestamp no one can backdate, and a perceptual
+      fingerprint that survives stripped metadata. This is <strong>our own</strong>
+      verify page — it needs no account, and it does not depend on anyone's trust
+      list. Recomputing happens in your browser; the image never leaves your device.
+    </p>
+  </div>
+</div>
+
+<section id="verify">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[01]</span><span class="label">VERIFY AN IMAGE</span></div>
+    <h2 class="sec-title">Drop an image.<br>See what it can prove.</h2>
+    <div class="verify">
+      <div>
+        <div class="drop" id="drop">
+          <div class="icon" aria-hidden="true">▚</div>
+          <h3>Drop a JPG or PNG</h3>
+          <p>Or choose a file. It is hashed locally — nothing is uploaded.</p>
+          <button type="button" id="pick">Choose image</button>
+          <input type="file" id="file" accept="image/jpeg,image/png">
+          <p class="privacy-line">v1 supports images (JPG / PNG). The content hash below is computed in your browser with the Web Crypto API — we never receive the file.</p>
+        </div>
+      </div>
+
+      <div class="result" id="result" aria-live="polite">
+        <div class="rhead">
+          <span class="fn" id="fn">Sample result — signed-forest-01.jpg</span>
+          <span class="badge demo" id="badge">SAMPLE</span>
+        </div>
+
+        <div class="check">
+          <div class="mk ok" id="c-sig-mk">✓</div>
+          <div>
+            <h4>Signature — cryptographically valid</h4>
+            <p class="sub">A C2PA manifest is attached and its cryptographic hash matches the file. Any edit to the pixels would break this.</p>
+            <p class="kv">Standard: <code>C2PA</code> · signer: <code>OriginDNA (self-hosted)</code> · manifest hash: <code id="c-sig-hash">3e77…8b12</code></p>
+          </div>
+        </div>
+
+        <div class="check">
+          <div class="mk ok">✓</div>
+          <div>
+            <h4>Timestamp — anchored, independently verifiable</h4>
+            <p class="sub">The image's fingerprint is written into a public, append-only record. Anyone can confirm "this existed by this date" without an OriginDNA account — and without trusting us.</p>
+            <p class="kv">Existed by: <code>2026-08-04 09:41 UTC</code> · record: <code>append-only, public</code></p>
+          </div>
+        </div>
+
+        <div class="check">
+          <div class="mk ok">✓</div>
+          <div>
+            <h4>Fingerprint — matches the registered original</h4>
+            <p class="sub">A perceptual fingerprint was stored at signing, so a stripped, resized or recompressed copy still maps back to its origin record.</p>
+            <p class="kv">Perceptual match: <code>98% — metadata stripped, still matched</code></p>
+          </div>
+        </div>
+
+        <div class="check">
+          <div class="mk hold" id="c-your-mk">•</div>
+          <div>
+            <h4 id="c-your-h">Your file — local content hash</h4>
+            <p class="sub" id="c-your-sub">Drop an image to compute its SHA-256 locally. This is the real, boring first step — the honest proof that verification can run entirely on your device.</p>
+            <p class="kv" id="c-your-kv" style="display:none">SHA-256: <code id="c-your-hash">—</code></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="fine" style="margin-top:18px">Prototype. The signature, timestamp and fingerprint rows above show a sample record; wiring them to the live signing service ships with the MVP. The local hash is real.</p>
+  </div>
+</section>
+
+<section id="how">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[02]</span><span class="label">WHAT GETS CHECKED</span></div>
+    <h2 class="sec-title">Three proofs.<br>Zero trust required.</h2>
+    <div class="cols3">
+      <div class="cell">
+        <div class="label"><b>A</b> / SIGNATURE</div>
+        <h3>The file is intact</h3>
+        <p>The C2PA signature binds the manifest to the pixels. If the image was edited after signing, the signature no longer matches — verification says so.</p>
+      </div>
+      <div class="cell">
+        <div class="label"><b>B</b> / TIMESTAMP</div>
+        <h3>The date is real</h3>
+        <p>The fingerprint is anchored in a public, append-only record. The "existed by" date can be checked by anyone, independently, forever — no account, no us.</p>
+      </div>
+      <div class="cell">
+        <div class="label"><b>C</b> / FINGERPRINT</div>
+        <h3>The copy still matches</h3>
+        <p>Platforms strip metadata on upload. The perceptual fingerprint doesn't live in the metadata, so a stripped copy still resolves back to its registered original.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="honest">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[03]</span><span class="label">HONEST ABOUT C2PA STATUS</span></div>
+    <div class="note">
+      <h3>Why a third-party tool may say "unknown source"</h3>
+      <p>OriginDNA signs to the open C2PA standard, and the signature is
+      cryptographically valid. But until we complete the C2PA Conformance Program,
+      our certificate is not on the interim trust list — so tools like the official
+      Content Credentials Verify may label the source <strong>"unknown."</strong>
+      That is about membership, not about whether the file was tampered with.</p>
+      <p>So we run <strong>our own</strong> verify page and anchor every fingerprint
+      in a public record that needs no one's trust list. We do not claim
+      "trusted Content Credentials" — and we won't until it is true. Provenance you
+      can check yourself beats a badge you have to take on faith.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[04]</span><span class="label">FAQ</span></div>
+    <div class="faq">
+      <details>
+        <summary>Does my image get uploaded to verify it?</summary>
+        <p class="a">No. The content hash is computed in your browser with the Web
+        Crypto API. In the full product, signature reading and fingerprint matching
+        run client-side too — the image stays on your device.</p>
+      </details>
+      <details>
+        <summary>Is this an "AI detector"?</summary>
+        <p class="a">No — deliberately. Detection guesses after the fact. Verification
+        checks proofs that were attached at creation. Provenance, not detection.</p>
+      </details>
+      <details>
+        <summary>What if the metadata was stripped by a social platform?</summary>
+        <p class="a">That's the case the fingerprint is built for. The perceptual
+        fingerprint isn't stored in the file's metadata, so a stripped or
+        re-encoded copy can still be matched back to its registered original.</p>
+      </details>
+      <details>
+        <summary>Do I need an account or a wallet?</summary>
+        <p class="a">Neither. Verification is public and account-free. There is no
+        token and none is planned; we never touch user funds.</p>
+      </details>
+      <details>
+        <summary>What formats work?</summary>
+        <p class="a">v1 is images — JPG and PNG. Video, audio and mobile come after
+        the core is solid.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="shell">
+    <div class="foot">
+      <span>OriginDNA · <a href="/">ozDNA</a></span>
+      <span>© 2026 ozDNA · All rights reserved</span>
+    </div>
+    <p class="footer-links">
+      <a href="mailto:hello@ozdna.com">hello@ozdna.com</a>
+      · <a href="/products/origin/">OriginDNA</a>
+      · <a href="/products/comply/">ComplyDNA</a>
+      · <a href="/privacy/">Privacy</a>
+      · <a href="/tr/verify/" lang="tr" hreflang="tr">Türkçe</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var drop = document.getElementById('drop');
+    var pick = document.getElementById('pick');
+    var file = document.getElementById('file');
+    var fn = document.getElementById('fn');
+    var badge = document.getElementById('badge');
+    var yourMk = document.getElementById('c-your-mk');
+    var yourH = document.getElementById('c-your-h');
+    var yourSub = document.getElementById('c-your-sub');
+    var yourKv = document.getElementById('c-your-kv');
+    var yourHash = document.getElementById('c-your-hash');
+
+    pick.addEventListener('click', function () { file.click(); });
+    file.addEventListener('change', function (e) {
+      if (e.target.files && e.target.files[0]) handle(e.target.files[0]);
+    });
+    ['dragenter', 'dragover'].forEach(function (ev) {
+      drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.add('hot'); });
+    });
+    ['dragleave', 'drop'].forEach(function (ev) {
+      drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.remove('hot'); });
+    });
+    drop.addEventListener('drop', function (e) {
+      if (e.dataTransfer.files && e.dataTransfer.files[0]) handle(e.dataTransfer.files[0]);
+    });
+
+    function handle(f) {
+      var okType = f.type === 'image/jpeg' || f.type === 'image/png';
+      fn.textContent = f.name + ' · ' + Math.round(f.size / 1024) + ' KB';
+      badge.textContent = 'YOUR FILE';
+      if (!okType) {
+        yourMk.textContent = '✕'; yourMk.className = 'mk';
+        yourH.textContent = 'Your file — unsupported format';
+        yourSub.textContent = 'v1 verifies JPG and PNG images. This file is ' + (f.type || 'an unknown type') + '.';
+        yourKv.style.display = 'none';
+        return;
+      }
+      yourMk.textContent = '…'; yourMk.className = 'mk';
+      yourSub.textContent = 'Hashing locally…';
+      f.arrayBuffer().then(function (buf) {
+        return crypto.subtle.digest('SHA-256', buf);
+      }).then(function (digest) {
+        var hex = Array.prototype.map.call(new Uint8Array(digest), function (b) {
+          return b.toString(16).padStart(2, '0');
+        }).join('');
+        yourMk.textContent = '✓'; yourMk.className = 'mk ok';
+        yourH.textContent = 'Your file — local content hash';
+        yourSub.textContent = 'Computed in your browser. Nothing was uploaded. In the full product this hash is what gets signed and anchored.';
+        yourHash.textContent = hex.slice(0, 16) + '…' + hex.slice(-8);
+        yourHash.title = hex;
+        yourKv.style.display = '';
+      }).catch(function () {
+        yourMk.textContent = '✕'; yourMk.className = 'mk';
+        yourSub.textContent = 'Could not read this file in the browser.';
+      });
+    }
+  })();
+</script>
+<script defer src="/analytics.js"></script>
+</body>
+</html>
