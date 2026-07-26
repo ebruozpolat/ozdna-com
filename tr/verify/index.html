@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Bir görselin OriginDNA'sını doğrulayın: C2PA imzası, kimsenin geriye tarihleyemeyeceği bağlı zaman damgası ve metadata silinse bile eşleşen algısal parmak izi. Kendi genel doğrulama sayfamız — hesap ve güven listesi gerekmez.">
+<link rel="canonical" href="https://ozdna.com/tr/verify/">
+<link rel="alternate" hreflang="en" href="https://ozdna.com/verify/">
+<link rel="alternate" hreflang="tr" href="https://ozdna.com/tr/verify/">
+<link rel="alternate" hreflang="x-default" href="https://ozdna.com/verify/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ozDNA">
+<meta property="og:title" content="Bir görseli doğrula — OriginDNA">
+<meta property="og:description" content="Kendi genel doğrulama sayfamız: imza, geriye tarihlenemeyen zaman damgası, algısal parmak izi. Hesap gerekmez.">
+<meta property="og:url" content="https://ozdna.com/tr/verify/">
+<meta property="og:image" content="https://ozdna.com/og.png">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bir görseli doğrula — OriginDNA">
+<meta name="twitter:description" content="Kendi genel doğrulama sayfamız: imza, zaman damgası, algısal parmak izi.">
+<meta name="twitter:image" content="https://ozdna.com/og.png">
+<title>Bir görselin DNA'sını doğrula · OriginDNA</title>
+<style>
+  :root {
+    --paper: #F2EFE6; --ink: #191611; --accent: #E23D0E; --muted: #6F6A5C;
+    --rule: rgba(25, 22, 17, 0.18); --rule-soft: rgba(25, 22, 17, 0.08); --card: rgba(25, 22, 17, 0.03);
+    --ok: #1F7A3D; --hold: #B4680E;
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --paper: #141208; --ink: #EDE8D9; --accent: #FF6B3D; --muted: #938D7B;
+      --rule: rgba(237,232,217,0.22); --rule-soft: rgba(237,232,217,0.09); --card: rgba(237,232,217,0.04);
+      --ok:#4CC470; --hold:#E0A44B; }
+  }
+  :root[data-theme="light"] { --paper:#F2EFE6;--ink:#191611;--accent:#E23D0E;--muted:#6F6A5C;
+    --rule:rgba(25,22,17,0.18);--rule-soft:rgba(25,22,17,0.08);--card:rgba(25,22,17,0.03);--ok:#1F7A3D;--hold:#B4680E; }
+  :root[data-theme="dark"] { --paper:#141208;--ink:#EDE8D9;--accent:#FF6B3D;--muted:#938D7B;
+    --rule:rgba(237,232,217,0.22);--rule-soft:rgba(237,232,217,0.09);--card:rgba(237,232,217,0.04);--ok:#4CC470;--hold:#E0A44B; }
+
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+  body { margin:0;background:var(--paper);color:var(--ink);font-family:var(--mono);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased; }
+  a { color:inherit; }
+  ::selection { background:var(--accent);color:var(--paper); }
+  .shell { max-width:1200px;margin:0 auto;padding:0 24px; }
+  .label { font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted); }
+  .label b { color:var(--accent);font-weight:400; }
+
+  header { position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1px solid var(--rule); }
+  .bar { display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0; }
+  .wordmark { display:flex;align-items:baseline;gap:10px;font-size:14px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;white-space:nowrap; }
+  .wordmark .dot { color:var(--accent); }
+  .wordmark small { font-size:10px;letter-spacing:0.14em;color:var(--muted); }
+  nav { display:flex;gap:22px; }
+  nav a { font-size:12px;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;color:var(--muted); }
+  nav a:hover { color:var(--accent); }
+  @media (max-width:720px){ nav{display:none;} }
+  .lang { font-size:11px;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;color:var(--muted);border:1px solid var(--rule);padding:4px 10px;white-space:nowrap; }
+  .lang:hover { color:var(--accent);border-color:var(--accent); }
+
+  .hero { border-bottom:1px solid var(--rule);padding:72px 0 56px; }
+  .hero h1 { font-size:clamp(30px,5.2vw,54px);line-height:1.12;font-weight:700;text-transform:uppercase;margin:18px 0 20px;text-wrap:balance; }
+  .hero h1 .acc { color:var(--accent); }
+  .lede { max-width:66ch;color:var(--muted);font-size:16px; }
+
+  section { border-bottom:1px solid var(--rule);padding:60px 0; }
+  .sec-head { display:flex;gap:14px;align-items:baseline;margin-bottom:30px; }
+  .sec-no { color:var(--accent);font-size:12px;letter-spacing:0.14em; }
+  .sec-title { font-size:clamp(22px,3.4vw,32px);text-transform:uppercase;line-height:1.15;font-weight:700;margin:0 0 24px;text-wrap:balance; }
+
+  .verify { display:grid;grid-template-columns:340px 1fr;gap:28px;align-items:start; }
+  @media (max-width:860px){ .verify{grid-template-columns:1fr;} }
+  .drop { border:1.5px dashed var(--rule);background:var(--card);padding:26px 20px;text-align:center;transition:border-color .15s; }
+  .drop.hot { border-color:var(--accent); }
+  .drop .icon { font-size:26px; }
+  .drop h3 { margin:12px 0 6px;font-size:14px;text-transform:uppercase;letter-spacing:0.06em; }
+  .drop p { margin:0;color:var(--muted);font-size:12.5px; }
+  .drop input { display:none; }
+  .drop button { margin-top:16px;padding:10px 18px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;cursor:pointer; }
+  .drop button:hover { background:var(--accent);border-color:var(--accent);color:#fff; }
+  .privacy-line { margin-top:14px;font-size:11.5px;color:var(--muted); }
+
+  .result { border:1px solid var(--rule); }
+  .result .rhead { display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--rule);background:var(--card);flex-wrap:wrap; }
+  .result .rhead .fn { font-size:12.5px;color:var(--muted);word-break:break-all; }
+  .badge { font-size:11px;letter-spacing:0.08em;text-transform:uppercase;border:1px solid var(--rule);padding:3px 10px;white-space:nowrap; }
+  .badge.demo { color:var(--accent);border-color:var(--accent); }
+  .check { display:grid;grid-template-columns:26px 1fr;gap:12px;padding:18px;border-bottom:1px solid var(--rule-soft); }
+  .check:last-child { border-bottom:none; }
+  .check .mk { font-size:16px;line-height:1.4; }
+  .check .mk.ok { color:var(--ok); }
+  .check .mk.hold { color:var(--hold); }
+  .check h4 { margin:0 0 4px;font-size:13px;text-transform:uppercase;letter-spacing:0.05em; }
+  .check .sub { margin:0;color:var(--muted);font-size:13px; }
+  .check .kv { margin:8px 0 0;font-size:12px;color:var(--muted);word-break:break-all; }
+  .check .kv code { color:var(--ink); }
+  .check.dim { opacity:0.6; }
+  .rgroup { padding:9px 18px;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);background:var(--card);border-bottom:1px solid var(--rule-soft); }
+  .mk.spin { color:var(--muted); }
+
+  .cols3 { display:grid;grid-template-columns:repeat(3,1fr);gap:24px; }
+  @media (max-width:880px){ .cols3{grid-template-columns:1fr;} }
+  .cell { border-top:2px solid var(--ink);padding-top:16px; }
+  .cell h3 { margin:8px 0 10px;font-size:16px;text-transform:uppercase; }
+  .cell p { margin:0;color:var(--muted);font-size:14px; }
+
+  .note { border:1px solid var(--accent);background:var(--card);padding:20px 22px; }
+  .note h3 { margin:0 0 10px;font-size:14px;text-transform:uppercase;letter-spacing:0.05em;color:var(--accent); }
+  .note p { margin:0 0 10px;font-size:14px;color:var(--muted); }
+  .note p:last-child { margin:0; }
+
+  .faq details { border-top:1px solid var(--rule-soft);padding:14px 0; }
+  .faq summary { cursor:pointer;font-weight:700;text-transform:uppercase;font-size:13px;letter-spacing:0.04em; }
+  .faq .a { color:var(--muted);font-size:14px;margin:10px 0 0;max-width:75ch; }
+
+  .site-footer { padding:40px 0 48px; }
+  .foot { display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--rule-soft);padding-top:18px; }
+  .footer-links { font-size:12px;color:var(--muted);margin-top:10px; }
+  .fine { font-size:12px;color:var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <div class="shell bar">
+    <a class="wordmark" href="/tr/">ORIGIN<span class="dot">DNA</span> <small>BY OZDNA</small></a>
+    <nav>
+      <a href="/tr/products/origin/#what">Nasıl çalışır</a>
+      <a href="#verify">Doğrula</a>
+      <a href="#honest">C2PA durumu</a>
+      <a href="/tr/products/origin/#waitlist">Bekleme listesi</a>
+    </nav>
+    <a class="lang" href="/verify/" lang="en" hreflang="en">EN</a>
+  </div>
+</header>
+
+<main>
+
+<div class="hero">
+  <div class="shell">
+    <div class="label"><b>OZDNA.COM/TR/VERIFY</b> — GENEL DOĞRULAMA SAYFASI · PROTOTİP</div>
+    <h1>Bir görselin <span class="acc">DNA'sını</span> denetle.</h1>
+    <p class="lede">
+      OriginDNA'nın imzaladığı her görsel üç bağımsız kanıt taşır: kriptografik bir
+      imza, kimsenin geriye tarihleyemeyeceği bağlı bir zaman damgası ve metadata
+      silinse bile eşleşen algısal bir parmak izi. Bu <strong>bizim kendi</strong>
+      doğrulama sayfamız — hesap gerektirmez ve kimsenin güven listesine bağlı
+      değildir. Yeniden hesaplama tarayıcınızda olur; görsel cihazınızdan çıkmaz.
+    </p>
+  </div>
+</div>
+
+<section id="verify">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[01]</span><span class="label">BİR GÖRSELİ DOĞRULA</span></div>
+    <h2 class="sec-title">Bir görsel bırak.<br>Neyi kanıtlayabildiğini gör.</h2>
+    <div class="verify">
+      <div>
+        <div class="drop" id="drop">
+          <div class="icon" aria-hidden="true">▚</div>
+          <h3>Bir JPG veya PNG bırak</h3>
+          <p>Ya da dosya seç. Her şey yerel çalışır — hiçbir şey yüklenmez.</p>
+          <button type="button" id="pick">Görsel seç</button>
+          <input type="file" id="file" accept="image/jpeg,image/png">
+          <p class="privacy-line">v1 görselleri destekler (JPG / PNG). Hash'leme, algısal parmak izi ve yeniden-kodlama testi tarayıcınızda çalışır — dosyayı hiçbir zaman almayız.</p>
+        </div>
+      </div>
+
+      <div class="result" id="result" aria-live="polite">
+        <div class="rhead">
+          <span class="fn" id="fn">Denetimleri çalıştırmak için bir görsel bırak</span>
+          <span class="badge demo" id="badge">BEKLİYOR</span>
+        </div>
+
+        <div class="rgroup">Canlı — tarayıcında hesaplanır</div>
+
+        <div class="check">
+          <div class="mk" id="c-hash-mk">•</div>
+          <div>
+            <h4>İçerik hash'i — SHA-256</h4>
+            <p class="sub">Tam-bayt parmak izi. Tek bir piksel değişse tümüyle değişir. Web Crypto API ile hesaplanır.</p>
+            <p class="kv" id="c-hash-kv" style="display:none">SHA-256: <code id="c-hash-val">—</code></p>
+          </div>
+        </div>
+
+        <div class="check">
+          <div class="mk" id="c-phash-mk">•</div>
+          <div>
+            <h4>Algısal parmak izi — dHash (64-bit)</h4>
+            <p class="sub">Görselin baytlarının değil, <em>neye benzediğinin</em> parmak izi — piksellerden canvas üzerinde canlı hesaplanır.</p>
+            <p class="kv" id="c-phash-kv" style="display:none">dHash: <code id="c-phash-val">—</code></p>
+          </div>
+        </div>
+
+        <div class="check">
+          <div class="mk" id="c-strip-mk">•</div>
+          <div>
+            <h4>Yeniden-kodlamaya dayanır — moat</h4>
+            <p class="sub">Görseli bir sosyal platformun yapacağı gibi yeniden sıkıştırıp tekrar denetleriz. İçerik hash'i tümüyle değişir; algısal parmak izi neredeyse hiç kımıldamaz.</p>
+            <p class="kv" id="c-strip-kv" style="display:none">—</p>
+          </div>
+        </div>
+
+        <div class="check">
+          <div class="mk" id="c-c2pa-mk">•</div>
+          <div>
+            <h4>C2PA manifesti — varlık taraması</h4>
+            <p class="sub" id="c-c2pa-sub">Dosya baytlarını gömülü bir C2PA manifesti için tararız. Varlık burada tespit edilir; tam kriptografik doğrulama imzalı hatta çalışır.</p>
+          </div>
+        </div>
+
+        <div class="rgroup">OriginDNA kaydı gerekir — örnek olarak gösteriliyor</div>
+
+        <div class="check dim">
+          <div class="mk hold">◔</div>
+          <div>
+            <h4>Bağlı zaman damgası — "şu tarihte vardı"</h4>
+            <p class="sub">Kayıt sorgusu, kimsenin geriye tarihleyemeyeceği bağlı tarihi döndürür — hesap yok, bize güven yok. MVP ile bağlanır. Örnek: <code>2026-08-04 09:41 UTC</code>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="fine" style="margin-top:18px">İçerik hash'i, algısal parmak izi, yeniden-kodlama testi ve C2PA-manifest taraması tarayıcında canlı çalışır — hiçbir şey yüklenmez. Yalnızca bağlı-zaman-damgası sorgusu OriginDNA kaydını (MVP) gerektirir ve örnek olarak gösterilir.</p>
+  </div>
+</section>
+
+<section id="how">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[02]</span><span class="label">NE DENETLENİR</span></div>
+    <h2 class="sec-title">Üç kanıt.<br>Güven gerektirmez.</h2>
+    <div class="cols3">
+      <div class="cell">
+        <div class="label"><b>A</b> / İMZA</div>
+        <h3>Dosya bozulmamış</h3>
+        <p>C2PA imzası manifesti piksellere bağlar. Görsel imzalandıktan sonra düzenlendiyse imza artık eşleşmez — doğrulama bunu söyler.</p>
+      </div>
+      <div class="cell">
+        <div class="label"><b>B</b> / ZAMAN DAMGASI</div>
+        <h3>Tarih gerçek</h3>
+        <p>Parmak izi genel, yalnızca-ekleme yapılan bir kayda bağlanır. "Şu tarihte vardı" bilgisi herkesçe, bağımsız, sonsuza dek denetlenebilir — hesap yok, biz yokuz.</p>
+      </div>
+      <div class="cell">
+        <div class="label"><b>C</b> / PARMAK İZİ</div>
+        <h3>Kopya yine eşleşir</h3>
+        <p>Platformlar yüklemede metadata'yı siler. Algısal parmak izi metadata'da durmaz, bu yüzden silinmiş bir kopya bile kayıtlı orijinaline çözülür.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="honest">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[03]</span><span class="label">C2PA DURUMU HAKKINDA DÜRÜST</span></div>
+    <div class="note">
+      <h3>Neden bir üçüncü-taraf araç "unknown source" diyebilir</h3>
+      <p>OriginDNA açık C2PA standardına imza atar ve imza kriptografik olarak
+      geçerlidir. Ancak C2PA Uygunluk Programı'nı (Conformance) tamamlayana dek
+      sertifikamız ara güven listesinde olmaz — bu yüzden resmî Content Credentials
+      Verify gibi araçlar kaynağı <strong>"unknown" (bilinmiyor)</strong> olarak
+      etiketleyebilir. Bu, dosyanın değiştirilip değiştirilmediğiyle değil, üyelikle
+      ilgilidir.</p>
+      <p>Bu nedenle <strong>kendi</strong> doğrulama sayfamızı çalıştırırız ve her
+      parmak izini kimsenin güven listesini gerektirmeyen genel bir kayda bağlarız.
+      "Trusted Content Credentials" iddiasında bulunmayız — doğru olana dek de
+      bulunmayacağız. Kendin denetleyebildiğin köken, güvenmek zorunda olduğun bir
+      rozetten iyidir.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-no">[04]</span><span class="label">SSS</span></div>
+    <div class="faq">
+      <details>
+        <summary>Doğrulamak için görselim yükleniyor mu?</summary>
+        <p class="a">Hayır. İçerik hash'i tarayıcında Web Crypto API ile hesaplanır.
+        Tam üründe imza okuma ve parmak izi eşleştirme de istemci tarafında çalışır —
+        görsel cihazında kalır.</p>
+      </details>
+      <details>
+        <summary>Bu bir "AI dedektörü" mü?</summary>
+        <p class="a">Hayır — bilerek. Tespit, olay olduktan sonra tahmin eder.
+        Doğrulama, oluşturma anında eklenen kanıtları denetler. Tespit değil, köken.</p>
+      </details>
+      <details>
+        <summary>Metadata bir sosyal platform tarafından silindiyse ne olur?</summary>
+        <p class="a">Parmak izi tam da bu durum için var. Algısal parmak izi dosyanın
+        metadata'sında saklanmaz; silinmiş veya yeniden kodlanmış bir kopya bile
+        kayıtlı orijinaline geri eşlenebilir.</p>
+      </details>
+      <details>
+        <summary>Hesap ya da cüzdan gerekir mi?</summary>
+        <p class="a">Hiçbiri. Doğrulama geneldir ve hesapsızdır. Token yok ve planı da
+        yok; kullanıcı fonlarına asla dokunmayız.</p>
+      </details>
+      <details>
+        <summary>Hangi formatlar çalışır?</summary>
+        <p class="a">v1 görsellerdir — JPG ve PNG. Video, ses ve mobil, çekirdek
+        sağlamlaştıktan sonra gelir.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="shell">
+    <div class="foot">
+      <span>OriginDNA · <a href="/tr/">ozDNA</a></span>
+      <span>© 2026 ozDNA · Tüm hakları saklıdır</span>
+    </div>
+    <p class="footer-links">
+      <a href="mailto:hello@ozdna.com">hello@ozdna.com</a>
+      · <a href="/tr/products/origin/">OriginDNA</a>
+      · <a href="/tr/products/comply/">ComplyDNA</a>
+      · <a href="/tr/privacy/">Gizlilik</a>
+      · <a href="/verify/" lang="en" hreflang="en">English</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var $ = function (id) { return document.getElementById(id); };
+    var drop = $('drop'), pick = $('pick'), file = $('file'), fn = $('fn'), badge = $('badge');
+
+    pick.addEventListener('click', function () { file.click(); });
+    file.addEventListener('change', function (e) {
+      if (e.target.files && e.target.files[0]) handle(e.target.files[0]);
+    });
+    ['dragenter', 'dragover'].forEach(function (ev) {
+      drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.add('hot'); });
+    });
+    ['dragleave', 'drop'].forEach(function (ev) {
+      drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.remove('hot'); });
+    });
+    drop.addEventListener('drop', function (e) {
+      if (e.dataTransfer.files && e.dataTransfer.files[0]) handle(e.dataTransfer.files[0]);
+    });
+
+    function setMk(id, glyph, cls) { var el = $(id); el.textContent = glyph; el.className = 'mk' + (cls ? ' ' + cls : ''); }
+    function shortHex(hex) { return hex.slice(0, 16) + '…' + hex.slice(-8); }
+
+    function sha256Hex(buf) {
+      return crypto.subtle.digest('SHA-256', buf).then(function (d) {
+        return Array.prototype.map.call(new Uint8Array(d), function (b) {
+          return b.toString(16).padStart(2, '0');
+        }).join('');
+      });
+    }
+
+    function dHashFromImage(img) {
+      var w = 9, h = 8;
+      var c = document.createElement('canvas'); c.width = w; c.height = h;
+      var ctx = c.getContext('2d');
+      ctx.drawImage(img, 0, 0, w, h);
+      var data = ctx.getImageData(0, 0, w, h).data;
+      function lum(x, y) {
+        var i = (y * w + x) * 4;
+        return 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
+      }
+      var bits = '';
+      for (var y = 0; y < h; y++)
+        for (var x = 0; x < w - 1; x++)
+          bits += lum(x, y) > lum(x + 1, y) ? '1' : '0';
+      var hex = '';
+      for (var k = 0; k < 64; k += 4) hex += parseInt(bits.slice(k, k + 4), 2).toString(16);
+      return { bits: bits, hex: hex };
+    }
+
+    function hamming(a, b) { var d = 0; for (var i = 0; i < a.length; i++) if (a[i] !== b[i]) d++; return d; }
+
+    function loadImage(src) {
+      return new Promise(function (res, rej) {
+        var img = new Image();
+        img.onload = function () { res(img); };
+        img.onerror = function () { rej(new Error('decode')); };
+        img.src = src;
+      });
+    }
+
+    function reencode(img) {
+      var c = document.createElement('canvas');
+      c.width = img.naturalWidth || img.width; c.height = img.naturalHeight || img.height;
+      c.getContext('2d').drawImage(img, 0, 0);
+      return new Promise(function (res, rej) {
+        c.toBlob(function (blob) {
+          if (!blob) { rej(new Error('encode')); return; }
+          blob.arrayBuffer().then(function (buf) { res({ buf: buf, url: URL.createObjectURL(blob) }); });
+        }, 'image/jpeg', 0.6);
+      });
+    }
+
+    function scanC2PA(buf) {
+      var bytes = new Uint8Array(buf);
+      var needles = ['c2pa', 'caBX', 'jumbf'];
+      var found = null;
+      for (var n = 0; n < needles.length && !found; n++) {
+        var s = needles[n], slen = s.length;
+        for (var i = 0; i + slen <= bytes.length; i++) {
+          var hit = true;
+          for (var j = 0; j < slen; j++) { if (bytes[i + j] !== s.charCodeAt(j)) { hit = false; break; } }
+          if (hit) { found = s; break; }
+        }
+      }
+      return found;
+    }
+
+    function handle(f) {
+      var okType = f.type === 'image/jpeg' || f.type === 'image/png';
+      fn.textContent = f.name + ' · ' + Math.round(f.size / 1024) + ' KB';
+      badge.textContent = 'SENİN DOSYAN';
+      ['c-hash-kv', 'c-phash-kv', 'c-strip-kv'].forEach(function (id) { $(id).style.display = 'none'; });
+      ['c-hash-mk', 'c-phash-mk', 'c-strip-mk', 'c-c2pa-mk'].forEach(function (id) { setMk(id, '…', 'spin'); });
+
+      if (!okType) {
+        ['c-hash-mk', 'c-phash-mk', 'c-strip-mk', 'c-c2pa-mk'].forEach(function (id) { setMk(id, '✕', ''); });
+        $('c-c2pa-sub').textContent = 'v1, JPG ve PNG görselleri doğrular. Bu dosya: ' + (f.type || 'bilinmeyen tür') + '.';
+        return;
+      }
+
+      var url = URL.createObjectURL(f);
+
+      f.arrayBuffer().then(function (buf) {
+        sha256Hex(buf).then(function (hex) {
+          $('c-hash-val').textContent = shortHex(hex); $('c-hash-val').title = hex;
+          $('c-hash-kv').style.display = ''; setMk('c-hash-mk', '✓', 'ok');
+
+          loadImage(url).then(function (img) {
+            var orig = dHashFromImage(img);
+            $('c-phash-val').textContent = orig.hex; $('c-phash-kv').style.display = '';
+            setMk('c-phash-mk', '✓', 'ok');
+
+            reencode(img).then(function (re) {
+              return Promise.all([loadImage(re.url), sha256Hex(re.buf)]).then(function (r) {
+                var re2 = dHashFromImage(r[0]);
+                var dist = hamming(orig.bits, re2.bits);
+                var sameHash = (r[1] === hex);
+                var kv = $('c-strip-kv');
+                kv.innerHTML = 'JPEG yeniden sıkıştırma sonrası → içerik hash <code>' +
+                  (sameHash ? 'değişmedi' : 'tümüyle değişti') + '</code> · algısal mesafe <code>' +
+                  dist + '/64</code> — ' + (dist <= 10 ? 'yine aynı görsel' : 'ayrıştı');
+                kv.style.display = '';
+                setMk('c-strip-mk', dist <= 10 ? '✓' : '!', dist <= 10 ? 'ok' : 'hold');
+                URL.revokeObjectURL(re.url);
+              });
+            }).catch(function () { setMk('c-strip-mk', '✕', ''); $('c-strip-kv').textContent = 'Yeniden-kodlama testi bu tarayıcıda kullanılamıyor.'; $('c-strip-kv').style.display = ''; });
+          }).catch(function () { setMk('c-phash-mk', '✕', ''); setMk('c-strip-mk', '✕', ''); });
+        });
+
+        var marker = scanC2PA(buf);
+        if (marker) {
+          setMk('c-c2pa-mk', '✓', 'ok');
+          $('c-c2pa-sub').textContent = 'C2PA manifest işareti ("' + marker + '") dosyada bulundu. Bu, gömülü bir manifest olduğunu doğrular — tam kriptografik doğrulama imzalı hatta çalışır.';
+        } else {
+          setMk('c-c2pa-mk', '•', 'hold');
+          $('c-c2pa-sub').textContent = 'Gömülü C2PA manifesti bulunamadı — bu görsel imzalanmamış (ne OriginDNA ne de başkası). Bugün web’deki çoğu dosya için bu beklenendir.';
+        }
+      }).catch(function () {
+        ['c-hash-mk', 'c-phash-mk', 'c-strip-mk', 'c-c2pa-mk'].forEach(function (id) { setMk(id, '✕', ''); });
+      });
+    }
+  })();
+</script>
+<script defer src="/analytics.js"></script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 # ozDNA — agent context
 
-**ozDNA** is the company brand ([Find Below Ventures](https://findbelow.com)). Multiple product lines live under it:
+**ozDNA** is a standalone brand. Its operating legal entity is **not yet formed (TBD)**; the **ozdna.com** domain is owned personally by the founder, and a trademark application for *ozDNA* has been filed. It is **not** a [Find Below Ventures](https://findbelow.com) brand — Find Below's ventures are tezmakale.com and metaltakip.com (see *Who is building this*). Multiple product lines live under the ozDNA brand:
 
 | Product | Status | Docs |
 |---------|--------|------|
@@ -9,6 +9,8 @@
 | **OriginDNA** *(working name)* | Pre-build — content provenance / Proof of Origin | `docs/products/ORIGINDNA.md`, `plan/`, `docs/BLUEPRINT.md` |
 
 This file is the ground-truth brief for **OriginDNA** (partner-authored planning corpus, July 2026). Repo-root `README.md` is the dev-team orientation page for OriginDNA (and the monorepo). For platform engineering, start with `platform/README.md`.
+
+> **Separate track — do not conflate:** `docs/alignx/` holds a distinct **AlignX Partners "AI oversight infrastructure"** corpus (dated Jul 25, 2026) that reuses the names *ozDNA / originDNA / complyDNA* for entirely different things (AI Act Art. 9/12/13/14 runtime — classification, Council oversight, decision Ledger, Attestation). Per founder decision it is a **separate business track**, not an update to this brief and not superseded by it. This file (OriginDNA / content-provenance under Find Below Ventures) stays authoritative for its own track. See `docs/alignx/README.md` for the split and the unresolved name/domain collision.
 
 ---
 
@@ -22,7 +24,7 @@ Content provenance service: every image gets a "DNA" — a C2PA cryptographic si
 
 ## Who is building this
 
-- Founder + one partner, based in Turkey (partner independently built the current ozdna.com site — see Domain note above). Company: **Find Below Ventures**, Sharjah Publishing City Free Zone, UAE (findbelow.com). Sister properties: metaltakip.com (Turkish precious-metals SEO site, currently mid-90-day traffic plan — **that project stays primary until ~October 2026; OzDNA gets afternoons only until then**), tezmakale.com (AI text detector).
+- Founder + one partner, based in Turkey (partner independently built the current ozdna.com site — see Domain note above). **ozDNA's own operating entity is not yet formed (TBD)**; the founder owns the **ozdna.com** domain personally and has filed a trademark application for *ozDNA*. Separately, the founder runs **Find Below Ventures** (Sharjah Publishing City Free Zone, UAE — findbelow.com), whose ventures are **metaltakip.com** (Turkish precious-metals SEO site, currently mid-90-day traffic plan — **that project stays primary until ~October 2026; ozDNA gets afternoons only until then**) and **tezmakale.com** (AI text detector). Find Below is a sibling operator run by the same founder, **not** the entity behind ozDNA. (The AlignX Partners consulting firm — see the separate-track note above — is a third, distinct entity.)
 - Founder background: 5+ years at crypto CEXs and crypto PR agencies. Superpowers are PR, distribution, SEO, and industry network — **not** deep engineering. Claude does the heavy technical lifting; explain architecture decisions plainly.
 - Budget: essentially zero. Claude subscription + Vercel account exist; Cloudflare free tier acceptable. The only pre-approved fixed cost is ~$20/mo (Vercel Pro) if unavoidable.
 
