@@ -99,8 +99,11 @@
   .check .mk.hold { color:var(--hold); }
   .check h4 { margin:0 0 4px;font-size:13px;text-transform:uppercase;letter-spacing:0.05em; }
   .check .sub { margin:0;color:var(--muted);font-size:13px; }
-  .check .kv { margin:8px 0 0;font-size:12px;color:var(--muted); }
+  .check .kv { margin:8px 0 0;font-size:12px;color:var(--muted);word-break:break-all; }
   .check .kv code { color:var(--ink); }
+  .check.dim { opacity:0.6; }
+  .rgroup { padding:9px 18px;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);background:var(--card);border-bottom:1px solid var(--rule-soft); }
+  .mk.spin { color:var(--muted); }
 
   .cols3 { display:grid;grid-template-columns:repeat(3,1fr);gap:24px; }
   @media (max-width:880px){ .cols3{grid-template-columns:1fr;} }
@@ -162,57 +165,68 @@
         <div class="drop" id="drop">
           <div class="icon" aria-hidden="true">▚</div>
           <h3>Drop a JPG or PNG</h3>
-          <p>Or choose a file. It is hashed locally — nothing is uploaded.</p>
+          <p>Or choose a file. Everything runs locally — nothing is uploaded.</p>
           <button type="button" id="pick">Choose image</button>
           <input type="file" id="file" accept="image/jpeg,image/png">
-          <p class="privacy-line">v1 supports images (JPG / PNG). The content hash below is computed in your browser with the Web Crypto API — we never receive the file.</p>
+          <p class="privacy-line">v1 supports images (JPG / PNG). Hashing, the perceptual fingerprint and the re-encode test all run in your browser — we never receive the file.</p>
         </div>
       </div>
 
       <div class="result" id="result" aria-live="polite">
         <div class="rhead">
-          <span class="fn" id="fn">Sample result — signed-forest-01.jpg</span>
-          <span class="badge demo" id="badge">SAMPLE</span>
+          <span class="fn" id="fn">Drop an image to run the checks</span>
+          <span class="badge demo" id="badge">WAITING</span>
         </div>
 
+        <div class="rgroup">Live — computed in your browser</div>
+
         <div class="check">
-          <div class="mk ok" id="c-sig-mk">✓</div>
+          <div class="mk" id="c-hash-mk">•</div>
           <div>
-            <h4>Signature — cryptographically valid</h4>
-            <p class="sub">A C2PA manifest is attached and its cryptographic hash matches the file. Any edit to the pixels would break this.</p>
-            <p class="kv">Standard: <code>C2PA</code> · signer: <code>OriginDNA (self-hosted)</code> · manifest hash: <code id="c-sig-hash">3e77…8b12</code></p>
+            <h4>Content hash — SHA-256</h4>
+            <p class="sub">The exact-bytes fingerprint. Flip a single pixel and it changes completely. Computed with the Web Crypto API.</p>
+            <p class="kv" id="c-hash-kv" style="display:none">SHA-256: <code id="c-hash-val">—</code></p>
           </div>
         </div>
 
         <div class="check">
-          <div class="mk ok">✓</div>
+          <div class="mk" id="c-phash-mk">•</div>
           <div>
-            <h4>Timestamp — anchored, independently verifiable</h4>
-            <p class="sub">The image's fingerprint is written into a public, append-only record. Anyone can confirm "this existed by this date" without an OriginDNA account — and without trusting us.</p>
-            <p class="kv">Existed by: <code>2026-08-04 09:41 UTC</code> · record: <code>append-only, public</code></p>
+            <h4>Perceptual fingerprint — dHash (64-bit)</h4>
+            <p class="sub">A fingerprint of what the image <em>looks like</em>, not its bytes — computed live from the pixels on a canvas.</p>
+            <p class="kv" id="c-phash-kv" style="display:none">dHash: <code id="c-phash-val">—</code></p>
           </div>
         </div>
 
         <div class="check">
-          <div class="mk ok">✓</div>
+          <div class="mk" id="c-strip-mk">•</div>
           <div>
-            <h4>Fingerprint — matches the registered original</h4>
-            <p class="sub">A perceptual fingerprint was stored at signing, so a stripped, resized or recompressed copy still maps back to its origin record.</p>
-            <p class="kv">Perceptual match: <code>98% — metadata stripped, still matched</code></p>
+            <h4>Survives re-encoding — the moat</h4>
+            <p class="sub">We recompress the image the way a social platform would, then re-check. The content hash changes entirely; the perceptual fingerprint barely moves.</p>
+            <p class="kv" id="c-strip-kv" style="display:none">—</p>
           </div>
         </div>
 
         <div class="check">
-          <div class="mk hold" id="c-your-mk">•</div>
+          <div class="mk" id="c-c2pa-mk">•</div>
           <div>
-            <h4 id="c-your-h">Your file — local content hash</h4>
-            <p class="sub" id="c-your-sub">Drop an image to compute its SHA-256 locally. This is the real, boring first step — the honest proof that verification can run entirely on your device.</p>
-            <p class="kv" id="c-your-kv" style="display:none">SHA-256: <code id="c-your-hash">—</code></p>
+            <h4>C2PA manifest — presence scan</h4>
+            <p class="sub" id="c-c2pa-sub">We scan the file bytes for an embedded C2PA manifest. Presence is detected here; full cryptographic validation runs in the signed pipeline.</p>
+          </div>
+        </div>
+
+        <div class="rgroup">Needs the OriginDNA registry — shown illustratively</div>
+
+        <div class="check dim">
+          <div class="mk hold">◔</div>
+          <div>
+            <h4>Anchored timestamp — "existed by"</h4>
+            <p class="sub">A registry lookup returns the anchored date no one can backdate — no account, no trusting us. Wired with the MVP. Sample: <code>2026-08-04 09:41 UTC</code>.</p>
           </div>
         </div>
       </div>
     </div>
-    <p class="fine" style="margin-top:18px">Prototype. The signature, timestamp and fingerprint rows above show a sample record; wiring them to the live signing service ships with the MVP. The local hash is real.</p>
+    <p class="fine" style="margin-top:18px">The content hash, perceptual fingerprint, re-encode test and C2PA-manifest scan run live in your browser — nothing is uploaded. Only the anchored-timestamp lookup needs the OriginDNA registry (MVP) and is shown illustratively.</p>
   </div>
 </section>
 
@@ -313,16 +327,8 @@
 
 <script>
   (function () {
-    var drop = document.getElementById('drop');
-    var pick = document.getElementById('pick');
-    var file = document.getElementById('file');
-    var fn = document.getElementById('fn');
-    var badge = document.getElementById('badge');
-    var yourMk = document.getElementById('c-your-mk');
-    var yourH = document.getElementById('c-your-h');
-    var yourSub = document.getElementById('c-your-sub');
-    var yourKv = document.getElementById('c-your-kv');
-    var yourHash = document.getElementById('c-your-hash');
+    var $ = function (id) { return document.getElementById(id); };
+    var drop = $('drop'), pick = $('pick'), file = $('file'), fn = $('fn'), badge = $('badge');
 
     pick.addEventListener('click', function () { file.click(); });
     file.addEventListener('change', function (e) {
@@ -338,35 +344,134 @@
       if (e.dataTransfer.files && e.dataTransfer.files[0]) handle(e.dataTransfer.files[0]);
     });
 
+    function setMk(id, glyph, cls) { var el = $(id); el.textContent = glyph; el.className = 'mk' + (cls ? ' ' + cls : ''); }
+    function shortHex(hex) { return hex.slice(0, 16) + '…' + hex.slice(-8); }
+
+    function sha256Hex(buf) {
+      return crypto.subtle.digest('SHA-256', buf).then(function (d) {
+        return Array.prototype.map.call(new Uint8Array(d), function (b) {
+          return b.toString(16).padStart(2, '0');
+        }).join('');
+      });
+    }
+
+    // dHash: draw to 9x8, grayscale, compare adjacent pixels per row -> 64 bits.
+    function dHashFromImage(img) {
+      var w = 9, h = 8;
+      var c = document.createElement('canvas'); c.width = w; c.height = h;
+      var ctx = c.getContext('2d');
+      ctx.drawImage(img, 0, 0, w, h);
+      var data = ctx.getImageData(0, 0, w, h).data;
+      function lum(x, y) {
+        var i = (y * w + x) * 4;
+        return 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
+      }
+      var bits = '';
+      for (var y = 0; y < h; y++)
+        for (var x = 0; x < w - 1; x++)
+          bits += lum(x, y) > lum(x + 1, y) ? '1' : '0';
+      // 64 bits -> 16 hex chars
+      var hex = '';
+      for (var k = 0; k < 64; k += 4) hex += parseInt(bits.slice(k, k + 4), 2).toString(16);
+      return { bits: bits, hex: hex };
+    }
+
+    function hamming(a, b) { var d = 0; for (var i = 0; i < a.length; i++) if (a[i] !== b[i]) d++; return d; }
+
+    function loadImage(src) {
+      return new Promise(function (res, rej) {
+        var img = new Image();
+        img.onload = function () { res(img); };
+        img.onerror = function () { rej(new Error('decode')); };
+        img.src = src;
+      });
+    }
+
+    // Re-encode as JPEG q=0.6 (mimics a social-platform recompress) -> {buf, url}
+    function reencode(img) {
+      var c = document.createElement('canvas');
+      c.width = img.naturalWidth || img.width; c.height = img.naturalHeight || img.height;
+      c.getContext('2d').drawImage(img, 0, 0);
+      return new Promise(function (res, rej) {
+        c.toBlob(function (blob) {
+          if (!blob) { rej(new Error('encode')); return; }
+          blob.arrayBuffer().then(function (buf) { res({ buf: buf, url: URL.createObjectURL(blob) }); });
+        }, 'image/jpeg', 0.6);
+      });
+    }
+
+    // Scan raw bytes for a C2PA manifest marker (presence only, not validation).
+    function scanC2PA(buf) {
+      var bytes = new Uint8Array(buf);
+      var needles = ['c2pa', 'caBX', 'jumbf'];
+      var found = null;
+      for (var n = 0; n < needles.length && !found; n++) {
+        var s = needles[n], slen = s.length;
+        for (var i = 0; i + slen <= bytes.length; i++) {
+          var hit = true;
+          for (var j = 0; j < slen; j++) { if (bytes[i + j] !== s.charCodeAt(j)) { hit = false; break; } }
+          if (hit) { found = s; break; }
+        }
+      }
+      return found;
+    }
+
     function handle(f) {
       var okType = f.type === 'image/jpeg' || f.type === 'image/png';
       fn.textContent = f.name + ' · ' + Math.round(f.size / 1024) + ' KB';
       badge.textContent = 'YOUR FILE';
+      ['c-hash-kv', 'c-phash-kv', 'c-strip-kv'].forEach(function (id) { $(id).style.display = 'none'; });
+      ['c-hash-mk', 'c-phash-mk', 'c-strip-mk', 'c-c2pa-mk'].forEach(function (id) { setMk(id, '…', 'spin'); });
+
       if (!okType) {
-        yourMk.textContent = '✕'; yourMk.className = 'mk';
-        yourH.textContent = 'Your file — unsupported format';
-        yourSub.textContent = 'v1 verifies JPG and PNG images. This file is ' + (f.type || 'an unknown type') + '.';
-        yourKv.style.display = 'none';
+        ['c-hash-mk', 'c-phash-mk', 'c-strip-mk', 'c-c2pa-mk'].forEach(function (id) { setMk(id, '✕', ''); });
+        $('c-c2pa-sub').textContent = 'v1 verifies JPG and PNG images. This file is ' + (f.type || 'an unknown type') + '.';
         return;
       }
-      yourMk.textContent = '…'; yourMk.className = 'mk';
-      yourSub.textContent = 'Hashing locally…';
+
+      var url = URL.createObjectURL(f);
+
       f.arrayBuffer().then(function (buf) {
-        return crypto.subtle.digest('SHA-256', buf);
-      }).then(function (digest) {
-        var hex = Array.prototype.map.call(new Uint8Array(digest), function (b) {
-          return b.toString(16).padStart(2, '0');
-        }).join('');
-        yourMk.textContent = '✓'; yourMk.className = 'mk ok';
-        yourH.textContent = 'Your file — local content hash';
-        yourSub.textContent = 'Computed in your browser. Nothing was uploaded. In the full product this hash is what gets signed and anchored.';
-        yourHash.textContent = hex.slice(0, 16) + '…' + hex.slice(-8);
-        yourHash.title = hex;
-        yourKv.style.display = '';
+        // 1) content hash
+        sha256Hex(buf).then(function (hex) {
+          $('c-hash-val').textContent = shortHex(hex); $('c-hash-val').title = hex;
+          $('c-hash-kv').style.display = ''; setMk('c-hash-mk', '✓', 'ok');
+
+          // 3) re-encode survival (needs image + original hash)
+          loadImage(url).then(function (img) {
+            var orig = dHashFromImage(img);
+            $('c-phash-val').textContent = orig.hex; $('c-phash-kv').style.display = '';
+            setMk('c-phash-mk', '✓', 'ok');
+
+            reencode(img).then(function (re) {
+              return Promise.all([loadImage(re.url), sha256Hex(re.buf)]).then(function (r) {
+                var re2 = dHashFromImage(r[0]);
+                var dist = hamming(orig.bits, re2.bits);
+                var sameHash = (r[1] === hex);
+                var kv = $('c-strip-kv');
+                kv.innerHTML = 'After JPEG recompress → content hash <code>' +
+                  (sameHash ? 'unchanged' : 'changed completely') + '</code> · perceptual distance <code>' +
+                  dist + '/64</code> — ' + (dist <= 10 ? 'still the same image' : 'diverged');
+                kv.style.display = '';
+                setMk('c-strip-mk', dist <= 10 ? '✓' : '!', dist <= 10 ? 'ok' : 'hold');
+                URL.revokeObjectURL(re.url);
+              });
+            }).catch(function () { setMk('c-strip-mk', '✕', ''); $('c-strip-kv').textContent = 'Re-encode test unavailable in this browser.'; $('c-strip-kv').style.display = ''; });
+          }).catch(function () { setMk('c-phash-mk', '✕', ''); setMk('c-strip-mk', '✕', ''); });
+        });
+
+        // 4) C2PA presence
+        var marker = scanC2PA(buf);
+        if (marker) {
+          setMk('c-c2pa-mk', '✓', 'ok');
+          $('c-c2pa-sub').textContent = 'C2PA manifest marker ("' + marker + '") detected in the file. This confirms a manifest is embedded — full cryptographic validation runs in the signed pipeline.';
+        } else {
+          setMk('c-c2pa-mk', '•', 'hold');
+          $('c-c2pa-sub').textContent = 'No embedded C2PA manifest found — this image was not signed (by OriginDNA or anyone). That is expected for most files on the web today.';
+        }
       }).catch(function () {
-        yourMk.textContent = '✕'; yourMk.className = 'mk';
-        yourSub.textContent = 'Could not read this file in the browser.';
-      });
+        ['c-hash-mk', 'c-phash-mk', 'c-strip-mk', 'c-c2pa-mk'].forEach(function (id) { setMk(id, '✕', ''); });
+      }).then(function () { /* keep url for image load; revoked by GC */ });
     }
   })();
 </script>
