@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Immortal MLRO — autonomous compliance agent on the Council runtime · ozDNA</title>
+<meta name="description" content="Immortal MLRO is an autonomous compliance agent running on the ozDNA Council oversight runtime: it classifies work by risk, routes high-risk decisions to a multi-model vote with veto, records every decision in an append-only hash-chained ledger, and produces an auditor-ready attestation. A worked use case implementing EU AI Act Art. 9/12/13/14." />
+<link rel="canonical" href="https://ozdna.com/use-cases/immortal-mlro/" />
+<meta name="robots" content="index,follow" />
+<!-- self-contained favicon (staging) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0c10'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='15' font-weight='700' text-anchor='middle' fill='%235eead4'%3Eoz%3C/text%3E%3C/svg%3E" />
+<style>
+  :root{
+    --bg:#0a0c10; --panel:#12151c; --panel-2:#0f1218; --border:#232833;
+    --text:#e6e9ef; --muted:#9aa4b2; --dim:#6b7480;
+    --accent:#5eead4; --accent-dim:#2f6f66; --warn:#e0b453;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --maxw:940px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--bg);color:var(--text);
+    font-family:var(--sans);font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  .mono{font-family:var(--mono)}
+  .eyebrow{
+    font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--accent);margin:0 0 14px;
+  }
+  h1{font-size:clamp(30px,5vw,46px);line-height:1.08;letter-spacing:-.02em;margin:0 0 18px;font-weight:680}
+  h2{font-size:clamp(22px,3.4vw,29px);line-height:1.15;letter-spacing:-.01em;margin:0 0 8px;font-weight:640}
+  h3{font-size:17px;margin:0 0 6px;font-weight:640}
+  p{margin:0 0 16px;color:#d3d8e0}
+  .lede{font-size:clamp(18px,2.4vw,21px);color:var(--muted);max-width:60ch}
+  section{padding:60px 0;border-top:1px solid var(--border)}
+  section:first-of-type{border-top:none}
+  .kicker{color:var(--dim);font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 20px}
+
+  /* top bar */
+  header.bar{position:sticky;top:0;z-index:10;background:rgba(10,12,16,.86);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+  .bar .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+  .brand{font-family:var(--mono);font-weight:700;font-size:16px;color:var(--text);letter-spacing:.02em}
+  .brand b{color:var(--accent);font-weight:700}
+  .bar nav{display:flex;gap:22px;font-size:14px}
+  .bar nav a{color:var(--muted)}
+  .bar nav a:hover{color:var(--text);text-decoration:none}
+  @media(max-width:620px){.bar nav{display:none}}
+
+  /* hero */
+  .hero{padding:74px 0 60px}
+  .cta{display:inline-block;background:var(--accent);color:#04120f;font-weight:640;
+    padding:13px 22px;border-radius:8px;font-size:15.5px;border:1px solid var(--accent)}
+  .cta:hover{text-decoration:none;background:#7af0dd}
+  .cta.ghost{background:transparent;color:var(--accent);border-color:var(--accent-dim)}
+  .cta.ghost:hover{background:rgba(94,234,212,.06)}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+  .tag{display:inline-block;font-family:var(--mono);font-size:12px;color:var(--muted);
+    border:1px solid var(--border);border-radius:999px;padding:4px 11px;margin:0 6px 8px 0}
+
+  /* problem cards */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:760px){.grid3{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:20px}
+  .card .n{font-family:var(--mono);color:var(--accent-dim);font-size:13px;margin:0 0 8px}
+  .card p{margin:0;color:var(--muted);font-size:15.5px}
+
+  /* flow */
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:8px}
+  @media(max-width:760px){.flow{grid-template-columns:1fr 1fr}}
+  .step{background:var(--panel-2);border:1px solid var(--border);border-radius:12px;padding:18px;position:relative}
+  .step .s{font-family:var(--mono);font-size:12px;color:var(--dim);letter-spacing:.1em}
+  .step h3{margin:6px 0 6px}
+  .step .comp{font-family:var(--mono);font-size:12.5px;color:var(--accent)}
+  .step p{font-size:14.5px;color:var(--muted);margin:8px 0 0}
+
+  /* table */
+  .tbl{width:100%;border-collapse:collapse;font-size:15px;margin-top:6px;overflow:hidden;border-radius:12px}
+  .tbl-scroll{overflow-x:auto;border:1px solid var(--border);border-radius:12px}
+  .tbl th,.tbl td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--border);vertical-align:top}
+  .tbl thead th{background:var(--panel);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .tbl tbody tr:last-child td,.tbl tr:last-child td{border-bottom:none}
+  .tbl td.art{font-family:var(--mono);color:var(--accent);white-space:nowrap}
+  .tbl td.comp{font-family:var(--mono);color:var(--text);white-space:nowrap}
+
+  /* attestation mock */
+  .att{background:#0c1016;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+  .att .head{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--border);background:var(--panel)}
+  .att .head .t{font-family:var(--mono);font-size:13px;color:var(--muted)}
+  .att .head .st{font-family:var(--mono);font-size:12px;color:var(--accent);border:1px solid var(--accent-dim);border-radius:999px;padding:2px 9px}
+  .att pre{margin:0;padding:18px 16px;font-family:var(--mono);font-size:13px;line-height:1.75;color:#cfd6df;overflow-x:auto}
+  .att pre .k{color:var(--dim)}
+  .att pre .v{color:var(--accent)}
+  .att pre .r{color:var(--warn)}
+  .att .note{padding:10px 16px;border-top:1px solid var(--border);font-size:13px;color:var(--dim)}
+
+  /* audience */
+  .who{display:flex;gap:10px;flex-wrap:wrap}
+  .who span{font-family:var(--mono);font-size:14px;color:var(--text);background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:9px 14px}
+
+  /* form */
+  .form{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:24px;max-width:560px}
+  .form label{display:block;font-size:13px;color:var(--muted);font-family:var(--mono);letter-spacing:.04em;margin:0 0 6px}
+  .form .field{margin-bottom:16px}
+  .form input,.form textarea{width:100%;background:var(--panel-2);border:1px solid var(--border);border-radius:8px;
+    color:var(--text);font-family:var(--sans);font-size:15px;padding:11px 12px}
+  .form input:focus,.form textarea:focus{outline:none;border-color:var(--accent-dim)}
+  .form textarea{min-height:88px;resize:vertical}
+  .hp{position:absolute;left:-9999px}
+
+  footer{border-top:1px solid var(--border);padding:34px 0 60px;color:var(--dim);font-size:14px}
+  footer a{color:var(--muted)}
+  footer .row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .fine{color:var(--dim);font-size:13px;margin-top:10px;max-width:66ch}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="/" style="text-decoration:none"><b>oz</b>DNA</a>
+    <nav>
+      <a href="/comply/">complyDNA</a>
+      <a href="/origin/">originDNA</a>
+      <a href="/use-cases/immortal-mlro/" aria-current="page" style="color:var(--text)">Use cases</a>
+      <a href="#audit">Request an audit</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Use case · Autonomous compliance agent</p>
+      <h1>Immortal MLRO</h1>
+      <p class="lede">An autonomous compliance agent running on the ozDNA <strong>Council</strong> oversight runtime.
+        It classifies each decision by risk, escalates the high-risk ones to a multi-model vote with a veto,
+        writes every step to an append-only, hash-chained ledger, and hands an auditor a signed attestation.</p>
+      <div class="hero-actions">
+        <a class="cta" href="#audit">Request a compliance audit</a>
+        <a class="cta ghost" href="#how">See how it works</a>
+      </div>
+      <div style="margin-top:26px">
+        <span class="tag">EU AI Act Art. 9</span>
+        <span class="tag">Art. 12</span>
+        <span class="tag">Art. 13</span>
+        <span class="tag">Art. 14</span>
+        <span class="tag">MASAK / CASP context</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section>
+    <div class="wrap">
+      <p class="kicker">The problem</p>
+      <h2>Oversight is manual, spend is flat, and the evidence is scattered</h2>
+      <p class="lede" style="margin-bottom:26px">A Money Laundering Reporting Officer signs off on decisions a machine already made — but the reasoning, the model votes, and the trail that a regulator will ask for live in three different places, if they exist at all.</p>
+      <div class="grid3">
+        <div class="card"><p class="n">01</p><p>AI spend is <strong>disproportionate to risk</strong> — the same model cost is paid whether a decision is routine or high-stakes.</p></div>
+        <div class="card"><p class="n">02</p><p>Human oversight is <strong>manual and unrecorded</strong> — a sign-off happens, but the mechanism that produced it is not itself software.</p></div>
+        <div class="card"><p class="n">03</p><p>The evidence a regulator asks for is <strong>scattered</strong> — decision, rationale, and outcome are not one traceable, tamper-evident record.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="wrap">
+      <p class="kicker">How it works</p>
+      <h2>Classify → Route → Oversee → Prove</h2>
+      <p class="lede" style="margin-bottom:22px">The Immortal MLRO is the same four-stage runtime, wired to an anti-money-laundering workflow. Low-risk work goes to the cheapest sufficient model; a high-risk decision is escalated to the Council — where a 5× token cost is a deliberate insurance premium, not waste.</p>
+      <div class="flow">
+        <div class="step">
+          <div class="s">STEP 1</div>
+          <h3>Classify</h3>
+          <div class="comp">DT 5.0</div>
+          <p>Each case is placed on a risk tier — routine screening vs. a decision that carries regulatory weight.</p>
+        </div>
+        <div class="step">
+          <div class="s">STEP 2</div>
+          <h3>Route</h3>
+          <div class="comp">Risk-proportionate</div>
+          <p>Low risk → the cheapest model that clears the bar. High risk → the Council.</p>
+        </div>
+        <div class="step">
+          <div class="s">STEP 3</div>
+          <h3>Oversee</h3>
+          <div class="comp">Council</div>
+          <p>Multi-model vote with a veto and a fail-closed judge. Automation-over-reliance is designed out.</p>
+        </div>
+        <div class="step">
+          <div class="s">STEP 4</div>
+          <h3>Prove</h3>
+          <div class="comp">Ledger → Attestation</div>
+          <p>Decision, votes, rationale and outcome are written to an append-only, hash-chained log and rendered as an attestation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI ACT MAPPING -->
+  <section id="mapping">
+    <div class="wrap">
+      <p class="kicker">The distinctive part</p>
+      <h2>Each component implements a specific AI Act article</h2>
+      <p class="lede" style="margin-bottom:22px">This is not a compliance narrative bolted onto a product. Each runtime component maps to an obligation — and the mapping is the product.</p>
+      <div class="tbl-scroll">
+        <table class="tbl">
+          <thead><tr><th>ozDNA component</th><th>AI Act article</th><th>What it implements</th></tr></thead>
+          <tbody>
+            <tr><td class="comp">DT 5.0</td><td class="art">Art. 9</td><td>Risk management — work is placed on a risk tier continuously, across the lifecycle.</td></tr>
+            <tr><td class="comp">Council</td><td class="art">Art. 14</td><td>Human oversight in software — a stop/veto authority and a guard against over-reliance on automation.</td></tr>
+            <tr><td class="comp">Ledger</td><td class="art">Art. 12</td><td>Record-keeping — automatic event logging that is traceable and tamper-evident.</td></tr>
+            <tr><td class="comp">Attestation</td><td class="art">Art. 13</td><td>Transparency — the decision's rationale and its limits, presented to a deployer or auditor.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fine">ozDNA <em>implements, operationalises and evidences</em> these obligations. It makes no absolute compliance claim — that determination rests with the deployer and its regulator. Timeline anchors: Art. 50 transparency duties apply 2&nbsp;Aug&nbsp;2026; Annex&nbsp;III high-risk areas 2&nbsp;Dec&nbsp;2027; systems embedded in regulated products 2&nbsp;Aug&nbsp;2028. Dates should be re-verified before any public material ships.</p>
+    </div>
+  </section>
+
+  <!-- ATTESTATION MOCK -->
+  <section id="attestation">
+    <div class="wrap">
+      <p class="kicker">Live evidence</p>
+      <h2>A single decision, as it leaves the Ledger</h2>
+      <p class="lede" style="margin-bottom:22px">A redacted, illustrative attestation — the append-only record for one high-risk decision the Council reviewed.</p>
+      <div class="att">
+        <div class="head"><span class="t">attestation · immortal-mlro</span><span class="st">SEALED · APPEND-ONLY</span></div>
+<pre><span class="k">decision_id  </span> <span class="v">imr-2026-08-04-7Q31</span>
+<span class="k">risk_tier    </span> <span class="v">HIGH</span>  <span class="k">(DT 5.0 · Art. 9)</span>
+<span class="k">workflow     </span> AML transaction review
+<span class="k">routed_to    </span> Council  <span class="k">(Art. 14)</span>
+<span class="k">council_vote </span> 4 approve · 1 veto  →  <span class="r">HELD (fail-closed)</span>
+<span class="k">rationale    </span> counterparty pattern matched a high-risk typology;
+             one model raised an unresolved sanctions-list ambiguity.
+<span class="k">outcome      </span> escalated to human MLRO; not auto-cleared
+<span class="k">recorded     </span> 2026-08-04T09:41:22Z  <span class="k">(Ledger · Art. 12)</span>
+<span class="k">prev_hash    </span> <span class="k">a91f…c40d</span>
+<span class="k">this_hash    </span> <span class="v">3e77…8b12</span>  <span class="k">(hash-chained, append-only)</span>
+<span class="k">attested_to  </span> deployer + auditor  <span class="k">(Art. 13)</span></pre>
+        <div class="note">Illustrative mock, values redacted. No real case data. The veto path — a decision <em>held</em> rather than cleared — is the point: the record shows oversight actually bit.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO FOR -->
+  <section id="who">
+    <div class="wrap">
+      <p class="kicker">Who it's for</p>
+      <h2>Regulated operators under real audit pressure</h2>
+      <p class="lede" style="margin-bottom:20px">Built for the compliance-officer-and-CTO pair who decide together — the material has to speak both languages: the obligation and the integration.</p>
+      <div class="who">
+        <span>Crypto-asset service providers (CASP)</span>
+        <span>Regulated fintechs</span>
+        <span>Obliged AML entities</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FORM -->
+  <section id="audit">
+    <div class="wrap">
+      <p class="kicker">Next step</p>
+      <h2>Request a compliance audit</h2>
+      <p class="lede" style="margin-bottom:22px">Tell us which AI systems you run. The audit output is itself a classification report — the product demonstrates itself.</p>
+      <form class="form" name="audit-request" method="POST" data-netlify="true" netlify-honeypot="company-url" action="#audit">
+        <input type="hidden" name="form-name" value="audit-request" />
+        <p class="hp"><label>Do not fill this in <input name="company-url" tabindex="-1" autocomplete="off" /></label></p>
+        <div class="field"><label for="name">Name</label><input id="name" name="name" required /></div>
+        <div class="field"><label for="org">Organisation</label><input id="org" name="organisation" required /></div>
+        <div class="field"><label for="email">Work email</label><input id="email" name="email" type="email" required /></div>
+        <div class="field"><label for="sys">Which AI systems do you run?</label><textarea id="sys" name="ai_systems" placeholder="Models, workflows, where decisions are automated…"></textarea></div>
+        <button class="cta" type="submit">Request the audit</button>
+      </form>
+      <p class="fine">Submissions reach us by email — no CRM, no tracking beyond the form itself.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <div><span class="mono"><b style="color:var(--accent)">oz</b>DNA</span> — AI oversight infrastructure. Immortal MLRO is a use case, not a separate product.</div>
+      <div><a href="https://www.linkedin.com/">LinkedIn</a> · <a href="#audit">Request an audit</a></div>
+    </div>
+    <p class="fine">An AlignX Partners product. No absolute compliance claims are made anywhere on this page; ozDNA implements, supports and evidences the obligations described. AI Act article numbers and dates are current as of writing and must be re-verified before publication.</p>
+  </div>
+</footer>
+
+</body>
+</html>
