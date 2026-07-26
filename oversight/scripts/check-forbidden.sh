@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Forbidden-word gate for the ozDNA (AlignX oversight) site.
-# Acceptance criterion from docs/alignx/website-spec.md: no page may contain
+# Forbidden-word gate for the ozDNA oversight site (ozdna.com/oversight).
+# Acceptance criterion from docs/oversight/website-spec.md: no page may contain
 # BrainStack, Solana, blockchain, on-chain, humanizer, or ozDNA spelling variants,
 # and no absolute compliance promise ("guarantee/ensure compliance").
-# Usage: scripts/check-forbidden.sh   (run from docs/alignx/site/)
+# Usage: scripts/check-forbidden.sh   (run from oversight/)
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"

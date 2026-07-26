@@ -22,7 +22,7 @@ internal-path 404s actually apply (GitHub Pages supports none of them).
 | **Source** | Connect to GitHub repo `ebruozpolat/ozdna-com`, branch `main`, publish dir `.` (no build command) |
 | **Domains** | `ozdna.com` (primary) + `www.ozdna.com` (redirects to apex via `netlify.toml`) |
 | **Forms** | `origindna-waitlist` (on `/products/origin/`) — enable form detection in Site settings → Forms |
-| **Content** | `/` ozDNA umbrella · `/products/comply/` ComplyDNA · `/products/origin/` OriginDNA waitlist |
+| **Content** | `/` ozDNA umbrella · `/products/comply/` ComplyDNA · `/products/origin/` OriginDNA waitlist · `/verify/` public verify page · `/oversight/` AI-oversight product line (source in repo-root `oversight/`; see `docs/oversight/README.md`) |
 
 ### One-time console steps (founder)
 
