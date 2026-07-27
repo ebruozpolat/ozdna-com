@@ -33,11 +33,12 @@ app/
 ```
 
 ## Not built yet (need infra / secrets / decisions — later batches)
-- `apps/api` routes beyond health/waitlist/verify (Hono: `/v1/sign-digest`, `/v1/marks`, registrations, …)
+- `POST /v1/marks` full-image server pipeline (Workers Paid + CF deploy)
 - Live Base anchoring (adapter wired; needs CF Secrets + deployed OzDnaAnchor)
-- `apps/web` (Astro sign/verify SPA loading `@contentauth/c2pa-web` WASM)
-- workerd Vitest pool for D1 integration; Workers `@cf-wasm/photon` cross-decoder assert
-- Cloudflare account bindings (D1/R2/KV), production signing cert chain, Base gas wallet — founder-provisioned
+- Cloudflare account bindings (real D1 id / R2 / KV), production signing cert, Base gas wallet — founder-provisioned
+- Netlify (or Pages) publish of `apps/web/dist` as public deep-verify URL
+
+Landed polish: Vite `@ozdna/web` Wasm verify UI; `npm run test:workers` (vitest-pool-workers + D1 waitlist).
 
 See `TOOLCHAIN.md` for TypeScript / Vitest / drizzle / BaseAdapter pins vs the corpus.
 
@@ -45,9 +46,11 @@ See `TOOLCHAIN.md` for TypeScript / Vitest / drizzle / BaseAdapter pins vs the c
 ```bash
 cd app
 npm install
-npm test          # vitest — packages + apps
+npm test          # vitest (packages + health) then test:workers (D1)
+npm run test:workers
 npm run typecheck # tsc --noEmit (strict + noUncheckedIndexedAccess)
 npm run certs:dev # local P-256 self-signed PEMs → certs/dev/
+npm run dev -w @ozdna/web   # C2PA Wasm verify SPA
 npm run db:generate # drizzle-kit → apps/api/drizzle/ (diff check; do not overwrite migrations/0001)
 ```
 

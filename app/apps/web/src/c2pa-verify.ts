@@ -1,53 +1,70 @@
 /**
- * Browser-only C2PA verify helper for the OriginDNA SPA.
- *
- * `@contentauth/c2pa-web` is a WASM-backed browser SDK (Web Worker + Wasm).
- * It does not run in Node. Call this from client code after bundling Wasm
- * (Vite `?url` import or CDN / inline build — see package README).
- *
- * @example
- * ```ts
- * import wasmSrc from '@contentauth/c2pa-web/resources/c2pa.wasm?url';
- * const store = await verifyC2pa(file, { wasmSrc });
- * ```
+ * Browser C2PA verify — @contentauth/c2pa-web Wasm.
+ * Never claim official trust-list status (ozDNA hard rule 5).
  */
 
-import { createC2pa } from '@contentauth/c2pa-web';
+import { createC2pa } from "@contentauth/c2pa-web";
+import wasmSrc from "@contentauth/c2pa-web/resources/c2pa.wasm?url";
 
-export type VerifyC2paOptions = {
-  /** URL (or Vite-resolved URL) of the c2pa Wasm binary. Required unless using the `/inline` entry. */
-  wasmSrc: string;
-  /** MIME type when `input` is an ArrayBuffer (default: application/octet-stream). */
-  mimeType?: string;
-};
+export type C2paVerifyResult =
+  | { ok: true; hasManifest: true; summary: string; raw: unknown }
+  | { ok: true; hasManifest: false; summary: string }
+  | { ok: false; summary: string; error: string };
 
-/**
- * Read and return the C2PA manifest store for an image (or other supported asset).
- * Frees the underlying reader when done.
- */
-export async function verifyC2pa(
-  input: File | ArrayBuffer,
-  options: VerifyC2paOptions,
-): Promise<unknown | null> {
-  const mimeType =
-    input instanceof File
-      ? input.type || options.mimeType || 'application/octet-stream'
-      : options.mimeType || 'application/octet-stream';
+let c2paPromise: ReturnType<typeof createC2pa> | null = null;
 
-  const blob =
-    input instanceof File
-      ? input
-      : new Blob([input], { type: mimeType });
+function getC2pa() {
+  if (!c2paPromise) c2paPromise = createC2pa({ wasmSrc });
+  return c2paPromise;
+}
 
-  const c2pa = await createC2pa({ wasmSrc: options.wasmSrc });
-  const maybeReader = await c2pa.reader.fromBlob(mimeType, blob);
-  if (!maybeReader) {
-    return null;
+export async function verifyC2pa(file: File): Promise<C2paVerifyResult> {
+  const mime = file.type || "application/octet-stream";
+  if (mime !== "image/jpeg" && mime !== "image/png") {
+    return {
+      ok: false,
+      summary: "v1 verifies JPG/PNG only.",
+      error: "unsupported_type",
+    };
   }
-  const reader = maybeReader;
+
   try {
-    return await reader.manifestStore();
-  } finally {
-    await reader.free();
+    const c2pa = await getC2pa();
+    const reader = await c2pa.reader.fromBlob(mime, file);
+    if (!reader) {
+      return {
+        ok: true,
+        hasManifest: false,
+        summary:
+          "No C2PA manifest found. Most web images are unsigned — that does not mean they are fake.",
+      };
+    }
+    try {
+      const store = await reader.manifestStore();
+      const active = (store as { active?: { label?: string; claim_generator?: string } })
+        ?.active;
+      const label = active?.label ?? "manifest";
+      const gen = active?.claim_generator ?? "unknown generator";
+      return {
+        ok: true,
+        hasManifest: true,
+        summary: `Manifest present (${label}). Claim generator: ${gen}. Cryptographic structure readable in-browser — this is NOT an official Content Credentials trust-list verdict.`,
+        raw: store,
+      };
+    } finally {
+      await reader.free();
+    }
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : String(e);
+    // Broken/tampered manifests often throw — surface honestly.
+    if (/signatur|valid|manifest|c2pa/i.test(msg)) {
+      return {
+        ok: false,
+        summary:
+          "A C2PA structure was detected but could not be validated (broken or unsupported). No trust-list claim is made.",
+        error: msg,
+      };
+    }
+    return { ok: false, summary: "C2PA reader failed.", error: msg };
   }
 }
