@@ -1,0 +1,14 @@
+{
+  "name": "@ozdna/anchor-backends",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Chain-agnostic anchoring boundary (plan/01 §6): AnchorBackend interface + NullAdapter (dev/test, pure). BaseAdapter (viem) intentionally lives with apps/anchor to keep the chain SDK out of every other package (§6 rule 1).",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": { ".": "./src/index.ts" },
+  "dependencies": {
+    "@ozdna/dna-core": "*"
+  },
+  "scripts": { "test": "vitest run" }
+}

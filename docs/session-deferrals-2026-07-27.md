@@ -47,7 +47,7 @@ things I decided silently that were yours to decide.
 | C4 | ~~Merkle: tested by round-trip only~~ | **CLOSED** — committed cross-impl vectors at `app/packages/dna-core/test/fixtures/vectors.json` + `vectors.test.ts` (leaf hashes, root, inclusion proof). |
 | C5 | pHash: committed **math** vectors (RGBA→hash) now lock the algorithm — but the mandated **golden-IMAGE corpus** (real JPEG/PNG incl. EXIF Orientation=6, near-flat; cross-decoder d≤2) is still missing; **EXIF step-0 orientation stays untested** | PARTIAL — needs the platform decode layer (browser `createImageBitmap` / Workers `@cf-wasm/photon`), not built. plan/03 §1.3/§7 |
 | C6 | `contracts/OzDnaAnchor.sol` not written | `forge` unavailable here to test (plan/03 §3.5) |
-| C7 | `packages/anchor-backends` (NullAdapter/BaseAdapter) not written | — |
+| C7 | `packages/anchor-backends` | **PARTIAL** — `AnchorBackend`/`AnchorReceipt`/`AnchorStatus` interface (plan/01 §6) + **`NullAdapter`** shipped (pure, idempotent, verified against a real dna-core Merkle root; 5 tests). **`BaseAdapter` (viem) deliberately NOT here** — §6 rule 1 keeps the chain SDK out of shared packages; it belongs in `apps/anchor` (not built). |
 
 ---
 
