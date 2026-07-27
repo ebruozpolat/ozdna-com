@@ -7,15 +7,18 @@
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
     "typecheck": "tsc --noEmit -p tsconfig.json",
-    "test": "vitest run"
+    "test": "vitest run",
+    "db:generate": "drizzle-kit generate --config drizzle.config.ts"
   },
   "dependencies": {
     "@ozdna/dna-core": "*",
+    "drizzle-orm": "0.45.2",
     "hono": "^4.11.3",
     "zod": "^4.4.3"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20260110.0",
+    "drizzle-kit": "0.31.10",
     "typescript": "6.0.3",
     "vitest": "4.1.10",
     "wrangler": "^4.59.2"

@@ -112,3 +112,15 @@ footer{border-top:1px solid var(--border);padding:34px 0 60px;color:var(--dim);f
 footer a{color:var(--muted)}
 footer .row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .fine{color:var(--dim);font-size:13px;margin-top:10px;max-width:66ch}
+
+/* concept / marketing labeling (Immortal MLRO etc.) */
+.concept-notice{
+  background:rgba(224,180,83,.08);
+  border-bottom:1px solid rgba(224,180,83,.35);
+  color:var(--text);
+  font-size:14.5px;
+  line-height:1.5;
+  padding:12px 0;
+}
+.concept-notice strong{color:var(--warn);font-weight:640;font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:4px}
+.concept-notice p{margin:0;color:var(--muted);font-size:14.5px;max-width:72ch}

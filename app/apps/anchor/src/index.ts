@@ -1,7 +1,8 @@
 // Anchor cron Worker — batches pending records, Merkle-roots, submits via adapter.
-// Spec: plan/04-MVP-SPEC.md §6, plan/03 §3. Uses NullAdapter until Base keys are set.
+// Spec: plan/04-MVP-SPEC.md §6, plan/03 §3.
+// Uses BaseAdapter when ANCHOR_BACKEND=base and Secrets are present; else NullAdapter.
 
-import { NullAdapter } from "@ozdna/anchor-backends";
+import { BaseAdapter, NullAdapter, type AnchorBackend } from "@ozdna/anchor-backends";
 import {
   buildTree,
   hashLeaf,
@@ -40,6 +41,37 @@ export default {
     return Response.json({ error: "not_found" }, { status: 404 });
   },
 };
+
+function resolveAdapter(env: Env): { adapter: AnchorBackend; skipped?: string } {
+  if (env.ANCHOR_BACKEND === "base") {
+    const rpcUrl = env.BASE_RPC_URL;
+    const privateKey = env.ANCHOR_PRIVATE_KEY;
+    const contractAddress = env.ANCHOR_CONTRACT_ADDRESS;
+    if (
+      !rpcUrl ||
+      !privateKey?.startsWith("0x") ||
+      !contractAddress?.startsWith("0x")
+    ) {
+      return {
+        adapter: new NullAdapter(),
+        skipped: "base_backend_missing_secrets",
+      };
+    }
+    const chainId =
+      rpcUrl.includes("sepolia") || env.ENVIRONMENT !== "production"
+        ? "base-sepolia"
+        : "base-mainnet";
+    return {
+      adapter: new BaseAdapter({
+        chainId,
+        rpcUrl,
+        contractAddress: contractAddress as `0x${string}`,
+        operatorPrivateKey: privateKey as `0x${string}`,
+      }),
+    };
+  }
+  return { adapter: new NullAdapter() };
+}
 
 async function runAnchorBatch(env: Env): Promise<{
   ok: boolean;
@@ -94,19 +126,19 @@ async function runAnchorBatch(env: Env): Promise<{
     .bind(batchId, rootHex, records.length)
     .run();
 
-  if (env.ANCHOR_BACKEND === "base") {
+  const { adapter, skipped } = resolveAdapter(env);
+  if (skipped) {
     return {
       ok: false,
       picked: records.length,
       batchId,
       root: rootHex,
       txid: null,
-      skipped: "base_backend_not_configured",
+      skipped,
     };
   }
 
-  const adapter = new NullAdapter();
-  const receipt = await adapter.anchor(tree.root, batchId);
+  const receipt = await adapter.anchor(tree.root, batchId, records.length);
 
   await env.DB.prepare(
     `UPDATE anchor_batches SET status = ?, tx_hash = ? WHERE id = ?`,

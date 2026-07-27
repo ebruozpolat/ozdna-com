@@ -17,6 +17,11 @@ describe("NullAdapter", () => {
     await expect(adapter.anchor(new Uint8Array(16), "bat_x")).rejects.toThrow(/32 bytes/);
   });
 
+  it("passes optional leafCount through raw", async () => {
+    const receipt = await adapter.anchor(root, "bat_lc", 7);
+    expect(receipt.raw?.leafCount).toBe(7);
+  });
+
   it("explorerUrl is a null:// debug link", async () => {
     const receipt = await adapter.anchor(root, "bat_01");
     expect(adapter.explorerUrl(receipt)).toMatch(/^null:\/\/anchor\//);

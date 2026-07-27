@@ -33,9 +33,10 @@ Korpus dokümanlarının gövdesi kaynak olarak korunur; yukarıdaki düzeltme b
 | Blockchain | Görünmez altyapı (var ama gizli) | Solana çıkarıldı, yerine hash-chained log |
 | AI tespiti | v1'de yasak ("provenance, not detection") | DT motoru (AI dedektör) merkezi "canlı kanıt" |
 
-> **Açık kalan marka kararı:** İki hat da `complyDNA` / `originDNA` isimlerini farklı
-> şeyler için kullanıyor. Şimdilik **yol ayrımı** (`/` vs `/oversight`) bunu yönetiyor;
-> isimlerin uzun vadede aynı kalıp kalmayacağı ayrı bir marka kararıdır (ertelendi).
+> **Canlı mimari (path-split):** İki hat da `complyDNA` / `originDNA` isimlerini farklı
+> şeyler için kullanır. Bu, ertelenmiş bir karar değildir — **yol ayrımı canlı ürün
+> mimarisidir:** content-provenance `/products/*` + `/verify`; AI-oversight `/oversight/*`.
+> Yeni ürün adı uydurulmaz. Ayrıntı: `brand-architecture.md` §0.
 
 ## Bu klasördeki dosyalar
 

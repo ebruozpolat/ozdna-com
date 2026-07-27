@@ -212,22 +212,23 @@
           <div class="mk" id="c-c2pa-mk">•</div>
           <div>
             <h4>C2PA manifest — presence scan</h4>
-            <p class="sub" id="c-c2pa-sub">We scan the file bytes for an embedded C2PA manifest. Presence is detected here; full cryptographic validation runs in the signed pipeline.</p>
+            <p class="sub" id="c-c2pa-sub">We scan the file bytes for an embedded C2PA manifest. Full cryptographic validation (Wasm) ships in <code>apps/web</code> via <code>@contentauth/c2pa-web</code>.</p>
           </div>
         </div>
 
-        <div class="rgroup">Needs the OriginDNA registry — shown illustratively</div>
+        <div class="rgroup">OriginDNA registry</div>
 
-        <div class="check dim">
-          <div class="mk hold">◔</div>
+        <div class="check" id="c-anchor-row">
+          <div class="mk" id="c-anchor-mk">•</div>
           <div>
             <h4>Anchored timestamp — "existed by"</h4>
-            <p class="sub">A registry lookup returns the anchored date no one can backdate — no account, no trusting us. Wired with the MVP. Sample: <code>2026-08-04 09:41 UTC</code>.</p>
+            <p class="sub" id="c-anchor-sub">Looks up your content hash in the OriginDNA registry (no upload of the image — hash only). Set <code>window.__OZDNA_API__</code> or defaults to <code>https://api.ozdna.com</code>.</p>
+            <div class="kv" id="c-anchor-kv" style="display:none"></div>
           </div>
         </div>
       </div>
     </div>
-    <p class="fine" style="margin-top:18px">The content hash, perceptual fingerprint, re-encode test and C2PA-manifest scan run live in your browser — nothing is uploaded. Only the anchored-timestamp lookup needs the OriginDNA registry (MVP) and is shown illustratively.</p>
+    <p class="fine" style="margin-top:18px">Hash, fingerprint, re-encode test and C2PA presence run in your browser — the image is not uploaded. Registry lookup sends only the SHA-256 hex to the API when reachable.</p>
   </div>
 </section>
 
@@ -422,10 +423,11 @@
       fn.textContent = f.name + ' · ' + Math.round(f.size / 1024) + ' KB';
       badge.textContent = 'YOUR FILE';
       ['c-hash-kv', 'c-phash-kv', 'c-strip-kv'].forEach(function (id) { $(id).style.display = 'none'; });
-      ['c-hash-mk', 'c-phash-mk', 'c-strip-mk', 'c-c2pa-mk'].forEach(function (id) { setMk(id, '…', 'spin'); });
+      ['c-hash-mk', 'c-phash-mk', 'c-strip-mk', 'c-c2pa-mk', 'c-anchor-mk'].forEach(function (id) { setMk(id, '…', 'spin'); });
+      $('c-anchor-kv').style.display = 'none';
 
       if (!okType) {
-        ['c-hash-mk', 'c-phash-mk', 'c-strip-mk', 'c-c2pa-mk'].forEach(function (id) { setMk(id, '✕', ''); });
+        ['c-hash-mk', 'c-phash-mk', 'c-strip-mk', 'c-c2pa-mk', 'c-anchor-mk'].forEach(function (id) { setMk(id, '✕', ''); });
         $('c-c2pa-sub').textContent = 'v1 verifies JPG and PNG images. This file is ' + (f.type || 'an unknown type') + '.';
         return;
       }
@@ -437,6 +439,29 @@
         sha256Hex(buf).then(function (hex) {
           $('c-hash-val').textContent = shortHex(hex); $('c-hash-val').title = hex;
           $('c-hash-kv').style.display = ''; setMk('c-hash-mk', '✓', 'ok');
+
+          // Registry lookup (hash only — no image upload)
+          var apiBase = (window.__OZDNA_API__ || 'https://api.ozdna.com').replace(/\/$/, '');
+          fetch(apiBase + '/v1/verify?hash=' + encodeURIComponent(hex))
+            .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error('api ' + r.status)); })
+            .then(function (body) {
+              var kv = $('c-anchor-kv');
+              if (body.verdict === 'NO_RECORD' || !body.record) {
+                setMk('c-anchor-mk', '•', 'hold');
+                $('c-anchor-sub').textContent = 'No OriginDNA registry record for this exact file (SHA-256). That is normal for most images on the web.';
+                kv.style.display = 'none';
+              } else {
+                setMk('c-anchor-mk', '✓', 'ok');
+                $('c-anchor-sub').textContent = 'Registry hit: ' + (body.verdict || 'match') + '.';
+                kv.textContent = (body.record.id || '') + ' · status ' + (body.record.status || '') +
+                  (body.record.anchoredAt ? ' · anchored ' + body.record.anchoredAt : ' · created ' + (body.record.createdAt || ''));
+                kv.style.display = '';
+              }
+            })
+            .catch(function () {
+              setMk('c-anchor-mk', '◔', 'hold');
+              $('c-anchor-sub').textContent = 'Registry API not reachable yet (Workers deploy pending). Local checks above still ran in your browser.';
+            });
 
           // 3) re-encode survival (needs image + original hash)
           loadImage(url).then(function (img) {

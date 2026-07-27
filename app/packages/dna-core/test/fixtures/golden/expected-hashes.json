@@ -1,6 +1,7 @@
 {
-  "_note": "OzDNA pHash v1 golden-image corpus (plan/03 §1.3, plan/09 §7). Hashes computed via jpeg-js/pngjs decode + dna-core applyOrientation + phashFromRgba. Same decoder family must match exactly; cross-decoder (e.g. photon) tolerance d≤2.",
-  "_decoder": "jpeg-js@0.4 + pngjs (Node test path); EXIF via dna-core readJpegOrientation + applyOrientation",
+  "_note": "OzDNA pHash v1 golden-image corpus (plan/03 §1.3). Node = jpeg-js/pngjs; photon = @cf-wasm/photon 0.3.6. Cross-decoder Hamming must be ≤2.",
+  "_decoder_node": "jpeg-js + pngjs + dna-core orient",
+  "_decoder_photon": "@cf-wasm/photon@0.3.6 + dna-core orient",
   "images": [
     {
       "file": "01-gradient.png",
@@ -12,6 +13,8 @@
       "displayWidth": 64,
       "displayHeight": 48,
       "phash16": "80025e2e7b3f972b",
+      "phash16_photon": "80025e2e7b3f972b",
+      "cross_decoder_hamming": 0,
       "bands": {
         "band0": 32770,
         "band1": 24110,
@@ -29,6 +32,8 @@
       "displayWidth": 64,
       "displayHeight": 64,
       "phash16": "d7aa65aa20aad5aa",
+      "phash16_photon": "d7aa65aa20aad5aa",
+      "cross_decoder_hamming": 0,
       "bands": {
         "band0": 55210,
         "band1": 26026,
@@ -46,6 +51,8 @@
       "displayWidth": 48,
       "displayHeight": 48,
       "phash16": "97027d826d82ff82",
+      "phash16_photon": "97027d826d82ff82",
+      "cross_decoder_hamming": 0,
       "bands": {
         "band0": 38658,
         "band1": 32130,
@@ -63,6 +70,8 @@
       "displayWidth": 72,
       "displayHeight": 56,
       "phash16": "f7b680b300b3d5b2",
+      "phash16_photon": "f7b680b300b3d5b2",
+      "cross_decoder_hamming": 0,
       "bands": {
         "band0": 63414,
         "band1": 32947,
@@ -79,12 +88,14 @@
       "fileOrientation": 1,
       "displayWidth": 80,
       "displayHeight": 80,
-      "phash16": "916f668e197366c8",
+      "phash16": "916666991977669c",
+      "phash16_photon": "917266991977669c",
+      "cross_decoder_hamming": 2,
       "bands": {
-        "band0": 37231,
-        "band1": 26254,
-        "band2": 6515,
-        "band3": 26312
+        "band0": 37222,
+        "band1": 26265,
+        "band2": 6519,
+        "band3": 26268
       }
     },
     {
@@ -96,15 +107,17 @@
       "fileOrientation": 6,
       "displayWidth": 64,
       "displayHeight": 96,
-      "phash16": "8228ff28f70aff08",
+      "phash16": "d728665a076ab55a",
+      "phash16_photon": "d728665a076ab55a",
+      "cross_decoder_hamming": 0,
       "bands": {
-        "band0": 33320,
-        "band1": 65320,
-        "band2": 63242,
-        "band3": 65288
+        "band0": 55080,
+        "band1": 26202,
+        "band2": 1898,
+        "band3": 46426
       },
-      "phash16_without_step0": "aad555d514d582d5",
-      "hamming_step0_delta": 44
+      "phash16_without_step0": "82b77b823f9aa282",
+      "hamming_step0_delta": 33
     }
   ]
 }

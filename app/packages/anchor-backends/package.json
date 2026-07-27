@@ -3,10 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "Chain-agnostic AnchorBackend interface + NullAdapter (dev) + BaseAdapter stub. Spec: plan/01 §6.",
+  "description": "Chain-agnostic AnchorBackend interface + NullAdapter (dev) + BaseAdapter (viem). Spec: plan/01 §6.",
   "main": "./src/index.ts",
   "types": "./src/index.ts",
   "exports": {
     ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "viem": "2.54.6"
   }
 }

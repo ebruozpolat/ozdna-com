@@ -14,3 +14,4 @@ export * from "./orient.js";
 export * from "./exif.js";
 // Node/test decode path (jpeg-js + pngjs). Workers use photon + applyOrientation.
 export * from "./decode-node.js";
+export * from "./decode-photon.js";
