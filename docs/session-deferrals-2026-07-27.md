@@ -44,8 +44,8 @@ things I decided silently that were yours to decide.
 | C1 | `dna-core` **PDQ-256** not implemented | needs the `pdq-wasm` build spike (plan/03 §1.4) |
 | C2 | `dna-core` **zod schemas** | listed "to add"; **in progress this turn** (`schema.ts`) |
 | C3 | `dna-core` **verdict enum + copy + threshold map** | **in progress this turn** (`verdict.ts`, verbatim §6.3) |
-| C4 | Merkle: tested by **round-trip only** | plan/03 §7 wants committed cross-impl **test vectors** — not added yet |
-| C5 | pHash: tested with **synthetic property tests**, not the mandated **golden-image corpus** (≥5 images incl. one with EXIF Orientation=6, one near-flat); **EXIF step-0 orientation is platform-side and untested** | plan/03 §1.3/§7 — real regression fixtures missing |
+| C4 | ~~Merkle: tested by round-trip only~~ | **CLOSED** — committed cross-impl vectors at `app/packages/dna-core/test/fixtures/vectors.json` + `vectors.test.ts` (leaf hashes, root, inclusion proof). |
+| C5 | pHash: committed **math** vectors (RGBA→hash) now lock the algorithm — but the mandated **golden-IMAGE corpus** (real JPEG/PNG incl. EXIF Orientation=6, near-flat; cross-decoder d≤2) is still missing; **EXIF step-0 orientation stays untested** | PARTIAL — needs the platform decode layer (browser `createImageBitmap` / Workers `@cf-wasm/photon`), not built. plan/03 §1.3/§7 |
 | C6 | `contracts/OzDnaAnchor.sol` not written | `forge` unavailable here to test (plan/03 §3.5) |
 | C7 | `packages/anchor-backends` (NullAdapter/BaseAdapter) not written | — |
 
