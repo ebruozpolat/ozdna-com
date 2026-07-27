@@ -21,9 +21,9 @@ below. C2/C3/C4 closed on the organize tip + this pass. Remaining B/C/D/E stay e
 | A5 | **Toolchain divergences unflagged** — plain Vitest; raw SQL vs drizzle. | FIXED (documented + stub) — `app/TOOLCHAIN.md`; drizzle twin at `app/apps/api/src/db/schema.ts`. workerd Vitest pool deferred until Workers apps land (called out, not silent). |
 | A6 | **TypeScript version** — auto-bump to `^7.0.2`; corpus pins **6.0.3**. | FIXED — `app/package.json` pins `typescript` to `6.0.3` (exact). |
 | A7 | **Immortal MLRO first built with production-absolute nav paths** before `/oversight` location decided. | FIXED (path-split). |
-| A8 | **Lighthouse ≥95** asserted without measuring | FIXED — measured 2026-07-27 (local, Lighthouse 12.8.2); see addendum. |
-| A9 | **Verify link wiring partial** (OriginDNA only) | See addendum. |
-| A10 | **Forbidden-word gate** scoped to oversight only, not `/verify` | See addendum. |
+| A8 | **Lighthouse ≥95** asserted without measuring | FIXED — measured; `/oversight/` + `/oversight/tr/` all 100 (see addendum + `lighthouse-2026-07-27.md`). |
+| A9 | **Verify link wiring partial** (OriginDNA only) | FIXED — home + ComplyDNA EN/TR nav/footer. |
+| A10 | **Forbidden-word gate** scoped to oversight only, not `/verify` | FIXED — script + CI scan verify pages (banned-term subset). |
 
 ---
 
