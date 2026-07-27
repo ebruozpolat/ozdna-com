@@ -4,6 +4,8 @@
 Tek kritik yol: **marka kilidi → temizlik teyidi → tek sayfa site → ücretli pilot → Pre-Accelerator.**
 Her yeni fikir için test sorusu: "Bu, imzalı pilotu hızlandırıyor mu?" Hayırsa → `deferred.md`'ye.
 
+> **Durum (27 Tem 2026):** Site kısmı repo'da hazır — oversight sitesi `ozdna.com/oversight/` altında (kaynak: repo-kökü `oversight/`), EN+TR, PR #36. **Deploy + kamuya açılış, Hafta 2–3 TezMakale temizlik teyidine bağlı (bloke edici).** Ertelenen kararlar: `deferred.md`.
+
 ## Hafta 1 — Marka Kilidi
 - [ ] ozdna.com domain kontrol/satın alma; ozdna.ai/.io yalnızca redirect
 - [ ] EUIPO + TÜRKPATENT taraması: ozDNA, complyDNA, originDNA (sınıf 9, 42)
@@ -14,12 +16,12 @@ Her yeni fikir için test sorusu: "Bu, imzalı pilotu hızlandırıyor mu?" Hay�
 - [ ] Teyit gelmeden ozDNA kamuya açık hiçbir yüzeyde lansmanlanmaz
 
 ## Hafta 3–4 — Site
-- [ ] website-spec.md'ye göre ozdna.com inşası (Claude Code ana görevi)
-- [ ] Immortal MLRO use-case sayfası: mevcut prototipten Solana temizlenmiş devşirme
-- [ ] Eski deck/memo'larda tarih revizyonu (2026 → 2027 Annex III)
+- [x] website-spec.md'ye göre site inşası (Claude Code ana görevi) — *oversight sitesi `/oversight/` altında, EN+TR, paylaşılan CSS, yasak-kelime gate; PR #36. Deploy bekliyor.*
+- [x] Immortal MLRO use-case sayfası: Solana'sız, Council-runtime çerçevesiyle sıfırdan yazıldı (repoda prototip yoktu) — `/oversight/use-cases/immortal-mlro/`; PR #36.
+- [ ] Eski deck/memo'larda tarih revizyonu (2026 → 2027 Annex III) — *repoda deck/memo yok; harici dosya verilirse yapılır.*
 
 ## Ay 2 — Pilot Hattı
-- [ ] AlignX audit teklifi → complyDNA sınıflandırma raporu formatına bağlanır (şablon üret)
+- [x] complyDNA sınıflandırma raporu **şablonu** üretildi — `docs/oversight/complydna-classification-report-template.md` (PR #36); audit teklifinin kendisi danışmanlık/founder tarafı.
 - [ ] 10 hedef kurum listesi: TR KVHS + regüle fintech; her biri için tek cümlelik giriş açısı
 - [ ] HalalVest teklifi (2026-001) ozDNA modülünü içerecek şekilde revize
 - [ ] CoinTR iç kullanımı: teknik doğrulama vakası olarak dokümante (traction değil, validation)
