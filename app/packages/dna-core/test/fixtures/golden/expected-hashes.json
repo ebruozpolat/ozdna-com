@@ -1,5 +1,5 @@
 {
-  "_note": "OzDNA pHash v1 golden-image corpus (plan/03 §1.3). Node = jpeg-js/pngjs; photon = @cf-wasm/photon 0.3.6. Cross-decoder Hamming must be ≤2.",
+  "_note": "OzDNA pHash v1 + PDQ-256 golden corpus (plan/03 §1.3/§1.4). pHash locks unchanged; PDQ via pdq-wasm@0.3.9. Low quality → pdq256 null (unusable).",
   "_decoder_node": "jpeg-js + pngjs + dna-core orient",
   "_decoder_photon": "@cf-wasm/photon@0.3.6 + dna-core orient",
   "images": [
@@ -20,7 +20,10 @@
         "band1": 24110,
         "band2": 31551,
         "band3": 38699
-      }
+      },
+      "pdq256": null,
+      "pdq_quality": 2,
+      "pdq_usable": false
     },
     {
       "file": "02-checker.png",
@@ -39,7 +42,10 @@
         "band1": 26026,
         "band2": 8362,
         "band3": 54698
-      }
+      },
+      "pdq256": "570a554b75aa2c4bfd0a0077570a085d02df205720f75d282aff1134207f7722",
+      "pdq_quality": 100,
+      "pdq_usable": true
     },
     {
       "file": "03-near-flat.png",
@@ -58,7 +64,10 @@
         "band1": 32130,
         "band2": 28034,
         "band3": 65410
-      }
+      },
+      "pdq256": null,
+      "pdq_quality": 0,
+      "pdq_usable": false
     },
     {
       "file": "04-stripes-v.png",
@@ -77,7 +86,10 @@
         "band1": 32947,
         "band2": 179,
         "band3": 54706
-      }
+      },
+      "pdq256": "580827ff58085800a7fff7af7baa080827bf0850a7f7580aa7f773aa1808a7f7",
+      "pdq_quality": 100,
+      "pdq_usable": true
     },
     {
       "file": "05-radial.jpg",
@@ -96,7 +108,10 @@
         "band1": 26265,
         "band2": 6519,
         "band3": 26268
-      }
+      },
+      "pdq256": null,
+      "pdq_quality": 45,
+      "pdq_usable": false
     },
     {
       "file": "06-portrait-orient6.jpg",
@@ -117,7 +132,11 @@
         "band3": 46426
       },
       "phash16_without_step0": "82b77b823f9aa282",
-      "hamming_step0_delta": 33
+      "hamming_step0_delta": 33,
+      "pdq256": null,
+      "pdq_quality": 25,
+      "pdq_usable": false
     }
-  ]
+  ],
+  "_decoder_pdq": "pdq-wasm@0.3.9 via @ozdna/dna-core/pdq-node"
 }

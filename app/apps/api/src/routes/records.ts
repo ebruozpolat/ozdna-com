@@ -1,3 +1,4 @@
+import { hashToHex, toHex, toUnsignedU64 } from "@ozdna/dna-core";
 import { Hono } from "hono";
 import type { Env } from "../env.js";
 
@@ -6,7 +7,7 @@ export const recordRoutes = new Hono<{ Bindings: Env }>();
 recordRoutes.get("/records/:id", async (c) => {
   const id = c.req.param("id");
   const row = await c.env.DB.prepare(
-    `SELECT r.id, r.kind, r.sha256, r.phash64, r.status, r.created_at, r.anchored_at,
+    `SELECT r.id, r.kind, r.sha256, r.phash64, r.pdq256, r.status, r.created_at, r.anchored_at,
             r.title, r.file_mime, r.anchor_batch_id, u.display_name AS creator_display
      FROM records r
      LEFT JOIN users u ON u.id = r.user_id
@@ -19,6 +20,7 @@ recordRoutes.get("/records/:id", async (c) => {
       kind: string;
       sha256: string;
       phash64: number;
+      pdq256: ArrayBuffer | null;
       status: string;
       created_at: string;
       anchored_at: string | null;
@@ -30,11 +32,18 @@ recordRoutes.get("/records/:id", async (c) => {
 
   if (!row) return c.json({ error: "not_found" }, 404);
 
+  const pdq =
+    row.pdq256 && new Uint8Array(row.pdq256).byteLength === 32
+      ? toHex(new Uint8Array(row.pdq256))
+      : null;
+
   return c.json({
     id: row.id,
     kind: row.kind,
     sha256: row.sha256,
     phash64: row.phash64,
+    phash: hashToHex(toUnsignedU64(BigInt(row.phash64))),
+    pdq256: pdq,
     status: row.status,
     created_at: row.created_at,
     anchored_at: row.anchored_at,

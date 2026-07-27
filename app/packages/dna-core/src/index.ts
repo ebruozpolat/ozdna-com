@@ -11,6 +11,7 @@
 export * from "./bands.js";
 export * from "./exif.js";
 export * from "./leaf.js";
+export * from "./match.js";
 export * from "./merkle.js";
 export * from "./orient.js";
 export * from "./pdq.js";

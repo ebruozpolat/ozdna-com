@@ -31,12 +31,21 @@ paths:
         "200": { description: Already registered }
   /v1/verify:
     get:
-      summary: Registry lookup by content hash
+      summary: Exact (hash=) or perceptual (phash= + optional pdq=) registry lookup
       parameters:
         - name: hash
           in: query
-          required: true
           schema: { type: string, pattern: '^[0-9a-fA-F]{64}$' }
+        - name: phash
+          in: query
+          schema: { type: string, pattern: '^[0-9a-fA-F]{16}$' }
+        - name: pdq
+          in: query
+          schema: { type: string, pattern: '^[0-9a-fA-F]{64}$' }
+        - name: deep
+          in: query
+          description: "1 = stage-3 r=2 probes (complete for d≤10); default r=1"
+          schema: { type: string, enum: ["0", "1"] }
       responses:
         "200": { description: Verdict + record or NO_RECORD }
   /v1/registrations:
@@ -60,7 +69,7 @@ paths:
         "503": { description: Bootstrap disabled }
   /v1/marks:
     post:
-      summary: Registry-only AI mark (API key). No C2PA embed yet.
+      summary: Registry-only AI mark (API key). Accepts optional pdq256. No C2PA embed yet.
       security: [{ bearerAuth: [] }]
       responses:
         "201": { description: Registered }

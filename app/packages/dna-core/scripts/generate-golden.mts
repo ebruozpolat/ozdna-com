@@ -16,6 +16,8 @@ import { PNG } from "pngjs";
 import sharp from "sharp";
 import { bandsFromHex, hammingHex } from "../src/bands.ts";
 import { decodeAndOrient, decodeImageBytes } from "../src/decode-node.ts";
+import { usablePdq } from "../src/match.ts";
+import { initPdqNode, pdqHashNode } from "../src/pdq-node.ts";
 import { phashFromRgba } from "../src/phash.ts";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -135,11 +137,13 @@ files.push({
 
 const expected: Record<string, unknown> = {
   _note:
-    "OzDNA pHash v1 golden-image corpus (plan/03 §1.3, plan/09 §7). Hashes computed via jpeg-js/pngjs decode + dna-core applyOrientation + phashFromRgba. Same decoder family must match exactly; cross-decoder (e.g. photon) tolerance d≤2.",
-  _decoder:
-    "jpeg-js@0.4 + pngjs (Node test path); EXIF via dna-core readJpegOrientation + applyOrientation",
+    "OzDNA pHash v1 + PDQ-256 golden corpus (plan/03 §1.3/§1.4). pHash via jpeg-js/pngjs; PDQ via pdq-wasm@0.3.9 (Node). Cross-decoder pHash d≤2; PDQ should match bit-exact across decoders when pixels match.",
+  _decoder_node: "jpeg-js + pngjs + dna-core orient",
+  _decoder_pdq: "pdq-wasm@0.3.9 via @ozdna/dna-core/pdq-node",
   images: [] as unknown[],
 };
+
+await initPdqNode();
 
 for (const f of files) {
   const bytes = new Uint8Array(
@@ -149,6 +153,21 @@ for (const f of files) {
   const oriented = decodeAndOrient(bytes, f.mime);
   const hash = phashFromRgba(oriented.data, oriented.width, oriented.height);
   const bands = bandsFromHex(hash);
+
+  // RGBA → RGB for PDQ
+  const rgb = new Uint8Array(oriented.width * oriented.height * 3);
+  for (let i = 0, j = 0; i < oriented.width * oriented.height; i++, j += 3) {
+    rgb[j] = oriented.data[i * 4]!;
+    rgb[j + 1] = oriented.data[i * 4 + 1]!;
+    rgb[j + 2] = oriented.data[i * 4 + 2]!;
+  }
+  const pdqRaw = await pdqHashNode({
+    data: rgb,
+    width: oriented.width,
+    height: oriented.height,
+    channels: 3,
+  });
+  const pdq = usablePdq(pdqRaw);
 
   let withoutOrientHash: string | null = null;
   let hammingOrientDelta: number | null = null;
@@ -168,6 +187,9 @@ for (const f of files) {
     displayHeight: oriented.height,
     phash16: hash,
     bands: { band0: bands.band0, band1: bands.band1, band2: bands.band2, band3: bands.band3 },
+    pdq256: pdq ? pdqRaw.hex : null,
+    pdq_quality: pdqRaw.quality,
+    pdq_usable: pdq != null,
     ...(withoutOrientHash
       ? {
           phash16_without_step0: withoutOrientHash,

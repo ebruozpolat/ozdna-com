@@ -31,6 +31,35 @@ describe("golden-image corpus (plan/03 §1.3 C5 / plan/09 §7)", () => {
       // Same decoder family (jpeg-js/pngjs) → exact match
       expect(hash).toBe(img.phash16);
     });
+
+    it(`reproduces PDQ-256 for ${img.file}`, async () => {
+      const { initPdqNode, pdqHashNode } = await import("../src/pdq-node.js");
+      const { usablePdq } = await import("../src/match.js");
+      await initPdqNode();
+      const bytes = new Uint8Array(readFileSync(join(goldenDir, img.file)));
+      const oriented = decodeAndOrient(bytes, img.mime as "image/jpeg" | "image/png");
+      const rgb = new Uint8Array(oriented.width * oriented.height * 3);
+      for (let i = 0, j = 0; i < oriented.width * oriented.height; i++, j += 3) {
+        rgb[j] = oriented.data[i * 4]!;
+        rgb[j + 1] = oriented.data[i * 4 + 1]!;
+        rgb[j + 2] = oriented.data[i * 4 + 2]!;
+      }
+      const pdq = await pdqHashNode({
+        data: rgb,
+        width: oriented.width,
+        height: oriented.height,
+        channels: 3,
+      });
+      expect(pdq.quality).toBe((img as { pdq_quality?: number }).pdq_quality);
+      const usable = usablePdq(pdq);
+      const expectedPdq = (img as { pdq256?: string | null }).pdq256;
+      if (expectedPdq) {
+        expect(usable).not.toBeNull();
+        expect(pdq.hex).toBe(expectedPdq);
+      } else {
+        expect(usable).toBeNull();
+      }
+    });
   }
 
   it("Orientation=6 changes hash vs skipping step-0 (regression catch)", () => {

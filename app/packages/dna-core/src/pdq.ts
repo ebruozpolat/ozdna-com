@@ -26,6 +26,30 @@ export const PDQ_HASH_BITS = 256;
  */
 export const PDQ_CONFIRM_MAX = 31;
 
+/**
+ * Below this quality, treat PDQ as absent (near-flat / unreliable).
+ * Spike caveat 4 — Meta quality is 0–100; low scores must not confirm matches.
+ */
+export const PDQ_QUALITY_MIN = 50;
+
+/** True when a PDQ quality score is usable for §1.5 confirmation. */
+export function pdqQualityOk(quality: number): boolean {
+  return Number.isFinite(quality) && quality >= PDQ_QUALITY_MIN;
+}
+
+/**
+ * Effective PDQ distance for scoring: `null` when hash/quality is missing or
+ * quality is too low (caller must treat as "PDQ absent").
+ */
+export function effectivePdqDistance(
+  distance: number | null | undefined,
+  quality?: number | null,
+): number | null {
+  if (distance == null) return null;
+  if (quality != null && !pdqQualityOk(quality)) return null;
+  return distance;
+}
+
 const BYTE_POPCOUNT = (() => {
   const t = new Uint8Array(256);
   for (let i = 0; i < 256; i++) t[i] = (i & 1) + t[i >> 1]!;
