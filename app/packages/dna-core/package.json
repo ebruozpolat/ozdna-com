@@ -9,7 +9,8 @@
   "exports": {
     ".": "./src/index.ts",
     "./node": "./src/decode-node.ts",
-    "./photon": "./src/decode-photon.ts"
+    "./photon": "./src/decode-photon.ts",
+    "./pdq": "./src/pdq.ts"
   },
   "scripts": {
     "test": "vitest run",

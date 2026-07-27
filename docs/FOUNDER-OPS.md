@@ -56,15 +56,17 @@ Bu dosya **ne yapman gerektiğini** ve **bitti sayılacak hali** anlatır. Site 
 ## Teknik deploy — hesap sende, wiring agent
 
 ### 9. Cloudflare Workers (MVP API + anchor)
-Kod hazır iskelet: `app/apps/api`, `app/apps/anchor` (placeholder D1 id). Production’a çıkmak için sende:
-1. Cloudflare hesabı (özel/ücretsiz tier OK).
-2. `wrangler login` (veya API token’ı GitHub/Secrets’a koyma — sen yönetirsin).
-3. Gerçek D1: `wrangler d1 create ozdna` → `database_id`’yi wrangler.jsonc’lere yazdır (agent yazar).
-4. Migrations uygula: `wrangler d1 migrations apply ozdna`.
-5. (İleride) Base RPC + operator private key → sadece **Secrets**; asla repo’ya değil. Hard rule: kullanıcı fonu yok.
-6. DNS: `api.ozdna.com` → Workers custom domain (Netlify’daki apex kalır).
+**2026-07-27 — LIVE on workers.dev** (account `ebru@alignxdigital.com`):
+- D1 `ozdna` id `515e201d-1b18-497d-923c-7dec053ada48` + `0001_init` applied
+- API: https://ozdna-api.alignxdigital.workers.dev (`/health` 200)
+- Anchor cron: https://ozdna-anchor.alignxdigital.workers.dev (NullAdapter; schedule `5 * * * *`)
 
-**Bitti sayılır:** `https://api.ozdna.com/health` 200 + ledger B9 Workers kısmı kapanır.
+**Still on you for production hostname:**
+1. Point `api.ozdna.com` → Workers custom domain (DNS: CNAME or move zone to CF; apex stays Netlify)
+2. (İleride) Base RPC + operator private key → Secrets only
+3. Prod `SIGNING_KEY_JWK` secret for `/v1/sign-digest`
+
+**Bitti sayılır (partial):** workers.dev health OK. Full B9 when `https://api.ozdna.com/health` 200.
 
 ### 10. Deploy / lansman sign-off’ları
 - Netlify production zaten `main` → auto-deploy.

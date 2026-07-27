@@ -31,7 +31,7 @@ credentials/actions** — not agent deferral.
 | B6 | FIXED — fake LinkedIn URLs removed |
 | B7 | FIXED — concept/marketing notice on Immortal MLRO |
 | B8 | FIXED — path-split locked as live architecture |
-| B9 | Netlify live. Workers **code ready**, production deploy **blocked on founder Cloudflare account + real D1 id + secrets** |
+| B9 | Netlify live. Workers **deployed** to `ozdna-api.alignxdigital.workers.dev` + D1 `ozdna` (migrations applied). Custom domain `api.ozdna.com` + prod signing/Base secrets still founder. |
 
 ---
 
@@ -59,12 +59,13 @@ credentials/actions** — not agent deferral.
 - PDQ, golden images, photon cross-decoder
 
 **Blocked on founder (not deferred by agent choice):**
-1. Cloudflare account login + real D1 `database_id` + `wrangler deploy` for api/anchor
-2. Base RPC URL + operator private key secrets (for live chain anchor)
-3. `SIGNING_KEY_JWK` secret in production
-4. LinkedIn company page URL (footer link removed until you create the page)
-5. TezMakale residue confirmation (partner)
-6. Trademark / entity / pilot / Linear OZD-52/53 / Aug 2 PR / grant filings — see `docs/FOUNDER-OPS.md`
+1. ~~Cloudflare account + D1 + Workers deploy~~ **DONE** on workers.dev (`ozdna-api` / `ozdna-anchor`)
+2. Custom domain `api.ozdna.com` → Workers (DNS; apex stays Netlify)
+3. Base RPC URL + operator private key secrets (for live chain anchor)
+4. `SIGNING_KEY_JWK` secret in production
+5. LinkedIn company page URL (footer link removed until you create the page)
+6. TezMakale residue confirmation (partner)
+7. Trademark / entity / pilot / Linear OZD-52/53 / Aug 2 PR / grant filings — see `docs/FOUNDER-OPS.md`
 
 **Optional polish (not a silent deferral — call out):**
 - ~~`@cloudflare/vitest-pool-workers` D1 integration tests~~ **done** (`waitlist.workers.test.ts`)

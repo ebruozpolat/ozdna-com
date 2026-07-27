@@ -8,16 +8,16 @@
     {
       "binding": "DB",
       "database_name": "ozdna",
-      "database_id": "00000000-0000-0000-0000-000000000001",
+      "database_id": "515e201d-1b18-497d-923c-7dec053ada48",
       "migrations_dir": "../../migrations"
     }
   ],
-  // Hourly batch — plan/04 §6. Local: wrangler triggers dry-run; NullAdapter until RPC keys exist.
+  // Hourly batch — plan/04 §6. NullAdapter until Base RPC Secrets exist.
   "triggers": {
     "crons": ["5 * * * *"]
   },
   "vars": {
-    "ENVIRONMENT": "development",
+    "ENVIRONMENT": "production",
     "ANCHOR_BACKEND": "null"
   }
 }
