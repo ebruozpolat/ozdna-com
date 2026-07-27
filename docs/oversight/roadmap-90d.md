@@ -4,7 +4,7 @@
 Tek kritik yol: **marka kilidi → temizlik teyidi → tek sayfa site → ücretli pilot → Pre-Accelerator.**
 Her yeni fikir için test sorusu: "Bu, imzalı pilotu hızlandırıyor mu?" Hayırsa → `deferred.md`'ye.
 
-> **Durum (27 Tem 2026):** Site kısmı repo'da hazır — oversight sitesi `ozdna.com/oversight/` altında (kaynak: repo-kökü `oversight/`), EN+TR, PR #36. **Deploy + kamuya açılış, Hafta 2–3 TezMakale temizlik teyidine bağlı (bloke edici).** Ertelenen kararlar: `deferred.md`.
+> **Durum (27 Tem 2026):** Oversight + marketing **canlı** — Netlify `ozdna-614` `main`'den `ozdna.com`'a auto-deploy ediyor (`/oversight/`, `/verify/`, ürün sayfaları). Formlar production'da doğrulandı (ledger C9). **TezMakale temizlik teyidi** hâlâ *lansman anlatısı / PR wave* için bloke edici — site online olmasıyla aynı kapı değil. Ertelenenler: `deferred.md`.
 >
 > **Kurucu düzeltmesi (2026-07-27):** GTM AlignX kanalı üzerinden değil — ozDNA founder-led.
 > AlignX Partners ayrı UK danışmanlık işidir (`positioning.md` gövdesi buna göre yeniden yazıldı).
@@ -19,7 +19,7 @@ Her yeni fikir için test sorusu: "Bu, imzalı pilotu hızlandırıyor mu?" Hay�
 - [ ] Teyit gelmeden ozDNA kamuya açık hiçbir yüzeyde lansmanlanmaz
 
 ## Hafta 3–4 — Site
-- [x] website-spec.md'ye göre site inşası (Claude Code ana görevi) — *oversight sitesi `/oversight/` altında, EN+TR, paylaşılan CSS, yasak-kelime gate; PR #36. Deploy bekliyor.*
+- [x] website-spec.md'ye göre site inşası — *oversight `/oversight/` altında, EN+TR; Netlify production'da canlı (2026-07-27).*
 - [x] Immortal MLRO use-case sayfası: Solana'sız, Council-runtime çerçevesiyle sıfırdan yazıldı (repoda prototip yoktu) — `/oversight/use-cases/immortal-mlro/`; PR #36.
 - [ ] Eski deck/memo'larda tarih revizyonu (2026 → 2027 Annex III) — *repoda deck/memo yok; harici dosya verilirse yapılır.*
 

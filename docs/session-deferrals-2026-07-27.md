@@ -39,7 +39,7 @@ below. C2/C3/C4 closed on the organize tip + this pass. Remaining B/C/D/E stay e
 | B6 | LinkedIn footer link is a **placeholder** (`www.linkedin.com`) | no ozDNA company page yet (brand-architecture §5) |
 | B7 | Immortal MLRO authored from the corpus; **no real prototype** exists in-repo | none was provided |
 | B8 | complyDNA/originDNA **name-collision** long-term decision | path-split for now; long-term parked (founder) |
-| B9 | **No deploys** of anything (site, oversight, MVP) | founder sign-off + Netlify + TezMakale-cleanup gate |
+| B9 | **No deploys** of anything (site, oversight, MVP) | **PARTIALLY OBSOLETE** — Netlify `ozdna-614` auto-deploys `main` to **ozdna.com** (oversight + verify + marketing live as of 2026-07-27). TezMakale cleanup still gates *launch messaging / PR wave*, not whether the static site is online. **Still not deployed:** Cloudflare Workers MVP (`apps/api` / `apps/anchor` / `apps/web`) — no Workers project yet. |
 
 ---
 
@@ -55,7 +55,7 @@ below. C2/C3/C4 closed on the organize tip + this pass. Remaining B/C/D/E stay e
 | C6 | `contracts/OzDnaAnchor.sol` not written | FIXED — `app/contracts/OzDnaAnchor.sol` (plan/03 §3.5); `forge test` still deferred |
 | C7 | `packages/anchor-backends` (NullAdapter/BaseAdapter) not written | FIXED — interface + NullAdapter (tested) + BaseAdapter stub (viem lands with `apps/anchor`) |
 | C8 | Deleted standalone oversight `robots.txt` + `sitemap.xml` when moving to `/oversight` | INFO — root covers it |
-| C9 | Verify page audit/waitlist forms never tested against live backend | Same gate as B9 |
+| C9 | Forms never tested against live backend | FIXED — production Netlify Forms exercised 2026-07-27: `audit-request` + `audit-request-tr` (1 each) + `origindna-waitlist` (+1 → 17). Confirmed via Netlify Forms API (`last_submission_at`). |
 
 ---
 
@@ -89,7 +89,7 @@ email · EUIPO + TÜRKPATENT trademark scan · OZD-52/53 status reconcile on the
 | A9 | Verify link missing from home + ComplyDNA | FIXED — wired `/verify/` into home + ComplyDNA nav/footer. |
 | A10 | Forbidden gate missed `/verify` pages | FIXED — `check-forbidden.sh` + CI also scan `verify/` + `tr/verify/` for banned terms + absolute claims. Spelling-variant check stays oversight-only until the sitewide `OZDNA.COM`/`BY OZDNA` label pass (roadmap-90d Hafta 1). |
 | C8 | Oversight robots/sitemap deletion | INFO — root covers it |
-| C9 | Forms untested live | Same as B9 |
+| C9 | Forms untested live | FIXED — live Netlify Forms POST + API confirm (see C9 above) |
 
 ---
 
