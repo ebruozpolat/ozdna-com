@@ -47,8 +47,10 @@ See `TOOLCHAIN.md` for TypeScript / Vitest / drizzle / BaseAdapter pins vs the c
 cd app
 npm install
 npm test          # vitest (packages + health) then test:workers (D1)
+npm run check     # typecheck + biome + test — batch gate (plan/09 §9)
 npm run test:workers
 npm run typecheck # tsc --noEmit (strict + noUncheckedIndexedAccess)
+npm run lint      # biome check
 npm run certs:dev # local P-256 self-signed PEMs → certs/dev/
 npm run dev -w @ozdna/web   # C2PA Wasm verify SPA
 npm run db:generate # drizzle-kit → apps/api/drizzle/ (diff check; do not overwrite migrations/0001)

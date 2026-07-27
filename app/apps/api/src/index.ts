@@ -4,12 +4,12 @@ import { Hono } from "hono";
 import { cors } from "hono/cors";
 import type { Env } from "./env.js";
 import { openapiYaml } from "./openapi.js";
-import { waitlistRoutes } from "./routes/waitlist.js";
-import { verifyRoutes } from "./routes/verify.js";
+import { recordRoutes } from "./routes/records.js";
 import { registrationRoutes } from "./routes/registrations.js";
 import { signRoutes } from "./routes/sign-digest.js";
-import { recordRoutes } from "./routes/records.js";
 import { usageRoutes, webhookRoutes } from "./routes/usage.js";
+import { verifyRoutes } from "./routes/verify.js";
+import { waitlistRoutes } from "./routes/waitlist.js";
 
 const app = new Hono<{ Bindings: Env }>();
 

@@ -2,9 +2,9 @@
 // Photon does NOT apply EXIF Orientation; call applyOrientation after this (step 0).
 // Package pin: @cf-wasm/photon 0.3.6 (plan/02).
 
-import { PhotonImage, initPhoton, photonWasmModule } from "@cf-wasm/photon/node";
-import { applyOrientation, type OrientedRgba } from "./orient.js";
+import { initPhoton, PhotonImage, photonWasmModule } from "@cf-wasm/photon/node";
 import { readJpegOrientation } from "./exif.js";
+import { applyOrientation, type OrientedRgba } from "./orient.js";
 
 let photonReady: Promise<void> | null = null;
 
@@ -51,7 +51,6 @@ export async function decodeWithPhoton(bytes: Uint8Array): Promise<PhotonDecoded
 /** Photon decode + EXIF Orientation apply (Workers production path). */
 export async function decodeAndOrientPhoton(bytes: Uint8Array): Promise<OrientedRgba> {
   const raw = await decodeWithPhoton(bytes);
-  const orientation =
-    bytes[0] === 0xff && bytes[1] === 0xd8 ? readJpegOrientation(bytes) : 1;
+  const orientation = bytes[0] === 0xff && bytes[1] === 0xd8 ? readJpegOrientation(bytes) : 1;
   return applyOrientation(raw.data, raw.width, raw.height, orientation);
 }

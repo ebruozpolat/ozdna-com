@@ -5,12 +5,7 @@
  *
  * Usage (from app/): npm run certs:dev
  */
-import {
-  createSign,
-  generateKeyPairSync,
-  randomBytes,
-  X509Certificate,
-} from "node:crypto";
+import { createSign, generateKeyPairSync, randomBytes, X509Certificate } from "node:crypto";
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";

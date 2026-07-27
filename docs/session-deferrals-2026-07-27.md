@@ -15,7 +15,7 @@ credentials/actions** — not agent deferral.
 
 | # | Status |
 |---|---|
-| A1–A10 | FIXED (see git history / earlier rows) |
+| A1–A10 | FIXED (see git history / earlier rows). **A4 batch gate:** `app` `npm run check` + `.github/workflows/ci.yml` (typecheck + Biome + vitest; contracts job separate). Forbidden-word gate remains `.github/workflows/oversight-forbidden.yml`. |
 
 ---
 

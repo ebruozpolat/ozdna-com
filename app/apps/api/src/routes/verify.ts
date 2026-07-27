@@ -12,10 +12,7 @@ export const verifyRoutes = new Hono<{ Bindings: Env }>();
 verifyRoutes.get("/verify", async (c) => {
   const hash = (c.req.query("hash") ?? "").trim().toLowerCase();
   if (!HEX64.test(hash)) {
-    return c.json(
-      { error: "invalid_hash", message: "hash must be 64 hex chars (sha-256)." },
-      400,
-    );
+    return c.json({ error: "invalid_hash", message: "hash must be 64 hex chars (sha-256)." }, 400);
   }
 
   const row = await c.env.DB.prepare(

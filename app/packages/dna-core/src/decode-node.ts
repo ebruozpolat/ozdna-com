@@ -15,7 +15,10 @@ export type DecodedImage = {
   readonly fileOrientation: number;
 };
 
-export function decodeImageBytes(bytes: Uint8Array, mimeHint?: "image/jpeg" | "image/png"): DecodedImage {
+export function decodeImageBytes(
+  bytes: Uint8Array,
+  mimeHint?: "image/jpeg" | "image/png",
+): DecodedImage {
   const isJpeg =
     mimeHint === "image/jpeg" ||
     (bytes[0] === 0xff && bytes[1] === 0xd8) ||
@@ -50,7 +53,10 @@ function looksJpeg(bytes: Uint8Array): boolean {
 }
 
 /** Decode file bytes → apply EXIF Orientation → display-oriented RGBA (steps 0–1). */
-export function decodeAndOrient(bytes: Uint8Array, mimeHint?: "image/jpeg" | "image/png"): OrientedRgba {
+export function decodeAndOrient(
+  bytes: Uint8Array,
+  mimeHint?: "image/jpeg" | "image/png",
+): OrientedRgba {
   const raw = decodeImageBytes(bytes, mimeHint);
   return applyOrientation(raw.data, raw.width, raw.height, raw.fileOrientation);
 }

@@ -20,6 +20,4 @@ webhookRoutes.get("/webhook-endpoints", (c) => c.json({ endpoints: [] }));
 webhookRoutes.post("/webhook-endpoints", (c) =>
   c.json({ error: "not_implemented", message: "Webhook CRUD lands with API-key auth." }, 501),
 );
-webhookRoutes.delete("/webhook-endpoints/:id", (c) =>
-  c.json({ error: "not_implemented" }, 501),
-);
+webhookRoutes.delete("/webhook-endpoints/:id", (c) => c.json({ error: "not_implemented" }, 501));

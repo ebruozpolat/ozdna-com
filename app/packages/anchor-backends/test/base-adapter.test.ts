@@ -1,10 +1,9 @@
-import { describe, expect, it } from "vitest";
 import { encodeFunctionData } from "viem";
+import { describe, expect, it } from "vitest";
 import { BaseAdapter } from "../src/base-adapter.js";
 import { ozDnaAnchorAbi } from "../src/ozdna-anchor-abi.js";
 
-const FAKE_KEY =
-  "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80" as const;
+const FAKE_KEY = "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80" as const;
 const FAKE_CONTRACT = "0x5FbDB2315678afecb367f032d93F642f64180aa3" as const;
 
 describe("BaseAdapter", () => {
@@ -64,10 +63,7 @@ describe("BaseAdapter", () => {
     const expected = encodeFunctionData({
       abi: ozDnaAnchorAbi,
       functionName: "anchor",
-      args: [
-        `0x${[...root].map((b) => b.toString(16).padStart(2, "0")).join("")}`,
-        42n,
-      ],
+      args: [`0x${[...root].map((b) => b.toString(16).padStart(2, "0")).join("")}`, 42n],
     });
     expect(encoded).toBe(expected);
     // 4-byte selector + two 32-byte ABI words

@@ -52,7 +52,12 @@ recordRoutes.get("/anchors/:batchId/proof/:recordId", async (c) => {
     `SELECT id, leaf_index, anchor_batch_id, sha256 FROM records WHERE id = ? LIMIT 1`,
   )
     .bind(recordId)
-    .first<{ id: string; leaf_index: number | null; anchor_batch_id: string | null; sha256: string }>();
+    .first<{
+      id: string;
+      leaf_index: number | null;
+      anchor_batch_id: string | null;
+      sha256: string;
+    }>();
 
   const batch = await c.env.DB.prepare(
     `SELECT id, merkle_root, status, tx_hash, chain FROM anchor_batches WHERE id = ? LIMIT 1`,

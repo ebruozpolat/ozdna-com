@@ -1,20 +1,21 @@
-# Content-provenance MVP foundation (app/) — dna-core + packages tests.
-name: App CI
+# Content-provenance MVP (app/) — batch gate per plan/09-DEV-SETUP.md §9.
+# Never deploys. No Cloudflare secrets in GitHub.
+name: ci
 
 on:
   pull_request:
     paths:
       - "app/**"
-      - ".github/workflows/app-ci.yml"
+      - ".github/workflows/ci.yml"
   push:
     branches:
       - main
     paths:
       - "app/**"
-      - ".github/workflows/app-ci.yml"
+      - ".github/workflows/ci.yml"
 
 jobs:
-  test:
+  check:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -31,11 +32,8 @@ jobs:
       - name: Install
         run: npm ci
 
-      - name: Typecheck
-        run: npm run typecheck
-
-      - name: Test
-        run: npm test
+      - name: Batch gate (typecheck + biome + vitest)
+        run: npm run check
 
   contracts:
     runs-on: ubuntu-latest

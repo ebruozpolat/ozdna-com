@@ -8,16 +8,15 @@
  * regenerating expected-hashes.json in the same commit.
  */
 
-import { writeFileSync, mkdirSync } from "node:fs";
+import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import sharp from "sharp";
 import jpeg from "jpeg-js";
 import { PNG } from "pngjs";
-import { decodeAndOrient, decodeImageBytes } from "../src/decode-node.ts";
-import { applyOrientation } from "../src/orient.ts";
-import { phashFromRgba } from "../src/phash.ts";
+import sharp from "sharp";
 import { bandsFromHex, hammingHex } from "../src/bands.ts";
+import { decodeAndOrient, decodeImageBytes } from "../src/decode-node.ts";
+import { phashFromRgba } from "../src/phash.ts";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const outDir = join(here, "../test/fixtures/golden");
@@ -38,7 +37,12 @@ function rgba(w: number, h: number, f: (x: number, y: number) => [number, number
   return buf;
 }
 
-async function writePng(name: string, w: number, h: number, f: (x: number, y: number) => [number, number, number]) {
+async function writePng(
+  name: string,
+  w: number,
+  h: number,
+  f: (x: number, y: number) => [number, number, number],
+) {
   const data = rgba(w, h, f);
   const png = new PNG({ width: w, height: h });
   png.data = data;
@@ -59,7 +63,10 @@ async function writeJpegOrient6(name: string) {
   });
   // Encode JPEG without orientation, then re-tag with sharp
   const rawJpeg = jpeg.encode({ data, width: W, height: H }, 90).data;
-  const tagged = await sharp(rawJpeg).withMetadata({ orientation: 6 }).jpeg({ quality: 90 }).toBuffer();
+  const tagged = await sharp(rawJpeg)
+    .withMetadata({ orientation: 6 })
+    .jpeg({ quality: 90 })
+    .toBuffer();
   writeFileSync(join(outDir, name), tagged);
   return tagged;
 }
@@ -75,7 +82,10 @@ async function writeJpegNormal(name: string) {
     return [v, Math.round(v * 0.7), Math.round(v * 0.4)];
   });
   const rawJpeg = jpeg.encode({ data, width: W, height: H }, 85).data;
-  const tagged = await sharp(rawJpeg).withMetadata({ orientation: 1 }).jpeg({ quality: 85 }).toBuffer();
+  const tagged = await sharp(rawJpeg)
+    .withMetadata({ orientation: 1 })
+    .jpeg({ quality: 85 })
+    .toBuffer();
   writeFileSync(join(outDir, name), tagged);
   return tagged;
 }
@@ -101,7 +111,11 @@ await writePng("03-near-flat.png", 48, 48, (x, y) => {
   const v = 128 + n;
   return [v, v, v];
 });
-files.push({ name: "03-near-flat.png", mime: "image/png", note: "near-flat median-tie case (SHOULD)" });
+files.push({
+  name: "03-near-flat.png",
+  mime: "image/png",
+  note: "near-flat median-tie case (SHOULD)",
+});
 
 await writePng("04-stripes-v.png", 72, 56, (x) => {
   const v = x % 12 < 6 ? 200 : 50;
@@ -112,7 +126,7 @@ files.push({ name: "04-stripes-v.png", mime: "image/png", note: "vertical color 
 await writeJpegNormal("05-radial.jpg");
 files.push({ name: "05-radial.jpg", mime: "image/jpeg", note: "JPEG Orientation=1 radial" });
 
-const orient6 = await writeJpegOrient6("06-portrait-orient6.jpg");
+const _orient6 = await writeJpegOrient6("06-portrait-orient6.jpg");
 files.push({
   name: "06-portrait-orient6.jpg",
   mime: "image/jpeg",
@@ -122,12 +136,15 @@ files.push({
 const expected: Record<string, unknown> = {
   _note:
     "OzDNA pHash v1 golden-image corpus (plan/03 §1.3, plan/09 §7). Hashes computed via jpeg-js/pngjs decode + dna-core applyOrientation + phashFromRgba. Same decoder family must match exactly; cross-decoder (e.g. photon) tolerance d≤2.",
-  _decoder: "jpeg-js@0.4 + pngjs (Node test path); EXIF via dna-core readJpegOrientation + applyOrientation",
+  _decoder:
+    "jpeg-js@0.4 + pngjs (Node test path); EXIF via dna-core readJpegOrientation + applyOrientation",
   images: [] as unknown[],
 };
 
 for (const f of files) {
-  const bytes = new Uint8Array(await import("node:fs").then((m) => m.readFileSync(join(outDir, f.name))));
+  const bytes = new Uint8Array(
+    await import("node:fs").then((m) => m.readFileSync(join(outDir, f.name))),
+  );
   const raw = decodeImageBytes(bytes, f.mime);
   const oriented = decodeAndOrient(bytes, f.mime);
   const hash = phashFromRgba(oriented.data, oriented.width, oriented.height);
@@ -169,6 +186,6 @@ if (!o6 || (o6.hamming_step0_delta ?? 0) === 0) {
   process.exit(1);
 }
 
-writeFileSync(join(outDir, "expected-hashes.json"), JSON.stringify(expected, null, 2) + "\n");
+writeFileSync(join(outDir, "expected-hashes.json"), `${JSON.stringify(expected, null, 2)}\n`);
 console.log(`Wrote ${files.length} golden images + expected-hashes.json → ${outDir}`);
 console.log(JSON.stringify(expected.images, null, 2));

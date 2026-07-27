@@ -21,9 +21,7 @@ export const ozDnaAnchorAbi = [
   {
     type: "event",
     name: "OperatorRotated",
-    inputs: [
-      { name: "newOperator", type: "address", indexed: true, internalType: "address" },
-    ],
+    inputs: [{ name: "newOperator", type: "address", indexed: true, internalType: "address" }],
     anonymous: false,
   },
   {

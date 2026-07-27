@@ -1,13 +1,13 @@
-import { writeFileSync, readFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { initPhoton, PhotonImage } from "@cf-wasm/photon/node";
 import jpeg from "jpeg-js";
-import { PhotonImage, initPhoton } from "@cf-wasm/photon/node";
+import { bandsFromHex, hammingHex } from "../src/bands.js";
+import { decodeAndOrient, decodeImageBytes } from "../src/decode-node.js";
 import { readJpegOrientation } from "../src/exif.js";
 import { applyOrientation } from "../src/orient.js";
 import { phashFromRgba } from "../src/phash.js";
-import { bandsFromHex, hammingHex } from "../src/bands.js";
-import { decodeAndOrient, decodeImageBytes } from "../src/decode-node.js";
 import expectedOld from "../test/fixtures/golden/expected-hashes.json" with { type: "json" };
 
 try {
@@ -50,11 +50,7 @@ function injectExifOrientation(jpegBytes: Uint8Array, orientation: number): Uint
   return out;
 }
 
-function rgba(
-  w: number,
-  h: number,
-  f: (x: number, y: number) => [number, number, number],
-): Buffer {
+function rgba(w: number, h: number, f: (x: number, y: number) => [number, number, number]): Buffer {
   const buf = Buffer.alloc(w * h * 4);
   for (let y = 0; y < h; y++) {
     for (let x = 0; x < w; x++) {
@@ -97,7 +93,14 @@ const outDir = join(dirname(fileURLToPath(import.meta.url)), "../test/fixtures/g
   let jpg = jpeg.encode({ data, width: W, height: H }, 100).data;
   jpg = Buffer.from(injectExifOrientation(jpg, 6));
   writeFileSync(join(outDir, "06-portrait-orient6.jpg"), jpg);
-  console.log("wrote 06", join(outDir, "06-portrait-orient6.jpg"), "orient", readJpegOrientation(jpg), "len", jpg.length);
+  console.log(
+    "wrote 06",
+    join(outDir, "06-portrait-orient6.jpg"),
+    "orient",
+    readJpegOrientation(jpg),
+    "len",
+    jpg.length,
+  );
 }
 
 const files: Array<[string, "image/png" | "image/jpeg"]> = [
@@ -121,7 +124,20 @@ for (const [name, mime] of files) {
   const hn = phashFromRgba(node.data, node.width, node.height);
   const hp = phashFromRgba(photon.data, photon.width, photon.height);
   const d = hammingHex(hn, hp);
-  console.log(name, "d=", d, "node", hn, "photon", hp, "orient", raw.fileOrientation, "disp", node.width, node.height);
+  console.log(
+    name,
+    "d=",
+    d,
+    "node",
+    hn,
+    "photon",
+    hp,
+    "orient",
+    raw.fileOrientation,
+    "disp",
+    node.width,
+    node.height,
+  );
   const entry: Record<string, unknown> = {
     file: name,
     mime,
@@ -146,7 +162,7 @@ for (const [name, mime] of files) {
 
 writeFileSync(
   join(outDir, "expected-hashes.json"),
-  JSON.stringify(
+  `${JSON.stringify(
     {
       _note:
         "OzDNA pHash v1 golden-image corpus (plan/03 §1.3). Node = jpeg-js/pngjs; photon = @cf-wasm/photon 0.3.6. Cross-decoder Hamming must be ≤2.",
@@ -156,7 +172,7 @@ writeFileSync(
     },
     null,
     2,
-  ) + "\n",
+  )}\n`,
 );
 
 if (images.some((i) => (i.cross_decoder_hamming as number) > 2)) {

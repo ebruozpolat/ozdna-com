@@ -6,8 +6,8 @@
  * overwrite 0001 casually. See drizzle.config.ts and TOOLCHAIN.md.
  */
 
-import { sqliteTable, text, integer, blob, index, uniqueIndex } from "drizzle-orm/sqlite-core";
 import { sql } from "drizzle-orm";
+import { blob, index, integer, sqliteTable, text, uniqueIndex } from "drizzle-orm/sqlite-core";
 
 export const users = sqliteTable("users", {
   id: text("id").primaryKey(),
@@ -20,9 +20,7 @@ export const users = sqliteTable("users", {
   billingSubId: text("billing_sub_id"),
   planRenewsAt: text("plan_renews_at"),
   segment: text("segment"),
-  createdAt: text("created_at")
-    .notNull()
-    .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ','now'))`),
+  createdAt: text("created_at").notNull().default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ','now'))`),
   deletedAt: text("deleted_at"),
 });
 
@@ -37,9 +35,7 @@ export const apiKeys = sqliteTable(
     keyHash: text("key_hash").notNull().unique(),
     keyPrefix: text("key_prefix").notNull(),
     mode: text("mode").notNull().default("live"),
-    createdAt: text("created_at")
-      .notNull()
-      .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ','now'))`),
+    createdAt: text("created_at").notNull().default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ','now'))`),
     lastUsedAt: text("last_used_at"),
     revokedAt: text("revoked_at"),
   },
@@ -57,9 +53,7 @@ export const anchorBatches = sqliteTable(
     txHash: text("tx_hash"),
     blockNumber: integer("block_number"),
     gasWei: text("gas_wei"),
-    createdAt: text("created_at")
-      .notNull()
-      .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ','now'))`),
+    createdAt: text("created_at").notNull().default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ','now'))`),
     confirmedAt: text("confirmed_at"),
   },
   (t) => [index("idx_batches_status").on(t.status)],
@@ -90,9 +84,7 @@ export const records = sqliteTable(
     anchorBatchId: text("anchor_batch_id").references(() => anchorBatches.id),
     leafIndex: integer("leaf_index"),
     isTest: integer("is_test").notNull().default(0),
-    createdAt: text("created_at")
-      .notNull()
-      .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ','now'))`),
+    createdAt: text("created_at").notNull().default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ','now'))`),
     anchoredAt: text("anchored_at"),
   },
   (t) => [
@@ -118,9 +110,7 @@ export const usageEvents = sqliteTable(
     recordId: text("record_id"),
     billable: integer("billable").notNull().default(1),
     month: text("month").notNull(),
-    createdAt: text("created_at")
-      .notNull()
-      .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ','now'))`),
+    createdAt: text("created_at").notNull().default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ','now'))`),
   },
   (t) => [index("idx_usage_quota").on(t.userId, t.month, t.eventType, t.billable)],
 );
@@ -136,9 +126,7 @@ export const waitlist = sqliteTable(
     consentAt: text("consent_at").notNull(),
     confirmToken: text("confirm_token"),
     confirmedAt: text("confirmed_at"),
-    createdAt: text("created_at")
-      .notNull()
-      .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ','now'))`),
+    createdAt: text("created_at").notNull().default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ','now'))`),
     convertedUserId: text("converted_user_id").references(() => users.id),
   },
   (t) => [index("idx_waitlist_segment").on(t.segment)],
