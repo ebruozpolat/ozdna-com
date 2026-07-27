@@ -1,10 +1,9 @@
 // PDQ-256 wrapper — plan/03-ALGORITHMS.md §1.4.
-// One copy for browser + Workers. Uses pdq-wasm 0.3.9 (Meta PDQ via WASM).
+// Import via `@ozdna/dna-core/pdq` (not the package root) — createRequire is Node/test only.
 // Threshold for confirmation: Hamming ≤ 31 of 256 (THRESHOLDS.pdqConfirm in verdict.ts).
 //
 // Note: pdq-wasm's ESM entry cannot resolve the WASM factory under Node ESM/Vitest
-// (no `require`). We load the CJS entry via createRequire. Cloudflare Workers use
-// `nodejs_compat` so the same path works; browsers should call initPdqBrowser().
+// (no `require`). We load the CJS entry via createRequire. Browsers: initPdqBrowser().
 
 import { createRequire } from "node:module";
 import type { PDQ as PDQType } from "pdq-wasm";
@@ -12,20 +11,22 @@ import { THRESHOLDS } from "./verdict.js";
 
 type PDQClass = typeof PDQType;
 
-function loadPDQ(): PDQClass {
-  const require = createRequire(import.meta.url);
-  // CJS main: dist/index.js — getWasmFactory() works there.
-  const mod = require("pdq-wasm") as { PDQ: PDQClass };
-  return mod.PDQ;
-}
+let PDQ: PDQClass | null = null;
 
-const PDQ = loadPDQ();
+function getPDQ(): PDQClass {
+  if (!PDQ) {
+    const require = createRequire(import.meta.url);
+    const mod = require("pdq-wasm") as { PDQ: PDQClass };
+    PDQ = mod.PDQ;
+  }
+  return PDQ;
+}
 
 let initPromise: Promise<void> | null = null;
 
 /** Ensure WASM is loaded (idempotent). Call once before hashing in each isolate. */
 export function initPdq(): Promise<void> {
-  if (!initPromise) initPromise = PDQ.init();
+  if (!initPromise) initPromise = getPDQ().init();
   return initPromise;
 }
 
@@ -34,7 +35,7 @@ export function initPdq(): Promise<void> {
  * Example: initPdqBrowser({ wasmUrl: "/assets/pdq.wasm" })
  */
 export function initPdqBrowser(options: { wasmUrl: string }): Promise<void> {
-  if (!initPromise) initPromise = PDQ.init(options);
+  if (!initPromise) initPromise = getPDQ().init(options);
   return initPromise;
 }
 
@@ -73,7 +74,8 @@ export async function pdqFromRgba(
 
 export async function pdqFromPixels(img: PdqInput): Promise<PdqResult> {
   await initPdq();
-  const result = PDQ.hash({
+  const cls = getPDQ();
+  const result = cls.hash({
     data: img.data,
     width: img.width,
     height: img.height,
@@ -81,16 +83,17 @@ export async function pdqFromPixels(img: PdqInput): Promise<PdqResult> {
   });
   return {
     hash: result.hash,
-    hex: PDQ.toHex(result.hash).toLowerCase(),
+    hex: cls.toHex(result.hash).toLowerCase(),
     quality: result.quality,
   };
 }
 
 /** Hamming distance 0–256 between two 32-byte (or 64-hex) PDQ hashes. */
 export function pdqHamming(a: Uint8Array | string, b: Uint8Array | string): number {
-  const ha = typeof a === "string" ? PDQ.fromHex(a) : a;
-  const hb = typeof b === "string" ? PDQ.fromHex(b) : b;
-  return PDQ.hammingDistance(ha, hb);
+  const cls = getPDQ();
+  const ha = typeof a === "string" ? cls.fromHex(a) : a;
+  const hb = typeof b === "string" ? cls.fromHex(b) : b;
+  return cls.hammingDistance(ha, hb);
 }
 
 export function pdqConfirms(distance: number): boolean {

@@ -4,16 +4,15 @@
   "main": "src/index.ts",
   "compatibility_date": "2026-01-01",
   "compatibility_flags": ["nodejs_compat"],
-  // Local / preview D1. Replace database_id before production deploy (wrangler d1 create).
   "d1_databases": [
     {
       "binding": "DB",
       "database_name": "ozdna",
-      "database_id": "00000000-0000-0000-0000-000000000001",
+      "database_id": "515e201d-1b18-497d-923c-7dec053ada48",
       "migrations_dir": "../../migrations"
     }
   ],
   "vars": {
-    "ENVIRONMENT": "development"
+    "ENVIRONMENT": "production"
   }
 }
