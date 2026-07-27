@@ -70,6 +70,16 @@ email · EUIPO + TÜRKPATENT trademark scan · OZD-52/53 status reconcile on the
 
 ---
 
+## Addendum — found on a second re-review (for completeness)
+
+| # | What | Note |
+|---|---|---|
+| A8 | **Lighthouse ≥95** (website-spec acceptance criterion) — I asserted it was "trivially met" by construction and **never measured it**. Asserting a spec criterion as met without running it is exactly the corner to avoid. | OPEN — measure before claiming. |
+| A9 | **Verify link wiring is partial** — added to OriginDNA nav/footer + sitemap only; **NOT** added to the home `index.html` nav or the ComplyDNA page. | OPEN — wire fully or state it's origin-only by design. |
+| A10 | **Forbidden-word gate scope** — `check-forbidden.sh` scans only the oversight site (`oversight/`), **not** the content-provenance verify pages (`/verify`, `/tr/verify`). | OPEN — extend scope or note the boundary. |
+| C8 | **Deleted the standalone oversight `robots.txt` + `sitemap.xml`** when moving to `/oversight` (root config governs now) — intentional, but it was a deletion I should name. | INFO — root `robots.txt`/`sitemap.xml` cover it. |
+| C9 | **Verify page audit/waitlist forms never tested against a live backend** (no deploy) — `data-netlify` markup only. | Same gate as B9 (no deploys). |
+
 ## New operating rule (mine, going forward)
 If I defer, drop, simplify, or scope something out, I state it **explicitly in the moment
 and leave the decision to you** — no silent scoping. This ledger is the catch-up for
