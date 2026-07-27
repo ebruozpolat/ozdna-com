@@ -62,11 +62,13 @@ Bu dosya **ne yapman gerektiğini** ve **bitti sayılacak hali** anlatır. Site 
 - Anchor cron: https://ozdna-anchor.alignxdigital.workers.dev (NullAdapter; schedule `5 * * * *`)
 
 **Still on you for production hostname:**
-1. Point `api.ozdna.com` → Workers custom domain (DNS: CNAME or move zone to CF; apex stays Netlify)
+1. **Namecheap CNAME (blocking):** Host `api` → `ozdna-614.netlify.app`  
+   Netlify alias + proxy rewrite already configured (`api.ozdna.com` → Worker).
 2. (İleride) Base RPC + operator private key → Secrets only
 3. Prod `SIGNING_KEY_JWK` secret for `/v1/sign-digest`
+4. Optional later: add `ozdna.com` zone on Cloudflare for a native Workers custom domain
 
-**Bitti sayılır (partial):** workers.dev health OK. Full B9 when `https://api.ozdna.com/health` 200.
+**Bitti sayılır (partial):** workers.dev health OK + Netlify alias. Full B9 when `https://api.ozdna.com/health` 200.
 
 ### 10. Deploy / lansman sign-off’ları
 - Netlify production zaten `main` → auto-deploy.
