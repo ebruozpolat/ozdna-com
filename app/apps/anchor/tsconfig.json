@@ -1,0 +1,10 @@
+{
+  // Cloudflare Workers runtime — workers-types, no DOM (see apps/api/tsconfig.json for the
+  // rationale). Separate from the shared packages' program.
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["ES2023"],
+    "types": ["@cloudflare/workers-types"]
+  },
+  "include": ["src/**/*.ts", "test/**/*.ts"]
+}

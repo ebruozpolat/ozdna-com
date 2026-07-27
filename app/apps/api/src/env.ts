@@ -3,7 +3,7 @@
 // (trust isolation, plan/01 §1/§6). apps/web binds none of these.
 
 export interface Env {
-  /** D1 database (schema: migrations/0001_init.sql, typed accessor apps/api/src/db/schema.ts). */
+  /** D1 database (schema: migrations/0001_init.sql, typed accessor @ozdna/db). */
   readonly DB: D1Database;
   /** R2 bucket for stored C2PA manifests (plan/04 §4.4: manifest_b64 ≤1MB → R2). */
   readonly MANIFESTS: R2Bucket;

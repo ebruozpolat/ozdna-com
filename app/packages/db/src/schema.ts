@@ -1,4 +1,5 @@
-// Drizzle typed schema — the TYPED accessor for apps/api queries.
+// Drizzle typed schema (@ozdna/db) — the SHARED typed accessor for D1 queries, imported by
+// apps/api and apps/anchor so neither cross-imports the other.
 // Columns/constraints track plan/04-MVP-SPEC.md §5 (the canonical DDL).
 //
 // IMPORTANT (plan/04 §4 note + ledger A5): the CANONICAL migration is the hand-written

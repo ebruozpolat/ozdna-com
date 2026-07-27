@@ -1,0 +1,12 @@
+{
+  "name": "@ozdna/db",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Shared drizzle typed schema for the ozDNA D1 database. Imported by apps/api and apps/anchor so neither cross-imports the other. Canonical DDL stays the hand-written migrations/0001_init.sql (see schema.ts header + ledger A5).",
+  "main": "./src/schema.ts",
+  "exports": { ".": "./src/schema.ts" },
+  "dependencies": {
+    "drizzle-orm": "^0.45.2"
+  }
+}

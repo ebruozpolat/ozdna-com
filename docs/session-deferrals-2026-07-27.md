@@ -67,7 +67,20 @@ embed-and-sign spike), `POST /v1/marks` (server decode + embed + sign; the never
 `GET /v1/usage`, API-key auth, rate-limit + quotas, idempotency, webhooks, `?url=` SSRF mode,
 **+ PDQ hasher via `createPDQModule({wasmBinary})` (Workers has no `document`, C1 caveat 2)**.
 
-**`apps/anchor`** (cron batch → Base tx → proofs; binds gas wallet only) — not started.
+**`apps/anchor` — STARTED (cron cycle + Merkle batch + proofs).** Shipped: `scheduled()`
+Worker (hourly cron, no HTTP) that pulls pending records → **`buildBatch`** (canonical
+registered_at/id leaf order → dna-core Merkle → per-record inclusion proof) → opens+attaches
+the batch → submits the root via an injected **AnchorBackend** → independently `verify()` →
+finalizes. **`buildProofDocument`** emits the schema-valid `ozdna-proof-v1` (§4.4). Cycle logic
+is **pure over (repo, backend)** — the `NullAdapter` runs the whole path offline; **8 new tests**
+incl. every generated proof folding back to the root via dna-core `verifyProof`, and a
+schema-`parse` of the proof doc. `selectBackend` **refuses to run any non-`null` chain** rather
+than silently fake real anchoring. **Still open:** the **viem `BaseAdapter`** (the real Base
+submit — plan/01 §6 confines the chain SDK to this app; not built), a **poll step** for batches
+a slow chain leaves `submitted`, and the D1 edge (`repo-d1.ts`) is **UNVERIFIED** (no workerd).
+Refactor done alongside: the drizzle schema moved to a shared **`packages/db`** (`@ozdna/db`) so
+apps/api and apps/anchor share it instead of cross-importing.
+
 **`apps/web`** (Astro sign/verify SPA, c2pa-web WASM; **+ PDQ hasher via `pdq-wasm/browser`
 → vendored `pdq.wasm`, C1**) — not started.
 Also open: CI workflow (`.github/workflows/ci.yml`, ledger A4) · `tests/fixtures/` corpus

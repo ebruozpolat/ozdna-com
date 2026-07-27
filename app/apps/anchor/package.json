@@ -1,0 +1,19 @@
+{
+  "name": "@ozdna/anchor",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "ozDNA anchor cron Worker. No HTTP route: on schedule it builds a Merkle batch from pending records, submits the root via an AnchorBackend, and finalizes proofs. Binds the gas wallet ONLY (trust isolation, plan/01 §6). Pure cycle logic is repo/backend-injected + node-tested; the viem BaseAdapter is the deferred edge.",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@ozdna/anchor-backends": "*",
+    "@ozdna/db": "*",
+    "@ozdna/dna-core": "*",
+    "drizzle-orm": "^0.45.2"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260706.1"
+  }
+}

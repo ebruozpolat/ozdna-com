@@ -1,0 +1,21 @@
+# ozDNA anchor cron Worker. No routes — a scheduled Worker only. Binds the gas wallet secret
+# (once the viem BaseAdapter lands): wrangler secret put ANCHOR_PRIVATE_KEY. Never binds the
+# signing key (trust isolation, plan/01 §6). Deploy cadence: hard rule 8.
+name = "ozdna-anchor"
+main = "src/index.ts"
+compatibility_date = "2026-07-01"
+compatibility_flags = ["nodejs_compat"]
+
+# plan/03 §3.4: anchor within 24h (free) / 1h (paid). Hourly cron; empty runs are cheap (idle).
+[triggers]
+crons = ["0 * * * *"]
+
+[vars]
+CHAIN = "null"           # dev: NullAdapter. Set to 'base-mainnet' once BaseAdapter is built.
+ANCHOR_CONTRACT = "0x0000000000000000000000000000000000000000"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "ozdna"
+database_id = "PLACEHOLDER_run_wrangler_d1_create"
+migrations_dir = "../../migrations"

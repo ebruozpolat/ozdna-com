@@ -11,7 +11,7 @@
 import { and, eq, inArray, ne, or } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/d1";
 import { toUnsignedU64 } from "@ozdna/dna-core";
-import { anchorBatches, records, waitlist } from "../db/schema.js";
+import { anchorBatches, records, waitlist } from "@ozdna/db";
 import { bandNeighbors } from "./probe.js";
 import type { AnchorInfo, RecordRow, Repo, WaitlistInsert } from "./types.js";
 

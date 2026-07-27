@@ -8,6 +8,7 @@
     "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
+    "@ozdna/db": "*",
     "@ozdna/dna-core": "*",
     "drizzle-orm": "^0.45.2",
     "hono": "^4.12.32"
