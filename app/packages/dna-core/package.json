@@ -11,7 +11,9 @@
     "./node": "./src/decode-node.ts",
     "./photon": "./src/decode-photon.ts",
     "./pdq": "./src/pdq.ts",
-    "./pdq-node": "./src/pdq-node.ts"
+    "./pdq-node": "./src/pdq-node.ts",
+    "./pdq-browser": "./src/pdq-browser.ts",
+    "./pdq-worker": "./src/pdq-worker.ts"
   },
   "scripts": {
     "test": "vitest run",

@@ -78,7 +78,7 @@ async function runAnchorBatch(env: Env): Promise<{
   skipped?: string;
 }> {
   const rows = await env.DB.prepare(
-    `SELECT id, user_id, sha256, phash64, created_at
+    `SELECT id, user_id, sha256, phash64, pdq256, created_at
      FROM records
      WHERE status = 'registered' AND is_test = 0
      ORDER BY created_at ASC
@@ -88,6 +88,7 @@ async function runAnchorBatch(env: Env): Promise<{
     user_id: string | null;
     sha256: string;
     phash64: number;
+    pdq256: ArrayBuffer | null;
     created_at: string;
   }>();
 
@@ -99,11 +100,16 @@ async function runAnchorBatch(env: Env): Promise<{
   const leafHashes = await Promise.all(
     records.map(async (r) => {
       const phashHex = hashToHex(toUnsignedU64(BigInt(r.phash64)));
+      const pdqHex =
+        r.pdq256 && new Uint8Array(r.pdq256).byteLength === 32
+          ? toHex(new Uint8Array(r.pdq256))
+          : null;
       return hashLeaf(
         leafPreimage({
           id: r.id,
           sha256Hex: r.sha256,
           phash64Hex: phashHex,
+          pdq256Hex: pdqHex,
           accountId: r.user_id ?? "",
           registeredAt: r.created_at,
         }),

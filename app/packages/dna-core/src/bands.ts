@@ -54,3 +54,43 @@ export function hammingU64(a: bigint, b: bigint): number {
 export function hammingHex(aHex: string, bHex: string): number {
   return hammingU64(BigInt(`0x${aHex}`), BigInt(`0x${bHex}`));
 }
+
+/**
+ * Multi-index probe values for one 16-bit band (plan/03 §2.2).
+ * - r=0: exact band only (complete for total d ≤ 3)
+ * - r=1: self + 16 one-bit flips = 17 (complete for d ≤ 7)
+ * - r=2: + C(16,2) two-bit flips = 137 (complete for d ≤ 10)
+ */
+export function bandProbes(band: number, radius: 0 | 1 | 2): number[] {
+  const b = band & 0xffff;
+  if (radius === 0) return [b];
+
+  const out = new Set<number>([b]);
+  for (let i = 0; i < 16; i++) out.add(b ^ (1 << i));
+  if (radius === 1) return [...out];
+
+  for (let i = 0; i < 16; i++) {
+    for (let j = i + 1; j < 16; j++) {
+      out.add(b ^ (1 << i) ^ (1 << j));
+    }
+  }
+  return [...out];
+}
+
+/** All four bands' probe lists for a given radius (for D1 `IN (...)` queries). */
+export function allBandProbes(
+  bands: Bands,
+  radius: 0 | 1 | 2,
+): {
+  band0: number[];
+  band1: number[];
+  band2: number[];
+  band3: number[];
+} {
+  return {
+    band0: bandProbes(bands.band0, radius),
+    band1: bandProbes(bands.band1, radius),
+    band2: bandProbes(bands.band2, radius),
+    band3: bandProbes(bands.band3, radius),
+  };
+}
