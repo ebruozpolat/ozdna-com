@@ -39,7 +39,8 @@ credentials/actions** — not agent deferral.
 
 | # | Status |
 |---|---|
-| C1–C4 | FIXED |
+| C1 | FIXED (canonical) — pure `pdq.ts` distance/encoding/confirm + vendored `pdq-wasm` + Node adapter `pdq-node`; spike report `app/docs/pdq-spike-2026-07-27.md`. Earlier PR #43 wrapper replaced (createRequire was Workers-unsafe at package root). |
+| C2–C4 | FIXED |
 | C5 | FIXED — golden corpus + EXIF step-0 + **photon cross-decoder d≤2** (`decode-photon.ts`, `photon-golden.test.ts`) |
 | C6–C7 | FIXED — contract + Foundry tests; **BaseAdapter + viem** live |
 | C8 | INFO |
