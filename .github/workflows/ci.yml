@@ -1,17 +1,28 @@
 # Content-provenance MVP (app/) — batch gate per plan/09-DEV-SETUP.md §9.
 # Never deploys. No Cloudflare secrets in GitHub.
+# A4: typecheck + biome + vitest + forbidden-word gate (+ forge contracts).
 name: ci
 
 on:
   pull_request:
     paths:
       - "app/**"
+      - "oversight/**"
+      - "verify/**"
+      - "tr/verify/**"
+      - "oversight/scripts/check-forbidden.sh"
+      - "scripts/check-copy.sh"
       - ".github/workflows/ci.yml"
   push:
     branches:
       - main
     paths:
       - "app/**"
+      - "oversight/**"
+      - "verify/**"
+      - "tr/verify/**"
+      - "oversight/scripts/check-forbidden.sh"
+      - "scripts/check-copy.sh"
       - ".github/workflows/ci.yml"
 
 jobs:
@@ -34,6 +45,13 @@ jobs:
 
       - name: Batch gate (typecheck + biome + vitest)
         run: npm run check
+
+  forbidden:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Forbidden-word gate (check-forbidden.sh; alias scripts/check-copy.sh)
+        run: bash oversight/scripts/check-forbidden.sh
 
   contracts:
     runs-on: ubuntu-latest

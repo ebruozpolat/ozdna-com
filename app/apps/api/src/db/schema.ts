@@ -131,3 +131,20 @@ export const waitlist = sqliteTable(
   },
   (t) => [index("idx_waitlist_segment").on(t.segment)],
 );
+
+/** Applied via migrations/0002_webhooks.sql */
+export const webhookEndpoints = sqliteTable(
+  "webhook_endpoints",
+  {
+    id: text("id").primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => users.id),
+    url: text("url").notNull(),
+    secret: text("secret").notNull(),
+    description: text("description"),
+    createdAt: text("created_at").notNull().default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ','now'))`),
+    revokedAt: text("revoked_at"),
+  },
+  (t) => [index("idx_whe_user").on(t.userId)],
+);

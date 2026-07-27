@@ -2,13 +2,14 @@
 export const openapiYaml = `openapi: 3.1.0
 info:
   title: ozDNA API
-  version: 0.0.0
+  version: 0.1.0
   description: |
     Content provenance API (images only in v1). Blockchain is invisible plumbing.
     Never claims official C2PA trust list status until Conformance Program Level 1.
+    POST /v1/marks is registry-only until the September embed spike.
 servers:
   - url: https://api.ozdna.com
-    description: Production (not yet deployed — needs Cloudflare account)
+    description: Production
   - url: http://127.0.0.1:8787
     description: Local wrangler
 paths:
@@ -50,6 +51,21 @@ paths:
       responses:
         "200": { description: signature_b64 }
         "503": { description: Signing not configured }
+  /v1/bootstrap/api-key:
+    post:
+      summary: One-shot user + live API key (requires BOOTSTRAP_TOKEN)
+      responses:
+        "201": { description: Created; api_key shown once }
+        "401": { description: Bad bootstrap token }
+        "503": { description: Bootstrap disabled }
+  /v1/marks:
+    post:
+      summary: Registry-only AI mark (API key). No C2PA embed yet.
+      security: [{ bearerAuth: [] }]
+      responses:
+        "201": { description: Registered }
+        "200": { description: Deduplicated }
+        "401": { description: Missing/invalid API key }
   /v1/records/{id}:
     get:
       summary: Public record
@@ -63,16 +79,32 @@ paths:
         "200": { description: Proof envelope }
   /v1/usage:
     get:
-      summary: Usage/quota (empty until API-key auth)
+      summary: Current-month usage + quota (API key)
+      security: [{ bearerAuth: [] }]
       responses:
         "200": { description: Usage }
+        "401": { description: Missing/invalid API key }
   /v1/webhook-endpoints:
     get:
       summary: List webhook endpoints
+      security: [{ bearerAuth: [] }]
       responses:
         "200": { description: endpoints array }
     post:
-      summary: Create webhook endpoint
+      summary: Create webhook endpoint (secret shown once)
+      security: [{ bearerAuth: [] }]
       responses:
-        "501": { description: Auth not wired }
+        "201": { description: Created }
+  /v1/webhook-endpoints/{id}:
+    delete:
+      summary: Revoke webhook endpoint
+      security: [{ bearerAuth: [] }]
+      responses:
+        "200": { description: Revoked }
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: ozdna_live_… or ozdna_test_…
 `;

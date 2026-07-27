@@ -4,6 +4,8 @@ import { Hono } from "hono";
 import { cors } from "hono/cors";
 import type { Env } from "./env.js";
 import { openapiYaml } from "./openapi.js";
+import { bootstrapRoutes } from "./routes/bootstrap.js";
+import { markRoutes } from "./routes/marks.js";
 import { recordRoutes } from "./routes/records.js";
 import { registrationRoutes } from "./routes/registrations.js";
 import { signRoutes } from "./routes/sign-digest.js";
@@ -18,7 +20,7 @@ app.use(
   cors({
     origin: (origin) => origin || "*",
     allowMethods: ["GET", "POST", "DELETE", "OPTIONS"],
-    allowHeaders: ["Content-Type", "Authorization", "Idempotency-Key"],
+    allowHeaders: ["Content-Type", "Authorization", "Idempotency-Key", "X-Bootstrap-Token"],
   }),
 );
 
@@ -26,7 +28,7 @@ app.get("/health", (c) =>
   c.json({
     ok: true,
     service: "ozdna-api",
-    version: "0.0.0",
+    version: "0.1.0-auth-marks",
     time: new Date().toISOString(),
   }),
 );
@@ -43,6 +45,8 @@ app.route("/v1", verifyRoutes);
 app.route("/v1", registrationRoutes);
 app.route("/v1", signRoutes);
 app.route("/v1", recordRoutes);
+app.route("/v1", bootstrapRoutes);
+app.route("/v1", markRoutes);
 app.route("/v1", usageRoutes);
 app.route("/v1", webhookRoutes);
 
