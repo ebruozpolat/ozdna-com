@@ -27,7 +27,7 @@
 <title>Bir görselin DNA'sını doğrula · OriginDNA</title>
 <style>
   :root {
-    --paper: #F2EFE6; --ink: #191611; --accent: #E23D0E; --muted: #6F6A5C;
+    --paper: #F2EFE6; --ink: #191611; --accent: #B52F0B; --muted: #5C574C;
     --rule: rgba(25, 22, 17, 0.18); --rule-soft: rgba(25, 22, 17, 0.08); --card: rgba(25, 22, 17, 0.03);
     --ok: #1F7A3D; --hold: #B4680E;
     --mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
@@ -37,7 +37,7 @@
       --rule: rgba(237,232,217,0.22); --rule-soft: rgba(237,232,217,0.09); --card: rgba(237,232,217,0.04);
       --ok:#4CC470; --hold:#E0A44B; }
   }
-  :root[data-theme="light"] { --paper:#F2EFE6;--ink:#191611;--accent:#E23D0E;--muted:#6F6A5C;
+  :root[data-theme="light"] { --paper:#F2EFE6;--ink:#191611;--accent:#B52F0B;--muted:#5C574C;
     --rule:rgba(25,22,17,0.18);--rule-soft:rgba(25,22,17,0.08);--card:rgba(25,22,17,0.03);--ok:#1F7A3D;--hold:#B4680E; }
   :root[data-theme="dark"] { --paper:#141208;--ink:#EDE8D9;--accent:#FF6B3D;--muted:#938D7B;
     --rule:rgba(237,232,217,0.22);--rule-soft:rgba(237,232,217,0.09);--card:rgba(237,232,217,0.04);--ok:#4CC470;--hold:#E0A44B; }
@@ -100,7 +100,8 @@
   .check .sub { margin:0;color:var(--muted);font-size:13px; }
   .check .kv { margin:8px 0 0;font-size:12px;color:var(--muted);word-break:break-all; }
   .check .kv code { color:var(--ink); }
-  .check.dim { opacity:0.6; }
+  /* Was opacity:0.6 — that dropped text contrast below AA. Mark illustrative without dimming type. */
+  .check.dim { background: var(--card); border-left: 3px solid var(--hold); }
   .rgroup { padding:9px 18px;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);background:var(--card);border-bottom:1px solid var(--rule-soft); }
   .mk.spin { color:var(--muted); }
 

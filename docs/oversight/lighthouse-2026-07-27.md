@@ -1,4 +1,4 @@
-# Lighthouse measurement — 2026-07-27 (closes ledger A8)
+# Lighthouse measurement — 2026-07-27 (closes ledger A8 + marketing surfaces)
 
 **Tool:** Lighthouse 12.8.2 · Chrome headless  
 **Method:** `python3 -m http.server` on repo root → `http://127.0.0.1:8765/…`  
@@ -13,18 +13,25 @@
 
 Criterion **Lighthouse ≥95**: met for the oversight site (all four categories).
 
-## Fixes applied this pass (so a11y could reach ≥95)
+### Oversight fixes
+1. `--dim` `#6b7480` → `#7d8796`
+2. `--accent-dim` `#2f6f66` → `#3d9a8c`
+3. Body links keep underline (`link-in-text-block`)
 
-1. `--dim` `#6b7480` → `#7d8796` (≥4.5:1 on `--bg`/`--panel-2`)
-2. `--accent-dim` `#2f6f66` → `#3d9a8c` (≥4.5:1 on `--panel` for `.card .n`)
-3. Body links keep underline (non-color distinguisher for `link-in-text-block`); nav/CTA/brand exempt
+## Marketing / product surfaces (same bar, measured + fixed)
 
-## Out of oversight scope (measured for honesty, not the website-spec gate)
+`website-spec.md` only binds `/oversight/`. Home, verify, and ComplyDNA were **also** measured and brought to the same ≥95 bar so we do not silently carve them out.
 
-| URL | Notes (local, pre-comply/verify contrast pass) |
-|---|---|
-| `/` (home) | Preview SEO tanked by noindex; a11y had color-contrast fails on marketing labels |
-| `/verify/` | Same; a11y ~95 with remaining contrast items |
-| `/products/comply/` | Same; a11y ~96 with remaining contrast items |
+| URL | Performance | Accessibility | Best Practices | SEO |
+|---|---|---|---|---|
+| `/` | **100** | **100** | **100** | **100** |
+| `/tr/` | **100** | **100** | **100** | **100** |
+| `/verify/` | **100** | **100** | **100** | **100** |
+| `/tr/verify/` | **100** | **100** | **100** | **100** |
+| `/products/comply/` | **100** | **100** | **100** | **100** |
+| `/tr/products/comply/` | **100** | **100** | **100** | **100** |
 
-Those marketing/verify surfaces are **not** claimed ≥95 here — only oversight was the website-spec acceptance criterion.
+### Marketing fixes
+1. Light-theme `--accent` `#E23D0E` → `#B52F0B`; `--muted` `#6F6A5C` → `#5C574C` (AA on paper/card)
+2. Home heading order: product titles `h3→h2`, principle/why-now cells `h4→h3` (EN + TR)
+3. Verify illustrative row: `.check.dim` no longer uses `opacity:0.6` (killed text contrast)

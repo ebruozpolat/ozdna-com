@@ -120,8 +120,8 @@
   :root {
     --paper: #F2EFE6;
     --ink: #191611;
-    --accent: #E23D0E;
-    --muted: #6F6A5C;
+    --accent: #B52F0B;
+    --muted: #5C574C;
     --rule: rgba(25, 22, 17, 0.18);
     --rule-soft: rgba(25, 22, 17, 0.08);
     --card: rgba(25, 22, 17, 0.03);
@@ -139,7 +139,7 @@
     }
   }
   :root[data-theme="light"] {
-    --paper: #F2EFE6; --ink: #191611; --accent: #E23D0E; --muted: #6F6A5C;
+    --paper: #F2EFE6; --ink: #191611; --accent: #B52F0B; --muted: #5C574C;
     --rule: rgba(25, 22, 17, 0.18); --rule-soft: rgba(25, 22, 17, 0.08); --card: rgba(25, 22, 17, 0.03);
   }
   :root[data-theme="dark"] {
@@ -186,8 +186,8 @@
   .products { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
   @media (max-width: 880px) { .products { grid-template-columns: 1fr; } }
   .product { border: 1px solid var(--rule); background: var(--card); padding: 28px; display: flex; flex-direction: column; gap: 14px; }
-  .product h3 { margin: 0; font-size: 22px; text-transform: uppercase; letter-spacing: 0.04em; }
-  .product h3 .dot { color: var(--accent); }
+  .product h2 { margin: 0; font-size: 22px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .product h2 .dot { color: var(--accent); }
   .product p { margin: 0; color: var(--muted); }
   .product .meta { display: flex; flex-wrap: wrap; gap: 8px 18px; padding: 12px 0; border-top: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); }
   .product .meta span { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
@@ -201,7 +201,7 @@
   .principle { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   @media (max-width: 880px) { .principle { grid-template-columns: 1fr; } }
   .cell { border-top: 2px solid var(--ink); padding-top: 16px; }
-  .cell h4 { margin: 8px 0 10px; font-size: 15px; text-transform: uppercase; }
+  .cell h3 { margin: 8px 0 10px; font-size: 15px; text-transform: uppercase; }
   .cell p { margin: 0; color: var(--muted); font-size: 14px; }
 
   .faq { border-top: 1px solid var(--rule); }
@@ -259,7 +259,7 @@
     <div class="products">
       <div class="product">
         <div class="label"><b>P1</b> / REGTECH — TÜRKÇE</div>
-        <h3>COMPLY<span class="dot">DNA</span></h3>
+        <h2>COMPLY<span class="dot">DNA</span></h2>
         <p>Türk finansal mevzuatı için uyum LLM'i. MASAK tebliğleri, AML/CFT
         kanunları 5549 &amp; 6415, KVKK — her cümle satır içi
         <code>[TEBLİĞ / Madde]</code> künyesiyle yanıtlanır. Tahmin değil,
@@ -276,7 +276,7 @@
       </div>
       <div class="product">
         <div class="label"><b>P2</b> / PROVENANCE — GLOBAL</div>
-        <h3>ORIGIN<span class="dot">DNA</span></h3>
+        <h2>ORIGIN<span class="dot">DNA</span></h2>
         <p>İçerik kökeni altyapısı. Her görsel bir DNA alır: oluşturma anında
         kriptografik imza, kimsenin geriye tarihleyemeyeceği bir zaman damgası ve
         platformlar metadata'yı silse bile hayatta kalan algısal parmak izi.
@@ -303,20 +303,20 @@
     <div class="principle">
       <div class="cell">
         <div class="label"><b>A</b> / KAYNAK</div>
-        <h4>Yanıtlar kaynak gösterir</h4>
+        <h3>Yanıtlar kaynak gösterir</h3>
         <p>ComplyDNA mevzuat referansı olmadan iddiada bulunmaz. Her cümlenin
         arkasındaki mevzuat maddesi bir tık uzakta.</p>
       </div>
       <div class="cell">
         <div class="label"><b>B</b> / İMZA</div>
-        <h4>İçerik kökenini kanıtlar</h4>
+        <h3>İçerik kökenini kanıtlar</h3>
         <p>OriginDNA içeriği oluşturma anında imzalar ve parmak izini kaydeder;
         köken ekran görüntüsünde, yeniden yüklemede ve silinen metadata'da
         hayatta kalır.</p>
       </div>
       <div class="cell">
         <div class="label"><b>C</b> / DOĞRULA</div>
-        <h4>Herkes kontrol edebilir</h4>
+        <h3>Herkes kontrol edebilir</h3>
         <p>Doğrulama halka açık ve bağımsızdır — hesap yok, "bize güvenin"
         düğmesi yok. Kontrol edilemiyorsa, yayınlamayız.</p>
       </div>
@@ -338,20 +338,20 @@
     <div class="principle">
       <div class="cell">
         <div class="label"><b>2 AĞU</b> / 2026</div>
-        <h4>İşaretleme kuralları başlıyor</h4>
+        <h3>İşaretleme kuralları başlıyor</h3>
         <p>AB Yapay Zekâ Yasası Madde 50 uygulanmaya başlıyor; Kaliforniya SB 942 aynı gün
         yürürlüğe giriyor. Yeni GenAI sistemleri AI ile üretilen içeriği makinece okunabilir
         biçimde (Madde 50(2)) ilk günden işaretlemelidir.</p>
       </div>
       <div class="cell">
         <div class="label"><b>2 ARA</b> / 2026</div>
-        <h4>Madde 50(2) affı bitiyor</h4>
+        <h3>Madde 50(2) affı bitiyor</h3>
         <p>2 Ağu'dan önce piyasada olan GenAI sistemleri için makinece okunabilir işaretleme
         affı biter. OriginDNA'nın lansman yaptığı yaptırım dalgası budur.</p>
       </div>
       <div class="cell">
         <div class="label"><b>14 OCAK'TAN BERİ</b> / 2026</div>
-        <h4>Pazar yerleri önden gitti</h4>
+        <h3>Pazar yerleri önden gitti</h3>
         <p>Etsy, 14 Ocak 2026'dan beri satıcılardan AI ile üretilen işleri beyan etmelerini
         zorunlu tutuyor. Alıcılar "bu orijinal mi?" diye soruyor — satıcıların onay kutusundan
         iyi bir cevaba ihtiyacı var.</p>
