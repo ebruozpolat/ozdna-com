@@ -27,7 +27,7 @@ verifyRoutes.get("/verify", async (c) => {
     .first<{
       id: string;
       sha256: string;
-      phash64: number;
+      phash64: string;
       status: string;
       created_at: string;
       anchored_at: string | null;

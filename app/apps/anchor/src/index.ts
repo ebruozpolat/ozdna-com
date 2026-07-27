@@ -3,14 +3,7 @@
 // Uses BaseAdapter when ANCHOR_BACKEND=base and Secrets are present; else NullAdapter.
 
 import { type AnchorBackend, BaseAdapter, NullAdapter } from "@ozdna/anchor-backends";
-import {
-  buildTree,
-  hashLeaf,
-  hashToHex,
-  leafPreimage,
-  toHex,
-  toUnsignedU64,
-} from "@ozdna/dna-core";
+import { buildTree, hashLeaf, leafPreimage, toHex } from "@ozdna/dna-core";
 import type { Env } from "./env.js";
 
 export default {
@@ -69,6 +62,12 @@ function resolveAdapter(env: Env): { adapter: AnchorBackend; skipped?: string } 
   return { adapter: new NullAdapter() };
 }
 
+function blobToHex(blob: ArrayBuffer | Uint8Array | null): string | null {
+  if (!blob) return null;
+  const bytes = blob instanceof Uint8Array ? blob : new Uint8Array(blob);
+  return bytes.byteLength === 0 ? null : toHex(bytes);
+}
+
 async function runAnchorBatch(env: Env): Promise<{
   ok: boolean;
   picked: number;
@@ -78,7 +77,7 @@ async function runAnchorBatch(env: Env): Promise<{
   skipped?: string;
 }> {
   const rows = await env.DB.prepare(
-    `SELECT id, user_id, sha256, phash64, created_at
+    `SELECT id, user_id, sha256, phash64, pdq256, manifest_sha256, created_at
      FROM records
      WHERE status = 'registered' AND is_test = 0
      ORDER BY created_at ASC
@@ -87,7 +86,9 @@ async function runAnchorBatch(env: Env): Promise<{
     id: string;
     user_id: string | null;
     sha256: string;
-    phash64: number;
+    phash64: string;
+    pdq256: ArrayBuffer | Uint8Array | null;
+    manifest_sha256: string | null;
     created_at: string;
   }>();
 
@@ -98,12 +99,13 @@ async function runAnchorBatch(env: Env): Promise<{
 
   const leafHashes = await Promise.all(
     records.map(async (r) => {
-      const phashHex = hashToHex(toUnsignedU64(BigInt(r.phash64)));
       return hashLeaf(
         leafPreimage({
           id: r.id,
           sha256Hex: r.sha256,
-          phash64Hex: phashHex,
+          phash64Hex: r.phash64.toLowerCase(),
+          pdq256Hex: blobToHex(r.pdq256),
+          manifestSha256Hex: r.manifest_sha256?.toLowerCase() ?? null,
           accountId: r.user_id ?? "",
           registeredAt: r.created_at,
         }),

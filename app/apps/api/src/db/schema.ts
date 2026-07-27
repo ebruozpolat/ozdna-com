@@ -67,7 +67,7 @@ export const records = sqliteTable(
     kind: text("kind").notNull(),
     source: text("source").notNull(),
     sha256: text("sha256").notNull(),
-    phash64: integer("phash64").notNull(),
+    phash64: text("phash64").notNull(),
     pdq256: blob("pdq256"),
     band0: integer("band0").notNull(),
     band1: integer("band1").notNull(),

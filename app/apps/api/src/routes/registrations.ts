@@ -1,4 +1,4 @@
-import { bandsFromHex, fromHex, toSignedI64 } from "@ozdna/dna-core";
+import { bandsFromHex, fromHex } from "@ozdna/dna-core";
 import { Hono } from "hono";
 import { z } from "zod";
 import type { Env } from "../env.js";
@@ -38,7 +38,6 @@ registrationRoutes.post("/registrations", async (c) => {
   const sha = sha256.toLowerCase();
   const ph = phash.toLowerCase();
   const bands = bandsFromHex(ph);
-  const phashSigned = Number(toSignedI64(BigInt(`0x${ph}`)));
 
   const existing = await c.env.DB.prepare(
     `SELECT id, sha256, status, created_at FROM records WHERE sha256 = ? AND is_test = 0 LIMIT 1`,
@@ -71,7 +70,7 @@ registrationRoutes.post("/registrations", async (c) => {
       id,
       kind,
       sha,
-      phashSigned,
+      ph,
       pdqBlob && pdqBlob.byteLength === 32 ? pdqBlob : null,
       bands.band0,
       bands.band1,

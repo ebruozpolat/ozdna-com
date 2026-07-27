@@ -18,7 +18,7 @@ recordRoutes.get("/records/:id", async (c) => {
       id: string;
       kind: string;
       sha256: string;
-      phash64: number;
+      phash64: string;
       status: string;
       created_at: string;
       anchored_at: string | null;

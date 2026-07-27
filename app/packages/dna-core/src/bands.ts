@@ -29,8 +29,9 @@ export function bandsFromHex(phash64Hex: string): Bands {
 }
 
 /**
- * D1 stores phash64 as a SIGNED 64-bit INTEGER (03 §2.3: BigInt.asIntN(64, hash)); API
- * responses serialize the UNSIGNED value as 16 hex. These convert between the two views.
+ * Legacy helpers for signed INTEGER storage. Runtime persistence keeps the canonical
+ * unsigned 16-hex string because Workers/D1 JS bindings cannot safely round-trip every
+ * 64-bit value through Number.
  */
 export function toSignedI64(unsigned: bigint): bigint {
   return BigInt.asIntN(64, unsigned);
