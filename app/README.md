@@ -21,18 +21,24 @@ app/
     src/leaf.ts          #   canonical leaf preimage (plan/03 §3.2)
     src/phash.ts         #   OzDNA pHash v1 (luma → 32×32 box → DCT-II → 8×8 → median) — plan/03 §1.3
     src/bands.ts         #   4×16-bit band slicing + Hamming (plan/03 §2.2)
-    test/*.test.ts       #   vitest: 19 tests, all green (property/round-trip, no magic goldens)
-  migrations/0001_init.sql  # D1 schema, verbatim from plan/04 §5
+    src/verdict.ts       #   §6.3 enum + locked copy + §1.5 thresholds
+    src/schema.ts        #   zod: LeafRecord, VerdictCard, ProofSkeleton
+    test/*.test.ts       #   vitest (property/round-trip + verdict/schema)
+  apps/api/src/db/schema.ts  # drizzle stub twin of 0001_init (routes not built)
+  migrations/0001_init.sql   # D1 schema, verbatim from plan/04 §5
+  TOOLCHAIN.md               # explicit corpus vs foundation divergences
   tsconfig.base.json / vitest.config.ts / package.json
 ```
 
 ## Not built yet (need infra / secrets / decisions — later batches)
-- `apps/api` (Hono Worker: `/v1/sign-digest`, `/v1/marks`, verify, registrations)
+- `apps/api` routes (Hono Worker: `/v1/sign-digest`, `/v1/marks`, verify, registrations) — schema stub only
 - `apps/anchor` (cron Worker: Merkle batch → Base tx → proofs) + `packages/anchor-backends`
 - `apps/web` (Astro sign/verify SPA loading `@contentauth/c2pa-web` WASM)
 - `contracts/OzDnaAnchor.sol` (Foundry) — plan/03 §3.5
-- PDQ-256 wrapper, zod schemas, verdict enum (plan/03 §1.4/§6.3)
+- PDQ-256 wrapper (plan/03 §1.4); workerd Vitest pool; drizzle-kit generate
 - Cloudflare account bindings (D1/R2/KV), signing cert chain, Base gas wallet — all founder-provisioned
+
+See `TOOLCHAIN.md` for TypeScript / Vitest / drizzle pins vs the corpus.
 
 ## Run
 ```bash

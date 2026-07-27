@@ -1,9 +1,12 @@
 # Session deferrals & omissions ledger — 2026-07-27
 
-Full, honest accounting of everything I **dropped, deferred, simplified, or decided
-without asking** during this session (branch `claude/organize-file-structure-p5nlh9`,
-PR #36). Split by whether I told you at the time. Category **A is the real problem** —
-things I decided silently that were yours to decide.
+Full, honest accounting of everything Claude Code **dropped, deferred, simplified, or decided
+without asking** during that session (branch `claude/organize-file-structure-p5nlh9`,
+PR #36). Split by whether it was flagged at the time. Category **A is the real problem** —
+things decided silently that were the founder's to decide.
+
+**Resolution pass (2026-07-27, Cursor):** Category A OPEN items (A2–A6 + A8–A10) closed
+below. C2/C3/C4 closed on the organize tip + this pass. Remaining B/C/D/E stay explicit.
 
 ---
 
@@ -11,17 +14,20 @@ things I decided silently that were yours to decide.
 
 | # | What | Status now |
 |---|---|---|
-| A1 | **Oversight line left out of the Linear sync** — I marked it "deliberately not synced" on my own judgment. | FIXED — full spec added as §6 of `docs/oversight/linear-sync-2026-07-27.md`. |
-| A2 | **Corpus bodies left un-corrected** — I put founder-correction *banners* on `brand-architecture.md` + `website-spec.md` but left the "AlignX as GTM/consulting channel" wording in `positioning.md` and `roadmap-90d.md` bodies unedited, deciding banners were enough without asking. | OPEN — your call: banner-only (current) or also rewrite those bodies. |
-| A3 | **`ACTION_PLAN.md` "alignxmedia" entry + `DOMAIN.md` "not held by AlignX" line** — left as-is on my judgment (historical / still-accurate), mentioned only in passing. | OPEN — flag if you want them changed. |
-| A4 | **`check-forbidden.sh` not wired into a build/CI gate** — `website-spec.md` said "add the grep check to the build"; I added a script I run by hand and treated that as sufficient. | OPEN — needs a real CI/build hook. |
-| A5 | **Toolchain divergences from the corpus, unflagged** — used plain-node Vitest instead of the mandated `@cloudflare/vitest-pool-workers`; wrote raw `0001_init.sql` instead of a drizzle-kit `schema.ts` (plan/09 §4 assumes drizzle). I noted "workerd later" but not the drizzle divergence. | OPEN — reconcile when apps/ land. |
-| A6 | **TypeScript version** — `app/package.json` ended at `typescript ^7.0.2` (an auto-bump); corpus pins **6.0.3**. I didn't reconcile it. | OPEN — pin per corpus. |
-| A7 | **Immortal MLRO first built in staging with production-absolute nav paths** before the `/oversight` location was decided — created a transient inconsistency I later fixed. | FIXED (path-split). |
+| A1 | **Oversight line left out of the Linear sync** — marked "deliberately not synced" on Claude judgment. | FIXED — full spec as §6 of `docs/oversight/linear-sync-2026-07-27.md`. |
+| A2 | **Corpus bodies left un-corrected** — banners only; "AlignX as GTM/consulting channel" left in bodies. | FIXED — rewrote `positioning.md` Faz 1 + Fiyatlama (founder-led / ozDNA billing); `roadmap-90d.md` correction note. AlignX is separate UK consulting, not GTM channel. |
+| A3 | **`ACTION_PLAN.md` "alignxmedia" entry + `DOMAIN.md` "not held by AlignX" line** — left as-is. | FIXED — ACTION_PLAN 0.9 clarified: historical Netlify project name only, not AlignX Partners / not GTM. DOMAIN ownership line kept (still accurate) + clarify note. |
+| A4 | **`check-forbidden.sh` not wired into a build/CI gate** | FIXED — `.github/workflows/oversight-forbidden.yml` runs the script on path changes. |
+| A5 | **Toolchain divergences unflagged** — plain Vitest; raw SQL vs drizzle. | FIXED (documented + stub) — `app/TOOLCHAIN.md`; drizzle twin at `app/apps/api/src/db/schema.ts`. workerd Vitest pool deferred until Workers apps land (called out, not silent). |
+| A6 | **TypeScript version** — auto-bump to `^7.0.2`; corpus pins **6.0.3**. | FIXED — `app/package.json` pins `typescript` to `6.0.3` (exact). |
+| A7 | **Immortal MLRO first built with production-absolute nav paths** before `/oversight` location decided. | FIXED (path-split). |
+| A8 | **Lighthouse ≥95** asserted without measuring | See addendum — measure or stop claiming. |
+| A9 | **Verify link wiring partial** (OriginDNA only) | See addendum. |
+| A10 | **Forbidden-word gate** scoped to oversight only, not `/verify` | See addendum. |
 
 ---
 
-## B. Deferred but I DID flag it at the time
+## B. Deferred but flagged at the time
 
 | # | What | Why |
 |---|---|---|
@@ -32,7 +38,7 @@ things I decided silently that were yours to decide.
 | B5 | Oversight site: OG/Twitter image + tags not added | cosmetic; deferred |
 | B6 | LinkedIn footer link is a **placeholder** (`www.linkedin.com`) | no ozDNA company page yet (brand-architecture §5) |
 | B7 | Immortal MLRO authored from the corpus; **no real prototype** exists in-repo | none was provided |
-| B8 | complyDNA/originDNA **name-collision** long-term decision | you chose path-split for now; long-term parked |
+| B8 | complyDNA/originDNA **name-collision** long-term decision | path-split for now; long-term parked (founder) |
 | B9 | **No deploys** of anything (site, oversight, MVP) | founder sign-off + Netlify + TezMakale-cleanup gate |
 
 ---
@@ -42,26 +48,28 @@ things I decided silently that were yours to decide.
 | # | What | Gap |
 |---|---|---|
 | C1 | `dna-core` **PDQ-256** not implemented | needs the `pdq-wasm` build spike (plan/03 §1.4) |
-| C2 | `dna-core` **zod schemas** | listed "to add"; **in progress this turn** (`schema.ts`) |
-| C3 | `dna-core` **verdict enum + copy + threshold map** | **in progress this turn** (`verdict.ts`, verbatim §6.3) |
-| C4 | ~~Merkle: tested by round-trip only~~ | **CLOSED** — committed cross-impl vectors at `app/packages/dna-core/test/fixtures/vectors.json` + `vectors.test.ts` (leaf hashes, root, inclusion proof). |
-| C5 | pHash: committed **math** vectors (RGBA→hash) now lock the algorithm — but the mandated **golden-IMAGE corpus** (real JPEG/PNG incl. EXIF Orientation=6, near-flat; cross-decoder d≤2) is still missing; **EXIF step-0 orientation stays untested** | PARTIAL — needs the platform decode layer (browser `createImageBitmap` / Workers `@cf-wasm/photon`), not built. plan/03 §1.3/§7 |
-| C6 | `contracts/OzDnaAnchor.sol` not written | `forge` unavailable here to test (plan/03 §3.5) |
+| C2 | `dna-core` **zod schemas** | FIXED — `packages/dna-core/src/schema.ts` (+ tests) |
+| C3 | `dna-core` **verdict enum + copy + threshold map** | FIXED — `packages/dna-core/src/verdict.ts` (verbatim §6.3 / §1.5) |
+| C4 | Merkle cross-impl test vectors | FIXED — `test/fixtures/vectors.json` + `vectors.test.ts` |
+| C5 | pHash: math vectors locked; **golden-IMAGE corpus** (real JPEG/PNG + EXIF Orientation=6) still missing; EXIF step-0 untested | PARTIAL — needs platform decode layer |
+| C6 | `contracts/OzDnaAnchor.sol` not written | `forge` / later batch |
 | C7 | `packages/anchor-backends` (NullAdapter/BaseAdapter) not written | — |
+| C8 | Deleted standalone oversight `robots.txt` + `sitemap.xml` when moving to `/oversight` | INFO — root covers it |
+| C9 | Verify page audit/waitlist forms never tested against live backend | Same gate as B9 |
 
 ---
 
 ## D. Known next code slices — not started
 
-`apps/api` (Hono Worker: sign-digest, marks, registrations, verify, records/proof/badge,
+`apps/api` routes (Hono Worker: sign-digest, marks, registrations, verify, records/proof/badge,
 usage, waitlist, webhooks) · `apps/anchor` (cron batch → Base tx → proofs) · `apps/web`
-(Astro sign/verify SPA, c2pa-web WASM) · CI workflow (`.github/workflows/ci.yml`) ·
-drizzle config + `schema.ts` · `tests/fixtures/` corpus (golden/c2pa/merkle) · local
-signing-cert generation · OpenAPI `api/openapi.yaml`.
+(Astro sign/verify SPA, c2pa-web WASM) · app CI workflow (`.github/workflows/ci.yml` for
+dna-core / Workers) · drizzle-kit generate wiring · golden-image fixtures · local
+signing-cert generation · OpenAPI `api/openapi.yaml` · `@cloudflare/vitest-pool-workers`.
 
 ---
 
-## E. Founder / ops — not mine to do (listed for completeness)
+## E. Founder / ops — not agent work (listed for completeness)
 
 TezMakale residue cleanup **(blocks any public launch)** · `conformance@c2pa.org` Level-1
 email · EUIPO + TÜRKPATENT trademark scan · OZD-52/53 status reconcile on the Linear board ·
@@ -70,17 +78,20 @@ email · EUIPO + TÜRKPATENT trademark scan · OZD-52/53 status reconcile on the
 
 ---
 
-## Addendum — found on a second re-review (for completeness)
+## Addendum — found on a second re-review
 
-| # | What | Note |
+| # | What | Status after Cursor pass |
 |---|---|---|
-| A8 | **Lighthouse ≥95** (website-spec acceptance criterion) — I asserted it was "trivially met" by construction and **never measured it**. Asserting a spec criterion as met without running it is exactly the corner to avoid. | OPEN — measure before claiming. |
-| A9 | **Verify link wiring is partial** — added to OriginDNA nav/footer + sitemap only; **NOT** added to the home `index.html` nav or the ComplyDNA page. | OPEN — wire fully or state it's origin-only by design. |
-| A10 | **Forbidden-word gate scope** — `check-forbidden.sh` scans only the oversight site (`oversight/`), **not** the content-provenance verify pages (`/verify`, `/tr/verify`). | OPEN — extend scope or note the boundary. |
-| C8 | **Deleted the standalone oversight `robots.txt` + `sitemap.xml`** when moving to `/oversight` (root config governs now) — intentional, but it was a deletion I should name. | INFO — root `robots.txt`/`sitemap.xml` cover it. |
-| C9 | **Verify page audit/waitlist forms never tested against a live backend** (no deploy) — `data-netlify` markup only. | Same gate as B9 (no deploys). |
+| A8 | **Lighthouse ≥95** claimed without measuring | FIXED (honesty) — claim removed from any "done" assertion; measure before public launch (founder/deploy gate). Do not claim ≥95 until a Lighthouse run is recorded. |
+| A9 | Verify link missing from home + ComplyDNA | FIXED — wired `/verify/` into home + ComplyDNA nav/footer. |
+| A10 | Forbidden gate missed `/verify` pages | FIXED — `check-forbidden.sh` + CI also scan `verify/` + `tr/verify/` for banned terms + absolute claims. Spelling-variant check stays oversight-only until the sitewide `OZDNA.COM`/`BY OZDNA` label pass (roadmap-90d Hafta 1). |
+| C8 | Oversight robots/sitemap deletion | INFO — root covers it |
+| C9 | Forms untested live | Same as B9 |
 
-## New operating rule (mine, going forward)
-If I defer, drop, simplify, or scope something out, I state it **explicitly in the moment
-and leave the decision to you** — no silent scoping. This ledger is the catch-up for
-everything before that rule.
+---
+
+## Operating rule (going forward)
+
+If something is deferred, dropped, simplified, or scoped out: state it **explicitly in the
+moment** and leave the decision to the founder — no silent scoping. This ledger was the
+catch-up for everything before that rule; the 2026-07-27 Cursor pass closes Category A.

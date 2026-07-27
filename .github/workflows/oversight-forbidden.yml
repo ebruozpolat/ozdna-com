@@ -1,0 +1,28 @@
+# Forbidden-word gate: oversight site (full) + verify pages (provenance subset).
+# Spec: docs/oversight/website-spec.md; ledger A4/A10.
+name: Forbidden-word gate
+
+on:
+  pull_request:
+    paths:
+      - "oversight/**"
+      - "verify/**"
+      - "tr/verify/**"
+      - ".github/workflows/oversight-forbidden.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "oversight/**"
+      - "verify/**"
+      - "tr/verify/**"
+      - ".github/workflows/oversight-forbidden.yml"
+
+jobs:
+  forbidden:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run check-forbidden.sh
+        run: bash oversight/scripts/check-forbidden.sh
