@@ -36,8 +36,25 @@ internal-path 404s actually apply (GitHub Pages supports none of them).
 ## DNS (Namecheap) — current, verified working
 
 Apex A → Netlify (`75.2.60.5` via Netlify's domain management), `www` → Netlify alias
-CNAME. **No changes needed.** Do not add GitHub Pages A records (185.199.x.x) — dual
-DNS was the failure mode we're avoiding.
+CNAME. Do not add GitHub Pages A records (185.199.x.x) — dual DNS was the failure mode
+we're avoiding.
+
+### `api.ozdna.com` → Cloudflare Worker (2026-07-27)
+
+Workers Custom Domains require `ozdna.com` as a Cloudflare zone; this account only has
+`scholarmap.io`, and the Wrangler OAuth token cannot create zones. Bridge in use:
+
+1. Netlify domain alias: `api.ozdna.com` on site `ozdna-614` (**done**)
+2. `netlify.toml` host-conditioned proxy → `https://ozdna-api.alignxdigital.workers.dev/:splat` (**in repo**)
+3. **Founder Namecheap DNS (one record):**
+   - Type: **CNAME**
+   - Host: **`api`**
+   - Value: **`ozdna-614.netlify.app`**
+   - TTL: Automatic
+
+After DNS propagates, `https://api.ozdna.com/health` should return 200. Longer-term:
+add `ozdna.com` as a Cloudflare zone (dashboard) and attach a true Workers custom domain;
+apex can stay pointed at Netlify.
 
 ## GitHub Pages (staging only)
 
