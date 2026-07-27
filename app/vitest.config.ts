@@ -1,11 +1,11 @@
 import { defineConfig } from "vitest/config";
 
-// Foundation config: packages + app route unit tests in plain node.
-// D1-backed route integration tests will move to @cloudflare/vitest-pool-workers
-// once remote D1/bindings are provisioned (see TOOLCHAIN.md).
+// Packages + plain-node route unit tests. D1/workerd suites live under
+// apps/api (`*.workers.test.ts` via `npm run test:workers`).
 export default defineConfig({
   test: {
     include: ["packages/**/test/**/*.test.ts", "apps/**/test/**/*.test.ts"],
+    exclude: ["**/node_modules/**", "**/*.workers.test.ts"],
     environment: "node",
   },
 });

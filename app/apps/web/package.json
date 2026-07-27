@@ -3,14 +3,18 @@
   "private": true,
   "type": "module",
   "version": "0.0.0",
-  "description": "OriginDNA sign/verify SPA scaffold (Astro + @contentauth/c2pa-web planned).",
+  "description": "OriginDNA verify SPA — Vite + @contentauth/c2pa-web (Wasm). Hard rule 5: never claim C2PA trust-list status.",
   "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit -p tsconfig.json && vite build",
+    "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
-    "@contentauth/c2pa-web": "^0.13.0"
+    "@contentauth/c2pa-web": "0.13.0"
   },
   "devDependencies": {
-    "typescript": "6.0.3"
+    "typescript": "6.0.3",
+    "vite": "^7.0.4"
   }
 }

@@ -1,55 +1,21 @@
-# `@ozdna/web`
+# @ozdna/web — OriginDNA verify SPA
 
-OriginDNA **sign / verify** SPA package (content-provenance line).
+Vite + `@contentauth/c2pa-web@0.13.0` (Wasm). **Hard rule 5:** UI never claims official Content Credentials trust-list status.
 
-## Status
+## Commands
 
-Minimal scaffold. Full **Astro** + `@contentauth/c2pa-web` client lands here later.
-For now: `package.json`, a static stub page, and a browser verify helper.
-
-## Planned routes
-
-| Route | Purpose |
-|-------|---------|
-| `/sign` | In-browser C2PA signing via WASM (`@contentauth/c2pa-web`) — FREE flow |
-| `/verify` | Manifest inspection + chain-anchor / registry UI |
-
-Public marketing verify today lives at site-root `/verify/` (static). This package is the metered SPA that will own sign + deep verify once wired.
-
-## Browser-only: `@contentauth/c2pa-web`
-
-The SDK is **browser / Wasm** (Web Worker). It does **not** run in Node.
-
-`src/c2pa-verify.ts` exports:
-
-```ts
-async function verifyC2pa(
-  file: File | ArrayBuffer,
-  options: { wasmSrc: string; mimeType?: string },
-): Promise<unknown>
+```bash
+cd app
+npm install
+npm run dev -w @ozdna/web      # http://127.0.0.1:5173
+npm run build -w @ozdna/web    # → apps/web/dist
 ```
 
-Wire `wasmSrc` from a bundler (Vite):
+## What this closes
 
-```ts
-import wasmSrc from '@contentauth/c2pa-web/resources/c2pa.wasm?url';
-import { verifyC2pa } from './c2pa-verify.ts';
+Ledger polish item: real C2PA cryptographic read path (vs marketing `/verify/` presence-scan). Marketing page stays light; this SPA is the deep-verify surface until Netlify hosts `dist/` (or Cloudflare Pages later).
 
-const store = await verifyC2pa(file, { wasmSrc });
-```
+## Next
 
-Or use `@contentauth/c2pa-web/inline` when a separate Wasm fetch is inconvenient (larger JS bundle).
-
-## Layout
-
-```
-apps/web/
-  package.json          # @ozdna/web, private, type:module
-  README.md
-  tsconfig.json
-  src/
-    index.html          # stub documenting /sign + /verify
-    c2pa-verify.ts      # verifyC2pa() browser helper
-```
-
-Workspace: already covered by `app/package.json` → `"apps/*"`.
+- Optional Netlify publish of `apps/web/dist` under `/app/verify/`
+- Sign flow (`builder` + `/v1/sign-digest`) after Workers deploy

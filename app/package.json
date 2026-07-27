@@ -11,10 +11,11 @@
     "node": ">=22"
   },
   "scripts": {
-    "test": "vitest run",
+    "test": "vitest run && npm run test:workers",
     "test:watch": "vitest",
+    "test:workers": "vitest run -c apps/api/vitest.config.ts",
     "test:contracts": "forge test --root contracts",
-    "typecheck": "tsc --noEmit -p tsconfig.packages.json && npm run typecheck -w @ozdna/api && npm run typecheck -w @ozdna/anchor",
+    "typecheck": "tsc --noEmit -p tsconfig.packages.json && npm run typecheck -w @ozdna/api && npm run typecheck -w @ozdna/anchor && npm run typecheck -w @ozdna/web",
     "certs:dev": "node scripts/gen-dev-signing-cert.mjs",
     "db:generate": "npm run db:generate -w @ozdna/api"
   },

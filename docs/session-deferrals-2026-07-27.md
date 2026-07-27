@@ -52,7 +52,8 @@ credentials/actions** — not agent deferral.
 **Landed (agent — no founder decision required):**
 - `apps/api`: health, OpenAPI, waitlist, verify, **registrations**, **sign-digest**, **records**, **anchor proof stub**, usage, webhooks stubs
 - `apps/anchor`: NullAdapter + BaseAdapter when secrets present
-- `apps/web`: scaffold + `c2pa-verify.ts`
+- `apps/web`: Vite SPA + Wasm `verifyC2pa()` UI (`npm run dev -w @ozdna/web`)
+- `apps/api`: `@cloudflare/vitest-pool-workers` D1 waitlist integration (`npm run test:workers`)
 - drizzle-orm schema + `db:generate` staging
 - `npm run certs:dev` P-256 signing PEMs
 - PDQ, golden images, photon cross-decoder
@@ -66,9 +67,9 @@ credentials/actions** — not agent deferral.
 6. Trademark / entity / pilot / Linear OZD-52/53 / Aug 2 PR / grant filings — see `docs/FOUNDER-OPS.md`
 
 **Optional polish (not a silent deferral — call out):**
-- `@cloudflare/vitest-pool-workers` D1 integration tests (health tests already pass in node; pool is nicer for D1)
-- Full Astro SPA UI on `apps/web` + replacing static `/verify/` presence-scan with Wasm reader UI
-- `POST /v1/marks` full-image server pipeline (needs Workers Paid + photon in Worker isolate)
+- ~~`@cloudflare/vitest-pool-workers` D1 integration tests~~ **done** (`waitlist.workers.test.ts`)
+- ~~Vite SPA on `apps/web` + Wasm reader UI~~ **done** (marketing `/verify/` stays presence-scan; deep verify = `apps/web`)
+- `POST /v1/marks` full-image server pipeline (needs Workers Paid + photon in Worker isolate + CF deploy)
 
 ---
 

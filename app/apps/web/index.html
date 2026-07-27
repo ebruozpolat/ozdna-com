@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OriginDNA verify (Wasm) · ozDNA</title>
+  <meta name="description" content="Local C2PA Wasm verification for JPG/PNG. Never claims official Content Credentials trust-list status." />
+  <style>
+    :root {
+      --bg: #0f1410;
+      --ink: #e8ece4;
+      --muted: #9aa394;
+      --accent: #c4f06a;
+      --card: #1a211c;
+      --rule: #2a332c;
+      --warn: #e8b86d;
+      --bad: #e07a6a;
+      --ok: #8fd19e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+      background: radial-gradient(1200px 600px at 20% -10%, #1c2a1e 0%, var(--bg) 55%);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+    main { max-width: 720px; margin: 0 auto; padding: 48px 20px 80px; }
+    h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 600; letter-spacing: -0.02em; margin: 0 0 8px; }
+    .lead { color: var(--muted); margin: 0 0 28px; max-width: 54ch; }
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 20px;
+    }
+    label.drop {
+      display: block;
+      border: 1px dashed var(--rule);
+      border-radius: 4px;
+      padding: 36px 16px;
+      text-align: center;
+      cursor: pointer;
+      color: var(--muted);
+      transition: border-color .15s, color .15s;
+    }
+    label.drop:hover, label.drop:focus-within { border-color: var(--accent); color: var(--ink); }
+    input[type=file] { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; }
+    #status { margin-top: 18px; font-size: 0.95rem; }
+    #status .ok { color: var(--ok); }
+    #status .hold { color: var(--warn); }
+    #status .bad { color: var(--bad); }
+    #raw {
+      margin-top: 16px;
+      max-height: 280px;
+      overflow: auto;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 11px;
+      background: #0c100d;
+      border: 1px solid var(--rule);
+      padding: 12px;
+      white-space: pre-wrap;
+      display: none;
+    }
+    .fine { margin-top: 24px; font-size: 0.8rem; color: var(--muted); }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>OriginDNA verify</h1>
+    <p class="lead">Drop a JPG or PNG. Validation runs entirely in your browser via C2PA Wasm — the file is not uploaded. This page never claims official Content Credentials trust-list status.</p>
+    <div class="panel">
+      <label class="drop">
+        <input id="file" type="file" accept="image/jpeg,image/png" />
+        <span id="prompt">Choose or drop an image</span>
+      </label>
+      <div id="status" aria-live="polite"></div>
+      <pre id="raw"></pre>
+    </div>
+    <p class="fine">Marketing presence-scan: <a href="https://ozdna.com/verify/">ozdna.com/verify</a>. Registry API lookup needs Workers deploy. Dev: <code>npm run dev -w @ozdna/web</code></p>
+  </main>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
