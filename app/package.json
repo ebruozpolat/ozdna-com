@@ -1,0 +1,22 @@
+{
+  "name": "ozdna-app",
+  "private": true,
+  "type": "module",
+  "description": "ozDNA content-provenance MVP monorepo (foundation). Lives under app/ in ozdna-com for now; to be extracted to its own repo. Canonical layout: plan/09-DEV-SETUP.md §3.",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit -p tsconfig.base.json"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
+  }
+}
