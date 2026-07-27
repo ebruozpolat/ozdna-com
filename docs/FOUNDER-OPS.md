@@ -61,13 +61,13 @@ Bu dosya **ne yapman gerektiğini** ve **bitti sayılacak hali** anlatır. Site 
 - API: https://ozdna-api.alignxdigital.workers.dev (`/health` 200)
 - Anchor cron: https://ozdna-anchor.alignxdigital.workers.dev (NullAdapter; schedule `5 * * * *`)
 
-**Still on you for production hostname:**
-1. ~~**Namecheap CNAME**~~ **DONE** — `api` → `ozdna-614.netlify.app`; `https://api.ozdna.com/health` → 200 (2026-07-27)
-2. (İleride) Base RPC + operator private key → Secrets only
-3. Prod `SIGNING_KEY_JWK` secret for `/v1/sign-digest`
+**Still on you / next secrets:**
+1. ~~**Namecheap CNAME**~~ **DONE** — `https://api.ozdna.com/health` → 200
+2. ~~**SIGNING_KEY_JWK**~~ **DONE** — Worker secrets `SIGNING_KEY_JWK` + `SIGNING_KEY_ID=ozdna-api-2026-07`; `POST /v1/sign-digest` → 200 on `api.ozdna.com` (dev self-signed P-256; hard rule 5 — unknown source). Local copy: `app/certs/dev/signing.jwk.json` (gitignored).
+3. (İleride) Base RPC + operator private key → Secrets only; `ANCHOR_BACKEND=base`
 4. Optional later: add `ozdna.com` zone on Cloudflare for a native Workers custom domain
 
-**Bitti sayılır:** `https://api.ozdna.com/health` 200 ✅ (Netlify domain-level proxy → Worker).
+**Bitti sayılır:** `https://api.ozdna.com/health` 200 ✅ + sign-digest configured ✅.
 
 ### 10. Deploy / lansman sign-off’ları
 - Netlify production zaten `main` → auto-deploy.

@@ -8,8 +8,11 @@ expected (hard rule 5). Never commit PEMs or keys; only this README is tracked.
 
 | File | Purpose |
 |------|---------|
-| `signer.key.pem` | Private key (PKCS#8) |
+| `signer.key.pem` | Private key (PKCS#8) from `npm run certs:dev` |
 | `signer.cert.pem` | Self-signed X.509 cert |
 | `signer.pub.pem` | Public key (SPKI), optional convenience |
+| `signing.jwk.json` | EC P-256 **private** JWK for Worker `SIGNING_KEY_JWK` (never commit) |
+| `signing.pub.jwk.json` | Public JWK only (`kid: ozdna-api-2026-07`) |
 
-Regenerate: delete `*.pem` / `*.key` in this directory, then `npm run certs:dev`.
+Regenerate PEMs: delete `*.pem` / `*.key` here, then `npm run certs:dev`.  
+Upload JWK: `cd apps/api && cat ../../certs/dev/signing.jwk.json | npx wrangler secret put SIGNING_KEY_JWK`
