@@ -1,0 +1,10 @@
+{
+  "name": "@ozdna/api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Hono Worker API stub — schema only until routes land. plan/09 §3.",
+  "dependencies": {
+    "drizzle-orm": "^0.44.2"
+  }
+}

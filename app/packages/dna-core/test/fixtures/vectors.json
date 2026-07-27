@@ -1,0 +1,83 @@
+{
+  "_note": "Canonical OzDNA dna-core test vectors. Regenerate only intentionally; a diff here means the hash math changed (breaks matching). Merkle: plan/03 §3.2/§3.3; pHash: plan/03 §1.3.",
+  "merkle": {
+    "records": [
+      {
+        "id": "rec_A",
+        "sha256Hex": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "phash64Hex": "0123456789abcdef",
+        "accountId": "usr_A",
+        "registeredAt": "2026-10-01T00:00:00.000Z"
+      },
+      {
+        "id": "rec_B",
+        "sha256Hex": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "phash64Hex": "fedcba9876543210",
+        "accountId": "usr_B",
+        "registeredAt": "2026-10-01T00:00:01.000Z"
+      },
+      {
+        "id": "rec_C",
+        "sha256Hex": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "phash64Hex": "00000000ffffffff",
+        "pdq256Hex": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "accountId": "usr_C",
+        "registeredAt": "2026-10-01T00:00:02.000Z"
+      },
+      {
+        "id": "rec_D",
+        "sha256Hex": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "phash64Hex": "ffffffff00000000",
+        "accountId": "usr_D",
+        "registeredAt": "2026-10-01T00:00:03.000Z"
+      }
+    ],
+    "leafHashes": [
+      "f326410c6121d0b76a2abe137f246488a2163bc9559570b266cc598fd5c4c2b3",
+      "eb45678df8e100a708c940cbba0b80032d3f7ca3287129438065f8b49bc6ec0e",
+      "fd9abc6f0a339c8e2bc31027e930f7076d7e348741b912fde76646cb81a24007",
+      "0817a79b7cf1a31b8d96e684759eca17cfa95792add1eef46825e48022498439"
+    ],
+    "root": "7bae413a9517e230c5627d64280f3943886c477f530d98a3c05d9e14990a2555",
+    "proofIndex": 2,
+    "proof": [
+      {
+        "pos": "right",
+        "hash": "0817a79b7cf1a31b8d96e684759eca17cfa95792add1eef46825e48022498439"
+      },
+      {
+        "pos": "left",
+        "hash": "544d8ab15c2b7d7d01d1ef2cb6414b56fd0199101556825457a312d1476ce8d2"
+      }
+    ]
+  },
+  "phash": [
+    {
+      "name": "diag-32",
+      "w": 32,
+      "h": 32,
+      "expr": "(x+y)*4",
+      "phash": "8228473f5917972f"
+    },
+    {
+      "name": "hgrad-16",
+      "w": 16,
+      "h": 16,
+      "expr": "x*16",
+      "phash": "82b37f827b8a82a2"
+    },
+    {
+      "name": "mix-48x36",
+      "w": 48,
+      "h": 36,
+      "expr": "20+((x*3+y*2)%100)",
+      "phash": "e14e19a356aa57b2"
+    }
+  ],
+  "bandsOfFirst": {
+    "band0": 33320,
+    "band1": 18239,
+    "band2": 22807,
+    "band3": 38703
+  }
+}

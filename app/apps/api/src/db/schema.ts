@@ -1,0 +1,108 @@
+/**
+ * Drizzle schema stub — encodes plan/04-MVP-SPEC.md §5 DDL for query-builder use.
+ *
+ * Foundation batch committed raw `migrations/0001_init.sql` (allowed by plan/09 §4
+ * ASSUMPTION). This file is the TypeScript twin so we do not silently skip drizzle.
+ * `drizzle-kit generate` is deferred until wrangler + full apps/api land; until then
+ * the applied migration remains the SQL file (do not regenerate over it casually).
+ *
+ * Tables covered here: users, api_keys, records, anchor_batches (core path).
+ * Remaining §5 tables (usage, waitlist, webhooks, …) land with those routes.
+ */
+
+import { sqliteTable, text, integer, blob, index, uniqueIndex } from "drizzle-orm/sqlite-core";
+import { sql } from "drizzle-orm";
+
+export const users = sqliteTable("users", {
+  id: text("id").primaryKey(),
+  email: text("email").notNull().unique(),
+  emailVerifiedAt: text("email_verified_at"),
+  displayName: text("display_name"),
+  plan: text("plan").notNull().default("free"),
+  isFlagship: integer("is_flagship").notNull().default(0),
+  billingCustomerId: text("billing_customer_id"),
+  billingSubId: text("billing_sub_id"),
+  planRenewsAt: text("plan_renews_at"),
+  segment: text("segment"),
+  createdAt: text("created_at")
+    .notNull()
+    .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ','now'))`),
+  deletedAt: text("deleted_at"),
+});
+
+export const apiKeys = sqliteTable(
+  "api_keys",
+  {
+    id: text("id").primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => users.id),
+    name: text("name").notNull().default("default"),
+    keyHash: text("key_hash").notNull().unique(),
+    keyPrefix: text("key_prefix").notNull(),
+    mode: text("mode").notNull().default("live"),
+    createdAt: text("created_at")
+      .notNull()
+      .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ','now'))`),
+    lastUsedAt: text("last_used_at"),
+    revokedAt: text("revoked_at"),
+  },
+  (t) => [index("idx_api_keys_user").on(t.userId)],
+);
+
+export const anchorBatches = sqliteTable("anchor_batches", {
+  id: text("id").primaryKey(),
+  chain: text("chain").notNull().default("base-mainnet"),
+  merkleRoot: text("merkle_root"),
+  recordCount: integer("record_count").notNull().default(0),
+  status: text("status").notNull().default("pending"),
+  txHash: text("tx_hash"),
+  blockNumber: integer("block_number"),
+  blockTime: text("block_time"),
+  submittedAt: text("submitted_at"),
+  confirmedAt: text("confirmed_at"),
+  createdAt: text("created_at")
+    .notNull()
+    .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ','now'))`),
+});
+
+export const records = sqliteTable(
+  "records",
+  {
+    id: text("id").primaryKey(),
+    userId: text("user_id").references(() => users.id),
+    kind: text("kind").notNull(),
+    source: text("source").notNull(),
+    sha256: text("sha256").notNull(),
+    phash64: integer("phash64").notNull(),
+    pdq256: blob("pdq256"),
+    band0: integer("band0").notNull(),
+    band1: integer("band1").notNull(),
+    band2: integer("band2").notNull(),
+    band3: integer("band3").notNull(),
+    title: text("title"),
+    manifestKey: text("manifest_key"),
+    manifestSha256: text("manifest_sha256"),
+    fileMime: text("file_mime").notNull(),
+    fileBytes: integer("file_bytes"),
+    thumbKey: text("thumb_key"),
+    status: text("status").notNull().default("registered"),
+    moderationStatus: text("moderation_status").notNull().default("active"),
+    anchorBatchId: text("anchor_batch_id").references(() => anchorBatches.id),
+    leafIndex: integer("leaf_index"),
+    isTest: integer("is_test").notNull().default(0),
+    createdAt: text("created_at")
+      .notNull()
+      .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ','now'))`),
+    anchoredAt: text("anchored_at"),
+  },
+  (t) => [
+    uniqueIndex("idx_records_sha256").on(t.sha256),
+    index("idx_records_band0").on(t.band0),
+    index("idx_records_band1").on(t.band1),
+    index("idx_records_band2").on(t.band2),
+    index("idx_records_band3").on(t.band3),
+    index("idx_records_user").on(t.userId, t.createdAt),
+    index("idx_records_batch").on(t.anchorBatchId),
+  ],
+);
