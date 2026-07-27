@@ -2,6 +2,17 @@
 
 > **DÜZELTME (kurucu kararı — bağlayıcı):** Aşağıdaki §1 hiyerarşisi "AlignX Partners └── ozDNA" **artık geçerli değildir.** ozDNA kendi başına çatı markasıdır; AlignX Partners kurucunun ayrı, şahsi UK danışmanlık işidir (alignxpartners.com) ve ozDNA'nın çatısı değildir. Oversight ürünü `ozdna.com/oversight` altında yayınlanır. Ayrıntı: `docs/oversight/README.md`.
 
+## 0. Canlı ürün mimarisi — yol ayrımı (path-split)
+
+İki ürün hattı **tek ozDNA / ozdna.com çatısı** altında, **yol ayrımıyla** ayrılır. Bu, ertelenmiş veya kurucu bekleyen bir karar değildir — **mevcut (canlı) ürün mimarisidir.** Yeni ürün adı uydurulmaz; mevcut `complyDNA` / `originDNA` etiketleri hat bağlamında okunur.
+
+| Hat | Kamu yolları | Repo kaynağı |
+|---|---|---|
+| **content-provenance** | `/products/*`, `/verify` (+ kök marka `/`) | `products/`, `verify/`, `plan/`, `docs/BLUEPRINT.md` |
+| **AI-oversight** | `/oversight/*` | `oversight/`, `docs/oversight/` |
+
+Aynı isimler iki hatta farklı anlam taşır (content-provenance: RegTech / C2PA; oversight: DT+Council / Ledger+Attestation). Çözüm yolu **yeni isim değil**, path-split'tir.
+
 ## 1. Hiyerarşi
 ```
 AlignX Partners (tüzel kişi, danışmanlık, hibe başvurucusu — alignxpartners.com)

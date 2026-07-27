@@ -14,6 +14,7 @@
     "golden:generate": "tsx scripts/generate-golden.mts"
   },
   "dependencies": {
+    "@cf-wasm/photon": "0.3.6",
     "jpeg-js": "^0.4.4",
     "pdq-wasm": "0.3.9",
     "pngjs": "^7.0.0"

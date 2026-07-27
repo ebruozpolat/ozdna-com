@@ -7,10 +7,14 @@ This file exists so silent scoping does **not** happen again (session ledger A5/
 |---|---|---|---|
 | TypeScript | **6.0.3** (strict + `noUncheckedIndexedAccess`) | Pinned to `6.0.3` in root `package.json` (was briefly `^7.0.2` by auto-bump — corrected) | Done |
 | Vitest runtime | Vitest **4.1.10** + `@cloudflare/vitest-pool-workers` **0.18.0** (tests inside **workerd**) | Plain-node Vitest for packages + health/OpenAPI unit tests; D1 integration still needs pool-workers | Add pool-workers when remote D1 is provisioned |
-| D1 schema authoring | drizzle-kit generates `migrations/*.sql` from `apps/api/src/db/schema.ts` | Raw `migrations/0001_init.sql` + drizzle stub (excluded from `tsc` until `drizzle-orm` is a dep) | `npm i drizzle-orm` + `db:generate` when routes expand |
+| D1 schema authoring | drizzle-kit generates `migrations/*.sql` from `apps/api/src/db/schema.ts` | `drizzle-orm` **0.45.2** + `drizzle-kit` **0.31.10** on `@ozdna/api`; schema covers full `0001_init.sql` (users, api_keys, records, anchor_batches, usage_events, waitlist). Applied migration remains `migrations/0001_init.sql`. `npm run db:generate` writes to `apps/api/drizzle/` for **diff checks only** — do not overwrite 0001 casually | Done (kit output is staging; wrangler still applies `migrations/`) |
 | Biome / Foundry / wrangler | pinned in plan/09 | `foundry.toml` + `forge test` (OzDnaAnchor) in CI; wrangler.jsonc for api/anchor | Foundry CI live; production Workers deploy still needs CF account + real D1 id |
-| `packages/anchor-backends` | NullAdapter + BaseAdapter (viem) | NullAdapter used by `apps/anchor` cron; BaseAdapter still stub | Wire viem + secrets before `ANCHOR_BACKEND=base` |
+| `packages/anchor-backends` | NullAdapter + BaseAdapter (viem) | NullAdapter + **BaseAdapter** (`viem` **2.54.6**); `apps/anchor` selects BaseAdapter when `ANCHOR_BACKEND=base` and RPC/key/contract Secrets are set | Done (live Base tx still needs provisioned Secrets + deployed contract) |
+| Dev signing certs | Self-signed ES256 / P-256 for local C2PA (plan/02 §1) | `npm run certs:dev` → `scripts/gen-dev-signing-cert.mjs` writes PEMs under `certs/dev/` (gitignored) | Done for local/dev; production/conformance certs remain founder/ops |
 | PDQ-256 | `pdq-wasm` **0.3.9** | `@ozdna/dna-core` wrapper (`pdq.ts`) loads CJS entry via `createRequire` (ESM factory gap in 0.3.9) | Browser path: `initPdqBrowser({ wasmUrl })` |
-| Golden images / EXIF step-0 | ≥5 fixtures; Orient=6 MUST; near-flat SHOULD; cross-decoder d≤2 | Node path: jpeg-js/pngjs + `orient.ts`/`exif.ts`; corpus in `test/fixtures/golden/` | Wire `@cf-wasm/photon` in Workers and assert d≤2 vs locked hashes |
+| Golden images / EXIF step-0 | ≥5 fixtures; Orient=6 MUST; near-flat SHOULD; cross-decoder d≤2 | **Done** — Node jpeg-js/pngjs + Workers `@cf-wasm/photon@0.3.6`; both locked in `expected-hashes.json`; tests assert d≤2 | — |
+| BaseAdapter | viem + OzDnaAnchor | **Done** — live writeContract when secrets present | Production needs CF secrets + deployed contract |
+| drizzle | kit generate from schema | **Done** — `db:generate` → `apps/api/drizzle/` staging; `0001_init.sql` remains applied migration | — |
+| Dev signing certs | local P-256 | **Done** — `npm run certs:dev` | — |
 
 **Invariant that already holds:** one `packages/dna-core` implementation for browser + Workers; do not fork the math.

@@ -14,7 +14,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:contracts": "forge test --root contracts",
-    "typecheck": "tsc --noEmit -p tsconfig.packages.json && npm run typecheck -w @ozdna/api && npm run typecheck -w @ozdna/anchor"
+    "typecheck": "tsc --noEmit -p tsconfig.packages.json && npm run typecheck -w @ozdna/api && npm run typecheck -w @ozdna/anchor",
+    "certs:dev": "node scripts/gen-dev-signing-cert.mjs",
+    "db:generate": "npm run db:generate -w @ozdna/api"
   },
   "devDependencies": {
     "@types/node": "^22.15.21",

@@ -24,8 +24,8 @@ app/
     src/verdict.ts       #   §6.3 enum + locked copy + §1.5 thresholds
     src/schema.ts        #   zod: LeafRecord, VerdictCard, ProofSkeleton
     test/*.test.ts       #   vitest (property/round-trip + verdict/schema)
-  packages/anchor-backends/  # AnchorBackend + NullAdapter (tested) + BaseAdapter stub
-  apps/api/src/db/schema.ts  # drizzle stub twin of 0001_init (routes not built)
+  packages/anchor-backends/  # AnchorBackend + NullAdapter + BaseAdapter (viem)
+  apps/api/src/db/schema.ts  # drizzle twin of 0001_init (usage_events + waitlist included)
   contracts/OzDnaAnchor.sol  # plan/03 §3.5 (forge tests deferred)
   migrations/0001_init.sql   # D1 schema, verbatim from plan/04 §5
   TOOLCHAIN.md               # explicit corpus vs foundation divergences
@@ -33,20 +33,22 @@ app/
 ```
 
 ## Not built yet (need infra / secrets / decisions — later batches)
-- `apps/api` routes (Hono Worker: `/v1/sign-digest`, `/v1/marks`, verify, registrations) — schema stub only
-- `apps/anchor` (cron Worker: Merkle batch → Base tx → proofs; wire BaseAdapter + viem)
+- `apps/api` routes beyond health/waitlist/verify (Hono: `/v1/sign-digest`, `/v1/marks`, registrations, …)
+- Live Base anchoring (adapter wired; needs CF Secrets + deployed OzDnaAnchor)
 - `apps/web` (Astro sign/verify SPA loading `@contentauth/c2pa-web` WASM)
-- PDQ-256 wrapper (plan/03 §1.4); workerd Vitest pool; drizzle-kit generate; `forge test`
-- Cloudflare account bindings (D1/R2/KV), signing cert chain, Base gas wallet — all founder-provisioned
+- workerd Vitest pool for D1 integration; Workers `@cf-wasm/photon` cross-decoder assert
+- Cloudflare account bindings (D1/R2/KV), production signing cert chain, Base gas wallet — founder-provisioned
 
-See `TOOLCHAIN.md` for TypeScript / Vitest / drizzle pins vs the corpus.
+See `TOOLCHAIN.md` for TypeScript / Vitest / drizzle / BaseAdapter pins vs the corpus.
 
 ## Run
 ```bash
 cd app
 npm install
-npm test          # vitest — packages/dna-core
+npm test          # vitest — packages + apps
 npm run typecheck # tsc --noEmit (strict + noUncheckedIndexedAccess)
+npm run certs:dev # local P-256 self-signed PEMs → certs/dev/
+npm run db:generate # drizzle-kit → apps/api/drizzle/ (diff check; do not overwrite migrations/0001)
 ```
 
 ## Rules that bind this code (from ../CLAUDE.md + plan/)

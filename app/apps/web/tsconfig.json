@@ -1,11 +1,12 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "types": ["@cloudflare/workers-types", "node"],
-    "lib": ["ES2022"],
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "noEmit": true,
     "rootDir": "src",
-    "strict": true
+    "strict": true,
+    "moduleResolution": "bundler",
+    "skipLibCheck": true
   },
   "include": ["src/**/*.ts"]
 }

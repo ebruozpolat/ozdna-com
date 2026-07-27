@@ -1,13 +1,9 @@
 /**
- * Drizzle schema stub — encodes plan/04-MVP-SPEC.md §5 DDL for query-builder use.
+ * Drizzle schema — TypeScript twin of plan/04-MVP-SPEC.md §5 / migrations/0001_init.sql.
  *
- * Foundation batch committed raw `migrations/0001_init.sql` (allowed by plan/09 §4
- * ASSUMPTION). This file is the TypeScript twin so we do not silently skip drizzle.
- * `drizzle-kit generate` is deferred until wrangler + full apps/api land; until then
- * the applied migration remains the SQL file (do not regenerate over it casually).
- *
- * Tables covered here: users, api_keys, records, anchor_batches (core path).
- * Remaining §5 tables (usage, waitlist, webhooks, …) land with those routes.
+ * Applied migration source of truth remains `migrations/0001_init.sql` (wrangler D1).
+ * `npm run db:generate` writes to `apps/api/drizzle/` for diff checks only — do NOT
+ * overwrite 0001 casually. See drizzle.config.ts and TOOLCHAIN.md.
  */
 
 import { sqliteTable, text, integer, blob, index, uniqueIndex } from "drizzle-orm/sqlite-core";
@@ -50,21 +46,24 @@ export const apiKeys = sqliteTable(
   (t) => [index("idx_api_keys_user").on(t.userId)],
 );
 
-export const anchorBatches = sqliteTable("anchor_batches", {
-  id: text("id").primaryKey(),
-  chain: text("chain").notNull().default("base-mainnet"),
-  merkleRoot: text("merkle_root"),
-  recordCount: integer("record_count").notNull().default(0),
-  status: text("status").notNull().default("pending"),
-  txHash: text("tx_hash"),
-  blockNumber: integer("block_number"),
-  blockTime: text("block_time"),
-  submittedAt: text("submitted_at"),
-  confirmedAt: text("confirmed_at"),
-  createdAt: text("created_at")
-    .notNull()
-    .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ','now'))`),
-});
+export const anchorBatches = sqliteTable(
+  "anchor_batches",
+  {
+    id: text("id").primaryKey(),
+    chain: text("chain").notNull().default("base-mainnet"),
+    merkleRoot: text("merkle_root"),
+    recordCount: integer("record_count").notNull().default(0),
+    status: text("status").notNull().default("pending"),
+    txHash: text("tx_hash"),
+    blockNumber: integer("block_number"),
+    gasWei: text("gas_wei"),
+    createdAt: text("created_at")
+      .notNull()
+      .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ','now'))`),
+    confirmedAt: text("confirmed_at"),
+  },
+  (t) => [index("idx_batches_status").on(t.status)],
+);
 
 export const records = sqliteTable(
   "records",
@@ -105,4 +104,42 @@ export const records = sqliteTable(
     index("idx_records_user").on(t.userId, t.createdAt),
     index("idx_records_batch").on(t.anchorBatchId),
   ],
+);
+
+export const usageEvents = sqliteTable(
+  "usage_events",
+  {
+    id: integer("id").primaryKey({ autoIncrement: true }),
+    userId: text("user_id")
+      .notNull()
+      .references(() => users.id),
+    apiKeyId: text("api_key_id").references(() => apiKeys.id),
+    eventType: text("event_type").notNull(),
+    recordId: text("record_id"),
+    billable: integer("billable").notNull().default(1),
+    month: text("month").notNull(),
+    createdAt: text("created_at")
+      .notNull()
+      .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ','now'))`),
+  },
+  (t) => [index("idx_usage_quota").on(t.userId, t.month, t.eventType, t.billable)],
+);
+
+export const waitlist = sqliteTable(
+  "waitlist",
+  {
+    id: integer("id").primaryKey({ autoIncrement: true }),
+    email: text("email").notNull().unique(),
+    segment: text("segment").notNull(),
+    source: text("source"),
+    locale: text("locale"),
+    consentAt: text("consent_at").notNull(),
+    confirmToken: text("confirm_token"),
+    confirmedAt: text("confirmed_at"),
+    createdAt: text("created_at")
+      .notNull()
+      .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ','now'))`),
+    convertedUserId: text("converted_user_id").references(() => users.id),
+  },
+  (t) => [index("idx_waitlist_segment").on(t.segment)],
 );

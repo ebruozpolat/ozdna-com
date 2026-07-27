@@ -211,22 +211,23 @@
           <div class="mk" id="c-c2pa-mk">•</div>
           <div>
             <h4>C2PA manifesti — varlık taraması</h4>
-            <p class="sub" id="c-c2pa-sub">Dosya baytlarını gömülü bir C2PA manifesti için tararız. Varlık burada tespit edilir; tam kriptografik doğrulama imzalı hatta çalışır.</p>
+            <p class="sub" id="c-c2pa-sub">Dosya baytlarını gömülü bir C2PA manifesti için tararız. Tam kriptografik doğrulama (Wasm) <code>apps/web</code> içinde <code>@contentauth/c2pa-web</code> ile gelir.</p>
           </div>
         </div>
 
-        <div class="rgroup">OriginDNA kaydı gerekir — örnek olarak gösteriliyor</div>
+        <div class="rgroup">OriginDNA kaydı</div>
 
-        <div class="check dim">
-          <div class="mk hold">◔</div>
+        <div class="check" id="c-anchor-row">
+          <div class="mk" id="c-anchor-mk">•</div>
           <div>
             <h4>Bağlı zaman damgası — "şu tarihte vardı"</h4>
-            <p class="sub">Kayıt sorgusu, kimsenin geriye tarihleyemeyeceği bağlı tarihi döndürür — hesap yok, bize güven yok. MVP ile bağlanır. Örnek: <code>2026-08-04 09:41 UTC</code>.</p>
+            <p class="sub" id="c-anchor-sub">İçerik hash'iniz OriginDNA kaydında aranır (görsel yüklenmez — yalnızca hash). <code>window.__OZDNA_API__</code> veya varsayılan <code>https://api.ozdna.com</code>.</p>
+            <div class="kv" id="c-anchor-kv" style="display:none"></div>
           </div>
         </div>
       </div>
     </div>
-    <p class="fine" style="margin-top:18px">İçerik hash'i, algısal parmak izi, yeniden-kodlama testi ve C2PA-manifest taraması tarayıcında canlı çalışır — hiçbir şey yüklenmez. Yalnızca bağlı-zaman-damgası sorgusu OriginDNA kaydını (MVP) gerektirir ve örnek olarak gösterilir.</p>
+    <p class="fine" style="margin-top:18px">Hash, parmak izi, yeniden-kodlama ve C2PA varlık taraması tarayıcında çalışır — görsel yüklenmez. Kayıt sorgusu yalnızca SHA-256 hex gönderir (API erişilebilirse).</p>
   </div>
 </section>
 
@@ -419,10 +420,11 @@
       fn.textContent = f.name + ' · ' + Math.round(f.size / 1024) + ' KB';
       badge.textContent = 'SENİN DOSYAN';
       ['c-hash-kv', 'c-phash-kv', 'c-strip-kv'].forEach(function (id) { $(id).style.display = 'none'; });
-      ['c-hash-mk', 'c-phash-mk', 'c-strip-mk', 'c-c2pa-mk'].forEach(function (id) { setMk(id, '…', 'spin'); });
+      ['c-hash-mk', 'c-phash-mk', 'c-strip-mk', 'c-c2pa-mk', 'c-anchor-mk'].forEach(function (id) { setMk(id, '…', 'spin'); });
+      $('c-anchor-kv').style.display = 'none';
 
       if (!okType) {
-        ['c-hash-mk', 'c-phash-mk', 'c-strip-mk', 'c-c2pa-mk'].forEach(function (id) { setMk(id, '✕', ''); });
+        ['c-hash-mk', 'c-phash-mk', 'c-strip-mk', 'c-c2pa-mk', 'c-anchor-mk'].forEach(function (id) { setMk(id, '✕', ''); });
         $('c-c2pa-sub').textContent = 'v1, JPG ve PNG görselleri doğrular. Bu dosya: ' + (f.type || 'bilinmeyen tür') + '.';
         return;
       }
@@ -433,6 +435,28 @@
         sha256Hex(buf).then(function (hex) {
           $('c-hash-val').textContent = shortHex(hex); $('c-hash-val').title = hex;
           $('c-hash-kv').style.display = ''; setMk('c-hash-mk', '✓', 'ok');
+
+          var apiBase = (window.__OZDNA_API__ || 'https://api.ozdna.com').replace(/\/$/, '');
+          fetch(apiBase + '/v1/verify?hash=' + encodeURIComponent(hex))
+            .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error('api ' + r.status)); })
+            .then(function (body) {
+              var kv = $('c-anchor-kv');
+              if (body.verdict === 'NO_RECORD' || !body.record) {
+                setMk('c-anchor-mk', '•', 'hold');
+                $('c-anchor-sub').textContent = 'Bu dosyanın tam SHA-256 eşleşmesi OriginDNA kaydında yok. Web’deki çoğu görsel için bu normaldir.';
+                kv.style.display = 'none';
+              } else {
+                setMk('c-anchor-mk', '✓', 'ok');
+                $('c-anchor-sub').textContent = 'Kayıt bulundu: ' + (body.verdict || 'eşleşme') + '.';
+                kv.textContent = (body.record.id || '') + ' · durum ' + (body.record.status || '') +
+                  (body.record.anchoredAt ? ' · bağlı ' + body.record.anchoredAt : ' · oluşturulma ' + (body.record.createdAt || ''));
+                kv.style.display = '';
+              }
+            })
+            .catch(function () {
+              setMk('c-anchor-mk', '◔', 'hold');
+              $('c-anchor-sub').textContent = 'Kayıt API’sine henüz ulaşılamıyor (Workers deploy bekleniyor). Yukarıdaki yerel kontroller tarayıcında çalıştı.';
+            });
 
           loadImage(url).then(function (img) {
             var orig = dHashFromImage(img);

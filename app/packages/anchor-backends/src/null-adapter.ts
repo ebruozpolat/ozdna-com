@@ -9,7 +9,7 @@ function toHex(bytes: Uint8Array): string {
 export class NullAdapter implements AnchorBackend {
   readonly chainId = "null";
 
-  async anchor(root: Uint8Array, batchId: string): Promise<AnchorReceipt> {
+  async anchor(root: Uint8Array, batchId: string, leafCount = 0): Promise<AnchorReceipt> {
     if (root.byteLength !== 32) {
       throw new RangeError(`NullAdapter.anchor: root must be 32 bytes, got ${root.byteLength}`);
     }
@@ -19,7 +19,7 @@ export class NullAdapter implements AnchorBackend {
       chainId: this.chainId,
       txid,
       blockTime: Math.floor(Date.now() / 1000),
-      raw: { fake: true, batchId, merkleRoot: `0x${rootHex}` },
+      raw: { fake: true, batchId, merkleRoot: `0x${rootHex}`, leafCount },
     };
   }
 

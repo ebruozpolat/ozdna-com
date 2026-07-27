@@ -1,0 +1,16 @@
+{
+  "name": "@ozdna/web",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "description": "OriginDNA sign/verify SPA scaffold (Astro + @contentauth/c2pa-web planned).",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@contentauth/c2pa-web": "^0.13.0"
+  },
+  "devDependencies": {
+    "typescript": "6.0.3"
+  }
+}
