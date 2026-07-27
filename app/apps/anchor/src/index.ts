@@ -3,12 +3,7 @@
 // Uses BaseAdapter when ANCHOR_BACKEND=base and Secrets are present; else NullAdapter.
 
 import { type AnchorBackend, BaseAdapter, NullAdapter } from "@ozdna/anchor-backends";
-import {
-  buildTree,
-  hashLeaf,
-  leafPreimage,
-  toHex,
-} from "@ozdna/dna-core";
+import { buildTree, hashLeaf, leafPreimage, toHex } from "@ozdna/dna-core";
 import type { Env } from "./env.js";
 
 export default {
