@@ -9,7 +9,7 @@ Tek hedef kitleye tek iş: EU hibe değerlendiricisi veya regüle kurum yönetic
 - Statik, tek sayfa + iki modül alt sayfası (/comply, /origin) + /use-cases/immortal-mlro
 - Stack: Astro veya Next.js static export — Claude Code seçsin, gerekçelendirsin
 - EN birincil (`/`), TR (`/tr`) ikincil; hreflang doğru kurulacak
-- Lighthouse ≥95, form dışında JS minimum, analytics: yalnızca privacy-friendly (Plausible tarzı)
+- Lighthouse ≥95 — **met 2026-07-27** for `/oversight/` + `/oversight/tr/` (all categories 100; see `lighthouse-2026-07-27.md`). Form dışında JS minimum; analytics: yalnızca privacy-friendly (Plausible tarzı)
 - Görsel dil: koyu zemin, mühendislik estetiği; "startup gradient" klişesinden kaçın. Frontend-design skill'i uygulanacak.
 
 ## Sayfa Yapısı (ana sayfa, sıralı)
@@ -36,6 +36,7 @@ Tek hedef kitleye tek iş: EU hibe değerlendiricisi veya regüle kurum yönetic
 ## Kabul Kriterleri
 - [ ] Tek cümle konum hero'da birebir
 - [ ] AI Act eşleme tablosu doğru maddelerle
-- [ ] Hiçbir sayfada yasaklı kelime (BrainStack, Solana, blockchain, humanizer, OZDNA yazım varyantları) — build'e grep kontrolü ekle
-- [ ] EN/TR paritesi
-- [ ] Form çalışıyor, mobilde kusursuz
+- [x] Hiçbir sayfada yasaklı kelime (BrainStack, Solana, blockchain, humanizer, OZDNA yazım varyantları) — `oversight/scripts/check-forbidden.sh` + CI (`.github/workflows/oversight-forbidden.yml`)
+- [x] EN/TR paritesi
+- [ ] Form çalışıyor, mobilde kusursuz — Netlify Forms markup var; canlı test deploy sonrası (ledger C9/B9)
+- [x] Lighthouse ≥95 — measured local 2026-07-27 (`lighthouse-2026-07-27.md`)
