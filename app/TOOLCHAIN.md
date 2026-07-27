@@ -6,9 +6,10 @@ This file exists so silent scoping does **not** happen again (session ledger A5/
 | Item | Corpus mandate | What landed in foundation | When to reconcile |
 |---|---|---|---|
 | TypeScript | **6.0.3** (strict + `noUncheckedIndexedAccess`) | Pinned to `6.0.3` in root `package.json` (was briefly `^7.0.2` by auto-bump — corrected) | Done |
-| Vitest runtime | Vitest **4.1.10** + `@cloudflare/vitest-pool-workers` **0.18.0** (tests inside **workerd**) | Plain-node Vitest only — `dna-core` is pure TS with no Workers bindings yet | When `apps/api` or `apps/anchor` land and need D1/R2/KV; add pool-workers then |
-| D1 schema authoring | drizzle-kit generates `migrations/*.sql` from `apps/api/src/db/schema.ts` | Raw `migrations/0001_init.sql` committed (allowed by plan/09 §4 ASSUMPTION — columns owned by `04` §5) | Stub drizzle schema at `apps/api/src/db/schema.ts`; `db:generate` deferred until wrangler + apps exist |
-| Biome / Foundry / wrangler | pinned in plan/09 | `OzDnaAnchor.sol` committed; Foundry/`forge test` not installed yet | With apps/ + Foundry CI |
-| `packages/anchor-backends` | NullAdapter + BaseAdapter (viem) | NullAdapter live; BaseAdapter stub (throws until `apps/anchor`) | Wire viem in apps/anchor |
+| Vitest runtime | Vitest **4.1.10** + `@cloudflare/vitest-pool-workers` **0.18.0** (tests inside **workerd**) | Plain-node Vitest for packages + health/OpenAPI unit tests; D1 integration still needs pool-workers | Add pool-workers when remote D1 is provisioned |
+| D1 schema authoring | drizzle-kit generates `migrations/*.sql` from `apps/api/src/db/schema.ts` | Raw `migrations/0001_init.sql` + drizzle stub (excluded from `tsc` until `drizzle-orm` is a dep) | `npm i drizzle-orm` + `db:generate` when routes expand |
+| Biome / Foundry / wrangler | pinned in plan/09 | `foundry.toml` + `forge test` (OzDnaAnchor) in CI; wrangler.jsonc for api/anchor | Foundry CI live; production Workers deploy still needs CF account + real D1 id |
+| `packages/anchor-backends` | NullAdapter + BaseAdapter (viem) | NullAdapter used by `apps/anchor` cron; BaseAdapter still stub | Wire viem + secrets before `ANCHOR_BACKEND=base` |
+| PDQ-256 | `pdq-wasm` **0.3.9** | `@ozdna/dna-core` wrapper (`pdq.ts`) loads CJS entry via `createRequire` (ESM factory gap in 0.3.9) | Browser path: `initPdqBrowser({ wasmUrl })` |
 
 **Invariant that already holds:** one `packages/dna-core` implementation for browser + Workers; do not fork the math.

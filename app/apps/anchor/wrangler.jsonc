@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ozdna-anchor",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-01-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "ozdna",
+      "database_id": "00000000-0000-0000-0000-000000000001",
+      "migrations_dir": "../../migrations"
+    }
+  ],
+  // Hourly batch — plan/04 §6. Local: wrangler triggers dry-run; NullAdapter until RPC keys exist.
+  "triggers": {
+    "crons": ["5 * * * *"]
+  },
+  "vars": {
+    "ENVIRONMENT": "development",
+    "ANCHOR_BACKEND": "null"
+  }
+}

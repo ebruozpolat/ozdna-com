@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ozdna-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-01-01",
+  "compatibility_flags": ["nodejs_compat"],
+  // Local / preview D1. Replace database_id before production deploy (wrangler d1 create).
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "ozdna",
+      "database_id": "00000000-0000-0000-0000-000000000001",
+      "migrations_dir": "../../migrations"
+    }
+  ],
+  "vars": {
+    "ENVIRONMENT": "development"
+  }
+}
