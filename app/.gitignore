@@ -4,3 +4,8 @@ dist/
 .dev.vars
 .local-certs/
 *.log
+
+# Foundry (contracts/)
+contracts/lib/
+contracts/out/
+contracts/cache/
