@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>originDNA — ledger ve attestation · ozDNA</title>
+<meta name="description" content="originDNA, ozDNA'nın kanıt katmanıdır: her kararı, oyu, gerekçeyi ve sonucu kaydeden append-only, hash-zincirli bir Ledger (AI Yasası Art. 12) ve bir denetçinin/regülatörün okuyabileceği bir Attestation (Art. 13). Kayıt tutma ve şeffaflık, runtime olarak." />
+<link rel="canonical" href="https://ozdna.com/oversight/tr/origin/" />
+<link rel="alternate" hreflang="en" href="https://ozdna.com/oversight/origin/" />
+<link rel="alternate" hreflang="tr" href="https://ozdna.com/oversight/tr/origin/" />
+<link rel="alternate" hreflang="x-default" href="https://ozdna.com/oversight/origin/" />
+<meta name="robots" content="index,follow" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0c10'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='15' font-weight='700' text-anchor='middle' fill='%235eead4'%3Eoz%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="/oversight/assets/site.css" />
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="/oversight/tr/"><b>oz</b>DNA</a>
+    <nav>
+      <a href="/oversight/tr/comply/">complyDNA</a>
+      <a href="/oversight/tr/origin/" aria-current="page">originDNA</a>
+      <a href="/oversight/tr/use-cases/immortal-mlro/">Kullanım</a>
+      <a href="/oversight/tr/#audit">Denetim talep et</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">originDNA · ledger + attestation</p>
+      <h1>Karar, kayıtta — ve okunabilir.</h1>
+      <p class="lede">originDNA, ozDNA'nın kanıt katmanıdır. <strong>Ledger</strong> her
+        kararı, oyu, gerekçeyi ve sonucu append-only, hash-zincirli bir kayda yazar
+        (Madde 12). <strong>Attestation</strong> o kaydı, bir denetçinin veya regülatörün
+        gerçekten okuyabileceği bir şeye çevirir (Madde 13).</p>
+      <div class="hero-actions">
+        <a class="cta" href="/oversight/tr/#audit">Uyum denetimi talep et</a>
+        <a class="cta ghost" href="/oversight/tr/comply/">← complyDNA'ya bak</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ledger -->
+  <section id="ledger">
+    <div class="wrap">
+      <p class="kicker">Ledger · Art. 12 — kayıt tutma</p>
+      <h2>Append-only, hash-zincirli</h2>
+      <p class="lede" style="margin-bottom:22px">Madde 12, izlenebilir ve sonradan sessizce
+        değiştirilemeyen otomatik olay kayıtları ister. Ledger her girdiyi bir öncekine
+        hash ile zincirler; böylece sonradan yapılan herhangi bir düzenleme zinciri kırar
+        ve tespit edilebilir.</p>
+      <div class="grid3">
+        <div class="card"><p class="n">APPEND-ONLY</p><h3>Hiçbir şey üzerine yazılmaz</h3><p>Girdiler yalnızca eklenir. Bir düzeltme, bir düzenleme değil yeni bir girdidir — orijinal kayıtta kalır.</p></div>
+        <div class="card"><p class="n">HASH-ZİNCİRLİ</p><h3>Kurcalama-belli</h3><p>Her girdi bir öncekinin hash'ini taşır. Birini değiştirin, sonraki her girdi artık doğrulanmaz.</p></div>
+        <div class="card"><p class="n">EKSİKSİZ</p><h3>Karar + oylar + gerekçe</h3><p>Kayıt yalnızca sonuç değil — sonuca nasıl varıldığıdır: Council'ın oyları ve varsa veto dahil.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Attestation -->
+  <section id="attestation">
+    <div class="wrap">
+      <p class="kicker">Attestation · Art. 13 — şeffaflık</p>
+      <h2>Bir karar, Ledger'dan çıkarken</h2>
+      <p class="lede" style="margin-bottom:22px">Council'ın incelediği tek bir yüksek
+        riskli karar için redakte edilmiş, örnek bir attestation. Veto yolu — kararın
+        onaylanmak yerine <em>tutulması</em> — asıl mesele: kayıt, gözetimin gerçekten
+        devreye girdiğini gösterir.</p>
+      <div class="att">
+        <div class="head"><span class="t">attestation · örnek</span><span class="st">MÜHÜRLÜ · APPEND-ONLY</span></div>
+<pre><span class="k">decision_id  </span> <span class="v">ozd-2026-08-04-7Q31</span>
+<span class="k">risk_tier    </span> <span class="v">YÜKSEK</span>  <span class="k">(DT 5.0 · Art. 9)</span>
+<span class="k">routed_to    </span> Council  <span class="k">(Art. 14)</span>
+<span class="k">council_vote </span> 4 onay · 1 veto  →  <span class="r">TUTULDU (fail-closed)</span>
+<span class="k">rationale    </span> bir model çözümsüz bir sınır durumu bildirdi;
+             yargıç durmayı seçti.
+<span class="k">outcome      </span> bir insan sahibine yükseltildi; otomatik onaylanmadı
+<span class="k">recorded     </span> 2026-08-04T09:41:22Z  <span class="k">(Ledger · Art. 12)</span>
+<span class="k">prev_hash    </span> <span class="k">a91f…c40d</span>
+<span class="k">this_hash    </span> <span class="v">3e77…8b12</span>  <span class="k">(hash-zincirli)</span>
+<span class="k">attested_to  </span> deployer + denetçi  <span class="k">(Art. 13)</span></pre>
+        <div class="note">Örnek mock, değerler redakte. Gerçek vaka verisi yok.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mapping">
+    <div class="wrap">
+      <p class="kicker">Eşleme</p>
+      <h2>originDNA ↔ Yasa</h2>
+      <div class="tbl-scroll">
+        <table class="tbl">
+          <thead><tr><th>Bileşen</th><th>Ne uygular</th><th>Madde</th></tr></thead>
+          <tbody>
+            <tr><td class="comp">Ledger</td><td>Otomatik, izlenebilir, kurcalama-belli olay kaydı</td><td class="art">Art. 12</td></tr>
+            <tr><td class="comp">Attestation</td><td>Bir kararın gerekçesi ve sınırları, deployer'a/denetçiye sunulur</td><td class="art">Art. 13</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fine">originDNA bu yükümlülükleri <em>kanıtlar</em>; mutlak uyum iddiasında
+        bulunmaz. Kaydettiği kararlar <a href="/oversight/tr/comply/">complyDNA</a> tarafından üretilir.</p>
+    </div>
+  </section>
+
+  <section id="cta">
+    <div class="wrap">
+      <h2>Kararlarınızı kanıta çevirin</h2>
+      <p class="lede" style="margin-bottom:22px">Bir denetim, otomatik kararlarınızın
+        mühürlü, okunabilir bir kaydının neye benzeyeceğini gösterir.</p>
+      <a class="cta" href="/oversight/tr/#audit">Uyum denetimi talep et</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <div><span class="mono"><b style="color:var(--accent)">oz</b>DNA</span> · originDNA — ledger + attestation.</div>
+      <div><a href="https://www.linkedin.com/">LinkedIn</a> · <a href="/oversight/tr/#audit">Denetim talep et</a> · <a href="/oversight/origin/" hreflang="en" lang="en">EN</a></div>
+    </div>
+    <p class="fine">Mutlak uyum iddiası yapılmaz; originDNA anlatılan yükümlülükleri uygular, destekler
+      ve kanıtlar. AI Yasası madde numaraları ve tarihleri yayından önce tekrar
+      doğrulanmalıdır.</p>
+  </div>
+</footer>
+
+</body>
+</html>

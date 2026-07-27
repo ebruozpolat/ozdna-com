@@ -1,5 +1,7 @@
 # ozdna.com — Tek Sayfa Site Spesifikasyonu
 
+> **DÜZELTME (kurucu kararı — bağlayıcı):** Footer'daki *"an AlignX Partners product"* gereği **geçersizdir** — ozDNA kendi çatısıdır, AlignX Partners ayrı bir şahsi danışmanlık işidir. Bu spesifikasyona göre üretilen site `ozdna.com/oversight/` altında yayınlanır (repo-kökündeki `oversight/`). Ayrıntı: `docs/oversight/README.md`.
+
 ## Amaç
 Tek hedef kitleye tek iş: EU hibe değerlendiricisi veya regüle kurum yöneticisi 60 saniyede (1) ne yaptığımızı, (2) hangi maddeyi karşıladığımızı, (3) canlı kanıtı görsün ve audit talebi bıraksın.
 

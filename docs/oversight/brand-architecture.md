@@ -1,5 +1,7 @@
 # ozDNA — Marka Mimarisi
 
+> **DÜZELTME (kurucu kararı — bağlayıcı):** Aşağıdaki §1 hiyerarşisi "AlignX Partners └── ozDNA" **artık geçerli değildir.** ozDNA kendi başına çatı markasıdır; AlignX Partners kurucunun ayrı, şahsi UK danışmanlık işidir (alignxpartners.com) ve ozDNA'nın çatısı değildir. Oversight ürünü `ozdna.com/oversight` altında yayınlanır. Ayrıntı: `docs/oversight/README.md`.
+
 ## 1. Hiyerarşi
 ```
 AlignX Partners (tüzel kişi, danışmanlık, hibe başvurucusu — alignxpartners.com)

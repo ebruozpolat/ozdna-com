@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>complyDNA — yazılım olarak sınıflandırma + gözetim · ozDNA</title>
+<meta name="description" content="complyDNA, ozDNA'nın uyum katmanıdır: DT 5.0 her iş yükünü bir risk katmanına oturtur (AI Yasası Art. 9) ve Council, yüksek riskli kararlarda veto ve fail-closed yargıçla çok-modelli oylama yürütür (Art. 14). İnsan gözetiminin yazılıma dönüşü." />
+<link rel="canonical" href="https://ozdna.com/oversight/tr/comply/" />
+<link rel="alternate" hreflang="en" href="https://ozdna.com/oversight/comply/" />
+<link rel="alternate" hreflang="tr" href="https://ozdna.com/oversight/tr/comply/" />
+<link rel="alternate" hreflang="x-default" href="https://ozdna.com/oversight/comply/" />
+<meta name="robots" content="index,follow" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0c10'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='15' font-weight='700' text-anchor='middle' fill='%235eead4'%3Eoz%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="/oversight/assets/site.css" />
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="/oversight/tr/"><b>oz</b>DNA</a>
+    <nav>
+      <a href="/oversight/tr/comply/" aria-current="page">complyDNA</a>
+      <a href="/oversight/tr/origin/">originDNA</a>
+      <a href="/oversight/tr/use-cases/immortal-mlro/">Kullanım</a>
+      <a href="/oversight/tr/#audit">Denetim talep et</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">complyDNA · sınıflandırma + gözetim</p>
+      <h1>İnsan gözetimi nasıl yazılıma dönüşür.</h1>
+      <p class="lede">complyDNA, ozDNA'nın uyum katmanıdır. <strong>DT 5.0</strong> her iş
+        yükünü bir risk katmanına oturtur; <strong>Council</strong> her yüksek riskli
+        kararın önüne çok-modelli oylama, veto ve fail-closed yargıç koyar. Madde 9 ve
+        Madde 14 — bir politika PDF'i değil, runtime olarak.</p>
+      <div class="hero-actions">
+        <a class="cta" href="/oversight/tr/#audit">Uyum denetimi talep et</a>
+        <a class="cta ghost" href="/oversight/tr/origin/">originDNA'ya bak →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DT 5.0 -->
+  <section id="dt">
+    <div class="wrap">
+      <p class="kicker">DT 5.0 · Art. 9 — risk yönetimi</p>
+      <h2>Sınıflandırma: iş yükü → risk katmanı</h2>
+      <p class="lede" style="margin-bottom:22px">Madde 9 kapsamında risk yönetimi sürekli
+        ve yaşam döngüsü boyuncadır. DT 5.0 her iş yükünü bir katmana oturtur ve ondan
+        çıkan yönlendirme kararını verir — böylece risk duruşu varsayılmaz, hesaplanır.</p>
+      <div class="grid3">
+        <div class="card"><p class="n">KATMAN · DÜŞÜK</p><h3>En ucuz yeterli model</h3><p>Rutin iş, barı karşılayan en ekonomik modelde geçer. Olmayan risk için prim ödenmez.</p></div>
+        <div class="card"><p class="n">KATMAN · YÜKSELTİLMİŞ</p><h3>Daha güçlü model, loglu</h3><p>Daha yüksek riskli iş daha güçlü bir model alır ve izlenebilirlik için kaydedilir.</p></div>
+        <div class="card"><p class="n">KATMAN · YÜKSEK</p><h3>Council'a yükseltilir</h3><p>Regülatif ağırlık taşıyan kararlar, geçerli olmadan önce çok-modelli gözetime yönlendirilir.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Council -->
+  <section id="council">
+    <div class="wrap">
+      <p class="kicker">Council · Art. 14 — insan gözetimi</p>
+      <h2>Yazılımda bir veto</h2>
+      <p class="lede" style="margin-bottom:22px">Madde 14, bir sistemi durdurabilen ve
+        otomasyona aşırı güvene karşı koruyan bir gözetim ister. Council tam olarak bunu
+        uygular: birkaç model oylar, herhangi biri veto edebilir ve oylama güvensizse
+        fail-closed bir yargıç kararı tutar.</p>
+      <div class="flow">
+        <div class="step"><div class="s">01</div><h3>Oyla</h3><div class="comp">çok-modelli</div><p>Bağımsız modeller yüksek riskli kararı paralel değerlendirir.</p></div>
+        <div class="step"><div class="s">02</div><h3>Veto</h3><div class="comp">biri bloklar</div><p>Tek bir sağlam itiraz kararı tutmaya yeter.</p></div>
+        <div class="step"><div class="s">03</div><h3>Fail closed</h3><div class="comp">yargıç</div><p>Oylama güvensiz veya çözümsüzse varsayılan durmaktır — devam etmek değil.</p></div>
+        <div class="step"><div class="s">04</div><h3>Yükselt</h3><div class="comp">bir insana</div><p>Tutulan kararlar, tam gerekçesiyle bir insan sahibine iletilir.</p></div>
+      </div>
+      <p class="fine">Otomasyona aşırı güven tasarımla engellenir: güvenli varsayılan bir
+        duruştur ve tutulan bir kararda son söz her zaman bir insandadır.</p>
+    </div>
+  </section>
+
+  <section id="mapping">
+    <div class="wrap">
+      <p class="kicker">Eşleme</p>
+      <h2>complyDNA ↔ Yasa</h2>
+      <div class="tbl-scroll">
+        <table class="tbl">
+          <thead><tr><th>Bileşen</th><th>Ne uygular</th><th>Madde</th></tr></thead>
+          <tbody>
+            <tr><td class="comp">DT 5.0</td><td>Her iş yükünün sürekli, yaşam döngüsü boyunca risk sınıflandırması</td><td class="art">Art. 9</td></tr>
+            <tr><td class="comp">Council</td><td>Durdurma/veto yetkisi ve otomasyona aşırı güvene karşı koruma</td><td class="art">Art. 14</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fine">complyDNA bu yükümlülükleri <em>uygular ve operasyonel hale
+        getirir</em>; mutlak uyum iddiasında bulunmaz. Ürettiği kayıt
+        <a href="/oversight/tr/origin/">originDNA</a> tarafından ispatlanır.</p>
+    </div>
+  </section>
+
+  <section id="cta">
+    <div class="wrap">
+      <h2>Kendi sistemlerinizde görün</h2>
+      <p class="lede" style="margin-bottom:22px">Bir denetim, iş yüklerinizi bir
+        sınıflandırma raporuna çevirir — complyDNA, kendini gösterir.</p>
+      <a class="cta" href="/oversight/tr/#audit">Uyum denetimi talep et</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <div><span class="mono"><b style="color:var(--accent)">oz</b>DNA</span> · complyDNA — sınıflandırma + gözetim.</div>
+      <div><a href="https://www.linkedin.com/">LinkedIn</a> · <a href="/oversight/tr/#audit">Denetim talep et</a> · <a href="/oversight/comply/" hreflang="en" lang="en">EN</a></div>
+    </div>
+    <p class="fine">Mutlak uyum iddiası yapılmaz; complyDNA anlatılan yükümlülükleri uygular, destekler
+      ve kanıtlar. AI Yasası madde numaraları ve tarihleri yayından önce tekrar
+      doğrulanmalıdır.</p>
+  </div>
+</footer>
+
+</body>
+</html>
