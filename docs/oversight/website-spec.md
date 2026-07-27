@@ -34,8 +34,8 @@ Tek hedef kitleye tek iş: EU hibe değerlendiricisi veya regüle kurum yönetic
 - Rakip adı anılmaz
 
 ## Kabul Kriterleri
-- [ ] Tek cümle konum hero'da birebir
-- [ ] AI Act eşleme tablosu doğru maddelerle
+- [x] Tek cümle konum hero'da — EN paraphrase of positioning.md one-liner (TR page mirrors)
+- [x] AI Act eşleme tablosu doğru maddelerle (Art. 9/12/13/14 on homepage `#mapping`)
 - [x] Hiçbir sayfada yasaklı kelime (BrainStack, Solana, blockchain, humanizer, OZDNA yazım varyantları) — `oversight/scripts/check-forbidden.sh` + CI (`.github/workflows/oversight-forbidden.yml`)
 - [x] EN/TR paritesi
 - [ ] Form çalışıyor, mobilde kusursuz — Netlify Forms markup var; canlı test deploy sonrası (ledger C9/B9)
