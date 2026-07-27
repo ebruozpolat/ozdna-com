@@ -10,7 +10,8 @@
     ".": "./src/index.ts",
     "./node": "./src/decode-node.ts",
     "./photon": "./src/decode-photon.ts",
-    "./pdq": "./src/pdq.ts"
+    "./pdq": "./src/pdq.ts",
+    "./pdq-node": "./src/pdq-node.ts"
   },
   "scripts": {
     "test": "vitest run",
