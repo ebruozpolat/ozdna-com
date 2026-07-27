@@ -11,7 +11,13 @@ import { toHex } from "../src/sha256.js";
 import vectorsJson from "./fixtures/vectors.json";
 
 const vectors = vectorsJson as unknown as {
-  merkle: { records: LeafRecord[]; leafHashes: string[]; root: string; proofIndex: number; proof: { pos: "left" | "right"; hash: string }[] };
+  merkle: {
+    records: LeafRecord[];
+    leafHashes: string[];
+    root: string;
+    proofIndex: number;
+    proof: { pos: "left" | "right"; hash: string }[];
+  };
   phash: { name: string; w: number; h: number; expr: string; phash: string }[];
   bandsOfFirst: { band0: number; band1: number; band2: number; band3: number };
 };
@@ -22,7 +28,10 @@ function makeRgba(w: number, h: number, f: (x: number, y: number) => number): Ui
     for (let x = 0; x < w; x++) {
       const v = Math.max(0, Math.min(255, Math.round(f(x, y))));
       const p = (y * w + x) * 4;
-      rgba[p] = v; rgba[p + 1] = v; rgba[p + 2] = v; rgba[p + 3] = 255;
+      rgba[p] = v;
+      rgba[p + 1] = v;
+      rgba[p + 2] = v;
+      rgba[p + 3] = 255;
     }
   return rgba;
 }

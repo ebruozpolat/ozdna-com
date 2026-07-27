@@ -16,10 +16,14 @@
     "test:workers": "vitest run -c apps/api/vitest.config.ts",
     "test:contracts": "forge test --root contracts",
     "typecheck": "tsc --noEmit -p tsconfig.packages.json && npm run typecheck -w @ozdna/api && npm run typecheck -w @ozdna/anchor && npm run typecheck -w @ozdna/web",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "check": "npm run typecheck && npm run lint && npm test",
     "certs:dev": "node scripts/gen-dev-signing-cert.mjs",
     "db:generate": "npm run db:generate -w @ozdna/api"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.5.2",
     "@types/node": "^22.15.21",
     "typescript": "6.0.3",
     "vitest": "4.1.10"

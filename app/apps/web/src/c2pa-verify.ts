@@ -41,8 +41,7 @@ export async function verifyC2pa(file: File): Promise<C2paVerifyResult> {
     }
     try {
       const store = await reader.manifestStore();
-      const active = (store as { active?: { label?: string; claim_generator?: string } })
-        ?.active;
+      const active = (store as { active?: { label?: string; claim_generator?: string } })?.active;
       const label = active?.label ?? "manifest";
       const gen = active?.claim_generator ?? "unknown generator";
       return {

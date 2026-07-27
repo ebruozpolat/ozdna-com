@@ -5,13 +5,14 @@
 //
 // Decode paths are NOT re-exported here — jpeg-js/pngjs break workerd bundles.
 // Import `@ozdna/dna-core/node` or `@ozdna/dna-core/photon` explicitly.
-export * from "./sha256.js";
-export * from "./merkle.js";
-export * from "./leaf.js";
-export * from "./phash.js";
+
 export * from "./bands.js";
-export * from "./verdict.js";
-export * from "./schema.js";
-export * from "./pdq.js";
-export * from "./orient.js";
 export * from "./exif.js";
+export * from "./leaf.js";
+export * from "./merkle.js";
+export * from "./orient.js";
+export * from "./pdq.js";
+export * from "./phash.js";
+export * from "./schema.js";
+export * from "./sha256.js";
+export * from "./verdict.js";

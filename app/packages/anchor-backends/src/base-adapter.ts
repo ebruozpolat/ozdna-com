@@ -2,14 +2,8 @@
 // INVARIANT: nothing outside apps/anchor may import this package's viem usage
 // for chain IO — api/web consume only AnchorReceipt JSON (01 §6 rule 1).
 
-import {
-  createPublicClient,
-  createWalletClient,
-  encodeFunctionData,
-  http,
-  type Hex,
-} from "viem";
-import { privateKeyToAccount, type PrivateKeyAccount } from "viem/accounts";
+import { createPublicClient, createWalletClient, encodeFunctionData, type Hex, http } from "viem";
+import { type PrivateKeyAccount, privateKeyToAccount } from "viem/accounts";
 import { base, baseSepolia } from "viem/chains";
 import { ozDnaAnchorAbi } from "./ozdna-anchor-abi.js";
 import type { AnchorBackend, AnchorReceipt, AnchorStatus } from "./types.js";
@@ -43,12 +37,12 @@ export class BaseAdapter implements AnchorBackend {
   private readonly account: PrivateKeyAccount;
 
   constructor(config: BaseAdapterConfig) {
-    if (!config.operatorPrivateKey || !config.operatorPrivateKey.startsWith("0x")) {
+    if (!config.operatorPrivateKey?.startsWith("0x")) {
       throw new Error(
         "BaseAdapter: operatorPrivateKey must be a 0x-prefixed hex private key (Secrets).",
       );
     }
-    if (!config.contractAddress || !config.contractAddress.startsWith("0x")) {
+    if (!config.contractAddress?.startsWith("0x")) {
       throw new Error("BaseAdapter: contractAddress must be a 0x-prefixed address.");
     }
     if (!config.rpcUrl) {
@@ -116,7 +110,7 @@ export class BaseAdapter implements AnchorBackend {
 
   async verify(receipt: AnchorReceipt, root: Uint8Array): Promise<AnchorStatus> {
     if (receipt.chainId !== this.chainId) return "not_found";
-    if (!receipt.txid || !receipt.txid.startsWith("0x")) return "not_found";
+    if (!receipt.txid?.startsWith("0x")) return "not_found";
     if (root.byteLength !== 32) return "not_found";
 
     const client = this.publicClient();

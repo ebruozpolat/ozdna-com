@@ -1,11 +1,11 @@
 import { describe, expect, it } from "vitest";
 import {
-  VERDICT_COPY,
-  VERDICT_FOOTER,
-  VERDICTS,
   classifyPerceptual,
   exactVerdict,
   toMatchProjection,
+  VERDICT_COPY,
+  VERDICT_FOOTER,
+  VERDICTS,
 } from "../src/verdict.js";
 
 describe("verdict enum + copy (plan/03 §6.3)", () => {
@@ -25,7 +25,9 @@ describe("verdict enum + copy (plan/03 §6.3)", () => {
     expect(VERDICT_FOOTER).toMatch(/registration, not creation/);
     // hard rule 5: headlines must never assert authenticity/trust
     for (const v of VERDICTS) {
-      expect(VERDICT_COPY[v].headline).not.toMatch(/\b(authentic|trusted|verified real|genuine)\b/i);
+      expect(VERDICT_COPY[v].headline).not.toMatch(
+        /\b(authentic|trusted|verified real|genuine)\b/i,
+      );
     }
   });
 });
@@ -63,14 +65,35 @@ describe("exact + perceptual classification (plan/03 §1.5)", () => {
 
 describe("match_type/confidence projection (plan/04 §4.4)", () => {
   it("maps every verdict to its documented bucket", () => {
-    expect(toMatchProjection("EXACT_ANCHORED")).toEqual({ matchType: "exact", confidence: "exact" });
+    expect(toMatchProjection("EXACT_ANCHORED")).toEqual({
+      matchType: "exact",
+      confidence: "exact",
+    });
     expect(toMatchProjection("EXACT_PENDING")).toEqual({ matchType: "exact", confidence: "exact" });
-    expect(toMatchProjection("SIGNED_BY_OZDNA")).toEqual({ matchType: "manifest", confidence: null });
-    expect(toMatchProjection("THIRD_PARTY_CREDENTIALS")).toEqual({ matchType: "manifest", confidence: null });
-    expect(toMatchProjection("SIGNATURE_BROKEN")).toEqual({ matchType: "manifest", confidence: null });
-    expect(toMatchProjection("SIGNATURE_REVOKED")).toEqual({ matchType: "manifest", confidence: null });
-    expect(toMatchProjection("VISUAL_MATCH_HIGH")).toEqual({ matchType: "perceptual", confidence: "high" });
-    expect(toMatchProjection("VISUAL_MATCH_PROBABLE")).toEqual({ matchType: "perceptual", confidence: "medium" });
+    expect(toMatchProjection("SIGNED_BY_OZDNA")).toEqual({
+      matchType: "manifest",
+      confidence: null,
+    });
+    expect(toMatchProjection("THIRD_PARTY_CREDENTIALS")).toEqual({
+      matchType: "manifest",
+      confidence: null,
+    });
+    expect(toMatchProjection("SIGNATURE_BROKEN")).toEqual({
+      matchType: "manifest",
+      confidence: null,
+    });
+    expect(toMatchProjection("SIGNATURE_REVOKED")).toEqual({
+      matchType: "manifest",
+      confidence: null,
+    });
+    expect(toMatchProjection("VISUAL_MATCH_HIGH")).toEqual({
+      matchType: "perceptual",
+      confidence: "high",
+    });
+    expect(toMatchProjection("VISUAL_MATCH_PROBABLE")).toEqual({
+      matchType: "perceptual",
+      confidence: "medium",
+    });
     expect(toMatchProjection("NEAR_MISS")).toEqual({ matchType: "none", confidence: null });
     expect(toMatchProjection("NO_RECORD")).toEqual({ matchType: "none", confidence: null });
   });

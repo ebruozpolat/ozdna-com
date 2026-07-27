@@ -35,15 +35,31 @@ describe("OzDNA pHash v1 (03 §1.3)", () => {
   });
 
   it("distinct structures produce different hashes", () => {
-    const horizontal = phashFromRgba(makeRgba(64, 64, (x) => 4 * x), 64, 64);
-    const vertical = phashFromRgba(makeRgba(64, 64, (_x, y) => 4 * y), 64, 64);
+    const horizontal = phashFromRgba(
+      makeRgba(64, 64, (x) => 4 * x),
+      64,
+      64,
+    );
+    const vertical = phashFromRgba(
+      makeRgba(64, 64, (_x, y) => 4 * y),
+      64,
+      64,
+    );
     expect(horizontal).not.toBe(vertical);
     expect(hammingHex(horizontal, vertical)).toBeGreaterThan(0);
   });
 
   it("survives a downscale of the same structure within a small Hamming distance", () => {
-    const full = phashFromRgba(makeRgba(128, 96, (x, y) => 2 * x + y), 128, 96);
-    const small = phashFromRgba(makeRgba(64, 48, (x, y) => 2 * (2 * x) + 2 * y), 64, 48); // same gradient, half res
+    const full = phashFromRgba(
+      makeRgba(128, 96, (x, y) => 2 * x + y),
+      128,
+      96,
+    );
+    const small = phashFromRgba(
+      makeRgba(64, 48, (x, y) => 2 * (2 * x) + 2 * y),
+      64,
+      48,
+    ); // same gradient, half res
     expect(hammingHex(full, small)).toBeLessThanOrEqual(6);
   });
 });

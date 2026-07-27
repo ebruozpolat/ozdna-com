@@ -33,9 +33,7 @@ describe("waitlist (workerd + D1)", () => {
     expect(second.status).toBe(200);
     expect(await second.json()).toEqual({ ok: true, status: "already_registered" });
 
-    const row = await env.DB.prepare(
-      "SELECT email, segment FROM waitlist WHERE email = ?",
-    )
+    const row = await env.DB.prepare("SELECT email, segment FROM waitlist WHERE email = ?")
       .bind(body.email)
       .first<{ email: string; segment: string }>();
     expect(row).toEqual({ email: body.email, segment: "fact_checker" });

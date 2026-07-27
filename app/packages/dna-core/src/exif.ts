@@ -58,7 +58,7 @@ function parseTiffOrientation(tiff: Uint8Array): Orientation | null {
   const be = tiff[0] === 0x4d && tiff[1] === 0x4d; // MM
   if (!le && !be) return null;
   if (u16(view, 2, le) !== 42) return null;
-  let ifd = u32(view, 4, le);
+  const ifd = u32(view, 4, le);
   // Walk first IFD only (primary image)
   if (ifd + 2 > tiff.length) return null;
   const count = u16(view, ifd, le);

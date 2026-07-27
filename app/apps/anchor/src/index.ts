@@ -2,7 +2,7 @@
 // Spec: plan/04-MVP-SPEC.md §6, plan/03 §3.
 // Uses BaseAdapter when ANCHOR_BACKEND=base and Secrets are present; else NullAdapter.
 
-import { BaseAdapter, NullAdapter, type AnchorBackend } from "@ozdna/anchor-backends";
+import { type AnchorBackend, BaseAdapter, NullAdapter } from "@ozdna/anchor-backends";
 import {
   buildTree,
   hashLeaf,
@@ -47,11 +47,7 @@ function resolveAdapter(env: Env): { adapter: AnchorBackend; skipped?: string } 
     const rpcUrl = env.BASE_RPC_URL;
     const privateKey = env.ANCHOR_PRIVATE_KEY;
     const contractAddress = env.ANCHOR_CONTRACT_ADDRESS;
-    if (
-      !rpcUrl ||
-      !privateKey?.startsWith("0x") ||
-      !contractAddress?.startsWith("0x")
-    ) {
+    if (!rpcUrl || !privateKey?.startsWith("0x") || !contractAddress?.startsWith("0x")) {
       return {
         adapter: new NullAdapter(),
         skipped: "base_backend_missing_secrets",
@@ -140,9 +136,7 @@ async function runAnchorBatch(env: Env): Promise<{
 
   const receipt = await adapter.anchor(tree.root, batchId, records.length);
 
-  await env.DB.prepare(
-    `UPDATE anchor_batches SET status = ?, tx_hash = ? WHERE id = ?`,
-  )
+  await env.DB.prepare(`UPDATE anchor_batches SET status = ?, tx_hash = ? WHERE id = ?`)
     .bind("submitted", receipt.txid, batchId)
     .run();
 

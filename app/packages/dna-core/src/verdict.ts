@@ -124,7 +124,10 @@ export type MatchType = "exact" | "manifest" | "perceptual" | "none";
 export type Confidence = "exact" | "high" | "medium" | null;
 
 /** Documented convenience projection of a verdict (04-MVP-SPEC §4.4). */
-export function toMatchProjection(verdict: Verdict): { matchType: MatchType; confidence: Confidence } {
+export function toMatchProjection(verdict: Verdict): {
+  matchType: MatchType;
+  confidence: Confidence;
+} {
   switch (verdict) {
     case "EXACT_ANCHORED":
     case "EXACT_PENDING":

@@ -1,5 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { buildTree, foldProof, hashLeaf, hashNode, merkleProof, verifyProof } from "../src/merkle.js";
+import {
+  buildTree,
+  foldProof,
+  hashLeaf,
+  hashNode,
+  merkleProof,
+  verifyProof,
+} from "../src/merkle.js";
 import { toHex, utf8 } from "../src/sha256.js";
 
 async function leaves(n: number) {
