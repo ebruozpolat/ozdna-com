@@ -14,7 +14,7 @@
 | 0.6 | Watch the EU Code of Practice signatory list (closes Jul 22) — harvest small GenAI signatories as leads | TODO | $0 | |
 | 0.7 | (Optional) ETHGlobal Lisbon, Jul 24–26 — AI×Crypto tracks | TODO | travel | Only if bandwidth allows; MetalTakip stays primary. |
 | 0.8 | Re-underwrite DATA Foundation (ex-Story) grants post-rebrand | TODO | $0 | Their AI-training-data provenance mandate may fit; Academy status unconfirmed. |
-| 0.9 | Partner conversation + domain: OriginDNA owns ozDNA brand long-term; platform site stays until OriginDNA landing ships; humanizer never under ozDNA | DONE | ~$10 domain | Domain released from alignxmedia + attached to ozdna-614 (Jul 7). PR #2 merged + Netlify repo-linked Jul 8: ozdna.com now serves the ozDNA umbrella + ComplyDNA + OriginDNA waitlist; duplicate Netlify project consolidated into `ozdna-614`; no humanizer content anywhere under the brand. |
+| 0.9 | Partner conversation + domain: OriginDNA owns ozDNA brand long-term; platform site stays until OriginDNA landing ships; humanizer never under ozDNA | DONE | ~$10 domain | Domain released from Netlify site `alignxmedia` (DNS handoff Jul 7) + attached to ozdna-614. **Historical Netlify project name only — not AlignX Partners the UK consulting firm, and not an ozDNA GTM channel** (founder correction 2026-07-27). PR #2 merged + Netlify repo-linked Jul 8: ozdna.com now serves the ozDNA umbrella + ComplyDNA + OriginDNA waitlist; duplicate Netlify project consolidated into `ozdna-614`; no humanizer content anywhere under the brand. |
 
 ## Phase 1 — MVP build (October 2026, 4 weeks)
 

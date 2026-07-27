@@ -5,6 +5,9 @@ Tek kritik yol: **marka kilidi → temizlik teyidi → tek sayfa site → ücret
 Her yeni fikir için test sorusu: "Bu, imzalı pilotu hızlandırıyor mu?" Hayırsa → `deferred.md`'ye.
 
 > **Durum (27 Tem 2026):** Site kısmı repo'da hazır — oversight sitesi `ozdna.com/oversight/` altında (kaynak: repo-kökü `oversight/`), EN+TR, PR #36. **Deploy + kamuya açılış, Hafta 2–3 TezMakale temizlik teyidine bağlı (bloke edici).** Ertelenen kararlar: `deferred.md`.
+>
+> **Kurucu düzeltmesi (2026-07-27):** GTM AlignX kanalı üzerinden değil — ozDNA founder-led.
+> AlignX Partners ayrı UK danışmanlık işidir (`positioning.md` gövdesi buna göre yeniden yazıldı).
 
 ## Hafta 1 — Marka Kilidi
 - [ ] ozdna.com domain kontrol/satın alma; ozdna.ai/.io yalnızca redirect

@@ -2,6 +2,8 @@
 
 **Ownership:** the `ozdna.com` domain is owned **personally by the founder** (Namecheap; Netlify account `ebru0zpolat`). ozDNA's operating legal entity is not yet formed (TBD), and a trademark application for *ozDNA* has been filed. Not held by Find Below Ventures or AlignX Partners.
 
+**Clarify (2026-07-27):** “Not held by AlignX Partners” remains accurate and intentional — AlignX is the founder’s separate UK consulting business (`alignxpartners.com`), not the ozDNA umbrella and not the domain registrant. Do not re-attribute ownership to AlignX in copy or legal pages.
+
 **Status (2026-07-08): Netlify is the canonical host.** Site: `ozdna-614` (ebru0zpolat
 account). DNS-verified Jul 8: apex `ozdna.com` → `75.2.60.5` (Netlify LB), `www` →
 CNAME to the `ozdna-614.netlify.app` alias. GitHub Pages was never cut over (its DNS

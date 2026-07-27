@@ -1,5 +1,10 @@
 # ozDNA — Konumlandırma & Go-to-Market (Kaynak Doküman)
 
+> **Kurucu düzeltmesi (2026-07-27):** Bu dokümanın eski GTM/fiyatlama satırları AlignX
+> danışmanlığını kanal olarak yazıyordu. **Geçersiz.** ozDNA kendi çatı markasıdır;
+> AlignX Partners kurucunun ayrı UK danışmanlık işidir ve ozDNA GTM kanalı değildir.
+> Aşağıdaki gövde buna göre yeniden yazılmıştır (`docs/oversight/README.md`).
+
 ## Tek Cümle
 ozDNA, AI harcamasını ve gözetimini riske orantılayan altyapı katmanıdır — complyDNA yükümlülüğü söyler, originDNA kararı ispatlar.
 
@@ -26,14 +31,14 @@ Birincil: regüle kurumda compliance officer + CTO ikilisi. Karar birlikte veril
 Routing commodity; sınıflandırma statik danışmanlık; **ikisini runtime'da birleştiren yok.** Savunma hattı: dikey mevzuat derinliği (MASAK/SPK/MiCA/AI Act) + council-veto mimarisi + ledger.
 
 ## GTM Fazları
-**Faz 1 — Referans (0–3 ay):** AlignX danışmanlığına gömülü giriş. Lead magnet audit teklifi → audit çıktısı = complyDNA sınıflandırma raporu (ürün kendini satar). Hedef: 1 ücretli pilot (HalalVest tipi). CoinTR iç kullanımı traction sayılmaz (işveren), teknik doğrulama sayılır.
+**Faz 1 — Referans (0–3 ay):** ozDNA founder-led satış (doğrudan uyum + CTO ikilisine). Lead magnet audit teklifi → audit çıktısı = complyDNA sınıflandırma raporu (ürün kendini satar). Hedef: 1 ücretli pilot (HalalVest tipi). CoinTR iç kullanımı traction sayılmaz (işveren), teknik doğrulama sayılır.
 
 **Faz 2 — Dikey (3–9 ay):** Türk KVHS'ler → MiCA CASP'ları. Gerekçe: mevzuat bilgisi asimetrisi, gerçek denetim baskısı, ERP oyuncularının (Logo/Paraşüt) girmeyeceği dar pazar. KOBİ long-tail'e GİRİLMEZ.
 
 **Faz 3 — Fon (6–12 ay):** ≥1 imzalı pilot ile EIC Pre-Accelerator (tek SME, widening ülke uygunluğu — TR uygun) → traction ile EIC Accelerator (TRL 5+, €2.5M grant; üç-hak kuralı: hazırlıksız başvuru YASAK).
 
 ## Fiyatlama
-Yıllık lisans + kurulum danışmanlığı (AlignX üzerinden). Usage-based DEĞİL — regüle kurum öngörülebilir bütçe ister.
+Yıllık lisans + kurulum / onboarding ücreti (ozDNA üzerinden faturalanır). Usage-based DEĞİL — regüle kurum öngörülebilir bütçe ister.
 
 ## Yapma Listesi
 - Yeni domain/marka açma
