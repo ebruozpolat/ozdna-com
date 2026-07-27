@@ -7,4 +7,6 @@ export type Env = {
   /** EC P-256 JWK JSON string for POST /v1/sign-digest (npm run certs:dev). */
   SIGNING_KEY_JWK?: string;
   SIGNING_KEY_ID?: string;
+  /** Enables POST /v1/bootstrap/api-key (header X-Bootstrap-Token). */
+  BOOTSTRAP_TOKEN?: string;
 };

@@ -64,10 +64,11 @@ Bu dosya **ne yapman gerektiğini** ve **bitti sayılacak hali** anlatır. Site 
 **Still on you / next secrets:**
 1. ~~**Namecheap CNAME**~~ **DONE** — `https://api.ozdna.com/health` → 200
 2. ~~**SIGNING_KEY_JWK**~~ **DONE** — Worker secrets `SIGNING_KEY_JWK` + `SIGNING_KEY_ID=ozdna-api-2026-07`; `POST /v1/sign-digest` → 200 on `api.ozdna.com` (dev self-signed P-256; hard rule 5 — unknown source). Local copy: `app/certs/dev/signing.jwk.json` (gitignored).
-3. (İleride) Base RPC + operator private key → Secrets only; `ANCHOR_BACKEND=base`
-4. Optional later: add `ozdna.com` zone on Cloudflare for a native Workers custom domain
+3. **Base Sepolia gas (blocker for live chain anchor)** — rotator `0x3D3E5Eb3a678519e787B551D0618Af25Ee995B51` balance **0**. Alchemy faucet rejected (needs ≥0.001 ETH on **Ethereum mainnet** on a funded wallet you control). Alternatives: [Coinbase CDP faucet](https://portal.cdp.coinbase.com/) (login), or send a tiny amount of Base Sepolia ETH from any wallet you already have. Then run `bash app/scripts/deploy-base-sepolia.sh` (or tell agent). Keys: `app/certs/dev/base-sepolia-*.key` (gitignored). After deploy: set `BASE_RPC_URL`, `ANCHOR_PRIVATE_KEY` (operator), `ANCHOR_CONTRACT_ADDRESS`, `ANCHOR_BACKEND=base` on `ozdna-anchor`.
+4. ~~**BOOTSTRAP_TOKEN**~~ **DONE** — set on `ozdna-api`; local copy `app/certs/dev/bootstrap.token` (gitignored). `POST /v1/bootstrap/api-key` + registry-only `/v1/marks` live on workers.dev.
+5. Optional later: add `ozdna.com` zone on Cloudflare for a native Workers custom domain
 
-**Bitti sayılır:** `https://api.ozdna.com/health` 200 ✅ + sign-digest configured ✅.
+**Bitti sayılır:** `https://api.ozdna.com/health` 200 ✅ + sign-digest configured ✅. Live Base adapter waits on faucet (#3). If `api.ozdna.com` returns Netlify `usage_exceeded`, use workers.dev until Netlify quota resets.
 
 ### 10. Deploy / lansman sign-off’ları
 - Netlify production zaten `main` → auto-deploy.
