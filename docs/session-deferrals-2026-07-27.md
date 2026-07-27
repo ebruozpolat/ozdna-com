@@ -51,15 +51,31 @@ things I decided silently that were yours to decide.
 
 ---
 
-## D. Known next code slices — not started
+## D. Known next code slices
 
-`apps/api` (Hono Worker: sign-digest, marks, registrations, verify, records/proof/badge,
-usage, waitlist, webhooks; **+ PDQ hasher via `createPDQModule({wasmBinary})` — Workers has
-no `document`, C1 caveat 2**) · `apps/anchor` (cron batch → Base tx → proofs) · `apps/web`
-(Astro sign/verify SPA, c2pa-web WASM; **+ PDQ hasher via `pdq-wasm/browser` pointed at the
-vendored `pdq.wasm`, C1**) · CI workflow (`.github/workflows/ci.yml`) ·
-drizzle config + `schema.ts` · `tests/fixtures/` corpus (golden/c2pa/merkle) · local
-signing-cert generation · OpenAPI `api/openapi.yaml`.
+**`apps/api` — STARTED (core scaffold + 2 routes).** Shipped: Hono app (`src/index.ts`) with
+the §4.5 error envelope + `X-Request-Id`; typed `Env` bindings; **`POST /v1/waitlist`** (zod,
+KVKK consent gate, email-idempotent, Turnstile at the edge) and **`GET /v1/verify`** (hash
+exact + phash multi-index: band probe → true-Hamming rank → dna-core verdict/§1.5 gating).
+Route logic is **pure + repo-injected** (`repo/types.ts`), unit-tested in node with an
+in-memory fake (**18 new tests**); the D1/drizzle impl (`repo/d1.ts`) is wired but
+**UNVERIFIED in-env** (no workerd/D1 here). apps/api got its **own tsconfig** (workers-types,
+no DOM) so the shared packages keep DOM — base program is now packages-only.
+**Still open in apps/api:** `POST /v1/sign-digest` (needs the signing key secret + Sept
+embed-and-sign spike), `POST /v1/marks` (server decode + embed + sign; the never-cut wedge),
+`POST /v1/registrations`, `POST /v1/verify` (multipart + manifest read), records/proof/badge,
+`GET /v1/usage`, API-key auth, rate-limit + quotas, idempotency, webhooks, `?url=` SSRF mode,
+**+ PDQ hasher via `createPDQModule({wasmBinary})` (Workers has no `document`, C1 caveat 2)**.
+
+**`apps/anchor`** (cron batch → Base tx → proofs; binds gas wallet only) — not started.
+**`apps/web`** (Astro sign/verify SPA, c2pa-web WASM; **+ PDQ hasher via `pdq-wasm/browser`
+→ vendored `pdq.wasm`, C1**) — not started.
+Also open: CI workflow (`.github/workflows/ci.yml`, ledger A4) · `tests/fixtures/` corpus
+(golden/c2pa/merkle) · local signing-cert generation · OpenAPI `api/openapi.yaml`.
+
+| # | What | Note |
+|---|---|---|
+| D1a | **`phash64` 64-bit precision through D1** | `records.phash64` is a signed 64-bit INTEGER (03 §2.3), but drizzle-sqlite `integer` maps only to a JS **number** (exact ≤2^53) and D1 surfaces INTEGER as a number over the wire — the top-bit-set fingerprints lose precision. Real, **plan-owned** fix (TEXT-hex read or split 32-bit halves) NOT applied unilaterally (04 §5 owns the column). The pure logic is correct (bigint boundary); only the D1 read is at risk. Verify in workerd. |
 
 ---
 

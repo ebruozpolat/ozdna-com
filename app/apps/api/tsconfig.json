@@ -1,0 +1,13 @@
+{
+  // apps/api targets the Cloudflare Workers runtime, so it uses the Workers ambient types
+  // and DROPS the DOM lib (workers-types + DOM clash on Request/Response/fetch). It is a
+  // SEPARATE tsconfig from tsconfig.base.json's program for exactly that reason — the shared
+  // packages keep DOM, the Worker keeps workerd. dna-core is imported as source and recompiled
+  // here under these libs (its math is DOM-free; crypto.subtle comes from workers-types).
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["ES2023"],
+    "types": ["@cloudflare/workers-types"]
+  },
+  "include": ["src/**/*.ts", "test/**/*.ts"]
+}

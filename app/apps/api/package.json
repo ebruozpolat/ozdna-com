@@ -3,7 +3,17 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "ozDNA API Worker (skeleton). Only the drizzle typed DB schema exists so far (src/db/schema.ts). Routes come later.",
-  "dependencies": { "drizzle-orm": "^0.45.2" },
-  "devDependencies": { "drizzle-kit": "^0.31.10" }
+  "description": "ozDNA API Worker (Hono). v1 core: POST /v1/waitlist + GET /v1/verify (hash & phash). Route logic is pure + repo-injected (testable in node); D1/R2/secrets bindings wired in src/index.ts. Layout: plan/09-DEV-SETUP.md §3; contracts: plan/04-MVP-SPEC.md §4.",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@ozdna/dna-core": "*",
+    "drizzle-orm": "^0.45.2",
+    "hono": "^4.12.32"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260706.1",
+    "drizzle-kit": "^0.31.10"
+  }
 }

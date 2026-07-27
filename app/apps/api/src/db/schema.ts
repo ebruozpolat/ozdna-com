@@ -79,7 +79,12 @@ export const records = sqliteTable(
     kind: text("kind").notNull(),
     source: text("source").notNull(),
     sha256: text("sha256").notNull(),
-    phash64: integer("phash64").notNull(), // signed 64-bit int (03 §2.3)
+    // signed 64-bit int (03 §2.3). drizzle-sqlite `integer` only maps to a JS number, which
+    // CANNOT hold the full 64 bits (>2^53 loses precision) — and D1 surfaces INTEGER as a JS
+    // number over the wire too. This is a real, plan-owned risk: preserving the 64-bit phash
+    // likely needs a TEXT-hex read (CAST(phash64 AS TEXT)) or split 32-bit halves. NOT changed
+    // unilaterally here (04 §5 owns the column). Tracked in the ledger; verify in workerd.
+    phash64: integer("phash64").notNull(),
     pdq256: blob("pdq256"), // 32-byte BLOB, nullable
     band0: integer("band0").notNull(),
     band1: integer("band1").notNull(),

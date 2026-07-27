@@ -1,0 +1,22 @@
+# ozDNA API Worker — Cloudflare config. Secrets are NEVER placed here; set them with
+#   wrangler secret put TURNSTILE_SECRET   (and the signing key, once the sign path lands)
+# Non-secret config goes in [vars]. D1/R2 ids are placeholders — fill from `wrangler d1 create`
+# / `wrangler r2 bucket create` (plan/09-DEV-SETUP.md §4). Deploy cadence: hard rule 8.
+name = "ozdna-api"
+main = "src/index.ts"
+compatibility_date = "2026-07-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+PUBLIC_API_BASE = "https://api.ozdna.com"
+PUBLIC_SITE_BASE = "https://ozdna.com"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "ozdna"
+database_id = "PLACEHOLDER_run_wrangler_d1_create"
+migrations_dir = "../../migrations"
+
+[[r2_buckets]]
+binding = "MANIFESTS"
+bucket_name = "ozdna-manifests"
