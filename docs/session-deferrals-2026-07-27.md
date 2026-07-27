@@ -51,7 +51,7 @@ below. C2/C3/C4 closed on the organize tip + this pass. Remaining B/C/D/E stay e
 | C2 | `dna-core` **zod schemas** | FIXED — `packages/dna-core/src/schema.ts` (+ tests) |
 | C3 | `dna-core` **verdict enum + copy + threshold map** | FIXED — `packages/dna-core/src/verdict.ts` (verbatim §6.3 / §1.5) |
 | C4 | Merkle cross-impl test vectors | FIXED — `test/fixtures/vectors.json` + `vectors.test.ts` |
-| C5 | pHash: math vectors locked; **golden-IMAGE corpus** (real JPEG/PNG + EXIF Orientation=6) still missing; EXIF step-0 untested | PARTIAL — needs platform decode layer |
+| C5 | pHash: math vectors locked; **golden-IMAGE corpus** (real JPEG/PNG + EXIF Orientation=6) still missing; EXIF step-0 untested | FIXED (Node path) — `test/fixtures/golden/` ≥6 images incl. Orient=6 + near-flat; `orient.ts`/`exif.ts`/`decode-node.ts` + `golden.test.ts`. Workers `@cf-wasm/photon` cross-decoder d≤2 still to wire when photon lands. |
 | C6 | `contracts/OzDnaAnchor.sol` not written | FIXED — contract + `foundry.toml` + `forge test` (5 passing) in App CI |
 | C7 | `packages/anchor-backends` (NullAdapter/BaseAdapter) not written | FIXED — NullAdapter wired into `apps/anchor` cron; BaseAdapter still stub until RPC keys |
 | C8 | Deleted standalone oversight `robots.txt` + `sitemap.xml` when moving to `/oversight` | INFO — root covers it |

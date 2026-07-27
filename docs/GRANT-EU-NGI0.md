@@ -1,8 +1,10 @@
 # AB Projesi — NGI Zero Commons Fund Başvuru Taslağı (OriginDNA)
 
-**Durum: DOSYALAMAYA HAZIR (founder onayları tamam, 10 Tem 2026). Hedef: 1 Ağustos 2026, 12:00 CEST son tarihinden önce dosyalama. Program: NGI Zero Commons Fund (NLnet / AB Horizon Europe kaskad fonu).**
-**Ürün çerçevesi (founder, 10 Tem):** *"EU AI Act Madde 50 içerik işaretleme için içerik kökeni API'si. Lansman öncesi — herkese açık API referansı Ekim 2026 MVP'siyle gelir. Bekleme listesindekiler önce alır."* Tespit sınıflandırıcısı yok; kilitli kurallarla tam uyumlu.
-**✅ Founder kararları (10 Tem 2026) — üçü de kapandı:** (1) Başvuran = Ebru Özpolat şahıs işletmesi (TR, vergi levhalı danışmanlık firması). (2) FOSS kapsamı ONAYLANDI — fonlanan "Açık Doğrulama Yığını" açık kaynak, ticari API kapsam dışı. (3) 1 Ağustos'a YETİŞTİRİLECEK — Aug 2 PR hamlesi bu dosyalama lehine geri çekildi (0.5 duruma bak).
+> **DURUM GÜNCELLEMESİ (27 Tem 2026):** NGI Zero Commons Fund’un **13. ve son çağrısı 1 Haziran 2026’da kapandı** — [nlnet.nl/commonsfund](https://nlnet.nl/commonsfund/) yeni başvuru almıyor. Şu an açık olanlar yalnızca **NGI TALER** ve **NGI Fediversity** (son tarih 1 Ağu 2026). OriginDNA bu iki temaya uymaz; bu taslak **arşiv / sonraki NLnet açık çağrı** için saklanır. Aşağıdaki **GenAI beyanı** her NLnet formunda zorunlu kalır.
+
+**Önceki hedef (eski):** 1 Ağustos 2026 dosyalama — Commons Fund için artık geçerli değil.
+**Ürün çerçevesi (founder, 10 Tem):** *"EU AI Act Madde 50 içerik işaretleme için içerik kökeni API'si…"* Tespit sınıflandırıcısı yok.
+**✅ Founder kararları (10 Tem 2026):** (1) Başvuran = TR şahıs işletmesi. (2) FOSS = Açık Doğrulama Yığını. (3) Aug 2 PR, NGI0 lehine geri çekilmişti — Commons Fund kapanınca PR pack yeniden kullanılabilir.
 
 ---
 
@@ -10,7 +12,7 @@
 
 | Program | Uygunluk | Neden / neden değil |
 |---|---|---|
-| **NGI Zero Commons Fund** ✅ önerilen | Başvuru portalı herkese açık; "belirgin Avrupa boyutu" şart — ürünün konusu bizzat AB AI Yasası uyumu, Avrupa boyutu yapısal. Bireyler de kurumlar da başvurabilir. | €5K–50K, 1-2 sayfalık hafif başvuru, konsorsiyum yok, ~2-3 ayda karar → para MVP dönemine (Eki–Ara) denk gelir. Çıktılar FOSS olmalı. |
+| **NGI Zero Commons Fund** ❌ kapandı | 13. ve son çağrı **1 Haz 2026** kapandı; yeni başvuru yok. | Taslak `GRANT-EU-NGI0.md` arşivde; sonraki NLnet regular call / Open Internet Stack izlenir. GenAI beyanı her NLnet formunda zorunlu. |
 | EIC Accelerator | ⚠️ AB/asosiye ülke KOBİ'si şart — founder'ın TR şahıs işletmesi bu tanımı karşılar (PIC kaydı gerekir) | Ölçek olarak erken: EIC scale-up arar; MVP + ilk gelir sonrası düşünülür |
 | Horizon Europe konsorsiyum çağrıları | ⚠️ Türk kurumu ortak olabilir ama konsorsiyum + aylarca hazırlık ister | Solo kurucu + sıfır bütçeyle gerçekçi değil; Şubat 2027 "birlikte çalışabilirlik" konsorsiyum oyunu için ileride not |
 | Digital Europe | ❌ genelde kamu/büyük konsorsiyum odaklı | — |
@@ -81,22 +83,86 @@ The user ecosystem is the long tail of European GenAI applications facing the 2 
 
 *(Taslak — founder kendi sesine göre düzeltebilir; dosyalamadan önce son okuma sizde.)*
 
-I run a registered consultancy in Türkiye and have 5+ years of professional experience in communications, distribution and SEO in the financial-technology industry. I own and operate ozdna.com, where the OriginDNA landing, segmented waitlist and bilingual (EN/TR) site are already live, backed by an adversarially-reviewed technical build plan for the October 2026 MVP. Development is executed by my team using AI-assisted engineering with contract engineering support; the project's technical architecture, algorithms (DCT pHash, PDQ-256, C2PA integration) and milestones are fully specified and public-ready.
+I run a registered consultancy in Türkiye and have 5+ years of professional experience in communications, distribution and SEO in the financial-technology industry. I own and operate ozdna.com, where the OriginDNA landing, segmented waitlist and bilingual (EN/TR) site are already live, backed by an adversarially-reviewed technical build plan for the October 2026 MVP. Development is executed by my team using AI-assisted engineering with contract engineering support; the project's technical architecture, algorithms (DCT pHash, PDQ-256, C2PA integration) and milestones are fully specified and public-ready. I remain accountable for all technical decisions and for the accuracy of this proposal.
 
 ---
 
-## Dosyalama kontrol listesi (founder — 1 Ağustos 12:00 CEST'ten önce)
+## Generative AI — form alanları (ZORUNLU)
 
-1. **Form:** https://nlnet.nl/propose/ → "NGI Zero Commons Fund" seçin. Yanıtları bu belgedeki EN bölümlerinden kopyalayın (Abstract ≈1200 karakter sınırına dikkat — mevcut metin uygun).
-2. **Relevant experience** metnini kendi sesinize göre son kez okuyun/düzeltin.
-3. İletişim: hello@ozdna.com (veya şahsi e-posta — form sahibiyle tutarlı olsun).
-4. Repo alanına `ebruozpolat/ozdna-com` yazılabilir; `origindna-verify` açık repo'su proje başında açılacak diye not düşün (formda böyle dedik).
-5. Gönderim sonrası: başvuru numarası/onay e-postasını saklayın; ACTION_PLAN 2.6'ya "FILED + tarih" işleyeceğiz. Karar süreci ~2-3 ay; ek soru gelirse (NLnet kısa soru turu yapar) birlikte yanıtlarız.
-6. Kaçırılırsa panik yok: çağrı periyodik — ama Ekim MVP eşleşmesi için en iyi pencere bu.
+Kaynak: [NLnet GenAI Policy v1.1](https://nlnet.nl/foundation/policies/generativeAI/) (8 Ara 2025 / 26 Oca 2026). Beyan etmeden göndermek → **red + itibar riski**. Küçük spellcheck log gerektirmez; taslak/çeviri/özet **log ister**.
+
+### Form seçimi
+
+| Alan | Cevap |
+|---|---|
+| Did you use generative AI in writing this proposal? | **I have used generative AI in writing this proposal** |
+| (Hayır seçeneği) | Yalnızca metni baştan sona kendin yazdıysan — bu taslak AI yardımıyla üretildiği için **hayır deme** |
+
+### Which model / what for / prompt provenance log (form text field)
+
+Aşağıyı forma yapıştır; tarih/saat ve eksik prompt’ları dosyalamadan önce kendi oturumuna göre doldur/düzelt:
+
+```
+DISCLOSURE (NLnet GenAI Policy v1.1)
+
+Model(s): Anthropic Claude (Claude Code / Cursor agent sessions), used as a drafting assistant.
+Purpose: Drafting and structuring English proposal fields from our existing technical corpus
+(BLUEPRINT, plan/, ACTION_PLAN). Not used to invent product claims; numbers and dates come
+from our ratified plan. Founder (Ebru Özpolat) reviews, edits, and remains accountable for
+every submitted field.
+
+Session history:
+- 2026-07-10 — Initial NGI0 Commons Fund draft authored with Claude assistance into
+  docs/GRANT-EU-NGI0.md (full raw prompt transcript from that session was not retained
+  as a separate log at the time).
+- 2026-07-27 — GenAI disclosure section added; proposal status updated after Commons Fund
+  call closure; founder final edit pass: {FOUNDER: date/time + note what you changed}.
+
+Human intellectual contribution: product thesis, hard rules (no token, no custody, no
+detection classifiers, images-only v1), budget milestones, applicant identity, and final
+wording sign-off are founder decisions. AI output was treated as a draft, not as
+submissible work without review.
+
+If a full unedited prompt/output pair for the 2026-07-10 session cannot be reconstructed,
+the complete current proposal text in this submission is the post-edit human-accountable
+version. Any further GenAI polish before submit will be appended below with date, model,
+prompt, and unedited output.
+
+--- APPEND NEW SESSIONS BELOW (required for any GenAI use after this note) ---
+Date/time (CEST):
+Model + version:
+Prompt:
+Unedited output:
+```
+
+### Opsiyonel ek
+Form “Optional files containing prompts…” alanına: bu bölümün kopyası + (varsa) Cursor/Claude export. Toplam ek ≤ 50 MB.
+
+### Fonlandıktan sonra (proje yürütme — ayrıca zorunlu)
+Politika başvuru + **fonlanan iş** için geçerli:
+- README’de GenAI kullanım duruşu (boilerplate / tests / docs vs. kritik crypto path).
+- Madde etkileyen kodda: model + prompt özeti (commit mesajı veya eşdeğer log).
+- Saf AI çıktısı, insan katkısı olmadan, hibe ödemesine konu edilemez.
+- OriginDNA ürün kuralı ayrı: v1’de AI *detection classifier* yok; GenAI *yardımcı mühendislik* ile karıştırma.
+
+---
+
+## Dosyalama kontrol listesi
+
+**Commons Fund (kapalı):** Yeni başvuru yok (son çağrı 1 Haz 2026). Bu dosya arşiv.
+
+**Sonraki NLnet açık çağrı / başka fon:**
+1. https://nlnet.nl/propose/ → açık fonu seç.
+2. EN alanları kopyala; Abstract karakter sınırını kontrol et.
+3. **GenAI:** yukarıdaki seçim + log — atlama.
+4. Relevant experience’ı kendi sesinle son oku.
+5. İletişim: hello@ozdna.com (form sahibiyle tutarlı).
+6. Gönderim sonrası ACTION_PLAN’a FILED + tarih.
 
 ## İç notlar (başvuruya girmez)
 
-- Kaynaklar: [NGI Zero Commons Fund](https://nlnet.nl/commonsfund/), [Guide for Applicants](https://nlnet.nl/commonsfund/guideforapplicants/), [Eligibility](https://nlnet.nl/commonsfund/eligibility/), [NGI open calls](https://ngi.eu/opencalls/). Son tarih ve tutarlar 10 Tem 2026'da doğrulandı: €5K–50K, kapanış 1 Ağu 2026 12:00 CEST, sonraki çağrılar da olur (kaçırılırsa dünya yıkılmaz — ama Ekim MVP zamanlamasıyla en iyi eşleşen bu).
-- Değerlendirme kriterleri: teknik mükemmellik, NGI'ya stratejik uygunluk, paranın karşılığı. "Blockchain" kelimesi başvuruda bilinçli olarak kullanılmadı; zaman damgası "publicly verifiable timestamp" olarak geçiyor (NLnet kitlesi FOSS/commons odaklı — kural 4'ün ruhu burada da geçerli).
-- Bekleyen founder kararları: başvuran kimlik (şahıs-TR vs Find Below-BAE), FOSS kapsam onayı, 1 Ağu iş yükü. Karar gelmeden dosyalanmaz.
-- Filecoin taslağıyla çakışma yok: Filecoin = arşiv katmanı (ayrı iş, MVP sonrası, kendisi de founder kararı bekliyor); NGI0 = açık doğrulama yığını (MVP'nin açık bileşenleri). İkisi aynı işi iki fona satmıyor.
+- GenAI politika: https://nlnet.nl/foundation/policies/generativeAI/
+- Commons Fund kapandı: https://nlnet.nl/commonsfund/ (13. çağrı, 1 Haz 2026).
+- Şu an açık: NGI TALER, NGI Fediversity — OriginDNA fit değil; yaz sonrası Open Internet Stack / regular call’ı izle.
+- "Blockchain" kelimesi bilinçli kullanılmadı.
+- Filecoin taslağı ayrı (arşiv katmanı); aynı işi iki fona satmıyoruz.

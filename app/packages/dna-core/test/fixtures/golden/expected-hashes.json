@@ -1,0 +1,110 @@
+{
+  "_note": "OzDNA pHash v1 golden-image corpus (plan/03 §1.3, plan/09 §7). Hashes computed via jpeg-js/pngjs decode + dna-core applyOrientation + phashFromRgba. Same decoder family must match exactly; cross-decoder (e.g. photon) tolerance d≤2.",
+  "_decoder": "jpeg-js@0.4 + pngjs (Node test path); EXIF via dna-core readJpegOrientation + applyOrientation",
+  "images": [
+    {
+      "file": "01-gradient.png",
+      "mime": "image/png",
+      "note": "horizontal luma gradient PNG",
+      "fileWidth": 64,
+      "fileHeight": 48,
+      "fileOrientation": 1,
+      "displayWidth": 64,
+      "displayHeight": 48,
+      "phash16": "80025e2e7b3f972b",
+      "bands": {
+        "band0": 32770,
+        "band1": 24110,
+        "band2": 31551,
+        "band3": 38699
+      }
+    },
+    {
+      "file": "02-checker.png",
+      "mime": "image/png",
+      "note": "8px checkerboard",
+      "fileWidth": 64,
+      "fileHeight": 64,
+      "fileOrientation": 1,
+      "displayWidth": 64,
+      "displayHeight": 64,
+      "phash16": "d7aa65aa20aad5aa",
+      "bands": {
+        "band0": 55210,
+        "band1": 26026,
+        "band2": 8362,
+        "band3": 54698
+      }
+    },
+    {
+      "file": "03-near-flat.png",
+      "mime": "image/png",
+      "note": "near-flat median-tie case (SHOULD)",
+      "fileWidth": 48,
+      "fileHeight": 48,
+      "fileOrientation": 1,
+      "displayWidth": 48,
+      "displayHeight": 48,
+      "phash16": "97027d826d82ff82",
+      "bands": {
+        "band0": 38658,
+        "band1": 32130,
+        "band2": 28034,
+        "band3": 65410
+      }
+    },
+    {
+      "file": "04-stripes-v.png",
+      "mime": "image/png",
+      "note": "vertical color stripes",
+      "fileWidth": 72,
+      "fileHeight": 56,
+      "fileOrientation": 1,
+      "displayWidth": 72,
+      "displayHeight": 56,
+      "phash16": "f7b680b300b3d5b2",
+      "bands": {
+        "band0": 63414,
+        "band1": 32947,
+        "band2": 179,
+        "band3": 54706
+      }
+    },
+    {
+      "file": "05-radial.jpg",
+      "mime": "image/jpeg",
+      "note": "JPEG Orientation=1 radial",
+      "fileWidth": 80,
+      "fileHeight": 80,
+      "fileOrientation": 1,
+      "displayWidth": 80,
+      "displayHeight": 80,
+      "phash16": "916f668e197366c8",
+      "bands": {
+        "band0": 37231,
+        "band1": 26254,
+        "band2": 6515,
+        "band3": 26312
+      }
+    },
+    {
+      "file": "06-portrait-orient6.jpg",
+      "mime": "image/jpeg",
+      "note": "MUST: EXIF Orientation=6 (phone portrait) — catches step-0 divergence",
+      "fileWidth": 96,
+      "fileHeight": 64,
+      "fileOrientation": 6,
+      "displayWidth": 64,
+      "displayHeight": 96,
+      "phash16": "8228ff28f70aff08",
+      "bands": {
+        "band0": 33320,
+        "band1": 65320,
+        "band2": 63242,
+        "band3": 65288
+      },
+      "phash16_without_step0": "aad555d514d582d5",
+      "hamming_step0_delta": 44
+    }
+  ]
+}

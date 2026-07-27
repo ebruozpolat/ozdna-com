@@ -10,7 +10,7 @@
 | 0.2 | Join Content Authenticity Initiative (contentauthenticity.org/membership) | DONE | $0 | Application submitted Jul 8, 2026 (Find Below Ventures; industry: software, NOT blockchain — rule 4). "CAI member" line unlocked for whitepaper + grants once confirmation lands. |
 | 0.3 | ozdna.com landing page + waitlist, two segments: (a) AI companies needing EU Art. 50 marking, (b) sellers/creators | DONE | $0 | LIVE on ozdna.com since Jul 8 (`/products/origin/` + segmented Netlify form). Form detection confirmed on `ozdna-614` (`ignore_html_forms: false`); `origindna-waitlist` registered; test submission Jul 9 landed in Netlify Forms and redirected to `/products/origin/thanks/`. |
 | 0.4 | Whitepaper v1 (EN): architecture, DNA-registry thesis, regulatory map, token-optional stance | DONE | $0 | **v1.0 ratified by founder Jul 10** — `docs/WHITEPAPER.md`. Doubles as Filecoin grant application core (export to PDF when applying). |
-| 0.5 | Aug 2, 2026 PR push: EU AI Act Art. 50 + California SB 942 land same day; founder as commentary source with a solution | DEPRIORITIZED | $0 | **Founder decision Jul 10: NGI Zero filing (2.6, Aug 1 deadline) takes priority over the PR push.** Prep pack at `docs/PR-AUG2.md` stays ready — day-of quotes/thread can still be used lightly on Aug 2 with near-zero effort; full pitch wave revisited for the Dec 2 cycle. |
+| 0.5 | Aug 2, 2026 PR push: EU AI Act Art. 50 + California SB 942 land same day; founder as commentary source with a solution | AVAILABLE AGAIN | $0 | Jul 10'da NGI0 (2.6) lehine DEPRIORITIZED edilmişti. **27 Tem:** Commons Fund son çağrısı 1 Haz'da kapanmış → Aug 2 pack (`docs/PR-AUG2.md`) yeniden kullanılabilir (hafif day-of veya Dec 2 full wave). |
 | 0.6 | Watch the EU Code of Practice signatory list (closes Jul 22) — harvest small GenAI signatories as leads | TODO | $0 | |
 | 0.7 | (Optional) ETHGlobal Lisbon, Jul 24–26 — AI×Crypto tracks | TODO | travel | Only if bandwidth allows; MetalTakip stays primary. |
 | 0.8 | Re-underwrite DATA Foundation (ex-Story) grants post-rebrand | TODO | $0 | Their AI-training-data provenance mandate may fit; Academy status unconfirmed. |
@@ -36,10 +36,11 @@
 | 2.3 | Solana Foundation / Colosseum hackathon | TODO | $5–30K | H2 2026 hackathon feeds $250K accelerator. |
 | 2.4 | Alliance accelerator | TODO | $500K | Rolling; apply at first real usage. Token-optional friendly. |
 | 2.5 | a16z crypto CSX fall 2026 | TODO | $500K/7% | Long shot; apply if traction. |
-| 2.6 | **EU: NGI Zero Commons Fund** (NLnet, Horizon Europe cascade) | DRAFT READY | €5–50K | **Application draft at `docs/GRANT-EU-NGI0.md` (Jul 10)** — €50K, open verification stack (FOSS scope), framing = locked provenance positioning (no detection). Next deadline **Aug 1, 2026 12:00 CEST**. **READY TO FILE (all founder decisions closed Jul 10):** applicant = Ebru Özpolat sole proprietorship (TR); FOSS scope approved (Open Verification Stack only; commercial API out of scope); **target: file before Aug 1, 2026 12:00 CEST** — prioritized over the Aug 2 PR push (founder decision). Filing checklist in the doc. |
+| 2.6 | **EU: NGI Zero Commons Fund** (NLnet, Horizon Europe cascade) | CLOSED — missed window | €5–50K | Draft at `docs/GRANT-EU-NGI0.md`. **27 Tem:** 13. ve son çağrı **1 Haz 2026** kapandı ([nlnet.nl/commonsfund](https://nlnet.nl/commonsfund/)); Aug 1 artık Taler/Fediversity. OriginDNA uymaz. Taslak + **zorunlu GenAI beyanı** (NLnet policy v1.1) sonraki NLnet açık çağrı için saklandı. |
 
 ## Decisions log
 
+- 2026-07-27 — **NGI Zero Commons Fund kapandı** (13. çağrı, 1 Haz 2026). ACTION_PLAN 2.6 → CLOSED. Aug 2 PR (0.5) AVAILABLE AGAIN. Grant taslağına NLnet GenAI Policy v1.1 zorunlu beyan + prompt-log şablonu eklendi (`GRANT-EU-NGI0.md`).
 - 2026-07-06 — BUILD verdict; ozdna.com repurposed from academic-AI idea to provenance product (DNA metaphor fits; academic AI stays with tezmakale.com).
 - 2026-07-06 — Token: never in core story; whitepaper states token-optional. (NUM/Story/WordProof evidence, §5 of BLUEPRINT.md.)
 - 2026-07-06 — Pitch language locked: "content provenance infrastructure with SaaS revenue," never "AI × Blockchain."
