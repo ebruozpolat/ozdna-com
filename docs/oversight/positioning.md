@@ -1,6 +1,6 @@
 # ozDNA — Konumlandırma & Go-to-Market (Kaynak Doküman)
 
-> **DÜZELTME (kurucu kararı — bağlayıcı):** Bu doküman AlignX'i ozDNA'nın çatısı/aracı gibi konumlandırıyordu (§GTM Faz 1, §Fiyatlama). **ozDNA kendi başına çatı markasıdır; AlignX Partners kurucunun ayrı, şahsi UK danışmanlık işidir (alignxpartners.com), ozDNA'nın çatısı DEĞİLDİR ve ozDNA içeriği taşımaz.** AlignX yalnızca *ayrı bir danışmanlık/referral kanalı* olarak anılabilir (ürünü tanıtabilir/kurulumunu yapabilir) — ozDNA'nın markası, entity'si ya da çatısı değildir. Ayrıntı: `docs/oversight/README.md`. Aşağıdaki AlignX geçişleri bu çerçevede düzeltildi.
+> **DÜZELTME (kurucu kararı — bağlayıcı):** Bu doküman AlignX'i ozDNA'nın çatısı/aracı gibi konumlandırıyordu (§GTM Faz 1, §Fiyatlama). **ozDNA kendi başına çatı markasıdır; AlignX Partners kurucunun ayrı, şahsi UK danışmanlık işidir (alignxpartners.com) ve şu an kuruluş (formation) aşamasındadır — ozDNA'nın çatısı DEĞİLDİR ve ozDNA içeriği taşımaz.** AlignX yalnızca *ayrı bir danışmanlık/referral kanalı* olarak anılabilir (ürünü tanıtabilir/kurulumunu yapabilir) — ozDNA'nın markası, entity'si ya da çatısı değildir. Ayrıntı: `docs/oversight/README.md`. Aşağıdaki AlignX geçişleri bu çerçevede düzeltildi.
 
 ## Tek Cümle
 ozDNA, AI harcamasını ve gözetimini riske orantılayan altyapı katmanıdır — complyDNA yükümlülüğü söyler, originDNA kararı ispatlar.

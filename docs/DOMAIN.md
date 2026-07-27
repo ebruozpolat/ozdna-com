@@ -1,6 +1,6 @@
 # Domain strategy — ozdna.com
 
-**Ownership:** the `ozdna.com` domain is owned **personally by the founder** (Namecheap; Netlify account `ebru0zpolat`). ozDNA's operating legal entity is not yet formed (TBD), and a trademark application for *ozDNA* has been filed. Not held by Find Below Ventures or AlignX Partners.
+**Ownership:** the `ozdna.com` domain is owned **personally by the founder** (Namecheap; Netlify account `ebru0zpolat`). ozDNA's operating legal entity is not yet formed (TBD), and a trademark application for *ozDNA* has been filed. Not held by Find Below Ventures or AlignX Partners (the founder's separate UK consulting track, currently in formation). The domain was released to ozDNA from the founder's own prior **alignxmedia** site (Jul 7, 2026 — see `docs/ACTION_PLAN.md`); alignxmedia is also the founder's, not the ozDNA umbrella.
 
 **Status (2026-07-08): Netlify is the canonical host.** Site: `ozdna-614` (ebru0zpolat
 account). DNS-verified Jul 8: apex `ozdna.com` → `75.2.60.5` (Netlify LB), `www` →

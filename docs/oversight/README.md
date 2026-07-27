@@ -13,8 +13,11 @@ footer'ı) oversight ürününü **AlignX Partners** çatısı altında konumlan
 Kurucu kararı:
 
 - **ozDNA kendi başına çatı markasıdır.** Her ürün hattı `ozdna.com` altındadır.
-- **AlignX Partners, kurucunun ayrı, şahsi UK danışmanlık işidir** (alignxpartners.com).
+- **AlignX Partners, kurucunun ayrı, şahsi UK danışmanlık işidir** (alignxpartners.com) —
+  **şu an kuruluş/formation aşamasında** (henüz kurulmuş tüzel kişi değil).
   ozDNA'nın çatısı **değildir** ve alignxpartners.com'da **hiç ozDNA içeriği bulunmaz**.
+  (Kurucuya ait ayrı bir mülk olan **alignxmedia** de ozDNA çatısı değildir — ozdna.com
+  alan adının ozDNA'ya devirden önceki eski sahibi; bkz. `docs/DOMAIN.md`.)
 - İsim çakışması **yol ayrımıyla** yönetilir: content-provenans mevcut yerinde kalır
   (`/`, `/products/comply`, `/products/origin`, `/verify`); **oversight sitesi
   `ozdna.com/oversight/` altına oturur** (repo-kökündeki `oversight/` klasörü).
