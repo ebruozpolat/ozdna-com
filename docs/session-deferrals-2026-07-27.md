@@ -21,7 +21,7 @@ below. C2/C3/C4 closed on the organize tip + this pass. Remaining B/C/D/E stay e
 | A5 | **Toolchain divergences unflagged** — plain Vitest; raw SQL vs drizzle. | FIXED (documented + stub) — `app/TOOLCHAIN.md`; drizzle twin at `app/apps/api/src/db/schema.ts`. workerd Vitest pool deferred until Workers apps land (called out, not silent). |
 | A6 | **TypeScript version** — auto-bump to `^7.0.2`; corpus pins **6.0.3**. | FIXED — `app/package.json` pins `typescript` to `6.0.3` (exact). |
 | A7 | **Immortal MLRO first built with production-absolute nav paths** before `/oversight` location decided. | FIXED (path-split). |
-| A8 | **Lighthouse ≥95** asserted without measuring | See addendum — measure or stop claiming. |
+| A8 | **Lighthouse ≥95** asserted without measuring | FIXED — measured 2026-07-27 (local, Lighthouse 12.8.2); see addendum. |
 | A9 | **Verify link wiring partial** (OriginDNA only) | See addendum. |
 | A10 | **Forbidden-word gate** scoped to oversight only, not `/verify` | See addendum. |
 
@@ -82,7 +82,7 @@ email · EUIPO + TÜRKPATENT trademark scan · OZD-52/53 status reconcile on the
 
 | # | What | Status after Cursor pass |
 |---|---|---|
-| A8 | **Lighthouse ≥95** claimed without measuring | FIXED (honesty) — claim removed from any "done" assertion; measure before public launch (founder/deploy gate). Do not claim ≥95 until a Lighthouse run is recorded. |
+| A8 | **Lighthouse ≥95** claimed without measuring | FIXED + measured — local static serve (not Netlify deploy-preview: those inject `x-robots-tag: noindex` and tank SEO). After contrast/`link-in-text-block` CSS fixes in `oversight/assets/site.css`: **`/oversight/` and `/oversight/tr/` = Perf/A11y/BP/SEO all 100** (LH 12.8.2, 2026-07-27). Spec criterion met for the oversight site. |
 | A9 | Verify link missing from home + ComplyDNA | FIXED — wired `/verify/` into home + ComplyDNA nav/footer. |
 | A10 | Forbidden gate missed `/verify` pages | FIXED — `check-forbidden.sh` + CI also scan `verify/` + `tr/verify/` for banned terms + absolute claims. Spelling-variant check stays oversight-only until the sitewide `OZDNA.COM`/`BY OZDNA` label pass (roadmap-90d Hafta 1). |
 | C8 | Oversight robots/sitemap deletion | INFO — root covers it |
