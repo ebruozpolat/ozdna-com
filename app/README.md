@@ -24,7 +24,9 @@ app/
     src/verdict.ts       #   §6.3 enum + locked copy + §1.5 thresholds
     src/schema.ts        #   zod: LeafRecord, VerdictCard, ProofSkeleton
     test/*.test.ts       #   vitest (property/round-trip + verdict/schema)
+  packages/anchor-backends/  # AnchorBackend + NullAdapter (tested) + BaseAdapter stub
   apps/api/src/db/schema.ts  # drizzle stub twin of 0001_init (routes not built)
+  contracts/OzDnaAnchor.sol  # plan/03 §3.5 (forge tests deferred)
   migrations/0001_init.sql   # D1 schema, verbatim from plan/04 §5
   TOOLCHAIN.md               # explicit corpus vs foundation divergences
   tsconfig.base.json / vitest.config.ts / package.json
@@ -32,10 +34,9 @@ app/
 
 ## Not built yet (need infra / secrets / decisions — later batches)
 - `apps/api` routes (Hono Worker: `/v1/sign-digest`, `/v1/marks`, verify, registrations) — schema stub only
-- `apps/anchor` (cron Worker: Merkle batch → Base tx → proofs) + `packages/anchor-backends`
+- `apps/anchor` (cron Worker: Merkle batch → Base tx → proofs; wire BaseAdapter + viem)
 - `apps/web` (Astro sign/verify SPA loading `@contentauth/c2pa-web` WASM)
-- `contracts/OzDnaAnchor.sol` (Foundry) — plan/03 §3.5
-- PDQ-256 wrapper (plan/03 §1.4); workerd Vitest pool; drizzle-kit generate
+- PDQ-256 wrapper (plan/03 §1.4); workerd Vitest pool; drizzle-kit generate; `forge test`
 - Cloudflare account bindings (D1/R2/KV), signing cert chain, Base gas wallet — all founder-provisioned
 
 See `TOOLCHAIN.md` for TypeScript / Vitest / drizzle pins vs the corpus.

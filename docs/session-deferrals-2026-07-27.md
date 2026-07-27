@@ -35,7 +35,7 @@ below. C2/C3/C4 closed on the organize tip + this pass. Remaining B/C/D/E stay e
 | B2 | Verify page: real **C2PA cryptographic validation** (WASM) not built | presence-scan only; needs `@contentauth/c2pa-web` + backend |
 | B3 | Verify page: anchored-timestamp + signer-identity rows are **illustrative** | need the signing/anchor/registry backend |
 | B4 | Verify page: "deep manifest inspection" file-upload path not built | prototype is client-side only |
-| B5 | Oversight site: OG/Twitter image + tags not added | cosmetic; deferred |
+| B5 | Oversight site: OG/Twitter image + tags not added | FIXED — OG/Twitter tags on all oversight pages → `https://ozdna.com/og.png` |
 | B6 | LinkedIn footer link is a **placeholder** (`www.linkedin.com`) | no ozDNA company page yet (brand-architecture §5) |
 | B7 | Immortal MLRO authored from the corpus; **no real prototype** exists in-repo | none was provided |
 | B8 | complyDNA/originDNA **name-collision** long-term decision | path-split for now; long-term parked (founder) |
@@ -52,8 +52,8 @@ below. C2/C3/C4 closed on the organize tip + this pass. Remaining B/C/D/E stay e
 | C3 | `dna-core` **verdict enum + copy + threshold map** | FIXED — `packages/dna-core/src/verdict.ts` (verbatim §6.3 / §1.5) |
 | C4 | Merkle cross-impl test vectors | FIXED — `test/fixtures/vectors.json` + `vectors.test.ts` |
 | C5 | pHash: math vectors locked; **golden-IMAGE corpus** (real JPEG/PNG + EXIF Orientation=6) still missing; EXIF step-0 untested | PARTIAL — needs platform decode layer |
-| C6 | `contracts/OzDnaAnchor.sol` not written | `forge` / later batch |
-| C7 | `packages/anchor-backends` (NullAdapter/BaseAdapter) not written | — |
+| C6 | `contracts/OzDnaAnchor.sol` not written | FIXED — `app/contracts/OzDnaAnchor.sol` (plan/03 §3.5); `forge test` still deferred |
+| C7 | `packages/anchor-backends` (NullAdapter/BaseAdapter) not written | FIXED — interface + NullAdapter (tested) + BaseAdapter stub (viem lands with `apps/anchor`) |
 | C8 | Deleted standalone oversight `robots.txt` + `sitemap.xml` when moving to `/oversight` | INFO — root covers it |
 | C9 | Verify page audit/waitlist forms never tested against live backend | Same gate as B9 |
 
@@ -62,10 +62,13 @@ below. C2/C3/C4 closed on the organize tip + this pass. Remaining B/C/D/E stay e
 ## D. Known next code slices — not started
 
 `apps/api` routes (Hono Worker: sign-digest, marks, registrations, verify, records/proof/badge,
-usage, waitlist, webhooks) · `apps/anchor` (cron batch → Base tx → proofs) · `apps/web`
-(Astro sign/verify SPA, c2pa-web WASM) · app CI workflow (`.github/workflows/ci.yml` for
-dna-core / Workers) · drizzle-kit generate wiring · golden-image fixtures · local
-signing-cert generation · OpenAPI `api/openapi.yaml` · `@cloudflare/vitest-pool-workers`.
+usage, waitlist, webhooks) · `apps/anchor` (cron batch → Base tx → proofs; wire BaseAdapter) ·
+`apps/web` (Astro sign/verify SPA, c2pa-web WASM) · drizzle-kit generate wiring · golden-image
+fixtures · local signing-cert generation · OpenAPI `api/openapi.yaml` ·
+`@cloudflare/vitest-pool-workers` · `forge test` for OzDnaAnchor.
+
+Done from this list: app CI (`.github/workflows/app-ci.yml`), `contracts/OzDnaAnchor.sol`,
+`packages/anchor-backends` (NullAdapter + BaseAdapter stub).
 
 ---
 
