@@ -13,9 +13,11 @@
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
-    "typecheck": "tsc --noEmit -p tsconfig.base.json"
+    "test:contracts": "forge test --root contracts",
+    "typecheck": "tsc --noEmit -p tsconfig.packages.json && npm run typecheck -w @ozdna/api && npm run typecheck -w @ozdna/anchor"
   },
   "devDependencies": {
+    "@types/node": "^22.15.21",
     "typescript": "6.0.3",
     "vitest": "4.1.10"
   },

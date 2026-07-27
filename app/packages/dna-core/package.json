@@ -12,6 +12,12 @@
   "scripts": {
     "test": "vitest run"
   },
+  "dependencies": {
+    "pdq-wasm": "0.3.9"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.21"
+  },
   "peerDependencies": {
     "zod": "^4.0.0"
   }

@@ -18,7 +18,7 @@ below. C2/C3/C4 closed on the organize tip + this pass. Remaining B/C/D/E stay e
 | A2 | **Corpus bodies left un-corrected** — banners only; "AlignX as GTM/consulting channel" left in bodies. | FIXED — rewrote `positioning.md` Faz 1 + Fiyatlama (founder-led / ozDNA billing); `roadmap-90d.md` correction note. AlignX is separate UK consulting, not GTM channel. |
 | A3 | **`ACTION_PLAN.md` "alignxmedia" entry + `DOMAIN.md` "not held by AlignX" line** — left as-is. | FIXED — ACTION_PLAN 0.9 clarified: historical Netlify project name only, not AlignX Partners / not GTM. DOMAIN ownership line kept (still accurate) + clarify note. |
 | A4 | **`check-forbidden.sh` not wired into a build/CI gate** | FIXED — `.github/workflows/oversight-forbidden.yml` runs the script on path changes. |
-| A5 | **Toolchain divergences unflagged** — plain Vitest; raw SQL vs drizzle. | FIXED (documented + stub) — `app/TOOLCHAIN.md`; drizzle twin at `app/apps/api/src/db/schema.ts`. workerd Vitest pool deferred until Workers apps land (called out, not silent). |
+| A5 | **Toolchain divergences unflagged** — plain Vitest; raw SQL vs drizzle. | FIXED (documented + stub) — `app/TOOLCHAIN.md`; drizzle twin at `app/apps/api/src/db/schema.ts`. workerd pool still deferred for D1 integration tests (apps exist; pool not yet). |
 | A6 | **TypeScript version** — auto-bump to `^7.0.2`; corpus pins **6.0.3**. | FIXED — `app/package.json` pins `typescript` to `6.0.3` (exact). |
 | A7 | **Immortal MLRO first built with production-absolute nav paths** before `/oversight` location decided. | FIXED (path-split). |
 | A8 | **Lighthouse ≥95** asserted without measuring | FIXED — measured; `/oversight/` + `/oversight/tr/` all 100 (see addendum + `lighthouse-2026-07-27.md`). |
@@ -39,7 +39,7 @@ below. C2/C3/C4 closed on the organize tip + this pass. Remaining B/C/D/E stay e
 | B6 | LinkedIn footer link is a **placeholder** (`www.linkedin.com`) | no ozDNA company page yet (brand-architecture §5) |
 | B7 | Immortal MLRO authored from the corpus; **no real prototype** exists in-repo | none was provided |
 | B8 | complyDNA/originDNA **name-collision** long-term decision | path-split for now; long-term parked (founder) |
-| B9 | **No deploys** of anything (site, oversight, MVP) | **PARTIALLY OBSOLETE** — Netlify `ozdna-614` auto-deploys `main` to **ozdna.com** (oversight + verify + marketing live as of 2026-07-27). TezMakale cleanup still gates *launch messaging / PR wave*, not whether the static site is online. **Still not deployed:** Cloudflare Workers MVP (`apps/api` / `apps/anchor` / `apps/web`) — no Workers project yet. |
+| B9 | **No deploys** of anything (site, oversight, MVP) | **PARTIALLY OBSOLETE** — Netlify site live. **Workers:** `apps/api` + `apps/anchor` scaffolded with wrangler.jsonc (placeholder D1 id) — **not** production-deployed (needs CF account + real D1 + secrets). `apps/web` not started. |
 
 ---
 
@@ -47,28 +47,32 @@ below. C2/C3/C4 closed on the organize tip + this pass. Remaining B/C/D/E stay e
 
 | # | What | Gap |
 |---|---|---|
-| C1 | `dna-core` **PDQ-256** not implemented | needs the `pdq-wasm` build spike (plan/03 §1.4) |
+| C1 | `dna-core` **PDQ-256** not implemented | FIXED — `packages/dna-core/src/pdq.ts` wraps `pdq-wasm@0.3.9` (CJS via `createRequire`; browser: `initPdqBrowser`) + tests |
 | C2 | `dna-core` **zod schemas** | FIXED — `packages/dna-core/src/schema.ts` (+ tests) |
 | C3 | `dna-core` **verdict enum + copy + threshold map** | FIXED — `packages/dna-core/src/verdict.ts` (verbatim §6.3 / §1.5) |
 | C4 | Merkle cross-impl test vectors | FIXED — `test/fixtures/vectors.json` + `vectors.test.ts` |
 | C5 | pHash: math vectors locked; **golden-IMAGE corpus** (real JPEG/PNG + EXIF Orientation=6) still missing; EXIF step-0 untested | PARTIAL — needs platform decode layer |
-| C6 | `contracts/OzDnaAnchor.sol` not written | FIXED — `app/contracts/OzDnaAnchor.sol` (plan/03 §3.5); `forge test` still deferred |
-| C7 | `packages/anchor-backends` (NullAdapter/BaseAdapter) not written | FIXED — interface + NullAdapter (tested) + BaseAdapter stub (viem lands with `apps/anchor`) |
+| C6 | `contracts/OzDnaAnchor.sol` not written | FIXED — contract + `foundry.toml` + `forge test` (5 passing) in App CI |
+| C7 | `packages/anchor-backends` (NullAdapter/BaseAdapter) not written | FIXED — NullAdapter wired into `apps/anchor` cron; BaseAdapter still stub until RPC keys |
 | C8 | Deleted standalone oversight `robots.txt` + `sitemap.xml` when moving to `/oversight` | INFO — root covers it |
 | C9 | Forms never tested against live backend | FIXED — production Netlify Forms exercised 2026-07-27: `audit-request` + `audit-request-tr` (1 each) + `origindna-waitlist` (+1 → 17). Confirmed via Netlify Forms API (`last_submission_at`). |
 
 ---
 
-## D. Known next code slices — not started
+## D. Known next code slices
 
-`apps/api` routes (Hono Worker: sign-digest, marks, registrations, verify, records/proof/badge,
-usage, waitlist, webhooks) · `apps/anchor` (cron batch → Base tx → proofs; wire BaseAdapter) ·
-`apps/web` (Astro sign/verify SPA, c2pa-web WASM) · drizzle-kit generate wiring · golden-image
-fixtures · local signing-cert generation · OpenAPI `api/openapi.yaml` ·
-`@cloudflare/vitest-pool-workers` · `forge test` for OzDnaAnchor.
+**Landed 2026-07-27 (this pass):**
+- `apps/api` — Hono Worker: `/health`, `/v1/openapi.yaml`, `POST /v1/waitlist`, `GET /v1/verify?hash=`
+- `apps/anchor` — cron + local `/run` with Merkle batch + NullAdapter
+- OpenAPI skeleton (served from Worker)
+- `forge test` for OzDnaAnchor + CI job
+- PDQ wrapper (C1)
 
-Done from this list: app CI (`.github/workflows/app-ci.yml`), `contracts/OzDnaAnchor.sol`,
-`packages/anchor-backends` (NullAdapter + BaseAdapter stub).
+**Still open:**
+sign-digest / marks / registrations / records/proof/badge / usage / webhooks ·
+BaseAdapter + live Base tx · `apps/web` (Astro + c2pa-web) · drizzle-kit generate ·
+golden-image fixtures · signing certs · `@cloudflare/vitest-pool-workers` D1 tests ·
+**production Workers deploy** (founder CF account).
 
 ---
 

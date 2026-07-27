@@ -1,5 +1,5 @@
 {
-  "name": "@ozdna/api",
+  "name": "@ozdna/anchor",
   "private": true,
   "type": "module",
   "version": "0.0.0",
@@ -10,9 +10,8 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@ozdna/dna-core": "*",
-    "hono": "^4.11.3",
-    "zod": "^4.4.3"
+    "@ozdna/anchor-backends": "*",
+    "@ozdna/dna-core": "*"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20260110.0",
