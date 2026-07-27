@@ -9,3 +9,6 @@ dist/
 contracts/lib/
 contracts/out/
 contracts/cache/
+
+# drizzle reference-only generated migrations (canonical = migrations/0001_init.sql)
+migrations-drizzle/

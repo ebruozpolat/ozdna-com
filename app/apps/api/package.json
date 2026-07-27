@@ -1,0 +1,9 @@
+{
+  "name": "@ozdna/api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "ozDNA API Worker (skeleton). Only the drizzle typed DB schema exists so far (src/db/schema.ts). Routes come later.",
+  "dependencies": { "drizzle-orm": "^0.45.2" },
+  "devDependencies": { "drizzle-kit": "^0.31.10" }
+}
