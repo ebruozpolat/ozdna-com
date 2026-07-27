@@ -74,8 +74,8 @@ email · EUIPO + TÜRKPATENT trademark scan · OZD-52/53 status reconcile on the
 
 | # | What | Note |
 |---|---|---|
-| A8 | **Lighthouse ≥95** (website-spec acceptance criterion) — I asserted it was "trivially met" by construction and **never measured it**. Asserting a spec criterion as met without running it is exactly the corner to avoid. | OPEN — measure before claiming. |
-| A9 | **Verify link wiring is partial** — added to OriginDNA nav/footer + sitemap only; **NOT** added to the home `index.html` nav or the ComplyDNA page. | OPEN — wire fully or state it's origin-only by design. |
+| A8 | ~~Lighthouse ≥95 asserted-not-measured~~ | **CLOSED** — actually measured with Lighthouse (Chromium). First run FAILED the spec: accessibility 92–94 (color-contrast on `.kicker`/`.card .n`; `link-in-text-block` on inline `.fine` links). Fixed in `oversight/assets/site.css` (lighter `--dim`, brighter `.card .n`, underline on in-text links). Re-measured: **all 5 oversight pages now perf/a11y/best-practices/SEO = 100/100/100/100.** |
+| A9 | ~~Verify link wiring partial~~ | **CLOSED (home)** — added to `index.html` + `tr/index.html` nav **and** footer. **ComplyDNA page deliberately excluded** (verify is an OriginDNA/image-provenance feature, not RegTech) — stated openly; say so if you want it there too. |
 | A10 | **Forbidden-word gate scope** — `check-forbidden.sh` scans only the oversight site (`oversight/`), **not** the content-provenance verify pages (`/verify`, `/tr/verify`). | OPEN — extend scope or note the boundary. |
 | C8 | **Deleted the standalone oversight `robots.txt` + `sitemap.xml`** when moving to `/oversight` (root config governs now) — intentional, but it was a deletion I should name. | INFO — root `robots.txt`/`sitemap.xml` cover it. |
 | C9 | **Verify page audit/waitlist forms never tested against a live backend** (no deploy) — `data-netlify` markup only. | Same gate as B9 (no deploys). |
