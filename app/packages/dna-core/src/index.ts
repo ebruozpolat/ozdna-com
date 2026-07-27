@@ -10,3 +10,7 @@ export * from "./bands.js";
 export * from "./verdict.js";
 export * from "./schema.js";
 export * from "./pdq.js";
+export * from "./orient.js";
+export * from "./exif.js";
+// Node/test decode path (jpeg-js + pngjs). Workers use photon + applyOrientation.
+export * from "./decode-node.js";

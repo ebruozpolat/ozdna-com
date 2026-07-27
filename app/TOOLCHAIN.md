@@ -11,5 +11,6 @@ This file exists so silent scoping does **not** happen again (session ledger A5/
 | Biome / Foundry / wrangler | pinned in plan/09 | `foundry.toml` + `forge test` (OzDnaAnchor) in CI; wrangler.jsonc for api/anchor | Foundry CI live; production Workers deploy still needs CF account + real D1 id |
 | `packages/anchor-backends` | NullAdapter + BaseAdapter (viem) | NullAdapter used by `apps/anchor` cron; BaseAdapter still stub | Wire viem + secrets before `ANCHOR_BACKEND=base` |
 | PDQ-256 | `pdq-wasm` **0.3.9** | `@ozdna/dna-core` wrapper (`pdq.ts`) loads CJS entry via `createRequire` (ESM factory gap in 0.3.9) | Browser path: `initPdqBrowser({ wasmUrl })` |
+| Golden images / EXIF step-0 | ≥5 fixtures; Orient=6 MUST; near-flat SHOULD; cross-decoder d≤2 | Node path: jpeg-js/pngjs + `orient.ts`/`exif.ts`; corpus in `test/fixtures/golden/` | Wire `@cf-wasm/photon` in Workers and assert d≤2 vs locked hashes |
 
 **Invariant that already holds:** one `packages/dna-core` implementation for browser + Workers; do not fork the math.

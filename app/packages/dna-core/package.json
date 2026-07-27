@@ -10,13 +10,19 @@
     ".": "./src/index.ts"
   },
   "scripts": {
-    "test": "vitest run"
+    "test": "vitest run",
+    "golden:generate": "tsx scripts/generate-golden.mts"
   },
   "dependencies": {
-    "pdq-wasm": "0.3.9"
+    "jpeg-js": "^0.4.4",
+    "pdq-wasm": "0.3.9",
+    "pngjs": "^7.0.0"
   },
   "devDependencies": {
-    "@types/node": "^22.15.21"
+    "@types/node": "^22.15.21",
+    "@types/pngjs": "^6.0.5",
+    "sharp": "^0.35.3",
+    "tsx": "^4.20.3"
   },
   "peerDependencies": {
     "zod": "^4.0.0"
