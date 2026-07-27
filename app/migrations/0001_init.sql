@@ -40,7 +40,7 @@ CREATE TABLE records (
   source           TEXT NOT NULL
                      CHECK (source IN ('web_sign','api_mark','api_registration')),
   sha256           TEXT NOT NULL,                          -- 64 hex, hash of FINAL signed/marked bytes
-  phash64          INTEGER NOT NULL,                       -- OzDNA-pHash-v1 as SIGNED 64-bit int
+  phash64          TEXT NOT NULL,                          -- OzDNA-pHash-v1 as 16 lowercase hex
   pdq256           BLOB,                                   -- 32 bytes; secondary confirmation hash, NULL until computed
   band0            INTEGER NOT NULL,                       -- (phash >> 48) & 0xFFFF
   band1            INTEGER NOT NULL,                       -- (phash >> 32) & 0xFFFF
