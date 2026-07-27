@@ -41,7 +41,7 @@ things I decided silently that were yours to decide.
 
 | # | What | Gap |
 |---|---|---|
-| C1 | `dna-core` **PDQ-256** not implemented | needs the `pdq-wasm` build spike (plan/03 §1.4) |
+| C1 | ~~`dna-core` **PDQ-256** not implemented~~ | **CLOSED (canonical half) — spike PASSED.** Ran the plan/03 §1.4 build spike: `pdq-wasm@0.3.9` produces real 256-bit hashes (deterministic, 64-hex, threshold-31), so the C++-compile fallback isn't needed. Shipped the **pure** half in `packages/dna-core/src/pdq.ts` (distance/encoding/confirm + `PdqHasher` contract, **no wasm dep**; 15 tests, incl. lockstep with `verdict.THRESHOLDS.pdqConfirm`), **vendored** the prebuilt `pdq.wasm` (BSD-3, pinned+SHA-256'd) in `app/vendor/pdq-wasm/`, and documented findings in `app/docs/pdq-spike-2026-07-27.md`. The hash PRODUCER is deliberately NOT reimplemented in JS (interop needs bit-exact Meta PDQ). **Still open:** wiring the wasm hasher into `apps/web` (browser) + `apps/api` (Workers, manual instantiate — ESM/no-`document` caveat) → tracked under **D**. |
 | C2 | `dna-core` **zod schemas** | listed "to add"; **in progress this turn** (`schema.ts`) |
 | C3 | `dna-core` **verdict enum + copy + threshold map** | **in progress this turn** (`verdict.ts`, verbatim §6.3) |
 | C4 | ~~Merkle: tested by round-trip only~~ | **CLOSED** — committed cross-impl vectors at `app/packages/dna-core/test/fixtures/vectors.json` + `vectors.test.ts` (leaf hashes, root, inclusion proof). |
@@ -54,8 +54,10 @@ things I decided silently that were yours to decide.
 ## D. Known next code slices — not started
 
 `apps/api` (Hono Worker: sign-digest, marks, registrations, verify, records/proof/badge,
-usage, waitlist, webhooks) · `apps/anchor` (cron batch → Base tx → proofs) · `apps/web`
-(Astro sign/verify SPA, c2pa-web WASM) · CI workflow (`.github/workflows/ci.yml`) ·
+usage, waitlist, webhooks; **+ PDQ hasher via `createPDQModule({wasmBinary})` — Workers has
+no `document`, C1 caveat 2**) · `apps/anchor` (cron batch → Base tx → proofs) · `apps/web`
+(Astro sign/verify SPA, c2pa-web WASM; **+ PDQ hasher via `pdq-wasm/browser` pointed at the
+vendored `pdq.wasm`, C1**) · CI workflow (`.github/workflows/ci.yml`) ·
 drizzle config + `schema.ts` · `tests/fixtures/` corpus (golden/c2pa/merkle) · local
 signing-cert generation · OpenAPI `api/openapi.yaml`.
 
