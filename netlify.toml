@@ -3,15 +3,20 @@
 
 # Netlify (site ozdna-614) is the CANONICAL host for ozdna.com — see docs/DOMAIN.md (decided 2026-07-08).
 #
-# api.ozdna.com → Cloudflare Worker (ozdna-api). Requires Namecheap CNAME:
-#   Host: api  →  ozdna-614.netlify.app  (or Netlify DNS target shown in UI)
-# Apex stays Netlify; Workers custom domains need the zone on Cloudflare (not yet).
+# api.ozdna.com → Cloudflare Worker (ozdna-api).
+# Namecheap CNAME: Host `api` → `ozdna-614.netlify.app` (DNS live 2026-07-27).
+# Domain-level proxy uses absolute `from` hosts (Host= conditions are NOT supported).
 [[redirects]]
-  from = "/*"
+  from = "https://api.ozdna.com/*"
   to = "https://ozdna-api.alignxdigital.workers.dev/:splat"
   status = 200
   force = true
-  conditions = {Host = ["api.ozdna.com"]}
+
+[[redirects]]
+  from = "http://api.ozdna.com/*"
+  to = "https://ozdna-api.alignxdigital.workers.dev/:splat"
+  status = 200
+  force = true
 
 [[redirects]]
   from = "http://ozdna.com/*"
