@@ -1,8 +1,8 @@
 import { env, SELF } from "cloudflare:test";
 import { describe, expect, it } from "vitest";
 import { bootstrapApiKey } from "../src/auth.js";
-import app from "../src/index.js";
 import type { Env } from "../src/env.js";
+import app from "../src/index.js";
 
 declare module "cloudflare:test" {
   interface ProvidedEnv extends Env {
@@ -85,11 +85,10 @@ describe("auth + marks + webhooks", () => {
     expect(unauthorized.status).toBe(401);
 
     const created = await bootstrapApiKey(env.DB, "sign-test@ozdna.example", "Signer");
-    const keyPair = await crypto.subtle.generateKey(
-      { name: "ECDSA", namedCurve: "P-256" },
-      true,
-      ["sign", "verify"],
-    );
+    const keyPair = await crypto.subtle.generateKey({ name: "ECDSA", namedCurve: "P-256" }, true, [
+      "sign",
+      "verify",
+    ]);
     const jwk = await crypto.subtle.exportKey("jwk", keyPair.privateKey);
 
     const signed = await app.fetch(
