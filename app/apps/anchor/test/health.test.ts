@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import worker, { runAnchorBatch } from "../src/index.js";
 import type { Env } from "../src/env.js";
+import worker, { runAnchorBatch } from "../src/index.js";
 
 type RecordRow = {
   id: string;
