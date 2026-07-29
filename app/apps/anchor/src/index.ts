@@ -2,7 +2,12 @@
 // Spec: plan/04-MVP-SPEC.md §6, plan/03 §3.
 // Uses BaseAdapter when ANCHOR_BACKEND=base and Secrets are present; else NullAdapter.
 
-import { type AnchorBackend, BaseAdapter, NullAdapter } from "@ozdna/anchor-backends";
+import {
+  type AnchorBackend,
+  type AnchorReceipt,
+  BaseAdapter,
+  NullAdapter,
+} from "@ozdna/anchor-backends";
 import {
   buildTree,
   hashLeaf,
@@ -69,7 +74,7 @@ function resolveAdapter(env: Env): { adapter: AnchorBackend; skipped?: string } 
   return { adapter: new NullAdapter() };
 }
 
-async function runAnchorBatch(env: Env): Promise<{
+export async function runAnchorBatch(env: Env): Promise<{
   ok: boolean;
   picked: number;
   batchId: string | null;
@@ -97,6 +102,18 @@ async function runAnchorBatch(env: Env): Promise<{
     return { ok: true, picked: 0, batchId: null, root: null, txid: null, skipped: "empty" };
   }
 
+  const { adapter, skipped } = resolveAdapter(env);
+  if (skipped) {
+    return {
+      ok: false,
+      picked: records.length,
+      batchId: null,
+      root: null,
+      txid: null,
+      skipped,
+    };
+  }
+
   const leafHashes = await Promise.all(
     records.map(async (r) => {
       const phashHex = hashToHex(toUnsignedU64(BigInt(r.phash64)));
@@ -121,38 +138,68 @@ async function runAnchorBatch(env: Env): Promise<{
   const rootHex = `0x${toHex(tree.root)}`;
   const batchId = `bat_local_${Date.now().toString(36)}`;
 
-  await env.DB.prepare(
-    `INSERT INTO anchor_batches (id, chain, merkle_root, record_count, status)
-     VALUES (?, 'base-mainnet', ?, ?, 'pending')`,
-  )
-    .bind(batchId, rootHex, records.length)
-    .run();
+  await env.DB.batch([
+    env.DB.prepare(
+      `INSERT INTO anchor_batches (id, chain, merkle_root, record_count, status)
+       VALUES (?, ?, ?, ?, 'pending')`,
+    ).bind(batchId, adapter.chainId, rootHex, records.length),
+    ...records.map((r, i) =>
+      env.DB.prepare(
+        `UPDATE records
+         SET status = 'anchoring', anchor_batch_id = ?, leaf_index = ?
+         WHERE id = ? AND status = 'registered' AND is_test = 0`,
+      ).bind(batchId, i, r.id),
+    ),
+  ]);
 
-  const { adapter, skipped } = resolveAdapter(env);
-  if (skipped) {
+  const claimed = await env.DB.prepare(
+    `SELECT COUNT(*) AS n
+     FROM records
+     WHERE anchor_batch_id = ? AND status = 'anchoring'`,
+  )
+    .bind(batchId)
+    .first<{ n: number }>();
+
+  if ((claimed?.n ?? 0) !== records.length) {
+    await env.DB.batch([
+      env.DB.prepare(
+        `UPDATE records
+         SET status = 'registered', anchor_batch_id = NULL, leaf_index = NULL
+         WHERE anchor_batch_id = ? AND status = 'anchoring'`,
+      ).bind(batchId),
+      env.DB.prepare(`UPDATE anchor_batches SET status = 'failed' WHERE id = ?`).bind(batchId),
+    ]);
     return {
       ok: false,
       picked: records.length,
       batchId,
       root: rootHex,
       txid: null,
-      skipped,
+      skipped: "claim_race",
     };
   }
 
-  const receipt = await adapter.anchor(tree.root, batchId, records.length);
+  let receipt: AnchorReceipt;
+  try {
+    receipt = await adapter.anchor(tree.root, batchId, records.length);
+  } catch (err) {
+    console.error("anchor submission failed after records were claimed", err);
+    await env.DB.prepare(`UPDATE anchor_batches SET status = 'failed' WHERE id = ?`)
+      .bind(batchId)
+      .run();
+    return {
+      ok: false,
+      picked: records.length,
+      batchId,
+      root: rootHex,
+      txid: null,
+      skipped: "anchor_submission_failed",
+    };
+  }
 
   await env.DB.prepare(`UPDATE anchor_batches SET status = ?, tx_hash = ? WHERE id = ?`)
     .bind("submitted", receipt.txid, batchId)
     .run();
-
-  for (let i = 0; i < records.length; i++) {
-    await env.DB.prepare(
-      `UPDATE records SET status = 'anchoring', anchor_batch_id = ?, leaf_index = ? WHERE id = ?`,
-    )
-      .bind(batchId, i, records[i]!.id)
-      .run();
-  }
 
   return {
     ok: true,
