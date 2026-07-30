@@ -127,7 +127,7 @@ markRoutes.post("/marks", async (c) => {
     const phashRaw = typeof form.phash === "string" ? form.phash : "";
     const pdqRaw = typeof form.pdq256 === "string" ? form.pdq256 : null;
     const title = typeof form.title === "string" ? form.title.slice(0, 120) : null;
-    const isTest = form.is_test === "1" || form.is_test === "true" || auth.mode === "test";
+    const isTest = auth.mode === "test";
 
     if (!(file instanceof File)) {
       return c.json({ error: "validation_error", message: "multipart field `file` required" }, 400);
@@ -185,7 +185,7 @@ markRoutes.post("/marks", async (c) => {
   const sha = parsed.data.sha256.toLowerCase();
   const ph = parsed.data.phash.toLowerCase();
   const pdq = parsed.data.pdq256?.toLowerCase() ?? null;
-  const isTest = parsed.data.is_test === true || auth.mode === "test";
+  const isTest = auth.mode === "test";
   const result = await insertMark(c.env.DB, {
     userId: auth.userId,
     apiKeyId: auth.apiKeyId,
