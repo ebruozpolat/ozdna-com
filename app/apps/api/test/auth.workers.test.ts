@@ -74,4 +74,37 @@ describe("auth + marks + webhooks", () => {
     });
     expect(del.status).toBe(200);
   });
+
+  it("does not let live API keys create hidden unbillable test marks", async () => {
+    const created = await bootstrapApiKey(env.DB, "live-test-flag@ozdna.example", "Live Test Flag");
+    const auth = { Authorization: `Bearer ${created.apiKey}` };
+    const sha256 = "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824";
+
+    const mark = await SELF.fetch("http://local/v1/marks", {
+      method: "POST",
+      headers: { ...auth, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        sha256,
+        phash: "d4a2b1d8e0f39a57",
+        file_mime: "image/png",
+        is_test: true,
+      }),
+    });
+    expect(mark.status).toBe(201);
+    const markBody = (await mark.json()) as { record: { id: string } };
+
+    const record = await SELF.fetch(`http://local/v1/records/${markBody.record.id}`);
+    expect(record.status).toBe(200);
+
+    const verify = await SELF.fetch(`http://local/v1/verify?hash=${sha256}`);
+    expect(verify.status).toBe(200);
+    const verifyBody = (await verify.json()) as { match_type: string; record: { id: string } };
+    expect(verifyBody.match_type).toBe("exact");
+    expect(verifyBody.record.id).toBe(markBody.record.id);
+
+    const usage = await SELF.fetch("http://local/v1/usage", { headers: auth });
+    expect(usage.status).toBe(200);
+    const usageBody = (await usage.json()) as { events: { mark: number } };
+    expect(usageBody.events.mark).toBe(1);
+  });
 });
