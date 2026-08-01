@@ -71,7 +71,10 @@ verifyRoutes.get("/verify", async (c) => {
               u.display_name AS creator_display
        FROM records r
        LEFT JOIN users u ON u.id = r.user_id
-       WHERE r.sha256 = ? AND r.is_test = 0
+       WHERE r.sha256 = ?
+         AND r.is_test = 0
+         AND r.status != 'revoked'
+         AND r.moderation_status = 'active'
        LIMIT 1`,
     )
       .bind(hash)
@@ -122,7 +125,10 @@ verifyRoutes.get("/verify", async (c) => {
            u.display_name AS creator_display
     FROM records r
     LEFT JOIN users u ON u.id = r.user_id
-    WHERE r.is_test = 0 AND (
+    WHERE r.is_test = 0
+      AND r.status != 'revoked'
+      AND r.moderation_status = 'active'
+      AND (
       r.band0 IN (${inList(probes.band0)})
       OR r.band1 IN (${inList(probes.band1)})
       OR r.band2 IN (${inList(probes.band2)})
