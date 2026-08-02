@@ -42,21 +42,22 @@ export default {
   },
 };
 
-function resolveAdapter(env: Env): { adapter: AnchorBackend; skipped?: string } {
+function resolveAdapter(env: Env): { adapter: AnchorBackend | null; chainId: string; skipped?: string } {
   if (env.ANCHOR_BACKEND === "base") {
     const rpcUrl = env.BASE_RPC_URL;
     const privateKey = env.ANCHOR_PRIVATE_KEY;
     const contractAddress = env.ANCHOR_CONTRACT_ADDRESS;
+    const chainId =
+      rpcUrl?.includes("sepolia") || env.ENVIRONMENT !== "production"
+        ? "base-sepolia"
+        : "base-mainnet";
     if (!rpcUrl || !privateKey?.startsWith("0x") || !contractAddress?.startsWith("0x")) {
       return {
-        adapter: new NullAdapter(),
+        adapter: null,
+        chainId,
         skipped: "base_backend_missing_secrets",
       };
     }
-    const chainId =
-      rpcUrl.includes("sepolia") || env.ENVIRONMENT !== "production"
-        ? "base-sepolia"
-        : "base-mainnet";
     return {
       adapter: new BaseAdapter({
         chainId,
@@ -64,12 +65,20 @@ function resolveAdapter(env: Env): { adapter: AnchorBackend; skipped?: string } 
         contractAddress: contractAddress as `0x${string}`,
         operatorPrivateKey: privateKey as `0x${string}`,
       }),
+      chainId,
     };
   }
-  return { adapter: new NullAdapter() };
+  if (env.ENVIRONMENT === "production") {
+    return {
+      adapter: null,
+      chainId: "null",
+      skipped: "production_anchor_backend_disabled",
+    };
+  }
+  return { adapter: new NullAdapter(), chainId: "null" };
 }
 
-async function runAnchorBatch(env: Env): Promise<{
+export async function runAnchorBatch(env: Env): Promise<{
   ok: boolean;
   picked: number;
   batchId: string | null;
@@ -95,6 +104,18 @@ async function runAnchorBatch(env: Env): Promise<{
   const records = rows.results ?? [];
   if (records.length === 0) {
     return { ok: true, picked: 0, batchId: null, root: null, txid: null, skipped: "empty" };
+  }
+
+  const { adapter, chainId, skipped } = resolveAdapter(env);
+  if (!adapter) {
+    return {
+      ok: false,
+      picked: records.length,
+      batchId: null,
+      root: null,
+      txid: null,
+      skipped,
+    };
   }
 
   const leafHashes = await Promise.all(
@@ -123,22 +144,10 @@ async function runAnchorBatch(env: Env): Promise<{
 
   await env.DB.prepare(
     `INSERT INTO anchor_batches (id, chain, merkle_root, record_count, status)
-     VALUES (?, 'base-mainnet', ?, ?, 'pending')`,
+     VALUES (?, ?, ?, ?, 'pending')`,
   )
-    .bind(batchId, rootHex, records.length)
+    .bind(batchId, chainId, rootHex, records.length)
     .run();
-
-  const { adapter, skipped } = resolveAdapter(env);
-  if (skipped) {
-    return {
-      ok: false,
-      picked: records.length,
-      batchId,
-      root: rootHex,
-      txid: null,
-      skipped,
-    };
-  }
 
   const receipt = await adapter.anchor(tree.root, batchId, records.length);
 
