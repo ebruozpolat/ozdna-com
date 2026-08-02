@@ -42,7 +42,11 @@ export default {
   },
 };
 
-function resolveAdapter(env: Env): { adapter: AnchorBackend | null; chainId: string; skipped?: string } {
+function resolveAdapter(env: Env): {
+  adapter: AnchorBackend | null;
+  chainId: string;
+  skipped?: string;
+} {
   if (env.ANCHOR_BACKEND === "base") {
     const rpcUrl = env.BASE_RPC_URL;
     const privateKey = env.ANCHOR_PRIVATE_KEY;
