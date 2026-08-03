@@ -2,6 +2,7 @@ import { Hono } from "hono";
 import { z } from "zod";
 import { requireApiKey, ulidish } from "../auth.js";
 import type { Env } from "../env.js";
+import { quotasForPlan } from "../quotas.js";
 
 export const usageRoutes = new Hono<{ Bindings: Env }>();
 usageRoutes.use("*", requireApiKey);
@@ -23,13 +24,7 @@ usageRoutes.get("/usage", async (c) => {
     events[r.event_type] = r.n;
   }
 
-  const quotasByPlan: Record<string, { mark: number; registration: number }> = {
-    free: { mark: 25, registration: 50 },
-    starter: { mark: 2000, registration: 2000 },
-    growth: { mark: 10000, registration: 10000 },
-    scale: { mark: 50000, registration: 50000 },
-  };
-  const q = quotasByPlan[auth.plan] ?? quotasByPlan.free!;
+  const q = quotasForPlan(auth.plan);
 
   return c.json({
     month,
