@@ -3,6 +3,7 @@ import { Hono } from "hono";
 import { z } from "zod";
 import { requireApiKey, ulidish } from "../auth.js";
 import type { Env } from "../env.js";
+import { quotasForPlan } from "../quotas.js";
 
 /**
  * Registry-only marks (plan/04 Sept spike fallback).
@@ -33,6 +34,7 @@ async function insertMark(
   opts: {
     userId: string;
     apiKeyId: string;
+    plan: string;
     sha: string;
     ph: string;
     pdqHex: string | null;
@@ -41,14 +43,45 @@ async function insertMark(
     title: string | null;
     isTest: boolean;
   },
-): Promise<{ id: string; deduplicated: boolean; created_at: string }> {
+): Promise<
+  | { ok: true; id: string; deduplicated: boolean; created_at: string }
+  | { ok: false; status: 429; body: Record<string, unknown> }
+> {
+  const month = new Date().toISOString().slice(0, 7);
   if (!opts.isTest) {
     const existing = await db
       .prepare(`SELECT id, created_at FROM records WHERE sha256 = ? AND is_test = 0 LIMIT 1`)
       .bind(opts.sha)
       .first<{ id: string; created_at: string }>();
     if (existing) {
-      return { id: existing.id, deduplicated: true, created_at: existing.created_at };
+      return { ok: true, id: existing.id, deduplicated: true, created_at: existing.created_at };
+    }
+
+    const quota = quotasForPlan(opts.plan).mark;
+    const used = await db
+      .prepare(
+        `SELECT COUNT(*) AS n
+         FROM usage_events
+         WHERE user_id = ? AND month = ? AND event_type = 'mark' AND billable = 1`,
+      )
+      .bind(opts.userId, month)
+      .first<{ n: number }>();
+    const usedMarks = used?.n ?? 0;
+    if (usedMarks >= quota) {
+      return {
+        ok: false,
+        status: 429,
+        body: {
+          error: "quota_exceeded",
+          code: "monthly_mark_quota_exceeded",
+          message: `Monthly mark quota exceeded for plan '${opts.plan}'.`,
+          plan: opts.plan,
+          event_type: "mark",
+          quota,
+          used: usedMarks,
+          month,
+        },
+      };
     }
   }
 
@@ -83,7 +116,6 @@ async function insertMark(
     )
     .run();
 
-  const month = createdAt.slice(0, 7);
   await db
     .prepare(
       `INSERT INTO usage_events (user_id, api_key_id, event_type, record_id, billable, month)
@@ -92,7 +124,7 @@ async function insertMark(
     .bind(opts.userId, opts.apiKeyId, id, opts.isTest ? 0 : 1, month)
     .run();
 
-  return { id, deduplicated: false, created_at: createdAt };
+  return { ok: true, id, deduplicated: false, created_at: createdAt };
 }
 
 function markResponse(
@@ -159,6 +191,7 @@ markRoutes.post("/marks", async (c) => {
     const result = await insertMark(c.env.DB, {
       userId: auth.userId,
       apiKeyId: auth.apiKeyId,
+      plan: auth.plan,
       sha,
       ph,
       pdqHex: pdq,
@@ -167,6 +200,9 @@ markRoutes.post("/marks", async (c) => {
       title,
       isTest,
     });
+    if (!result.ok) {
+      return c.json(result.body, result.status);
+    }
 
     return c.json(markResponse(result, { sha, ph, pdq }), result.deduplicated ? 200 : 201);
   }
@@ -189,6 +225,7 @@ markRoutes.post("/marks", async (c) => {
   const result = await insertMark(c.env.DB, {
     userId: auth.userId,
     apiKeyId: auth.apiKeyId,
+    plan: auth.plan,
     sha,
     ph,
     pdqHex: pdq,
@@ -197,6 +234,9 @@ markRoutes.post("/marks", async (c) => {
     title: parsed.data.title ?? null,
     isTest,
   });
+  if (!result.ok) {
+    return c.json(result.body, result.status);
+  }
 
   return c.json(markResponse(result, { sha, ph, pdq }), result.deduplicated ? 200 : 201);
 });

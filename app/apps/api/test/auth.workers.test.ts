@@ -74,4 +74,46 @@ describe("auth + marks + webhooks", () => {
     });
     expect(del.status).toBe(200);
   });
+
+  it("rejects new live marks after the monthly free-plan quota", async () => {
+    const created = await bootstrapApiKey(env.DB, "quota-test@ozdna.example", "Quota Test");
+    const auth = { Authorization: `Bearer ${created.apiKey}` };
+
+    for (let i = 1; i <= 25; i++) {
+      const res = await SELF.fetch("http://local/v1/marks", {
+        method: "POST",
+        headers: { ...auth, "Content-Type": "application/json" },
+        body: JSON.stringify({
+          sha256: i.toString(16).padStart(64, "0"),
+          phash: "c4a2b1d8e0f39a57",
+          file_mime: "image/jpeg",
+        }),
+      });
+      expect(res.status).toBe(201);
+    }
+
+    const over = await SELF.fetch("http://local/v1/marks", {
+      method: "POST",
+      headers: { ...auth, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        sha256: "1a".padStart(64, "0"),
+        phash: "c4a2b1d8e0f39a57",
+        file_mime: "image/jpeg",
+      }),
+    });
+    expect(over.status).toBe(429);
+    const overBody = (await over.json()) as { code: string; quota: number; used: number };
+    expect(overBody.code).toBe("monthly_mark_quota_exceeded");
+    expect(overBody.quota).toBe(25);
+    expect(overBody.used).toBe(25);
+
+    const usage = await SELF.fetch("http://local/v1/usage", { headers: auth });
+    expect(usage.status).toBe(200);
+    const usageBody = (await usage.json()) as {
+      events: { mark: number };
+      quotas: { mark: number };
+    };
+    expect(usageBody.events.mark).toBe(25);
+    expect(usageBody.quotas.mark).toBe(25);
+  });
 });
