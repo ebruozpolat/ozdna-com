@@ -1,6 +1,7 @@
 import { bandsFromHex, fromHex, toSignedI64 } from "@ozdna/dna-core";
 import { Hono } from "hono";
 import { z } from "zod";
+import { requireApiKey } from "../auth.js";
 import type { Env } from "../env.js";
 
 const HEX64 = /^[0-9a-fA-F]{64}$/;
@@ -11,6 +12,7 @@ function ulidish(prefix: string): string {
 }
 
 export const registrationRoutes = new Hono<{ Bindings: Env }>();
+registrationRoutes.use("*", requireApiKey);
 
 const Body = z.object({
   sha256: z.string().regex(HEX64),
@@ -24,6 +26,7 @@ const Body = z.object({
 });
 
 registrationRoutes.post("/registrations", async (c) => {
+  const auth = c.get("auth");
   let json: unknown;
   try {
     json = await c.req.json();
@@ -34,11 +37,12 @@ registrationRoutes.post("/registrations", async (c) => {
   if (!parsed.success) {
     return c.json({ error: "validation_error", details: parsed.error.flatten() }, 400);
   }
-  const { sha256, phash, kind, file_mime, file_bytes, title, pdq256, is_test } = parsed.data;
+  const { sha256, phash, kind, file_mime, file_bytes, title, pdq256 } = parsed.data;
   const sha = sha256.toLowerCase();
   const ph = phash.toLowerCase();
   const bands = bandsFromHex(ph);
   const phashSigned = Number(toSignedI64(BigInt(`0x${ph}`)));
+  const isTest = auth.mode === "test";
 
   const existing = await c.env.DB.prepare(
     `SELECT id, sha256, status, created_at FROM records WHERE sha256 = ? AND is_test = 0 LIMIT 1`,
@@ -46,7 +50,7 @@ registrationRoutes.post("/registrations", async (c) => {
     .bind(sha)
     .first<{ id: string; sha256: string; status: string; created_at: string }>();
 
-  if (existing && !is_test) {
+  if (existing && !isTest) {
     return c.json({
       record: {
         id: existing.id,
@@ -63,12 +67,13 @@ registrationRoutes.post("/registrations", async (c) => {
 
   await c.env.DB.prepare(
     `INSERT INTO records (
-       id, kind, source, sha256, phash64, pdq256,
+       id, user_id, kind, source, sha256, phash64, pdq256,
        band0, band1, band2, band3, title, file_mime, file_bytes, status, is_test
-     ) VALUES (?, ?, 'web_sign', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'registered', ?)`,
+     ) VALUES (?, ?, ?, 'api_registration', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'registered', ?)`,
   )
     .bind(
       id,
+      auth.userId,
       kind,
       sha,
       phashSigned,
@@ -80,8 +85,16 @@ registrationRoutes.post("/registrations", async (c) => {
       title ?? null,
       file_mime,
       file_bytes ?? null,
-      is_test ? 1 : 0,
+      isTest ? 1 : 0,
     )
+    .run();
+
+  const month = new Date().toISOString().slice(0, 7);
+  await c.env.DB.prepare(
+    `INSERT INTO usage_events (user_id, api_key_id, event_type, record_id, billable, month)
+     VALUES (?, ?, 'registration', ?, ?, ?)`,
+  )
+    .bind(auth.userId, auth.apiKeyId, id, isTest ? 0 : 1, month)
     .run();
 
   return c.json(
