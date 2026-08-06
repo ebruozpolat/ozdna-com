@@ -23,6 +23,59 @@ describe("auth + marks + webhooks", () => {
     expect(res.status).toBe(401);
   });
 
+  it("rejects registrations without API key", async () => {
+    const res = await SELF.fetch("http://local/v1/registrations", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        sha256: "c".repeat(64),
+        phash: "d".repeat(16),
+        kind: "claimed_capture",
+        file_mime: "image/png",
+      }),
+    });
+    expect(res.status).toBe(401);
+  });
+
+  it("registers client-side hashes under the authenticated API key owner", async () => {
+    const created = await bootstrapApiKey(env.DB, "registration-test@ozdna.example", "Registrant");
+    const auth = { Authorization: `Bearer ${created.apiKey}` };
+    const sha256 = "f".repeat(64);
+
+    const res = await SELF.fetch("http://local/v1/registrations", {
+      method: "POST",
+      headers: { ...auth, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        sha256,
+        phash: "1234567890abcdef",
+        kind: "claimed_capture",
+        file_mime: "image/jpeg",
+        is_test: true,
+      }),
+    });
+
+    expect(res.status).toBe(201);
+    const body = (await res.json()) as { record: { id: string }; deduplicated: boolean };
+    expect(body.record.id).toMatch(/^rec_/);
+    expect(body.deduplicated).toBe(false);
+
+    const row = await env.DB.prepare(
+      `SELECT user_id, source, is_test FROM records WHERE id = ? LIMIT 1`,
+    )
+      .bind(body.record.id)
+      .first<{ user_id: string; source: string; is_test: number }>();
+    expect(row).toEqual({
+      user_id: created.userId,
+      source: "api_registration",
+      is_test: 0,
+    });
+
+    const usage = await SELF.fetch("http://local/v1/usage", { headers: auth });
+    expect(usage.status).toBe(200);
+    const usageBody = (await usage.json()) as { events: { registration: number } };
+    expect(usageBody.events.registration).toBe(1);
+  });
+
   it("bootstrap → mark → usage → webhook CRUD", async () => {
     const created = await bootstrapApiKey(env.DB, "marks-test@ozdna.example", "Test");
     const auth = { Authorization: `Bearer ${created.apiKey}` };

@@ -51,9 +51,11 @@ paths:
   /v1/registrations:
     post:
       summary: Register client-side hashes (+ optional PDQ)
+      security: [{ bearerAuth: [] }]
       responses:
         "201": { description: Created }
         "200": { description: Deduplicated }
+        "401": { description: Missing/invalid API key }
   /v1/sign-digest:
     post:
       summary: ECDSA P-256 signature over a digest (requires SIGNING_KEY_JWK)
