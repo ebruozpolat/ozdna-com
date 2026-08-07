@@ -127,8 +127,7 @@ verifyRoutes.get("/verify", async (c) => {
       OR r.band1 IN (${inList(probes.band1)})
       OR r.band2 IN (${inList(probes.band2)})
       OR r.band3 IN (${inList(probes.band3)})
-    )
-    LIMIT 500`;
+    )`;
 
   const result = await c.env.DB.prepare(sql).all<RecordRow>();
   const rows = result.results ?? [];
