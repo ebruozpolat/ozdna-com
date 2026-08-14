@@ -120,15 +120,15 @@ async function runAnchorBatch(env: Env): Promise<{
   const tree = await buildTree(leafHashes);
   const rootHex = `0x${toHex(tree.root)}`;
   const batchId = `bat_local_${Date.now().toString(36)}`;
+  const { adapter, skipped } = resolveAdapter(env);
 
   await env.DB.prepare(
     `INSERT INTO anchor_batches (id, chain, merkle_root, record_count, status)
-     VALUES (?, 'base-mainnet', ?, ?, 'pending')`,
+     VALUES (?, ?, ?, ?, 'pending')`,
   )
-    .bind(batchId, rootHex, records.length)
+    .bind(batchId, adapter.chainId, rootHex, records.length)
     .run();
 
-  const { adapter, skipped } = resolveAdapter(env);
   if (skipped) {
     return {
       ok: false,
