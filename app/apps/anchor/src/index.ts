@@ -97,6 +97,18 @@ async function runAnchorBatch(env: Env): Promise<{
     return { ok: true, picked: 0, batchId: null, root: null, txid: null, skipped: "empty" };
   }
 
+  const { adapter, skipped } = resolveAdapter(env);
+  if (skipped) {
+    return {
+      ok: false,
+      picked: records.length,
+      batchId: null,
+      root: null,
+      txid: null,
+      skipped,
+    };
+  }
+
   const leafHashes = await Promise.all(
     records.map(async (r) => {
       const phashHex = hashToHex(toUnsignedU64(BigInt(r.phash64)));
@@ -127,18 +139,6 @@ async function runAnchorBatch(env: Env): Promise<{
   )
     .bind(batchId, rootHex, records.length)
     .run();
-
-  const { adapter, skipped } = resolveAdapter(env);
-  if (skipped) {
-    return {
-      ok: false,
-      picked: records.length,
-      batchId,
-      root: rootHex,
-      txid: null,
-      skipped,
-    };
-  }
 
   const receipt = await adapter.anchor(tree.root, batchId, records.length);
 
