@@ -1,5 +1,5 @@
-import { bandsFromHex, toSignedI64 } from "@ozdna/dna-core";
 import { env, SELF } from "cloudflare:test";
+import { bandsFromHex, toSignedI64 } from "@ozdna/dna-core";
 import { describe, expect, it } from "vitest";
 import type { Env } from "../src/env.js";
 
