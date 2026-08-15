@@ -172,6 +172,7 @@ verifyRoutes.get("/verify", async (c) => {
   const cls = best.classification;
   // Probable without PDQ confirm → similar, unconfirmed (still return the lead)
   const showMatch = cls.showAsMatch;
+  const record = showMatch ? recordPublic(row) : null;
   const projection = showMatch
     ? {
         match_type: "perceptual" as const,
@@ -189,7 +190,7 @@ verifyRoutes.get("/verify", async (c) => {
     pdq_distance: best.pdqDistance,
     pdq_confirmed: cls.pdqConfirmed,
     show_as_match: showMatch,
-    record: recordPublic(row),
+    record,
     near_misses: nearMisses.slice(0, 5).map((n) => ({
       id: n.id,
       phash_distance: n.phashDistance,
