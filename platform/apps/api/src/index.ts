@@ -1,4 +1,5 @@
 import { serve } from "@hono/node-server";
+import { pathToFileURL } from "node:url";
 import { Hono, type Context } from "hono";
 import { cors } from "hono/cors";
 import { generateRequestId, ERRORS } from "@ozdna/core";
@@ -43,6 +44,14 @@ function parseMode(value: unknown): VerticalMode {
   return modes.includes(value as VerticalMode) ? (value as VerticalMode) : "general";
 }
 
+function requireCorpusAccess(corpus: ReturnType<typeof getCorpus>, orgId: string, requestId: string) {
+  if (!corpus) throw ERRORS.notFound("Corpus not found", requestId);
+  if (corpus.orgId !== orgId) {
+    throw ERRORS.forbidden("Access denied to this corpus", requestId);
+  }
+  return corpus;
+}
+
 async function handleLlmProxy(
   c: Context,
   endpoint: string,
@@ -79,7 +88,7 @@ async function handleLlmProxy(
   }
 }
 
-const app = new Hono();
+export const app = new Hono();
 
 app.use("*", cors());
 
@@ -484,10 +493,7 @@ app.get("/v1/rag/corpora/:id", async (c) => {
       method: c.req.method,
     });
     const corpus = getCorpus(c.req.param("id"));
-    if (!corpus) throw ERRORS.notFound("Corpus not found", requestId);
-    if (corpus.orgId && corpus.orgId !== gw.api.orgId) {
-      throw ERRORS.forbidden("Access denied to this corpus", requestId);
-    }
+    requireCorpusAccess(corpus, gw.api.orgId, requestId);
     const freshness = getFreshness(corpus.id);
     completeRequest(gw, "/v1/rag/corpora/:id");
     return c.json({ ...corpus, freshness }, 200, { "X-Request-Id": requestId });
@@ -507,10 +513,7 @@ app.post("/v1/rag/corpora/:id/documents", async (c) => {
     });
     const corpusId = c.req.param("id");
     const corpus = getCorpus(corpusId);
-    if (!corpus) throw ERRORS.notFound("Corpus not found", requestId);
-    if (corpus.orgId && corpus.orgId !== gw.api.orgId) {
-      throw ERRORS.forbidden("Access denied to this corpus", requestId);
-    }
+    requireCorpusAccess(corpus, gw.api.orgId, requestId);
     const body = await c.req.json<{ title?: string; content?: string; metadata?: Record<string, unknown> }>();
     if (!body.title || !body.content) {
       throw ERRORS.invalidRequest("Missing required fields: title, content", requestId);
@@ -538,7 +541,7 @@ app.get("/v1/rag/corpora/:id/documents", async (c) => {
       method: c.req.method,
     });
     const corpus = getCorpus(c.req.param("id"));
-    if (!corpus) throw ERRORS.notFound("Corpus not found", requestId);
+    requireCorpusAccess(corpus, gw.api.orgId, requestId);
     completeRequest(gw, "/v1/rag/corpora/:id/documents");
     return c.json({ documents: listDocuments(corpus.id) }, 200, { "X-Request-Id": requestId });
   } catch (err) {
@@ -557,7 +560,7 @@ app.post("/v1/rag/corpora/:id/ingest", async (c) => {
     });
     const corpusId = c.req.param("id");
     const corpus = getCorpus(corpusId);
-    if (!corpus) throw ERRORS.notFound("Corpus not found", requestId);
+    requireCorpusAccess(corpus, gw.api.orgId, requestId);
     const result = await ingestCorpus(corpusId);
     audit(gw.api.requestId, gw.api.orgId, gw.api.apiKeyId, "rag.ingest", corpusId, result);
     completeRequest(gw, "/v1/rag/corpora/:id/ingest");
@@ -576,7 +579,9 @@ app.get("/v1/rag/corpora/:id/freshness", async (c) => {
       path: c.req.path,
       method: c.req.method,
     });
-    const freshness = getFreshness(c.req.param("id"));
+    const corpusId = c.req.param("id");
+    requireCorpusAccess(getCorpus(corpusId), gw.api.orgId, requestId);
+    const freshness = getFreshness(corpusId);
     if (!freshness) throw ERRORS.notFound("Corpus not found", requestId);
     completeRequest(gw, "/v1/rag/corpora/:id/freshness");
     return c.json(freshness, 200, { "X-Request-Id": requestId });
@@ -596,6 +601,7 @@ app.get("/v1/rag/ingest/:jobId", async (c) => {
     });
     const job = getIngestionJob(c.req.param("jobId"));
     if (!job) throw ERRORS.notFound("Ingestion job not found", requestId);
+    requireCorpusAccess(getCorpus(job.corpusId), gw.api.orgId, requestId);
     completeRequest(gw, "/v1/rag/ingest/:jobId");
     return c.json(job, 200, { "X-Request-Id": requestId });
   } catch (err) {
@@ -651,6 +657,7 @@ app.post("/v1/rag/eval", async (c) => {
     if (!body.corpus_id || !body.query) {
       throw ERRORS.invalidRequest("Missing required fields: corpus_id, query", requestId);
     }
+    requireCorpusAccess(getCorpus(body.corpus_id), gw.api.orgId, requestId);
     const result = await runEval({
       corpusId: body.corpus_id,
       orgId: gw.api.orgId,
@@ -675,7 +682,9 @@ app.get("/v1/rag/corpora/:id/eval-summary", async (c) => {
       path: c.req.path,
       method: c.req.method,
     });
-    const summary = getEvalSummary(c.req.param("id"));
+    const corpusId = c.req.param("id");
+    requireCorpusAccess(getCorpus(corpusId), gw.api.orgId, requestId);
+    const summary = getEvalSummary(corpusId);
     completeRequest(gw, "/v1/rag/corpora/:id/eval-summary");
     return c.json(summary, 200, { "X-Request-Id": requestId });
   } catch (err) {
@@ -725,9 +734,11 @@ app.get("/v1/comply/monitor", async (c) => {
   }
 });
 
-const port = Number(process.env.PORT ?? 8787);
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  const port = Number(process.env.PORT ?? 8787);
 
-console.log(`ozDNA Platform API starting on http://localhost:${port}`);
-console.log("Modules: Gateway · Router · Prompts · Keys · Analytics · Cost · RAG · Observability · Billing");
+  console.log(`ozDNA Platform API starting on http://localhost:${port}`);
+  console.log("Modules: Gateway · Router · Prompts · Keys · Analytics · Cost · RAG · Observability · Billing");
 
-serve({ fetch: app.fetch, port });
+  serve({ fetch: app.fetch, port });
+}

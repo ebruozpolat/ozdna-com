@@ -24,6 +24,7 @@ export interface EvalResult {
 export async function runEval(input: EvalInput): Promise<EvalResult> {
   const result = await retrieveHybrid({
     corpusId: input.corpusId,
+    orgId: input.orgId,
     query: input.query,
     limit: input.limit ?? 5,
   });

@@ -51,7 +51,7 @@ export async function retrieveHybrid(opts: RetrieveOptions): Promise<RetrievalRe
   }
 
   if (!corpus) return null;
-  if (opts.orgId && corpus.orgId && corpus.orgId !== opts.orgId) return null;
+  if (opts.orgId && corpus.orgId !== opts.orgId) return null;
 
   const storedChunks = db
     .select()

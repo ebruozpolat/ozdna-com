@@ -7,7 +7,8 @@
     "dev": "OZDNA_DB_PATH=../../data/ozdna.db tsx --watch src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "node --test test/*.test.mjs"
   },
   "dependencies": {
     "@ozdna/core": "*",

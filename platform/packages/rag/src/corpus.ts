@@ -55,7 +55,7 @@ export function listCorpora(orgId?: string) {
   const db = getDb();
   const rows = db.select().from(ragCorpora).all();
   if (!orgId) return rows;
-  return rows.filter((c) => !c.orgId || c.orgId === orgId);
+  return rows.filter((c) => c.orgId === orgId);
 }
 
 export function addDocument(corpusId: string, input: AddDocumentInput) {
