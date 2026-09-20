@@ -112,51 +112,78 @@ export async function ingestCorpus(corpusId: string): Promise<{
 
   try {
     const docs = listDocuments(corpusId);
+    const stagedDocuments: Array<{
+      id: string;
+      chunks: Array<{
+        id: string;
+        content: string;
+        chunkIndex: number;
+        embedding: string;
+        tokenCount: number;
+        createdAt: Date;
+      }>;
+    }> = [];
 
     for (const doc of docs) {
-      db.delete(ragChunks).where(eq(ragChunks.documentId, doc.id)).run();
-
       const chunks = chunkText(doc.content);
+      const stagedChunks = [];
       for (const chunk of chunks) {
         const { vector } = await embedText(`${doc.title}\n${chunk.content}`, corpus.embeddingModel);
-        db.insert(ragChunks)
-          .values({
-            id: generateId("chk"),
-            corpusId,
-            documentId: doc.id,
-            content: chunk.content,
-            chunkIndex: chunk.index,
-            embedding: serializeEmbedding(vector),
-            tokenCount: chunk.tokenCount,
-            createdAt: new Date(),
-          })
-          .run();
-        chunksCreated++;
+        stagedChunks.push({
+          id: generateId("chk"),
+          content: chunk.content,
+          chunkIndex: chunk.index,
+          embedding: serializeEmbedding(vector),
+          tokenCount: chunk.tokenCount,
+          createdAt: new Date(),
+        });
       }
 
-      db.update(ragDocuments)
-        .set({ chunkCount: chunks.length, ingestedAt: new Date() })
-        .where(eq(ragDocuments.id, doc.id))
-        .run();
-
+      stagedDocuments.push({ id: doc.id, chunks: stagedChunks });
       documentsProcessed++;
+      chunksCreated += stagedChunks.length;
     }
 
     const now = new Date();
-    db.update(ragCorpora)
-      .set({ chunkCount: chunksCreated, lastIngestedAt: now })
-      .where(eq(ragCorpora.id, corpusId))
-      .run();
+    db.transaction((tx) => {
+      for (const staged of stagedDocuments) {
+        tx.delete(ragChunks).where(eq(ragChunks.documentId, staged.id)).run();
+        for (const chunk of staged.chunks) {
+          tx.insert(ragChunks)
+            .values({
+              id: chunk.id,
+              corpusId,
+              documentId: staged.id,
+              content: chunk.content,
+              chunkIndex: chunk.chunkIndex,
+              embedding: chunk.embedding,
+              tokenCount: chunk.tokenCount,
+              createdAt: chunk.createdAt,
+            })
+            .run();
+        }
 
-    db.update(ragIngestionJobs)
-      .set({
-        status: "completed",
-        documentsProcessed,
-        chunksCreated,
-        completedAt: now,
-      })
-      .where(eq(ragIngestionJobs.id, jobId))
-      .run();
+        tx.update(ragDocuments)
+          .set({ chunkCount: staged.chunks.length, ingestedAt: now })
+          .where(eq(ragDocuments.id, staged.id))
+          .run();
+      }
+
+      tx.update(ragCorpora)
+        .set({ chunkCount: chunksCreated, lastIngestedAt: now })
+        .where(eq(ragCorpora.id, corpusId))
+        .run();
+
+      tx.update(ragIngestionJobs)
+        .set({
+          status: "completed",
+          documentsProcessed,
+          chunksCreated,
+          completedAt: now,
+        })
+        .where(eq(ragIngestionJobs.id, jobId))
+        .run();
+    });
   } catch (err) {
     db.update(ragIngestionJobs)
       .set({
