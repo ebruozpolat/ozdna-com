@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from functools import lru_cache
 from pathlib import Path
 
 from qdrant_client import QdrantClient
@@ -14,8 +15,13 @@ def build_qdrant_client(settings: Settings | None = None) -> QdrantClient:
     Otherwise connects to ``qdrant_url`` (Docker compose or remote Qdrant).
     """
     cfg = settings or get_settings()
-    if cfg.qdrant_path:
-        path = Path(cfg.qdrant_path)
+    return _build_qdrant_client(cfg.qdrant_path, cfg.qdrant_url)
+
+
+@lru_cache(maxsize=16)
+def _build_qdrant_client(qdrant_path: str | None, qdrant_url: str) -> QdrantClient:
+    if qdrant_path:
+        path = Path(qdrant_path)
         path.mkdir(parents=True, exist_ok=True)
         return QdrantClient(path=str(path))
-    return QdrantClient(url=cfg.qdrant_url)
+    return QdrantClient(url=qdrant_url)
