@@ -5,7 +5,14 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from qdrant_client import QdrantClient
-from qdrant_client.http.models import Distance, PointStruct, VectorParams
+from qdrant_client.http.models import (
+    Distance,
+    FieldCondition,
+    Filter,
+    MatchValue,
+    PointStruct,
+    VectorParams,
+)
 
 from app.config import Settings, get_settings
 from app.models.legislation import Article
@@ -27,6 +34,7 @@ class IndexHit:
 class IndexSummary:
     source_file: str
     upserted: int
+    deleted_stale: int = 0
 
 
 class LegislationIndexer:
@@ -77,6 +85,54 @@ class LegislationIndexer:
         self.client.upsert(collection_name=self.collection_name, points=points)
         return len(points)
 
+    def replace_articles(
+        self,
+        articles: list[Article],
+        *,
+        source_codes: set[str],
+    ) -> IndexSummary:
+        self.ensure_collection()
+        upserted = self.upsert_articles(articles)
+        current_chunk_ids = {article.chunk_id() for article in articles}
+        deleted_stale = self.delete_stale_points(source_codes, current_chunk_ids)
+        return IndexSummary(source_file="", upserted=upserted, deleted_stale=deleted_stale)
+
+    def delete_stale_points(self, source_codes: set[str], current_chunk_ids: set[str]) -> int:
+        stale_point_ids: list[str] = []
+        for source_code in sorted(source_codes):
+            offset = None
+            source_filter = Filter(
+                must=[
+                    FieldCondition(
+                        key="kaynak_kodu",
+                        match=MatchValue(value=source_code),
+                    )
+                ]
+            )
+            while True:
+                records, offset = self.client.scroll(
+                    collection_name=self.collection_name,
+                    scroll_filter=source_filter,
+                    limit=256,
+                    offset=offset,
+                    with_payload=["chunk_id"],
+                    with_vectors=False,
+                )
+                stale_point_ids.extend(
+                    str(record.id)
+                    for record in records
+                    if (record.payload or {}).get("chunk_id") not in current_chunk_ids
+                )
+                if offset is None:
+                    break
+
+        if stale_point_ids:
+            self.client.delete(
+                collection_name=self.collection_name,
+                points_selector=stale_point_ids,
+            )
+        return len(stale_point_ids)
+
     def search(
         self,
         query: str,
@@ -115,8 +171,15 @@ def index_directory(
         if path.name.startswith("_"):
             continue
         articles = load_articles_from_jsonl(path)
-        upserted = indexer.upsert_articles(articles)
-        summaries.append(IndexSummary(source_file=path.name, upserted=upserted))
+        source_codes = {article.kaynak_kodu for article in articles} or {path.stem.upper()}
+        summary = indexer.replace_articles(articles, source_codes=source_codes)
+        summaries.append(
+            IndexSummary(
+                source_file=path.name,
+                upserted=summary.upserted,
+                deleted_stale=summary.deleted_stale,
+            )
+        )
     return summaries
 
 
