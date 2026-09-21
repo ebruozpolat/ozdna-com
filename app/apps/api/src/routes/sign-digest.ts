@@ -1,5 +1,6 @@
 import { Hono } from "hono";
 import { z } from "zod";
+import { requireApiKey } from "../auth.js";
 import type { Env } from "../env.js";
 
 /**
@@ -8,6 +9,7 @@ import type { Env } from "../env.js";
  * Returns raw ES256 signature bytes as base64 (c2pa-web Signer callback shape TBD in Sept spike).
  */
 export const signRoutes = new Hono<{ Bindings: Env }>();
+signRoutes.use("*", requireApiKey);
 
 const Body = z.object({
   digest_b64: z.string().min(1).max(1024),
@@ -55,6 +57,15 @@ signRoutes.post("/sign-digest", async (c) => {
   const digest = Uint8Array.from(atob(parsed.data.digest_b64), (ch) => ch.charCodeAt(0));
   const sig = await crypto.subtle.sign({ name: "ECDSA", hash: "SHA-256" }, key, digest);
   const sigB64 = btoa(String.fromCharCode(...new Uint8Array(sig)));
+  const auth = c.get("auth");
+  const month = new Date().toISOString().slice(0, 7);
+
+  await c.env.DB.prepare(
+    `INSERT INTO usage_events (user_id, api_key_id, event_type, billable, month)
+     VALUES (?, ?, 'sign_digest', ?, ?)`,
+  )
+    .bind(auth.userId, auth.apiKeyId, auth.mode === "test" ? 0 : 1, month)
+    .run();
 
   return c.json({
     alg: "ES256",

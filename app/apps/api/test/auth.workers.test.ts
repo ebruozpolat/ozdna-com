@@ -2,6 +2,7 @@ import { env, SELF } from "cloudflare:test";
 import { describe, expect, it } from "vitest";
 import { bootstrapApiKey } from "../src/auth.js";
 import type { Env } from "../src/env.js";
+import app from "../src/index.js";
 
 declare module "cloudflare:test" {
   interface ProvidedEnv extends Env {
@@ -73,5 +74,46 @@ describe("auth + marks + webhooks", () => {
       headers: auth,
     });
     expect(del.status).toBe(200);
+  });
+
+  it("protects digest signing with API-key auth and logs usage", async () => {
+    const unauthorized = await SELF.fetch("http://local/v1/sign-digest", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ digest_b64: btoa("digest") }),
+    });
+    expect(unauthorized.status).toBe(401);
+
+    const created = await bootstrapApiKey(env.DB, "sign-test@ozdna.example", "Signer");
+    const keyPair = await crypto.subtle.generateKey({ name: "ECDSA", namedCurve: "P-256" }, true, [
+      "sign",
+      "verify",
+    ]);
+    const jwk = await crypto.subtle.exportKey("jwk", keyPair.privateKey);
+
+    const signed = await app.fetch(
+      new Request("http://local/v1/sign-digest", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${created.apiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ digest_b64: btoa("digest") }),
+      }),
+      { ...env, SIGNING_KEY_JWK: JSON.stringify(jwk), SIGNING_KEY_ID: "test-key" },
+    );
+
+    expect(signed.status).toBe(200);
+    const body = (await signed.json()) as { alg: string; signature_b64: string; key_id: string };
+    expect(body.alg).toBe("ES256");
+    expect(body.signature_b64.length).toBeGreaterThan(20);
+    expect(body.key_id).toBe("test-key");
+
+    const usage = await SELF.fetch("http://local/v1/usage", {
+      headers: { Authorization: `Bearer ${created.apiKey}` },
+    });
+    expect(usage.status).toBe(200);
+    const usageBody = (await usage.json()) as { events: { sign_digest: number } };
+    expect(usageBody.events.sign_digest).toBe(1);
   });
 });
