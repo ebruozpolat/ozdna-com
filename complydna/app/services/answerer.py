@@ -107,16 +107,21 @@ class LegislationAnswerer:
                     "\n\nÖnceki yanıt künye kurallarına uymadı. "
                     "Her cümlede geçerli künye kullan veya yalnızca fallback cümlesini yaz."
                 )
-            raw = self.llm.complete(system=SYSTEM_PROMPT, user=user_prompt + retry_note)
+            try:
+                raw = self.llm.complete(system=SYSTEM_PROMPT, user=user_prompt + retry_note)
+            except Exception:
+                continue
+
             try:
                 validate_cited_answer(raw, allowed)
-                return AnswerResponse(
-                    answer_text=raw.strip(),
-                    citations=_build_citations(raw, chunks),
-                    retrieval_snapshot=snapshot,
-                )
             except AnswerValidationError:
                 continue
+
+            return AnswerResponse(
+                answer_text=raw.strip(),
+                citations=_build_citations(raw, chunks),
+                retrieval_snapshot=snapshot,
+            )
 
         return AnswerResponse(
             answer_text="Mevzuatta açık hüküm bulamadım.",

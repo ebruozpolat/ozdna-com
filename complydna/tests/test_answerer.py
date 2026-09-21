@@ -20,7 +20,7 @@ SAMPLE_JSONL = FIXTURES / "teblig_masak_sample.expected.jsonl"
 
 
 class MockLLM:
-    def __init__(self, responses: list[str]) -> None:
+    def __init__(self, responses: list[str | Exception]) -> None:
         self.responses = list(responses)
         self.calls: list[tuple[str, str]] = []
 
@@ -29,7 +29,10 @@ class MockLLM:
         if not self.responses:
             msg = "no mock responses left"
             raise RuntimeError(msg)
-        return self.responses.pop(0)
+        response = self.responses.pop(0)
+        if isinstance(response, Exception):
+            raise response
+        return response
 
 
 @pytest.fixture
@@ -121,11 +124,41 @@ def test_answerer_retries_after_uncited_mock_response(
     assert response.retrieval_snapshot
 
 
+def test_answerer_retries_after_llm_exception(
+    indexed_retriever: LegislationRetriever,
+) -> None:
+    good = (
+        "Yükümlüler şüpheli işlemleri derhal bildirir "
+        "[TEBLIG-MASAK-SAMPLE / Madde 4 f.1]."
+    )
+    llm = MockLLM([RuntimeError("upstream timeout"), good])
+    answerer = LegislationAnswerer(indexed_retriever, llm)
+
+    response = answerer.ask("şüpheli işlem bildirimi")
+
+    assert response.answer_text == good
+    assert len(llm.calls) == 2
+    assert len(response.citations) == 1
+
+
 def test_answerer_falls_back_after_two_invalid_responses(
     indexed_retriever: LegislationRetriever,
 ) -> None:
     bad = "Yükümlüler bildirim yapmalıdır."
     llm = MockLLM([bad, bad])
+    answerer = LegislationAnswerer(indexed_retriever, llm)
+
+    response = answerer.ask("şüpheli işlem bildirimi")
+
+    assert response.answer_text == "Mevzuatta açık hüküm bulamadım."
+    assert response.citations == []
+    assert len(llm.calls) == 2
+
+
+def test_answerer_falls_back_after_repeated_llm_exceptions(
+    indexed_retriever: LegislationRetriever,
+) -> None:
+    llm = MockLLM([RuntimeError("upstream timeout"), RuntimeError("empty content")])
     answerer = LegislationAnswerer(indexed_retriever, llm)
 
     response = answerer.ask("şüpheli işlem bildirimi")
