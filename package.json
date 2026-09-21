@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "test:legal-routes": "node scripts/check-legal-routes.mjs",
     "netlify": "./scripts/netlify.sh",
     "deploy": "./scripts/netlify.sh deploy --prod --dir .",
     "deploy:preview": "./scripts/netlify.sh deploy --dir ."
