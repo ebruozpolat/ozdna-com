@@ -2398,8 +2398,12 @@
         "<strong>Çıktı:</strong> Upstream model sağlayıcı şartlarına tabi olarak, çıktı özel şablonlarımızı veya üçüncü taraf kısıtlı içeriği içermediği sürece istekleriniz için üretilen model çıktısı üzerinde hak alırsınız. Üretim kullanımından önce çıktıyı incelemekten siz sorumlusunuz — özellikle düzenlenmiş alanlarda (hukuk, finans, uyumluluk)."
       ],
       [
-        "ozDNA provides vertical AI infrastructure — including an API gateway, model routing, prompt management, RAG workflows, usage analytics, and cost attribution — for teams building production AI products. The Service is currently offered in <strong>private beta</strong>; features, endpoints, and availability may change without notice.",
-        "ozDNA, üretim AI ürünleri geliştiren ekipler için API gateway, model yönlendirme, prompt yönetimi, RAG iş akışları, kullanım analitiği ve maliyet atfı dahil dikey AI altyapısı sağlar. Hizmet şu anda <strong>özel beta</strong> olarak sunulmaktadır; özellikler, uç noktalar ve kullanılabilirlik önceden haber verilmeksizin değişebilir."
+        "<li><strong>OriginDNA:</strong> Content-provenance infrastructure being developed to support the recording and verification of images’ registered origin and associated records through cryptographic signatures, timestamps, and content fingerprints. OriginDNA is pre-launch and available only through its waitlist; it is not yet generally available.</li>",
+        "<li><strong>OriginDNA:</strong> Görsellerin kayıtlı kökeninin ve ilişkili kayıtların kriptografik imzalar, zaman damgaları ve içerik parmak izleri aracılığıyla kaydedilmesini ve doğrulanmasını desteklemek üzere geliştirilen içerik kökeni altyapısıdır. OriginDNA lansman öncesi aşamadadır ve yalnızca bekleme listesi üzerinden erişilebilir; henüz genel kullanıma açık değildir.</li>"
+      ],
+      [
+        "<li><strong>ComplyDNA:</strong> Compliance software that supports professionals’ Turkish regulatory research, verification, and decision-making workflows by providing responses linked to statutory sources and article references. ComplyDNA is available through an early-access program and design-partner pilots; it is not generally available.</li>",
+        "<li><strong>ComplyDNA:</strong> Türkiye mevzuatına ilişkin sorulara yasal kaynak ve madde atıflarıyla bağlantılı yanıtlar sunarak profesyonellerin mevzuat araştırması, doğrulama ve karar alma süreçlerini destekleyen uyum yazılımıdır. ComplyDNA erken erişim programı ve design-partner pilotları kapsamında sunulur; genel kullanıma açık değildir.</li>"
       ],
       [
         "<strong>Your property:</strong> You retain ownership of content you submit through the API (“Customer Content”). You grant Findbelow a worldwide, non-exclusive license to host, process, and transmit Customer Content solely to provide and improve the Service, comply with law, and enforce these Terms.",
@@ -2434,10 +2438,6 @@
         "Bu Şartların ihlali, güvenlik riski veya ödeme yapılmaması durumunda anahtarları derhal iptal edebiliriz. <a href=\"/docs/\">ozdna.com/docs</a> adresindeki API dokümantasyonu güncel uç noktaları açıklar; belgelenmemiş davranış garanti edilmez."
       ],
       [
-        "<li><strong>Platform API:</strong> Authenticated REST endpoints at <span class=\"inline-code\">api.ozdna.com</span> (production) and <span class=\"inline-code\">api.sandbox.ozdna.com</span> (sandbox)</li>",
-        "<li><strong>Platform API:</strong> <span class=\"inline-code\">api.ozdna.com</span> (üretim) ve <span class=\"inline-code\">api.sandbox.ozdna.com</span> (sandbox) kimlik doğrulamalı REST uç noktaları</li>"
-      ],
-      [
         "These Terms govern access to ozdna.com, the ozDNA platform API, documentation, and related services. By using the Service, you agree to these Terms and our <a href=\"/privacy/\">Privacy Policy</a>.",
         "Bu Şartlar ozdna.com, ozDNA platform API'si, dokümantasyon ve ilgili hizmetlere erişimi düzenler. Hizmeti kullanarak bu Şartları ve <a href=\"/privacy/\">Gizlilik Politikamızı</a> kabul etmiş olursunuz."
       ],
@@ -2456,6 +2456,10 @@
       [
         "Before filing suit, parties agree to attempt good-faith resolution by contacting <a href=\"mailto:hello@ozdna.com\">hello@ozdna.com</a> within 30 days of the dispute arising.",
         "Dava açmadan önce taraflar, uyuşmazlık doğduktan sonra 30 gün içinde <a href=\"mailto:hello@ozdna.com\">hello@ozdna.com</a> adresine yazarak iyi niyetli çözüm denemeyi kabul eder."
+      ],
+      [
+        "Access methods, supported features, deployment options, and availability vary by product and are described in the applicable product documentation or customer agreement.",
+        "Erişim yöntemleri, desteklenen özellikler, dağıtım seçenekleri ve kullanılabilirlik ürüne göre değişir ve ilgili ürün dokümantasyonunda veya müşteri sözleşmesinde açıklanır."
       ],
       [
         "ozDNA does not offer text humanization or detection-evasion tooling. Requests designed solely to evade AI detection systems are out of scope and may be blocked.",
@@ -2482,16 +2486,8 @@
         "Birincil amacı akademik dürüstsüzlük, tespit kaçınma veya açıklama olmadan insan taklidi olan ürünler geliştirmek"
       ],
       [
-        "<li><strong>Support:</strong> Best-effort during beta; formal SLAs available under enterprise plans when offered</li>",
-        "<li><strong>Destek:</strong> Beta sırasında en iyi çaba; sunulduğunda kurumsal planlarda resmi SLA'lar</li>"
-      ],
-      [
         "If any provision is unenforceable, the remainder stays in effect. Failure to enforce a provision is not a waiver.",
         "Herhangi bir hüküm uygulanamazsa geri kalan yürürlükte kalır. Bir hükmü uygulamama feragat sayılmaz."
-      ],
-      [
-        "<li><strong>Vertical modes:</strong> Workflows tuned for academic, legal, financial, and general use cases</li>",
-        "<li><strong>Dikey modlar:</strong> Akademik, hukuk, finans ve genel kullanım senaryoları için ayarlanmış iş akışları</li>"
       ],
       [
         "Process personal data you lack lawful basis to process, or special-category data without adequate safeguards",
@@ -2512,10 +2508,6 @@
       [
         "Reverse engineer the Service except where prohibited restrictions are unenforceable under applicable law",
         "Geçerli yasa kapsamında yasak kısıtlamalar uygulanamaz olduğu durumlar dışında Hizmeti tersine mühendislik yapmak"
-      ],
-      [
-        "<li><strong>Website:</strong> Marketing, documentation, waitlist, and trust resources at ozdna.com</li>",
-        "<li><strong>Web sitesi:</strong> ozdna.com'da pazarlama, dokümantasyon, bekleme listesi ve güven kaynakları</li>"
       ],
       [
         "<strong>Feedback:</strong> Suggestions you provide may be used without restriction or compensation.",
@@ -2540,6 +2532,10 @@
       [
         "We may investigate violations and cooperate with law enforcement where required.",
         "İhlalleri soruşturabilir ve gerektiğinde kolluk kuvvetleriyle iş birliği yapabiliriz."
+      ],
+      [
+        "ozDNA develops verifiability infrastructure through ComplyDNA and OriginDNA.",
+        "ozDNA, ComplyDNA ve OriginDNA aracılığıyla doğrulanabilirlik altyapısı geliştirir."
       ],
       [
         "Use sandbox keys for development; production keys only for live workloads",
