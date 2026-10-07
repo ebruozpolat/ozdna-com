@@ -1,0 +1,25 @@
+{
+  "name": "@ozdna/provenance-api",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "description": "Research-provenance API Worker (Phase 2): tenancy, append-only event storage, append/read/verify. Own D1 database, separate from the image API. Not deployed.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@ozdna/provenance-core": "*",
+    "@ozdna/provenance-schema": "*",
+    "hono": "^4.11.3",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.18.0",
+    "@cloudflare/workers-types": "^4.20260110.0",
+    "typescript": "6.0.3",
+    "vitest": "4.1.10",
+    "wrangler": "^4.59.2"
+  }
+}
