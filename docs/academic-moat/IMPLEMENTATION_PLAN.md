@@ -69,7 +69,7 @@ change only if a flaw makes it unavoidable, and then only with an explanation fi
   payloads; revocation/rotation; old checkpoints stay valid after rotation. Use test-generated
   keys only, never committed keys.
 
-## Phase 4a/4b — Source verification engine and adapters
+## Phase 4a/4b — Source verification engine and adapters ✔ (draft PR; ADR-004; `packages/source-verification`; fixtures synthetic, record real ones before 4c)
 
 - Spike recorded in `ADR-004-metadata-provider-precedence.md`, citing current Crossref and
   DataCite docs: how corrections/retractions appear, Retraction Watch availability and terms,
