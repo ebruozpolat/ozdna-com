@@ -56,9 +56,11 @@ paths:
         "200": { description: Deduplicated }
   /v1/sign-digest:
     post:
-      summary: ECDSA P-256 signature over a digest (requires SIGNING_KEY_JWK)
+      summary: ECDSA P-256 signature over a digest (API key; requires SIGNING_KEY_JWK). Logs a sign_digest usage event.
+      security: [{ bearerAuth: [] }]
       responses:
         "200": { description: signature_b64 }
+        "401": { description: Missing/invalid API key }
         "503": { description: Signing not configured }
   /v1/bootstrap/api-key:
     post:
