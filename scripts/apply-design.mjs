@@ -30,7 +30,11 @@ const CSS_HREF = "/assets/ozdna-v1.css";
 const CSS_VERSION = "2";
 
 const SKIP = new Set(["index.html", "tr/index.html", "success.html"]);
-const SKIP_DIRS = new Set(["app", "node_modules", ".git", "integrations", "platform", "plan", "docs/oversight"]);
+// complydna/ is the Python service (its web demo is 404 on the public site); touching it
+// triggers the ComplyDNA eval workflow for no visible change.
+const SKIP_DIRS = new Set([
+  "app", "node_modules", ".git", "integrations", "platform", "plan", "docs/oversight", "complydna",
+]);
 
 /** TR paths Netlify answers with 404 (netlify.toml); never link to them. */
 const TR_DEAD = [
@@ -275,7 +279,7 @@ function walk(dir, files = []) {
   return files;
 }
 
-const LEGACY_CSS = ["styles.css", "oversight/assets/site.css", "complydna/web/styles.css"];
+const LEGACY_CSS = ["styles.css", "oversight/assets/site.css"];
 
 let changed = 0;
 for (const rel of walk(ROOT).sort()) {
