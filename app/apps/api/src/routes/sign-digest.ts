@@ -1,11 +1,16 @@
 import { Hono } from "hono";
 import { z } from "zod";
+import { requireApiKey } from "../auth.js";
 import type { Env } from "../env.js";
 
 /**
  * Remote digest signing — plan/04 §4.2 / plan/01 hybrid signing.
  * Dev: SIGNING_KEY_JWK (EC P-256 PKCS8/JWK). Production: Cloudflare Secret.
  * Returns raw ES256 signature bytes as base64 (c2pa-web Signer callback shape TBD in Sept spike).
+ *
+ * Requires an API key and records a `sign_digest` usage event per signature (E-01: it used to
+ * sign arbitrary bytes for anyone). Auth is attached to this route only: a `use("*")` here
+ * would also gate every public route mounted after this sub-app under /v1.
  */
 export const signRoutes = new Hono<{ Bindings: Env }>();
 
@@ -14,7 +19,7 @@ const Body = z.object({
   alg: z.literal("ES256").default("ES256"),
 });
 
-signRoutes.post("/sign-digest", async (c) => {
+signRoutes.post("/sign-digest", requireApiKey, async (c) => {
   const keyJwk = c.env.SIGNING_KEY_JWK;
   if (!keyJwk) {
     return c.json(
@@ -55,6 +60,19 @@ signRoutes.post("/sign-digest", async (c) => {
   const digest = Uint8Array.from(atob(parsed.data.digest_b64), (ch) => ch.charCodeAt(0));
   const sig = await crypto.subtle.sign({ name: "ECDSA", hash: "SHA-256" }, key, digest);
   const sigB64 = btoa(String.fromCharCode(...new Uint8Array(sig)));
+
+  const auth = c.get("auth");
+  await c.env.DB.prepare(
+    `INSERT INTO usage_events (user_id, api_key_id, event_type, record_id, billable, month)
+     VALUES (?, ?, 'sign_digest', NULL, ?, ?)`,
+  )
+    .bind(
+      auth.userId,
+      auth.apiKeyId,
+      auth.mode === "test" ? 0 : 1,
+      new Date().toISOString().slice(0, 7),
+    )
+    .run();
 
   return c.json({
     alg: "ES256",
