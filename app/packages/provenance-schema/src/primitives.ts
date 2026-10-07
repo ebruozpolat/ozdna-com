@@ -17,11 +17,12 @@ export function prefixedId(prefix: string) {
 const ISO_UTC_MS = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/;
 
 /**
- * ISO-8601 UTC with exactly 3 fractional digits, and a real calendar instant
+ * ISO-8601 UTC with exactly 3 fractional digits, years 0001–9999, and a real calendar instant
  * (rejects 2026-02-30T…). Pure: Date.parse never reads the clock.
  */
 export const isoUtcMs = z.string().refine((s) => {
-  if (!ISO_UTC_MS.test(s)) return false;
+  // Year 0000 is valid ISO 8601 but not representable in common date libraries.
+  if (!ISO_UTC_MS.test(s) || s.startsWith("0000")) return false;
   const t = Date.parse(s);
   return Number.isFinite(t) && new Date(t).toISOString() === s;
 }, "expected ISO-8601 UTC with milliseconds, e.g. 2026-10-07T12:00:00.000Z");

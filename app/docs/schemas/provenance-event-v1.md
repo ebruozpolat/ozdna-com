@@ -39,7 +39,7 @@ members, never strip them):
 | `prev_hash` | string | 64 lowercase hex; `event_hash` of `seq−1`, or 64 × `"0"` for seq 0 |
 | `type` | string | dotted lowercase, 2–4 segments, e.g. `source.cited`; MUST be registered (§5) |
 | `type_version` | integer | 1 … 1000; registered together with `type` |
-| `occurred_at` | string | `YYYY-MM-DDTHH:MM:SS.sssZ`, a real UTC instant; asserted by the platform |
+| `occurred_at` | string | `YYYY-MM-DDTHH:MM:SS.sssZ`, a real UTC instant (years 0001–9999, hours 00–23, no leap second `:60`); asserted by the platform |
 | `recorded_at` | string | same format; assigned by ozDNA at append; non-decreasing along the chain |
 | `actor` | object | `{kind, id, asserted_by}` — exactly these members |
 | `actor.kind` | string | `person` \| `service` \| `ai_system` |
@@ -50,10 +50,15 @@ members, never strip them):
 | `event_hash` | string | 64 lowercase hex (§4); present on stored events only |
 
 Additional chain rules: seq 0 MUST be `project.created`; `project.created` MUST NOT appear at any
-other seq. Limits: one event ≤ 64 KiB canonical UTF-8; nesting depth ≤ 12; payload ≤ the type's
+other seq. Limits: one event ≤ 64 KiB canonical UTF-8; nesting depth ≤ 12 counting the envelope
+object itself as depth 1; payload ≤ the type's
 `maxPayloadBytes` (8 KiB for every v1 type).
 
 ### 2.1 Safe text
+
+All length limits in this spec (`≤128`, `1–128 chars`, …) count **UTF-16 code units**, as
+JavaScript `String.length` does; a verifier in another language must count the same way.
+
 
 Free-text fields (`label`, `tool`, `actor.id`, identifier values, …) MUST NOT contain C0/C1
 control characters (U+0000–U+001F, U+007F–U+009F), U+2028/U+2029, bidi embeddings/overrides
@@ -74,7 +79,10 @@ that every value has exactly one encoding in every language:
    `\t`; other code points below U+0020 as `\u00xx` (lowercase hex); everything else literal,
    including `/`, U+007F and non-ASCII.
 4. **Objects**: members sorted by key, comparing keys as sequences of **UTF-16 code units** (JCS
-   §3.2.3). The key `__proto__` is forbidden. No duplicate keys.
+   §3.2.3). Every key a valid v1 event can contain is ASCII (envelope members, registry
+   payload members, `components` keys matching `[a-z][a-z0-9_]{0,31}`), so code-unit and
+   code-point ordering cannot disagree on a valid v1 event. The ordering rule still matters
+   for the generic canonicaliser. The key `__proto__` is forbidden. No duplicate keys.
 5. **Arrays**: order preserved; no holes.
 6. **No whitespace** anywhere outside strings.
 7. Output is UTF-8.
@@ -119,6 +127,16 @@ Given events `e[0..n)` claimed to start at `seq = s` with trusted `prev = p` (fo
 
 The first failure is reported with its code and `first_bad_seq = s + i`. Implementations SHOULD
 cap the number of events per call (reference: 100 000).
+
+When verifying a slice that starts mid-chain (`s > 0`), steps 6 and 7 only see the slice:
+`event_id` uniqueness and `recorded_at` ordering against events before `s` are not checked.
+
+**Unicode version caveat.** NFC is stable for assigned code points, but a code point that is
+unassigned in an older Unicode version may become a combining mark later. A string mixing one with
+other combining marks can then be NFC to an older verifier and not NFC to a newer one, so the two
+disagree about *validity* (never about the hash of an accepted event). v1 free-text fields are
+short labels, so this is accepted as a known limitation; v2 may restrict text to a pinned Unicode
+version.
 
 ## 5. Event-type registry v1
 
@@ -188,7 +206,12 @@ Strict: no other members in `body` or the outer object.
 4. The chain MUST reach `head_seq` (else `CHECKPOINT_BEYOND_CHAIN`: truncation or rollback).
 5. The event at `head_seq` MUST have `event_hash == head_hash` (else `CHECKPOINT_HEAD_MISMATCH`:
    history was rewritten, even if the rewritten chain is internally consistent).
-6. Valid events after `head_seq` are reported as *unattested*: integrity-checked, not yet signed.
+6. `issued_at` MUST NOT be earlier than the head event's `recorded_at` (else
+   `CHECKPOINT_PREDATES_HEAD`): a checkpoint cannot vouch for an event recorded after it.
+7. Events after `head_seq` are *unattested*: integrity-checked, but anyone could have appended
+   them. By default verification **fails** with `UNATTESTED_EVENTS` (`first_bad_seq =
+   head_seq + 1`). A caller that wants the attested prefix plus a checked tail must opt in
+   (`allowUnattested`) and then treat `unattested_count` events as unverified claims.
 
 ## 7. Error codes
 
@@ -196,6 +219,6 @@ Chain: `NOT_AN_ARRAY`, `TOO_MANY_EVENTS`, `EVENT_INVALID`, `PROJECT_MISMATCH`, `
 `PREV_HASH_MISMATCH`, `HASH_MISMATCH`, `DUPLICATE_EVENT_ID`, `GENESIS_TYPE`, `GENESIS_REPEATED`,
 `RECORDED_AT_REGRESSION`.
 Checkpoint: `CHECKPOINT_INVALID`, `CHECKPOINT_DIGEST_MISMATCH`, `CHAIN_INVALID`,
-`CHECKPOINT_BEYOND_CHAIN`, `CHECKPOINT_HEAD_MISMATCH`.
+`CHECKPOINT_BEYOND_CHAIN`, `CHECKPOINT_HEAD_MISMATCH`, `CHECKPOINT_PREDATES_HEAD`, `UNATTESTED_EVENTS`.
 Validation issues: `NOT_CANONICAL_JSON`, `ENVELOPE_INVALID`, `UNKNOWN_EVENT_TYPE`,
 `PAYLOAD_INVALID`, `PAYLOAD_TOO_LARGE`, `FORBIDDEN_KEY`, `ARTIFACT_REQUIRED`, `ARTIFACT_FORBIDDEN`.

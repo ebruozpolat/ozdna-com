@@ -95,4 +95,18 @@ in Slice 1.** Fixing E-01/E-05/E-06 is Prompt 2 and needs founder approval.
 
 `packages/provenance-schema`, `packages/provenance-core`, ADR-000..002,
 `app/docs/schemas/provenance-event-v1.md`, `app/CLAUDE-ACADEMIC.md`, and these three docs. After
-Slice 1, `npm run check` gives **242** root tests (96 existing + 146 new) + 3 workers tests.
+Slice 1 and its adversarial review (§12), `npm run check` gives **248** root tests (96 existing
++ 152 new) + 3 workers tests.
+
+## 12. Slice 1 adversarial review (2026-10-07)
+
+Hash format and schema strings unchanged (frozen vectors still pass).
+
+| ID | Sev | Finding | Fix |
+|---|---|---|---|
+| R-1 | Medium | `verifyAgainstCheckpoint` returned `valid: true` for a chain with a forged, re-hashed tail after the checkpoint head (only `unattested_count` hinted at it) | Fails closed with `UNATTESTED_EVENTS` unless `allowUnattested` is set |
+| R-2 | Low | Validation read the caller's object twice (descriptors for the canonical pass, `[[Get]]` for zod), so a Proxy could show each a different value | Validate and return a snapshot parsed from the canonical text; `appendEvent`/checkpoint code read only validated snapshots |
+| R-3 | Low | A checkpoint could be issued (and verified) with `issued_at` earlier than its head event's `recorded_at` | `buildCheckpoint` throws; verify reports `CHECKPOINT_PREDATES_HEAD` |
+| R-4 | Low | Year `0000` accepted; common date libraries (e.g. Python) reject it, so verifiers would disagree on validity | Years limited to 0001–9999 |
+| R-5 | Info | Spec ambiguities: length unit, depth counting, leap seconds, mid-chain slice limits, Unicode-version NFC caveat | Clarified in the spec; leap second / hour 24 rejection now tested |
+

@@ -75,8 +75,14 @@ function validateWith<T extends UnhashedEvent>(
   schema: z.ZodType<T>,
   opts: ValidateOptions,
 ): ValidationResult<T> {
+  // Validate a snapshot rebuilt from the canonical text, never the caller's object: an
+  // exotic object (Proxy, accessor games) could otherwise show the canonical pass and zod
+  // different values. Everything after this line sees exactly the bytes that get hashed.
+  let snapshot: unknown;
   try {
-    canonicalize(input, { maxBytes: MAX_EVENT_BYTES, maxDepth: MAX_EVENT_DEPTH });
+    snapshot = JSON.parse(
+      canonicalize(input, { maxBytes: MAX_EVENT_BYTES, maxDepth: MAX_EVENT_DEPTH }),
+    );
   } catch (e) {
     if (e instanceof CanonicalJsonError) {
       const code = e.code === "FORBIDDEN_KEY" ? "FORBIDDEN_KEY" : "NOT_CANONICAL_JSON";
@@ -85,7 +91,7 @@ function validateWith<T extends UnhashedEvent>(
     throw e;
   }
 
-  const env = schema.safeParse(input);
+  const env = schema.safeParse(snapshot);
   if (!env.success) return fail(zodIssues("ENVELOPE_INVALID", "", env.error));
   const event = env.data;
 
@@ -131,9 +137,9 @@ function validateWith<T extends UnhashedEvent>(
     ]);
   }
 
-  // Return the caller's object, not zod's copy: the hash must be over exactly what was
-  // validated, and strict schemas with no transforms guarantee they are equal.
-  return { ok: true, event: input as T, def };
+  // Return the snapshot, not zod's copy: strict schemas with no transforms make them equal,
+  // and the snapshot is what canonicalises to the hashed bytes.
+  return { ok: true, event: snapshot as T, def };
 }
 
 /** Validate a stored event (with event_hash). Does not check the hash — see provenance-core. */

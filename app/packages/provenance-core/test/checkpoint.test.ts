@@ -58,10 +58,48 @@ describe("verifyAgainstCheckpoint", () => {
       ...chain,
       await appendEvent(chain.at(-1)!, draft("ai.use_declared", { tool: "T", purpose: "code" })),
     ];
-    expect(await verifyAgainstCheckpoint(more, cp)).toMatchObject({
+    expect(await verifyAgainstCheckpoint(more, cp, { allowUnattested: true })).toMatchObject({
       valid: true,
       covered_count: 5,
       unattested_count: 1,
+    });
+  });
+
+  it("fails closed on events past the checkpoint head unless explicitly allowed", async () => {
+    // Review finding R-1: a forged, fully re-hashed tail after the head used to come back
+    // valid: true with only unattested_count > 0 as a hint.
+    const chain = await buildChain(fixedDrafts());
+    const cp = await buildCheckpoint(chain.slice(0, 3), ISSUED);
+    const drafts = fixedDrafts();
+    (drafts[3]!.payload as Record<string, unknown>).state = "RETRACTED";
+    const forged = [...chain.slice(0, 3)];
+    for (const d of drafts.slice(3)) forged.push(await appendEvent(forged.at(-1)!, d));
+    expect(await verifyAgainstCheckpoint(forged, cp)).toMatchObject({
+      valid: false,
+      code: "UNATTESTED_EVENTS",
+      first_bad_seq: 3,
+      covered_count: 3,
+      unattested_count: 2,
+    });
+  });
+
+  it("rejects a checkpoint issued before its head event was recorded", async () => {
+    // Review finding R-3: a backdated checkpoint must not vouch for events recorded later.
+    const chain = await buildChain(fixedDrafts());
+    await expect(buildCheckpoint(chain, "2026-10-07T10:00:00.000Z")).rejects.toThrow(/predates/);
+    const body = {
+      schema: CHECKPOINT_SCHEMA,
+      project_id: chain[0]!.project_id,
+      head_seq: 4,
+      head_hash: chain[4]!.event_hash,
+      event_count: 5,
+      issued_at: "2026-10-07T10:00:00.000Z",
+    } as const;
+    const cp = { body, digest: await computeCheckpointDigest(body) };
+    expect(await verifyAgainstCheckpoint(chain, cp)).toMatchObject({
+      valid: false,
+      code: "CHECKPOINT_PREDATES_HEAD",
+      first_bad_seq: 4,
     });
   });
 

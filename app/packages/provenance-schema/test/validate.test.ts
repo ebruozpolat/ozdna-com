@@ -99,6 +99,8 @@ describe("envelope strictness", () => {
     ["2026-10-07T10:00:00.000+00:00", "offset instead of Z"],
     ["2026-02-30T10:00:00.000Z", "impossible date"],
     ["2026-10-07 10:00:00.000Z", "space separator"],
+    ["2016-12-31T23:59:60.000Z", "leap second"],
+    ["2026-10-07T24:00:00.000Z", "hour 24"],
   ])("rejects occurred_at %s (%s)", (ts) => {
     expect(codes(sampleEvent("project.created@1", { occurred_at: ts }))).toEqual([
       "ENVELOPE_INVALID",
@@ -261,10 +263,37 @@ describe("prototype pollution and hostile input", () => {
     }
   });
 
-  it("returns the caller's object on success (hash input = validated input)", () => {
+  it("returns a detached snapshot: later mutation of the input cannot reach it", () => {
     const ev = sampleEvent("project.created@1");
     const r = validateUnhashedEvent(ev);
-    expect(r.ok && r.event).toBe(ev);
+    if (!r.ok) throw new Error("expected ok");
+    expect(r.event).not.toBe(ev);
+    expect(r.event).toEqual(ev);
+    (ev.payload as Record<string, unknown>).external_ref = "changed";
+    expect(r.event.payload.external_ref).toBe("acad-proj-42");
+  });
+
+  it("validates exactly the bytes that get hashed, even for objects that answer reads inconsistently", () => {
+    // Review finding R-2: the canonical pass read property descriptors while zod read
+    // through [[Get]], so a Proxy could show each a different value.
+    const ev = sampleEvent("project.created@1");
+    const sneaky = new Proxy(ev, {
+      getOwnPropertyDescriptor(t, k) {
+        const d = Reflect.getOwnPropertyDescriptor(t, k);
+        return d && k === "type" ? { ...d, value: "evil.type" } : d;
+      },
+    });
+    expect(codes(sneaky)).toEqual(["UNKNOWN_EVENT_TYPE"]);
+  });
+
+  it("rejects year 0000 (not representable in common date libraries)", () => {
+    // Review finding R-4: e.g. Python datetime starts at year 1, so verifiers would disagree.
+    expect(
+      codes(sampleEvent("project.created@1", { occurred_at: "0000-01-01T00:00:00.000Z" })),
+    ).toEqual(["ENVELOPE_INVALID"]);
+    expect(
+      codes(sampleEvent("project.created@1", { occurred_at: "0001-01-01T00:00:00.000Z" })),
+    ).toEqual([]);
   });
 
   it("accepts hex helper sanity", () => {

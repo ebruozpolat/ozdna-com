@@ -187,15 +187,18 @@ export interface AppendOptions {
  * no earlier than prev.recorded_at (append services run on clocks that can skew).
  */
 export async function appendEvent(
-  prev: StoredEvent | null,
+  prevInput: StoredEvent | null,
   draft: EventDraft,
   opts: AppendOptions = {},
 ): Promise<StoredEvent> {
   const vopts = opts.registry ? { registry: opts.registry } : {};
-  if (prev !== null) {
-    const pv = validateStoredEvent(prev, vopts);
+  // Work from the validated snapshot of prev, never the caller's object.
+  let prev: StoredEvent | null = null;
+  if (prevInput !== null) {
+    const pv = validateStoredEvent(prevInput, vopts);
     if (!pv.ok)
       throw new ProvenanceAppendError("PREV_INVALID", "previous event is invalid", pv.issues);
+    prev = pv.event;
     if ((await computeEventHash(prev)) !== prev.event_hash) {
       throw new ProvenanceAppendError(
         "HASH_MISMATCH",
