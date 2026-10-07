@@ -231,6 +231,25 @@
   status = 404
   force = true
 
+# ozDNA Platform pricing/security pages: out of public positioning (homepage redesign).
+[[redirects]]
+  from = "/pricing/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/tr/pricing/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/tr/security/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
 # Internal strategy/source files — never serve on the public domain
 [[redirects]]
   from = "/data/*"

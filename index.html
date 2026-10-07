@@ -6,9 +6,16 @@
 <title>ozDNA — Claims you can check. It's in the DNA.</title>
 <meta name="description" content="ozDNA by Kolaxa: AI verifiability infrastructure. ComplyDNA for citation-first compliance intelligence. OriginDNA for provenance of AI-generated content.">
 <meta name="theme-color" content="#0b0b0b">
+<link rel="canonical" href="https://ozdna.com/">
+<link rel="alternate" hreflang="en" href="https://ozdna.com/">
+<link rel="alternate" hreflang="tr" href="https://ozdna.com/tr/">
+<link rel="alternate" hreflang="x-default" href="https://ozdna.com/">
 <meta property="og:title" content="ozDNA — Claims you can check.">
 <meta property="og:description" content="AI verifiability infrastructure by Kolaxa. Cite. Sign. Verify.">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="ozDNA">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="tr_TR">
 <meta property="og:url" content="https://ozdna.com/">
 <meta property="og:image" content="https://ozdna.com/og.png">
 <meta property="og:image:width" content="1200">
@@ -521,7 +528,7 @@ footer li a:hover{color:var(--fg);text-decoration:underline}
 
   /* i18n */
   $$('[data-tr]').forEach(el=>{el.dataset.en=el.innerHTML});
-  let lang='en';
+  let lang=document.documentElement.lang==='tr'?'tr':'en';
   const L=(en,tr)=>lang==='tr'?tr:en;
   function setLang(l){
     lang=l;document.documentElement.lang=l;
@@ -529,7 +536,9 @@ footer li a:hover{color:var(--fg);text-decoration:underline}
     $$('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===l)));
     $('#c4t').textContent=L('Verified','Doğrulandı');
   }
-  $$('[data-lang]').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+  /* EN and TR are separate pages (/ and /tr/) so both are indexable */
+  $$('[data-lang]').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.lang!==lang)location.href=b.dataset.lang==='tr'?'/tr/':'/'}));
+  if(lang==='tr')$('#c4t').textContent='Doğrulandı';
 
   /* nav */
   const nav=$('#nav'),mb=$('#menuBtn');

@@ -27,20 +27,20 @@
 <title>Bir görselin DNA'sını doğrula · OriginDNA</title>
 <style>
   :root {
-    --paper: #F2EFE6; --ink: #191611; --accent: #B52F0B; --muted: #5C574C;
-    --rule: rgba(25, 22, 17, 0.18); --rule-soft: rgba(25, 22, 17, 0.08); --card: rgba(25, 22, 17, 0.03);
-    --ok: #1F7A3D; --hold: #B4680E;
+    --paper: #0b0b0b; --ink: #ffffff; --accent: #6ba4ff; --muted: #b8b8b8;
+    --rule: rgba(255,255,255, 0.18); --rule-soft: rgba(255,255,255, 0.08); --card: rgba(255,255,255, 0.03);
+    --ok: #6ba4ff; --hold: #d9b44a;
     --mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
   }
   @media (prefers-color-scheme: dark) {
-    :root { --paper: #141208; --ink: #EDE8D9; --accent: #FF6B3D; --muted: #938D7B;
-      --rule: rgba(237,232,217,0.22); --rule-soft: rgba(237,232,217,0.09); --card: rgba(237,232,217,0.04);
-      --ok:#4CC470; --hold:#E0A44B; }
+    :root { --paper: #0b0b0b; --ink: #ffffff; --accent: #6ba4ff; --muted: #b8b8b8;
+      --rule: rgba(255,255,255,0.22); --rule-soft: rgba(255,255,255,0.09); --card: rgba(255,255,255,0.04);
+      --ok:#6ba4ff; --hold:#d9b44a; }
   }
-  :root[data-theme="light"] { --paper:#F2EFE6;--ink:#191611;--accent:#B52F0B;--muted:#5C574C;
-    --rule:rgba(25,22,17,0.18);--rule-soft:rgba(25,22,17,0.08);--card:rgba(25,22,17,0.03);--ok:#1F7A3D;--hold:#B4680E; }
-  :root[data-theme="dark"] { --paper:#141208;--ink:#EDE8D9;--accent:#FF6B3D;--muted:#938D7B;
-    --rule:rgba(237,232,217,0.22);--rule-soft:rgba(237,232,217,0.09);--card:rgba(237,232,217,0.04);--ok:#4CC470;--hold:#E0A44B; }
+  :root[data-theme="light"] { --paper:#0b0b0b;--ink:#ffffff;--accent:#6ba4ff;--muted:#b8b8b8;
+    --rule:rgba(255,255,255,0.18);--rule-soft:rgba(255,255,255,0.08);--card:rgba(255,255,255,0.03);--ok:#6ba4ff;--hold:#d9b44a; }
+  :root[data-theme="dark"] { --paper:#0b0b0b;--ink:#ffffff;--accent:#6ba4ff;--muted:#b8b8b8;
+    --rule:rgba(255,255,255,0.22);--rule-soft:rgba(255,255,255,0.09);--card:rgba(255,255,255,0.04);--ok:#6ba4ff;--hold:#d9b44a; }
 
   * { box-sizing:border-box; }
   html { scroll-behavior:smooth; }
@@ -125,21 +125,28 @@
   .footer-links { font-size:12px;color:var(--muted);margin-top:10px; }
   .fine { font-size:12px;color:var(--muted); }
 </style>
+<link rel="stylesheet" href="/assets/ozdna-v1.css">
 </head>
 <body>
-<header>
-  <div class="shell bar">
-    <a class="wordmark" href="/tr/">ORIGIN<span class="dot">DNA</span> <small>BY OZDNA</small></a>
-    <nav>
+
+<!-- oz-shell:header -->
+<header class="oz-nav">
+  <div class="oz-wrap">
+    <a class="oz-logo" href="/tr/" aria-label="ozDNA home">oz<span>DNA</span></a>
+    <nav class="oz-links" id="oz-links" aria-label="Ana menü">
       <a href="/tr/products/origin/#what">Nasıl çalışır</a>
       <a href="#verify">Doğrula</a>
       <a href="#honest">C2PA durumu</a>
       <a href="/tr/products/origin/#waitlist">Bekleme listesi</a>
     </nav>
-    <a class="lang" href="/verify/" lang="en" hreflang="en">EN</a>
+    <div class="oz-lang" role="group" aria-label="Dil">
+      <a href="/verify/" lang="en" hreflang="en">EN</a>
+      <a href="/tr/verify/" lang="tr" hreflang="tr" aria-current="true">TR</a>
+    </div>
+    <button class="oz-menu" type="button" aria-expanded="false" aria-controls="oz-links">MENÜ</button>
   </div>
 </header>
-
+<!-- /oz-shell:header -->
 <main>
 
 <div class="hero">
@@ -310,23 +317,26 @@
   </div>
 </section>
 
-</main>
-
-<footer class="site-footer">
-  <div class="shell">
-    <div class="foot">
-      <span>OriginDNA · <a href="/tr/">ozDNA</a></span>
-      <span>© 2026 ozDNA · Tüm hakları saklıdır</span>
+</main><!-- oz-shell:footer -->
+<footer class="oz-foot">
+  <div class="oz-wrap">
+    <div class="oz-cols">
+      <a class="oz-logo" href="/tr/" aria-label="ozDNA home">oz<span>DNA</span></a>
+      <ul aria-label="Yasal"><li><a href="/privacy/">Gizlilik</a></li><li><a href="/terms/">Kullanım şartları</a></li><li><a href="/privacy/">KVKK</a></li></ul>
+      <ul aria-label="Ürünler"><li><a href="/tr/products/comply/">ComplyDNA</a></li><li><a href="/tr/products/origin/">OriginDNA</a></li><li><a href="/tr/verify/">Doğrula</a></li></ul>
+      <ul aria-label="İletişim"><li><a href="mailto:hello@ozdna.com">İletişim</a></li></ul>
+      <p class="oz-note">Kolaxa'nın bir ürünüdür.</p>
     </div>
-    <p class="footer-links">
-      <a href="mailto:hello@ozdna.com">hello@ozdna.com</a>
-      · <a href="/tr/products/origin/">OriginDNA</a>
-      · <a href="/tr/products/comply/">ComplyDNA</a>
-      · <a href="/tr/privacy/">Gizlilik</a>
-      · <a href="/verify/" lang="en" hreflang="en">English</a>
-    </p>
+    <div class="oz-legal">
+      <p>Bu sitedeki AB Yapay Zekâ Tüzüğü bilgileri genel bilgilendirmedir ve hukuki tavsiye değildir.</p>
+      <p>© Kolaxa</p>
+    </div>
   </div>
 </footer>
+<script>(function(){var b=document.querySelector(".oz-menu"),n=document.getElementById("oz-links");if(!b||!n)return;b.addEventListener("click",function(){b.setAttribute("aria-expanded",String(n.classList.toggle("open")))});n.addEventListener("click",function(e){if(e.target.closest("a")){n.classList.remove("open");b.setAttribute("aria-expanded","false")}})})();</script>
+<!-- /oz-shell:footer -->
+
+
 
 <script>
   (function () {

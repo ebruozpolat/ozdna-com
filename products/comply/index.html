@@ -130,59 +130,59 @@
 <title>ComplyDNA — Compliance in the model's DNA · by ozDNA</title>
 <style>
   :root {
-    --paper: #F2EFE6;
-    --ink: #191611;
-    --accent: #B52F0B;
-    --muted: #5C574C;
-    --rule: rgba(25, 22, 17, 0.18);
-    --rule-soft: rgba(25, 22, 17, 0.08);
-    --card: rgba(25, 22, 17, 0.03);
-    --term-bg: #191611;
-    --term-ink: #EDE8D9;
-    --term-dim: #8A8474;
-    --term-accent: #FF6B3D;
+    --paper: #0b0b0b;
+    --ink: #ffffff;
+    --accent: #6ba4ff;
+    --muted: #b8b8b8;
+    --rule: rgba(255,255,255, 0.18);
+    --rule-soft: rgba(255,255,255, 0.08);
+    --card: rgba(255,255,255, 0.03);
+    --term-bg: #ffffff;
+    --term-ink: #ffffff;
+    --term-dim: #949494;
+    --term-accent: #6ba4ff;
     --mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --paper: #141208;
-      --ink: #EDE8D9;
-      --accent: #FF6B3D;
-      --muted: #938D7B;
-      --rule: rgba(237, 232, 217, 0.22);
-      --rule-soft: rgba(237, 232, 217, 0.09);
-      --card: rgba(237, 232, 217, 0.04);
+      --paper: #0b0b0b;
+      --ink: #ffffff;
+      --accent: #6ba4ff;
+      --muted: #b8b8b8;
+      --rule: rgba(255,255,255, 0.22);
+      --rule-soft: rgba(255,255,255, 0.09);
+      --card: rgba(255,255,255, 0.04);
       --term-bg: #0C0B05;
-      --term-ink: #EDE8D9;
+      --term-ink: #ffffff;
       --term-dim: #7E7866;
-      --term-accent: #FF6B3D;
+      --term-accent: #6ba4ff;
     }
   }
   :root[data-theme="light"] {
-    --paper: #F2EFE6;
-    --ink: #191611;
-    --accent: #B52F0B;
-    --muted: #5C574C;
-    --rule: rgba(25, 22, 17, 0.18);
-    --rule-soft: rgba(25, 22, 17, 0.08);
-    --card: rgba(25, 22, 17, 0.03);
-    --term-bg: #191611;
-    --term-ink: #EDE8D9;
-    --term-dim: #8A8474;
-    --term-accent: #FF6B3D;
+    --paper: #0b0b0b;
+    --ink: #ffffff;
+    --accent: #6ba4ff;
+    --muted: #b8b8b8;
+    --rule: rgba(255,255,255, 0.18);
+    --rule-soft: rgba(255,255,255, 0.08);
+    --card: rgba(255,255,255, 0.03);
+    --term-bg: #ffffff;
+    --term-ink: #ffffff;
+    --term-dim: #949494;
+    --term-accent: #6ba4ff;
   }
   :root[data-theme="dark"] {
-    --paper: #141208;
-    --ink: #EDE8D9;
-    --accent: #FF6B3D;
-    --muted: #938D7B;
-    --rule: rgba(237, 232, 217, 0.22);
-    --rule-soft: rgba(237, 232, 217, 0.09);
-    --card: rgba(237, 232, 217, 0.04);
+    --paper: #0b0b0b;
+    --ink: #ffffff;
+    --accent: #6ba4ff;
+    --muted: #b8b8b8;
+    --rule: rgba(255,255,255, 0.22);
+    --rule-soft: rgba(255,255,255, 0.09);
+    --card: rgba(255,255,255, 0.04);
     --term-bg: #0C0B05;
-    --term-ink: #EDE8D9;
+    --term-ink: #ffffff;
     --term-dim: #7E7866;
-    --term-accent: #FF6B3D;
+    --term-accent: #6ba4ff;
   }
 
   * { box-sizing: border-box; }
@@ -411,7 +411,7 @@
   }
   .term-head {
     display: flex; justify-content: space-between; gap: 8px;
-    padding: 10px 16px; border-bottom: 1px solid rgba(237, 232, 217, 0.12);
+    padding: 10px 16px; border-bottom: 1px solid rgba(255,255,255, 0.12);
     color: var(--term-dim); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
   }
   .term-body { padding: 20px 16px 24px; overflow-x: auto; }
@@ -508,14 +508,15 @@
     nav { display: none; }
   }
 </style>
+<link rel="stylesheet" href="/assets/ozdna-v1.css">
 </head>
 <body>
-<header>
-  <div class="shell bar">
-    <a class="wordmark" href="#">
-      COMPLY<span class="dot">DNA</span> <small>BY OZDNA</small>
-    </a>
-    <nav>
+
+<!-- oz-shell:header -->
+<header class="oz-nav">
+  <div class="oz-wrap">
+    <a class="oz-logo" href="/" aria-label="ozDNA home">oz<span>DNA</span></a>
+    <nav class="oz-links" id="oz-links" aria-label="Primary">
       <a href="#product">Product</a>
       <a href="#method">Method</a>
       <a href="#example">Example</a>
@@ -525,10 +526,14 @@
       <a href="/verify/">Verify</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="lang" href="/tr/products/comply/" lang="tr" hreflang="tr">TR</a>
+    <div class="oz-lang" role="group" aria-label="Language">
+      <a href="/products/comply/" lang="en" hreflang="en" aria-current="true">EN</a>
+      <a href="/tr/products/comply/" lang="tr" hreflang="tr">TR</a>
+    </div>
+    <button class="oz-menu" type="button" aria-expanded="false" aria-controls="oz-links">MENU</button>
   </div>
 </header>
-
+<!-- /oz-shell:header -->
 <main>
 
 <div class="hero">
@@ -920,11 +925,18 @@
   </div>
 </section>
 
-</main>
-
-<footer class="site-footer">
-  <div class="shell">
-    <div class="footer-legal">
+</main><!-- oz-shell:footer -->
+<footer class="oz-foot">
+  <div class="oz-wrap">
+    <div class="oz-cols">
+      <a class="oz-logo" href="/" aria-label="ozDNA home">oz<span>DNA</span></a>
+      <ul aria-label="Legal"><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/privacy/">KVKK</a></li></ul>
+      <ul aria-label="Products"><li><a href="/products/comply/">ComplyDNA</a></li><li><a href="/products/origin/">OriginDNA</a></li><li><a href="/verify/">Verify</a></li></ul>
+      <ul aria-label="Contact"><li><a href="mailto:hello@ozdna.com">Contact</a></li></ul>
+      <p class="oz-note">A Kolaxa product.</p>
+    </div>
+    <div class="oz-legal">
+<div class="footer-legal">
       <p class="footer-legal__product">
         ComplyDNA is a compliance LLM for Turkish financial regulation (MASAK, AML/CFT, KVKK),
         delivering responses with inline statutory citations. A product of ozDNA.
@@ -942,20 +954,15 @@
         on their own they are not sufficient regulatory representation or audit evidence.</p>
       </div>
     </div>
-    <div class="foot">
-      <span>ComplyDNA · <a href="/">ozDNA</a></span>
-      <span>© 2026 ozDNA · All rights reserved</span>
+      <p>EU AI Act information on this site is general information and not legal advice.</p>
+      <p>© Kolaxa</p>
     </div>
-    <p class="footer-links">
-      <a href="mailto:hello@ozdna.com">hello@ozdna.com</a>
-      · <a href="/verify/">Verify</a>
-      · <a href="/privacy/">Privacy</a>
-      · <a href="/terms/">Terms</a>
-      · <a href="/tr/products/comply/" lang="tr" hreflang="tr">Türkçe</a>
-      · Updated <time datetime="2026-07-09">July 9, 2026</time>
-    </p>
   </div>
 </footer>
+<script>(function(){var b=document.querySelector(".oz-menu"),n=document.getElementById("oz-links");if(!b||!n)return;b.addEventListener("click",function(){b.setAttribute("aria-expanded",String(n.classList.toggle("open")))});n.addEventListener("click",function(e){if(e.target.closest("a")){n.classList.remove("open");b.setAttribute("aria-expanded","false")}})})();</script>
+<!-- /oz-shell:footer -->
+
+
 
 <script>
 (function () {

@@ -3,438 +3,687 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="ozDNA doğrulanabilirlik yazılımı geliştirir: ComplyDNA — mevzuat künyeli uyum yanıtları; OriginDNA — AB Yapay Zekâ Yasası için kanıtlanabilir görsel kökeni.">
+<title>ozDNA — Kontrol edebileceğiniz iddialar. Bu DNA'da var.</title>
+<meta name="description" content="Kolaxa'dan ozDNA: yapay zekâ doğrulanabilirlik altyapısı. Alıntı öncelikli uyum istihbaratı için ComplyDNA, yapay zekâ üretimi içeriğin kökeni için OriginDNA.">
+<meta name="theme-color" content="#0b0b0b">
 <link rel="canonical" href="https://ozdna.com/tr/">
 <link rel="alternate" hreflang="en" href="https://ozdna.com/">
 <link rel="alternate" hreflang="tr" href="https://ozdna.com/tr/">
 <link rel="alternate" hreflang="x-default" href="https://ozdna.com/">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
-<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:title" content="ozDNA — Kontrol edebileceğiniz iddialar.">
+<meta property="og:description" content="Kolaxa'dan yapay zekâ doğrulanabilirlik altyapısı. Alıntı. İmza. Doğrulama.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ozDNA">
-<meta property="og:title" content="ozDNA — Tasarımı gereği doğrulanabilir">
-<meta property="og:description" content="İki ürün, tek ilke: kontrol edebileceğiniz iddialar. ComplyDNA — mevzuat künyeli uyum yanıtları. OriginDNA — AB AI Yasası çağı için içerik kökeni.">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:locale:alternate" content="en_US">
 <meta property="og:url" content="https://ozdna.com/tr/">
 <meta property="og:image" content="https://ozdna.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:locale" content="tr_TR">
-<meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ozDNA — Tasarımı gereği doğrulanabilir">
-<meta name="twitter:description" content="ComplyDNA — mevzuat künyeli uyum yanıtları. OriginDNA — AB AI Yasası çağı için içerik kökeni.">
-<meta name="twitter:image" content="https://ozdna.com/og.png">
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "Organization",
-   "@id": "https://ozdna.com/#org",
-   "name": "ozDNA",
-   "url": "https://ozdna.com/",
-   "email": "hello@ozdna.com",
-   "brand": [
-    {
-     "@type": "Brand",
-     "name": "ozDNA"
-    },
-    {
-     "@type": "Brand",
-     "name": "ComplyDNA"
-    },
-    {
-     "@type": "Brand",
-     "name": "OriginDNA"
-    }
-   ]
-  },
-  {
-   "@type": "SoftwareApplication",
-   "name": "ComplyDNA",
-   "url": "https://ozdna.com/tr/products/comply/",
-   "applicationCategory": "BusinessApplication",
-   "operatingSystem": "Web, On-premises",
-   "inLanguage": "tr",
-   "description": "Türk finansal mevzuatı (MASAK, AML/CFT, KVKK) için uyum LLM'i. Her yanıt [TEBLİĞ / Madde] biçiminde satır içi kaynak künyesi taşır.",
-   "publisher": {
-    "@id": "https://ozdna.com/#org"
-   }
-  },
-  {
-   "@type": "SoftwareApplication",
-   "name": "OriginDNA",
-   "url": "https://ozdna.com/tr/products/origin/",
-   "applicationCategory": "BusinessApplication",
-   "operatingSystem": "Web",
-   "inLanguage": "tr",
-   "description": "İçerik kökeni altyapısı: oluşturma anında kriptografik imza, bağımsız doğrulanabilir zaman damgası ve metadata silinse bile hayatta kalan algısal parmak izi. AB Yapay Zekâ Yasası Madde 50 içerik işaretleme için.",
-   "publisher": {
-    "@id": "https://ozdna.com/#org"
-   }
-  },
-  {
-   "@type": "FAQPage",
-   "inLanguage": "tr",
-   "mainEntity": [
-    {
-     "@type": "Question",
-     "name": "ozDNA ne geliştiriyor?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Doğrulanabilirlik yazılımı. Tek ilke altında iki ürün: her çıktı, kontrol edilmesini sağlayan kanıtı taşır. ComplyDNA, Türk mevzuatına ilişkin uyum sorularını madde düzeyinde kaynak künyesiyle yanıtlar; OriginDNA, AB Yapay Zekâ Yasası'nın içerik işaretleme kuralları için görsellere kanıtlanabilir köken verir."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "ComplyDNA ile OriginDNA'nın ilişkisi ne?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Farklı müşterilere hizmet ederler ama aynı mühendislik disiplinini paylaşırlar: kaynağa bağlı iddialar, halka açık doğrulama ve her sürümde ölçülen doğruluk."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "ozDNA'nın arkasında kim var?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "ComplyDNA, Türk uyum ekipleriyle erken erişim aşamasında; OriginDNA, Ekim 2026 geliştirmesi öncesinde açık bekleme listesiyle lansman öncesi dönemde. İletişim: hello@ozdna.com."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Ürünleri bugün deneyebilir miyim?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "ComplyDNA — evet, erken erişim programıyla: kurumunuzun mevzuat kapsamına göre demo hazırlanır. OriginDNA — erken erişim ve lansman fiyatı için bekleme listesine katılın. Teyit kuruluşları OriginDNA'yı sonsuza dek ücretsiz kullanır."
-     }
-    }
-   ]
-  }
- ]
-}
-</script>
-<title>ozDNA — Doğrulanabilirlik yazılımı · ComplyDNA & OriginDNA</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0b0b'/%3E%3Cpath d='M7 16l6 6 12-12' fill='none' stroke='%235b9bff' stroke-width='2'/%3E%3C/svg%3E">
 <style>
-  :root {
-    --paper: #F2EFE6;
-    --ink: #191611;
-    --accent: #B52F0B;
-    --muted: #5C574C;
-    --rule: rgba(25, 22, 17, 0.18);
-    --rule-soft: rgba(25, 22, 17, 0.08);
-    --card: rgba(25, 22, 17, 0.03);
-    --mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --paper: #141208;
-      --ink: #EDE8D9;
-      --accent: #FF6B3D;
-      --muted: #938D7B;
-      --rule: rgba(237, 232, 217, 0.22);
-      --rule-soft: rgba(237, 232, 217, 0.09);
-      --card: rgba(237, 232, 217, 0.04);
-    }
-  }
-  :root[data-theme="light"] {
-    --paper: #F2EFE6; --ink: #191611; --accent: #B52F0B; --muted: #5C574C;
-    --rule: rgba(25, 22, 17, 0.18); --rule-soft: rgba(25, 22, 17, 0.08); --card: rgba(25, 22, 17, 0.03);
-  }
-  :root[data-theme="dark"] {
-    --paper: #141208; --ink: #EDE8D9; --accent: #FF6B3D; --muted: #938D7B;
-    --rule: rgba(237, 232, 217, 0.22); --rule-soft: rgba(237, 232, 217, 0.09); --card: rgba(237, 232, 217, 0.04);
-  }
+/* OD-LAYOUT-PRIMITIVES v1 */
+@layer od-layout {
+  :where(.od-stack,.od-row,.od-row-top,.od-cluster,.od-grid,.od-field,.od-stat,.od-cell,.od-tile) > :where(*) { min-width: 0; }
+  .od-stack   { display: flex; flex-direction: column; gap: var(--od-gap, 8px); }
+  .od-row     { display: flex; align-items: center; gap: var(--od-gap, 8px); }
+  .od-row-top { display: flex; align-items: flex-start; gap: var(--od-gap, 8px); }
+  .od-cluster { display: flex; flex-wrap: wrap; align-items: center; gap: var(--od-gap, 8px); }
+  .od-fill    { flex: 1 1 0; min-width: 0; }
+  .od-fixed   { flex: none; }
+  .od-grid    { display: grid; gap: var(--od-gap, 12px); grid-template-columns: repeat(var(--od-cols, 3), minmax(0, 1fr)); }
+  .od-stat, .od-field, .od-cell { display: grid; gap: var(--od-gap, 2px); }
+  :where(.od-stat,.od-field,.od-cell) > :where(*) { display: block; }
+  .od-tile { display: grid; grid-template-rows: auto 1fr; }
+  :where(.od-tile) > :where(*) { display: block; }
+  .od-media { display: block; width: 100%; height: auto; aspect-ratio: var(--od-ratio, auto); }
+  .od-media-cover { object-fit: cover; }
+  .od-truncate { display: block; max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .od-clamp-2, .od-clamp-3 { display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
+  .od-clamp-2 { -webkit-line-clamp: 2; }
+  .od-clamp-3 { -webkit-line-clamp: 3; }
+  .od-lines-2 { min-height: calc(2 * 1.4em); }
+  .od-nowrap  { white-space: nowrap; }
+  .od-keep    { word-break: keep-all; overflow-wrap: anywhere; }
+  .od-screen { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; height: 100%; }
+  .od-scroll { overflow-y: auto; overscroll-behavior: contain; min-height: 0; }
+  .od-rail { display: flex; gap: var(--od-gap, 8px); overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none;
+             padding-inline: var(--od-rail-pad, 16px); scroll-padding-inline: var(--od-rail-pad, 16px); }
+  .od-rail::-webkit-scrollbar { display: none; }
+  :where(.od-rail) > :where(*) { flex: none; scroll-snap-align: start; }
+  :where(.od-rail) > :where(:last-child) { margin-inline-end: var(--od-rail-pad, 16px); }
+  .od-spacer { flex: none; visibility: hidden; pointer-events: none; }
+  .od-touch  { min-width: 44px; min-height: 44px; }
+}
+/* /OD-LAYOUT-PRIMITIVES v1 */
 
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-  body {
-    margin: 0; background: var(--paper); color: var(--ink);
-    font-family: var(--mono); font-size: 15px; line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
-  a { color: inherit; }
-  ::selection { background: var(--accent); color: var(--paper); }
-  .shell { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-  .label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
-  .label b { color: var(--accent); font-weight: 400; }
-
-  header { position: sticky; top: 0; z-index: 10; background: var(--paper); border-bottom: 1px solid var(--rule); }
-  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 14px; padding-bottom: 14px; }
-  .wordmark { display: flex; align-items: baseline; gap: 10px; font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; white-space: nowrap; }
-  .wordmark .dot { color: var(--accent); }
-  .wordmark small { font-size: 10px; letter-spacing: 0.14em; color: var(--muted); }
-  nav { display: flex; gap: 22px; }
-  nav a { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--muted); }
-  nav a:hover { color: var(--accent); }
-  @media (max-width: 720px) { nav { display: none; } }
-  .lang { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--muted); border: 1px solid var(--rule); padding: 4px 10px; white-space: nowrap; }
-  .lang:hover { color: var(--accent); border-color: var(--accent); }
-
-  .hero { border-bottom: 1px solid var(--rule); padding: 88px 0 72px; }
-  .hero h1 { font-size: clamp(34px, 6vw, 64px); line-height: 1.12; font-weight: 700; text-transform: uppercase; margin: 18px 0 22px; text-wrap: balance; }
-  .hero h1 .acc { color: var(--accent); }
-  .lede { max-width: 62ch; color: var(--muted); font-size: 16px; }
-
-  section { border-bottom: 1px solid var(--rule); padding: 64px 0; }
-  .sec-head { display: flex; gap: 14px; align-items: baseline; margin-bottom: 34px; }
-  .sec-no { color: var(--accent); font-size: 12px; letter-spacing: 0.14em; }
-  .sec-title { font-size: clamp(22px, 3.4vw, 34px); text-transform: uppercase; line-height: 1.15; font-weight: 700; margin: 0 0 28px; text-wrap: balance; }
-
-  .products { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-  @media (max-width: 880px) { .products { grid-template-columns: 1fr; } }
-  .product { border: 1px solid var(--rule); background: var(--card); padding: 28px; display: flex; flex-direction: column; gap: 14px; }
-  .product h2 { margin: 0; font-size: 22px; text-transform: uppercase; letter-spacing: 0.04em; }
-  .product h2 .dot { color: var(--accent); }
-  .product p { margin: 0; color: var(--muted); }
-  .product .meta { display: flex; flex-wrap: wrap; gap: 8px 18px; padding: 12px 0; border-top: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); }
-  .product .meta span { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-  .product .meta b { color: var(--accent); font-weight: 400; }
-  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: auto; padding-top: 10px; }
-  .btn { display: inline-block; padding: 12px 22px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
-  .btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
-  .btn.ghost { background: transparent; color: var(--ink); }
-  .btn.ghost:hover { background: transparent; color: var(--accent); border-color: var(--accent); }
-
-  .principle { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  @media (max-width: 880px) { .principle { grid-template-columns: 1fr; } }
-  .cell { border-top: 2px solid var(--ink); padding-top: 16px; }
-  .cell h3 { margin: 8px 0 10px; font-size: 15px; text-transform: uppercase; }
-  .cell p { margin: 0; color: var(--muted); font-size: 14px; }
-
-  .faq { border-top: 1px solid var(--rule); }
-  .faq details { border-bottom: 1px solid var(--rule-soft); padding: 14px 0; }
-  .faq summary { cursor: pointer; font-weight: 700; text-transform: uppercase; font-size: 13px; letter-spacing: 0.04em; }
-  .faq summary:hover { color: var(--accent); }
-  .faq .a { color: var(--muted); font-size: 14px; margin: 10px 0 0; max-width: 75ch; }
-
-  .contact { text-align: left; max-width: 720px; }
-  .contact h2 { font-size: clamp(22px, 3.4vw, 34px); text-transform: uppercase; line-height: 1.15; margin: 14px 0 16px; }
-  .contact p { color: var(--muted); }
-
-  .site-footer { padding: 40px 0 48px; }
-  .foot { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); border-top: 1px solid var(--rule-soft); padding-top: 18px; }
-  .footer-links { font-size: 12px; color: var(--muted); margin-top: 10px; }
+:root{
+  --bg:#0b0b0b;
+  --fg:#ffffff;
+  --fg-2:rgba(255,255,255,.72);
+  --fg-3:rgba(255,255,255,.58);
+  --line:rgba(255,255,255,.12);
+  --line-2:rgba(255,255,255,.22);
+  --verified:#6ba4ff;
+  --warn:#d9b44a;
+  --bad:#ff7a70;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --s2:8px;--s3:16px;--s4:24px;--s5:32px;--s6:48px;--s7:96px;--s8:144px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px;background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.7 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--verified);outline-offset:4px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 var(--s5)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.015em;line-height:1.08;margin:0}
+h1{font-size:clamp(2.75rem,7.5vw,6rem)}
+h2{font-size:clamp(2rem,4.5vw,3.5rem)}
+h3{font-size:clamp(1.375rem,2.4vw,1.875rem);line-height:1.2}
+p{margin:0;max-width:62ch}
+.mono,.label{font:500 12px/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3)}
+.label b{color:var(--fg);font-weight:500}
+.body{color:var(--fg-2);font-size:1.0625rem}
+.note{font-size:.875rem;color:var(--fg-3);max-width:70ch}
+/* nav */
+header.nav{position:sticky;top:0;z-index:30;background:rgba(11,11,11,.94);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:var(--s5);min-height:64px}
+.logo{font:400 1.5rem var(--serif);text-decoration:none;letter-spacing:-.01em}
+.logo span{color:var(--fg-3)}
+.nav nav{display:flex;gap:var(--s5);margin-left:auto}
+.nav nav a{font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3);text-decoration:none;padding:12px 0;transition:color 200ms}
+.nav nav a:hover{color:var(--fg)}
+.lang{display:flex;gap:2px}
+.lang button{background:none;border:0;color:var(--fg-3);font:500 12px var(--mono);letter-spacing:.1em;min-width:44px;min-height:44px;cursor:pointer;border-bottom:1px solid transparent}
+.lang button[aria-pressed=true]{color:var(--fg);border-bottom-color:var(--fg)}
+.menu-btn{display:none;background:none;border:1px solid var(--line-2);color:var(--fg);min-width:44px;min-height:44px;font:12px var(--mono);cursor:pointer;margin-left:auto}
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:48px;padding:0 var(--s4);border:1px solid var(--fg);background:var(--fg);color:var(--bg);font:500 13px var(--mono);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background 200ms,color 200ms}
+.btn:hover{background:transparent;color:var(--fg)}
+.btn.ghost{background:transparent;color:var(--fg);border-color:var(--line-2)}
+.btn.ghost:hover{border-color:var(--fg)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+/* hero */
+.hero{min-height:calc(100vh - 64px);min-height:calc(100svh - 64px);display:grid;grid-template-rows:1fr auto;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:96px 96px;opacity:.35;pointer-events:none;-webkit-mask-image:linear-gradient(#000 40%,transparent);mask-image:linear-gradient(#000 40%,transparent)}
+.hero-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
+.hero-scrim{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(11,11,11,.92) 0,rgba(11,11,11,.78) 38%,rgba(11,11,11,.25) 72%,rgba(11,11,11,.1) 100%),linear-gradient(0deg,rgba(11,11,11,.9) 0,transparent 30%)}
+.hero-main{z-index:1;position:relative;display:grid;align-content:center;gap:var(--s6);padding:var(--s7) 0 var(--s6)}
+.hero h1{max-width:14ch}
+.hero h1 i{font-style:normal;color:var(--fg-3)}
+.hero .sub{font-size:1.1875rem;color:var(--fg-2);max-width:46ch}
+.hero-cta{display:flex;gap:var(--s4);align-items:center;flex-wrap:wrap}
+.link{font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--fg-2);text-decoration:none;border-bottom:1px solid var(--line-2);padding:14px 0;transition:color 200ms,border-color 200ms}
+.link:hover{color:var(--fg);border-color:var(--fg)}
+/* chain scene */
+.scene{position:relative;z-index:1;border-top:1px solid var(--line);background:rgba(11,11,11,.72);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.scene .wrap{padding-top:var(--s5);padding-bottom:var(--s5)}
+.scene-head{display:flex;justify-content:space-between;gap:var(--s4);margin-bottom:var(--s4);flex-wrap:wrap}
+.chain{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line)}
+.cb{padding:var(--s4);border-left:1px solid var(--line);display:grid;gap:var(--s2);align-content:start;opacity:.28;transition:opacity 400ms var(--ease);min-width:0}
+.cb:first-child{border-left:0}
+.cb.on{opacity:1}
+.cb .k{font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3)}
+.cb .t{font:400 1.25rem var(--serif)}
+.cb code{font:12px/1.5 var(--mono);color:var(--fg-2);word-break:break-all;display:block}
+.cb.v .t{color:var(--verified)}
+.cb.v::after{content:"";display:block;height:1px;background:var(--verified);transform:scaleX(0);transform-origin:left;transition:transform 600ms var(--ease)}
+.cb.v.on::after{transform:scaleX(1)}
+.status{display:flex;justify-content:space-between;gap:var(--s4);padding-top:var(--s3);flex-wrap:wrap}
+/* sections */
+section.s{padding:var(--s8) 0;border-bottom:1px solid var(--line)}
+.head{display:grid;grid-template-columns:200px 1fr;gap:var(--s5);margin-bottom:var(--s7)}
+.head .t{display:grid;gap:var(--s4)}
+.rows{border-top:1px solid var(--line)}
+.row3{display:grid;grid-template-columns:200px 1fr 1.2fr;gap:var(--s5);padding:var(--s6) 0;border-bottom:1px solid var(--line);align-items:start}
+.row3 .n{font:400 clamp(1.5rem,3vw,2.25rem) var(--mono);color:var(--fg-3)}
+/* mandates */
+.mand{display:grid;grid-template-columns:200px 1fr 1fr;gap:var(--s5);padding:var(--s6) 0;border-bottom:1px solid var(--line)}
+.mand h3{font-size:clamp(2rem,4vw,3rem)}
+.badge{display:inline-block;font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--line-2);padding:6px 10px;color:var(--fg);margin-bottom:var(--s3)}
+.badge.live{border-color:var(--verified);color:var(--verified)}
+.badge.demo{border-color:var(--warn);color:var(--warn)}
+dl.meta{margin:0;font:13px/1.5 var(--mono)}
+dl.meta div{display:flex;gap:var(--s4);padding:12px 0;border-top:1px solid var(--line)}
+dl.meta div:last-child{border-bottom:1px solid var(--line)}
+dl.meta dt{min-width:80px;color:var(--fg-3);letter-spacing:.1em}
+dl.meta dd{margin:0;color:var(--fg)}
+.mand .act{display:grid;gap:var(--s3);margin-top:var(--s4);justify-items:start}
+/* verify */
+.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line)}
+.vp{padding:var(--s5);display:grid;gap:var(--s3);align-content:start;min-width:0}
+.vp + .vp{border-left:1px solid var(--line)}
+label{font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3)}
+.inp,textarea{width:100%;background:transparent;border:0;border-bottom:1px solid var(--line-2);border-radius:0;color:var(--fg);font:14px/1.6 var(--mono);padding:12px 0}
+.inp:focus,textarea:focus{outline:0;border-bottom-color:var(--fg)}
+textarea{min-height:88px;resize:vertical}
+.chips{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.chip{background:none;border:1px solid var(--line-2);color:var(--fg-2);font:12px var(--mono);min-height:44px;padding:0 14px;cursor:pointer;transition:border-color 200ms,color 200ms}
+.chip:hover{border-color:var(--fg);color:var(--fg)}
+.acts{display:flex;gap:var(--s3);flex-wrap:wrap}
+.verdict{font:500 13px var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:14px 0;border-top:1px solid var(--line);display:flex;gap:12px;align-items:center}
+.verdict.ok{color:var(--verified)}
+.verdict.bad{color:var(--bad)}
+.kv{display:grid;gap:12px;font:12px/1.5 var(--mono);margin:0}
+.kv dt{color:var(--fg-3);letter-spacing:.1em;text-transform:uppercase}
+.kv dd{margin:0;word-break:break-all;color:var(--fg-2)}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.steps li{display:grid;grid-template-columns:40px 1fr;padding:12px 0;border-top:1px solid var(--line);opacity:.4;transition:opacity 300ms}
+.steps li.on{opacity:1}
+.steps li.done .no{color:var(--verified)}
+.steps .no{font:12px var(--mono);color:var(--fg-3)}
+.steps b{font:400 1.0625rem var(--serif)}
+.steps code{display:block;font:12px/1.5 var(--mono);color:var(--fg-2);word-break:break-all}
+/* method / architecture */
+.arch{display:grid;grid-template-columns:1fr auto 1.2fr auto 1fr;border:1px solid var(--line)}
+.col{padding:var(--s5);display:grid;gap:0;align-content:start}
+.col h4{margin:0 0 var(--s3);font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3)}
+.col div{padding:14px 0;border-top:1px solid var(--line);color:var(--fg-2)}
+.col.core div b{color:var(--fg);font:500 12px var(--mono);letter-spacing:.12em;margin-right:8px}
+.col.core{border-left:1px solid var(--line);border-right:1px solid var(--line)}
+.arrow{align-self:center;padding:0 var(--s3);color:var(--fg-3);font:18px var(--mono)}
+.pipe{display:grid;grid-template-columns:repeat(5,1fr);margin-top:var(--s6);border-top:1px solid var(--line)}
+.pipe div{padding:var(--s4) var(--s4) 0 0;display:grid;gap:6px;align-content:start}
+.pipe .n{font:12px var(--mono);color:var(--fg-3)}
+.pipe b{font:400 1.25rem var(--serif)}
+.pipe small{color:var(--fg-3);font-size:.875rem}
+/* timeline */
+.tl{border-top:1px solid var(--line)}
+.tl article{display:grid;grid-template-columns:200px 1fr 1.2fr;gap:var(--s5);padding:var(--s5) 0;border-bottom:1px solid var(--line)}
+.tl time{font:400 clamp(1.25rem,2.4vw,1.75rem) var(--mono);white-space:nowrap}
+/* proof */
+.proof{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line)}
+.proof > div{padding:var(--s5);display:grid;gap:var(--s3);align-content:start}
+.proof > div + div{border-left:1px solid var(--line)}
+.proof ul{margin:0;padding:0;list-style:none}
+.proof li{padding:12px 0;border-top:1px solid var(--line);color:var(--fg-2);font-size:.9375rem}
+/* research */
+.research{display:grid;grid-template-columns:200px 1fr 1fr;gap:var(--s5)}
+.quote{font:400 clamp(1.5rem,3vw,2.25rem)/1.25 var(--serif);max-width:20ch}
+/* faq */
+details{border-top:1px solid var(--line)}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:var(--s4);min-height:64px;font:400 1.375rem var(--serif)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:300 1.5rem var(--mono);color:var(--fg-3)}
+details[open] summary::after{content:"–"}
+details p{padding:0 0 var(--s4);color:var(--fg-2)}
+/* corp */
+.corp{display:grid;grid-template-columns:200px 1fr 1fr;gap:var(--s5)}
+footer{padding:var(--s7) 0 var(--s6)}
+footer .cols{display:grid;grid-template-columns:200px 1fr 1fr 1fr 1fr;gap:var(--s5)}
+footer ul{list-style:none;margin:0;padding:0}
+footer li a{display:inline-block;padding:10px 0;color:var(--fg-2);text-decoration:none;font-size:.9375rem}
+footer li a:hover{color:var(--fg);text-decoration:underline}
+.legal{margin-top:var(--s6);padding-top:var(--s4);border-top:1px solid var(--line);display:grid;gap:var(--s2)}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity 500ms var(--ease),transform 500ms var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media (max-width:1000px){
+  .head,.row3,.mand,.tl article,.research,.corp,footer .cols{grid-template-columns:1fr;gap:var(--s3)}
+  .head{margin-bottom:var(--s6)}
+  .vgrid,.proof{grid-template-columns:1fr}
+  .vp + .vp,.proof > div + div{border-left:0;border-top:1px solid var(--line)}
+  .arch{grid-template-columns:1fr}
+  .col.core{border:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .arrow{display:none}
+  .pipe{grid-template-columns:1fr 1fr}
+  .chain{grid-template-columns:1fr 1fr}
+  .cb:nth-child(3){border-left:0}
+  .cb:nth-child(n+3){border-top:1px solid var(--line)}
+}
+@media (max-width:760px){
+  .wrap{padding:0 var(--s4)}
+  section.s{padding:var(--s7) 0}
+  .nav nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;gap:0;padding:var(--s3) var(--s4);margin:0}
+  .nav nav.open{display:flex}
+  .nav nav a{padding:16px 0;border-bottom:1px solid var(--line)}
+  .menu-btn{display:inline-flex;align-items:center;justify-content:center}
+  .nav .wrap{gap:var(--s2)}
+  .lang{margin-left:auto}
+  .menu-btn{margin-left:0}
+  .hero-main{padding:var(--s6) 0}
+  .vp{padding:var(--s4)}
+  .pipe{grid-template-columns:1fr}
+  .chain{grid-template-columns:1fr}
+  .cb{border-left:0;border-top:1px solid var(--line)}
+  .cb:first-child{border-top:0}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+  .cb{opacity:1}
+  .cb.v::after{transform:scaleX(1)}
+}
 </style>
 </head>
 <body>
-<header>
-  <div class="shell bar">
-    <a class="wordmark" href="/tr/">
-      OZ<span class="dot">DNA</span> <small>FINDBELOW VENTURES</small>
-    </a>
-    <nav>
-      <a href="/tr/products/">Ürünler</a>
-      <a href="/tr/products/comply/">ComplyDNA</a>
-      <a href="/tr/products/origin/">OriginDNA</a>
-      <a href="/tr/verify/">Doğrula</a>
-      <a href="#principle">İlke</a>
-      <a href="#contact">İletişim</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="ozDNA ana sayfa">oz<span>DNA</span></a>
+    <nav id="nav" aria-label="Primary">
+      <a href="#principle" data-tr="İlke">İlke</a>
+      <a href="#mandates" data-tr="Ürünler">Ürünler</a>
+      <a href="#verify" data-tr="Doğrula">Doğrula</a>
+      <a href="#method" data-tr="Yöntem">Yöntem</a>
+      <a href="#why-now" data-tr="Neden şimdi">Neden şimdi</a>
+      <a href="#proof" data-tr="Kanıt">Kanıt</a>
     </nav>
-    <a class="lang" href="/" lang="en" hreflang="en">EN</a>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-lang="tr" aria-pressed="true">TR</button>
+    </div>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menu">MENU</button>
   </div>
 </header>
 
-<main>
-
-<div class="hero">
-  <div class="shell">
-    <div class="label"><b>OZDNA.COM</b> — DOĞRULANABİLİRLİK ALTYAPISI</div>
-    <h1>Doğrulayabileceğiniz iddialar.<br>Hepsi <span class="acc">DNA'sında.</span></h1>
-    <p class="lede">
-      ozDNA tek bir problem için yazılım geliştirir: yapay zekânın ürettiğine
-      güvenmek. ComplyDNA, Türk mevzuatına ilişkin uyum sorularını madde düzeyinde
-      kaynak künyesiyle yanıtlar. OriginDNA, AB Yapay Zekâ Yasası'nın içerik
-      işaretleme kuralları için görsellere kanıtlanabilir bir köken verir.
-      Farklı pazarlar — aynı ilke: her çıktı, doğrulanmasını sağlayan kanıtı taşır.
-    </p>
+<main id="top">
+<section class="hero" aria-labelledby="h1">
+  <div class="hero-grid-bg" aria-hidden="true"></div>
+  <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="wrap hero-main">
+    <p class="label"><b>ozDNA</b> · AI Verifiability Infrastructure</p>
+    <h1 id="h1"><span data-tr="Kontrol edebileceğiniz iddialar.">Kontrol edebileceğiniz iddialar.</span> <i data-tr="Bu DNA'da var.">Bu DNA'da var.</i></h1>
+    <p class="sub" data-tr="Alıntı. İmza. Doğrulama. Yapay zekâ çıktısı, arkasında kanıt varsa güvenilirdir.">Alıntı. İmza. Doğrulama. Yapay zekâ çıktısı, arkasında kanıt varsa güvenilirdir.</p>
+    <div class="hero-cta">
+      <a class="btn" href="#verify"><span data-tr="Bir kaydı doğrula">Bir kaydı doğrula</span> <span aria-hidden="true">→</span></a>
+      <a class="link" href="#mandates" data-tr="Ürünler">Ürünler</a>
+    </div>
   </div>
-</div>
+  <div class="scene" aria-label="Verification trace (demo)">
+    <div class="wrap">
+      <div class="scene-head">
+        <span class="label"><b data-tr="Doğrulama izi">Doğrulama izi</b> · <span data-tr="her döngüde gerçekten yeniden hesaplanır">her döngüde gerçekten yeniden hesaplanır</span></span>
+        <span class="badge demo" style="margin:0" data-tr="Demo verisi">Demo verisi</span>
+      </div>
+      <div class="chain" id="heroChain" aria-live="off">
+        <div class="cb"><span class="k">01 · Fingerprint</span><span class="t" data-tr="Parmak izi">Parmak izi</span><code id="c1">—</code></div>
+        <div class="cb"><span class="k">02 · Signature</span><span class="t" data-tr="İmza">İmza</span><code id="c2">—</code></div>
+        <div class="cb"><span class="k">03 · Timestamp</span><span class="t" data-tr="Zaman damgası">Zaman damgası</span><code id="c3">—</code></div>
+        <div class="cb v"><span class="k">04 · Verify</span><span class="t" id="c4t">Verified</span><code id="c4">—</code></div>
+      </div>
+      <div class="status"><span class="label">STATUS · <b data-tr="ön lansman">ön lansman</b></span><span class="label">LOG · <b data-tr="hash zincirli, yalnızca eklemeli">hash zincirli, yalnızca eklemeli</b></span><span class="label">BY · <b>Kolaxa</b></span></div>
+    </div>
+  </div>
+</section>
 
-<section id="products">
-  <div class="shell">
-    <div class="sec-head"><span class="sec-no">[01]</span><span class="label">ÜRÜNLER</span></div>
-    <div class="products">
-      <div class="product">
-        <div class="label"><b>P1</b> / REGTECH — TÜRKÇE</div>
-        <h2>COMPLY<span class="dot">DNA</span></h2>
-        <p>Türk finansal mevzuatı için uyum LLM'i. MASAK tebliğleri, AML/CFT
-        kanunları 5549 &amp; 6415, KVKK — her cümle satır içi
-        <code>[TEBLİĞ / Madde]</code> künyesiyle yanıtlanır. Tahmin değil,
-        denetlenebilir yanıt. Bulut API veya tamamen kurum içi.</p>
-        <div class="meta">
-          <span><b>DURUM</b> Erken erişim</span>
-          <span><b>PAZAR</b> TR uyum ekipleri</span>
-          <span><b>DİL</b> Türkçe</span>
+<section class="s" id="principle">
+  <div class="wrap">
+    <div class="head reveal"><p class="label"><b>[01]</b> Principle</p>
+      <div class="t"><h2 data-tr="Önce kanıt. Sonra iddia.">Önce kanıt. Sonra iddia.</h2>
+      <p class="body" data-tr="Üç hareket, tek ilke. Her çıktı kaynağını gösterir, kendini imzalar ve bağımsız olarak kontrol edilebilir.">Üç hareket, tek ilke. Her çıktı kaynağını gösterir, kendini imzalar ve bağımsız olarak kontrol edilebilir.</p></div></div>
+    <div class="rows">
+      <div class="row3 reveal"><span class="n">A / CITE</span><h3 data-tr="Alıntıla.">Alıntıla.</h3><p class="body" data-tr="Her ifade dayandığı kaynağa bağlanır. Kaynağı olmayan ifade işaretlenir, gizlenmez.">Her ifade dayandığı kaynağa bağlanır. Kaynağı olmayan ifade işaretlenir, gizlenmez.</p></div>
+      <div class="row3 reveal"><span class="n">B / SIGN</span><h3 data-tr="İmzala.">İmzala.</h3><p class="body" data-tr="İçeriğin parmak izi alınır, kriptografik olarak imzalanır, güvenilir bir zaman damgası eklenir.">İçeriğin parmak izi alınır, kriptografik olarak imzalanır, güvenilir bir zaman damgası eklenir.</p></div>
+      <div class="row3 reveal"><span class="n">C / VERIFY</span><h3 data-tr="Doğrula.">Doğrula.</h3><p class="body" data-tr="Herkes kaydı yeniden hesaplayıp karşılaştırabilir. Güven gerekmez. Kontrol yeterlidir.">Herkes kaydı yeniden hesaplayıp karşılaştırabilir. Güven gerekmez. Kontrol yeterlidir.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="mandates">
+  <div class="wrap">
+    <div class="head reveal"><p class="label"><b>[02]</b> Mandates</p>
+      <div class="t"><h2 data-tr="İki hat. Tek doğrulama mantığı.">İki hat. Tek doğrulama mantığı.</h2></div></div>
+    <article class="mand reveal" id="complydna">
+      <div><span class="badge live" data-tr="Erken erişim">Erken erişim</span></div>
+      <div class="od-stack" style="--od-gap:16px"><h3>ComplyDNA</h3>
+        <p class="body" data-tr="Alıntı öncelikli uyum istihbaratı. Her yanıt, dayandığı mevzuat metnine bağlanır.">Alıntı öncelikli uyum istihbaratı. Her yanıt, dayandığı mevzuat metnine bağlanır.</p>
+        <div class="act"><a class="btn" href="mailto:hello@ozdna.com?subject=ComplyDNA%20access"><span data-tr="Erişim talep et">Erişim talep et</span> <span aria-hidden="true">→</span></a>
+        <p class="note" data-tr="Talep ekibe kısa bir e-posta olarak gider. Yanıt uygunluk ve kapasiteye bağlıdır; erişim garanti edilmez.">Talep ekibe kısa bir e-posta olarak gider. Yanıt uygunluk ve kapasiteye bağlıdır; erişim garanti edilmez.</p></div></div>
+      <dl class="meta">
+        <div><dt>STATUS</dt><dd data-tr="Erken erişim">Erken erişim</dd></div>
+        <div><dt>MARKET</dt><dd data-tr="Türkiye · regtech">Türkiye · regtech</dd></div>
+        <div><dt>CLOCK</dt><dd data-tr="Talep sırasına göre">Talep sırasına göre</dd></div>
+      </dl>
+    </article>
+    <article class="mand reveal" id="originchip">
+      <div><span class="badge" data-tr="Bekleme listesi">Bekleme listesi</span></div>
+      <div class="od-stack" style="--od-gap:16px"><h3>OriginDNA</h3>
+        <p class="body" data-tr="Yapay zekâ üretimi içerik için köken kaydı. Parmak izi, imza, zaman damgası, doğrulama.">Yapay zekâ üretimi içerik için köken kaydı. Parmak izi, imza, zaman damgası, doğrulama.</p>
+        <div class="act"><a class="btn ghost" href="/tr/products/origin/#waitlist"><span data-tr="Bekleme listesine katıl">Bekleme listesine katıl</span> <span aria-hidden="true">→</span></a>
+        <p class="note" data-tr="E-postanız yalnızca OriginDNA erişim duyuruları için kullanılır. Erişim açıldığında davetler liste sırasıyla gönderilir. Başka amaçla paylaşılmaz. Ad, ticari marka uygunluk sürecindedir ve değişebilir.">E-postanız yalnızca OriginDNA erişim duyuruları için kullanılır. Erişim açıldığında davetler liste sırasıyla gönderilir. Başka amaçla paylaşılmaz. Ad, ticari marka uygunluk sürecindedir ve değişebilir.</p></div></div>
+      <dl class="meta">
+        <div><dt>STATUS</dt><dd data-tr="Bekleme listesi">Bekleme listesi</dd></div>
+        <div><dt>MARKET</dt><dd data-tr="Global">Global</dd></div>
+        <div><dt>CLOCK</dt><dd data-tr="Lansman tarihi açıklanmadı">Lansman tarihi açıklanmadı</dd></div>
+      </dl>
+    </article>
+  </div>
+</section>
+
+<section class="s" id="verify">
+  <div class="wrap">
+    <div class="head reveal"><p class="label"><b>[03]</b> Verify</p>
+      <div class="t"><h2 data-tr="Bir kaydı kendiniz kontrol edin.">Bir kaydı kendiniz kontrol edin.</h2>
+      <p class="body" data-tr="Henüz canlı bir sunucu yok. Aşağıdaki kayıtlar demo verisidir ve sonuçlar tarayıcınızda yeniden hesaplanır. Gerçek bir doğrulama değildir.">Henüz canlı bir sunucu yok. Aşağıdaki kayıtlar demo verisidir ve sonuçlar tarayıcınızda yeniden hesaplanır. Gerçek bir doğrulama değildir.</p></div></div>
+    <div class="vgrid reveal">
+      <div class="vp">
+        <span class="badge demo" style="justify-self:start;margin:0" data-tr="Demo verisi">Demo verisi</span>
+        <label for="vin" data-tr="Kayıt kimliği veya hash">Kayıt kimliği veya hash</label>
+        <input class="inp" id="vin" type="text" spellcheck="false" autocomplete="off" placeholder="DEMO-0002">
+        <div class="chips" id="samples"></div>
+        <div class="acts">
+          <button class="btn" type="button" id="vgo" data-tr="Doğrula">Doğrula</button>
+          <button class="btn ghost" type="button" id="vfake" data-tr="Bozulmuş içerik dene">Bozulmuş içerik dene</button>
         </div>
-        <div class="cta-row">
-          <a class="btn" href="/tr/products/comply/">ComplyDNA →</a>
-          <a class="btn ghost" href="mailto:hello@ozdna.com?subject=ComplyDNA%20demo%20talebi">Demo talep et</a>
+        <div id="vres" aria-live="polite"></div>
+        <p class="note" data-tr="Her kayıt bir öncekinin hash'ini içerir. Biri değişirse sonrasındakiler uyuşmaz.">Her kayıt bir öncekinin hash'ini içerir. Biri değişirse sonrasındakiler uyuşmaz.</p>
+      </div>
+      <div class="vp">
+        <label for="heroText" data-tr="Kendi metninizi izleyin">Kendi metninizi izleyin</label>
+        <textarea id="heroText" spellcheck="false">The report was drafted with AI assistance and reviewed on 2026-01-15.</textarea>
+        <ol class="steps" id="steps" aria-live="polite">
+          <li><span class="no">01</span><div><b data-tr="Parmak izi (SHA-256)">Parmak izi (SHA-256)</b><code>—</code></div></li>
+          <li><span class="no">02</span><div><b data-tr="İmza (örnek)">İmza (örnek)</b><code>—</code></div></li>
+          <li><span class="no">03</span><div><b data-tr="Zaman damgası (örnek)">Zaman damgası (örnek)</b><code>—</code></div></li>
+          <li><span class="no">04</span><div><b data-tr="Kayıt">Kayıt</b><code>—</code></div></li>
+          <li><span class="no">05</span><div><b data-tr="Doğrulama">Doğrulama</b><code>—</code></div></li>
+        </ol>
+        <div id="tverdict"></div>
+        <div class="acts">
+          <button class="btn" type="button" id="trun" data-tr="İzi çalıştır">İzi çalıştır</button>
+          <button class="btn ghost" type="button" id="ttamper" data-tr="Bir karakteri değiştir">Bir karakteri değiştir</button>
         </div>
-      </div>
-      <div class="product">
-        <div class="label"><b>P2</b> / PROVENANCE — GLOBAL</div>
-        <h2>ORIGIN<span class="dot">DNA</span></h2>
-        <p>İçerik kökeni altyapısı. Her görsel bir DNA alır: oluşturma anında
-        kriptografik imza, kimsenin geriye tarihleyemeyeceği bir zaman damgası ve
-        platformlar metadata'yı silse bile hayatta kalan algısal parmak izi.
-        AB Yapay Zekâ Yasası Madde 50 içerik işaretlemesi için — tek API
-        çağrısıyla uyum.</p>
-        <div class="meta">
-          <span><b>DURUM</b> Bekleme listesi açık</span>
-          <span><b>PAZAR</b> GenAI uygulamaları · satıcılar · haber odaları</span>
-          <span><b>TAKVİM</b> AB son tarihi 2 Aralık 2026</span>
-        </div>
-        <div class="cta-row">
-          <a class="btn" href="/tr/products/origin/">OriginDNA →</a>
-          <a class="btn ghost" href="/tr/products/origin/#waitlist">Bekleme listesine katıl</a>
-        </div>
+        <p class="note" data-tr="Hash gerçek SHA-256'dır. İmza ve zaman damgası gösterim amaçlıdır; canlı bir sistemden gelmez.">Hash gerçek SHA-256'dır. İmza ve zaman damgası gösterim amaçlıdır; canlı bir sistemden gelmez.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="principle">
-  <div class="shell">
-    <div class="sec-head"><span class="sec-no">[02]</span><span class="label">TEK İLKE</span></div>
-    <h2 class="sec-title">Güven bir iddia değildir.<br>Takip edebileceğiniz bir zincirdir.</h2>
-    <div class="principle">
-      <div class="cell">
-        <div class="label"><b>A</b> / KAYNAK</div>
-        <h3>Yanıtlar kaynak gösterir</h3>
-        <p>ComplyDNA mevzuat referansı olmadan iddiada bulunmaz. Her cümlenin
-        arkasındaki mevzuat maddesi bir tık uzakta.</p>
-      </div>
-      <div class="cell">
-        <div class="label"><b>B</b> / İMZA</div>
-        <h3>İçerik kökenini kanıtlar</h3>
-        <p>OriginDNA içeriği oluşturma anında imzalar ve parmak izini kaydeder;
-        köken ekran görüntüsünde, yeniden yüklemede ve silinen metadata'da
-        hayatta kalır.</p>
-      </div>
-      <div class="cell">
-        <div class="label"><b>C</b> / DOĞRULA</div>
-        <h3>Herkes kontrol edebilir</h3>
-        <p>Doğrulama halka açık ve bağımsızdır — hesap yok, "bize güvenin"
-        düğmesi yok. Kontrol edilemiyorsa, yayınlamayız.</p>
+<section class="s" id="method">
+  <div class="wrap">
+    <div class="head reveal"><p class="label"><b>[04]</b> Method</p>
+      <div class="t"><h2 data-tr="Kaynaklar. Motor. Çıktı.">Kaynaklar. Motor. Çıktı.</h2>
+      <p class="body" data-tr="Kayıt defteri hash zincirli ve yalnızca eklemelidir. Zinciri herkes yeniden hesaplayabilir, imzaları açık anahtarla kontrol edebilir.">Kayıt defteri hash zincirli ve yalnızca eklemelidir. Zinciri herkes yeniden hesaplayabilir, imzaları açık anahtarla kontrol edebilir.</p></div></div>
+    <div class="arch reveal">
+      <div class="col"><h4 data-tr="Kaynaklar">Kaynaklar</h4>
+        <div data-tr="Mevzuat metinleri">Mevzuat metinleri</div><div data-tr="Kurum belgeleri">Kurum belgeleri</div><div data-tr="Yapay zekâ üretimi içerik">Yapay zekâ üretimi içerik</div></div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="col core"><h4 data-tr="ozDNA motoru">ozDNA motoru</h4>
+        <div><b>CITE</b><span data-tr="kaynağa bağla">kaynağa bağla</span></div>
+        <div><b>SIGN</b><span data-tr="parmak izi, imza, zaman damgası">parmak izi, imza, zaman damgası</span></div>
+        <div><b>LOG</b><span data-tr="hash zincirli, yalnızca eklemeli kayıt">hash zincirli, yalnızca eklemeli kayıt</span></div></div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="col"><h4 data-tr="Çıktı">Çıktı</h4>
+        <div data-tr="Alıntılı yanıt">Alıntılı yanıt</div><div data-tr="Köken kaydı">Köken kaydı</div><div data-tr="Bağımsız doğrulama">Bağımsız doğrulama</div></div>
+    </div>
+    <div class="pipe reveal">
+      <div><span class="n">01</span><b data-tr="Parmak izi">Parmak izi</b><small data-tr="İçeriğin SHA-256 özeti">İçeriğin SHA-256 özeti</small></div>
+      <div><span class="n">02</span><b data-tr="İmza">İmza</b><small data-tr="Kriptografik imza">Kriptografik imza</small></div>
+      <div><span class="n">03</span><b data-tr="Zaman damgası">Zaman damgası</b><small data-tr="Güvenilir zaman damgası">Güvenilir zaman damgası</small></div>
+      <div><span class="n">04</span><b data-tr="Kayıt">Kayıt</b><small data-tr="Zincire eklenir">Zincire eklenir</small></div>
+      <div><span class="n">05</span><b data-tr="Doğrulama">Doğrulama</b><small data-tr="Yeniden hesapla, karşılaştır">Yeniden hesapla, karşılaştır</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="why-now">
+  <div class="wrap">
+    <div class="head reveal"><p class="label"><b>[05]</b> Why now</p>
+      <div class="t"><h2 data-tr="Takvim, kapsamıyla.">Takvim, kapsamıyla.</h2>
+      <p class="body" data-tr="AB Yapay Zekâ Tüzüğü (2024/1689) aşamalı uygulanır. Tarihler, önerilen bir erteleme paketi nedeniyle değişebilir.">AB Yapay Zekâ Tüzüğü (2024/1689) aşamalı uygulanır. Tarihler, önerilen bir erteleme paketi nedeniyle değişebilir.</p></div></div>
+    <div class="tl reveal">
+      <article><time>2026-08-02</time><h3 data-tr="Madde 50. Şeffaflık yükümlülükleri.">Madde 50. Şeffaflık yükümlülükleri.</h3><p class="body" data-tr="Yapay zekâ üretimi içeriğin işaretlenmesi ve etkileşimlerde bilgilendirme gibi yükümlülükler.">Yapay zekâ üretimi içeriğin işaretlenmesi ve etkileşimlerde bilgilendirme gibi yükümlülükler.</p></article>
+      <article><time>2027-12-02</time><h3 data-tr="Ek III. Yüksek riskli sistemler.">Ek III. Yüksek riskli sistemler.</h3><p class="body" data-tr="Önerilen erteleme kapsamında Ek III yüksek riskli sistemler için tarih. Yalnızca bu kategoriyi kapsar, her sistemi değil.">Önerilen erteleme kapsamında Ek III yüksek riskli sistemler için tarih. Yalnızca bu kategoriyi kapsar, her sistemi değil.</p></article>
+      <article><time>2028-08-02</time><h3 data-tr="Ürünlere gömülü sistemler.">Ürünlere gömülü sistemler.</h3><p class="body" data-tr="Düzenlenmiş ürünlere gömülü yüksek riskli sistemler için tarih.">Düzenlenmiş ürünlere gömülü yüksek riskli sistemler için tarih.</p></article>
+    </div>
+    <p class="note" style="margin-top:24px" data-tr="Tarihler yayın öncesi resmî kaynaklardan (EUR-Lex, AB Komisyonu) yeniden doğrulanmalıdır. Bu içerik hukuki tavsiye değildir.">Tarihler yayın öncesi resmî kaynaklardan (EUR-Lex, AB Komisyonu) yeniden doğrulanmalıdır. Bu içerik hukuki tavsiye değildir.</p>
+  </div>
+</section>
+
+<section class="s" id="research">
+  <div class="wrap">
+    <div class="research reveal">
+      <p class="label"><b>[06]</b> Research integrity</p>
+      <p class="quote" data-tr="Skor değil, kanıt.">Skor değil, kanıt.</p>
+      <div class="od-stack" style="--od-gap:16px">
+        <p class="body" data-tr="Kolaxa'nın akademik platformu tezmakale, akademik metinlerde yapay zekâ kullanımını sayıyla değil kanıtla ele alma yönünde ilerliyor. ozDNA'nın köken katmanı bu yönün planlanan temeli.">Kolaxa'nın akademik platformu tezmakale, akademik metinlerde yapay zekâ kullanımını sayıyla değil kanıtla ele alma yönünde ilerliyor. ozDNA'nın köken katmanı bu yönün planlanan temeli.</p>
+        <p class="note" data-tr="Bu bir planlanan yöndür. Bugün tezmakale'nin ozDNA kullandığı anlamına gelmez.">Bu bir planlanan yöndür. Bugün tezmakale'nin ozDNA kullandığı anlamına gelmez.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="why">
-  <div class="shell">
-    <div class="sec-head"><span class="sec-no">[03]</span><span class="label">NEDEN ŞİMDİ</span></div>
-    <h2 class="sec-title">Üretmesi ucuz.<br>Güvenmesi pahalı.</h2>
-    <p class="lede" style="margin-bottom:34px">
-      Üretken yapay zekâ; metin, görsel ve tavsiye üretmenin maliyetini sıfıra indirdi —
-      maliyeti sessizce başka bir yere taşıdı: doğrulamaya. Uyum ekipleri, hangi maddeye
-      dayandığı izlenemeyen makul yanıtlar okuyor. Platformlar kimseye atfedilemeyen
-      görseller barındırıyor. Düzenleyiciler buna rehberle değil, kesin tarihlerle yanıt
-      verdi — ve tarihler yakın.
-    </p>
-    <div class="principle">
-      <div class="cell">
-        <div class="label"><b>2 AĞU</b> / 2026</div>
-        <h3>İşaretleme kuralları başlıyor</h3>
-        <p>AB Yapay Zekâ Yasası Madde 50 uygulanmaya başlıyor; Kaliforniya SB 942 aynı gün
-        yürürlüğe giriyor. Yeni GenAI sistemleri AI ile üretilen içeriği makinece okunabilir
-        biçimde (Madde 50(2)) ilk günden işaretlemelidir.</p>
-      </div>
-      <div class="cell">
-        <div class="label"><b>2 ARA</b> / 2026</div>
-        <h3>Madde 50(2) affı bitiyor</h3>
-        <p>2 Ağu'dan önce piyasada olan GenAI sistemleri için makinece okunabilir işaretleme
-        affı biter. OriginDNA'nın lansman yaptığı yaptırım dalgası budur.</p>
-      </div>
-      <div class="cell">
-        <div class="label"><b>14 OCAK'TAN BERİ</b> / 2026</div>
-        <h3>Pazar yerleri önden gitti</h3>
-        <p>Etsy, 14 Ocak 2026'dan beri satıcılardan AI ile üretilen işleri beyan etmelerini
-        zorunlu tutuyor. Alıcılar "bu orijinal mi?" diye soruyor — satıcıların onay kutusundan
-        iyi bir cevaba ihtiyacı var.</p>
-      </div>
-    </div>
-    <p class="lede" style="margin-top:34px">
-      ozDNA tam da bu an için geliştiriyor. ComplyDNA, düzenleyici yanıtları cümle cümle
-      kontrol edilebilir kılacak şekilde tasarlandı — şu an erken erişim demosuyla
-      erişilebilir. OriginDNA, görsel kökenini son tarihler gelmeden kontrol edilebilir
-      hale getirecek: kurumsal bir proje değil, küçük ekiplerin bir öğleden sonra
-      entegre edebileceği self-serve bir API. Tarihler AB Yapay Zekâ Yasası'nın
-      yayımlanmış takvimindendir; yükümlülükleriniz ürününüze ve yargı bölgenize bağlıdır.
-    </p>
-  </div>
-</section>
-
-<section id="faq">
-  <div class="shell">
-    <div class="sec-head"><span class="sec-no">[04]</span><span class="label">SSS</span></div>
-    <div class="faq">
-      <details>
-        <summary>ozDNA ne geliştiriyor?</summary>
-        <p class="a">Doğrulanabilirlik yazılımı. Tek ilke altında iki ürün: her çıktı,
-        kontrol edilmesini sağlayan kanıtı taşır. ComplyDNA, Türk mevzuatına ilişkin uyum
-        sorularını madde düzeyinde kaynak künyesiyle yanıtlar; OriginDNA, AB Yapay Zekâ
-        Yasası'nın içerik işaretleme kuralları için görsellere kanıtlanabilir köken verir.</p>
-      </details>
-      <details>
-        <summary>ComplyDNA ile OriginDNA'nın ilişkisi ne?</summary>
-        <p class="a">Farklı müşterilere hizmet ederler — bir yanda Türk uyum ekipleri, diğer
-        yanda küresel GenAI uygulamaları, satıcılar ve haber odaları — ama aynı mühendislik
-        disiplinini paylaşırlar: kaynağa bağlı iddialar, "bize güvenin" yerine halka açık
-        doğrulama ve her sürümde ölçülen doğruluk.</p>
-      </details>
-      <details>
-        <summary>ozDNA'nın arkasında kim var?</summary>
-        <p class="a">ComplyDNA, Türk uyum ekipleriyle erken erişim aşamasında; OriginDNA,
-        Ekim 2026 geliştirmesi öncesinde açık bekleme listesiyle lansman öncesi dönemde.
-        Ekibe tek adresten ulaşılır: hello@ozdna.com.</p>
-      </details>
-      <details>
-        <summary>Ürünleri bugün deneyebilir miyim?</summary>
-        <p class="a">ComplyDNA — evet, erken erişim programıyla: kurumunuzun mevzuat kapsamına
-        göre demo hazırlıyoruz. OriginDNA — erken erişim ve lansman fiyatı için bekleme
-        listesine katılın. Teyit kuruluşları OriginDNA'yı sonsuza dek ücretsiz kullanır.</p>
-      </details>
+<section class="s" id="proof">
+  <div class="wrap">
+    <div class="head reveal"><p class="label"><b>[07]</b> Proof</p>
+      <div class="t"><h2 data-tr="Ne yapıyoruz. Ne iddia etmiyoruz.">Ne yapıyoruz. Ne iddia etmiyoruz.</h2></div></div>
+    <div class="proof reveal">
+      <div><h3>Principle</h3><ul>
+        <li data-tr="Kanıt, iddiadan önce gelir.">Kanıt, iddiadan önce gelir.</li>
+        <li data-tr="Doğrulama bize güvenmeden yapılabilmeli.">Doğrulama bize güvenmeden yapılabilmeli.</li>
+        <li data-tr="Ölçülemeyen şey yazılmaz.">Ölçülemeyen şey yazılmaz.</li></ul></div>
+      <div><h3>Methodology</h3><ul>
+        <li data-tr="İçerik SHA-256 ile özetlenir.">İçerik SHA-256 ile özetlenir.</li>
+        <li data-tr="Özet imzalanır, zaman damgası eklenir.">Özet imzalanır, zaman damgası eklenir.</li>
+        <li data-tr="Kayıt hash zincirli, yalnızca eklemeli deftere yazılır.">Kayıt hash zincirli, yalnızca eklemeli deftere yazılır.</li>
+        <li data-tr="Doğruluk ölçümleri varsa, yöntemiyle birlikte yayınlanır.">Doğruluk ölçümleri varsa, yöntemiyle birlikte yayınlanır.</li></ul></div>
+      <div><h3>What we don't claim</h3><ul>
+        <li data-tr="İçeriğin doğru olduğunu değil, değişmediğini ve kaynağını gösteririz.">İçeriğin doğru olduğunu değil, değişmediğini ve kaynağını gösteririz.</li>
+        <li data-tr="Henüz yayınlanmış doğruluk oranı, müşteri, ödül veya sertifika yok.">Henüz yayınlanmış doğruluk oranı, müşteri, ödül veya sertifika yok.</li>
+        <li data-tr="Hukuki tavsiye veya uyum garantisi vermeyiz.">Hukuki tavsiye veya uyum garantisi vermeyiz.</li></ul></div>
     </div>
   </div>
 </section>
 
-<section id="contact">
-  <div class="shell contact">
-    <div class="label"><b>[05]</b> — İLETİŞİM</div>
-    <h2>Bizimle konuşun.</h2>
-    <p>ComplyDNA pilotları, OriginDNA erken erişimi, basın, iş birlikleri —
-    tek adres, bir insan okuyor.</p>
-    <div class="cta-row">
-      <a class="btn" href="mailto:hello@ozdna.com">hello@ozdna.com</a>
+<section class="s" id="faq">
+  <div class="wrap">
+    <div class="head reveal"><p class="label"><b>[08]</b> FAQ</p><div class="t"><h2 data-tr="Sorular">Sorular</h2></div></div>
+    <div class="reveal">
+    <details><summary data-tr="ozDNA nedir?">ozDNA nedir?</summary><p data-tr="Yapay zekâ çıktısının doğrulanabilirliği için bir altyapı: ComplyDNA ve OriginDNA.">Yapay zekâ çıktısının doğrulanabilirliği için bir altyapı: ComplyDNA ve OriginDNA.</p></details>
+    <details><summary data-tr="Bir kaydı kendim nasıl kontrol ederim?">Bir kaydı kendim nasıl kontrol ederim?</summary><p data-tr="Kayıtlar hash zincirli, yalnızca eklemeli bir defterde tutulur. Hash zincirini yeniden hesaplar, imzayı açık anahtarla kontrol edersiniz.">Kayıtlar hash zincirli, yalnızca eklemeli bir defterde tutulur. Hash zincirini yeniden hesaplar, imzayı açık anahtarla kontrol edersiniz.</p></details>
+    <details><summary data-tr="Doğrulama canlı mı?">Doğrulama canlı mı?</summary><p data-tr="Henüz değil. Bu sayfadaki doğrulama demo verisiyle ve tarayıcıda çalışır.">Henüz değil. Bu sayfadaki doğrulama demo verisiyle ve tarayıcıda çalışır.</p></details>
+    <details><summary data-tr="Bu hukuki tavsiye mi?">Bu hukuki tavsiye mi?</summary><p data-tr="Hayır. Mevzuat bilgisi genel bilgilendirmedir.">Hayır. Mevzuat bilgisi genel bilgilendirmedir.</p></details>
+    <details><summary data-tr="OriginDNA adı kesin mi?">OriginDNA adı kesin mi?</summary><p data-tr="Hayır. Ad ticari marka uygunluk sürecindedir.">Hayır. Ad ticari marka uygunluk sürecindedir.</p></details>
     </div>
   </div>
 </section>
 
+<section class="s" id="behind" style="border-bottom:0">
+  <div class="wrap corp reveal">
+    <p class="label"><b>[09]</b> Behind ozDNA</p>
+    <div class="od-stack" style="--od-gap:24px"><h2 data-tr="Bir Kolaxa ürünü.">Bir Kolaxa ürünü.</h2>
+      <p class="body" data-tr="Kolaxa, birden çok markadan oluşan bir teknoloji şirketidir. Ortak tez: karmaşık kararlar için önce-doğrulama altyapısı. Veri, doğrulama, köken, kanıt, karar.">Kolaxa, birden çok markadan oluşan bir teknoloji şirketidir. Ortak tez: karmaşık kararlar için önce-doğrulama altyapısı. Veri, doğrulama, köken, kanıt, karar.</p></div>
+    <div>
+      <dl class="meta">
+        <div><dt>BRANDS</dt><dd>ozDNA · MetalTakip · Signal</dd></div>
+        <div><dt>THESIS</dt><dd>Verification-first</dd></div>
+        <div><dt>CONTACT</dt><dd><a href="mailto:hello@ozdna.com">hello@ozdna.com</a></dd></div>
+      </dl>
+      <p class="note" style="margin-top:16px" data-tr="Şirket unvanı, adres ve kişi bilgileri yayın öncesi eklenecek.">Şirket unvanı, adres ve kişi bilgileri yayın öncesi eklenecek.</p>
+    </div>
+  </div>
+</section>
 </main>
 
-<footer class="site-footer">
-  <div class="shell">
-    <div class="foot">
-      <span>ozDNA · ComplyDNA · OriginDNA</span>
-      <span>© 2026 ozDNA · Tüm hakları saklıdır</span>
+<footer style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="cols">
+      <a class="logo" href="#top">oz<span>DNA</span></a>
+      <ul aria-label="Legal"><li><a href="/privacy/" data-tr="Gizlilik">Gizlilik</a></li><li><a href="/terms/" data-tr="Kullanım şartları">Kullanım şartları</a></li><li><a href="/privacy/">KVKK</a></li></ul>
+      <ul aria-label="Products"><li><a href="/tr/products/comply/">ComplyDNA</a></li><li><a href="/tr/products/origin/">OriginDNA</a></li><li><a href="/tr/verify/" data-tr="Doğrula">Doğrula</a></li></ul>
+      <ul aria-label="Contact"><li><a href="mailto:hello@ozdna.com" data-tr="İletişim">İletişim</a></li></ul>
+      <p class="note" data-tr="Kolaxa'nın bir ürünüdür.">Kolaxa'nın bir ürünüdür.</p>
     </div>
-    <p class="footer-links">
-      <a href="mailto:hello@ozdna.com">hello@ozdna.com</a>
-      · <a href="/tr/products/comply/">ComplyDNA</a>
-      · <a href="/tr/products/origin/">OriginDNA</a>
-      · <a href="/tr/verify/">Doğrula</a>
-      · <a href="/privacy/">Gizlilik</a>
-      · <a href="/terms/">Kullanım şartları</a>
-      · <a href="/" lang="en" hreflang="en">English</a>
-      · Güncelleme: <time datetime="2026-07-09">9 Temmuz 2026</time>
-    </p>
+    <div class="legal">
+      <p class="note" data-tr="Bu sitedeki AB Yapay Zekâ Tüzüğü bilgileri genel bilgilendirmedir ve hukuki tavsiye değildir.">Bu sitedeki AB Yapay Zekâ Tüzüğü bilgileri genel bilgilendirmedir ve hukuki tavsiye değildir.</p>
+      <p class="note" data-tr="OriginDNA adı ticari marka uygunluk sürecindedir; ad ve görsel kimlik geçicidir. Doğrulama bölümü demo verisi kullanır.">OriginDNA adı ticari marka uygunluk sürecindedir; ad ve görsel kimlik geçicidir. Doğrulama bölümü demo verisi kullanır.</p>
+      <p class="note">© Kolaxa</p>
+    </div>
   </div>
 </footer>
 
-<script defer src="/analytics.js"></script>
+<script>
+(function(){
+  const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+  const enc=new TextEncoder();
+  async function sha(s){const b=await crypto.subtle.digest('SHA-256',enc.encode(s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const wait=ms=>new Promise(r=>setTimeout(r,reduce?0:ms));
+
+  /* i18n */
+  $$('[data-tr]').forEach(el=>{el.dataset.en=el.innerHTML});
+  let lang=document.documentElement.lang==='tr'?'tr':'en';
+  const L=(en,tr)=>lang==='tr'?tr:en;
+  function setLang(l){
+    lang=l;document.documentElement.lang=l;
+    $$('[data-tr]').forEach(el=>{el.innerHTML=l==='tr'?el.dataset.tr:el.dataset.en});
+    $$('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===l)));
+    $('#c4t').textContent=L('Verified','Doğrulandı');
+  }
+  /* EN and TR are separate pages (/ and /tr/) so both are indexable */
+  $$('[data-lang]').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.lang!==lang)location.href=b.dataset.lang==='tr'?'/tr/':'/'}));
+  if(lang==='tr')$('#c4t').textContent='Doğrulandı';
+
+  /* nav */
+  const nav=$('#nav'),mb=$('#menuBtn');
+  mb.addEventListener('click',()=>{const o=nav.classList.toggle('open');mb.setAttribute('aria-expanded',String(o))});
+  $$('#nav a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');mb.setAttribute('aria-expanded','false')}));
+
+  /* reveal */
+  if('IntersectionObserver' in window && !reduce){
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+    $$('.reveal').forEach(el=>io.observe(el));
+  } else $$('.reveal').forEach(el=>el.classList.add('in'));
+
+  /* demo chain */
+  const demo=[
+    {id:'DEMO-0001',text:'Demo document A: quarterly summary draft.',ts:'2026-01-10T09:00:00Z'},
+    {id:'DEMO-0002',text:'Demo document B: AI-assisted policy note.',ts:'2026-01-11T14:30:00Z'},
+    {id:'DEMO-0003',text:'Demo document C: model output with citations.',ts:'2026-01-12T08:15:00Z'}
+  ];
+  async function buildChain(){
+    let prev='0'.repeat(64);
+    for(const r of demo){r.content=await sha(r.text);r.prev=prev;r.record=await sha(prev+r.content+r.ts);prev=r.record}
+    $('#samples').innerHTML=demo.map(r=>`<button type="button" class="chip" data-v="${r.id}">${r.id}</button>`).join('');
+    $$('#samples .chip').forEach(c=>c.addEventListener('click',()=>{$('#vin').value=c.dataset.v;verify(false)}));
+  }
+  const kv=(k,v)=>`<div><dt>${k}</dt><dd>${v}</dd></div>`;
+  async function verify(tamper){
+    const q=$('#vin').value.trim().toLowerCase(), out=$('#vres');
+    if(!q){out.innerHTML='';return}
+    const r=demo.find(x=>x.id.toLowerCase()===q||x.content===q||x.record===q);
+    if(!r){out.innerHTML=`<div class="verdict bad">✕ ${L('No match in demo records','Demo kayıtlarında eşleşme yok')}</div><p class="note">${L('Try DEMO-0001 to DEMO-0003, or pick a sample.','DEMO-0001 ile DEMO-0003 arasını deneyin veya bir örnek seçin.')}</p>`;return}
+    const c=await sha(tamper?r.text+' (edited)':r.text), rec=await sha(r.prev+c+r.ts), ok=rec===r.record;
+    out.innerHTML=`<div class="verdict ${ok?'ok':'bad'}">${ok?'✓ '+L('Verified (demo record)','Doğrulandı (demo kayıt)'):'✕ '+L('Mismatch: content differs from the record','Uyuşmazlık: içerik kayıttan farklı')}</div>
+    <dl class="kv">${kv('ID',r.id)}${kv(L('Timestamp (example)','Zaman damgası (örnek)'),r.ts)}${kv(L('Stored content hash','Kayıtlı içerik hash'),r.content)}${kv(L('Recomputed content hash','Yeniden hesaplanan içerik hash'),c)}${kv(L('Previous record','Önceki kayıt'),r.prev)}${kv(L('Recomputed record','Yeniden hesaplanan kayıt'),rec)}</dl>`;
+  }
+  $('#vgo').addEventListener('click',()=>verify(false));
+  $('#vin').addEventListener('keydown',e=>{if(e.key==='Enter')verify(false)});
+  $('#vfake').addEventListener('click',()=>{if(!$('#vin').value.trim())$('#vin').value='DEMO-0002';verify(true)});
+
+  /* user trace */
+  let busy=false;
+  async function trace(text){
+    if(busy)return;busy=true;
+    const lis=$$('#steps li');lis.forEach(l=>{l.className='';l.querySelector('code').textContent='—'});
+    $('#tverdict').innerHTML='';
+    const h=await sha(text), ts=new Date().toISOString(), sig=(await sha('demo-key:'+h)).slice(0,48), rec=await sha('0'.repeat(64)+h+ts);
+    const vals=[h,sig+'…',ts+' ('+L('example','örnek')+')',rec.slice(0,40)+'…',L('Recomputed hash matches the record.','Yeniden hesaplanan hash kayıtla eşleşiyor.')];
+    for(let i=0;i<5;i++){lis[i].classList.add('on');lis[i].querySelector('code').textContent=vals[i];await wait(380);lis[i].classList.add('done')}
+    $('#tverdict').innerHTML=`<div class="verdict ok">✓ ${L('Verified (demo)','Doğrulandı (demo)')}</div>`;
+    busy=false;
+  }
+  $('#trun').addEventListener('click',()=>trace($('#heroText').value));
+  $('#ttamper').addEventListener('click',async()=>{
+    if(busy)return;
+    const orig=$('#heroText').value, alt=orig?orig.slice(0,-1)+(orig.slice(-1)==='.'?'!':'.'):'x';
+    const h0=await sha(orig), h1=await sha(alt);
+    $('#heroText').value=alt;
+    const lis=$$('#steps li');lis.forEach(l=>l.className='');
+    lis[0].className='on done';lis[0].querySelector('code').textContent=h1;
+    lis[4].className='on';lis[4].querySelector('code').textContent=L('Original ','Orijinal ')+h0.slice(0,20)+'… ≠ '+h1.slice(0,20)+'…';
+    $('#tverdict').innerHTML=`<div class="verdict bad">✕ ${L('Mismatch: one character changed the fingerprint','Uyuşmazlık: tek karakter parmak izini değiştirdi')}</div>`;
+  });
+
+  /* hero chain scene (loops) */
+  async function scene(){
+    const text='Hero sample: AI-assisted summary, reviewed.';
+    const h=await sha(text), ts='2026-01-15T10:00:00Z', sig=(await sha('demo-key:'+h)).slice(0,32), rec=await sha('0'.repeat(64)+h+ts);
+    const blocks=$$('#heroChain .cb'), codes=[h.slice(0,32)+'…',sig+'…',ts+' (example)',rec.slice(0,32)+'… ✓'];
+    ['c1','c2','c3','c4'].forEach((id,i)=>$('#'+id).textContent=codes[i]);
+    if(reduce){blocks.forEach(b=>b.classList.add('on'));return}
+    for(;;){
+      blocks.forEach(b=>b.classList.remove('on'));
+      await wait(900);
+      for(const b of blocks){b.classList.add('on');await wait(900)}
+      await wait(3600);
+    }
+  }
+
+  /* hero background: full-bleed hash-chain animation (canvas) */
+  async function heroBg(){
+    const cv=$('#heroCanvas'); if(!cv) return;
+    const ctx=cv.getContext('2d'), hero=cv.parentElement;
+    const N=18, PITCH=360, BW=250, BH=150;
+    const blocks=[]; let prev='0'.repeat(64);
+    for(let i=0;i<N;i++){const h=await sha(prev+'|demo-block-'+i);blocks.push({prev,h});prev=h}
+    let W=0,H=0,dpr=1;
+    function size(){dpr=Math.min(devicePixelRatio||1,2);W=hero.clientWidth;H=hero.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
+    size(); new ResizeObserver(()=>{size();if(reduce)draw(0)}).observe(hero);
+    const BLUE='107,164,255', total=N*PITCH;
+    function draw(t){
+      ctx.clearRect(0,0,W,H);
+      const scroll=reduce?0:(t*0.018)%total;
+      const baseY=H*0.46, tilt=-0.06;
+      const pulse=reduce?null:((t*0.00022)%1);       // 0..1 verify pulse, right to left
+      const pulseX=W*(1.15-pulse*1.3);
+      const items=[];
+      for(let i=0;i<N;i++){
+        let x=i*PITCH-scroll; if(x<-PITCH) x+=total;
+        if(x>W+PITCH) continue;
+        items.push({i,x,y:baseY+(x-W/2)*tilt-BH/2});
+      }
+      items.sort((a,b)=>a.x-b.x);
+      ctx.lineWidth=1;
+      // links
+      for(let k=0;k<items.length-1;k++){
+        const a=items[k],b=items[k+1]; if(b.i!==(a.i+1)%N) continue;
+        const ax=a.x+BW, ay=a.y+BH/2, bx=b.x, by=b.y+BH/2;
+        const lit=pulse!==null && pulseX<=bx+40 && pulseX>=ax-40;
+        ctx.strokeStyle=lit?`rgba(${BLUE},.8)`:'rgba(255,255,255,.16)';
+        ctx.beginPath();ctx.moveTo(ax,ay);ctx.lineTo(bx,by);ctx.stroke();
+      }
+      ctx.font='10px ui-monospace,SFMono-Regular,Menlo,monospace';ctx.textBaseline='top';
+      for(const it of items){
+        const blk=blocks[it.i], x=Math.round(it.x)+.5, y=Math.round(it.y)+.5;
+        const passed=pulse!==null && pulseX<=x+BW;
+        const near=pulse!==null && Math.abs(pulseX-(x+BW/2))<BW/2+40;
+        const last=reduce&&it.i===3;
+        const a=near||last?.9:passed?.34:.2;
+        ctx.strokeStyle=near||last?`rgba(${BLUE},${a})`:`rgba(255,255,255,${passed?.26:.16})`;
+        ctx.strokeRect(x,y,BW,BH);
+        ctx.fillStyle=`rgba(255,255,255,${near?.5:.26})`;
+        ctx.fillText('BLOCK #'+String(it.i+1).padStart(4,'0'),x+14,y+14);
+        ctx.fillStyle=`rgba(255,255,255,${near?.42:.2})`;
+        ctx.fillText('prev '+blk.prev.slice(0,18)+'…',x+14,y+52);
+        ctx.fillText('hash '+blk.h.slice(0,18)+'…',x+14,y+70);
+        ctx.fillText('demo · append-only',x+14,y+BH-26);
+        if(near||last){ctx.fillStyle=`rgba(${BLUE},.95)`;ctx.fillText('✓ linked',x+14,y+96)}
+      }
+      // pulse head
+      if(pulse!==null){
+        const py=baseY+(pulseX-W/2)*tilt;
+        ctx.fillStyle=`rgba(${BLUE},.95)`;ctx.fillRect(pulseX-2,py-2,4,4);
+      }
+    }
+    if(reduce){draw(0);return}
+    let raf=0, vis=true;
+    const loop=t=>{draw(t);raf=vis&&!document.hidden?requestAnimationFrame(loop):0};
+    new IntersectionObserver(e=>{vis=e[0].isIntersecting;if(vis&&!raf)raf=requestAnimationFrame(loop)}).observe(hero);
+    document.addEventListener('visibilitychange',()=>{if(!document.hidden&&vis&&!raf)raf=requestAnimationFrame(loop)});
+    raf=requestAnimationFrame(loop);
+  }
+  heroBg();
+  buildChain();
+  scene();
+  trace($('#heroText').value);
+})();
+</script>
 </body>
 </html>
