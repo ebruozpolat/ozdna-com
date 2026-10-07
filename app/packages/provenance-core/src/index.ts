@@ -6,3 +6,4 @@
 export * from "./chain.js";
 export * from "./checkpoint.js";
 export * from "./hash.js";
+export * from "./signature.js";

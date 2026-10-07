@@ -8,12 +8,14 @@ import type { Env } from "./env.js";
 import { apiError, HttpError } from "./errors.js";
 import { buildOpenApi } from "./openapi.js";
 import { adminRoutes } from "./routes/admin.js";
+import { checkpointRoutes } from "./routes/checkpoints.js";
+import { adminKeyRoutes, publicKeyRoutes } from "./routes/keys.js";
 import { projectRoutes } from "./routes/projects.js";
 
 const app = new Hono<{ Bindings: Env }>();
 
 app.get("/health", (c) =>
-  c.json({ ok: true, service: "ozdna-provenance-api", version: "0.2.0-phase2" }),
+  c.json({ ok: true, service: "ozdna-provenance-api", version: "0.3.0-phase3" }),
 );
 
 const openapi = buildOpenApi();
@@ -21,6 +23,9 @@ app.get("/v1/provenance/openapi.json", (c) => c.json(openapi));
 
 app.route("/v1/provenance", adminRoutes);
 app.route("/v1/provenance", projectRoutes);
+app.route("/v1/provenance", checkpointRoutes);
+app.route("/v1/provenance", adminKeyRoutes);
+app.route("/v1", publicKeyRoutes);
 
 app.notFound((c) => apiError(c, 404, "not_found", "ROUTE_NOT_FOUND", "No such route."));
 

@@ -7,4 +7,5 @@ export * from "./checkpoint.js";
 export * from "./envelope.js";
 export * from "./primitives.js";
 export * from "./registry.js";
+export * from "./signature.js";
 export * from "./validate.js";

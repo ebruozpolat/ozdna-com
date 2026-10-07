@@ -222,3 +222,45 @@ Checkpoint: `CHECKPOINT_INVALID`, `CHECKPOINT_DIGEST_MISMATCH`, `CHAIN_INVALID`,
 `CHECKPOINT_BEYOND_CHAIN`, `CHECKPOINT_HEAD_MISMATCH`, `CHECKPOINT_PREDATES_HEAD`, `UNATTESTED_EVENTS`.
 Validation issues: `NOT_CANONICAL_JSON`, `ENVELOPE_INVALID`, `UNKNOWN_EVENT_TYPE`,
 `PAYLOAD_INVALID`, `PAYLOAD_TOO_LARGE`, `FORBIDDEN_KEY`, `ARTIFACT_REQUIRED`, `ARTIFACT_FORBIDDEN`.
+
+## 8. Signatures and public keys (Phase 3)
+
+A checkpoint is attested by an Ed25519 signature over its **preimage**, the same bytes that are
+hashed for the digest:
+
+```
+signature = Ed25519_sign( private_key, UTF8("ozdna.provenance.checkpoint/v1\n") ‖ cjson(body) )
+```
+
+```json
+{ "alg": "Ed25519", "key_id": "ed25519-<32 hex>", "sig": "<base64url, 64 bytes, unpadded>" }
+```
+
+Signature-required events (§5: `evidence_pack.generated`) are signed the same way over their
+event preimage (§4).
+
+**key_id** = `"ed25519-"` + the first 32 hex characters of SHA-256(raw 32-byte public key).
+Verifiers MUST recompute it from the key bytes.
+
+**Public key record** (`GET /v1/keys/{key_id}`, no auth):
+
+```json
+{ "key_id": "...", "algorithm": "Ed25519", "public_key": "<base64url, 32 bytes>",
+  "status": "active|retired|revoked", "valid_from": "...", "valid_to": null, "revoked_at": null }
+```
+
+A signature is valid iff:
+
+1. `sig` decodes to 64 bytes (canonical unpadded base64url) and the key to 32 bytes;
+2. `signature.key_id == record.key_id ==` the fingerprint of the key bytes;
+3. the key is not revoked (`status != "revoked"` and `revoked_at` is null). Revocation distrusts
+   every signature by the key;
+4. `valid_from ≤ issued_at` and (`valid_to` is null or `issued_at ≤ valid_to`). A retired key's
+   earlier signatures stay valid;
+5. Ed25519 verification of the preimage succeeds.
+
+Validity is judged against the signed object's own timestamp (`issued_at`, or `recorded_at` for
+events), never against the verifier's clock.
+
+Error codes: `SIGNATURE_MALFORMED`, `KEY_MALFORMED`, `KEY_MISMATCH`, `KEY_REVOKED`,
+`KEY_NOT_YET_VALID`, `KEY_EXPIRED`, `OBJECT_INVALID`, `BAD_SIGNATURE`.
