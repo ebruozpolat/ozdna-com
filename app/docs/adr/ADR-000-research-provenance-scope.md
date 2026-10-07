@@ -1,6 +1,6 @@
 # ADR-000 — Research provenance as a separate track inside `app/`
 
-**Status:** proposed (needs founder ratification). **Date:** 2026-10-07.
+**Status:** accepted, ratified by the founder on 2026-10-07. **Date:** 2026-10-07.
 **Context docs:** `docs/academic-moat/CURRENT_STATE.md`, `GAP_ANALYSIS.md`, `IMPLEMENTATION_PLAN.md`.
 
 ## Context
@@ -16,7 +16,7 @@ This collides with two standing rules in the repo-root `CLAUDE.md`:
 - **Hard rule 3, "No AI detection classifiers."** Research provenance records *declared* and
   *observed* AI use reported by the platform; it never classifies text as AI-written.
 
-## Decision (proposed)
+## Decision
 
 1. Treat research provenance as a **separate track**, not a change to image v1. Image code
    (`apps/api` image routes, `apps/anchor`, `contracts`, `dna-core` perceptual hashing) is not
@@ -35,8 +35,9 @@ This collides with two standing rules in the repo-root `CLAUDE.md`:
 ## Consequences
 
 - Slice 1 is pure library code with no deploy, no spend, and no change to the public site.
-- The founder must ratify this ADR (and update hard rule 6 or record an exception) before
-  anything from this track is deployed or marketed.
+- Ratified 2026-10-07. Hard rule 6 in repo-root `CLAUDE.md` now states that "images only"
+  applies to the image product line and names this track as the exception. Deploying or
+  marketing anything from this track still needs separate founder sign-off.
 - Nothing here creates a product page, a pricing claim or a marketing mention.
 
 ## Alternatives considered

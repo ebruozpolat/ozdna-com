@@ -32,8 +32,8 @@ without revealing its contents.
 
 ## Cross-cutting gaps
 
-- **Scope ratification**: ADR-000 conflicts with repo-root hard rule 6 ("images only") until
-  the founder ratifies it.
+- **Scope ratification**: done. ADR-000 was accepted on 2026-10-07 and hard rule 6 now scopes
+  "images only" to the image product line.
 - **Data retention / privacy position**: needed before production. Which identifiers count as
   personal data (actor ids), retention of provider responses, erasure vs append-only (answer:
   crypto-shredding of artifact content and per-tenant keyed commitments; events keep only

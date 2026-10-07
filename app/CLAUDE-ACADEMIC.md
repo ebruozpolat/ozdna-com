@@ -8,8 +8,7 @@ this file wins.
 
 Tamper-evident provenance for research work (artifacts, citations and their verification,
 claims, declared/observed AI use), recorded for a calling platform and exported as an
-offline-verifiable evidence pack. Scope decision: `docs/adr/ADR-000` (**proposed, not yet
-ratified**). Wire format: `docs/schemas/provenance-event-v1.md`.
+offline-verifiable evidence pack. Scope decision: `docs/adr/ADR-000` (accepted 2026-10-07). Wire format: `docs/schemas/provenance-event-v1.md`.
 
 ## Where things live
 
@@ -19,7 +18,7 @@ ratified**). Wire format: `docs/schemas/provenance-event-v1.md`.
 | `packages/provenance-core` | hashing, append, verifyChain, checkpoints | Slice 1 ✔ |
 | `apps/provenance-api` | Worker + own D1: tenancy, storage, append/read API | Phase 2 |
 | `apps/signer` | key holder, signs checkpoint digests only | Phase 3 |
-| `docs/adr/ADR-000..` | decisions | 000–002 proposed |
+| `docs/adr/ADR-000..` | decisions | 000 accepted; 001–002 proposed |
 
 ## Never
 
