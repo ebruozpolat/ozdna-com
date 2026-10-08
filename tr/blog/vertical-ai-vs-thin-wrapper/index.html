@@ -3,28 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../styles.css?v=2">
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#080D12">
+<link rel="stylesheet" href="/assets/ozdna-v1.css">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Ana içeriğe geç</a>
-<nav>
-  <a href="/tr/" class="logo" aria-label="ozDNA ana sayfa">
-    <img src="../../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
-  </a>
-  <button class="nav-toggle" aria-label="Menü" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="nav-links">
-    <a href="/tr/products/comply/">ComplyDNA</a>
-    <a href="/tr/architecture/">Platform</a>
-    <a href="/docs/tr/">Dokümantasyon</a>
-    <a href="/tr/pricing/">Fiyatlandırma</a>
-    <a href="/tr/#waitlist" class="nav-cta">Erken Erişim</a>
-  </div>
-</nav>
 
+<!-- oz-shell:header -->
+<header class="oz-nav">
+  <div class="oz-wrap">
+    <a class="oz-logo" href="/tr/" aria-label="ozDNA home">oz<span>DNA</span></a>
+    <nav class="oz-links" id="oz-links" aria-label="Ana menü">
+      <a href="/tr/products/comply/">ComplyDNA</a>
+      <a href="/tr/products/origin/">OriginDNA</a>
+      <a href="/tr/verify/">Doğrula</a>
+    </nav>
+    <div class="oz-lang" role="group" aria-label="Dil">
+      <a href="/blog/vertical-ai-vs-thin-wrapper/" lang="en" hreflang="en">EN</a>
+      <a href="/tr/" lang="tr" hreflang="tr" aria-current="true">TR</a>
+    </div>
+    <button class="oz-menu" type="button" aria-expanded="false" aria-controls="oz-links">MENÜ</button>
+  </div>
+</header>
+<!-- /oz-shell:header -->
 <main id="main-content">
 <article class="blog-article">
   <a href="/tr/blog/" class="blog-back">← Tüm yazılar</a>
@@ -85,29 +88,26 @@
   </div>
 </article>
 
-</main>
-
-<footer>
-  <div class="footer-brand">
-    <a href="/tr/" class="logo" aria-label="ozDNA">
-      <img src="../../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
-    </a>
-    <p class="footer-tagline">Findbelow Ventures · Dikey AI altyapısı (PaaS)</p>
+</main><!-- oz-shell:footer -->
+<footer class="oz-foot">
+  <div class="oz-wrap">
+    <div class="oz-cols">
+      <a class="oz-logo" href="/tr/" aria-label="ozDNA home">oz<span>DNA</span></a>
+      <ul aria-label="Yasal"><li><a href="/privacy/">Gizlilik</a></li><li><a href="/terms/">Kullanım şartları</a></li><li><a href="/privacy/">KVKK</a></li></ul>
+      <ul aria-label="Ürünler"><li><a href="/tr/products/comply/">ComplyDNA</a></li><li><a href="/tr/products/origin/">OriginDNA</a></li><li><a href="/tr/verify/">Doğrula</a></li></ul>
+      <ul aria-label="İletişim"><li><a href="mailto:hello@ozdna.com">İletişim</a></li></ul>
+      <p class="oz-note">Kolaxa'nın bir ürünüdür.</p>
+    </div>
+    <div class="oz-legal">
+      <p>Bu sitedeki AB Yapay Zekâ Tüzüğü bilgileri genel bilgilendirmedir ve hukuki tavsiye değildir.</p>
+      <p>© Kolaxa</p>
+    </div>
   </div>
-  <div class="footer-links">
-    <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>
-    <a href="/tr/trust/">Güven Merkezi</a>
-    <a href="/tr/security/">Güvenlik</a>
-    <a href="/tr/partners/">İş Ortakları</a>
-    <a href="/tr/blog/">Blog</a>
-    <a href="/docs/tr/">Dokümantasyon</a>
-    <a href="/tr/sdk/">SDK</a>
-    <a href="/tr/benchmarks/">Kıyaslamalar</a>
-    <a href="/tr/architecture/">Mimari</a>
-    <a href="mailto:hello@ozdna.com">İletişim</a>
-  </div>
-  <p>© 2026 Findbelow Ventures</p>
 </footer>
+<script>(function(){var b=document.querySelector(".oz-menu"),n=document.getElementById("oz-links");if(!b||!n)return;b.addEventListener("click",function(){b.setAttribute("aria-expanded",String(n.classList.toggle("open")))});n.addEventListener("click",function(e){if(e.target.closest("a")){n.classList.remove("open");b.setAttribute("aria-expanded","false")}})})();</script>
+<!-- /oz-shell:footer -->
+
+
 
 <script src="/analytics.js" defer></script>
 <script src="/main.js" defer></script>

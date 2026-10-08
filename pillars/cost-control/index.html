@@ -100,31 +100,34 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../styles.css?v=2">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#080D12">
 <meta name="color-scheme" content="dark">
 <!-- ozdna-seo:end -->
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#080D12">
+<link rel="stylesheet" href="/assets/ozdna-v1.css">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
-<nav>
-  <a href="/" class="logo" aria-label="ozDNA home">
-    <img src="../../assets/logo.svg" alt="ozDNA" width="120" height="28" class="logo-img">
-  </a>
-  <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="nav-links">
-    <a href="/products/comply/">ComplyDNA</a>
-    <a href="/architecture/">Platform</a>
-    <a href="/docs/">Docs</a>
-    <a href="/pricing/">Pricing</a>
-    <a href="/#products" class="nav-cta">Get Early Access</a>
+<!-- oz-shell:header -->
+<header class="oz-nav">
+  <div class="oz-wrap">
+    <a class="oz-logo" href="/" aria-label="ozDNA home">oz<span>DNA</span></a>
+    <nav class="oz-links" id="oz-links" aria-label="Primary">
+      <a href="/products/comply/">ComplyDNA</a>
+      <a href="/products/origin/">OriginDNA</a>
+      <a href="/verify/">Verify</a>
+    </nav>
+    <div class="oz-lang" role="group" aria-label="Language">
+      <a href="/pillars/cost-control/" lang="en" hreflang="en" aria-current="true">EN</a>
+      <a href="/tr/" lang="tr" hreflang="tr">TR</a>
+    </div>
+    <button class="oz-menu" type="button" aria-expanded="false" aria-controls="oz-links">MENU</button>
   </div>
-</nav>
+</header>
+<!-- /oz-shell:header -->
 <main id="main-content">
 <section class="page-hero">
   <div class="section-label">Infrastructure pillar</div>
@@ -225,24 +228,25 @@
   <a href="/#products" class="btn-primary">Get Early Access</a>
   <a href="/architecture/" class="btn-ghost">Platform architecture →</a>
 </section>
-</main>
-<footer>
-  <div class="footer-brand">
-    <a href="/" class="logo" aria-label="ozDNA">
-      <img src="../../assets/logo.svg" alt="ozDNA" width="103" height="24" class="logo-img">
-    </a>
-    <p class="footer-tagline">Findbelow Ventures · Vertical AI infrastructure (PaaS)</p>
+</main><!-- oz-shell:footer -->
+<footer class="oz-foot">
+  <div class="oz-wrap">
+    <div class="oz-cols">
+      <a class="oz-logo" href="/" aria-label="ozDNA home">oz<span>DNA</span></a>
+      <ul aria-label="Legal"><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/privacy/">KVKK</a></li></ul>
+      <ul aria-label="Products"><li><a href="/products/comply/">ComplyDNA</a></li><li><a href="/products/origin/">OriginDNA</a></li><li><a href="/verify/">Verify</a></li></ul>
+      <ul aria-label="Contact"><li><a href="mailto:hello@ozdna.com">Contact</a></li></ul>
+      <p class="oz-note">A Kolaxa product.</p>
+    </div>
+    <div class="oz-legal">
+      <p>EU AI Act information on this site is general information and not legal advice.</p>
+      <p>© Kolaxa</p>
+    </div>
   </div>
-  <div class="footer-links">
-    <a href="https://tezmakale.com" target="_blank" rel="noopener">TezMakale</a>
-    <a href="/trust/">Trust Center</a>
-    <a href="/case-studies/tezmakale/">Case Study</a>
-    <a href="/products/comply/">ComplyDNA</a>
-    <a href="/blog/">Blog</a>
-    <a href="mailto:hello@ozdna.com">Contact</a>
-  </div>
-  <p>© 2026 Findbelow Ventures</p>
 </footer>
+<script>(function(){var b=document.querySelector(".oz-menu"),n=document.getElementById("oz-links");if(!b||!n)return;b.addEventListener("click",function(){b.setAttribute("aria-expanded",String(n.classList.toggle("open")))});n.addEventListener("click",function(e){if(e.target.closest("a")){n.classList.remove("open");b.setAttribute("aria-expanded","false")}})})();</script>
+<!-- /oz-shell:footer -->
+
 <script src="/analytics.js" defer></script>
 <script src="/main.js" defer></script>
 </body>

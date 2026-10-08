@@ -7,6 +7,7 @@
 #   2) verify/ + tr/verify/ — provenance subset (banned terms + absolute claims).
 #      Spelling variants are NOT applied sitewide yet: marketing pages still use stylized
 #      "OZDNA.COM" / "BY OZDNA" labels; a full spelling pass is the roadmap-90d Hafta 1 item.
+#   3) index.html (homepage) — same provenance subset as verify.
 #
 # Usage (from repo root or oversight/):
 #   bash oversight/scripts/check-forbidden.sh
@@ -46,6 +47,7 @@ check_scope () {
 
 OVERSIGHT_HTML="$(collect_html "$OVERSIGHT_ROOT")"
 VERIFY_HTML="$(collect_html "$REPO_ROOT/verify" "$REPO_ROOT/tr/verify")"
+HOME_HTML="$REPO_ROOT/index.html"
 
 echo "== oversight (full gate) =="
 check_scope "oversight banned terms"      "$BANNED_I"        "-i" "$OVERSIGHT_HTML"
@@ -56,6 +58,11 @@ echo
 echo "== verify pages (provenance subset; spelling deferred to sitewide pass) =="
 check_scope "verify banned terms"    "$BANNED_I"     "-i" "$VERIFY_HTML"
 check_scope "verify absolute claims" "$BANNED_CLAIM" "-i" "$VERIFY_HTML"
+
+echo
+echo "== homepage (provenance subset) =="
+check_scope "homepage banned terms"    "$BANNED_I"     "-i" "$HOME_HTML"
+check_scope "homepage absolute claims" "$BANNED_CLAIM" "-i" "$HOME_HTML"
 
 if [ "$FAIL" -ne 0 ]; then
   echo; echo "FORBIDDEN-WORD GATE FAILED"; exit 1

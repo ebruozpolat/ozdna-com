@@ -10,12 +10,12 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <title>Listedesiniz — OriginDNA</title>
 <style>
-  :root { --paper:#F2EFE6; --ink:#191611; --accent:#E23D0E; --muted:#6F6A5C;
+  :root { --paper:#0b0b0b; --ink:#ffffff; --accent:#6ba4ff; --muted:#b8b8b8;
     --mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, monospace; }
-  @media (prefers-color-scheme: dark) { :root { --paper:#141208; --ink:#EDE8D9; --accent:#FF6B3D; --muted:#938D7B; } }
+  @media (prefers-color-scheme: dark) { :root { --paper:#0b0b0b; --ink:#ffffff; --accent:#6ba4ff; --muted:#b8b8b8; } }
   body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--mono);
-    min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; }
-  .card { max-width:560px; }
+    min-height:100vh; display:flex; flex-direction:column; padding:0; }
+  .card { max-width:560px; margin:auto; padding:48px 24px; }
   .label { font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); }
   h1 { font-size:clamp(26px,5vw,40px); text-transform:uppercase; line-height:1.15; margin:14px 0 16px; }
   h1 .acc { color:var(--accent); }
@@ -25,15 +25,51 @@
     text-transform:uppercase; letter-spacing:0.04em; }
   a.btn:hover { background:var(--accent); border-color:var(--accent); color:#fff; }
 </style>
+<link rel="stylesheet" href="/assets/ozdna-v1.css">
 </head>
 <body>
-  <div class="card">
+  <!-- oz-shell:header -->
+<header class="oz-nav">
+  <div class="oz-wrap">
+    <a class="oz-logo" href="/tr/" aria-label="ozDNA home">oz<span>DNA</span></a>
+    <nav class="oz-links" id="oz-links" aria-label="Ana menü">
+      <a href="/tr/products/comply/">ComplyDNA</a>
+      <a href="/tr/products/origin/">OriginDNA</a>
+      <a href="/tr/verify/">Doğrula</a>
+    </nav>
+    <div class="oz-lang" role="group" aria-label="Dil">
+      <a href="/products/origin/thanks/" lang="en" hreflang="en">EN</a>
+      <a href="/tr/products/origin/thanks/" lang="tr" hreflang="tr" aria-current="true">TR</a>
+    </div>
+    <button class="oz-menu" type="button" aria-expanded="false" aria-controls="oz-links">MENÜ</button>
+  </div>
+</header>
+<!-- /oz-shell:header -->
+<div class="card">
     <div class="label">ORIGINDNA — BEKLEME LİSTESİ</div>
     <h1>Artık <span class="acc">listedesiniz.</span></h1>
     <p>Teşekkürler — Ekim'deki geliştirme öncesinde erken erişim için sizinle
     iletişime geçeceğiz. Toplamda birkaç e-posta, spam yok. Bu arada 2 Aralık 2026
     AB işaretleme son tarihi, uyum kanalınıza iletmeye değer bir bilgi.</p>
     <a class="btn" href="/tr/products/origin/">← OriginDNA'ya dön</a>
+  </div><!-- oz-shell:footer -->
+<footer class="oz-foot">
+  <div class="oz-wrap">
+    <div class="oz-cols">
+      <a class="oz-logo" href="/tr/" aria-label="ozDNA home">oz<span>DNA</span></a>
+      <ul aria-label="Yasal"><li><a href="/privacy/">Gizlilik</a></li><li><a href="/terms/">Kullanım şartları</a></li><li><a href="/privacy/">KVKK</a></li></ul>
+      <ul aria-label="Ürünler"><li><a href="/tr/products/comply/">ComplyDNA</a></li><li><a href="/tr/products/origin/">OriginDNA</a></li><li><a href="/tr/verify/">Doğrula</a></li></ul>
+      <ul aria-label="İletişim"><li><a href="mailto:hello@ozdna.com">İletişim</a></li></ul>
+      <p class="oz-note">Kolaxa'nın bir ürünüdür.</p>
+    </div>
+    <div class="oz-legal">
+      <p>Bu sitedeki AB Yapay Zekâ Tüzüğü bilgileri genel bilgilendirmedir ve hukuki tavsiye değildir.</p>
+      <p>© Kolaxa</p>
+    </div>
   </div>
+</footer>
+<script>(function(){var b=document.querySelector(".oz-menu"),n=document.getElementById("oz-links");if(!b||!n)return;b.addEventListener("click",function(){b.setAttribute("aria-expanded",String(n.classList.toggle("open")))});n.addEventListener("click",function(e){if(e.target.closest("a")){n.classList.remove("open");b.setAttribute("aria-expanded","false")}})})();</script>
+<!-- /oz-shell:footer -->
+
 </body>
 </html>

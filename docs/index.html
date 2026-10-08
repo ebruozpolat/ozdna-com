@@ -16,11 +16,11 @@
 <meta name="twitter:card" content="summary_large_image">
 <title>Documentation — ozDNA</title>
 <style>
-  :root { --paper:#F2EFE6; --ink:#191611; --accent:#E23D0E; --muted:#6F6A5C;
-    --rule: rgba(25,22,17,0.18); --rule-soft: rgba(25,22,17,0.08); --card: rgba(25,22,17,0.03);
+  :root { --paper:#0b0b0b; --ink:#ffffff; --accent:#6ba4ff; --muted:#b8b8b8;
+    --rule: rgba(255,255,255,0.18); --rule-soft: rgba(255,255,255,0.08); --card: rgba(255,255,255,0.03);
     --mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, monospace; }
-  @media (prefers-color-scheme: dark) { :root { --paper:#141208; --ink:#EDE8D9; --accent:#FF6B3D; --muted:#938D7B;
-    --rule: rgba(237,232,217,0.22); --rule-soft: rgba(237,232,217,0.09); --card: rgba(237,232,217,0.04); } }
+  @media (prefers-color-scheme: dark) { :root { --paper:#0b0b0b; --ink:#ffffff; --accent:#6ba4ff; --muted:#b8b8b8;
+    --rule: rgba(255,255,255,0.22); --rule-soft: rgba(255,255,255,0.09); --card: rgba(255,255,255,0.04); } }
   * { box-sizing: border-box; }
   body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--mono); font-size:15px; line-height:1.65; }
   a { color: inherit; }
@@ -41,14 +41,26 @@
   .doc a.go { color: var(--accent); text-decoration:none; font-size:13px; text-transform:uppercase; letter-spacing:0.06em; }
   footer { border-top:1px solid var(--rule-soft); padding:20px 0 40px; font-size:12px; color:var(--muted); }
 </style>
+<link rel="stylesheet" href="/assets/ozdna-v1.css">
 </head>
 <body>
-<header>
-  <div class="shell bar">
-    <a class="wordmark" href="/">OZ<span class="dot">DNA</span></a>
-    <span class="label"><a href="/docs/tr/" style="text-decoration:none">TR</a></span>
+<!-- oz-shell:header -->
+<header class="oz-nav">
+  <div class="oz-wrap">
+    <a class="oz-logo" href="/" aria-label="ozDNA home">oz<span>DNA</span></a>
+    <nav class="oz-links" id="oz-links" aria-label="Primary">
+      <a href="/products/comply/">ComplyDNA</a>
+      <a href="/products/origin/">OriginDNA</a>
+      <a href="/verify/">Verify</a>
+    </nav>
+    <div class="oz-lang" role="group" aria-label="Language">
+      <a href="/docs/" lang="en" hreflang="en" aria-current="true">EN</a>
+      <a href="/docs/tr/" lang="tr" hreflang="tr">TR</a>
+    </div>
+    <button class="oz-menu" type="button" aria-expanded="false" aria-controls="oz-links">MENU</button>
   </div>
 </header>
+<!-- /oz-shell:header -->
 <main>
   <div class="shell">
     <div class="label"><b>OZDNA.COM/DOCS</b> — DOCUMENTATION</div>
@@ -85,10 +97,25 @@
       <a class="go" href="/llms-full.txt">llms-full.txt →</a>
     </div>
   </div>
-</main>
-<footer>
-  <div class="shell">ozDNA · <a href="mailto:hello@ozdna.com">hello@ozdna.com</a></div>
+</main><!-- oz-shell:footer -->
+<footer class="oz-foot">
+  <div class="oz-wrap">
+    <div class="oz-cols">
+      <a class="oz-logo" href="/" aria-label="ozDNA home">oz<span>DNA</span></a>
+      <ul aria-label="Legal"><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/privacy/">KVKK</a></li></ul>
+      <ul aria-label="Products"><li><a href="/products/comply/">ComplyDNA</a></li><li><a href="/products/origin/">OriginDNA</a></li><li><a href="/verify/">Verify</a></li></ul>
+      <ul aria-label="Contact"><li><a href="mailto:hello@ozdna.com">Contact</a></li></ul>
+      <p class="oz-note">A Kolaxa product.</p>
+    </div>
+    <div class="oz-legal">
+      <p>EU AI Act information on this site is general information and not legal advice.</p>
+      <p>© Kolaxa</p>
+    </div>
+  </div>
 </footer>
+<script>(function(){var b=document.querySelector(".oz-menu"),n=document.getElementById("oz-links");if(!b||!n)return;b.addEventListener("click",function(){b.setAttribute("aria-expanded",String(n.classList.toggle("open")))});n.addEventListener("click",function(e){if(e.target.closest("a")){n.classList.remove("open");b.setAttribute("aria-expanded","false")}})})();</script>
+<!-- /oz-shell:footer -->
+
 <script defer src="/analytics.js"></script>
 </body>
 </html>

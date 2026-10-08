@@ -43,28 +43,28 @@
 <title>OriginDNA — Every image gets a DNA · Proof of Origin</title>
 <style>
   :root {
-    --paper: #F2EFE6;
-    --ink: #191611;
-    --accent: #B52F0B;
-    --muted: #5C574C;
-    --rule: rgba(25, 22, 17, 0.18);
-    --rule-soft: rgba(25, 22, 17, 0.08);
-    --card: rgba(25, 22, 17, 0.03);
+    --paper: #0b0b0b;
+    --ink: #ffffff;
+    --accent: #6ba4ff;
+    --muted: #b8b8b8;
+    --rule: rgba(255,255,255, 0.18);
+    --rule-soft: rgba(255,255,255, 0.08);
+    --card: rgba(255,255,255, 0.03);
     --mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --paper: #141208; --ink: #EDE8D9; --accent: #FF6B3D; --muted: #938D7B;
-      --rule: rgba(237, 232, 217, 0.22); --rule-soft: rgba(237, 232, 217, 0.09); --card: rgba(237, 232, 217, 0.04);
+      --paper: #0b0b0b; --ink: #ffffff; --accent: #6ba4ff; --muted: #b8b8b8;
+      --rule: rgba(255,255,255, 0.22); --rule-soft: rgba(255,255,255, 0.09); --card: rgba(255,255,255, 0.04);
     }
   }
   :root[data-theme="light"] {
-    --paper: #F2EFE6; --ink: #191611; --accent: #B52F0B; --muted: #5C574C;
-    --rule: rgba(25, 22, 17, 0.18); --rule-soft: rgba(25, 22, 17, 0.08); --card: rgba(25, 22, 17, 0.03);
+    --paper: #0b0b0b; --ink: #ffffff; --accent: #6ba4ff; --muted: #b8b8b8;
+    --rule: rgba(255,255,255, 0.18); --rule-soft: rgba(255,255,255, 0.08); --card: rgba(255,255,255, 0.03);
   }
   :root[data-theme="dark"] {
-    --paper: #141208; --ink: #EDE8D9; --accent: #FF6B3D; --muted: #938D7B;
-    --rule: rgba(237, 232, 217, 0.22); --rule-soft: rgba(237, 232, 217, 0.09); --card: rgba(237, 232, 217, 0.04);
+    --paper: #0b0b0b; --ink: #ffffff; --accent: #6ba4ff; --muted: #b8b8b8;
+    --rule: rgba(255,255,255, 0.22); --rule-soft: rgba(255,255,255, 0.09); --card: rgba(255,255,255, 0.04);
   }
 
   * { box-sizing: border-box; }
@@ -147,14 +147,15 @@
   .foot { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); border-top: 1px solid var(--rule-soft); padding-top: 18px; }
   .footer-links { font-size: 12px; color: var(--muted); margin-top: 10px; }
 </style>
+<link rel="stylesheet" href="/assets/ozdna-v1.css">
 </head>
 <body>
-<header>
-  <div class="shell bar">
-    <a class="wordmark" href="/">
-      ORIGIN<span class="dot">DNA</span> <small>BY OZDNA</small>
-    </a>
-    <nav>
+
+<!-- oz-shell:header -->
+<header class="oz-nav">
+  <div class="oz-wrap">
+    <a class="oz-logo" href="/" aria-label="ozDNA home">oz<span>DNA</span></a>
+    <nav class="oz-links" id="oz-links" aria-label="Primary">
       <a href="#what">What</a>
       <a href="#clock">The deadline</a>
       <a href="#who">Who it's for</a>
@@ -162,10 +163,14 @@
       <a href="#faq">FAQ</a>
       <a href="#waitlist">Waitlist</a>
     </nav>
-    <a class="lang" href="/tr/products/origin/" lang="tr" hreflang="tr">TR</a>
+    <div class="oz-lang" role="group" aria-label="Language">
+      <a href="/products/origin/" lang="en" hreflang="en" aria-current="true">EN</a>
+      <a href="/tr/products/origin/" lang="tr" hreflang="tr">TR</a>
+    </div>
+    <button class="oz-menu" type="button" aria-expanded="false" aria-controls="oz-links">MENU</button>
   </div>
 </header>
-
+<!-- /oz-shell:header -->
 <main>
 
 <div class="hero">
@@ -368,25 +373,26 @@
   </div>
 </section>
 
-</main>
-
-<footer class="site-footer">
-  <div class="shell">
-    <div class="foot">
-      <span>OriginDNA · <a href="/">ozDNA</a></span>
-      <span>© 2026 ozDNA · All rights reserved</span>
+</main><!-- oz-shell:footer -->
+<footer class="oz-foot">
+  <div class="oz-wrap">
+    <div class="oz-cols">
+      <a class="oz-logo" href="/" aria-label="ozDNA home">oz<span>DNA</span></a>
+      <ul aria-label="Legal"><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/privacy/">KVKK</a></li></ul>
+      <ul aria-label="Products"><li><a href="/products/comply/">ComplyDNA</a></li><li><a href="/products/origin/">OriginDNA</a></li><li><a href="/verify/">Verify</a></li></ul>
+      <ul aria-label="Contact"><li><a href="mailto:hello@ozdna.com">Contact</a></li></ul>
+      <p class="oz-note">A Kolaxa product.</p>
     </div>
-    <p class="footer-links">
-      <a href="mailto:hello@ozdna.com">hello@ozdna.com</a>
-      · <a href="/verify/">Verify</a>
-      · <a href="/products/comply/">ComplyDNA</a>
-      · <a href="/privacy/">Privacy</a>
-      · <a href="/terms/">Terms</a>
-      · <a href="/tr/products/origin/" lang="tr" hreflang="tr">Türkçe</a>
-      · Updated <time datetime="2026-07-09">July 9, 2026</time>
-    </p>
+    <div class="oz-legal">
+      <p>EU AI Act information on this site is general information and not legal advice.</p>
+      <p>© Kolaxa</p>
+    </div>
   </div>
 </footer>
+<script>(function(){var b=document.querySelector(".oz-menu"),n=document.getElementById("oz-links");if(!b||!n)return;b.addEventListener("click",function(){b.setAttribute("aria-expanded",String(n.classList.toggle("open")))});n.addEventListener("click",function(e){if(e.target.closest("a")){n.classList.remove("open");b.setAttribute("aria-expanded","false")}})})();</script>
+<!-- /oz-shell:footer -->
+
+
 
 <script defer src="/analytics.js"></script>
 </body>

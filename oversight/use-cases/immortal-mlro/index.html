@@ -22,22 +22,30 @@
 <meta name="twitter:description" content="Immortal MLRO is an autonomous compliance agent running on the ozDNA Council oversight runtime: it classifies work by risk, routes high-risk decisions to a multi-model vote with veto, records every decision in an append-only hash-chained ledger, and produces an auditor-ready attestation. A worked use case implementing EU AI Act Art. 9/12/13/14." />
 <meta name="twitter:image" content="https://ozdna.com/og.png" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0c10'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='15' font-weight='700' text-anchor='middle' fill='%235eead4'%3Eoz%3C/text%3E%3C/svg%3E" />
-<link rel="stylesheet" href="/oversight/assets/site.css" />
+<link rel="stylesheet" href="/oversight/assets/site.css?v=2" />
+<link rel="stylesheet" href="/assets/ozdna-v1.css">
 </head>
 <body>
 
-<header class="bar">
-  <div class="wrap">
-    <a class="brand" href="/oversight/" style="text-decoration:none"><b>oz</b>DNA</a>
-    <nav>
+
+<!-- oz-shell:header -->
+<header class="oz-nav">
+  <div class="oz-wrap">
+    <a class="oz-logo" href="/oversight/" aria-label="ozDNA home">oz<span>DNA</span></a>
+    <nav class="oz-links" id="oz-links" aria-label="Primary">
       <a href="/oversight/comply/">complyDNA</a>
       <a href="/oversight/origin/">originDNA</a>
-      <a href="/oversight/use-cases/immortal-mlro/" aria-current="page" style="color:var(--text)">Use cases</a>
+      <a href="/oversight/use-cases/immortal-mlro/" aria-current="page">Use cases</a>
       <a href="#audit">Request an audit</a>
     </nav>
+    <div class="oz-lang" role="group" aria-label="Language">
+      <a href="/oversight/use-cases/immortal-mlro/" lang="en" hreflang="en" aria-current="true">EN</a>
+      <a href="/oversight/tr/use-cases/immortal-mlro/" lang="tr" hreflang="tr">TR</a>
+    </div>
+    <button class="oz-menu" type="button" aria-expanded="false" aria-controls="oz-links">MENU</button>
   </div>
 </header>
-
+<!-- /oz-shell:header -->
 <aside class="concept-notice" role="status">
   <div class="wrap">
     <strong>Concept / marketing use case</strong>
@@ -197,17 +205,27 @@
     </div>
   </section>
 
-</main>
-
-<footer>
-  <div class="wrap">
-    <div class="row">
-      <div><span class="mono"><b style="color:var(--accent)">oz</b>DNA</span> — AI oversight infrastructure. Immortal MLRO is a use case, not a separate product.</div>
-      <div><a href="#audit">Request an audit</a> · <a href="/oversight/tr/use-cases/immortal-mlro/" hreflang="tr" lang="tr">TR</a></div>
+</main><!-- oz-shell:footer -->
+<footer class="oz-foot">
+  <div class="oz-wrap">
+    <div class="oz-cols">
+      <a class="oz-logo" href="/" aria-label="ozDNA home">oz<span>DNA</span></a>
+      <ul aria-label="Legal"><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/privacy/">KVKK</a></li></ul>
+      <ul aria-label="Products"><li><a href="/products/comply/">ComplyDNA</a></li><li><a href="/products/origin/">OriginDNA</a></li><li><a href="/verify/">Verify</a></li></ul>
+      <ul aria-label="Contact"><li><a href="mailto:hello@ozdna.com">Contact</a></li></ul>
+      <p class="oz-note">A Kolaxa product.</p>
     </div>
-    <p class="fine">No absolute compliance claims are made anywhere on this page; ozDNA implements, supports and evidences the obligations described. AI Act article numbers and dates are current as of writing and must be re-verified before publication.</p>
+    <div class="oz-legal">
+<p class="fine">No absolute compliance claims are made anywhere on this page; ozDNA implements, supports and evidences the obligations described. AI Act article numbers and dates are current as of writing and must be re-verified before publication.</p>
+      <p>EU AI Act information on this site is general information and not legal advice.</p>
+      <p>© Kolaxa</p>
+    </div>
   </div>
 </footer>
+<script>(function(){var b=document.querySelector(".oz-menu"),n=document.getElementById("oz-links");if(!b||!n)return;b.addEventListener("click",function(){b.setAttribute("aria-expanded",String(n.classList.toggle("open")))});n.addEventListener("click",function(e){if(e.target.closest("a")){n.classList.remove("open");b.setAttribute("aria-expanded","false")}})})();</script>
+<!-- /oz-shell:footer -->
+
+
 
 </body>
 </html>

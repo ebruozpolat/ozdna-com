@@ -14,11 +14,11 @@
 <meta property="og:image" content="https://ozdna.com/og.png">
 <title>Dokümantasyon — ozDNA</title>
 <style>
-  :root { --paper:#F2EFE6; --ink:#191611; --accent:#E23D0E; --muted:#6F6A5C;
-    --rule: rgba(25,22,17,0.18); --rule-soft: rgba(25,22,17,0.08); --card: rgba(25,22,17,0.03);
+  :root { --paper:#0b0b0b; --ink:#ffffff; --accent:#6ba4ff; --muted:#b8b8b8;
+    --rule: rgba(255,255,255,0.18); --rule-soft: rgba(255,255,255,0.08); --card: rgba(255,255,255,0.03);
     --mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, monospace; }
-  @media (prefers-color-scheme: dark) { :root { --paper:#141208; --ink:#EDE8D9; --accent:#FF6B3D; --muted:#938D7B;
-    --rule: rgba(237,232,217,0.22); --rule-soft: rgba(237,232,217,0.09); --card: rgba(237,232,217,0.04); } }
+  @media (prefers-color-scheme: dark) { :root { --paper:#0b0b0b; --ink:#ffffff; --accent:#6ba4ff; --muted:#b8b8b8;
+    --rule: rgba(255,255,255,0.22); --rule-soft: rgba(255,255,255,0.09); --card: rgba(255,255,255,0.04); } }
   * { box-sizing: border-box; }
   body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--mono); font-size:15px; line-height:1.65; }
   a { color: inherit; }
@@ -39,14 +39,26 @@
   .doc a.go { color: var(--accent); text-decoration:none; font-size:13px; text-transform:uppercase; letter-spacing:0.06em; }
   footer { border-top:1px solid var(--rule-soft); padding:20px 0 40px; font-size:12px; color:var(--muted); }
 </style>
+<link rel="stylesheet" href="/assets/ozdna-v1.css">
 </head>
 <body>
-<header>
-  <div class="shell bar">
-    <a class="wordmark" href="/">OZ<span class="dot">DNA</span></a>
-    <span class="label"><a href="/docs/" style="text-decoration:none">EN</a></span>
+<!-- oz-shell:header -->
+<header class="oz-nav">
+  <div class="oz-wrap">
+    <a class="oz-logo" href="/tr/" aria-label="ozDNA home">oz<span>DNA</span></a>
+    <nav class="oz-links" id="oz-links" aria-label="Ana menü">
+      <a href="/tr/products/comply/">ComplyDNA</a>
+      <a href="/tr/products/origin/">OriginDNA</a>
+      <a href="/tr/verify/">Doğrula</a>
+    </nav>
+    <div class="oz-lang" role="group" aria-label="Dil">
+      <a href="/docs/" lang="en" hreflang="en">EN</a>
+      <a href="/docs/tr/" lang="tr" hreflang="tr" aria-current="true">TR</a>
+    </div>
+    <button class="oz-menu" type="button" aria-expanded="false" aria-controls="oz-links">MENÜ</button>
   </div>
 </header>
+<!-- /oz-shell:header -->
 <main>
   <div class="shell">
     <div class="label"><b>OZDNA.COM/DOCS/TR</b> — DOKÜMANTASYON</div>
@@ -83,10 +95,25 @@
       <a class="go" href="/llms-full.txt">llms-full.txt →</a>
     </div>
   </div>
-</main>
-<footer>
-  <div class="shell">ozDNA · <a href="mailto:hello@ozdna.com">hello@ozdna.com</a></div>
+</main><!-- oz-shell:footer -->
+<footer class="oz-foot">
+  <div class="oz-wrap">
+    <div class="oz-cols">
+      <a class="oz-logo" href="/tr/" aria-label="ozDNA home">oz<span>DNA</span></a>
+      <ul aria-label="Yasal"><li><a href="/privacy/">Gizlilik</a></li><li><a href="/terms/">Kullanım şartları</a></li><li><a href="/privacy/">KVKK</a></li></ul>
+      <ul aria-label="Ürünler"><li><a href="/tr/products/comply/">ComplyDNA</a></li><li><a href="/tr/products/origin/">OriginDNA</a></li><li><a href="/tr/verify/">Doğrula</a></li></ul>
+      <ul aria-label="İletişim"><li><a href="mailto:hello@ozdna.com">İletişim</a></li></ul>
+      <p class="oz-note">Kolaxa'nın bir ürünüdür.</p>
+    </div>
+    <div class="oz-legal">
+      <p>Bu sitedeki AB Yapay Zekâ Tüzüğü bilgileri genel bilgilendirmedir ve hukuki tavsiye değildir.</p>
+      <p>© Kolaxa</p>
+    </div>
+  </div>
 </footer>
+<script>(function(){var b=document.querySelector(".oz-menu"),n=document.getElementById("oz-links");if(!b||!n)return;b.addEventListener("click",function(){b.setAttribute("aria-expanded",String(n.classList.toggle("open")))});n.addEventListener("click",function(e){if(e.target.closest("a")){n.classList.remove("open");b.setAttribute("aria-expanded","false")}})})();</script>
+<!-- /oz-shell:footer -->
+
 <script defer src="/analytics.js"></script>
 </body>
 </html>

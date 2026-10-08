@@ -22,22 +22,30 @@
 <meta name="twitter:description" content="complyDNA, ozDNA'nın uyum katmanıdır: DT 5.0 her iş yükünü bir risk katmanına oturtur (AI Yasası Art. 9) ve Council, yüksek riskli kararlarda veto ve fail-closed yargıçla çok-modelli oylama yürütür (Art. 14). İnsan gözetiminin yazılıma dönüşü." />
 <meta name="twitter:image" content="https://ozdna.com/og.png" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0c10'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='15' font-weight='700' text-anchor='middle' fill='%235eead4'%3Eoz%3C/text%3E%3C/svg%3E" />
-<link rel="stylesheet" href="/oversight/assets/site.css" />
+<link rel="stylesheet" href="/oversight/assets/site.css?v=2" />
+<link rel="stylesheet" href="/assets/ozdna-v1.css">
 </head>
 <body>
 
-<header class="bar">
-  <div class="wrap">
-    <a class="brand" href="/oversight/tr/"><b>oz</b>DNA</a>
-    <nav>
+
+<!-- oz-shell:header -->
+<header class="oz-nav">
+  <div class="oz-wrap">
+    <a class="oz-logo" href="/oversight/tr/" aria-label="ozDNA home">oz<span>DNA</span></a>
+    <nav class="oz-links" id="oz-links" aria-label="Ana menü">
       <a href="/oversight/tr/comply/" aria-current="page">complyDNA</a>
       <a href="/oversight/tr/origin/">originDNA</a>
       <a href="/oversight/tr/use-cases/immortal-mlro/">Kullanım</a>
       <a href="/oversight/tr/#audit">Denetim talep et</a>
     </nav>
+    <div class="oz-lang" role="group" aria-label="Dil">
+      <a href="/oversight/comply/" lang="en" hreflang="en">EN</a>
+      <a href="/oversight/tr/comply/" lang="tr" hreflang="tr" aria-current="true">TR</a>
+    </div>
+    <button class="oz-menu" type="button" aria-expanded="false" aria-controls="oz-links">MENÜ</button>
   </div>
 </header>
-
+<!-- /oz-shell:header -->
 <main>
 
   <section class="hero">
@@ -119,19 +127,29 @@
     </div>
   </section>
 
-</main>
-
-<footer>
-  <div class="wrap">
-    <div class="row">
-      <div><span class="mono"><b style="color:var(--accent)">oz</b>DNA</span> · complyDNA — sınıflandırma + gözetim.</div>
-      <div><a href="/oversight/tr/#audit">Denetim talep et</a> · <a href="/oversight/comply/" hreflang="en" lang="en">EN</a></div>
+</main><!-- oz-shell:footer -->
+<footer class="oz-foot">
+  <div class="oz-wrap">
+    <div class="oz-cols">
+      <a class="oz-logo" href="/tr/" aria-label="ozDNA home">oz<span>DNA</span></a>
+      <ul aria-label="Yasal"><li><a href="/privacy/">Gizlilik</a></li><li><a href="/terms/">Kullanım şartları</a></li><li><a href="/privacy/">KVKK</a></li></ul>
+      <ul aria-label="Ürünler"><li><a href="/tr/products/comply/">ComplyDNA</a></li><li><a href="/tr/products/origin/">OriginDNA</a></li><li><a href="/tr/verify/">Doğrula</a></li></ul>
+      <ul aria-label="İletişim"><li><a href="mailto:hello@ozdna.com">İletişim</a></li></ul>
+      <p class="oz-note">Kolaxa'nın bir ürünüdür.</p>
     </div>
-    <p class="fine">Mutlak uyum iddiası yapılmaz; complyDNA anlatılan yükümlülükleri uygular, destekler
+    <div class="oz-legal">
+<p class="fine">Mutlak uyum iddiası yapılmaz; complyDNA anlatılan yükümlülükleri uygular, destekler
       ve kanıtlar. AI Yasası madde numaraları ve tarihleri yayından önce tekrar
       doğrulanmalıdır.</p>
+      <p>Bu sitedeki AB Yapay Zekâ Tüzüğü bilgileri genel bilgilendirmedir ve hukuki tavsiye değildir.</p>
+      <p>© Kolaxa</p>
+    </div>
   </div>
 </footer>
+<script>(function(){var b=document.querySelector(".oz-menu"),n=document.getElementById("oz-links");if(!b||!n)return;b.addEventListener("click",function(){b.setAttribute("aria-expanded",String(n.classList.toggle("open")))});n.addEventListener("click",function(e){if(e.target.closest("a")){n.classList.remove("open");b.setAttribute("aria-expanded","false")}})})();</script>
+<!-- /oz-shell:footer -->
+
+
 
 </body>
 </html>

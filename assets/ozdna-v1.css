@@ -1,0 +1,93 @@
+/* ozDNA design language v1 — shared shell for every page except the homepage (which inlines
+   the same tokens). Source of truth: /index.html. Applied by scripts/apply-design.mjs.
+   Filename is versioned because /assets/* is served immutable for a year: change the
+   design → new file name (ozdna-v2.css) and re-run the script. */
+
+:root{
+  --bg:#0b0b0b;
+  --fg:#ffffff;
+  --fg-2:rgba(255,255,255,.72);
+  --fg-3:rgba(255,255,255,.58);
+  --line:rgba(255,255,255,.12);
+  --line-2:rgba(255,255,255,.22);
+  --verified:#6ba4ff;
+  --warn:#d9b44a;
+  --bad:#ff7a70;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --s2:8px;--s3:16px;--s4:24px;--s5:32px;--s6:48px;--s7:96px;
+  color-scheme:dark;
+}
+
+/* Legacy pages carry their own light/dark palettes and theme toggles. The design is dark
+   only: pin every legacy token, whatever theme attribute or media query set it. */
+:root,:root[data-theme],:root[data-theme="light"],:root[data-theme="dark"]{
+  /* paper family (products, verify, docs, 404) */
+  --paper:#0b0b0b !important;
+  --ink:#ffffff !important;
+  --accent:#6ba4ff !important;
+  --muted:rgba(255,255,255,.72) !important;
+  --rule:rgba(255,255,255,.18) !important;
+  --rule-soft:rgba(255,255,255,.08) !important;
+  --card:rgba(255,255,255,.03) !important;
+  --term-bg:#111111 !important;
+  --term-ink:#ffffff !important;
+  --term-dim:rgba(255,255,255,.58) !important;
+  --term-accent:#6ba4ff !important;
+  --ok:#6ba4ff !important;
+  --hold:#d9b44a !important;
+}
+
+html{background:var(--bg)}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--serif) !important;font-weight:400 !important;letter-spacing:-.015em;text-transform:none !important}
+:focus-visible{outline:2px solid var(--verified);outline-offset:4px}
+/* square edges everywhere, as on the homepage */
+*,*::before,*::after{border-radius:0 !important}
+.theme-toggle,[data-theme-toggle],button[aria-label*="theme" i]{display:none !important}
+
+/* ---------- header ---------- */
+header.oz-nav,footer.oz-foot{box-sizing:border-box;width:100%;max-width:none;align-self:stretch;flex:none}
+header.oz-nav{position:sticky;top:0;z-index:1000;margin:0;padding:0;background:rgba(11,11,11,.94);border:0;border-bottom:1px solid var(--line);box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;width:auto;height:auto}
+header.oz-nav .oz-wrap{display:flex;align-items:center;gap:var(--s5);min-height:64px;max-width:1200px;margin:0 auto;padding:0 var(--s5)}
+header.oz-nav .oz-logo{font:400 1.5rem/1 var(--serif);letter-spacing:-.01em;color:var(--fg);text-decoration:none;border:0;padding:0;background:none}
+header.oz-nav .oz-logo span{color:var(--fg-3)}
+header.oz-nav nav.oz-links{display:flex;flex-wrap:wrap;gap:var(--s5);margin:0 0 0 auto;padding:0;background:none;border:0;position:static;width:auto;height:auto}
+header.oz-nav nav.oz-links a{font:500 12px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3);text-decoration:none;padding:12px 0;border:0;background:none;transition:color 200ms}
+header.oz-nav nav.oz-links a:hover,header.oz-nav nav.oz-links a[aria-current="page"]{color:var(--fg)}
+header.oz-nav .oz-lang{display:flex;gap:2px}
+header.oz-nav .oz-lang a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;font:500 12px var(--mono);letter-spacing:.1em;color:var(--fg-3);text-decoration:none;border:0;border-bottom:1px solid transparent;background:none;padding:0}
+header.oz-nav .oz-lang a[aria-current="true"]{color:var(--fg);border-bottom-color:var(--fg)}
+header.oz-nav .oz-menu{display:none;background:none;border:1px solid var(--line-2);color:var(--fg);min-width:44px;min-height:44px;font:12px var(--mono);cursor:pointer;padding:0 10px}
+
+/* ---------- footer ---------- */
+footer.oz-foot{display:block;margin:0;padding:var(--s7) 0 var(--s6);background:var(--bg);border:0;border-top:1px solid var(--line);color:var(--fg-2);font:16px/1.7 var(--sans);text-align:left}
+footer.oz-foot .oz-wrap{max-width:1200px;margin:0 auto;padding:0 var(--s5)}
+footer.oz-foot .oz-cols{display:grid;grid-template-columns:200px 1fr 1fr 1fr 1fr;gap:var(--s5)}
+footer.oz-foot .oz-logo{font:400 1.5rem/1 var(--serif);color:var(--fg);text-decoration:none}
+footer.oz-foot .oz-logo span{color:var(--fg-3)}
+footer.oz-foot ul{list-style:none;margin:0;padding:0}
+footer.oz-foot li{margin:0;padding:0}
+footer.oz-foot li a{display:inline-block;padding:10px 0;color:var(--fg-2);text-decoration:none;font-size:.9375rem}
+footer.oz-foot li a:hover{color:var(--fg);text-decoration:underline}
+footer.oz-foot .oz-note,footer.oz-foot .oz-legal p{margin:0;font-size:.875rem;line-height:1.6;color:var(--fg-3);max-width:70ch}
+footer.oz-foot .oz-legal{margin-top:var(--s6);padding-top:var(--s4);border-top:1px solid var(--line);display:grid;gap:var(--s2)}
+footer.oz-foot .oz-legal a{color:var(--fg-2)}
+
+@media (max-width:1000px){
+  footer.oz-foot .oz-cols{grid-template-columns:1fr;gap:var(--s3)}
+}
+@media (max-width:760px){
+  header.oz-nav .oz-wrap{gap:var(--s2);padding:0 var(--s4);position:relative}
+  header.oz-nav nav.oz-links{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:var(--s3) var(--s4);margin:0}
+  header.oz-nav nav.oz-links.open{display:flex}
+  header.oz-nav nav.oz-links a{padding:16px 0;border-bottom:1px solid var(--line)}
+  header.oz-nav .oz-lang{margin-left:auto}
+  header.oz-nav .oz-menu{display:inline-flex;align-items:center;justify-content:center}
+  footer.oz-foot .oz-wrap{padding:0 var(--s4)}
+  main table{display:block;max-width:100%;overflow-x:auto}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important;animation:none !important;scroll-behavior:auto !important}
+}
