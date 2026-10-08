@@ -16,7 +16,9 @@ export function randomBase62(n: number): string {
 }
 
 /** Prefixed id, e.g. prj_…, evt_…; 26 chars ≈ 154 bits. Matches provenance-schema prefixedId. */
-export function newId(prefix: "ten" | "skey" | "svc" | "prj" | "art" | "evt"): string {
+export function newId(
+  prefix: "ten" | "skey" | "svc" | "prj" | "art" | "evt" | "src" | "snp" | "svr",
+): string {
   return `${prefix}_${randomBase62(26)}`;
 }
 

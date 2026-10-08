@@ -23,6 +23,14 @@ export interface EventTypeDef {
   readonly signatureRequired: boolean;
   /** Canonical UTF-8 byte cap for the payload object. */
   readonly maxPayloadBytes: number;
+  /**
+   * Registry metadata (not part of any event or hash). `observed: true` marks facts ozDNA
+   * itself observed, as opposed to facts a calling platform asserts. `minEvidenceLevel` is the
+   * least evidence an event of this type carries: 1 = machine-observed, backed by hashes of
+   * what was observed (spec §5.4). Unset on types released before Phase 4c.
+   */
+  readonly observed?: boolean;
+  readonly minEvidenceLevel?: number;
 }
 
 export const VERIFICATION_STATES = [
@@ -88,6 +96,26 @@ const AI_OPERATIONS = [
   "suggestion_rejected",
   "citation_suggested",
 ] as const;
+
+/** Why a source verification produced no provider answer (source.verification_failed). */
+export const SOURCE_FAILURE_REASONS = [
+  "no_provider_reached",
+  "timeout",
+  "rate_limited",
+  "malformed_response",
+  "provider_error",
+  "provider_not_configured",
+  "unsupported_registration_agency",
+] as const;
+
+/** Why a reference was not accepted as a source (source.rejected). */
+export const SOURCE_REJECTION_REASONS = [
+  "identifier_invalid",
+  "identifier_ambiguous",
+  "no_identifier",
+] as const;
+
+export const SOURCE_PROVIDERS_ATTEMPTED = ["doi_ra", "crossref", "datacite"] as const;
 
 const DEFAULT_MAX_PAYLOAD = 8 * 1024;
 
@@ -171,6 +199,83 @@ const defs: EventTypeDef[] = [
         provider_response_sha256: sha256Hex.nullable(),
         /** Ambiguous references are never auto-corrected: alternatives are listed. */
         candidates: z.array(identifier).max(10),
+      })
+      .strict(),
+  },
+  // ---- Phase 4c source lifecycle. source.verification_recorded@1 above is unchanged and
+  // remains the "source verified" event; these types are additive.
+  {
+    type: "source.imported",
+    version: 1,
+    artifact: "forbidden",
+    signatureRequired: false,
+    maxPayloadBytes: DEFAULT_MAX_PAYLOAD,
+    payload: z
+      .object({
+        source_id: prefixedId("src"),
+        citation_id: prefixedId("cit"),
+        identifier,
+        input_kind: z.enum(["identifier", "csl_json"]),
+        /** SHA-256 of the canonical reference as submitted (the reference itself is not stored here). */
+        input_sha256: sha256Hex,
+      })
+      .strict(),
+  },
+  {
+    type: "source.status_changed",
+    version: 1,
+    artifact: "forbidden",
+    signatureRequired: false,
+    maxPayloadBytes: DEFAULT_MAX_PAYLOAD,
+    observed: true,
+    minEvidenceLevel: 1,
+    payload: z
+      .object({
+        source_id: prefixedId("src"),
+        previous_state: z.enum(VERIFICATION_STATES).nullable(),
+        state: z.enum(VERIFICATION_STATES),
+        result_id: prefixedId("svr"),
+        /** Hash of the normalised provider snapshot behind the new state; null if none. */
+        snapshot_sha256: sha256Hex.nullable(),
+        trigger: z.enum(["request", "refresh"]),
+      })
+      .strict(),
+  },
+  {
+    type: "source.rejected",
+    version: 1,
+    artifact: "forbidden",
+    signatureRequired: false,
+    maxPayloadBytes: DEFAULT_MAX_PAYLOAD,
+    observed: true,
+    minEvidenceLevel: 1,
+    payload: z
+      .object({
+        citation_id: prefixedId("cit"),
+        reason: z.enum(SOURCE_REJECTION_REASONS),
+        input_sha256: sha256Hex,
+        /** Ambiguous references are never auto-corrected: alternatives are listed. */
+        candidates: z.array(identifier).max(10),
+      })
+      .strict(),
+  },
+  {
+    type: "source.verification_failed",
+    version: 1,
+    artifact: "forbidden",
+    signatureRequired: false,
+    maxPayloadBytes: DEFAULT_MAX_PAYLOAD,
+    observed: true,
+    minEvidenceLevel: 1,
+    payload: z
+      .object({
+        source_id: prefixedId("src"),
+        reason: z.enum(SOURCE_FAILURE_REASONS),
+        verifier_version: z.string().regex(/^[a-z0-9][a-z0-9.+-]{0,31}$/),
+        attempted_providers: z
+          .array(z.enum(SOURCE_PROVIDERS_ATTEMPTED))
+          .max(3)
+          .refine((a) => new Set(a).size === a.length, "providers must be unique"),
       })
       .strict(),
   },

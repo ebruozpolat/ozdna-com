@@ -38,7 +38,7 @@ export function buildOpenApi() {
     openapi: "3.1.0",
     info: {
       title: "ozDNA research provenance API",
-      version: "0.3.0-phase3",
+      version: "0.4.0-phase4c",
       description:
         "Append-only, tamper-evident event chains per project. Checkpoints are signed with Ed25519 by an isolated signer; public keys at /v1/keys/{key_id}. Error shape: {error, code, message}.",
     },
@@ -190,6 +190,47 @@ export function buildOpenApi() {
           security: [],
           parameters: [{ name: "key_id", in: "path", required: true, schema: { type: "string" } }],
           responses: { "200": { description: "Key record" }, "404": err("No such key") },
+        },
+      },
+      "/sources/verify": {
+        servers: [{ url: "/v1" }],
+        post: {
+          summary:
+            "Verify a cited source for a project (identifier or CSL-JSON). Appends source.imported, source.verification_recorded, source.verification_failed, source.rejected and source.status_changed as applicable. Ambiguous references return candidates and are never auto-corrected.",
+          ...secured("events:append"),
+          requestBody: { required: true, content: json("VerifySource") },
+          responses: {
+            "201": {
+              description: "Verified (or verification failed: UNVERIFIED)",
+              content: json("VerifySourceResult"),
+            },
+            "200": {
+              description: "Rejected or ambiguous: candidates, no source",
+              content: json("VerifySourceResult"),
+            },
+            "400": err("Malformed request"),
+            "404": err("No such project"),
+            "409": err("citation_id already linked to another source"),
+            ...authErrors,
+          },
+        },
+      },
+      "/sources/{id}": {
+        servers: [{ url: "/v1" }],
+        get: {
+          summary: "Source record, identifiers, snapshots (hashes and payload references)",
+          ...secured("events:read"),
+          parameters: [projectId],
+          responses: { "200": { description: "Source" }, "404": err("Not found"), ...authErrors },
+        },
+      },
+      "/sources/{id}/status": {
+        servers: [{ url: "/v1" }],
+        get: {
+          summary: "Current status, status timeline and full verification history",
+          ...secured("events:read"),
+          parameters: [projectId],
+          responses: { "200": { description: "Status" }, "404": err("Not found"), ...authErrors },
         },
       },
       "/projects/{id}/verify": {

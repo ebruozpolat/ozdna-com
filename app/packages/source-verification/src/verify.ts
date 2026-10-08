@@ -31,22 +31,40 @@ export async function lookupDoi(doi: string, ctx: AdapterContext): Promise<Looku
   }
 }
 
+/** Version of the verification logic; recorded with every stored result (Phase 4c). */
+export const VERIFIER_VERSION = "0.4.0";
+
+export interface DetailedVerification {
+  readonly result: VerificationResult;
+  /** The provider outcome behind the result; null when no lookup was attempted. */
+  readonly lookup: LookupOutcome | null;
+}
+
+/** Like verifyReference, but also returns the provider outcome (record, failure reason). */
+export async function verifyReferenceDetailed(
+  ref: CitedReference,
+  ctx: AdapterContext,
+): Promise<DetailedVerification> {
+  const normalized = normalizeIdentifier(ref.identifier.scheme, ref.identifier.value);
+  if (normalized.status !== "ok" || normalized.scheme !== "doi") {
+    return { result: evaluate(ref, normalized, null), lookup: null };
+  }
+  const lookup: LookupOutcome = validContactEmail(ctx.contactEmail)
+    ? await lookupDoi(normalized.value, ctx)
+    : // Fail closed without touching the network: providers require identification.
+      {
+        kind: "unavailable",
+        provider: null,
+        reason: "PROVIDER_NOT_CONFIGURED",
+        response_sha256: null,
+      };
+  return { result: evaluate(ref, normalized, lookup), lookup };
+}
+
 /** Verify one cited reference. Never throws for provider problems; it reports them. */
 export async function verifyReference(
   ref: CitedReference,
   ctx: AdapterContext,
 ): Promise<VerificationResult> {
-  const normalized = normalizeIdentifier(ref.identifier.scheme, ref.identifier.value);
-  if (normalized.status !== "ok") return evaluate(ref, normalized, null);
-  if (normalized.scheme !== "doi") return evaluate(ref, normalized, null);
-  if (!validContactEmail(ctx.contactEmail)) {
-    // Fail closed without touching the network: providers require identification.
-    return evaluate(ref, normalized, {
-      kind: "unavailable",
-      provider: null,
-      reason: "PROVIDER_NOT_CONFIGURED",
-      response_sha256: null,
-    });
-  }
-  return evaluate(ref, normalized, await lookupDoi(normalized.value, ctx));
+  return (await verifyReferenceDetailed(ref, ctx)).result;
 }

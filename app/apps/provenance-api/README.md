@@ -1,4 +1,4 @@
-# `@ozdna/provenance-api` — research-provenance API (Phase 2)
+# `@ozdna/provenance-api` — research-provenance API (Phases 2–4c)
 
 Cloudflare Worker for the research-provenance track: tenancy, append-only event storage and the
 append/read/verify API. It has its **own D1 database** (`PROV_DB`, migrations in `./migrations`),
@@ -24,6 +24,23 @@ Decisions: `../../docs/adr/ADR-003-provenance-api-tenancy-and-storage.md`.
 | POST | `/admin/keys/{key_id}/revoke` | `X-Admin-Token` | Revoke a key (compromise) |
 | GET | `/v1/keys/{key_id}` (note: outside `/v1/provenance`) | none | Public key record |
 | GET | `/openapi.json` | none | OpenAPI 3.1, generated from the zod schemas |
+
+### Sources (`/v1`, Phase 4c — ADR-004 §7)
+
+| Method | Path | Scope | What |
+|---|---|---|---|
+| POST | `/v1/sources/verify` | `events:append` | Verify a project's citation from an identifier or a CSL-JSON item. Appends, as applicable: `source.imported`, `source.verification_recorded`, `source.verification_failed`, `source.rejected`, and `source.status_changed` (to every citing project). Ambiguous input → 200 with candidates, nothing auto-corrected |
+| GET | `/v1/sources/{id}` | `events:read` | Source, identifiers, snapshots (hashes + payload reference), latest result |
+| GET | `/v1/sources/{id}/status` | `events:read` | Current status, status timeline, every verification result |
+
+The refresh cron (`scheduled`) enqueues stale sources and the queue consumer (`queue`)
+re-verifies them. Bindings (all optional, none provisioned):
+- `PROVIDER_CONTACT_EMAIL`
+- `PROVIDER_TIMEOUT_MS`
+- `PROVIDER_RATE_PER_MINUTE`
+- `SOURCE_REFRESH_SECONDS`
+- `RAW_PAYLOADS` (R2)
+- `REFRESH_QUEUE`
 
 Every error is `{error, code, message}` (plus `issues` for validation failures).
 

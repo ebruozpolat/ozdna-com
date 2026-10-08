@@ -19,6 +19,7 @@ offline-verifiable evidence pack. Scope decision: `docs/adr/ADR-000` (accepted 2
 | `apps/provenance-api` | Worker + own D1: tenancy, storage, append/read API | Phase 2 ✔ (draft PR, not deployed) |
 | `apps/signer` | key holder (RPC only), signs checkpoints + signature-required events | Phase 3 ✔ (draft PR, not deployed) |
 | `packages/source-verification` | identifier normalisation, verification engine, Crossref/DataCite adapters | Phase 4a/4b ✔ (draft PR; fixtures synthetic) |
+| `apps/provenance-api` `/v1/sources` | source storage (migration 0004), verify/read routes, refresh cron + queue | Phase 4c ✔ (draft PR, not deployed, queue/R2 not provisioned) |
 | `docs/adr/ADR-000..` | decisions | 000 accepted; 001–004, 007 proposed |
 
 ## Never

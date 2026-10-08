@@ -20,6 +20,23 @@
   "services": [
     { "binding": "SIGNER", "service": "ozdna-provenance-signer", "entrypoint": "Signer" }
   ],
+  // Phase 4c source refresh. NOT PROVISIONED: the queue must be created (and the cron
+  // enabled) with founder sign-off. PROVIDER_CONTACT_EMAIL is set per environment as a
+  // var/secret at deploy time — never committed here.
+  "queues": {
+    "producers": [{ "binding": "REFRESH_QUEUE", "queue": "ozdna-provenance-source-refresh" }],
+    "consumers": [
+      {
+        "queue": "ozdna-provenance-source-refresh",
+        "max_batch_size": 10,
+        "max_batch_timeout": 30,
+        "max_retries": 3
+      }
+    ]
+  },
+  "triggers": { "crons": ["41 3 * * *"] },
+  // Raw provider payloads: bind an R2 bucket as RAW_PAYLOADS to store them there; without it
+  // they go to size-capped D1 blobs (ADR-004 §7). No bucket is configured yet.
   "vars": {
     "ENVIRONMENT": "development"
   }

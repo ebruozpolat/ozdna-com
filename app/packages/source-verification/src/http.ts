@@ -159,7 +159,7 @@ export async function fetchJson(url: string, opts: FetchJsonOptions): Promise<Fe
     const bytes = await readCapped(res, max);
     let text: string;
     try {
-      text = new TextDecoder("utf-8", { fatal: true }).decode(bytes);
+      text = new TextDecoder("utf-8", { fatal: true, ignoreBOM: false }).decode(bytes);
     } catch {
       throw new ProviderHttpError("MALFORMED", res.status, "response is not UTF-8");
     }

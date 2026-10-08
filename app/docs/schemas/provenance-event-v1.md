@@ -152,6 +152,10 @@ points 0–10 000.
 | `artifact.version_added@1` | required | `content_sha256`, `byte_length`, `media_type`, `supersedes_sha256` |
 | `source.cited@1` | required | `citation_id` (`cit_`), `identifier` {`scheme`: doi\|isbn\|issn\|pmid\|pmcid\|arxiv\|url\|other, `value`: safe text ≤512}, `locator` (safe text ≤64 \| null) |
 | `source.verification_recorded@1` | optional | `citation_id`, `state` (§5.1), `confidence_bp`, `components` (≤16 entries, key `[a-z][a-z0-9_]{0,31}` → bp), `provider` (crossref\|datacite\|manual), `provider_response_sha256` (\| null), `candidates` (≤10 identifiers) |
+| `source.imported@1` | forbidden | `source_id` (`src_`), `citation_id`, `identifier`, `input_kind` (identifier\|csl_json), `input_sha256` |
+| `source.status_changed@1` | forbidden | `source_id`, `previous_state` (§5.1 \| null), `state` (§5.1), `result_id` (`svr_`), `snapshot_sha256` (\| null), `trigger` (request\|refresh) — observed, evidence level 1 |
+| `source.rejected@1` | forbidden | `citation_id`, `reason` (identifier_invalid\|identifier_ambiguous\|no_identifier), `input_sha256`, `candidates` (≤10 identifiers) — observed, evidence level 1 |
+| `source.verification_failed@1` | forbidden | `source_id`, `reason` (no_provider_reached\|timeout\|rate_limited\|malformed_response\|provider_error\|provider_not_configured\|unsupported_registration_agency), `verifier_version` (`[a-z0-9][a-z0-9.+-]{0,31}`), `attempted_providers` (unique, ⊆ doi_ra\|crossref\|datacite) — observed, evidence level 1 |
 | `claim.recorded@1` | required | `claim_id` (`clm_`), `claim_commitment` (hex), `commitment_scheme` = `"hmac-sha256/v1"` |
 | `claim.source_linked@1` | required | `claim_id`, `citation_id`, `relation` (supports\|contradicts\|mentions) |
 | `ai.use_declared@1` | optional | `tool` (safe text ≤128), `purpose` (drafting\|editing\|translation\|literature_search\|data_analysis\|code\|other) |
@@ -174,6 +178,16 @@ for raw prompt or output text; only SHA-256 commitments.
 
 A new type or a changed payload is a new `(type, type_version)` registry entry. Existing entries
 are never edited after release; that would change what old events mean.
+
+### 5.4 Registry metadata: observed, evidence level (Phase 4c)
+
+Registry entries may carry `observed` and `minEvidenceLevel`. These are metadata, never part of
+an event or a hash.
+- **`observed: true`:** ozDNA itself saw the fact. Facts a calling platform asserts are not
+  marked this way.
+- **`minEvidenceLevel: 1`:** every event of the type is machine-observed and backed by hashes of
+  what was observed.
+- **Scope:** only types added from Phase 4c carry these fields. Earlier entries are unchanged.
 
 ## 6. Checkpoint
 
