@@ -228,6 +228,9 @@ label{font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;co
 .inp,textarea{width:100%;background:transparent;border:0;border-bottom:1px solid var(--line-2);border-radius:0;color:var(--fg);font:14px/1.6 var(--mono);padding:12px 0}
 .inp:focus,textarea:focus{outline:0;border-bottom-color:var(--fg)}
 textarea{min-height:88px;resize:vertical}
+.inp[type=file]{color:var(--fg-3);font-size:12px;cursor:pointer}
+.inp[type=file]::file-selector-button{background:none;border:1px solid var(--line-2);color:var(--fg);font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;min-height:44px;padding:0 14px;margin-right:14px;cursor:pointer;transition:border-color 200ms}
+.inp[type=file]:hover::file-selector-button{border-color:var(--fg)}
 .chips{display:flex;flex-wrap:wrap;gap:var(--s2)}
 .chip{background:none;border:1px solid var(--line-2);color:var(--fg-2);font:12px var(--mono);min-height:44px;padding:0 14px;cursor:pointer;transition:border-color 200ms,color 200ms}
 .chip:hover{border-color:var(--fg);color:var(--fg)}
@@ -427,19 +430,20 @@ footer li a:hover{color:var(--fg);text-decoration:underline}
   <div class="wrap">
     <div class="head reveal"><p class="label"><b>[03]</b> Verify</p>
       <div class="t"><h2 data-tr="Bir kaydı kendiniz kontrol edin.">Check a record yourself.</h2>
-      <p class="body" data-tr="Henüz canlı bir sunucu yok. Aşağıdaki kayıtlar demo verisidir ve sonuçlar tarayıcınızda yeniden hesaplanır. Gerçek bir doğrulama değildir.">There is no live backend yet. The records below are demo data and results are recomputed in your browser. This is not a real-world verification.</p></div></div>
+      <p class="body" data-tr="Sol panel canlı OriginDNA kayıt defterini (api.ozdna.com) sorgular. Sağdaki metin izi, adımları gösteren bir örnektir.">The left panel queries the live OriginDNA registry (api.ozdna.com). The text trace on the right is an illustration of the steps.</p></div></div>
     <div class="vgrid reveal">
       <div class="vp">
-        <span class="badge demo" style="justify-self:start;margin:0" data-tr="Demo verisi">Demo data</span>
-        <label for="vin" data-tr="Kayıt kimliği veya hash">Record ID or hash</label>
-        <input class="inp" id="vin" type="text" spellcheck="false" autocomplete="off" placeholder="DEMO-0002">
-        <div class="chips" id="samples"></div>
+        <span class="badge live" style="justify-self:start;margin:0" data-tr="Canlı kayıt defteri">Live registry</span>
+        <label for="vfile" data-tr="Görsel (JPG veya PNG)">Image (JPG or PNG)</label>
+        <input class="inp" id="vfile" type="file" accept="image/jpeg,image/png">
+        <label for="vin" data-tr="veya kayıt kimliği / SHA-256">or record ID / SHA-256</label>
+        <input class="inp" id="vin" type="text" spellcheck="false" autocomplete="off" placeholder="rec_… / 64-hex SHA-256">
         <div class="acts">
           <button class="btn" type="button" id="vgo" data-tr="Doğrula">Verify</button>
-          <button class="btn ghost" type="button" id="vfake" data-tr="Bozulmuş içerik dene">Try altered content</button>
+          <a class="btn ghost" href="/app/verify/" data-tr="Derin doğrulama →">Deep verify →</a>
         </div>
         <div id="vres" aria-live="polite"></div>
-        <p class="note" data-tr="Her kayıt bir öncekinin hash'ini içerir. Biri değişirse sonrasındakiler uyuşmaz.">Each record includes the hash of the one before it. Change one and every later record stops matching.</p>
+        <p class="note" data-tr="Görseliniz tarayıcınızdan çıkmaz; yalnızca SHA-256 hash'i gönderilir. Bu panel birebir dosya eşleşmesi arar. Yeniden sıkıştırılmış veya ekran görüntüsü alınmış kopyalar için derin doğrulamayı kullanın.">Your image never leaves your browser; only its SHA-256 hash is sent. This panel looks for an exact file match. For re-encoded or screenshotted copies, use deep verify.</p>
       </div>
       <div class="vp">
         <label for="heroText" data-tr="Kendi metninizi izleyin">Trace your own text</label>
@@ -544,7 +548,7 @@ footer li a:hover{color:var(--fg);text-decoration:underline}
     <div class="reveal">
     <details><summary data-tr="ozDNA nedir?">What is ozDNA?</summary><p data-tr="Yapay zekâ çıktısının doğrulanabilirliği için bir altyapı: ComplyDNA ve OriginDNA.">Infrastructure for the verifiability of AI output: ComplyDNA and OriginDNA.</p></details>
     <details><summary data-tr="Bir kaydı kendim nasıl kontrol ederim?">How can I check a record myself?</summary><p data-tr="Kayıtlar hash zincirli, yalnızca eklemeli bir defterde tutulur. Hash zincirini yeniden hesaplar, imzayı açık anahtarla kontrol edersiniz.">Records live in a hash-chained, append-only log. You recompute the hash chain and check the signature with the public key.</p></details>
-    <details><summary data-tr="Doğrulama canlı mı?">Is the verifier live?</summary><p data-tr="Henüz değil. Bu sayfadaki doğrulama demo verisiyle ve tarayıcıda çalışır.">Not yet. The verifier on this page runs on demo data in your browser.</p></details>
+    <details><summary data-tr="Doğrulama canlı mı?">Is the verifier live?</summary><p data-tr="Evet, kayıt sorgusu canlı: görselin SHA-256 hash'i tarayıcıda hesaplanır ve api.ozdna.com kayıt defterinde aranır. Sağdaki metin izi ise gösterim amaçlıdır.">Yes, the registry lookup is live: the image's SHA-256 hash is computed in your browser and looked up in the api.ozdna.com registry. The text trace beside it is illustrative.</p></details>
     <details><summary data-tr="Bu hukuki tavsiye mi?">Is this legal advice?</summary><p data-tr="Hayır. Mevzuat bilgisi genel bilgilendirmedir.">No. Regulatory information is general information only.</p></details>
     <details><summary data-tr="OriginDNA adı kesin mi?">Is the OriginDNA name final?</summary><p data-tr="Hayır. Ad ticari marka uygunluk sürecindedir.">No. The name is pending trademark clearance.</p></details>
     </div>
@@ -579,7 +583,7 @@ footer li a:hover{color:var(--fg);text-decoration:underline}
     </div>
     <div class="legal">
       <p class="note" data-tr="Bu sitedeki AB Yapay Zekâ Tüzüğü bilgileri genel bilgilendirmedir ve hukuki tavsiye değildir.">EU AI Act information on this site is general information and not legal advice.</p>
-      <p class="note" data-tr="OriginDNA adı ticari marka uygunluk sürecindedir; ad ve görsel kimlik geçicidir. Doğrulama bölümü demo verisi kullanır.">The OriginDNA name is pending trademark clearance; name and identity are provisional. The verifier uses demo data.</p>
+      <p class="note" data-tr="OriginDNA adı ticari marka uygunluk sürecindedir; ad ve görsel kimlik geçicidir. Metin izi ve kahraman animasyonu gösterim amaçlıdır.">The OriginDNA name is pending trademark clearance; name and identity are provisional. The text trace and hero animation are illustrative.</p>
       <p class="note">© Kolaxa</p>
     </div>
   </div>
@@ -618,31 +622,63 @@ footer li a:hover{color:var(--fg);text-decoration:underline}
     $$('.reveal').forEach(el=>io.observe(el));
   } else $$('.reveal').forEach(el=>el.classList.add('in'));
 
-  /* demo chain */
-  const demo=[
-    {id:'DEMO-0001',text:'Demo document A: quarterly summary draft.',ts:'2026-01-10T09:00:00Z'},
-    {id:'DEMO-0002',text:'Demo document B: AI-assisted policy note.',ts:'2026-01-11T14:30:00Z'},
-    {id:'DEMO-0003',text:'Demo document C: model output with citations.',ts:'2026-01-12T08:15:00Z'}
-  ];
-  async function buildChain(){
-    let prev='0'.repeat(64);
-    for(const r of demo){r.content=await sha(r.text);r.prev=prev;r.record=await sha(prev+r.content+r.ts);prev=r.record}
-    $('#samples').innerHTML=demo.map(r=>`<button type="button" class="chip" data-v="${r.id}">${r.id}</button>`).join('');
-    $$('#samples .chip').forEach(c=>c.addEventListener('click',()=>{$('#vin').value=c.dataset.v;verify(false)}));
+  /* live registry lookup (api.ozdna.com) — the image stays in the browser, only its SHA-256 is sent */
+  const API=(window.__OZDNA_API__||'https://api.ozdna.com').replace(/\/$/,'');
+  const esc=v=>String(v??'—').replace(/[&<>"']/g,ch=>'&#'+ch.charCodeAt(0)+';');
+  const kv=(k,v)=>`<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`;
+  const hexOf=b=>[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');
+  const verdictLine=(cls,msg)=>`<div class="verdict ${cls}">${msg}</div>`;
+  function recordKv(r,hash){
+    return `<dl class="kv">${kv(L('Record','Kayıt'),r.id)}${kv('SHA-256',r.sha256||hash)}${kv(L('Status','Durum'),r.status)}${kv(L('Registered','Kayıt zamanı'),r.createdAt||r.created_at)}${kv(L('Anchored','Zincire bağlandı'),r.anchoredAt||r.anchored_at||L('pending','bekliyor'))}${r.creatorDisplay||r.creator_display?kv(L('Creator','Oluşturan'),r.creatorDisplay||r.creator_display):''}</dl>`;
   }
-  const kv=(k,v)=>`<div><dt>${k}</dt><dd>${v}</dd></div>`;
-  async function verify(tamper){
-    const q=$('#vin').value.trim().toLowerCase(), out=$('#vres');
-    if(!q){out.innerHTML='';return}
-    const r=demo.find(x=>x.id.toLowerCase()===q||x.content===q||x.record===q);
-    if(!r){out.innerHTML=`<div class="verdict bad">✕ ${L('No match in demo records','Demo kayıtlarında eşleşme yok')}</div><p class="note">${L('Try DEMO-0001 to DEMO-0003, or pick a sample.','DEMO-0001 ile DEMO-0003 arasını deneyin veya bir örnek seçin.')}</p>`;return}
-    const c=await sha(tamper?r.text+' (edited)':r.text), rec=await sha(r.prev+c+r.ts), ok=rec===r.record;
-    out.innerHTML=`<div class="verdict ${ok?'ok':'bad'}">${ok?'✓ '+L('Verified (demo record)','Doğrulandı (demo kayıt)'):'✕ '+L('Mismatch: content differs from the record','Uyuşmazlık: içerik kayıttan farklı')}</div>
-    <dl class="kv">${kv('ID',r.id)}${kv(L('Timestamp (example)','Zaman damgası (örnek)'),r.ts)}${kv(L('Stored content hash','Kayıtlı içerik hash'),r.content)}${kv(L('Recomputed content hash','Yeniden hesaplanan içerik hash'),c)}${kv(L('Previous record','Önceki kayıt'),r.prev)}${kv(L('Recomputed record','Yeniden hesaplanan kayıt'),rec)}</dl>`;
+  function showRecord(r,hash){
+    const anchored=!!(r.anchoredAt||r.anchored_at)||r.status==='anchored';
+    $('#vres').innerHTML=verdictLine('ok','✓ '+(anchored?L('Registered and anchored','Kayıtlı ve zincire bağlı'):L('Registered, anchor pending','Kayıtlı, zincir bağı bekliyor')))+recordKv(r,hash);
   }
-  $('#vgo').addEventListener('click',()=>verify(false));
-  $('#vin').addEventListener('keydown',e=>{if(e.key==='Enter')verify(false)});
-  $('#vfake').addEventListener('click',()=>{if(!$('#vin').value.trim())$('#vin').value='DEMO-0002';verify(true)});
+  function showNone(hash){
+    $('#vres').innerHTML=verdictLine('bad','• '+L('No record for this exact file','Bu dosya için birebir kayıt yok'))+`<dl class="kv">${kv('SHA-256',hash)}</dl><p class="note">${L('Most images on the web have no OriginDNA record. A re-encoded copy of a registered image will not match here; try deep verify.','Web\'deki görsellerin çoğunun OriginDNA kaydı yoktur. Kayıtlı bir görselin yeniden sıkıştırılmış kopyası burada eşleşmez; derin doğrulamayı deneyin.')}</p>`;
+  }
+  function showError(){
+    $('#vres').innerHTML=verdictLine('bad','✕ '+L('Registry not reachable','Kayıt defterine ulaşılamadı'))+`<p class="note">${L('The lookup did not complete. Check your connection and try again.','Sorgu tamamlanamadı. Bağlantınızı kontrol edip tekrar deneyin.')}</p>`;
+  }
+  async function getJson(path){
+    const r=await fetch(API+path,{headers:{Accept:'application/json'}});
+    if(r.status===404)return null;
+    if(!r.ok)throw new Error('api '+r.status);
+    return r.json();
+  }
+  async function lookupHash(hash){
+    const body=await getJson('/v1/verify?hash='+hash);
+    if(body&&body.record)showRecord(body.record,hash);else showNone(hash);
+  }
+  let vbusy=false;
+  async function verify(){
+    if(vbusy)return;
+    const f=$('#vfile').files[0], q=$('#vin').value.trim(), out=$('#vres');
+    if(!f&&!q){out.innerHTML=verdictLine('bad',L('Choose an image or enter an ID / hash','Bir görsel seçin veya kimlik / hash girin'));return}
+    vbusy=true;$('#vgo').disabled=true;
+    try{
+      if(f){
+        if(f.type!=='image/jpeg'&&f.type!=='image/png'){out.innerHTML=verdictLine('bad','✕ '+L('JPG or PNG only','Yalnızca JPG veya PNG'));return}
+        out.innerHTML=verdictLine('',L('Hashing in your browser…','Tarayıcınızda hash hesaplanıyor…'));
+        const hash=hexOf(await crypto.subtle.digest('SHA-256',await f.arrayBuffer()));
+        out.innerHTML=verdictLine('',L('Looking up the registry…','Kayıt defteri sorgulanıyor…'));
+        await lookupHash(hash);
+      }else if(/^[0-9a-f]{64}$/i.test(q)){
+        out.innerHTML=verdictLine('',L('Looking up the registry…','Kayıt defteri sorgulanıyor…'));
+        await lookupHash(q.toLowerCase());
+      }else{
+        out.innerHTML=verdictLine('',L('Looking up the registry…','Kayıt defteri sorgulanıyor…'));
+        const r=await getJson('/v1/records/'+encodeURIComponent(q));
+        if(r)showRecord(r);else out.innerHTML=verdictLine('bad','• '+L('No record with this ID','Bu kimlikle kayıt yok'))+`<p class="note">${L('Record IDs start with rec_. You can also paste a 64-character SHA-256.','Kayıt kimlikleri rec_ ile başlar. 64 karakterlik bir SHA-256 da yapıştırabilirsiniz.')}</p>`;
+      }
+    }catch(e){showError()}
+    finally{vbusy=false;$('#vgo').disabled=false}
+  }
+  $('#vgo').addEventListener('click',verify);
+  $('#vin').addEventListener('keydown',e=>{if(e.key==='Enter')verify()});
+  $('#vin').addEventListener('input',()=>{if($('#vin').value.trim())$('#vfile').value=''});
+  $('#vfile').addEventListener('change',()=>{if($('#vfile').files[0]){$('#vin').value='';verify()}});
 
   /* user trace */
   let busy=false;
@@ -747,7 +783,6 @@ footer li a:hover{color:var(--fg);text-decoration:underline}
     raf=requestAnimationFrame(loop);
   }
   heroBg();
-  buildChain();
   scene();
   trace($('#heroText').value);
 })();
