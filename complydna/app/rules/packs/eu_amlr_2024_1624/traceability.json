@@ -1,0 +1,300 @@
+{
+  "pack_id": "eu_amlr_2024_1624",
+  "note": "Engine tests prove the encoded mechanics on SYNTHETIC rules. Legal evidence column stays BLOCKED until the primary text is acquired and each provision is verified.",
+  "requirements": [
+    {
+      "requirement_id": "REQ-BO-OWN",
+      "description": "Ownership threshold (candidate: 25% or more), exact decimal boundaries.",
+      "rule_ids": [
+        "eu_amlr_bo_ownership_or_control"
+      ],
+      "tests": [
+        "tests/test_rules_ownership.py::test_ownership_boundary_gte_25",
+        "tests/test_rules_ownership.py::test_ownership_just_below_threshold_is_not_rounded_up",
+        "tests/test_rules_ownership.py::test_float_percentages_are_rejected",
+        "tests/test_rules_ownership.py::test_percent_out_of_range_is_rejected"
+      ],
+      "evidence": {
+        "source_id": "EU-AMLR-2024-1624",
+        "provision": "VERIFY_FROM_PRIMARY_SOURCE",
+        "source_status": "NOT_ACQUIRED"
+      },
+      "status": "ENGINE_TESTED_LEGAL_BLOCKED"
+    },
+    {
+      "requirement_id": "REQ-BO-LEGACY",
+      "description": "Legacy more-than-25% test as regression baseline.",
+      "rule_ids": [
+        "eu_amld_bo_ownership_legacy"
+      ],
+      "tests": [
+        "tests/test_rules_ownership.py::test_legacy_more_than_25_regression"
+      ],
+      "evidence": {
+        "source_id": "EU-AMLD-2015-849",
+        "provision": "VERIFY_FROM_PRIMARY_SOURCE",
+        "source_status": "NOT_ACQUIRED"
+      },
+      "status": "ENGINE_TESTED_LEGAL_BLOCKED"
+    },
+    {
+      "requirement_id": "REQ-BO-CTRL",
+      "description": "Control via other means evaluated independently; no percentage floor; unknown control is not false.",
+      "rule_ids": [
+        "eu_amlr_bo_ownership_or_control"
+      ],
+      "tests": [
+        "tests/test_rules_ownership.py::test_zero_ownership_with_documented_control_qualifies",
+        "tests/test_rules_ownership.py::test_ten_percent_with_documented_control_qualifies",
+        "tests/test_rules_ownership.py::test_unknown_control_is_not_treated_as_absent",
+        "tests/test_rules_ownership.py::test_missing_control_record_is_unknown_not_absent",
+        "tests/test_rules_ownership.py::test_control_has_no_percentage_floor",
+        "tests/test_rules_ownership.py::test_ownership_threshold_met_does_not_need_control_evidence"
+      ],
+      "evidence": {
+        "source_id": "EU-AMLR-2024-1624",
+        "provision": "VERIFY_FROM_PRIMARY_SOURCE",
+        "source_status": "NOT_ACQUIRED"
+      },
+      "status": "ENGINE_TESTED_LEGAL_BLOCKED"
+    },
+    {
+      "requirement_id": "REQ-BO-INDIRECT",
+      "description": "Indirect ownership: single chain, multiple chains, exact boundary, missing links, cycles.",
+      "rule_ids": [
+        "eu_amlr_bo_ownership_or_control"
+      ],
+      "tests": [
+        "tests/test_rules_ownership.py::test_single_chain_exact_boundary",
+        "tests/test_rules_ownership.py::test_single_chain_just_below",
+        "tests/test_rules_ownership.py::test_multiple_chains_sum_to_exactly_25",
+        "tests/test_rules_ownership.py::test_direct_plus_indirect_aggregate",
+        "tests/test_rules_ownership.py::test_repeating_decimals_compare_exactly",
+        "tests/test_rules_ownership.py::test_missing_link_below_threshold_is_insufficient_evidence",
+        "tests/test_rules_ownership.py::test_missing_link_does_not_block_a_chain_that_already_qualifies",
+        "tests/test_rules_ownership.py::test_cycle_below_threshold_goes_to_human_review",
+        "tests/test_rules_ownership.py::test_cycle_with_qualifying_lower_bound_passes",
+        "tests/test_rules_ownership.py::test_shares_over_100_percent_are_inconsistent",
+        "tests/test_rules_ownership.py::test_unknown_person_is_not_evaluated"
+      ],
+      "evidence": {
+        "source_id": "EU-AMLR-2024-1624",
+        "provision": "VERIFY_FROM_PRIMARY_SOURCE",
+        "source_status": "NOT_ACQUIRED"
+      },
+      "status": "ENGINE_TESTED_LEGAL_BLOCKED"
+    },
+    {
+      "requirement_id": "REQ-BO-UPDATE",
+      "description": "BO register update period (candidate: 28 calendar days).",
+      "rule_ids": [
+        "eu_amlr_bo_register_update_deadline"
+      ],
+      "tests": [
+        "tests/test_rules_periods.py::test_bo_update_day_27_28_29",
+        "tests/test_rules_periods.py::test_missing_trigger_is_insufficient_evidence",
+        "tests/test_rules_periods.py::test_period_still_running_is_not_a_failure",
+        "tests/test_rules_periods.py::test_period_elapsed_without_action_fails",
+        "tests/test_rules_periods.py::test_naive_datetime_is_rejected_as_timezone_unknown",
+        "tests/test_rules_periods.py::test_aware_datetime_without_reference_zone_is_not_determined",
+        "tests/test_rules_periods.py::test_aware_datetime_is_read_in_reference_zone",
+        "tests/test_rules_periods.py::test_claimed_exception_goes_to_human_review",
+        "tests/test_rules_periods.py::test_pack_deadline_rule_is_not_definite"
+      ],
+      "evidence": {
+        "source_id": "EU-AMLR-2024-1624",
+        "provision": "VERIFY_FROM_PRIMARY_SOURCE",
+        "source_status": "NOT_ACQUIRED"
+      },
+      "status": "ENGINE_TESTED_LEGAL_BLOCKED"
+    },
+    {
+      "requirement_id": "REQ-BO-DISCREPANCY",
+      "description": "Discrepancy notification period (candidate: 14 calendar days).",
+      "rule_ids": [
+        "eu_amlr_bo_discrepancy_report_deadline"
+      ],
+      "tests": [
+        "tests/test_rules_periods.py::test_discrepancy_day_13_14_15"
+      ],
+      "evidence": {
+        "source_id": "EU-AMLR-2024-1624",
+        "provision": "VERIFY_FROM_PRIMARY_SOURCE",
+        "source_status": "NOT_ACQUIRED"
+      },
+      "status": "ENGINE_TESTED_LEGAL_BLOCKED"
+    },
+    {
+      "requirement_id": "REQ-CDD-REFRESH",
+      "description": "Risk-based review intervals (candidate: 1 year high risk, 5 years other), leap years, event-driven updates.",
+      "rule_ids": [
+        "eu_amlr_cdd_review_interval"
+      ],
+      "tests": [
+        "tests/test_rules_periods.py::test_high_risk_one_year_boundary",
+        "tests/test_rules_periods.py::test_standard_five_year_boundary",
+        "tests/test_rules_periods.py::test_leap_day_anniversary_feb_28",
+        "tests/test_rules_periods.py::test_leap_day_anniversary_mar_1",
+        "tests/test_rules_periods.py::test_leap_day_without_rule_is_not_determined",
+        "tests/test_rules_periods.py::test_add_years_regular_and_leap",
+        "tests/test_rules_periods.py::test_material_change_before_scheduled_review_needs_review",
+        "tests/test_rules_periods.py::test_unknown_risk_classification_is_insufficient_evidence",
+        "tests/test_rules_periods.py::test_unrecognised_risk_label_is_not_defaulted",
+        "tests/test_rules_periods.py::test_missing_last_review_is_insufficient_evidence",
+        "tests/test_rules_periods.py::test_review_rule_before_application_date"
+      ],
+      "evidence": {
+        "source_id": "EU-AMLR-2024-1624",
+        "provision": "VERIFY_FROM_PRIMARY_SOURCE",
+        "source_status": "NOT_ACQUIRED"
+      },
+      "status": "ENGINE_TESTED_LEGAL_BLOCKED"
+    },
+    {
+      "requirement_id": "REQ-CRYPTO-CDD",
+      "description": "Crypto occasional transactions (candidate: EUR 1,000), linked transactions, conversion evidence.",
+      "rule_ids": [
+        "eu_amlr_crypto_occasional_cdd"
+      ],
+      "tests": [
+        "tests/test_rules_amounts.py::test_crypto_threshold_boundary",
+        "tests/test_rules_amounts.py::test_below_threshold_flags_separate_obligations",
+        "tests/test_rules_amounts.py::test_linked_transactions_are_aggregated",
+        "tests/test_rules_amounts.py::test_missing_conversion_rate_is_insufficient_evidence",
+        "tests/test_rules_amounts.py::test_conversion_with_evidence",
+        "tests/test_rules_amounts.py::test_uncovered_transaction_type_not_applicable",
+        "tests/test_rules_amounts.py::test_missing_transaction_type_insufficient"
+      ],
+      "evidence": {
+        "source_id": "EU-AMLR-2024-1624",
+        "provision": "VERIFY_FROM_PRIMARY_SOURCE",
+        "source_status": "NOT_ACQUIRED"
+      },
+      "status": "ENGINE_TESTED_LEGAL_BLOCKED"
+    },
+    {
+      "requirement_id": "REQ-CASH",
+      "description": "EU cash ceiling (candidate: EUR 10,000) with verified stricter national overlays only.",
+      "rule_ids": [
+        "eu_amlr_cash_payment_limit"
+      ],
+      "tests": [
+        "tests/test_rules_amounts.py::test_cash_eu_limit_boundary",
+        "tests/test_rules_amounts.py::test_cash_stricter_national_limit",
+        "tests/test_rules_amounts.py::test_missing_national_overlay_is_unresolved",
+        "tests/test_rules_amounts.py::test_unverified_national_overlay_is_not_applied",
+        "tests/test_rules_amounts.py::test_eu_limit_breach_does_not_depend_on_overlay",
+        "tests/test_rules_amounts.py::test_missing_country_is_insufficient",
+        "tests/test_rules_amounts.py::test_non_professional_context_not_applicable",
+        "tests/test_rules_amounts.py::test_unknown_professional_context_insufficient"
+      ],
+      "evidence": {
+        "source_id": "EU-AMLR-2024-1624",
+        "provision": "VERIFY_FROM_PRIMARY_SOURCE",
+        "source_status": "NOT_ACQUIRED"
+      },
+      "status": "ENGINE_TESTED_LEGAL_BLOCKED"
+    },
+    {
+      "requirement_id": "REQ-HIGH-VALUE",
+      "description": "High-value goods reporting by category (candidates: motor vehicles EUR 250,000; watercraft/aircraft EUR 7,500,000); no inference for other goods.",
+      "rule_ids": [
+        "eu_amlr_high_value_reporting"
+      ],
+      "tests": [
+        "tests/test_rules_amounts.py::test_high_value_category_thresholds",
+        "tests/test_rules_amounts.py::test_motor_vehicle_threshold_not_applied_to_aircraft",
+        "tests/test_rules_amounts.py::test_other_high_value_goods_are_not_inferred",
+        "tests/test_rules_amounts.py::test_commercial_acquisition_not_applicable",
+        "tests/test_rules_amounts.py::test_unknown_use_purpose_insufficient",
+        "tests/test_rules_amounts.py::test_pack_amount_rules_are_not_definite"
+      ],
+      "evidence": {
+        "source_id": "EU-AMLR-2024-1624",
+        "provision": "VERIFY_FROM_PRIMARY_SOURCE",
+        "source_status": "NOT_ACQUIRED"
+      },
+      "status": "ENGINE_TESTED_LEGAL_BLOCKED"
+    },
+    {
+      "requirement_id": "REQ-AMLA",
+      "description": "AMLA direct supervision is selection-dependent; national supervision preserved.",
+      "rule_ids": [
+        "eu_amla_direct_supervision"
+      ],
+      "tests": [
+        "tests/test_rules_supervision.py::test_selected_entity_is_directly_supervised",
+        "tests/test_rules_supervision.py::test_unselected_entity_keeps_national_supervision",
+        "tests/test_rules_supervision.py::test_unknown_selection_is_not_assumed",
+        "tests/test_rules_supervision.py::test_direct_supervision_before_start_is_not_determined"
+      ],
+      "evidence": {
+        "source_id": "EU-AMLR-2024-1624",
+        "provision": "VERIFY_FROM_PRIMARY_SOURCE",
+        "source_status": "NOT_ACQUIRED"
+      },
+      "status": "ENGINE_TESTED_LEGAL_BLOCKED"
+    },
+    {
+      "requirement_id": "REQ-FOOTBALL",
+      "description": "Deferred application for covered football agents/clubs (candidate: 10 July 2029).",
+      "rule_ids": [
+        "eu_amlr_football_scope"
+      ],
+      "tests": [
+        "tests/test_rules_supervision.py::test_football_not_applicable_in_2028",
+        "tests/test_rules_supervision.py::test_football_day_before_deferred_date",
+        "tests/test_rules_supervision.py::test_football_applicable_on_deferred_date",
+        "tests/test_rules_supervision.py::test_football_outside_scope",
+        "tests/test_rules_supervision.py::test_football_unknown_scope",
+        "tests/test_rules_supervision.py::test_pack_football_rule_without_verified_date_is_not_determined"
+      ],
+      "evidence": {
+        "source_id": "EU-AMLR-2024-1624",
+        "provision": "VERIFY_FROM_PRIMARY_SOURCE",
+        "source_status": "NOT_ACQUIRED"
+      },
+      "status": "ENGINE_TESTED_LEGAL_BLOCKED"
+    },
+    {
+      "requirement_id": "REQ-TEMPORAL",
+      "description": "Pre/post application behaviour; unknown historical rule fails closed.",
+      "rule_ids": [
+        "eu_amlr_bo_ownership_or_control"
+      ],
+      "tests": [
+        "tests/test_rules_ownership.py::test_before_application_date_is_not_determined",
+        "tests/test_rules_ownership.py::test_on_application_date_applies",
+        "tests/test_rules_ownership.py::test_pack_rule_without_verified_application_date_is_not_determined",
+        "tests/test_rules_model.py::test_after_application_period_not_applicable"
+      ],
+      "evidence": {
+        "source_id": "EU-AMLR-2024-1624",
+        "provision": "VERIFY_FROM_PRIMARY_SOURCE",
+        "source_status": "NOT_ACQUIRED"
+      },
+      "status": "ENGINE_TESTED_LEGAL_BLOCKED"
+    },
+    {
+      "requirement_id": "REQ-PROVENANCE",
+      "description": "Article-rule-test-evidence links; no fabricated hashes or timestamps; unverified rules never definite.",
+      "rule_ids": [],
+      "tests": [
+        "tests/test_rules_ownership.py::test_unverified_rule_never_returns_definite_outcome",
+        "tests/test_rules_model.py::test_not_acquired_source_cannot_carry_hash_or_time",
+        "tests/test_rules_model.py::test_acquired_source_needs_hash_and_aware_time",
+        "tests/test_rules_model.py::test_pack_rejects_synthetic_sources",
+        "tests/test_rules_model.py::test_pack_rejects_verified_claims_without_verified_source",
+        "tests/test_rules_model.py::test_every_pack_rule_is_unverified_and_cites_no_article",
+        "tests/test_rules_model.py::test_pack_outputs_contain_no_compliance_claims",
+        "tests/test_rules_model.py::test_traceability_matrix_is_complete"
+      ],
+      "evidence": {
+        "source_id": "EU-AMLR-2024-1624",
+        "provision": "VERIFY_FROM_PRIMARY_SOURCE",
+        "source_status": "NOT_ACQUIRED"
+      },
+      "status": "ENGINE_TESTED_LEGAL_BLOCKED"
+    }
+  ]
+}
