@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="OriginDNA REST API referansı (v0 önizleme) — JPG/PNG görseller için içerik kökeni kaydı, parmak izi ile doğrulama ve zaman damgası kanıtı. EU AI Act Madde 50 içerik işaretleme için.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://ozdna.com/docs/tr/api/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ozDNA">
+<meta property="og:title" content="API Referansı — OriginDNA">
+<meta property="og:url" content="https://ozdna.com/docs/tr/api/">
+<meta property="og:image" content="https://ozdna.com/og.png">
+<title>API Referansı — OriginDNA</title>
+<style>
+  :root { --paper:#0b0b0b; --ink:#ffffff; --accent:#6ba4ff; --muted:#b8b8b8; --warn:#f2c46b;
+    --rule: rgba(255,255,255,0.18); --rule-soft: rgba(255,255,255,0.08); --card: rgba(255,255,255,0.03);
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, monospace; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--mono); font-size:15px; line-height:1.65; }
+  a { color: inherit; }
+  .shell { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+  .label { font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); }
+  .label b { color: var(--accent); font-weight:400; }
+  main { padding: 56px 0 80px; }
+  h1 { font-size: clamp(26px,5vw,40px); text-transform: uppercase; line-height:1.15; margin:14px 0 12px; }
+  h2 { overflow-wrap:anywhere; font-size:20px; text-transform:uppercase; margin:56px 0 10px; padding-top:8px; border-top:1px solid var(--rule-soft); scroll-margin-top:16px; }
+  h3 { font-size:15px; margin:28px 0 8px; color:var(--accent); font-weight:400; }
+  p, li { color: var(--muted); font-size:14px; }
+  p strong, li strong { color: var(--ink); font-weight:400; }
+  code { font-family: var(--mono); color: var(--ink); background: var(--card); padding: 1px 5px; border:1px solid var(--rule-soft); }
+  pre { background: var(--card); border:1px solid var(--rule); padding:16px; overflow-x:auto; font-size:13px; line-height:1.55; margin:8px 0 16px; }
+  pre code { background:none; border:0; padding:0; }
+  .lede { color: var(--muted); max-width: 70ch; }
+  .notice { border:1px solid var(--warn); padding:14px 16px; margin:20px 0; font-size:13px; color:var(--ink); }
+  .notice b { color: var(--warn); font-weight:400; text-transform:uppercase; letter-spacing:0.08em; }
+  .layout { display:grid; grid-template-columns: 220px 1fr; gap:40px; }
+  .toc { position:sticky; top:16px; align-self:start; font-size:13px; }
+  .toc .label { margin:18px 0 6px; }
+  .toc a { display:block; text-decoration:none; color:var(--muted); padding:2px 0; }
+  .toc a:hover { color: var(--ink); }
+  .content { min-width:0; }
+  .ep { display:inline-flex; flex-wrap:wrap; max-width:100%; overflow-wrap:anywhere; gap:10px; align-items:baseline; border:1px solid var(--rule); padding:6px 12px; margin:4px 0 10px; font-size:14px; }
+  .m { color: var(--accent); }
+  .m.get { color: #8fd18f; }
+  .m.del { color: #f28b82; }
+  .auth { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); }
+  .tbl { width:100%; overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; font-size:13px; margin:8px 0 16px; }
+  th, td { text-align:left; vertical-align:top; padding:8px 10px; border-bottom:1px solid var(--rule-soft); }
+  th { color: var(--ink); font-weight:400; text-transform:uppercase; font-size:11px; letter-spacing:0.1em; border-bottom:1px solid var(--rule); }
+  td { color: var(--muted); }
+  td code { white-space:nowrap; }
+  .req { color: var(--warn); font-size:11px; }
+  .tag { font-size:11px; border:1px solid var(--rule); padding:0 6px; color:var(--muted); white-space:nowrap; }
+  .tag.live { border-color:#8fd18f; color:#8fd18f; }
+  .tag.plan { border-color:var(--warn); color:var(--warn); }
+  @media (max-width: 820px) { .layout { grid-template-columns: 1fr; } .toc { position:static; border-bottom:1px solid var(--rule-soft); padding-bottom:12px; } }
+</style>
+<link rel="stylesheet" href="/assets/ozdna-v1.css">
+</head>
+<body>
+<!-- oz-shell:header -->
+<header class="oz-nav">
+  <div class="oz-wrap">
+    <a class="oz-logo" href="/tr/" aria-label="ozDNA home">oz<span>DNA</span></a>
+    <nav class="oz-links" id="oz-links" aria-label="Ana menü">
+      <a href="/tr/products/comply/">ComplyDNA</a>
+      <a href="/tr/products/origin/">OriginDNA</a>
+      <a href="/tr/verify/">Doğrula</a>
+    </nav>
+    <div class="oz-lang" role="group" aria-label="Dil">
+      <a href="/docs/tr/api/" lang="tr" hreflang="tr" aria-current="true">TR</a>
+    </div>
+    <button class="oz-menu" type="button" aria-expanded="false" aria-controls="oz-links">MENÜ</button>
+  </div>
+</header>
+<!-- /oz-shell:header -->
+<main>
+  <div class="shell">
+    <div class="label"><b>OZDNA.COM/DOCS/TR/API</b> — ORIGINDNA API REFERANSI · v0 ÖNİZLEME</div>
+    <h1>API Referansı</h1>
+    <p class="lede">OriginDNA REST API, JPG/PNG görseller için içerik kökeni altyapısıdır:
+    bir görselin parmak izini kayda alır, değiştirilemez bir zaman damgasıyla
+    sabitler ve aynı görseli — sosyal platformlar metadata'yı silse bile —
+    sonradan doğrular. JSON istek/yanıt, Bearer anahtar kimlik doğrulaması,
+    OpenAPI 3.1 sözleşmesi.</p>
+
+    <div class="notice"><b>Önizleme</b> — Bu sayfa erken bir sözleşme referansıdır. Erişim
+    şu an bekleme listesi üzerinden, davetle açılıyor. Her endpoint'in durumu
+    yanında işaretli: <span class="tag live">çalışıyor</span> kodda var ve kullanılabilir,
+    <span class="tag plan">planlı</span> MVP kapsamında, henüz yayında değil.
+    Alanlar ve yanıtlar v1 kararlı hale gelene kadar değişebilir.</div>
+
+    <div class="layout">
+      <nav class="toc" aria-label="İçindekiler">
+        <div class="label">Başlangıç</div>
+        <a href="#giris">Giriş</a>
+        <a href="#kimlik">Kimlik doğrulama</a>
+        <a href="#base-url">Base URL</a>
+        <a href="#parmak-izi">Parmak izleri</a>
+        <div class="label">Endpoint'ler</div>
+        <a href="#marks">POST /v1/marks</a>
+        <a href="#registrations">POST /v1/registrations</a>
+        <a href="#verify">GET /v1/verify</a>
+        <a href="#records">GET /v1/records/{id}</a>
+        <a href="#proof">GET /v1/anchors/…/proof/…</a>
+        <a href="#usage">GET /v1/usage</a>
+        <div class="label">Referans</div>
+        <a href="#kararlar">Doğrulama kararları</a>
+        <a href="#webhooks">Webhook'lar</a>
+        <a href="#limitler">Limitler ve kotalar</a>
+        <a href="#hatalar">Hata kodları</a>
+        <a href="#openapi">OpenAPI spec</a>
+        <a href="#sinirlar">Ne iddia etmiyoruz</a>
+      </nav>
+
+      <div class="content">
+
+<h2 id="giris">Giriş</h2>
+<p>API üç temel işi yapar:</p>
+<ul>
+  <li><strong>İşaretle</strong> (<code>POST /v1/marks</code>) — GenAI uygulamanızın ürettiği bir görseli
+  "AI ile üretildi" olarak kayda alır. EU AI Act Madde 50 içerik işaretleme yükümlülüğü için
+  birincil kullanım budur.</li>
+  <li><strong>Kaydet</strong> (<code>POST /v1/registrations</code>) — tarayıcıda/istemcide hesaplanmış
+  hash'leri kayda alır (ücretsiz web imzalama akışı bunu kullanır).</li>
+  <li><strong>Doğrula</strong> (<code>GET /v1/verify</code>) — bir görselin kayıtta olup olmadığını
+  tam hash ile ya da algısal parmak iziyle (yeniden sıkıştırılmış, boyutlandırılmış kopyalar için) sorgular.</li>
+</ul>
+<p>Her kayıt, toplu olarak düzenli aralıklarla zaman damgasıyla sabitlenir; kayıt kimse tarafından
+geriye tarihlenemez ve kanıtı <code>GET /v1/anchors/…/proof/…</code> ile bağımsız olarak
+denetlenebilir. v1 kapsamı yalnızca görseldir (JPG/PNG); video ve ses sonraki sürümlerde.</p>
+
+<h2 id="kimlik">Kimlik doğrulama</h2>
+<p>Yazma endpoint'leri (<code>marks</code>, <code>usage</code>, <code>webhook-endpoints</code>,
+<code>sign-digest</code>) Authorization header'ı ister:</p>
+<pre><code>Authorization: Bearer ozdna_live_…</code></pre>
+<p>Anahtarlar iki önekle gelir: <code>ozdna_live_</code> (production) ve <code>ozdna_test_</code>
+(test). Test anahtarıyla oluşan kayıtlar <code>is_test</code> olarak işaretlenir, zaman damgasına
+ve kotaya dahil edilmez, herkese açık doğrulamada görünmez. Anahtar yalnızca oluşturulduğunda bir kez
+gösterilir; sunucu ham anahtarı değil yalnızca SHA-256 özetini saklar. Doğrulama ve kayıt okuma
+endpoint'leri anahtarsız çalışır (IP bazlı rate limit uygulanır).</p>
+
+<h2 id="base-url">Base URL</h2>
+<pre><code>https://api.ozdna.com      # tek host; test/production ayrımı anahtar önekiyle yapılır</code></pre>
+<p>Ayrı bir sandbox host'u yoktur — <code>ozdna_test_</code> anahtarı aynı API'yi izole test kayıtlarıyla kullanır.</p>
+
+<h2 id="parmak-izi">Parmak izleri</h2>
+<p>API görselin kendisini saklamaz; üç parmak izi ile çalışır:</p>
+<div class="tbl"><table>
+  <tr><th>Alan</th><th>Biçim</th><th>Ne işe yarar</th></tr>
+  <tr><td><code>sha256</code></td><td>64 hex</td><td>Dosyanın birebir kopyası — tek bayt değişirse eşleşmez.</td></tr>
+  <tr><td><code>phash</code></td><td>16 hex (64 bit)</td><td>Algısal hash — yeniden sıkıştırma, boyutlandırma, metadata silinmesine dayanır.</td></tr>
+  <tr><td><code>pdq256</code></td><td>64 hex (256 bit)</td><td>İsteğe bağlı ikinci algısal hash; olası eşleşmeleri teyit eder, yanlış pozitifleri düşürür.</td></tr>
+</table></div>
+<p>Önerilen akış: parmak izlerini istemcide (tarayıcı veya sunucunuz) hesaplayın, yalnızca hash'leri gönderin.
+Görsel ağdan geçmez.</p>
+
+<h2 id="marks">POST /v1/marks <span class="tag live">çalışıyor · yalnızca kayıt</span></h2>
+<div class="ep"><span class="m">POST</span><span>/v1/marks</span><span class="auth">API anahtarı</span></div>
+<p>AI ile üretilmiş bir görseli kayda alır. Kayıt türü her zaman <code>ai_generated</code>'dır — bu endpoint
+üzerinden bir görseli "kamera çekimi" olarak işaretlemenin yolu yoktur.</p>
+<p><strong>Şu anki mod: yalnızca kayıt.</strong> Kayıt, parmak izi ve zaman damgası oluşur; görselin içine
+C2PA manifest'i <em>henüz gömülmez</em>. Yanıttaki <code>mode: "registry_only"</code> ve
+<code>embed: false</code> alanları bunu açıkça söyler. Sunucu tarafı gömme + imzalama geldiğinde
+aynı endpoint işaretlenmiş görsel baytlarını döndürecek.</p>
+
+<h3>JSON gövde (önerilen)</h3>
+<div class="tbl"><table>
+  <tr><th>Alan</th><th>Tip</th><th>Açıklama</th></tr>
+  <tr><td><code>sha256</code> <span class="req">zorunlu</span></td><td>string</td><td>64 hex</td></tr>
+  <tr><td><code>phash</code> <span class="req">zorunlu</span></td><td>string</td><td>16 hex</td></tr>
+  <tr><td><code>file_mime</code> <span class="req">zorunlu</span></td><td>string</td><td><code>image/jpeg</code> · <code>image/png</code></td></tr>
+  <tr><td><code>pdq256</code></td><td>string</td><td>64 hex, isteğe bağlı</td></tr>
+  <tr><td><code>file_bytes</code></td><td>integer</td><td>Dosya boyutu (bayt)</td></tr>
+  <tr><td><code>title</code></td><td>string</td><td>≤ 120 karakter, herkese açık kayıtta görünür</td></tr>
+  <tr><td><code>generator</code></td><td>string</td><td>≤ 100 karakter, örn. <code>acme-imagegen/2.3</code>. Gömme geldiğinde manifest'e yazılacak; şimdilik yok sayılır.</td></tr>
+  <tr><td><code>is_test</code></td><td>boolean</td><td>Test kaydı (test anahtarında otomatik <code>true</code>)</td></tr>
+</table></div>
+
+<h3>Örnek istek</h3>
+<pre><code>curl -X POST https://api.ozdna.com/v1/marks \
+  -H "Authorization: Bearer ozdna_live_…" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "sha256": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
+    "phash": "c4a2b1d8e0f39a57",
+    "file_mime": "image/png",
+    "title": "ürün görseli v1",
+    "generator": "acme-imagegen/2.3"
+  }'</code></pre>
+
+<h3>Alternatif: multipart dosya yükleme</h3>
+<p><code>multipart/form-data</code> ile <code>file</code> (JPG/PNG, ≤ 20 MB) gönderirseniz <code>sha256</code>'yı
+sunucu hesaplar. Sunucu tarafı görsel çözümleme henüz olmadığından <code>phash</code> form alanı bu modda da
+zorunludur; <code>pdq256</code>, <code>title</code>, <code>is_test</code> isteğe bağlıdır.</p>
+<pre><code>curl -X POST https://api.ozdna.com/v1/marks \
+  -H "Authorization: Bearer ozdna_live_…" \
+  -F "file=@output.png;type=image/png" \
+  -F "phash=c4a2b1d8e0f39a57"</code></pre>
+
+<h3>Örnek yanıt <span class="auth">201 Created · aynı sha256 daha önce kayıtlıysa 200</span></h3>
+<pre><code>{
+  "mode": "registry_only",
+  "embed": false,
+  "note": "No C2PA bytes embedded yet — record + fingerprint only (Sept spike).",
+  "record": {
+    "id": "rec_…",
+    "kind": "ai_generated",
+    "status": "registered",
+    "sha256": "9f86d081…0f00a08",
+    "phash": "c4a2b1d8e0f39a57",
+    "pdq256": null,
+    "created_at": "2026-10-08T14:03:22.113Z",
+    "url": "https://ozdna.com/r/rec_…"
+  },
+  "deduplicated": false
+}</code></pre>
+<p>Aynı <code>sha256</code> zaten kayıtlıysa yeni kayıt açılmaz; mevcut kayıt <code>"deduplicated": true</code> ile döner.</p>
+
+<h2 id="registrations">POST /v1/registrations <span class="tag live">çalışıyor</span></h2>
+<div class="ep"><span class="m">POST</span><span>/v1/registrations</span><span class="auth">anahtarsız</span></div>
+<p>İstemcide hesaplanmış hash'leri kayda alır. Ücretsiz tarayıcı imzalama akışı (görsel tarayıcıda imzalanır,
+sunucuya yalnızca hash gider) bu endpoint'i kullanır. Gövde <code>marks</code> ile aynıdır, ek olarak:</p>
+<div class="tbl"><table>
+  <tr><th>Alan</th><th>Tip</th><th>Açıklama</th></tr>
+  <tr><td><code>kind</code> <span class="req">zorunlu</span></td><td>string</td><td><code>ai_generated</code> · <code>claimed_capture</code> · <code>unspecified</code></td></tr>
+</table></div>
+<p><code>claimed_capture</code> bir <em>beyandır</em>: kaydı yapanın "bunu ben çektim" iddiasını kayda geçirir,
+görselin gerçekten kamerayla çekildiğini kanıtlamaz.</p>
+
+<h2 id="verify">GET /v1/verify <span class="tag live">çalışıyor</span></h2>
+<div class="ep"><span class="m get">GET</span><span>/v1/verify</span><span class="auth">anahtarsız</span></div>
+<p>Bir görselin kayıtta olup olmadığını sorgular. İki mod:</p>
+<div class="tbl"><table>
+  <tr><th>Parametre</th><th>Açıklama</th></tr>
+  <tr><td><code>hash</code></td><td>64 hex SHA-256 — birebir dosya eşleşmesi</td></tr>
+  <tr><td><code>phash</code></td><td>16 hex — algısal eşleşme (değiştirilmiş kopyalar)</td></tr>
+  <tr><td><code>pdq</code></td><td>64 hex, isteğe bağlı — algısal eşleşmeyi teyit eder</td></tr>
+  <tr><td><code>deep</code></td><td><code>1</code> = daha geniş arama (Hamming mesafesi ≤ 10'a kadar eksiksiz). Varsayılan arama ≤ 7'ye kadar eksiksizdir.</td></tr>
+</table></div>
+
+<h3>Örnek — birebir eşleşme</h3>
+<pre><code>curl "https://api.ozdna.com/v1/verify?hash=9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08"</code></pre>
+<pre><code>{
+  "verdict": "EXACT_ANCHORED",
+  "match_type": "exact",
+  "confidence": "exact",
+  "hash": "9f86d081…0f00a08",
+  "record": {
+    "id": "rec_…",
+    "sha256": "9f86d081…0f00a08",
+    "phash": "c4a2b1d8e0f39a57",
+    "pdq256": null,
+    "status": "anchored",
+    "createdAt": "2026-10-08T14:03:22.113Z",
+    "anchoredAt": "2026-10-08T18:00:41Z",
+    "creatorDisplay": "Acme Imagegen"
+  }
+}</code></pre>
+
+<h3>Örnek — algısal eşleşme</h3>
+<pre><code>curl "https://api.ozdna.com/v1/verify?phash=c4a2b1d8e0f39a51&amp;pdq=…"</code></pre>
+<pre><code>{
+  "verdict": "VISUAL_MATCH_HIGH",
+  "match_type": "perceptual",
+  "confidence": "high",
+  "phash_distance": 2,
+  "pdq_distance": 14,
+  "pdq_confirmed": true,
+  "show_as_match": true,
+  "record": { "id": "rec_…", "status": "anchored", "…": "…" },
+  "near_misses": []
+}</code></pre>
+<p>Eşleşme yoksa <code>"verdict": "NO_RECORD"</code> döner; yakın ama eşik dışı adaylar
+<code>near_misses</code> listesinde (en fazla 5) yer alır — bunlar eşleşme <em>değildir</em>.</p>
+<p><span class="tag plan">planlı</span> <code>POST /v1/verify</code> — dosya yükleyerek doğrulama
+(sunucu hash'leri hesaplar, gömülü manifest'i kontrol eder) ve <code>?url=</code> modu MVP kapsamında.</p>
+
+<h2 id="records">GET /v1/records/{id} <span class="tag live">çalışıyor</span></h2>
+<div class="ep"><span class="m get">GET</span><span>/v1/records/{id}</span><span class="auth">anahtarsız</span></div>
+<p>Kaydın herkese açık alanlarını döndürür: <code>id</code>, <code>kind</code>, <code>sha256</code>,
+<code>phash</code>, <code>pdq256</code>, <code>status</code> (<code>registered</code> → <code>anchored</code>),
+<code>created_at</code>, <code>anchored_at</code>, <code>title</code>, <code>file_mime</code>,
+<code>anchor_batch_id</code>, <code>creator_display</code>. Herkese açık kayıt sayfası: <code>https://ozdna.com/r/{id}</code>.</p>
+
+<h2 id="proof">GET /v1/anchors/{batch_id}/proof/{record_id} <span class="tag live">kısmen</span></h2>
+<div class="ep"><span class="m get">GET</span><span>/v1/anchors/{batch_id}/proof/{record_id}</span><span class="auth">anahtarsız</span></div>
+<p>Kaydın zaman damgası kanıtı: hangi toplu işlemde (<code>batch_id</code>) ve hangi sırada
+(<code>leaf_index</code>) yer aldığı, toplu işlemin kök özeti (<code>merkle_root</code>) ve kamuya açık
+işlem referansı (<code>tx_hash</code>). Kanıt, ozDNA'ya hiç sormadan bağımsız olarak denetlenebilecek
+şekilde tasarlanmıştır.</p>
+<p><strong>Şu an:</strong> <code>proof</code> dizisi (kardeş hash'ler) henüz boş döner; toplu işlem servisi
+kanıtları kalıcı olarak yazmaya başladığında doldurulacak.</p>
+
+<h2 id="usage">GET /v1/usage <span class="tag live">çalışıyor</span></h2>
+<div class="ep"><span class="m get">GET</span><span>/v1/usage</span><span class="auth">API anahtarı</span></div>
+<pre><code>{
+  "month": "2026-10",
+  "plan": "starter",
+  "events": { "mark": 412, "registration": 0, "verify_file": 0, "sign_digest": 0 },
+  "quotas": { "mark": 2000, "registration": 2000, "verify_file": 0, "sign_digest": 0 }
+}</code></pre>
+
+<h2 id="kararlar">Doğrulama kararları</h2>
+<p><code>verdict</code> alanı sabit bir kelime dağarcığından gelir. <code>match_type</code> ve
+<code>confidence</code>, yalnızca kaba kategoriye ihtiyaç duyan istemciler için bu kararın özetidir.</p>
+<div class="tbl"><table>
+  <tr><th>verdict</th><th>Anlamı</th></tr>
+  <tr><td><code>EXACT_ANCHORED</code></td><td>Birebir dosya kayıtta, zaman damgası onaylandı</td></tr>
+  <tr><td><code>EXACT_PENDING</code></td><td>Birebir dosya kayıtta, zaman damgası sırada</td></tr>
+  <tr><td><code>VISUAL_MATCH_HIGH</code></td><td>Görsel olarak aynı (değiştirilmiş kopya), yüksek güven</td></tr>
+  <tr><td><code>VISUAL_MATCH_PROBABLE</code></td><td>Muhtemel eşleşme, orta güven</td></tr>
+  <tr><td><code>NEAR_MISS</code></td><td>Benzer ama eşik dışında — eşleşme sayılmaz</td></tr>
+  <tr><td><code>NO_RECORD</code></td><td>Kayıtta bulunamadı</td></tr>
+  <tr><td><code>SIGNED_BY_OZDNA</code> · <code>THIRD_PARTY_CREDENTIALS</code> · <code>SIGNATURE_BROKEN</code> · <code>SIGNATURE_REVOKED</code></td><td><span class="tag plan">planlı</span> Gömülü manifest kontrolü (dosya yüklemeli doğrulama) ile gelecek</td></tr>
+</table></div>
+<p><strong>Önemli:</strong> ozDNA <em>kaydı</em> belgeler, <em>üretimi</em> değil. Zaman damgası bir parmak izinin
+kayda ne zaman girdiğini gösterir — görselin ne zaman veya kim tarafından yapıldığını ya da AI ile üretilip
+üretilmediğini değil. <code>NO_RECORD</code>, "bu görsel sahte" anlamına gelmez.</p>
+
+<h2 id="webhooks">Webhook'lar <span class="tag live">uç nokta yönetimi</span> <span class="tag plan">teslimat planlı</span></h2>
+<div class="ep"><span class="m">POST</span><span>/v1/webhook-endpoints</span><span class="auth">API anahtarı</span></div>
+<div class="ep"><span class="m get">GET</span><span>/v1/webhook-endpoints</span><span class="auth">API anahtarı</span></div>
+<div class="ep"><span class="m del">DELETE</span><span>/v1/webhook-endpoints/{id}</span><span class="auth">API anahtarı</span></div>
+<p>Uç nokta <code>{"url": "https://…", "description": "…"}</code> ile oluşturulur; URL <code>https://</code>
+olmalıdır. Yanıttaki <code>secret</code> yalnızca bir kez gösterilir.</p>
+<p>Olaylar (teslimat MVP kapsamında): <code>record.anchored</code>, <code>mark.created</code>,
+<code>usage.threshold_reached</code> (kotanın %80 ve %100'ünde).</p>
+<pre><code>{
+  "id": "evt_…",
+  "type": "record.anchored",
+  "created_at": "2026-10-08T18:00:45Z",
+  "data": { "record_id": "rec_…", "batch_id": "bat_…" }
+}</code></pre>
+<p><strong>İmza doğrulama:</strong> <code>Ozdna-Signature: t=&lt;unix&gt;,v1=&lt;hex&gt;</code> header'ı,
+<code>HMAC-SHA256(secret, t + "." + ham_gövde)</code> ile doğrulanır. <code>t</code> ile şimdiki zaman arasında
+5 dakikadan fazla fark varsa isteği reddedin. Başarısız teslimatlar +1 dk, +10 dk, +1 saat sonra yeniden denenir.</p>
+<p>Webhook teslimatı gelene kadar zaman damgası durumunu <code>GET /v1/records/{id}</code> ile sorgulayın.</p>
+
+<h2 id="limitler">Limitler ve kotalar <span class="tag plan">uygulama planlı</span></h2>
+<p>Kotalar <code>GET /v1/usage</code> ile izlenebiliyor; aşağıdaki limitlerin zorlanması (429) MVP ile devreye girecek.</p>
+<div class="tbl"><table>
+  <tr><th>Plan</th><th>İstek/dk (anahtar başına)</th><th>Mark + kayıt / ay</th></tr>
+  <tr><td>Free</td><td>10</td><td>25 (API) + 50 web imzalama</td></tr>
+  <tr><td>Starter</td><td>60</td><td>2.000</td></tr>
+  <tr><td>Growth</td><td>120</td><td>10.000</td></tr>
+  <tr><td>Scale</td><td>300</td><td>50.000</td></tr>
+  <tr><td>Anahtarsız (IP başına)</td><td>30 okuma/dk</td><td>—</td></tr>
+</table></div>
+<p>Kota dolduğunda istek durdurulur (<code>429</code>); otomatik aşım faturası yoktur.
+Fiyatlar: <a href="/tr/pricing/">fiyatlandırma</a>. Gazeteciler, doğruluk kontrolü ekipleri ve bireysel
+üreticiler için ücretsiz — <a href="mailto:hello@ozdna.com?subject=OriginDNA%20ücretsiz%20erişim">bize yazın</a>.</p>
+
+<h2 id="hatalar">Hata kodları</h2>
+<p>Hata gövdesinde makine tarafından okunabilir bir <code>error</code> kodu ve çoğunlukla bir
+<code>message</code> bulunur. v1'de tek tip bir zarf (<code>type</code>, <code>code</code>, <code>request_id</code>)
+gelecek; kodlarınızı <code>error</code>/<code>code</code> alanına göre yazın, mesaj metnine göre değil.</p>
+<div class="tbl"><table>
+  <tr><th>HTTP</th><th>error</th><th>Ne zaman</th></tr>
+  <tr><td>400</td><td><code>validation_error</code> · <code>invalid_json</code> · <code>invalid_hash</code> · <code>invalid_phash</code> · <code>invalid_pdq</code></td><td>Eksik/hatalı alan, bozuk JSON, yanlış hex uzunluğu</td></tr>
+  <tr><td>401</td><td><code>authentication_error</code> (<code>invalid_api_key</code> · <code>revoked_api_key</code>)</td><td>Eksik, hatalı veya iptal edilmiş anahtar</td></tr>
+  <tr><td>404</td><td><code>not_found</code></td><td>Kayıt, toplu işlem veya route yok</td></tr>
+  <tr><td>413</td><td><code>file_too_large</code></td><td>Dosya 20 MB'tan büyük</td></tr>
+  <tr><td>415</td><td><code>unsupported_media_type</code></td><td>JPG/PNG dışında dosya</td></tr>
+  <tr><td>429 <span class="tag plan">planlı</span></td><td><code>rate_limit_exceeded</code> · <code>plan_quota_exceeded</code></td><td>Rate limit (<code>Retry-After</code> header'ına bakın) veya aylık kota</td></tr>
+  <tr><td>503</td><td>—</td><td>Geçici kesinti — exponential backoff ile yeniden deneyin</td></tr>
+</table></div>
+
+<h2 id="openapi">OpenAPI spec</h2>
+<p>Çalışan route'ların OpenAPI 3.1 tanımı API'nin kendisinden servis edilir ve bu sayfadan önce gelir:</p>
+<pre><code>https://api.ozdna.com/v1/openapi.yaml</code></pre>
+
+<h2 id="sinirlar">Ne iddia etmiyoruz</h2>
+<ul>
+  <li><strong>AI tespiti yapmıyoruz.</strong> OriginDNA bir görselin AI ile üretilip üretilmediğini tahmin etmez;
+  kökeni kayda alır ve doğrular.</li>
+  <li><strong>"Güvenilir Content Credentials" değil.</strong> ozDNA imzaları, C2PA Conformance Program'ı
+  tamamlayana kadar resmi C2PA Verify aracında "bilinmeyen kaynak" olarak görünür. Bu yüzden kendi doğrulama
+  sayfamızı ve bağımsız zaman damgası kanıtını sunuyoruz.</li>
+  <li><strong>Hukuki tavsiye değil.</strong> API, EU AI Act Madde 50 işaretleme yükümlülüğünü karşılamanıza
+  yardımcı olacak bir altyapıdır; uyumun tamamını tek başına sağladığını iddia etmez.</li>
+</ul>
+
+      </div>
+    </div>
+  </div>
+</main><!-- oz-shell:footer -->
+<footer class="oz-foot">
+  <div class="oz-wrap">
+    <div class="oz-cols">
+      <a class="oz-logo" href="/tr/" aria-label="ozDNA home">oz<span>DNA</span></a>
+      <ul aria-label="Yasal"><li><a href="/privacy/">Gizlilik</a></li><li><a href="/terms/">Kullanım şartları</a></li><li><a href="/privacy/">KVKK</a></li></ul>
+      <ul aria-label="Ürünler"><li><a href="/tr/products/comply/">ComplyDNA</a></li><li><a href="/tr/products/origin/">OriginDNA</a></li><li><a href="/tr/verify/">Doğrula</a></li></ul>
+      <ul aria-label="İletişim"><li><a href="mailto:hello@ozdna.com">İletişim</a></li></ul>
+      <p class="oz-note">Kolaxa'nın bir ürünüdür.</p>
+    </div>
+    <div class="oz-legal">
+      <p>Bu sitedeki AB Yapay Zekâ Tüzüğü bilgileri genel bilgilendirmedir ve hukuki tavsiye değildir.</p>
+      <p>© Kolaxa</p>
+    </div>
+  </div>
+</footer>
+<script>(function(){var b=document.querySelector(".oz-menu"),n=document.getElementById("oz-links");if(!b||!n)return;b.addEventListener("click",function(){b.setAttribute("aria-expanded",String(n.classList.toggle("open")))});n.addEventListener("click",function(e){if(e.target.closest("a")){n.classList.remove("open");b.setAttribute("aria-expanded","false")}})})();</script>
+<!-- /oz-shell:footer -->
+
+<script defer src="/analytics.js"></script>
+</body>
+</html>
