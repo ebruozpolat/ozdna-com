@@ -16,6 +16,9 @@ dependencies = [
     "opentelemetry-sdk>=1.43.0",
     "posthog[otel]>=7.22.0",
     "opentelemetry-instrumentation-openai-v2>=2.4b0",
+    # openai-v2 2.4b0 imports opentelemetry.util.genai.instruments, which util-genai 1.2b0
+    # renamed to _instruments; its own requirement (>=0.4b0) has no upper bound.
+    "opentelemetry-util-genai>=1.0b0,<1.2b0",
 ]
 
 [project.optional-dependencies]
