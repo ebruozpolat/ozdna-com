@@ -25,6 +25,8 @@ app/
     src/schema.ts        #   zod: LeafRecord, VerdictCard, ProofSkeleton
     test/*.test.ts       #   vitest (property/round-trip + verdict/schema)
   packages/anchor-backends/  # AnchorBackend + NullAdapter + BaseAdapter (viem)
+  packages/provenance-schema/ # research provenance (separate track, ADR-000 proposed):
+  packages/provenance-core/   #   event chain + checkpoints — read CLAUDE-ACADEMIC.md first
   apps/api/src/db/schema.ts  # drizzle twin of 0001_init (usage_events + waitlist included)
   contracts/OzDnaAnchor.sol  # plan/03 §3.5 (forge tests deferred)
   migrations/0001_init.sql   # D1 schema, verbatim from plan/04 §5

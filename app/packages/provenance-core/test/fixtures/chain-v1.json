@@ -1,0 +1,141 @@
+{
+  "description": "ozdna.provenance.event/v1 + checkpoint/v1 test vectors. Normative: app/docs/schemas/provenance-event-v1.md.",
+  "genesis_preimage": "ozdna.provenance.event/v1\n{\"actor\":{\"asserted_by\":\"svc_academicplatform\",\"id\":\"user-17\",\"kind\":\"person\"},\"artifact_id\":null,\"event_id\":\"evt_00000000010000\",\"occurred_at\":\"2026-10-07T10:00:00.000Z\",\"payload\":{\"external_ref\":\"acad-proj-42\"},\"prev_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"project_id\":\"prj_0000000001\",\"recorded_at\":\"2026-10-07T10:00:01.000Z\",\"schema\":\"ozdna.provenance.event/v1\",\"seq\":0,\"type\":\"project.created\",\"type_version\":1}",
+  "events": [
+    {
+      "event_id": "evt_00000000010000",
+      "project_id": "prj_0000000001",
+      "type": "project.created",
+      "type_version": 1,
+      "occurred_at": "2026-10-07T10:00:00.000Z",
+      "recorded_at": "2026-10-07T10:00:01.000Z",
+      "actor": {
+        "kind": "person",
+        "id": "user-17",
+        "asserted_by": "svc_academicplatform"
+      },
+      "artifact_id": null,
+      "payload": {
+        "external_ref": "acad-proj-42"
+      },
+      "schema": "ozdna.provenance.event/v1",
+      "seq": 0,
+      "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "event_hash": "d361d31b6b928831ba8246e321a7ae05a272e78532dd09a5f80b63df255a4732"
+    },
+    {
+      "event_id": "evt_00000000010001",
+      "project_id": "prj_0000000001",
+      "type": "artifact.registered",
+      "type_version": 1,
+      "occurred_at": "2026-10-07T10:00:01.000Z",
+      "recorded_at": "2026-10-07T10:00:02.000Z",
+      "actor": {
+        "kind": "person",
+        "id": "user-17",
+        "asserted_by": "svc_academicplatform"
+      },
+      "artifact_id": "art_0000000001",
+      "payload": {
+        "kind": "manuscript",
+        "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "byte_length": 1234,
+        "media_type": "application/pdf",
+        "label": "Draft v1"
+      },
+      "schema": "ozdna.provenance.event/v1",
+      "seq": 1,
+      "prev_hash": "d361d31b6b928831ba8246e321a7ae05a272e78532dd09a5f80b63df255a4732",
+      "event_hash": "b8d8efb3c64cb946dd8a2025ef603985f3adb81056d630cfa05206cd450170c0"
+    },
+    {
+      "event_id": "evt_00000000010002",
+      "project_id": "prj_0000000001",
+      "type": "source.cited",
+      "type_version": 1,
+      "occurred_at": "2026-10-07T10:00:02.000Z",
+      "recorded_at": "2026-10-07T10:00:03.000Z",
+      "actor": {
+        "kind": "person",
+        "id": "user-17",
+        "asserted_by": "svc_academicplatform"
+      },
+      "artifact_id": "art_0000000001",
+      "payload": {
+        "citation_id": "cit_0000000001",
+        "identifier": {
+          "scheme": "doi",
+          "value": "10.1000/xyz123"
+        },
+        "locator": null
+      },
+      "schema": "ozdna.provenance.event/v1",
+      "seq": 2,
+      "prev_hash": "b8d8efb3c64cb946dd8a2025ef603985f3adb81056d630cfa05206cd450170c0",
+      "event_hash": "6109a579face035240aedc7ecae50472958f23b9a15e50b413e36fe9114c8a43"
+    },
+    {
+      "event_id": "evt_00000000010003",
+      "project_id": "prj_0000000001",
+      "type": "source.verification_recorded",
+      "type_version": 1,
+      "occurred_at": "2026-10-07T10:00:03.000Z",
+      "recorded_at": "2026-10-07T10:00:04.000Z",
+      "actor": {
+        "kind": "person",
+        "id": "user-17",
+        "asserted_by": "svc_academicplatform"
+      },
+      "artifact_id": "art_0000000001",
+      "payload": {
+        "citation_id": "cit_0000000001",
+        "state": "VERIFIED",
+        "confidence_bp": 9500,
+        "components": {
+          "title_match": 10000,
+          "author_match": 9000
+        },
+        "provider": "crossref",
+        "provider_response_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "candidates": []
+      },
+      "schema": "ozdna.provenance.event/v1",
+      "seq": 3,
+      "prev_hash": "6109a579face035240aedc7ecae50472958f23b9a15e50b413e36fe9114c8a43",
+      "event_hash": "43616f275f9a0cd3633901965d2dbfb36c8f206fd327ecba453f9f4e0cd91886"
+    },
+    {
+      "event_id": "evt_00000000010004",
+      "project_id": "prj_0000000001",
+      "type": "ai.use_declared",
+      "type_version": 1,
+      "occurred_at": "2026-10-07T10:00:04.000Z",
+      "recorded_at": "2026-10-07T10:00:05.000Z",
+      "actor": {
+        "kind": "person",
+        "id": "user-17",
+        "asserted_by": "svc_academicplatform"
+      },
+      "artifact_id": null,
+      "payload": {
+        "tool": "ExampleLLM",
+        "purpose": "editing"
+      },
+      "schema": "ozdna.provenance.event/v1",
+      "seq": 4,
+      "prev_hash": "43616f275f9a0cd3633901965d2dbfb36c8f206fd327ecba453f9f4e0cd91886",
+      "event_hash": "b54fe8283369d08214bf8c193d205739bbf91359eb279adda1f3ced367e1e45c"
+    }
+  ],
+  "checkpoint": {
+    "body": {
+      "schema": "ozdna.provenance.checkpoint/v1",
+      "project_id": "prj_0000000001",
+      "head_seq": 4,
+      "head_hash": "b54fe8283369d08214bf8c193d205739bbf91359eb279adda1f3ced367e1e45c",
+      "event_count": 5,
+      "issued_at": "2026-10-07T12:00:00.000Z"
+    },
+    "digest": "10746b06045d27101b532fae786f03cdb44fdc5b71fabf48c8a7d5426d22c909"
+  }
+}
