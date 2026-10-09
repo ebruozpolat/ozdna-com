@@ -16,6 +16,10 @@
       "migrations_dir": "migrations"
     }
   ],
+  // Service binding to the signer's RPC entrypoint — the only way anything reaches it.
+  "services": [
+    { "binding": "SIGNER", "service": "ozdna-provenance-signer", "entrypoint": "Signer" }
+  ],
   "vars": {
     "ENVIRONMENT": "development"
   }

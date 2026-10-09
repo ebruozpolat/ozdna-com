@@ -53,7 +53,7 @@ change only if a flaw makes it unavoidable, and then only with an explanation fi
   end-to-end create → append → GET → verify, and mutating a stored row in a test DB makes
   `/verify` report the right `first_bad_seq`.
 
-## Phase 3 — Signer, key registry, signed checkpoints
+## Phase 3 — Signer, key registry, signed checkpoints ✔ (draft PR; ADR-007; spec §8)
 
 - Spike: Ed25519 in workerd (vitest-pool-workers + `wrangler dev`). If unsupported, use
   `@noble/ed25519`. Record in `ADR-007-signing-and-key-management.md` (proposed).

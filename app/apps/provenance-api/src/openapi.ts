@@ -38,9 +38,9 @@ export function buildOpenApi() {
     openapi: "3.1.0",
     info: {
       title: "ozDNA research provenance API",
-      version: "0.2.0-phase2",
+      version: "0.3.0-phase3",
       description:
-        "Append-only, tamper-evident event chains per project. Integrity only until signed checkpoints (Phase 3). Error shape: {error, code, message}.",
+        "Append-only, tamper-evident event chains per project. Checkpoints are signed with Ed25519 by an isolated signer; public keys at /v1/keys/{key_id}. Error shape: {error, code, message}.",
     },
     servers: [{ url: "/v1/provenance" }],
     components: {
@@ -134,6 +134,62 @@ export function buildOpenApi() {
             { name: "limit", in: "query", schema: { type: "integer", default: 100, maximum: 500 } },
           ],
           responses: { "200": { description: "Events" }, "404": err("Not found"), ...authErrors },
+        },
+      },
+      "/projects/{id}/checkpoints": {
+        post: {
+          summary: "Create a signed checkpoint of the current chain head (Ed25519, via the signer)",
+          ...secured("checkpoints:write"),
+          parameters: [projectId],
+          responses: {
+            "201": { description: "Signed checkpoint" },
+            "200": { description: "Head unchanged: the existing checkpoint" },
+            "404": err("Project not found"),
+            "409": err("Stored chain invalid"),
+            "502": err("Signer refused or returned an invalid signature"),
+            "503": err("Signer or active key unavailable"),
+            ...authErrors,
+          },
+        },
+      },
+      "/projects/{id}/checkpoints/latest": {
+        get: {
+          summary: "Latest signed checkpoint",
+          ...secured("events:read"),
+          parameters: [projectId],
+          responses: {
+            "200": { description: "Checkpoint + signature" },
+            "404": err("None yet"),
+            ...authErrors,
+          },
+        },
+      },
+      "/admin/keys/rotate": {
+        post: {
+          summary: "Register the signer's current key as active; retire the previous one",
+          security: [{ adminToken: [] }],
+          responses: {
+            "201": { description: "Rotated" },
+            "200": { description: "Already active" },
+            "409": err("Key retired or revoked"),
+          },
+        },
+      },
+      "/admin/keys/{key_id}/revoke": {
+        post: {
+          summary: "Revoke a key (compromise): its signatures stop verifying",
+          security: [{ adminToken: [] }],
+          parameters: [{ name: "key_id", in: "path", required: true, schema: { type: "string" } }],
+          responses: { "200": { description: "Revoked" }, "404": err("No such key") },
+        },
+      },
+      "/keys/{key_id}": {
+        servers: [{ url: "/v1" }],
+        get: {
+          summary: "Public key record (public; needed for offline verification)",
+          security: [],
+          parameters: [{ name: "key_id", in: "path", required: true, schema: { type: "string" } }],
+          responses: { "200": { description: "Key record" }, "404": err("No such key") },
         },
       },
       "/projects/{id}/verify": {

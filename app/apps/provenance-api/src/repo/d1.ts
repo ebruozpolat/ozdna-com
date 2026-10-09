@@ -1,8 +1,8 @@
 // D1 implementations of the repository interfaces. Every statement that touches tenant
 // data has `tenant_id = ?` bound from the caller's auth context.
 
-import type { StoredEvent } from "@ozdna/provenance-schema";
-import type { ArtifactRow, EventRow, ProjectRow, Stores, Write } from "./stores.js";
+import type { PublicKeyRecord, StoredEvent } from "@ozdna/provenance-schema";
+import type { ArtifactRow, CheckpointRow, EventRow, ProjectRow, Stores, Write } from "./stores.js";
 
 const w = (s: D1PreparedStatement) => s as Write;
 
@@ -149,6 +149,78 @@ export function d1Stores(db: D1Database): Stores {
                VALUES (?, ?, ?, ?, ?)`,
             )
             .bind(tenantId, projectId, key, requestHash, seq),
+        ),
+    },
+
+    keys: {
+      get: (keyId) =>
+        db
+          .prepare(
+            "SELECT key_id, algorithm, public_key, status, valid_from, valid_to, revoked_at FROM signing_keys WHERE key_id = ? LIMIT 1",
+          )
+          .bind(keyId)
+          .first<PublicKeyRecord>(),
+      active: () =>
+        db
+          .prepare(
+            "SELECT key_id, algorithm, public_key, status, valid_from, valid_to, revoked_at FROM signing_keys WHERE status = 'active' LIMIT 1",
+          )
+          .first<PublicKeyRecord>(),
+      async rotateTo(key, at) {
+        // Retire first: the partial unique index allows only one active key at a time.
+        await db.batch([
+          db
+            .prepare(
+              "UPDATE signing_keys SET status = 'retired', valid_to = ? WHERE status = 'active'",
+            )
+            .bind(at),
+          db
+            .prepare(
+              `INSERT INTO signing_keys (key_id, algorithm, public_key, status, valid_from)
+               VALUES (?, 'Ed25519', ?, 'active', ?)`,
+            )
+            .bind(key.key_id, key.public_key, at),
+        ]);
+      },
+      async revoke(keyId, at) {
+        const r = await db
+          .prepare(
+            "UPDATE signing_keys SET status = 'revoked', revoked_at = ? WHERE key_id = ? AND status != 'revoked'",
+          )
+          .bind(at, keyId)
+          .run();
+        return (r.meta.changes ?? 0) > 0;
+      },
+    },
+
+    checkpoints: {
+      latest: (tenantId, projectId) =>
+        db
+          .prepare(
+            `SELECT head_seq, body, digest, key_id, signature FROM checkpoints
+             WHERE tenant_id = ? AND project_id = ? ORDER BY head_seq DESC LIMIT 1`,
+          )
+          .bind(tenantId, projectId)
+          .first<CheckpointRow>(),
+      insert: (tenantId, projectId, r) =>
+        w(
+          db
+            .prepare(
+              `INSERT INTO checkpoints (tenant_id, project_id, head_seq, head_hash, digest, body,
+                                        key_id, signature, issued_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            )
+            .bind(
+              tenantId,
+              projectId,
+              r.head_seq,
+              r.head_hash,
+              r.digest,
+              r.body,
+              r.key_id,
+              r.signature,
+              r.issued_at,
+            ),
         ),
     },
   };

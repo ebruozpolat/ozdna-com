@@ -12,6 +12,7 @@ export const SCOPES = [
   "artifacts:write",
   "events:append",
   "events:read",
+  "checkpoints:write",
 ] as const;
 export type Scope = (typeof SCOPES)[number];
 

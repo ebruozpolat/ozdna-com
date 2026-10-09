@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Research-provenance signer (Phase 3). NOT DEPLOYED.
+  // Reachable ONLY through a service binding from ozdna-provenance-api (RPC entrypoint
+  // "Signer"): no routes, workers_dev off, and the default fetch handler returns 404.
+  // The private key is a Worker secret (SIGNING_KEY_ED25519_JWK) — never in this file,
+  // the repo, tests or logs. Setting it needs founder sign-off.
+  "name": "ozdna-provenance-signer",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-01-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": false,
+  "preview_urls": false
+}

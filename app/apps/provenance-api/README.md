@@ -18,6 +18,11 @@ Decisions: `../../docs/adr/ADR-003-provenance-api-tenancy-and-storage.md`.
 | POST | `/projects/{id}/events` | `events:append` | Append an event; `Idempotency-Key` supported |
 | GET | `/projects/{id}/events` | `events:read` | Events in seq order (`after_seq`, `limit` ≤ 500) |
 | GET | `/projects/{id}/verify` | `events:read` | Re-verify the stored chain from canonical JSON |
+| POST | `/projects/{id}/checkpoints` | `checkpoints:write` | Signed checkpoint of the current head (via the signer) |
+| GET | `/projects/{id}/checkpoints/latest` | `events:read` | Latest checkpoint + signature |
+| POST | `/admin/keys/rotate` | `X-Admin-Token` | Register the signer's key as active; retire the previous one |
+| POST | `/admin/keys/{key_id}/revoke` | `X-Admin-Token` | Revoke a key (compromise) |
+| GET | `/v1/keys/{key_id}` (note: outside `/v1/provenance`) | none | Public key record |
 | GET | `/openapi.json` | none | OpenAPI 3.1, generated from the zod schemas |
 
 Every error is `{error, code, message}` (plus `issues` for validation failures).
@@ -37,8 +42,12 @@ Every error is `{error, code, message}` (plus `issues` for validation failures).
 - **Idempotency.** `Idempotency-Key` is scoped per project. The same key with the same body
   replays the original event (200); the same key with a different body is `409`.
 - **Verify** reads only `events.canonical`, not the denormalised columns, parses it with
-  `parseCanonical` and runs `verifyChain`. It checks integrity only; `signature_checked: false`
-  until Phase 3.
+  `parseCanonical` and runs `verifyChain` (integrity). Attestation comes from signed checkpoints.
+- **Checkpoints** (Phase 3, ADR-007): the API builds the body from the verified chain, the
+  signer (service binding `SIGNER`) signs it, and the API re-verifies the signature against the
+  registered active key before storing. Offline check: `app/scripts/verify-checkpoint.mjs`.
+  In tests the real signer Worker runs as an auxiliary worker, bundled by `vitest.config.ts`
+  with a key generated per run.
 - **No logging** of bodies, payloads or keys (tested).
 
 ## Run

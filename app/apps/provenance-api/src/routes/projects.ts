@@ -3,7 +3,7 @@
 // indistinguishable from ids that do not exist (404).
 
 import { verifyChain } from "@ozdna/provenance-core";
-import { REGISTRY_V1, type StoredEvent } from "@ozdna/provenance-schema";
+import { REGISTRY_V1 } from "@ozdna/provenance-schema";
 import { type Context, Hono } from "hono";
 import { requireScopes } from "../auth.js";
 import { readJson } from "../body.js";
@@ -15,12 +15,9 @@ import { d1Stores } from "../repo/d1.js";
 import type { Stores } from "../repo/stores.js";
 import { appendEventSchema, createArtifactSchema, createProjectSchema } from "../schemas.js";
 import { appendWithRetry, parseStoredRow } from "../service/append.js";
+import { loadChain } from "../service/chain.js";
 
 export const projectRoutes = new Hono<{ Bindings: Env }>();
-
-/** Most events a single /verify call will load. */
-export const MAX_VERIFY_EVENTS = 100_000;
-const PAGE = 1000;
 
 const now = () => new Date().toISOString();
 const IDEMPOTENCY_KEY = /^[A-Za-z0-9_.:-]{1,128}$/;
@@ -216,33 +213,7 @@ projectRoutes.get("/projects/:id/verify", requireScopes("events:read"), async (c
   const projectId = c.req.param("id");
   await requireProject(stores, svc.tenantId, projectId);
 
-  const parsed: StoredEvent[] = [];
-  let unparsable: { index: number; seq: number } | null = null;
-  let rowCount = 0;
-  let afterSeq = -1;
-  while (rowCount < MAX_VERIFY_EVENTS) {
-    const rows = await stores.events.list(svc.tenantId, projectId, { afterSeq, limit: PAGE });
-    for (const row of rows) {
-      if (unparsable === null) {
-        try {
-          parsed.push(parseStoredRow(row));
-        } catch {
-          unparsable = { index: rowCount, seq: row.seq };
-        }
-      }
-      rowCount++;
-    }
-    if (rows.length < PAGE) break;
-    afterSeq = rows.at(-1)!.seq;
-  }
-  if (rowCount >= MAX_VERIFY_EVENTS) {
-    throw new HttpError(
-      422,
-      "invalid_request",
-      "CHAIN_TOO_LONG",
-      `Chains over ${MAX_VERIFY_EVENTS} events need checkpoints (Phase 3).`,
-    );
-  }
+  const { events: parsed, rowCount, unparsable } = await loadChain(stores, svc.tenantId, projectId);
 
   const chain = await verifyChain(parsed, { projectId });
   const base = { project_id: projectId, event_count: rowCount, signature_checked: false as const };

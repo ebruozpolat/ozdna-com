@@ -1,0 +1,23 @@
+{
+  "name": "@ozdna/signer",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "description": "Research-provenance signer (Phase 3): holds the only Ed25519 private key, reachable only by service binding (RPC), signs only checkpoints and signature-required events. Not deployed.",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@ozdna/provenance-core": "*",
+    "@ozdna/provenance-schema": "*",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.18.0",
+    "@cloudflare/workers-types": "^4.20260110.0",
+    "typescript": "6.0.3",
+    "vitest": "4.1.10",
+    "wrangler": "^4.59.2"
+  }
+}

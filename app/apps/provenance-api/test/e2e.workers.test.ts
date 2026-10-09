@@ -245,10 +245,15 @@ describe("OpenAPI", () => {
     expect(r.status).toBe(200);
     expect(r.json.openapi).toBe("3.1.0");
     expect(Object.keys(r.json.paths).sort()).toEqual([
+      "/admin/keys/rotate",
+      "/admin/keys/{key_id}/revoke",
       "/admin/tenants",
+      "/keys/{key_id}",
       "/projects",
       "/projects/{id}",
       "/projects/{id}/artifacts",
+      "/projects/{id}/checkpoints",
+      "/projects/{id}/checkpoints/latest",
       "/projects/{id}/events",
       "/projects/{id}/verify",
     ]);

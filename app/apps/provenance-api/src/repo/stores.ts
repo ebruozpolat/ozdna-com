@@ -3,7 +3,7 @@
 // query. Writes are returned as opaque statements so a caller can commit several stores'
 // writes atomically (one D1 batch = one transaction).
 
-import type { StoredEvent } from "@ozdna/provenance-schema";
+import type { PublicKeyRecord, StoredEvent } from "@ozdna/provenance-schema";
 
 /** An opaque, not-yet-executed write. Commit with UnitOfWork.commit. */
 export type Write = { readonly __write: unique symbol } & D1PreparedStatement;
@@ -78,6 +78,32 @@ export interface TenantStore {
   }): Promise<void>;
 }
 
+/** Global public-key registry (keys are ozDNA's, not a tenant's). */
+export interface KeyStore {
+  get(keyId: string): Promise<PublicKeyRecord | null>;
+  active(): Promise<PublicKeyRecord | null>;
+  /** Retire the current active key (valid_to = at) and make `key` active, atomically. */
+  rotateTo(key: { key_id: string; public_key: string }, at: string): Promise<void>;
+  revoke(keyId: string, at: string): Promise<boolean>;
+}
+
+export interface CheckpointRow {
+  readonly head_seq: number;
+  readonly body: string;
+  readonly digest: string;
+  readonly key_id: string;
+  readonly signature: string;
+}
+
+export interface CheckpointStore {
+  latest(tenantId: string, projectId: string): Promise<CheckpointRow | null>;
+  insert(
+    tenantId: string,
+    projectId: string,
+    row: CheckpointRow & { head_hash: string; issued_at: string },
+  ): Write;
+}
+
 export interface Stores {
   readonly uow: UnitOfWork;
   readonly tenants: TenantStore;
@@ -85,4 +111,6 @@ export interface Stores {
   readonly events: EventStore;
   readonly artifacts: ArtifactStore;
   readonly idempotency: IdempotencyStore;
+  readonly keys: KeyStore;
+  readonly checkpoints: CheckpointStore;
 }
