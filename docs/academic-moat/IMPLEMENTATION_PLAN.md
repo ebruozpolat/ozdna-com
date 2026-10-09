@@ -1,6 +1,6 @@
 # Implementation plan — research provenance
 
-**Date:** 2026-10-07. **Status:** Phase 1 (Slice 1) done on a draft PR; Phases 2–7 not started.
+**Date:** 2026-10-07. **Status:** Phases 1–4c done on stacked draft PRs; Phases 5–7 not started.
 Read `app/CLAUDE-ACADEMIC.md` first. Every phase ships as its own **draft PR**. Nothing is
 deployed, no Cloudflare resources are created, and nothing is merged without founder sign-off.
 
@@ -84,10 +84,22 @@ change only if a flaw makes it unavoidable, and then only with an explanation fi
   title, control characters, prompt-injection string). A separate script, not run in CI, records
   fixtures.
 
-## Phase 4c — Verification storage (migration 0004)
+## Phase 4c — Verification storage (migration 0004) ✔ (draft PR; ADR-004 §7)
 
-Verification results as `source.verification_recorded` events plus an index table; provider
-responses stored as artifacts referenced by hash.
+- **Migration:** `0004_sources.sql` adds `sources`, `source_identifiers`, `project_sources`,
+  `source_metadata_snapshots`, `source_verification_results`, `source_status_events`,
+  `provider_payload_blobs` and `provider_calls`. All are tenant-scoped and append-only; the
+  exception is `provider_calls`, which is not tenant data.
+- **Raw payloads:** stored by reference, in R2 if bound, otherwise in a 256 KiB-capped D1 blob.
+  Retraction Watch entries are reduced to hashes.
+- **Routes:** `POST /v1/sources/verify` (identifier or CSL-JSON; ambiguous input returns
+  candidates), `GET /v1/sources/{id}`, `GET /v1/sources/{id}/status`.
+- **Events:** `source.imported`, `source.verification_recorded` (unchanged),
+  `source.status_changed`, `source.rejected` and `source.verification_failed`, with snapshot
+  hashes.
+- **Refresh:** a cron plus a queue consumer, per-source staleness, idempotent, rate-limited per
+  provider. Status changes fan out to every citing project.
+- **Not provisioned:** the queue, the cron, R2 and `PROVIDER_CONTACT_EMAIL`.
 
 ## Phase 5 — Claim graph (migration 0005)
 

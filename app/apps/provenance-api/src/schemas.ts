@@ -2,7 +2,7 @@
 // OpenAPI document (openapi.ts). Event payloads are validated again, authoritatively, by the
 // provenance-schema registry inside appendEvent.
 
-import { ACTOR_KINDS, storedEventSchema } from "@ozdna/provenance-schema";
+import { ACTOR_KINDS, IDENTIFIER_SCHEMES, storedEventSchema } from "@ozdna/provenance-schema";
 import { z } from "zod";
 import { SCOPES } from "./auth.js";
 
@@ -64,6 +64,60 @@ export const appendEventSchema = z
   })
   .strict();
 
+// ---- Phase 4c: sources
+
+export const identifierInputSchema = z
+  .object({ scheme: z.enum(IDENTIFIER_SCHEMES), value: z.string().min(1).max(512) })
+  .strict();
+
+export const verifySourceSchema = z
+  .object({
+    project_id: z.string().max(80),
+    citation_id: z
+      .string()
+      .regex(/^cit_[0-9A-Za-z]{8,64}$/)
+      .describe("The project's citation id (as used in source.cited)"),
+    reference: z.union([
+      z.object({ identifier: identifierInputSchema }).strict(),
+      z
+        .object({ csl: z.record(z.string(), z.unknown()) })
+        .strict()
+        .describe(
+          "One CSL-JSON item; DOI > PMID > PMCID > ISBN > ISSN > URL is used as the identifier",
+        ),
+    ]),
+    occurred_at: occurredAt,
+    actor: actorInputSchema,
+  })
+  .strict();
+
+export const verificationOutcomeSchema = z.object({
+  result_id: z.string().nullable(),
+  state: z.string(),
+  confidence_bp: z.number().int(),
+  components: z.record(z.string(), z.number().int()),
+  provider: z.string().nullable(),
+  reason: z.string().nullable(),
+  failure_reason: z.string().nullable(),
+  candidates: z.array(identifierInputSchema),
+  snapshot_sha256: z.string().nullable(),
+  verifier_version: z.string(),
+});
+
+export const sourceSchema = z.object({
+  id: z.string(),
+  scheme: z.string(),
+  value: z.string(),
+  refresh_after_seconds: z.number().int(),
+  created_at: z.string(),
+});
+
+export const verifySourceResultSchema = z.object({
+  source: sourceSchema.nullable(),
+  verification: verificationOutcomeSchema,
+  events: z.array(storedEventSchema),
+});
+
 export const projectSchema = z.object({
   id: z.string(),
   external_ref: z.string(),
@@ -96,3 +150,7 @@ schemaRegistry.add(projectSchema, { id: "Project" });
 schemaRegistry.add(eventSchema, { id: "StoredEvent" });
 schemaRegistry.add(appendResultSchema, { id: "AppendResult" });
 schemaRegistry.add(verifyResultSchema, { id: "VerifyResult" });
+schemaRegistry.add(verifySourceSchema, { id: "VerifySource" });
+schemaRegistry.add(verificationOutcomeSchema, { id: "VerificationOutcome" });
+schemaRegistry.add(sourceSchema, { id: "Source" });
+schemaRegistry.add(verifySourceResultSchema, { id: "VerifySourceResult" });

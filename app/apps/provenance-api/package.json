@@ -12,6 +12,7 @@
   "dependencies": {
     "@ozdna/provenance-core": "*",
     "@ozdna/provenance-schema": "*",
+    "@ozdna/source-verification": "*",
     "hono": "^4.11.3",
     "zod": "^4.4.3"
   },

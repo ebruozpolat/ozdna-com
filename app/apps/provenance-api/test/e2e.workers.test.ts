@@ -256,6 +256,9 @@ describe("OpenAPI", () => {
       "/projects/{id}/checkpoints/latest",
       "/projects/{id}/events",
       "/projects/{id}/verify",
+      "/sources/verify",
+      "/sources/{id}",
+      "/sources/{id}/status",
     ]);
     const schemas = r.json.components.schemas;
     for (const id of [

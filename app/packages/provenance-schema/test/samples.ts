@@ -46,6 +46,48 @@ export const SAMPLE_PAYLOADS: Record<
       candidates: [],
     },
   },
+  "source.imported@1": {
+    artifact: false,
+    payload: {
+      source_id: "src_0000000001",
+      citation_id: "cit_0000000001",
+      identifier: { scheme: "doi", value: "10.5555/example" },
+      input_kind: "identifier",
+      input_sha256: H("d"),
+    },
+  },
+  "source.status_changed@1": {
+    artifact: false,
+    payload: {
+      source_id: "src_0000000001",
+      previous_state: "VERIFIED",
+      state: "RETRACTED",
+      result_id: "svr_0000000001",
+      snapshot_sha256: H("e"),
+      trigger: "refresh",
+    },
+  },
+  "source.rejected@1": {
+    artifact: false,
+    payload: {
+      citation_id: "cit_0000000001",
+      reason: "identifier_ambiguous",
+      input_sha256: H("d"),
+      candidates: [
+        { scheme: "doi", value: "10.5555/abc" },
+        { scheme: "doi", value: "10.5555/abc)" },
+      ],
+    },
+  },
+  "source.verification_failed@1": {
+    artifact: false,
+    payload: {
+      source_id: "src_0000000001",
+      reason: "timeout",
+      verifier_version: "0.4.0",
+      attempted_providers: ["doi_ra"],
+    },
+  },
   "claim.recorded@1": {
     artifact: true,
     payload: {

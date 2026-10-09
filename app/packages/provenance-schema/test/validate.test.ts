@@ -300,3 +300,65 @@ describe("prototype pollution and hostile input", () => {
     expect(H("a")).toHaveLength(64);
   });
 });
+
+describe("Phase 4c source lifecycle types", () => {
+  it("source.verification_failed is observed with evidence level 1", () => {
+    const def = REGISTRY_V1.get("source.verification_failed", 1)!;
+    expect(def.observed).toBe(true);
+    expect(def.minEvidenceLevel).toBe(1);
+    expect(def.artifact).toBe("forbidden");
+  });
+
+  it("source.verification_recorded@1 is unchanged and has no @2", () => {
+    const def = REGISTRY_V1.get("source.verification_recorded", 1)!;
+    expect(def.observed).toBeUndefined();
+    expect(def.minEvidenceLevel).toBeUndefined();
+    expect(REGISTRY_V1.get("source.verification_recorded", 2)).toBeUndefined();
+    const shape = (def.payload as unknown as { shape: Record<string, unknown> }).shape;
+    expect(Object.keys(shape)).toEqual([
+      "citation_id",
+      "state",
+      "confidence_bp",
+      "components",
+      "provider",
+      "provider_response_sha256",
+      "candidates",
+    ]);
+  });
+
+  it("rejects a failure reason outside the closed set", () => {
+    expect(
+      codes(
+        sampleEvent("source.verification_failed@1", {
+          payload: {
+            source_id: "src_0000000001",
+            reason: "server_said_no",
+            verifier_version: "0.4.0",
+            attempted_providers: [],
+          },
+        }),
+      ),
+    ).toContain("PAYLOAD_INVALID");
+  });
+
+  it("rejects duplicate attempted providers", () => {
+    expect(
+      codes(
+        sampleEvent("source.verification_failed@1", {
+          payload: {
+            source_id: "src_0000000001",
+            reason: "timeout",
+            verifier_version: "0.4.0",
+            attempted_providers: ["doi_ra", "doi_ra"],
+          },
+        }),
+      ),
+    ).toContain("PAYLOAD_INVALID");
+  });
+
+  it("forbids an artifact on source lifecycle events", () => {
+    expect(
+      codes(sampleEvent("source.status_changed@1", { artifact_id: "art_0000000001" })),
+    ).not.toEqual([]);
+  });
+});
