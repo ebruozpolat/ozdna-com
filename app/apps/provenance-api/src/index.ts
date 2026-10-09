@@ -1,0 +1,33 @@
+// ozDNA research-provenance API Worker (Phase 2). Own D1 database; separate from the
+// image API. Not deployed. Rules: app/CLAUDE-ACADEMIC.md. Plan: IMPLEMENTATION_PLAN.md.
+//
+// Logging: none. Request bodies, payloads and keys are never logged.
+
+import { Hono } from "hono";
+import type { Env } from "./env.js";
+import { apiError, HttpError } from "./errors.js";
+import { buildOpenApi } from "./openapi.js";
+import { adminRoutes } from "./routes/admin.js";
+import { projectRoutes } from "./routes/projects.js";
+
+const app = new Hono<{ Bindings: Env }>();
+
+app.get("/health", (c) =>
+  c.json({ ok: true, service: "ozdna-provenance-api", version: "0.2.0-phase2" }),
+);
+
+const openapi = buildOpenApi();
+app.get("/v1/provenance/openapi.json", (c) => c.json(openapi));
+
+app.route("/v1/provenance", adminRoutes);
+app.route("/v1/provenance", projectRoutes);
+
+app.notFound((c) => apiError(c, 404, "not_found", "ROUTE_NOT_FOUND", "No such route."));
+
+app.onError((e, c) => {
+  if (e instanceof HttpError) return apiError(c, e.status, e.category, e.code, e.message, e.issues);
+  // Deliberately no details and no logging of the request.
+  return apiError(c, 500, "internal_error", "INTERNAL", "Internal error.");
+});
+
+export default app;

@@ -31,7 +31,7 @@ ordering, surrogates, numbers, `__proto__`, sparse arrays), to bypass registry v
 to break determinism. Write the failing test first, then fix. The hash format and schema string
 change only if a flaw makes it unavoidable, and then only with an explanation first.
 
-## Phase 2 — Tenancy, storage, append API
+## Phase 2 — Tenancy, storage, append API ✔ (draft PR; ADR-003; `apps/provenance-api/README.md`)
 
 - New Worker `apps/provenance-api` with its **own D1 database** and migrations dir
   (`apps/provenance-api/migrations/`).

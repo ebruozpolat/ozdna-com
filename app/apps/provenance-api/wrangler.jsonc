@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Research-provenance API (Phase 2). NOT PROVISIONED, NOT DEPLOYED.
+  // The D1 id below is a placeholder used only by local dev / vitest-pool-workers.
+  // Creating the real database and deploying need founder sign-off (app/CLAUDE-ACADEMIC.md).
+  "name": "ozdna-provenance-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-01-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": false,
+  "d1_databases": [
+    {
+      "binding": "PROV_DB",
+      "database_name": "ozdna-provenance",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vars": {
+    "ENVIRONMENT": "development"
+  }
+}
