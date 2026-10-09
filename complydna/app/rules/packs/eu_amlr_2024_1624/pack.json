@@ -1,0 +1,452 @@
+{
+  "pack_id": "eu_amlr_2024_1624",
+  "pack_version": 1,
+  "disclaimer": "Engineering rule pack. Every legal value below is an UNVERIFIED candidate taken from the implementation brief, not from the primary text. Outcomes are HUMAN_REVIEW_REQUIRED or weaker until each item is verified against the authoritative EUR-Lex text. Not legal advice; does not establish AMLR compliance.",
+  "sources": [
+    {
+      "source_id": "EU-AMLR-2024-1624",
+      "kind": "PRIMARY_LAW",
+      "legal_instrument": "Regulation (EU) 2024/1624",
+      "jurisdiction": "EU",
+      "source_url": "https://eur-lex.europa.eu/eli/reg/2024/1624/oj",
+      "status": "NOT_ACQUIRED",
+      "source_sha256": null,
+      "retrieved_at": null,
+      "acquisition_note": "Not retrieved: eur-lex.europa.eu answers an AWS WAF JavaScript challenge whose token host (*.token.awswaf.com) is blocked by the build environment's network policy; publications.europa.eu (Cellar) is blocked too. Amendments/corrigenda not yet identified."
+    },
+    {
+      "source_id": "EU-AMLD-2015-849",
+      "kind": "PRIMARY_LAW",
+      "legal_instrument": "Directive (EU) 2015/849",
+      "jurisdiction": "EU",
+      "source_url": "https://eur-lex.europa.eu/eli/dir/2015/849/oj",
+      "status": "NOT_ACQUIRED",
+      "source_sha256": null,
+      "retrieved_at": null,
+      "acquisition_note": "Needed only for the legacy (>25%) regression rule and pre-application history. Not retrieved; national transpositions not covered."
+    }
+  ],
+  "rules": [
+    {
+      "rule_id": "eu_amlr_bo_ownership_or_control",
+      "version": 1,
+      "jurisdiction": "EU",
+      "legal_instrument": "Regulation (EU) 2024/1624",
+      "provision": {
+        "source_id": "EU-AMLR-2024-1624",
+        "article": null,
+        "verified": false
+      },
+      "source_url": "https://eur-lex.europa.eu/eli/reg/2024/1624/oj",
+      "condition": "The natural person qualifies as a beneficial owner of the entity through ownership or through control via other means.",
+      "evaluator": "beneficial_owner",
+      "applies_from": null,
+      "applies_from_verified": false,
+      "applies_until": null,
+      "scope": null,
+      "scope_verified": false,
+      "exceptions": [],
+      "exceptions_verified": false,
+      "parameters": {
+        "threshold_percent": {
+          "value": "25",
+          "verified": false,
+          "origin": "candidate"
+        },
+        "comparison": {
+          "value": "GTE",
+          "verified": false,
+          "origin": "candidate",
+          "note": "Brief: '25% or more'. Verify the operator."
+        },
+        "indirect_method": {
+          "value": "MULTIPLY_SUM",
+          "verified": false,
+          "origin": "candidate",
+          "note": "Verify how indirect ownership is computed and aggregated across chains."
+        }
+      },
+      "interpretation_status": "UNVERIFIED",
+      "review_required": true,
+      "requirement_ids": [
+        "REQ-BO-OWN",
+        "REQ-BO-CTRL",
+        "REQ-BO-INDIRECT",
+        "REQ-TEMPORAL"
+      ],
+      "notes": "Brief says the 25%-or-more test applies 'from the applicable date' (title: AMLR 2027). applies_from stays null until verified; before it the result is NOT_DETERMINED, never the new test applied retroactively."
+    },
+    {
+      "rule_id": "eu_amld_bo_ownership_legacy",
+      "version": 1,
+      "jurisdiction": "EU",
+      "legal_instrument": "Directive (EU) 2015/849",
+      "provision": {
+        "source_id": "EU-AMLD-2015-849",
+        "article": null,
+        "verified": false
+      },
+      "source_url": "https://eur-lex.europa.eu/eli/dir/2015/849/oj",
+      "condition": "The natural person qualifies as a beneficial owner under the legacy ownership test (more than 25%).",
+      "evaluator": "beneficial_owner",
+      "applies_from": null,
+      "applies_from_verified": false,
+      "applies_until": null,
+      "scope": null,
+      "scope_verified": false,
+      "exceptions": [],
+      "exceptions_verified": false,
+      "parameters": {
+        "threshold_percent": {
+          "value": "25",
+          "verified": false,
+          "origin": "candidate"
+        },
+        "comparison": {
+          "value": "GT",
+          "verified": false,
+          "origin": "candidate",
+          "note": "Legacy wording '25 % plus one share or an ownership interest of more than 25 %' as recalled; verify."
+        },
+        "indirect_method": {
+          "value": "MULTIPLY_SUM",
+          "verified": false,
+          "origin": "candidate"
+        }
+      },
+      "interpretation_status": "UNVERIFIED",
+      "review_required": true,
+      "requirement_ids": [
+        "REQ-BO-LEGACY"
+      ],
+      "notes": "Regression baseline only; national transpositions differ and are not encoded."
+    },
+    {
+      "rule_id": "eu_amlr_bo_register_update_deadline",
+      "version": 1,
+      "jurisdiction": "EU",
+      "legal_instrument": "Regulation (EU) 2024/1624",
+      "provision": {
+        "source_id": "EU-AMLR-2024-1624",
+        "article": null,
+        "verified": false
+      },
+      "source_url": "https://eur-lex.europa.eu/eli/reg/2024/1624/oj",
+      "condition": "The beneficial-ownership register update was made within the period after the trigger event.",
+      "evaluator": "deadline",
+      "applies_from": null,
+      "applies_from_verified": false,
+      "applies_until": null,
+      "scope": null,
+      "scope_verified": false,
+      "exceptions": [],
+      "exceptions_verified": false,
+      "parameters": {
+        "period_days": {
+          "value": 28,
+          "verified": false,
+          "origin": "candidate"
+        },
+        "counting": {
+          "value": "DAY_AFTER_TRIGGER",
+          "verified": false,
+          "origin": "candidate",
+          "note": "Verify how the period is counted (start day, end day, non-working days)."
+        },
+        "reference_timezone": {
+          "value": null,
+          "verified": false,
+          "origin": "candidate",
+          "note": "Needed only for timestamp inputs; undetermined."
+        }
+      },
+      "interpretation_status": "UNVERIFIED",
+      "review_required": true,
+      "requirement_ids": [
+        "REQ-BO-UPDATE"
+      ],
+      "notes": "Responsible party, trigger event and exceptions to be verified; do not apply as a blanket deadline."
+    },
+    {
+      "rule_id": "eu_amlr_bo_discrepancy_report_deadline",
+      "version": 1,
+      "jurisdiction": "EU",
+      "legal_instrument": "Regulation (EU) 2024/1624",
+      "provision": {
+        "source_id": "EU-AMLR-2024-1624",
+        "article": null,
+        "verified": false
+      },
+      "source_url": "https://eur-lex.europa.eu/eli/reg/2024/1624/oj",
+      "condition": "The discrepancy was reported within the period after it was identified.",
+      "evaluator": "deadline",
+      "applies_from": null,
+      "applies_from_verified": false,
+      "applies_until": null,
+      "scope": null,
+      "scope_verified": false,
+      "exceptions": [],
+      "exceptions_verified": false,
+      "parameters": {
+        "period_days": {
+          "value": 14,
+          "verified": false,
+          "origin": "candidate"
+        },
+        "counting": {
+          "value": "DAY_AFTER_TRIGGER",
+          "verified": false,
+          "origin": "candidate"
+        },
+        "reference_timezone": {
+          "value": null,
+          "verified": false,
+          "origin": "candidate"
+        }
+      },
+      "interpretation_status": "UNVERIFIED",
+      "review_required": true,
+      "requirement_ids": [
+        "REQ-BO-DISCREPANCY"
+      ],
+      "notes": "Reporting scope (who reports, to whom, which discrepancies) to be verified."
+    },
+    {
+      "rule_id": "eu_amlr_cdd_review_interval",
+      "version": 1,
+      "jurisdiction": "EU",
+      "legal_instrument": "Regulation (EU) 2024/1624",
+      "provision": {
+        "source_id": "EU-AMLR-2024-1624",
+        "article": null,
+        "verified": false
+      },
+      "source_url": "https://eur-lex.europa.eu/eli/reg/2024/1624/oj",
+      "condition": "Customer information was reviewed within the maximum interval for the customer's risk class.",
+      "evaluator": "review_cycle",
+      "applies_from": null,
+      "applies_from_verified": false,
+      "applies_until": null,
+      "scope": null,
+      "scope_verified": false,
+      "exceptions": [],
+      "exceptions_verified": false,
+      "parameters": {
+        "high_risk_interval_years": {
+          "value": 1,
+          "verified": false,
+          "origin": "candidate"
+        },
+        "standard_interval_years": {
+          "value": 5,
+          "verified": false,
+          "origin": "candidate"
+        },
+        "leap_day_rule": {
+          "value": null,
+          "verified": false,
+          "origin": "candidate",
+          "note": "How an anniversary of 29 February is computed is undetermined."
+        }
+      },
+      "interpretation_status": "UNVERIFIED",
+      "review_required": true,
+      "requirement_ids": [
+        "REQ-CDD-REFRESH"
+      ],
+      "notes": "Event-driven updates are surfaced as HUMAN_REVIEW_REQUIRED; their timing is not encoded."
+    },
+    {
+      "rule_id": "eu_amlr_crypto_occasional_cdd",
+      "version": 1,
+      "jurisdiction": "EU",
+      "legal_instrument": "Regulation (EU) 2024/1624",
+      "provision": {
+        "source_id": "EU-AMLR-2024-1624",
+        "article": null,
+        "verified": false
+      },
+      "source_url": "https://eur-lex.europa.eu/eli/reg/2024/1624/oj",
+      "condition": "The (linked) occasional crypto-asset transaction reaches the full CDD threshold.",
+      "evaluator": "crypto_occasional",
+      "applies_from": null,
+      "applies_from_verified": false,
+      "applies_until": null,
+      "scope": null,
+      "scope_verified": false,
+      "exceptions": [],
+      "exceptions_verified": false,
+      "parameters": {
+        "threshold_eur": {
+          "value": "1000",
+          "verified": false,
+          "origin": "candidate"
+        },
+        "comparison": {
+          "value": "GTE",
+          "verified": false,
+          "origin": "candidate",
+          "note": "Verify the operator at exactly EUR 1,000."
+        },
+        "covered_transaction_types": {
+          "value": "CRYPTO_ASSET_TRANSFER",
+          "verified": false,
+          "origin": "candidate",
+          "note": "Placeholder type list; verify which transactions are covered."
+        }
+      },
+      "interpretation_status": "UNVERIFIED",
+      "review_required": true,
+      "requirement_ids": [
+        "REQ-CRYPTO-CDD"
+      ],
+      "notes": "Below-threshold identification/verification duties are separate rules, not encoded yet."
+    },
+    {
+      "rule_id": "eu_amlr_cash_payment_limit",
+      "version": 1,
+      "jurisdiction": "EU",
+      "legal_instrument": "Regulation (EU) 2024/1624",
+      "provision": {
+        "source_id": "EU-AMLR-2024-1624",
+        "article": null,
+        "verified": false
+      },
+      "source_url": "https://eur-lex.europa.eu/eli/reg/2024/1624/oj",
+      "condition": "The cash payment is within the applicable limit (EU ceiling and verified stricter national limit).",
+      "evaluator": "cash_limit",
+      "applies_from": null,
+      "applies_from_verified": false,
+      "applies_until": null,
+      "scope": null,
+      "scope_verified": false,
+      "exceptions": [],
+      "exceptions_verified": false,
+      "parameters": {
+        "eu_limit_eur": {
+          "value": "10000",
+          "verified": false,
+          "origin": "candidate"
+        },
+        "prohibited_comparison": {
+          "value": "GTE",
+          "verified": false,
+          "origin": "candidate",
+          "note": "Brief asks to check the precise operator at exactly EUR 10,000."
+        }
+      },
+      "interpretation_status": "UNVERIFIED",
+      "review_required": true,
+      "requirement_ids": [
+        "REQ-CASH"
+      ],
+      "notes": "Exceptions and actor scope to be verified. National overlays: none verified."
+    },
+    {
+      "rule_id": "eu_amlr_high_value_reporting",
+      "version": 1,
+      "jurisdiction": "EU",
+      "legal_instrument": "Regulation (EU) 2024/1624",
+      "provision": {
+        "source_id": "EU-AMLR-2024-1624",
+        "article": null,
+        "verified": false
+      },
+      "source_url": "https://eur-lex.europa.eu/eli/reg/2024/1624/oj",
+      "condition": "The acquisition falls within the high-value goods reporting obligation.",
+      "evaluator": "high_value_reporting",
+      "applies_from": null,
+      "applies_from_verified": false,
+      "applies_until": null,
+      "scope": null,
+      "scope_verified": false,
+      "exceptions": [],
+      "exceptions_verified": false,
+      "parameters": {
+        "motor_vehicle_threshold_eur": {
+          "value": "250000",
+          "verified": false,
+          "origin": "candidate"
+        },
+        "watercraft_threshold_eur": {
+          "value": "7500000",
+          "verified": false,
+          "origin": "candidate"
+        },
+        "aircraft_threshold_eur": {
+          "value": "7500000",
+          "verified": false,
+          "origin": "candidate"
+        },
+        "comparison": {
+          "value": "GTE",
+          "verified": false,
+          "origin": "candidate"
+        }
+      },
+      "interpretation_status": "UNVERIFIED",
+      "review_required": true,
+      "requirement_ids": [
+        "REQ-HIGH-VALUE"
+      ],
+      "notes": "Brief cites Article 74; article number unverified. Reporting actor and non-commercial conditions to be verified. Other Annex IV goods are not inferred."
+    },
+    {
+      "rule_id": "eu_amla_direct_supervision",
+      "version": 1,
+      "jurisdiction": "EU",
+      "legal_instrument": "Regulation (EU) 2024/1624",
+      "provision": {
+        "source_id": "EU-AMLR-2024-1624",
+        "article": null,
+        "verified": false
+      },
+      "source_url": "https://eur-lex.europa.eu/eli/reg/2024/1624/oj",
+      "condition": "The entity is directly supervised by AMLA on the evaluation date.",
+      "evaluator": "direct_supervision",
+      "applies_from": null,
+      "applies_from_verified": false,
+      "applies_until": null,
+      "scope": null,
+      "scope_verified": false,
+      "exceptions": [],
+      "exceptions_verified": false,
+      "parameters": {},
+      "interpretation_status": "UNVERIFIED",
+      "review_required": true,
+      "requirement_ids": [
+        "REQ-AMLA"
+      ],
+      "notes": "Selection-dependent. Initial cohort parameters and 2028 start date to be verified against the AMLA Regulation and selection instruments (separate sources, not acquired)."
+    },
+    {
+      "rule_id": "eu_amlr_football_scope",
+      "version": 1,
+      "jurisdiction": "EU",
+      "legal_instrument": "Regulation (EU) 2024/1624",
+      "provision": {
+        "source_id": "EU-AMLR-2024-1624",
+        "article": null,
+        "verified": false
+      },
+      "source_url": "https://eur-lex.europa.eu/eli/reg/2024/1624/oj",
+      "condition": "AMLR obligations apply to the football agent/club on the evaluation date.",
+      "evaluator": "sector_scope",
+      "applies_from": null,
+      "applies_from_verified": false,
+      "applies_until": null,
+      "scope": null,
+      "scope_verified": false,
+      "exceptions": [],
+      "exceptions_verified": false,
+      "parameters": {},
+      "interpretation_status": "UNVERIFIED",
+      "review_required": true,
+      "requirement_ids": [
+        "REQ-FOOTBALL"
+      ],
+      "notes": "Brief: deferred application 10 July 2029 for covered football agents/clubs; unverified, so applies_from stays null.",
+      "pre_application_outcome": "NOT_APPLICABLE"
+    }
+  ]
+}
