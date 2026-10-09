@@ -1,17 +1,18 @@
 ---
 title: ComplyDNA
-tags: [regtech, compliance, llm, masak, kvkk, aml]
+tags: [regtech, compliance, citation-first, masak, kvkk, aml]
 related: [overview.md, pricing.md, contact.md]
 ---
 
-# ComplyDNA — Türk mevzuatına özel uyum LLM'i
+# ComplyDNA — alıntı öncelikli uyum istihbaratı
 
-ComplyDNA, Türk mevzuatı (MASAK tebliğleri, AML/CFT kanunları, KVKK) üzerine eğitilmiş
-bir uyum LLM'idir. Her yanıtını `[TEBLİĞ / Madde]` biçiminde satır içi kaynak künyesiyle
-verir; yanıtın dayandığı mevzuat parçası cümle düzeyinde doğrulanabilir.
+ComplyDNA, Türk finansal mevzuatı (MASAK tebliğleri, AML/CFT kanunları, KVKK) için alıntı
+öncelikli bir uyum istihbaratı aracıdır. Her yanıt, dayandığı mevzuat metnine
+`[TEBLİĞ / Madde]` biçiminde satır içi künyeyle bağlanır; her cümle kaynağında
+doğrulanabilir.
 
-ComplyDNA is a compliance LLM for Turkish financial regulation, answering compliance
-questions with inline statutory citations in the form [COMMUNIQUE / Article].
+ComplyDNA is citation-first compliance intelligence for Turkish financial regulation:
+every answer links to the regulatory text behind it, in the form [COMMUNIQUE / Article].
 
 ## Kapsam / Coverage
 
@@ -30,11 +31,11 @@ questions with inline statutory citations in the form [COMMUNIQUE / Article].
 
 ## Dağıtım / Deployment
 
-- Bulut API / web arayüzü, veya tam kurum içi (on-prem) — model ve indeks kurumda
+- Bulut API / web arayüzü, veya tam kurum içi (on-prem): model ve indeks kurumda
 - Müşteri verisi model eğitiminde kullanılmaz
 
 ## Not
 
-Çıktılar bilgilendirme amaçlıdır, hukuki tavsiye değildir.
+Çıktılar bilgilendirme amaçlıdır, hukuki tavsiye değildir; uyum garantisi verilmez.
 
 Page: https://ozdna.com/products/comply/

@@ -1,15 +1,15 @@
 # ozDNA
 
-> ozDNA (Findbelow Ventures) builds verifiability software. Two products: **ComplyDNA**,
-> a compliance LLM for Turkish financial regulation that answers with inline statutory
-> citations; and **OriginDNA**, content provenance infrastructure for EU AI Act
-> Article 50 content marking (pre-launch, waitlist open).
+> ozDNA is AI verifiability infrastructure by Kolaxa: claims you can check. Two products:
+> **ComplyDNA**, citation-first compliance intelligence for Turkish financial regulation
+> (every answer links to the regulatory text behind it); and **OriginDNA**, provenance for
+> AI-generated content for EU AI Act Article 50 content marking (pre-launch, waitlist open).
 
 ## ComplyDNA — https://ozdna.com/products/comply/
 
-> ComplyDNA, Türk mevzuatına (MASAK tebliğleri, AML/CFT kanunları 5549 ve 6415, KVKK) özel
-> eğitilmiş bir uyum LLM'idir. Her yanıtını [TEBLİĞ / Madde] biçiminde satır içi kaynak
-> künyesiyle verir; yanıtın dayandığı mevzuat parçası cümle düzeyinde doğrulanabilir.
+> ComplyDNA, Türk finansal mevzuatı (MASAK tebliğleri, AML/CFT kanunları 5549 ve 6415, KVKK)
+> için alıntı öncelikli uyum istihbaratıdır. Her yanıt [TEBLİĞ / Madde] biçiminde satır içi
+> kaynak künyesiyle verilir; yanıtın dayandığı mevzuat parçası cümle düzeyinde doğrulanabilir.
 
 - Kapsam: 5549, 6415, KVKK (6698), MASAK tebliğ/genelgeleri, Tedbirler Yönetmeliği, kripto varlık (VASP/CASP) düzenlemeleri
 - Cite-first: her iddia mevzuat kaynağına bağlanır; müşteri verisi eğitime karışmaz
@@ -19,16 +19,19 @@
 
 ## OriginDNA — https://ozdna.com/products/origin/
 
-> OriginDNA is content provenance infrastructure: every image gets a cryptographic
-> signature at creation (open C2PA standard), a timestamp anchored in a public,
-> independently verifiable record, and a perceptual fingerprint that survives metadata
-> stripping. Built for EU AI Act Article 50 content marking (applies Aug 2, 2026; grace
-> for existing GenAI systems ends Dec 2, 2026).
+> OriginDNA gives every image a fingerprint, a signature at creation (open C2PA standard)
+> and a timestamp anyone can verify independently, so a stripped or recompressed copy can
+> still be traced to its registered original. Built for EU AI Act Article 50 content
+> marking (applies Aug 2, 2026; grace for existing GenAI systems ends Dec 2, 2026).
 
-- Status: pre-launch; MVP October 2026; segmented waitlist open at /products/origin/#waitlist
+- Status: pre-launch; segmented waitlist at https://ozdna.com/products/origin/#waitlist
 - v1 scope: images (JPG/PNG); provenance, not AI detection; no token; no user funds held
-- Segments: GenAI apps (API, from $49/mo at launch), sellers/creators (badge), newsrooms & fact-checkers (free forever), legal/enterprise (later)
-- Not yet a certified C2PA-conformance member; verification runs via OriginDNA's own public verify page
+- Segments: GenAI apps (API), sellers/creators (badge), newsrooms & fact-checkers (free forever), legal/enterprise (later)
+- Not a certified C2PA-conformance member; verification runs on OriginDNA's own public verify page: https://ozdna.com/verify/
+
+## Separate line: AI oversight — https://ozdna.com/oversight/
+
+- EU AI Act risk classification and human-oversight infrastructure; its "complyDNA"/"originDNA" names belong to that line.
 
 ## Knowledge bundle (read these instead of scraping)
 
@@ -39,6 +42,6 @@
 
 - https://ozdna.com/tr/ (ozDNA) · https://ozdna.com/tr/products/comply/ (ComplyDNA) · https://ozdna.com/tr/products/origin/ (OriginDNA)
 
-## Contact
+## Company
 
-- hello@ozdna.com · https://ozdna.com/
+- Kolaxa Yazılım Teknoloji Sanayi ve Ticaret Ltd. Şti. (Balıkesir University Teknopark) · hello@ozdna.com · https://ozdna.com/

@@ -4,31 +4,27 @@
   "locale": "en_US",
   "language": "en",
   "organization": {
-    "name": "Findbelow Ventures",
-    "legalName": "Findbelow Ventures",
+    "name": "Kolaxa",
+    "legalName": "Kolaxa Yazılım Teknoloji Sanayi ve Ticaret Limited Şirketi",
     "url": "https://ozdna.com/",
     "logo": "https://ozdna.com/assets/logo.svg",
     "email": "hello@ozdna.com",
-    "sameAs": [
-      "https://tezmakale.com"
-    ]
+    "sameAs": []
   },
   "softwareApplication": {
-    "name": "ozDNA Platform",
-    "applicationCategory": "DeveloperApplication",
-    "operatingSystem": "Web, Linux, macOS",
-    "description": "Vertical AI infrastructure — AI gateway, model routing, prompt registry, RAG governance, and LLM cost optimization for production AI teams.",
-    "url": "https://ozdna.com/",
-    "downloadUrl": "https://ozdna.com/docs/",
-    "softwareVersion": "0.1.0",
-    "releaseNotes": "https://ozdna.com/changelog/",
+    "name": "ComplyDNA",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, On-premises",
+    "description": "Citation-first compliance intelligence for Turkish financial regulation (MASAK, AML/CFT, KVKK): every answer links to the regulatory text behind it.",
+    "url": "https://ozdna.com/products/comply/",
+    "softwareVersion": "early-access",
     "offers": {
       "price": "0",
       "priceCurrency": "USD",
-      "description": "Early access — paid tiers at launch"
+      "description": "Early access — pilot program"
     }
   },
-  "defaultOgImage": "https://ozdna.com/assets/og-image.png",
+  "defaultOgImage": "https://ozdna.com/og.png",
   "twitterSite": "@ozdna",
   "fontStylesheet": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional"
 }
