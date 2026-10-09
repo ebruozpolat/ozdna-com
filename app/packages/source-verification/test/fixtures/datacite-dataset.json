@@ -1,0 +1,35 @@
+{
+  "data": {
+    "id": "10.5072/ozdna.dataset.2024",
+    "type": "dois",
+    "attributes": {
+      "doi": "10.5072/ozdna.dataset.2024",
+      "state": "findable",
+      "titles": [
+        {
+          "title": "Ocean temperature profiles, North Atlantic, 2010-2020"
+        }
+      ],
+      "creators": [
+        {
+          "name": "Lovelace, Ada",
+          "nameType": "Personal",
+          "givenName": "Ada",
+          "familyName": "Lovelace"
+        }
+      ],
+      "publisher": "Synthetic Data Repository",
+      "publicationYear": 2024,
+      "types": {
+        "resourceTypeGeneral": "Dataset"
+      },
+      "relatedIdentifiers": [
+        {
+          "relatedIdentifier": "10.5555/ozdna.normal.2024",
+          "relatedIdentifierType": "DOI",
+          "relationType": "IsReferencedBy"
+        }
+      ]
+    }
+  }
+}

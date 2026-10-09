@@ -1,0 +1,18 @@
+{
+  "name": "@ozdna/source-verification",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Research-provenance source verification (Phase 4a/4b): identifier normalisation, a pure verification engine (8 states, basis-point confidence from structured signals), and fail-closed Crossref/DataCite/doi.org adapters with an injected fetch. ADR-004.",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@ozdna/provenance-schema": "*"
+  },
+  "peerDependencies": {
+    "zod": "^4.0.0"
+  }
+}

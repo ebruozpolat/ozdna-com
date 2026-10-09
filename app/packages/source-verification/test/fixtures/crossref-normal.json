@@ -1,0 +1,27 @@
+{
+  "status": "ok",
+  "message-type": "work",
+  "message-version": "1.0.0",
+  "message": {
+    "DOI": "10.5555/ozdna.normal.2024",
+    "type": "journal-article",
+    "title": ["Analytical engines and the calculation of Bernoulli numbers"],
+    "author": [
+      {
+        "given": "Ada",
+        "family": "Lovelace",
+        "sequence": "first"
+      },
+      {
+        "given": "Charles",
+        "family": "Babbage",
+        "sequence": "additional"
+      }
+    ],
+    "issued": {
+      "date-parts": [[2024, 3, 14]]
+    },
+    "container-title": ["Journal of Synthetic Fixtures"],
+    "publisher": "Synthetic Fixture Press"
+  }
+}

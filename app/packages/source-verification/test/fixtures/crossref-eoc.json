@@ -1,0 +1,40 @@
+{
+  "status": "ok",
+  "message-type": "work",
+  "message-version": "1.0.0",
+  "message": {
+    "DOI": "10.5555/ozdna.eoc.2021",
+    "type": "journal-article",
+    "title": ["Long-term outcomes of a novel treatment protocol"],
+    "author": [
+      {
+        "given": "Ada",
+        "family": "Lovelace",
+        "sequence": "first"
+      },
+      {
+        "given": "Charles",
+        "family": "Babbage",
+        "sequence": "additional"
+      }
+    ],
+    "issued": {
+      "date-parts": [[2021, 3, 14]]
+    },
+    "container-title": ["Journal of Synthetic Fixtures"],
+    "publisher": "Synthetic Fixture Press",
+    "updated-by": [
+      {
+        "DOI": "10.5555/ozdna.eoc.2021.concern",
+        "type": "expression_of_concern",
+        "label": "Expression Of Concern",
+        "source": "publisher",
+        "updated": {
+          "date-parts": [[2025, 6, 2]],
+          "date-time": "2025-06-02T00:00:00Z",
+          "timestamp": 1748822400000
+        }
+      }
+    ]
+  }
+}

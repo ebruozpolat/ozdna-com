@@ -1,0 +1,12 @@
+{
+  "status": "ok",
+  "message-type": "work",
+  "message": {
+    "DOI": "10.5555/ozdna.malformed.2020",
+    "title": "not-an-array",
+    "author": "nobody",
+    "issued": {
+      "date-parts": "yesterday"
+    }
+  }
+}
