@@ -19,4 +19,4 @@ fact-checkers / legal & enterprise): https://ozdna.com/products/origin/#waitlist
 ## Company
 
 - Email: hello@ozdna.com
-- Findbelow Ventures · © 2026
+- Kolaxa Yazılım Teknoloji Sanayi ve Ticaret Ltd. Şti. · © 2026

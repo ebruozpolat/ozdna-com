@@ -1,28 +1,106 @@
 {
+  "_note": "Live public URLs (Oct 2026 positioning). The legacy ozDNA Platform pages (blog, compare, pillars, docs, sdk, ...) are 404 at the edge and must not be listed.",
   "urls": [
-    { "loc": "https://ozdna.com/", "priority": "1.0", "changefreq": "weekly" },
-    { "loc": "https://ozdna.com/architecture/", "priority": "0.9", "changefreq": "monthly" },
-    { "loc": "https://ozdna.com/pricing/", "priority": "0.9", "changefreq": "monthly" },
-    { "loc": "https://ozdna.com/docs/", "priority": "0.9", "changefreq": "weekly" },
-    { "loc": "https://ozdna.com/sdk/", "priority": "0.8", "changefreq": "monthly" },
-    { "loc": "https://ozdna.com/benchmarks/", "priority": "0.8", "changefreq": "monthly" },
-    { "loc": "https://ozdna.com/products/comply/", "priority": "0.8", "changefreq": "monthly" },
-    { "loc": "https://ozdna.com/case-studies/tezmakale/", "priority": "0.8", "changefreq": "monthly" },
-    { "loc": "https://ozdna.com/blog/", "priority": "0.9", "changefreq": "weekly" },
-    { "loc": "https://ozdna.com/compare/litellm-alternative/", "priority": "0.85", "changefreq": "monthly" },
-    { "loc": "https://ozdna.com/pillars/cost-control/", "priority": "0.85", "changefreq": "monthly" },
-    { "loc": "https://ozdna.com/pillars/rag-reliability/", "priority": "0.85", "changefreq": "monthly" },
-    { "loc": "https://ozdna.com/pillars/vertical-ai/", "priority": "0.85", "changefreq": "monthly" },
-    { "loc": "https://ozdna.com/pillars/margin-resilience/", "priority": "0.85", "changefreq": "monthly" },
-    { "loc": "https://ozdna.com/pillars/tokenomics/", "priority": "0.85", "changefreq": "monthly" },
-    { "loc": "https://ozdna.com/trust/", "priority": "0.6", "changefreq": "yearly" },
-    { "loc": "https://ozdna.com/security/", "priority": "0.6", "changefreq": "yearly" },
-    { "loc": "https://ozdna.com/privacy/", "priority": "0.5", "changefreq": "yearly" },
-    { "loc": "https://ozdna.com/terms/", "priority": "0.5", "changefreq": "yearly" }
+    {
+      "loc": "https://ozdna.com/",
+      "priority": "1.0",
+      "changefreq": "weekly"
+    },
+    {
+      "loc": "https://ozdna.com/products/",
+      "priority": "0.95",
+      "changefreq": "weekly"
+    },
+    {
+      "loc": "https://ozdna.com/products/comply/",
+      "priority": "0.9",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://ozdna.com/products/origin/",
+      "priority": "0.9",
+      "changefreq": "weekly"
+    },
+    {
+      "loc": "https://ozdna.com/verify/",
+      "priority": "0.85",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://ozdna.com/tr/",
+      "priority": "0.9",
+      "changefreq": "weekly"
+    },
+    {
+      "loc": "https://ozdna.com/tr/products/",
+      "priority": "0.85",
+      "changefreq": "weekly"
+    },
+    {
+      "loc": "https://ozdna.com/tr/products/comply/",
+      "priority": "0.8",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://ozdna.com/tr/products/origin/",
+      "priority": "0.8",
+      "changefreq": "weekly"
+    },
+    {
+      "loc": "https://ozdna.com/tr/verify/",
+      "priority": "0.75",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://ozdna.com/oversight/",
+      "priority": "0.8",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://ozdna.com/oversight/comply/",
+      "priority": "0.7",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://ozdna.com/oversight/origin/",
+      "priority": "0.7",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://ozdna.com/oversight/use-cases/immortal-mlro/",
+      "priority": "0.6",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://ozdna.com/oversight/tr/",
+      "priority": "0.7",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://ozdna.com/oversight/tr/comply/",
+      "priority": "0.6",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://ozdna.com/oversight/tr/origin/",
+      "priority": "0.6",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://ozdna.com/oversight/tr/use-cases/immortal-mlro/",
+      "priority": "0.55",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://ozdna.com/privacy/",
+      "priority": "0.3",
+      "changefreq": "yearly"
+    },
+    {
+      "loc": "https://ozdna.com/terms/",
+      "priority": "0.3",
+      "changefreq": "yearly"
+    }
   ],
-  "phase2Patterns": [
-    "/blog/",
-    "/compare/",
-    "/pillars/"
-  ]
+  "phase2Patterns": []
 }

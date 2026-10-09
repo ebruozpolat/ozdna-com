@@ -33,15 +33,28 @@
       "url": "https://ozdna.com/products/",
       "name": "Products — ComplyDNA & OriginDNA · ozDNA",
       "description": "ozDNA products: ComplyDNA for Turkish compliance answers with citations, OriginDNA for EU AI Act image provenance.",
-      "isPartOf": { "@id": "https://ozdna.com/#org" },
+      "isPartOf": {
+        "@id": "https://ozdna.com/#kolaxa"
+      },
       "inLanguage": "en"
     },
     {
       "@type": "Organization",
-      "@id": "https://ozdna.com/#org",
-      "name": "ozDNA",
+      "@id": "https://ozdna.com/#kolaxa",
+      "name": "Kolaxa",
+      "legalName": "Kolaxa Yazılım Teknoloji Sanayi ve Ticaret Limited Şirketi",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Balıkesir",
+        "addressCountry": "TR"
+      },
       "url": "https://ozdna.com/",
-      "email": "hello@ozdna.com"
+      "email": "hello@ozdna.com",
+      "brand": [
+        {
+          "@id": "https://ozdna.com/#brand"
+        }
+      ]
     },
     {
       "@type": "FAQPage",
@@ -84,8 +97,18 @@
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ozdna.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://ozdna.com/products/" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ozdna.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Products",
+          "item": "https://ozdna.com/products/"
+        }
       ]
     }
   ]
@@ -280,7 +303,7 @@
       <article class="product">
         <div class="label"><b>P1</b> / REGTECH — TÜRKÇE</div>
         <h3>COMPLY<span class="dot">DNA</span></h3>
-        <p>Compliance LLM for Turkish financial regulation. MASAK communiqués,
+        <p>Citation-first compliance intelligence for Turkish financial regulation. MASAK communiqués,
         AML/CFT laws 5549 &amp; 6415, KVKK — every sentence answered with an inline
         <code>[TEBLİĞ / Madde]</code> citation. Auditable answers, not guesses.
         Cloud API or fully on-premises.</p>

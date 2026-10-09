@@ -3,38 +3,38 @@
 ---
 ---
 title: ozDNA Knowledge Index
-version: 0.3
+version: 0.4
 lang: en/tr
-updated: 2026-07-08
-publisher: Findbelow Ventures
+updated: 2026-10-09
+publisher: Kolaxa Yazılım Teknoloji Sanayi ve Ticaret Ltd. Şti.
 site: https://ozdna.com
-tags: [verifiability, regtech, compliance-llm, content-provenance, eu-ai-act]
+tags: [ai-verifiability, citation-first, regtech, content-provenance, eu-ai-act]
 ---
 
 # ozDNA Knowledge Bundle
 
 Structured content for agents. Read these files instead of scraping the site.
 
-**ozDNA** is the brand of Findbelow Ventures for verifiability software. Two products:
+**ozDNA** is Kolaxa's AI verifiability infrastructure: claims you can check. Two products:
 
 | Product | One line | Page |
 |---------|----------|------|
-| **ComplyDNA** | Compliance LLM for Turkish financial regulation — every answer carries inline statutory citations | https://ozdna.com/products/comply/ |
-| **OriginDNA** | Content provenance infrastructure for EU AI Act Article 50 content marking — waitlist open | https://ozdna.com/products/origin/ |
+| **ComplyDNA** | Citation-first compliance intelligence for Turkish financial regulation; every answer links to the regulatory text behind it | https://ozdna.com/products/comply/ |
+| **OriginDNA** | Provenance for AI-generated content (fingerprint, signature, timestamp, verification) for EU AI Act Article 50 content marking; waitlist open | https://ozdna.com/products/origin/ |
 
 ## Files
 
 | File | Topic |
 |------|-------|
-| [overview.md](./overview.md) | Brand positioning, the two products |
-| [complydna.md](./complydna.md) | ComplyDNA — coverage, method, deployment |
-| [origindna.md](./origindna.md) | OriginDNA — provenance, regulatory clock, waitlist |
+| [overview.md](./overview.md) | Positioning, the two products, what ozDNA is not |
+| [complydna.md](./complydna.md) | ComplyDNA: coverage, method, deployment |
+| [origindna.md](./origindna.md) | OriginDNA: provenance, regulatory clock, waitlist |
 | [pricing.md](./pricing.md) | Pricing / early-access status for both products |
 | [contact.md](./contact.md) | Contact & waitlist |
 
 ## Web
 
-- Home: https://ozdna.com
+- Home: https://ozdna.com · Türkçe: https://ozdna.com/tr/
 - llms.txt: https://ozdna.com/llms.txt
 
 ---
@@ -42,52 +42,65 @@ Structured content for agents. Read these files instead of scraping the site.
 ---
 ---
 title: ozDNA Overview
-tags: [brand, positioning]
+tags: [brand, positioning, ai-verifiability]
 related: [complydna.md, origindna.md]
 ---
 
-# ozDNA — Verifiable by design
+# ozDNA — Claims you can check. It's in the DNA.
 
-ozDNA (Findbelow Ventures) builds software for one problem: **trusting what AI produces**.
-Every product follows the same principle — an output must carry the evidence needed to
-verify it. No claim without a source; no content without an origin.
+ozDNA is AI verifiability infrastructure, built by Kolaxa (Kolaxa Yazılım Teknoloji Sanayi
+ve Ticaret Ltd. Şti., a Balıkesir University Teknopark company). One principle runs through
+every product: AI output earns trust when the evidence travels with it. Cite. Sign. Verify.
 
 ## The two products
 
-**ComplyDNA** (RegTech, Türkçe) — a compliance LLM for Turkish financial regulation
-(MASAK communiqués, AML/CFT laws 5549 & 6415, KVKK). Every sentence in every answer
-carries an inline statutory citation in the form `[TEBLİĞ / Madde]`, so compliance teams
-can verify the exact article behind each claim. Cloud API or fully on-premises.
-Status: early access / pilot program.
+**ComplyDNA** (RegTech, Türkçe): citation-first compliance intelligence for Turkish
+financial regulation (MASAK communiqués, AML/CFT laws 5549 & 6415, KVKK). Every sentence
+in every answer links to the article behind it in the form `[TEBLİĞ / Madde]`, so
+compliance teams can verify each claim at the source. Cloud API or fully on-premises.
+Status: early access.
 
-**OriginDNA** (content provenance, global) — infrastructure that gives every image a
-"DNA": a cryptographic signature at creation (open C2PA standard), a timestamp anchored
-in a public, independently verifiable record, and a perceptual fingerprint that survives
-metadata stripping. Built for EU AI Act Article 50 content marking (applies Aug 2, 2026;
-grace for existing GenAI systems ends Dec 2, 2026). Status: pre-launch, waitlist open.
+**OriginDNA** (content provenance, global): provenance for AI-generated content. Every
+image gets a fingerprint, a signature at creation (open C2PA standard) and a timestamp
+that anyone can verify independently. Built for EU AI Act Article 50 content marking
+(applies Aug 2, 2026; grace for existing GenAI systems ends Dec 2, 2026). Status:
+pre-launch, waitlist open.
+
+## Research integrity
+
+Kolaxa's academic platform tezmakale is moving towards evidence of AI use rather than AI
+scores; ozDNA's provenance layer is the base for that direction.
+
+## Separate line: AI oversight
+
+https://ozdna.com/oversight/ describes a separate AI-oversight product line (EU AI Act
+risk classification and human oversight). Its "complyDNA"/"originDNA" names refer to that
+line, not to the two products above.
 
 ## What ozDNA is not
 
-- Not an AI-text detector or humanizer — no detection-evasion products exist under this brand.
+- Not an AI-text detector or humanizer; no detection-evasion products exist under this brand.
 - OriginDNA is provenance, not AI detection; it has no token and holds no user funds.
+- Outputs are information, not legal advice, and no compliance guarantee is given.
 
 ---
 # FILE: knowledge/complydna.md
 ---
 ---
 title: ComplyDNA
-tags: [regtech, compliance, llm, masak, kvkk, aml]
+tags: [regtech, compliance, citation-first, masak, kvkk, aml]
 related: [overview.md, pricing.md, contact.md]
 ---
 
-# ComplyDNA — Türk mevzuatına özel uyum LLM'i
+# ComplyDNA — alıntı öncelikli uyum istihbaratı
 
-ComplyDNA, Türk mevzuatı (MASAK tebliğleri, AML/CFT kanunları, KVKK) üzerine eğitilmiş
-bir uyum LLM'idir. Her yanıtını `[TEBLİĞ / Madde]` biçiminde satır içi kaynak künyesiyle
-verir; yanıtın dayandığı mevzuat parçası cümle düzeyinde doğrulanabilir.
+ComplyDNA, Türk finansal mevzuatı (MASAK tebliğleri, AML/CFT kanunları, KVKK) için alıntı
+öncelikli bir uyum istihbaratı aracıdır. Her yanıt, dayandığı mevzuat metnine
+`[TEBLİĞ / Madde]` biçiminde satır içi künyeyle bağlanır; her cümle kaynağında
+doğrulanabilir.
 
-ComplyDNA is a compliance LLM for Turkish financial regulation, answering compliance
-questions with inline statutory citations in the form [COMMUNIQUE / Article].
+ComplyDNA is citation-first compliance intelligence for Turkish financial regulation:
+every answer links to the regulatory text behind it, in the form [COMMUNIQUE / Article].
 
 ## Kapsam / Coverage
 
@@ -106,12 +119,12 @@ questions with inline statutory citations in the form [COMMUNIQUE / Article].
 
 ## Dağıtım / Deployment
 
-- Bulut API / web arayüzü, veya tam kurum içi (on-prem) — model ve indeks kurumda
+- Bulut API / web arayüzü, veya tam kurum içi (on-prem): model ve indeks kurumda
 - Müşteri verisi model eğitiminde kullanılmaz
 
 ## Not
 
-Çıktılar bilgilendirme amaçlıdır, hukuki tavsiye değildir.
+Çıktılar bilgilendirme amaçlıdır, hukuki tavsiye değildir; uyum garantisi verilmez.
 
 Page: https://ozdna.com/products/comply/
 
@@ -175,14 +188,15 @@ related: [contact.md]
 
 # Pricing
 
-## ComplyDNA — early access
+## ComplyDNA — published plans
 
-Pricing is set per institution during the pilot program (regulatory scope + usage volume).
+Visible public pricing (USD) for self-serve / Creem checkout readiness:
 
-- **Pilot** — fixed-fee 4-week POC with an institution-specific golden-set evaluation
-- **Team** — annual subscription, seat-based + monthly query quota, cloud API or web UI
-- **Enterprise / On-prem** — annual license; model and index run inside your infrastructure
+- **Pilot** — **$2,490** one-time · 4-week POC with institution-specific golden-set evaluation
+- **Team** — **$499/mo** billed annually ($5,988/year) · seat-based + monthly query quota, cloud API or web UI
+- **Enterprise / On-prem** — from **$1,990/mo** · model and index inside your infrastructure; custom scope available
 
+Page: https://ozdna.com/products/comply/#pricing  
 Contact: hello@ozdna.com (subject: ComplyDNA)
 
 ## OriginDNA — pre-launch (waitlist)
@@ -220,5 +234,4 @@ fact-checkers / legal & enterprise): https://ozdna.com/products/origin/#waitlist
 ## Company
 
 - Email: hello@ozdna.com
-- Findbelow Ventures · © 2026
-
+- Kolaxa Yazılım Teknoloji Sanayi ve Ticaret Ltd. Şti. · © 2026

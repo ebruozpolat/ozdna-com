@@ -1,7 +1,7 @@
 # ai.txt — AI usage preferences for ozdna.com
 # See also: https://ozdna.com/llms.txt (LLM-oriented site summary)
 
-Publisher: Findbelow Ventures (ozDNA)
+Publisher: Kolaxa Yazılım Teknoloji Sanayi ve Ticaret Ltd. Şti. (ozDNA)
 Website: https://ozdna.com/
 Contact: hello@ozdna.com
 
@@ -11,5 +11,5 @@ Attribution-URL: https://ozdna.com/
 Preferred-Languages: en, tr
 
 # Products
-# ComplyDNA — Turkish-regulation compliance LLM: https://ozdna.com/products/comply/
-# OriginDNA — content provenance for the EU AI Act: https://ozdna.com/products/origin/
+# ComplyDNA — citation-first compliance intelligence (Turkish regulation): https://ozdna.com/products/comply/
+# OriginDNA — provenance for AI-generated content (EU AI Act Art. 50): https://ozdna.com/products/origin/
