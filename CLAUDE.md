@@ -68,5 +68,6 @@ Afternoons only, in this order: ① email conformance@c2pa.org for Level 1 cost/
 - `plan/` — pre-implementation planning corpus (architecture, tech stack, algorithms, MVP spec, risk register, cost model, GTM/SEO/PR, roadmap with gates); written July 6, 2026 for execution by future Claude sessions and the dev team — start at `plan/00-INDEX.md`
 - `plan/09-DEV-SETUP.md` — developer onboarding: repo layout, local env, secrets catalog, commands, PR/DoD conventions (the doc to hand a new engineer)
 - `README.md` — top-level orientation for the dev team (what this is, where to start, the constraints)
+- `docs/strategy/` — living Product Decision Records (PDR); `CONTRACT-DNA-PDR.md` is the source of truth for Contract DNA (Deal Diff) AI architecture + pricing. Version decisions **in place** (bump the header version, append to its *Sürüm geçmişi*) per `docs/strategy/README.md` — never open a parallel decisions file
 - `docs/BRAND-NOTES.md` — brand-asset audit + what must be fixed before public launch (logo re-export, SVG, metadata strip, ownership)
 - Shareable blueprint page: https://claude.ai/code/artifact/2eb89d21-b835-4887-8e61-46d4dd56af53 — NOTE: still reflects the pre-July-7 blueprint; regenerate from `docs/BLUEPRINT.md` before sharing externally
